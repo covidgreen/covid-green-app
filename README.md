@@ -1,4 +1,4 @@
-# COVID Green
+<img alttext="COVID Green Logo" src="https://github.com/covidgreen/covid-green-assets/raw/current/covidgreen-stacked-color.svg" width="400" />
 
 ## Getting Started
 
