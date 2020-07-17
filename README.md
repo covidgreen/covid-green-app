@@ -1,4 +1,4 @@
-# COVID Tracker Ireland
+# COVID Green
 
 ## Getting Started
 
@@ -59,3 +59,43 @@ To start the iOS one, run:
 ```bash
 yarn ios
 ```
+
+## Team
+
+### Lead Maintainers
+
+* @colmharte - Colm Harte <colm.harte@nearform.com>
+* @jasnell - James M Snell <jasnell@gmail.com>
+* @aspiringarc - Gar Mac Críosta <gar.maccriosta@hse.ie>
+
+### Core Team
+
+* @ShaunBaker - Shaun Baker <shaun.baker@nearform.com>
+* @floridemai - Paul Negrutiu <paul.negrutiu@nearform.com>
+* @jackdclark - Jack Clark <jack.clark@nearform.com>
+* @andreaforni - Andrea Forni <andrea.forni@nearform.com>
+* @jackmurdoch - Jack Murdoch <jack.murdoch@nearform.com>
+
+### Contributors
+
+* TBD
+* TBD
+
+### Past Contributors
+
+* TBD
+* TBD
+
+## Hosted By
+
+<img alttext="Linux Foundation Public Health Logo" src="https://www.lfph.io/wp-content/themes/cncf-theme/images/lfph/faces-w_2000.png" width="100">
+
+[Linux Foundation Public Health](https://lfph.io)
+
+## Acknowledgements
+
+<a href="https://www.hse.ie"><img alttext="HSE Ireland Logo" src="https://www.hse.ie/images/hse.jpg" width="200" /></a><a href="https://nearform.com"><img alttext="NearForm Logo" src="https://openjsf.org/wp-content/uploads/sites/84/2019/04/nearform.png" width="400" /></a>
+
+## License
+
+Licensed under [Apache v2.0](LICENSE)
