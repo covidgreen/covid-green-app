@@ -88,7 +88,7 @@ yarn ios
 
 ## Hosted By
 
-<img alttext="Linux Foundation Public Health Logo" src="https://raw.githubusercontent.com/lfph/artwork/master/lfph/stacked/color/lfph-stacked-color.svg" width="100">
+<img alttext="Linux Foundation Public Health Logo" src="https://raw.githubusercontent.com/lfph/artwork/master/lfph/stacked/color/lfph-stacked-color.svg" width="200">
 
 [Linux Foundation Public Health](https://www.lfph.io)
 
