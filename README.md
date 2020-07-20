@@ -88,9 +88,9 @@ yarn ios
 
 ## Hosted By
 
-<img alttext="Linux Foundation Public Health Logo" src="https://www.lfph.io/wp-content/themes/cncf-theme/images/lfph/faces-w_2000.png" width="100">
+<img alttext="Linux Foundation Public Health Logo" src="https://raw.githubusercontent.com/lfph/artwork/master/lfph/stacked/color/lfph-stacked-color.svg" width="100">
 
-[Linux Foundation Public Health](https://lfph.io)
+[Linux Foundation Public Health](https://www.lfph.io)
 
 ## Acknowledgements
 
