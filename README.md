@@ -8,7 +8,7 @@ Following these instructions will allow you to run and build the project on your
 
 Follow the official guide "[Setting up the development environment](https://reactnative.dev/docs/environment-setup)" to set up your local machine to develop iOS and Android applications with React Native.
 
-Install an xCode version that supports iOS 13.5, required by the [ExposureNotification framework](https://developer.apple.com/documentation/exposurenotification) used by the app.
+Install an Xcode version that supports iOS 13.5, required by the [ExposureNotification framework](https://developer.apple.com/documentation/exposurenotification) used by the app. The Exposure Notification capability is not yet available in iOS 14 beta (last beta published: beta 2).
 
 Install `yarn` globally:
 
