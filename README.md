@@ -4,6 +4,8 @@
 
 Following these instructions will allow you to run and build the project on your local machine for development and testing purposes.
 
+**Currently, Google / Apple are only making the ENS entitlement (GAEN API) required by this application to function available to one app per country / state and the account has to be associated with the government or public health authority. It's not currently possible for individual developers to have this entitlement enabled on their accounts. See https://www.google.com/covid19/exposurenotifications/ and https://developer.apple.com/contact/request/download/Exposure_Notification_Addendum.pdf for details. The Linux Foundation Public Health Project provides a [template](https://github.com/lfph/exposure-notification-playbook/blob/master/entitlement.md) that may be used to start the process of requesting entitlement.**
+
 ### Prerequisites
 
 Follow the official guide "[Setting up the development environment](https://reactnative.dev/docs/environment-setup)" to set up your local machine to develop iOS and Android applications with React Native.
