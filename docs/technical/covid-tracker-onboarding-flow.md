@@ -8,7 +8,7 @@
 4.  Ensure user has consented according to Data Protection and Privacy regulations to participate in Contact Tracing before enabling Contact Tracing app features
 5.  Ensure user has been informed about contact tracing data
 6.  Ensure user has been informed about app metrics data being collected
-7.  Ensure user has been the option to accept collection of app metrics
+7.  Ensure user has been presented the option to accept collection of app metrics
 8.  Ensure user has accepted the COVID Tracker App Terms & Conditions before enabling Contact Tracing app features
 9.  Ensure the user has access to the Data Protection Information Notice
 10. Ensure the user has access to the Terms & Conditions

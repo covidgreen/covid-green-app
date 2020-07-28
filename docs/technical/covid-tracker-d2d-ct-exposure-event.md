@@ -14,7 +14,7 @@ NOTE: COVID  Tracker is implemented using the Google/Apple Exposure Notification
 - *Should not detect users that do not match the case definition
 - Diagnosis keys of people who have tested positive for COVID-19 will be checked at least 1 time every 2 hours
 - Exposure checks will not require user interaction
-- The system will _NOT_ use any other phone sensor data e.g. geol location
+- The system will _NOT_ use any other phone sensor data e.g. geo location
 ## Exposure Event Detection
 *Outcome: Notify a user when they get a close contact exposure notification and get them to take appropriate measures*
 - App must download and refresh Diagnosis keys at least every 2 hours
