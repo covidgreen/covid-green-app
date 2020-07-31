@@ -92,7 +92,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       label: t('settings:termsAndConditions'),
       hint: t('settings:termsAndConditionsHint'),
       screen: 'settings.terms'
-    },    
+    },
     {
       id: 'metrics',
       title: t('settings:metrics'),

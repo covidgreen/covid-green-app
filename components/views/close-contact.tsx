@@ -17,9 +17,9 @@ import PushNotification from 'react-native-push-notification';
 export const CloseContact: FC<any> = ({route}) => {
   const {t} = useTranslation();
   const {callBackData} = useApplication();
-  const {appConfig, exposedTodo} = useSettings();
+  const {exposedTodo} = useSettings();
 
-  const todoList = exposedTodo
+  const todoList = exposedTodo;
 
   const type = route.params && route.params.info;
 
@@ -56,7 +56,9 @@ export const CloseContact: FC<any> = ({route}) => {
       <Spacing s={12} />
       <Button
         width="100%"
-        onPress={() => Linking.openURL(`https://www2.hse.ie/app/in-app-close-contact`)}>
+        onPress={() =>
+          Linking.openURL('https://www2.hse.ie/app/in-app-close-contact')
+        }>
         {t('closeContact:symptoms:callHSE')}
       </Button>
       <Spacing s={32} />

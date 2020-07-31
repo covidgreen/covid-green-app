@@ -2,7 +2,6 @@ import React, {useEffect, useState, createContext, useContext} from 'react';
 import {NativeEventEmitter, Alert, Platform} from 'react-native';
 import ExposureNotification from 'react-native-exposure-notification-service';
 import * as SecureStore from 'expo-secure-store';
-import AsyncStorage from '@react-native-community/async-storage';
 import {useApplication} from './context';
 import {usePermissions, PermissionStatus} from './permissions';
 import {urls} from '../constants/urls';
@@ -185,21 +184,25 @@ export function ExposureProvider({children}: props) {
       const authToken = await SecureStore.getItemAsync('token');
       const refreshToken = await SecureStore.getItemAsync('refreshToken');
       const analyticsOptin = await SecureStore.getItemAsync('analyticsConsent');
-      let mobile = ''
+      let mobile = '';
       const ctiCallBack = await SecureStore.getItemAsync('cti.callBack');
       if (ctiCallBack) {
-        const callBackData = JSON.parse(ctiCallBack)
+        const callBackData = JSON.parse(ctiCallBack);
         mobile = (callBackData && callBackData.mobile) || '';
       }
 
-      const iosLimit =  traceConfiguration.fileLimitiOS > 0 ? traceConfiguration.fileLimitiOS : traceConfiguration.fileLimit
+      const iosLimit =
+        traceConfiguration.fileLimitiOS > 0
+          ? traceConfiguration.fileLimitiOS
+          : traceConfiguration.fileLimit;
       const config = {
         exposureCheckFrequency: traceConfiguration.exposureCheckInterval,
         serverURL: urls.api,
         authToken,
         refreshToken,
         storeExposuresFor: traceConfiguration.storeExposuresFor,
-        fileLimit: Platform.OS === 'ios' ? iosLimit : traceConfiguration.fileLimit,
+        fileLimit:
+          Platform.OS === 'ios' ? iosLimit : traceConfiguration.fileLimit,
         version: BUILD_VERSION,
         notificationTitle: t('closeContactNotification:title'),
         notificationDesc: t('closeContactNotification:description'),

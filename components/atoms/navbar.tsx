@@ -4,8 +4,7 @@ import {
   Text,
   View,
   Image,
-  TouchableWithoutFeedback,
-  Dimensions
+  TouchableWithoutFeedback
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useSafeArea} from 'react-native-safe-area-context';

@@ -58,7 +58,9 @@ export const CountyBreakdown = () => {
                     styles.lastLine
                 ]}>
                 <View style={styles.left}>
-                  <Text maxFontSizeMultiplier={1.5} style={text.largeBold}>{county}</Text>
+                  <Text maxFontSizeMultiplier={1.5} style={text.largeBold}>
+                    {county}
+                  </Text>
                   {cases <= 5 && <Text style={text.largeBold}>&le;5</Text>}
                   {cases > 5 && (
                     <Text maxFontSizeMultiplier={1.5} style={text.largeBold}>
@@ -72,7 +74,9 @@ export const CountyBreakdown = () => {
                       style={[styles.progress, {width: `${widthPercentage}%`}]}
                     />
                   </View>
-                  <Text maxFontSizeMultiplier={1} style={[text.largeBold, styles.textPercentage]}>
+                  <Text
+                    maxFontSizeMultiplier={1}
+                    style={[text.largeBold, styles.textPercentage]}>
                     {percentage === 0 ? '<1' : percentage}%
                   </Text>
                 </View>

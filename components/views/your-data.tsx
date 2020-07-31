@@ -26,7 +26,7 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
   const [registerError, setRegisterError] = useState<string | null>(null);
 
   const onContinue = async () => {
-    try {      
+    try {
       app.showActivityIndicator();
       await app.clearContext();
       const {token, refreshToken} = await register();

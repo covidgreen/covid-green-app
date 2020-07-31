@@ -14,16 +14,12 @@ import {colors} from '../../constants/colors';
 import {text} from '../../theme';
 
 const urlsMap = {
-  noSymptomsWell:
-    'https://www2.hse.ie/app/in-app-good',
-  noSymptomsNotWell:
-    'https://www2.hse.ie/app/in-app-good',
-  riskGroupCocooning:
-    'https://www2.hse.ie/app/in-app-at-risk-cocooning',
+  noSymptomsWell: 'https://www2.hse.ie/app/in-app-good',
+  noSymptomsNotWell: 'https://www2.hse.ie/app/in-app-good',
+  riskGroupCocooning: 'https://www2.hse.ie/app/in-app-at-risk-cocooning',
   riskGroup: 'https://www2.hse.ie/app/in-app-at-risk',
   recovered: 'https://www2.hse.ie/app/in-app-at-risk-recovered',
-  virusIsolation:
-    'https://www2.hse.ie/app/in-app-symptoms'
+  virusIsolation: 'https://www2.hse.ie/app/in-app-symptoms'
 };
 
 type Result =
