@@ -1,6 +1,6 @@
 ## Leave Flow
-_*Outcome: Leave the COVID Tracker community*_
--   App should allow the user to Leave the COVID Tracker network
+_*Outcome: Leave the COVID Green community*_
+-   App should allow the user to Leave the COVID Green network
 -   App should delete
     -   check-in history
     -   demographic data

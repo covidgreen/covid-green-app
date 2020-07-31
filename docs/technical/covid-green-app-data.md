@@ -1,4 +1,4 @@
-# COVID Tracker Data
+# COVID Green Data
 
 ![Local App Data](https://app.lucidchart.com/publicSegments/view/68458917-16de-4874-a120-6a471b234d2e/image.png)
 _*Local App Data*_

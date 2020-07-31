@@ -8,7 +8,7 @@
 
 *Positive Test Result Flow Call 2*
 
-- COVID Tracker App must allow Contact Tracing operations to send a user a code to upload their Diagnosis Keys
+- COVID Green App must allow Contact Tracing operations to send a user a code to upload their Diagnosis Keys
 - App must ensure that user consents and accepts terms as part of the Upload
 - App must allow users to enter a Contact Tracing Upload One time Code and
     - App must ensure that OTC can only be used once

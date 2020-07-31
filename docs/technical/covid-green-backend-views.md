@@ -1,10 +1,10 @@
 
-# COVID Tracker Component View
+# COVID Green Component View
 ## Context
-The COVID Tracker app backend is described in using the following models and tables.
+The COVID Green app backend is described in using the following models and tables.
 
 ## Concerns
-COVID Tracker App
+COVID Green App
 
 ## Stakeholders
 * Architects
@@ -12,36 +12,36 @@ COVID Tracker App
 * DevOps Engineers
 
 ## Model
-![Image of COVID Tracker Component View](https://app.lucidchart.com/publicSegments/view/3ae6514f-7017-4667-ad32-09b4d2cfb441/image.png)
+![Image of COVID Green Component View](https://app.lucidchart.com/publicSegments/view/3ae6514f-7017-4667-ad32-09b4d2cfb441/image.png)
 *Model Notation: AWS Architecture*
 
 ## Model Elements
 | **Component**                     | **Type**    | **Description**                                                                               |
 |-----------------------------------|-------------|-----------------------------------------------------------------------------------------------|
-| COVID Tracker App                 | App         | COVID-19 pandemic response mobile application called the COVID Tracker                        |
+| COVID Green App                   | App         | COVID-19 pandemic response mobile application called the COVID Green                          |
 | RegisterService                   | Service     | Service encompasses all onboarding, authentication checking and session management operations |
 | CheckInService                    | Service     | Service delivers all checkin related operations                                               |
 | StatsService                      | Service     | Service delivers all statistical and content based data to the app                            |
 | SettingsService                   | Service     | Service delivers all settings related information to the app                                  |
 | UploadService                     | Service     | Service supports upload of diagnosis keys and follow-on call messages to the app              |
 | ExposuresService                  | Service     | Service delivers the distribution of exposure keys periodically through the network           |
-| COVIDTracker Database             | Database    | Data Store for all app collected data and setting information                                 |
+| COVIDGreen Database               | Database    | Data Store for all app collected data and setting information                                 |
 | Diagnosis Key Registry            | Registry    | Registry containing the diagnosis keys                                                        |
 | Stats                             | Data Store  | Data Store for all statistical and content                                                    |
 | Assets                            | Data Store  | Data Store for all app related assets                                                         |
 | Upload                            | Data Store  | Transient data Store for all upload data                                                      |
 | DiagnosisKeyFiles                 | Data Store  | Diagnosis Keys are structured into files, this is the store                                   |
-| COVIDTrackerCSOUpload             | Worker Task | Background worker task used to prepare files sent to CSO                                      |
-| COVIDTrackerCCTUpload             | Worker Task | Background worker task used to send Follow-on Messages to CCT                                 |
-| COVIDTrackerCCTUploadNotification | Service     | Service supports notification of positive user via SMS for Diagnosis Key Upload               |
+| COVIDGreenCSOUpload               | Worker Task | Background worker task used to prepare files sent to CSO                                      |
+| COVIDGreenCCTUpload               | Worker Task | Background worker task used to send Follow-on Messages to CCT                                 |
+| COVIDGreenCCTUploadNotification   | Service     | Service supports notification of positive user via SMS for Diagnosis Key Upload               |
 |                                   |             |                                                                                               |
 
-# COVID Tracker API View
+# COVID Green API View
 ## Context
-The COVID Tracker app
+The COVID Green app
 
 ## Concerns
-COVID Tracker App
+COVID Green App
 
 ## Stakeholders
 * Architects
@@ -49,7 +49,7 @@ COVID Tracker App
 * DevOps Engineers
 
 ## Model
-![Image of COVID Tracker API View](https://app.lucidchart.com/publicSegments/view/e4bbb842-8ae3-4882-89c8-d1403ad3f3d7/image.png)
+![Image of COVID Green API View](https://app.lucidchart.com/publicSegments/view/e4bbb842-8ae3-4882-89c8-d1403ad3f3d7/image.png)
 *Model Notation: AWS Architecture*
 
 ## Model Elements
@@ -95,10 +95,10 @@ Mapping of APIs to Backend entities based on Create, Read, Update, Delete of rec
 
 # AWS Infrastructure View
 ## Context
-The COVID Tracker app
+The COVID Green app
 
 ## Concerns
-COVID Tracker App
+COVID Green App
 
 ## Stakeholders
 * Architects
@@ -106,7 +106,7 @@ COVID Tracker App
 * DevOps Engineers
 
 ## Model
-![Image of COVID Tracker AWS Infrastructure](https://app.lucidchart.com/publicSegments/view/9fabdde0-d141-4eaf-b792-14a855757dd2/image.png)
+![Image of COVID Green AWS Infrastructure](https://app.lucidchart.com/publicSegments/view/9fabdde0-d141-4eaf-b792-14a855757dd2/image.png)
 *Model Notation: AWS Architecture*
 
 ## Model Elements
@@ -127,10 +127,10 @@ COVID Tracker App
 
 # AWS Network Configuration View
 ## Context
-The COVID Tracker app
+The COVID Green app
 
 ## Concerns
-COVID Tracker App
+COVID Green App
 
 ## Stakeholders
 * Architects
@@ -138,5 +138,5 @@ COVID Tracker App
 * DevOps Engineers
 
 ## Model
-![Image of COVID Tracker AWS Infrastructure](https://app.lucidchart.com/publicSegments/view/eea8181f-8ff1-4281-b776-9c656f558fc3/image.png)
+![Image of COVID Green AWS Infrastructure](https://app.lucidchart.com/publicSegments/view/eea8181f-8ff1-4281-b776-9c656f558fc3/image.png)
 *Model Notation: AWS Architecture*

@@ -58,8 +58,8 @@ pre_install do |installer|
   end
 end
 
-target 'COVIDTracker' do
-  # Pods for COVIDTracker
+target 'COVIDGreen' do
+  # Pods for COVIDGreen
   pod 'react-native-exposure-notification-service', :path => "../node_modules/react-native-exposure-notification-service"
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"

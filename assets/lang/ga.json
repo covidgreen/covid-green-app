@@ -1,6 +1,6 @@
 {
   "common": {
-    "name": "COVID Tracker Ireland",
+    "name": "COVID Green",
     "url": "https://www.covidtracker.ie/",
     "message": "Cláraigh ar Rianaire COVID Éireann chun COVID-19 a chloí",
     "networkError": "Deacracht ag ceangal. Seiceáil do nasc idirlín agus bain triail as arís.",

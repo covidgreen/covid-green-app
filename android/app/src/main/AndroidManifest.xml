@@ -1,7 +1,7 @@
 <manifest
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
-  package="com.covidtracker.hse"
+  package="io.lfph.covidgreen"
 >
   <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
   <uses-feature android:name="android.hardware.bluetooth" />
