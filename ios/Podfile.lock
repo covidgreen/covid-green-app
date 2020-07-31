@@ -5,12 +5,12 @@ PODS:
   - EXConstants (9.0.0):
     - UMConstantsInterface
     - UMCore
-  - EXCrypto (8.1.0):
+  - EXCrypto (8.2.1):
     - UMCore
   - EXFileSystem (8.1.0):
     - UMCore
     - UMFileSystemInterface
-  - EXFont (8.1.1):
+  - EXFont (8.2.2):
     - UMCore
     - UMFontInterface
   - EXHaptics (8.1.0):
@@ -19,7 +19,7 @@ PODS:
     - React-Core
     - UMCore
     - UMImageLoaderInterface
-  - EXLocalization (8.1.0):
+  - EXLocalization (8.2.1):
     - UMCore
   - EXPermissions (8.1.0):
     - UMCore
@@ -212,12 +212,12 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
   - React-jsinspector (0.62.2)
-  - react-native-exposure-notification-service (1.0.4):
+  - react-native-exposure-notification-service (1.1.15):
     - Alamofire (~> 5.2)
     - KeychainSwift (~> 19.0)
     - React
     - SSZipArchive
-  - react-native-netinfo (5.9.2):
+  - react-native-netinfo (5.9.5):
     - React
   - react-native-safe-area-context (3.0.3):
     - React
@@ -284,9 +284,9 @@ PODS:
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNCPushNotificationIOS (1.2.2):
+  - RNCPushNotificationIOS (1.4.0):
     - React
-  - RNGestureHandler (1.6.1):
+  - RNGestureHandler (1.7.0):
     - React
   - RNIOS11DeviceCheck (0.0.3):
     - React
@@ -294,7 +294,7 @@ PODS:
     - React
   - RNScreens (2.8.0):
     - React
-  - RNSslPinning (1.4.6):
+  - RNSslPinning (1.4.9):
     - React
   - RNSVG (9.13.3):
     - React
@@ -523,12 +523,12 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   EXConstants: 5304709b1bea70a4828f48ba4c7fc3ec3b2d9b17
-  EXCrypto: c4ade2e300874e9175dbf0015734f411fe165d50
+  EXCrypto: 867e1d45d513e39ab9d7706232435edb1cf756cd
   EXFileSystem: cf4232ba7c62dc49b78c2d36005f97b6fddf0b01
-  EXFont: b60f7a8900e3a12e7be3b2a40e19b22c7b5f89ba
+  EXFont: e583875d5d37a9e272d1cdba7f383bd576952919
   EXHaptics: 013b5065946d4dd7b46ea547b58072d45a206dbd
   EXImageLoader: 5ad6896fa1ef2ee814b551873cbf7a7baccc694a
-  EXLocalization: 1997068470bdfb7601fd58dbbf85ba1cde36fb82
+  EXLocalization: b5bcfc925ed83123b585d46d3bd54d7b7118f307
   EXPermissions: 24b97f734ce9172d245a5be38ad9ccfcb6135964
   EXSecureStore: 7a03e21e80ae59bf8e86c55e7a400f60db2da639
   EXWebBrowser: 5902f99ac5ac551e5c82ff46f13a337b323aa9ea
@@ -547,8 +547,8 @@ SPEC CHECKSUMS:
   React-jsi: b6dc94a6a12ff98e8877287a0b7620d365201161
   React-jsiexecutor: 1540d1c01bb493ae3124ed83351b1b6a155db7da
   React-jsinspector: 512e560d0e985d0e8c479a54a4e5c147a9c83493
-  react-native-exposure-notification-service: 5fc781435015932a82154fa47f2f6ddf3399d733
-  react-native-netinfo: cb74e17062b2af5a16a4b137f32495f241df1a8e
+  react-native-exposure-notification-service: a3549bb2ef087e96f1c6c1a889004b2b583975f5
+  react-native-netinfo: a53b00d949b6456913aaf507d9dba90c4008c611
   react-native-safe-area-context: 45e98227f3d65b31d384a5d0950aec4bf73a884c
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
   React-RCTAnimation: 49ab98b1c1ff4445148b72a3d61554138565bad0
@@ -562,12 +562,12 @@ SPEC CHECKSUMS:
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
   RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNCPushNotificationIOS: 4c97a36dbec42dba411cc35e6dac25e34a805fde
-  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNCPushNotificationIOS: dc1c0c6aa18a128df123598149f42e848d26a4ac
+  RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
   RNIOS11DeviceCheck: a4a545fdd08230a17a8ce7608e95038ee23a32aa
   RNPermissions: ad71dd4f767ec254f2cd57592fbee02afee75467
   RNScreens: 62211832af51e0aebcf6e8c36bcf7dd65592f244
-  RNSslPinning: ef39607682381e7ddce1d8ae16ae516306e49163
+  RNSslPinning: bd33a1849ec20d38b4c5cd67e6a52b83da0ab3bc
   RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   UMAppLoader: ee77a072f9e15128f777ccd6d2d00f52ab4387e6
@@ -585,6 +585,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: cb890c79c63885504ddc0efd7a7d01481760aca2
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
 
-PODFILE CHECKSUM: 7a86baa1ffc62860adbd3f2c3d53c203c0768022
+PODFILE CHECKSUM: fe5332bfe94340e09768442eda194c2d51dd1b1f
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

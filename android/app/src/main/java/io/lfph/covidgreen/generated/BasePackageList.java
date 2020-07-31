@@ -1,4 +1,4 @@
-package com.covidtracker.hse.generated;
+package io.lfph.covidgreen.generated;
 
 import java.util.Arrays;
 import java.util.List;

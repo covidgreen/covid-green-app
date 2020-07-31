@@ -4,7 +4,7 @@
 ![Day-to-Day](../assets/Day%202%20Day.png)
 _*Day-to-Day COntact Tracing*_
 
-NOTE: COVID  Tracker is implemented using the Google/Apple Exposure Notification API. This ensures reliable operation of Contact Tracing on all compatible devices
+NOTE: COVID Green is implemented using the Google/Apple Exposure Notification API. This ensures reliable operation of Contact Tracing on all compatible devices
 - Google - https://www.google.com/covid19/exposurenotifications/
 - Apple  - https://developer.apple.com/documentation/exposurenotification
 - Must support exposure event detection based on current ECDC Case Definition

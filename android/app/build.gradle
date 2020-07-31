@@ -130,7 +130,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.covidtracker.hse"
+        applicationId "io.lfph.covidgreen"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 56
@@ -154,7 +154,7 @@ android {
             keyPassword 'android'
         }
         release {
-            storeFile file(System.getenv("ANDROID_KEYSTORE_PATH") ?: "covidtracker.keystore")
+            storeFile file(System.getenv("ANDROID_KEYSTORE_PATH") ?: "covidgreen.keystore")
             storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
             keyAlias System.getenv("ANDROID_KEY_ALIAS")
             keyPassword System.getenv("ANDROID_KEY_PASSWORD")

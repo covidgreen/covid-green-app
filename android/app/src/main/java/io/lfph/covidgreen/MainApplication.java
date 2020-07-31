@@ -1,4 +1,4 @@
-package com.covidtracker.hse;
+package io.lfph.covidgreen;
 
 import android.app.Application;
 import android.content.Context;
@@ -14,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Arrays;
 
-import com.covidtracker.hse.generated.BasePackageList;
+import io.lfph.covidgreen.generated.BasePackageList;
 import org.unimodules.adapters.react.ModuleRegistryAdapter;
 import org.unimodules.adapters.react.ReactModuleRegistryProvider;
 import org.unimodules.core.interfaces.SingletonModule;

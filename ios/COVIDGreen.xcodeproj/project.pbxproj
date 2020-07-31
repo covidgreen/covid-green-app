@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.h */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1DD37F89339655837B338B6F /* Pods_COVIDTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFD313BE93A46E101189EAE /* Pods_COVIDTracker.framework */; };
+		26DAD32624D48C0D00CE06D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FAF1A68108700A75B9A /* AppDelegate.m */; };
 		2828A173243F41CC00C4BB5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2828A172243F41CC00C4BB5D /* Assets.xcassets */; };
 		2828A178243F42FF00C4BB5D /* launch_background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 2828A176243F42FF00C4BB5D /* launch_background_image.png */; };
 		2828A179243F42FF00C4BB5D /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2828A177243F42FF00C4BB5D /* launch_icon.png */; };
 		2836A7912449D2B1006215C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2836A78F2449D2B1006215C7 /* LaunchScreen.xib */; };
 		413AFFC2249366F9001D3D6E /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413AFFC1249366F9001D3D6E /* Stub.swift */; };
+		4E10F55EB1FF6E0F653DA6EF /* Pods_COVIDGreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671B0BFC15F79CF7EC5A105 /* Pods_COVIDGreen.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,37 +24,31 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = COVIDTracker;
+			remoteInfo = COVIDGreen;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* COVIDTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = COVIDTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* COVID Tracker Ireland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Tracker Ireland.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = COVIDTracker/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = COVIDTracker/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = COVIDTracker/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = COVIDTracker/main.m; sourceTree = "<group>"; };
-		1A773734217EF54C49ECF30B /* Pods-COVIDTracker-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDTracker-tvOS.release.xcconfig"; path = "Target Support Files/Pods-COVIDTracker-tvOS/Pods-COVIDTracker-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		24FE03D55E7683432B67B578 /* Pods-COVIDTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDTracker.release.xcconfig"; path = "Target Support Files/Pods-COVIDTracker/Pods-COVIDTracker.release.xcconfig"; sourceTree = "<group>"; };
+		00E356EE1AD99517003FC87E /* COVIDGreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = COVIDGreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* COVID Green.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Green.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = COVIDGreen/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = COVIDGreen/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = COVIDGreen/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = COVIDGreen/main.m; sourceTree = "<group>"; };
 		2828A172243F41CC00C4BB5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2828A176243F42FF00C4BB5D /* launch_background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_background_image.png; sourceTree = "<group>"; };
 		2828A177243F42FF00C4BB5D /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
-		2836A7902449D2B1006215C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = COVIDTracker/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		28D77FD7243F5B48001A4277 /* COVIDTracker Ireland.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "COVIDTracker Ireland.entitlements"; path = "COVIDTracker/COVIDTracker Ireland.entitlements"; sourceTree = "<group>"; };
-		28D77FD8243F60D8001A4277 /* COVIDTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "COVIDTracker-Bridging-Header.h"; sourceTree = "<group>"; };
-		386DF3CD6F7A3FA73AB92391 /* Pods-COVIDTracker-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDTracker-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-COVIDTracker-tvOSTests/Pods-COVIDTracker-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		2836A7902449D2B1006215C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = COVIDGreen/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		28D77FD7243F5B48001A4277 /* COVIDGreen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = COVIDGreen.entitlements; path = COVIDGreen/COVIDGreen.entitlements; sourceTree = "<group>"; };
+		28D77FD8243F60D8001A4277 /* COVIDGreen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "COVIDGreen-Bridging-Header.h"; sourceTree = "<group>"; };
+		2FD0A6DD7434958C688A768B /* Pods-COVIDGreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDGreen.release.xcconfig"; path = "Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen.release.xcconfig"; sourceTree = "<group>"; };
 		413AFFC1249366F9001D3D6E /* Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
-		41C3C226249C94E300634DB9 /* ga */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ga; path = COVIDTracker/ga.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		92C06203447D9F151FCDD577 /* Pods-COVIDTracker-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDTracker-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-COVIDTracker-tvOS/Pods-COVIDTracker-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		A710E9F14177EE11B5A22121 /* libPods-COVIDTracker-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-COVIDTracker-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7D5519187ABB9EDCD330B81 /* libPods-COVIDTracker-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-COVIDTracker-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3EF5C5C04A7FE2A25397DD8 /* Pods-COVIDTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDTracker.debug.xcconfig"; path = "Target Support Files/Pods-COVIDTracker/Pods-COVIDTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		CB336533B5B4A30931A88283 /* Pods-COVIDTracker-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDTracker-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-COVIDTracker-tvOSTests/Pods-COVIDTracker-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		41C3C226249C94E300634DB9 /* ga */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ga; path = COVIDGreen/ga.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		6671B0BFC15F79CF7EC5A105 /* Pods_COVIDGreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDGreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D344A63170C83782608F761 /* Pods-COVIDGreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDGreen.debug.xcconfig"; path = "Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		EEFD313BE93A46E101189EAE /* Pods_COVIDTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,29 +63,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DD37F89339655837B338B6F /* Pods_COVIDTracker.framework in Frameworks */,
+				4E10F55EB1FF6E0F653DA6EF /* Pods_COVIDGreen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* COVIDTracker */ = {
+		13B07FAE1A68108700A75B9A /* COVIDGreen */ = {
 			isa = PBXGroup;
 			children = (
 				2836A78F2449D2B1006215C7 /* LaunchScreen.xib */,
-				28D77FD7243F5B48001A4277 /* COVIDTracker Ireland.entitlements */,
+				28D77FD7243F5B48001A4277 /* COVIDGreen.entitlements */,
 				2828A175243F42EE00C4BB5D /* Supporting */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
-				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				13B07FAF1A68108700A75B9A /* AppDelegate.m */,
+				13B07FB01A68108700A75B9A /* AppDelegate.h */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				2828A172243F41CC00C4BB5D /* Assets.xcassets */,
-				28D77FD8243F60D8001A4277 /* COVIDTracker-Bridging-Header.h */,
+				28D77FD8243F60D8001A4277 /* COVIDGreen-Bridging-Header.h */,
 				413AFFC1249366F9001D3D6E /* Stub.swift */,
 			);
-			name = COVIDTracker;
+			name = COVIDGreen;
 			sourceTree = "<group>";
 		};
 		2828A175243F42EE00C4BB5D /* Supporting */ = {
@@ -107,9 +102,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				A710E9F14177EE11B5A22121 /* libPods-COVIDTracker-tvOS.a */,
-				A7D5519187ABB9EDCD330B81 /* libPods-COVIDTracker-tvOSTests.a */,
-				EEFD313BE93A46E101189EAE /* Pods_COVIDTracker.framework */,
+				6671B0BFC15F79CF7EC5A105 /* Pods_COVIDGreen.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -124,7 +117,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* COVIDTracker */,
+				13B07FAE1A68108700A75B9A /* COVIDGreen */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -138,8 +131,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* COVID Tracker Ireland.app */,
-				00E356EE1AD99517003FC87E /* COVIDTrackerTests.xctest */,
+				13B07F961A680F5B00A75B9A /* COVID Green.app */,
+				00E356EE1AD99517003FC87E /* COVIDGreenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,12 +140,8 @@
 		F0975A837D6FAE28649DBA08 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C3EF5C5C04A7FE2A25397DD8 /* Pods-COVIDTracker.debug.xcconfig */,
-				24FE03D55E7683432B67B578 /* Pods-COVIDTracker.release.xcconfig */,
-				92C06203447D9F151FCDD577 /* Pods-COVIDTracker-tvOS.debug.xcconfig */,
-				1A773734217EF54C49ECF30B /* Pods-COVIDTracker-tvOS.release.xcconfig */,
-				CB336533B5B4A30931A88283 /* Pods-COVIDTracker-tvOSTests.debug.xcconfig */,
-				386DF3CD6F7A3FA73AB92391 /* Pods-COVIDTracker-tvOSTests.release.xcconfig */,
+				9D344A63170C83782608F761 /* Pods-COVIDGreen.debug.xcconfig */,
+				2FD0A6DD7434958C688A768B /* Pods-COVIDGreen.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -160,9 +149,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* COVIDTrackerTests */ = {
+		00E356ED1AD99517003FC87E /* COVIDGreenTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "COVIDTrackerTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "COVIDGreenTests" */;
 			buildPhases = (
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
@@ -173,30 +162,30 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = COVIDTrackerTests;
-			productName = COVIDTrackerTests;
-			productReference = 00E356EE1AD99517003FC87E /* COVIDTrackerTests.xctest */;
+			name = COVIDGreenTests;
+			productName = COVIDGreenTests;
+			productReference = 00E356EE1AD99517003FC87E /* COVIDGreenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* COVIDTracker */ = {
+		13B07F861A680F5B00A75B9A /* COVIDGreen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "COVIDTracker" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "COVIDGreen" */;
 			buildPhases = (
-				A8FF24AE16CA409285016EA6 /* [CP] Check Pods Manifest.lock */,
+				E15991AA318D8CD7A9D168BD /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				34872707D5E1419486A03A0C /* [CP] Embed Pods Frameworks */,
+				ACD9A165DB97E9249A2A0CBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = COVIDTracker;
-			productName = COVIDTracker;
-			productReference = 13B07F961A680F5B00A75B9A /* COVID Tracker Ireland.app */;
+			name = COVIDGreen;
+			productName = COVIDGreen;
+			productReference = 13B07F961A680F5B00A75B9A /* COVID Green.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -218,7 +207,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "COVIDTracker" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "COVIDGreen" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -232,8 +221,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* COVIDTracker */,
-				00E356ED1AD99517003FC87E /* COVIDTrackerTests */,
+				13B07F861A680F5B00A75B9A /* COVIDGreen */,
+				00E356ED1AD99517003FC87E /* COVIDGreenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,13 +263,13 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		34872707D5E1419486A03A0C /* [CP] Embed Pods Frameworks */ = {
+		ACD9A165DB97E9249A2A0CBD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-COVIDTracker/Pods-COVIDTracker-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
 				"${BUILT_PRODUCTS_DIR}/EXConstants/EXConstants.framework",
@@ -383,10 +372,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVIDTracker/Pods-COVIDTracker-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A8FF24AE16CA409285016EA6 /* [CP] Check Pods Manifest.lock */ = {
+		E15991AA318D8CD7A9D168BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -401,7 +390,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-COVIDTracker-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-COVIDGreen-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -441,7 +430,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				26DAD32624D48C0D00CE06D8 /* AppDelegate.m in Sources */,
+				13B07FBC1A68108700A75B9A /* AppDelegate.h in Sources */,
 				413AFFC2249366F9001D3D6E /* Stub.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -452,7 +442,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* COVIDTracker */;
+			target = 13B07F861A680F5B00A75B9A /* COVIDGreen */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -479,7 +469,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = COVIDTrackerTests/Info.plist;
+				INFOPLIST_FILE = COVIDGreenTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -489,7 +479,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COVIDTracker.app/COVIDTracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COVID Green.app/COVIDGreen";
 			};
 			name = Debug;
 		};
@@ -499,7 +489,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = COVIDTrackerTests/Info.plist;
+				INFOPLIST_FILE = COVIDGreenTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -509,17 +499,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COVIDTracker.app/COVIDTracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COVID Green.app/COVIDGreen";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3EF5C5C04A7FE2A25397DD8 /* Pods-COVIDTracker.debug.xcconfig */;
+			baseConfigurationReference = 9D344A63170C83782608F761 /* Pods-COVIDGreen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "COVIDTracker/COVIDTracker Ireland.entitlements";
+				CODE_SIGN_ENTITLEMENTS = COVIDGreen/COVIDGreen.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.41;
@@ -529,7 +519,7 @@
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = COVIDTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/COVIDGreen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.0.4;
@@ -538,10 +528,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hse.ftapp;
-				PRODUCT_NAME = "COVID Tracker Ireland";
+				PRODUCT_BUNDLE_IDENTIFIER = io.lfph.covidgreen;
+				PRODUCT_NAME = "COVID Green";
 				PROVISIONING_PROFILE_SPECIFIER = CTIEDev;
-				SWIFT_OBJC_BRIDGING_HEADER = "COVIDTracker-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "COVIDGreen-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "";
@@ -550,16 +540,16 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24FE03D55E7683432B67B578 /* Pods-COVIDTracker.release.xcconfig */;
+			baseConfigurationReference = 2FD0A6DD7434958C688A768B /* Pods-COVIDGreen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "COVIDTracker/COVIDTracker Ireland.entitlements";
+				CODE_SIGN_ENTITLEMENTS = COVIDGreen/COVIDGreen.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.41;
 				DEVELOPMENT_TEAM = 46CH29TAYZ;
-				INFOPLIST_FILE = COVIDTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/COVIDGreen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.0.4;
@@ -568,10 +558,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hse.ftapp;
-				PRODUCT_NAME = "COVID Tracker Ireland";
+				PRODUCT_BUNDLE_IDENTIFIER = io.lfph.covidgreen;
+				PRODUCT_NAME = "COVID Green";
 				PROVISIONING_PROFILE_SPECIFIER = CTIEAppStore;
-				SWIFT_OBJC_BRIDGING_HEADER = "COVIDTracker-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "COVIDGreen-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "";
 			};
@@ -693,7 +683,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "COVIDTrackerTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "COVIDGreenTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -702,7 +692,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "COVIDTracker" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "COVIDGreen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -711,7 +701,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "COVIDTracker" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "COVIDGreen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

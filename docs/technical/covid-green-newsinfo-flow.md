@@ -2,7 +2,7 @@
 *Outcome: Informed & Engaged*
 
 News & Information should provide information related to significant COVID-19 information
--   COVID Tracker App Stats
+-   COVID Green App Stats
 -   active users
 -   daily check-ins - with or without symptoms
 -   COVID-19 Headline Statistics

@@ -2,14 +2,14 @@
 *Outcome: User is successfully onboarded and contact tracing enabled*
 1.  Ensure user is over the Age of Digital Consent 16
 2.  Ensure user understands and is fully informed about the nature of the app
-3.  Ensure user is adequately informed about the data being collected by the COVID Tracker App
+3.  Ensure user is adequately informed about the data being collected by the COVID Green App
     -   Personal Data
     -   App Metrics
 4.  Ensure user has consented according to Data Protection and Privacy regulations to participate in Contact Tracing before enabling Contact Tracing app features
 5.  Ensure user has been informed about contact tracing data
 6.  Ensure user has been informed about app metrics data being collected
 7.  Ensure user has been the option to accept collection of app metrics
-8.  Ensure user has accepted the COVID Tracker App Terms & Conditions before enabling Contact Tracing app features
+8.  Ensure user has accepted the COVID Green App Terms & Conditions before enabling Contact Tracing app features
 9.  Ensure the user has access to the Data Protection Information Notice
 10. Ensure the user has access to the Terms & Conditions
 11. Ensure user enables contact tracing functionality
@@ -18,7 +18,7 @@
     -   Country Code – global phone numbers supported; default
     -   Phone Number - landline and mobile numbers
     -   Validation: validate Irish and International numbers
-14. App should allow onboarding to complete and COVID Tracker App to be used without completing the Contact Tracing onboarding (see alternate paths)
+14. App should allow onboarding to complete and COVID Green App to be used without completing the Contact Tracing onboarding (see alternate paths)
 ![Image of Onboarding Flow](https://app.lucidchart.com/publicSegments/view/cd55d847-7892-4441-bff0-5229edfb0b32/image.png)
 
 | **Path ID** | **Path**                                                                      | **App**                                                                                                                                                                                                                                                                                        |

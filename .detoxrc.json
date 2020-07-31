@@ -4,8 +4,8 @@
   "configurations": {
     "ios": {
       "type": "ios.simulator",
-      "binaryPath": "./ios/build/Build/Products/Debug-iphonesimulator/COVIDTracker Ireland.app",
-      "build": "xcodebuild -workspace ios/COVIDTracker.xcworkspace -scheme COVIDTracker -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+      "binaryPath": "./ios/build/Build/Products/Debug-iphonesimulator/COVID Green.app",
+      "build": "xcodebuild -workspace ios/COVIDGreen.xcworkspace -scheme COVIDGreen -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
       "device": {
         "type": "iPhone 11 Pro Max"
       }

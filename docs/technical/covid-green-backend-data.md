@@ -1,4 +1,4 @@
-# COVID Tracker Backend Data
+# COVID Green Backend Data
 ![App Backend Data Model](https://app.lucidchart.com/publicSegments/view/be0282b3-87f7-4d07-9837-d793da229266/image.png)
 
 ## Registrations 

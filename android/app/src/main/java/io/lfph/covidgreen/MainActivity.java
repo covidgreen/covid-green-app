@@ -1,4 +1,4 @@
-package com.covidtracker.hse;
+package io.lfph.covidgreen;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "COVIDTracker";
+        return "COVIDGreen";
     }
 
     public static class ActivityDelegate extends ReactActivityDelegate {

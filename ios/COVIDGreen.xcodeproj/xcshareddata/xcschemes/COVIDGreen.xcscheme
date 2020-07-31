@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "COVID Tracker Ireland.app"
-               BlueprintName = "COVIDTracker"
-               ReferencedContainer = "container:COVIDTracker.xcodeproj">
+               BuildableName = "COVID Green.app"
+               BlueprintName = "COVIDGreen"
+               ReferencedContainer = "container:COVIDGreen.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "COVIDTrackerTests.xctest"
-               BlueprintName = "COVIDTrackerTests"
-               ReferencedContainer = "container:COVIDTracker.xcodeproj">
+               BuildableName = "COVIDGreenTests.xctest"
+               BlueprintName = "COVIDGreenTests"
+               ReferencedContainer = "container:COVIDGreen.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "COVID Tracker Ireland.app"
-            BlueprintName = "COVIDTracker"
-            ReferencedContainer = "container:COVIDTracker.xcodeproj">
+            BuildableName = "COVID Green.app"
+            BlueprintName = "COVIDGreen"
+            ReferencedContainer = "container:COVIDGreen.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "COVID Tracker Ireland.app"
-            BlueprintName = "COVIDTracker"
-            ReferencedContainer = "container:COVIDTracker.xcodeproj">
+            BuildableName = "COVID Green.app"
+            BlueprintName = "COVIDGreen"
+            ReferencedContainer = "container:COVIDGreen.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
