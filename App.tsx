@@ -456,10 +456,3 @@ export default function App(props: {
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  spinner: {
-    flex: 1,
-    backgroundColor: colors.yellow
-  }
-});

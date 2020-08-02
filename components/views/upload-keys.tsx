@@ -37,11 +37,7 @@ type UploadStatus =
 export const UploadKeys = ({navigation}) => {
   const {t} = useTranslation();
   const exposure = useExposure();
-  const {
-    showActivityIndicator,
-    hideActivityIndicator,
-    accessibility
-  } = useApplication();
+  const {showActivityIndicator, hideActivityIndicator} = useApplication();
 
   const [status, setStatus] = useState<UploadStatus>('initialising');
   const [code, setCode] = useState('');

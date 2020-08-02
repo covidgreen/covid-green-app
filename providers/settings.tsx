@@ -11,8 +11,8 @@ import i18n, {TFunction} from 'i18next';
 import {useTranslation} from 'react-i18next';
 
 import * as api from '../services/api';
-import { isObject } from 'formik';
-import { fallback } from '../services/i18n/common';
+import {isObject} from 'formik';
+import {fallback} from '../services/i18n/common';
 
 export interface BasicItem {
   label: string;
@@ -124,28 +124,36 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
           fileLimitiOS: Number(apiSettings.fileLimitiOS)
         }
       );
-      const getDbText = (apiSettings: any, key: string):any => {
-        let data = apiSettings[key] && (apiSettings[key][i18n.language] || apiSettings[key][fallback]) || '';
+      const getDbText = (apiSettings: any, key: string): any => {
+        let data =
+          (apiSettings[key] &&
+            (apiSettings[key][i18n.language] || apiSettings[key][fallback])) ||
+          '';
 
         if (isObject(data)) {
-          const item: any = {}
+          const item: any = {};
           Object.keys(data).forEach((key: string) => {
-            item[key] = data[key].replace(/\\n/g, '\n').replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
+            item[key] = data[key]
+              .replace(/\\n/g, '\n')
+              .replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
           });
           return item;
         } else {
-          return data.replace(/\\n/g, '\n').replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
+          return data
+            .replace(/\\n/g, '\n')
+            .replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
         }
-      }
+      };
 
-      const exposedTodo = getDbText(apiSettings, 'exposedTodoList') ||
-         t('closeContact:todo:list');
+      const exposedTodo =
+        getDbText(apiSettings, 'exposedTodoList') ||
+        t('closeContact:todo:list');
 
-      const dpinText = getDbText(apiSettings, 'dpinText') ||
-        t('dataProtectionPolicy:text');
+      const dpinText =
+        getDbText(apiSettings, 'dpinText') || t('dataProtectionPolicy:text');
 
-      const tandcText = getDbText(apiSettings, 'tandcText') ||
-        t('tandcPolicy:text');
+      const tandcText =
+        getDbText(apiSettings, 'tandcText') || t('tandcPolicy:text');
 
       const checkerThankYouText: CheckerThankYouText = Object.assign(
         {

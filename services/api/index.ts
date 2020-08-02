@@ -79,7 +79,7 @@ export const request = async (url: string, cfg: any) => {
   let resp;
   try {
     resp = await fetch(url, {
-      ...config,
+      ...config
       // timeoutInterval: 30000,
       // sslPinning: {
       //  certs: ['certx', 'certy']
@@ -101,7 +101,7 @@ export const request = async (url: string, cfg: any) => {
     };
 
     return fetch(url, {
-      ...newConfig,
+      ...newConfig
       // timeoutInterval: 30000,
       // sslPinning: {
       //   certs: ['certx', 'certy']

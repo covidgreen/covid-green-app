@@ -65,7 +65,7 @@ const markDownStyles = StyleSheet.create({
   listItemNumber: {
     ...text.largeBold,
     color: colors.darkGray,
-    paddingRight: 16    
+    paddingRight: 16
   },
   listItemContent: {
     paddingTop: 2,

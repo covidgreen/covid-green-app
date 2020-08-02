@@ -22,9 +22,7 @@ export const shareApp = async (t: TFunction) => {
       {
         title: t('common:message'),
         message:
-          Platform.OS === 'android'
-            ? t('common:url')
-            : t('common:message'),
+          Platform.OS === 'android' ? t('common:url') : t('common:message'),
         url: t('common:url')
       },
       {

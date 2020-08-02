@@ -193,14 +193,14 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
       heading={t('onboarding:information:title')}
       headingShort={true}>
       <View style={headerStyles.row}>
-         <View style={headerStyles.textBlock}>
+        <View style={headerStyles.textBlock}>
           <Text style={headerStyles.text}>
             {t('onboarding:information:highlight')}
           </Text>
           <Text style={text.default}>
             {t('onboarding:information:highlight1')}
           </Text>
-         </View>
+        </View>
         <Image
           accessibilityIgnoresInvertColors
           style={headerStyles.image}
@@ -234,8 +234,8 @@ const headerStyles = StyleSheet.create({
     alignItems: 'center'
   },
   textBlock: {
-    flexDirection: 'column', 
-    flex: 1   
+    flexDirection: 'column',
+    flex: 1
   },
   text: {
     flex: 1,
@@ -243,7 +243,6 @@ const headerStyles = StyleSheet.create({
     ...text.defaultBold,
     color: colors.teal,
     paddingBottom: 16
-
   },
   image: {
     width: 157,
