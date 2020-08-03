@@ -80,8 +80,7 @@ yarn ios
 
 ### Contributors
 
-* TBD
-* TBD
+* @dharding - David J Harding <davidjasonharding@gmail.com>
 
 ### Past Contributors
 
