@@ -158,6 +158,10 @@ local.properties
 # fastlane specific
 fastlane/report.xml
 
+# fastlane environment
+ios/.env.default
+android/.env.default
+
 # deliver temporary files
 fastlane/Preview.html
 

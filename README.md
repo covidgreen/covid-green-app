@@ -62,6 +62,54 @@ To start the iOS one, run:
 yarn ios
 ```
 
+## Creating a test/beta build
+
+### Install fastlane
+
+```bash
+bundle install
+```
+
+### Build for iOS
+
+In order to build, sign, and upload your app to TestFlight, you need to have configured a provisioning profile (with the Exposure Notification entitlement) and added a signing key to your Keychain.
+
+Copy and then customize the dotenv file with your developer account information:
+
+```bash
+cd ios
+cp .env.default.sample .env.default
+```
+
+Use fastlane to build the app and upload it to TestFlight:
+
+```bash
+cd ios
+fastlane beta
+```
+
+This command will increment the build number. It will not change the app version. That must be done in the project settings manually.
+
+### Build for Android
+
+In order to build, sign, and upload your app to an internal test track, you need to have configured an app in the Play console that has been enabled for the Exposure Notification API, and installed an upload key and API access key locally. You will also need to know the keystore and key passwords.
+
+Copy and then customize the dotenv file with your signing information:
+
+```bash
+cd android
+cp .env.default.sample .env.default
+```
+
+Use fastlane to build the app and push it to a draft Internal Test Track:
+
+```bash
+cd android
+fastlane internal
+```
+
+This command will increment the build number. It will not change the app version. That must be done in the project settings manually.
+
 ## Team
 
 ### Lead Maintainers
