@@ -2,7 +2,6 @@ import React, {useRef, useEffect, FC} from 'react';
 import {
   Text,
   View,
-  Image,
   TouchableWithoutFeedback,
   Animated
 } from 'react-native';
@@ -18,6 +17,7 @@ import {styles} from './checkin-consent';
 import {useApplication} from '../../providers/context';
 
 import {text} from '../../theme';
+import {AppIcons} from '../../assets/icons';
 
 interface Props {
   onDismissed: () => void;
@@ -213,13 +213,7 @@ export const QuickCheckIn: React.FC<Props> = ({onDismissed, nextHandler}) => {
           accessibilityHint={t('common:dismiss')}
           accessibilityLabel={t('common:dismiss')}
           onPress={onDismissed}>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={{width: 24, height: 24}}
-            width={24}
-            height={24}
-            source={require('../../assets/images/dismiss/dismiss.png')}
-          />
+          <AppIcons.Close width={24} height={24} />
         </TouchableWithoutFeedback>
       </View>
       <Prompt complete={app.completedChecker} t={t} handleNext={handleNext} />

@@ -13,6 +13,7 @@ import {Scrollable} from '../templates/scrollable';
 import {text} from '../../theme';
 import {useSettings} from '../../providers/settings';
 import PushNotification from 'react-native-push-notification';
+import {BubbleIcons} from '../../assets/icons';
 
 export const CloseContact: FC<any> = ({route}) => {
   const {t} = useTranslation();
@@ -34,12 +35,7 @@ export const CloseContact: FC<any> = ({route}) => {
       <Spacing s={16} />
       {callBackData && !type && (
         <>
-          <Card
-            icon={{
-              w: 56,
-              h: 56,
-              source: require('../../assets/images/phone-call/phone-call.png')
-            }}>
+          <Card icon={<BubbleIcons.PhoneCall width={56} height={56} />}>
             <Text style={text.largeBlack}>{t('closeContact:callBack')}</Text>
             <Text style={styles.notice}>{t('closeContact:callBackQueue')}</Text>
           </Card>

@@ -17,6 +17,8 @@ import {Toast} from '../../atoms/toast';
 import {KeyboardScrollable} from '../../templates/keyboard-scrollable';
 import {text} from '../../../theme';
 import {METRIC_TYPES, saveMetric} from '../../../services/api';
+import {colors} from '../../../constants/colors';
+import {AppIcons} from '../../../assets/icons';
 
 export const ContactTracingSettings = () => {
   const {t} = useTranslation();
@@ -110,7 +112,8 @@ export const ContactTracingSettings = () => {
     <Toast
       color="rgba(0, 207, 104, 0.16)"
       message={t('common:changesUpdated')}
-      icon={require('../../../assets/images/success/green.png')}
+      type="success"
+      icon={<AppIcons.Success width={24} height={24} color={colors.success} />}
     />
   );
 

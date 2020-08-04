@@ -10,6 +10,7 @@ import {CountyBreakdownCard} from '../molecules/county-breakdown-card';
 
 import {colors} from '../../constants/colors';
 import {shadows, text} from '../../theme';
+import {BubbleIcons} from '../../assets/icons';
 
 interface CovidStatsProps {
   style?: ViewStyle;
@@ -32,12 +33,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
       <View style={styles.card}>
         <View style={styles.row}>
           <View style={[iconStyle.icon, styles.confirmedBackground]}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={styles.iconSize}
-              {...styles.iconSize}
-              source={require('../../assets/images/covid-red/covid.png')}
-            />
+            <BubbleIcons.Cases width={56} height={56} />
           </View>
           <View style={styles.column} accessible accessibilityRole="text">
             <Text style={[text.xxlargeBlack, styles.columnText]}>
@@ -51,12 +47,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
         <Spacing s={16} />
         <View style={styles.row}>
           <View style={[iconStyle.icon, styles.deathsBackground]}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={styles.iconSize}
-              {...styles.iconSize}
-              source={require('../../assets/images/covid-white/covid.png')}
-            />
+            <BubbleIcons.Deaths width={56} height={56} />
           </View>
           <View style={styles.column} accessible accessibilityRole="text">
             <Text style={text.xxlargeBlack}>
@@ -70,12 +61,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
         <Spacing s={16} />
         <View style={styles.row}>
           <View style={[iconStyle.icon, styles.hospitalisedBackground]}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={styles.iconSize}
-              {...styles.iconSize}
-              source={require('../../assets/images/hospital/hospital.png')}
-            />
+            <BubbleIcons.Hospital width={56} height={56} />
           </View>
           <View style={styles.column} accessible accessibilityRole="text">
             <Text style={text.xxlargeBlack}>
@@ -89,12 +75,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
         <Spacing s={16} />
         <View style={styles.row}>
           <View style={[iconStyle.icon, styles.icuBackground]}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={styles.iconSize}
-              {...styles.iconSize}
-              source={require('../../assets/images/icu/icu.png')}
-            />
+            <BubbleIcons.ICU width={56} height={56} />
           </View>
           <View style={styles.column} accessible accessibilityRole="text">
             <Text style={text.xxlargeBlack}>
@@ -112,11 +93,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
 
 const iconStyle = StyleSheet.create({
   icon: {
-    width: 56,
-    height: 56,
     borderRadius: 28,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginRight: 20
   }
 });

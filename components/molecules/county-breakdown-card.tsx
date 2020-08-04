@@ -6,6 +6,7 @@ import {Card} from '../atoms/card';
 
 import {colors} from '../../constants/colors';
 import {text} from '../../theme';
+import {BubbleIcons} from '../../assets/icons';
 
 interface CountyBreakdownCardProps {
   onPress: () => void;
@@ -19,12 +20,7 @@ export const CountyBreakdownCard: FC<CountyBreakdownCardProps> = ({
     <Card padding={{r: 4}} onPress={onPress}>
       <View style={styles.row}>
         <View style={styles.icon}>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={styles.imageSize}
-            {...styles.imageSize}
-            source={require('../../assets/images/map/ireland.png')}
-          />
+          <BubbleIcons.MapPin width={56} height={56} />
         </View>
         <View style={styles.col}>
           <Text style={styles.title}>{t('appStats:nationalPicture')}</Text>
@@ -46,12 +42,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   icon: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: `${colors.success}1A`,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginRight: 20
   },
   title: {
@@ -63,8 +53,4 @@ const styles = StyleSheet.create({
     ...text.smallBold,
     color: colors.teal
   },
-  imageSize: {
-    width: 40,
-    height: 40
-  }
 });

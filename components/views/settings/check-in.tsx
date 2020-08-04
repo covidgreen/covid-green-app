@@ -13,8 +13,11 @@ import {useSettings} from '../../../providers/settings';
 import {useApplication, UserLocation} from '../../../providers/context';
 
 import {text, baseStyles} from '../../../theme';
+
 import {Basic} from '../../templates/basic';
 import {Scrollable} from '../../templates/scrollable';
+import {AppIcons} from '../../../assets/icons';
+import {colors} from '../../../constants/colors';
 
 interface ProfileData {
   sex: string;
@@ -86,9 +89,10 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
 
   const successToast = profile.saved && (
     <Toast
+      type="success"
       color="rgba(0, 207, 104, 0.16)"
       message={t('common:changesUpdated')}
-      icon={require('../../../assets/images/success/green.png')}
+      icon={<AppIcons.Success width={24} height={24} color={colors.success} />}
     />
   );
 

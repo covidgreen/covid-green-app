@@ -1,14 +1,9 @@
-import React, {FC} from 'react';
-import {
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  Image,
-  ImageRequireSource
-} from 'react-native';
+import React, {ReactNode, FC} from 'react';
+import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
 import {colors} from '../../constants/colors';
 import {shadows} from '../../theme';
+import {AppIcons} from '../../assets/icons';
 
 interface CardProps {
   type?: 'warning';
@@ -17,11 +12,7 @@ interface CardProps {
     v?: number;
     r?: number;
   };
-  icon?: {
-    w: number;
-    h: number;
-    source: ImageRequireSource;
-  };
+  icon?: ReactNode;
   onPress?: () => void;
 }
 
@@ -40,26 +31,11 @@ export const Card: FC<CardProps> = ({
   const cardContent = (
     <View
       style={[styles.card, type === 'warning' && styles.cardWarning, padding]}>
-      {icon && (
-        <View style={styles.icon}>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={{width: icon.w, height: icon.h}}
-            width={icon.w}
-            height={icon.h}
-            source={icon.source}
-          />
-        </View>
-      )}
+      {icon && <View style={styles.icon}>{icon}</View>}
       <View style={styles.childrenView}>{children}</View>
       {onPress && (
         <View style={styles.row}>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={styles.arrowIcon}
-            {...styles.arrowIcon}
-            source={require('../../assets/images/arrow-right/teal.png')}
-          />
+          <AppIcons.ArrowRight width={18} height={18} color={colors.teal} />
         </View>
       )}
     </View>

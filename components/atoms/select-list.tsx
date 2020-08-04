@@ -4,10 +4,10 @@ import {
   TouchableWithoutFeedback,
   View,
   Text,
-  Image
 } from 'react-native';
 import {colors} from '../../constants/colors';
 import {text} from '../../theme';
+import Icons from '../../assets/icons';
 
 interface ListItem {
   value: any;
@@ -57,13 +57,7 @@ export const SelectList: FC<SelectListProps> = ({
 };
 
 const IconSelected = () => (
-  <Image
-    accessibilityIgnoresInvertColors
-    style={styles.iconSize}
-    width={styles.iconSize.width}
-    height={styles.iconSize.height}
-    source={require('../../assets/images/check-mark/check-mark.png')}
-  />
+  <Icons.CheckMark width={26} height={26} color={colors.teal} />
 );
 
 const IconNotSelected = () => <View style={styles.circle} />;
