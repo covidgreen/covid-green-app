@@ -35,16 +35,17 @@ We have many collaborators, and every kind of contribution is welcome! Our organ
 | `@covidgreen/leads` | Lead Maintainers | GitHub organization owners |
 | `@covidgreen/core`  |  Core development  |  `covid-green-app` `react-native-exposure-notification-service`|
 
-Every memeber of the org is also part of `@covidgreen/members`.
+Every member of the org is also part of `@covidgreen/members`.
 
 ### Onboarding Collaborators
 
-Welcome to the team! We are happy to have you. Before you start, please complete the following tasks:
+Before a new Collaborator can be onboarded, an issue nominating the new contributor as a project member must be opened. The new member will be added if there are no objections raised from other existing members. Contributors nominated should have at least some history of contribution and an intent to continue contributing.
+
+Once a nomination has been accepted... Welcome to the team! We are happy to have you. Before you start, please complete the following tasks:
 1. Set up 2 factor authentication for GitHub and NPM
   - [GitHub 2FA](https://help.github.com/en/articles/securing-your-account-with-two-factor-authentication-2fa)
   - [NPM 2FA](https://docs.npmjs.com/about-two-factor-authentication)
-2. Choose which team to join *(more than one is ok!)* based on how you want to help.
-3. Open a pull request to [`covidgreen/covid-green-app:current`](https://github.com/covidgreen/covid-green-app/pulls) that adds your name, username, and email to the team you have choosen in the [README.md](./README.md). The members lists are sorted alphabetically; make sure to add your name in the proper order.
+1. Open a pull request to [`covidgreen/covid-green-app:current`](https://github.com/covidgreen/covid-green-app/pulls) that adds your name, username, and email to the team you have choosen in the [README.md](./README.md). The members lists are sorted alphabetically; make sure to add your name in the proper order.
 
 ### Offboarding Collaborators
 
@@ -56,7 +57,7 @@ We'll be really happy to see you here again if you want to come back, but for no
 
 The person that did the onboarding must:
 1. If the collaborator doesn't reply to the ping in reasonable time, open the pull requests described above.
-2. Remove the collaborator from the teams on GitHub.
+1. Remove the collaborator from the teams on GitHub.
 -----------------------------------------
 
 <a id="developers-certificate-of-origin"></a>
