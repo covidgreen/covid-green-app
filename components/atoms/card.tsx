@@ -10,7 +10,7 @@ import {
 import {colors} from '../../constants/colors';
 import {shadows} from '../../theme';
 
-interface CountyBreakdownCardProps {
+interface CardProps {
   type?: 'warning';
   padding?: {
     h?: number;
@@ -24,79 +24,52 @@ interface CountyBreakdownCardProps {
   };
   onPress?: () => void;
 }
-export const Card: FC<CountyBreakdownCardProps> = ({
+
+export const Card: FC<CardProps> = ({
   type,
-  padding: {h = 16, v = 16, r = 16} = {},
+  padding: {h = 16, v = 16, r} = {},
   icon,
   onPress,
   children
 }) => {
-  if (!onPress) {
-    return (
-      <View
-        style={[
-          styles.card,
-          type === 'warning' && styles.cardWarning,
-          {paddingHorizontal: h, paddingVertical: v, paddingRight: r}
-        ]}>
-        {icon && (
-          <View style={styles.icon}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={{width: icon.w, height: icon.h}}
-              width={icon.w}
-              height={icon.h}
-              source={icon.source}
-            />
-          </View>
-        )}
-        <View style={styles.childrenView}>{children}</View>
-        {onPress && (
-          <View style={styles.row}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={styles.arrowIcon}
-              {...styles.arrowIcon}
-              source={require('../../assets/images/arrow-right/teal.png')}
-            />
-          </View>
-        )}
-      </View>
-    );
-  }
-
-  return (
+  const padding = {
+    paddingHorizontal: h,
+    paddingVertical: v,
+    ...(r !== undefined && {paddingRight: r})
+  };
+  const cardContent = (
+    <View
+      style={[styles.card, type === 'warning' && styles.cardWarning, padding]}>
+      {icon && (
+        <View style={styles.icon}>
+          <Image
+            accessibilityIgnoresInvertColors
+            style={{width: icon.w, height: icon.h}}
+            width={icon.w}
+            height={icon.h}
+            source={icon.source}
+          />
+        </View>
+      )}
+      <View style={styles.childrenView}>{children}</View>
+      {onPress && (
+        <View style={styles.row}>
+          <Image
+            accessibilityIgnoresInvertColors
+            style={styles.arrowIcon}
+            {...styles.arrowIcon}
+            source={require('../../assets/images/arrow-right/teal.png')}
+          />
+        </View>
+      )}
+    </View>
+  );
+  return onPress ? (
     <TouchableWithoutFeedback accessibilityRole="button" onPress={onPress}>
-      <View
-        style={[
-          styles.card,
-          type === 'warning' && styles.cardWarning,
-          {paddingHorizontal: h, paddingVertical: v, paddingRight: r}
-        ]}>
-        {icon && (
-          <View style={styles.icon}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={{width: icon.w, height: icon.h}}
-              width={icon.w}
-              height={icon.h}
-              source={icon.source}
-            />
-          </View>
-        )}
-        <View style={styles.childrenView}>{children}</View>
-        {onPress && (
-          <View style={styles.row}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={styles.arrowIcon}
-              {...styles.arrowIcon}
-              source={require('../../assets/images/arrow-right/teal.png')}
-            />
-          </View>
-        )}
-      </View>
+      {cardContent}
     </TouchableWithoutFeedback>
+  ) : (
+    cardContent
   );
 };
 
