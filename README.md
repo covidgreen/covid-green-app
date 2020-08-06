@@ -62,6 +62,9 @@ To start the iOS one, run:
 yarn ios
 ```
 
+## Adding and optimizing icons
+Any new SVG icons which are included within `assets/icons` should be optimized with `npm run optimize:svg`.
+
 ## Team
 
 ### Lead Maintainers
@@ -81,6 +84,7 @@ yarn ios
 ### Contributors
 
 * @dharding - David J Harding <davidjasonharding@gmail.com>
+* @jh3y - Jhey Tompkins <jhey@jhey.dev>
 
 ### Past Contributors
 
