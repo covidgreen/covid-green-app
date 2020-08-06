@@ -81,6 +81,7 @@ yarn ios
 ### Contributors
 
 * @dharding - David J Harding <davidjasonharding@gmail.com>
+* @ckiss - Cristian Kiss <cristian.kiss@nearform.com>
 
 ### Past Contributors
 
