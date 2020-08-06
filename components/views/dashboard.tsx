@@ -18,7 +18,7 @@ import {StatsSource} from '../molecules/stats-source';
 import {AppStats} from '../organisms/app-stats';
 import {CovidStats} from '../organisms/covid-stats';
 
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 import {Button} from '../../components/atoms/button';
 import {Toast} from '../../components/atoms/toast';
 import {CloseContactWarning} from '../molecules/close-contact-warning';

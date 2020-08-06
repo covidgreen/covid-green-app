@@ -14,7 +14,7 @@ import {Quote} from '../molecules/quote';
 import {Card} from '../atoms/card';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 import {text} from '../../theme';
 
 const TracingImage = require('../../assets/images/information/image.png');

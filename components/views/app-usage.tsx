@@ -10,7 +10,7 @@ import {Link} from '../atoms/link';
 import {Markdown} from '../atoms/markdown';
 import {Quote} from '../molecules/quote';
 
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 
 interface AppUsageProps {
   navigation: any;

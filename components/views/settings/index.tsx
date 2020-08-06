@@ -17,7 +17,7 @@ import {BUILD_VERSION, HIDE_DEBUG} from 'react-native-dotenv';
 
 import {colors} from '../../../constants/colors';
 import {text, shadows} from '../../../theme';
-import Layouts from '../../../theme/layouts';
+import Layouts from '../../templates';
 
 const REQUIRED_PRESS_COUNT = 3;
 

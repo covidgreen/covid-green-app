@@ -9,7 +9,7 @@ import {Card} from '../atoms/card';
 import {Markdown} from '../atoms/markdown';
 import {Button} from '../atoms/button';
 
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 import {text} from '../../theme';
 import {useSettings} from '../../providers/settings';
 import PushNotification from 'react-native-push-notification';

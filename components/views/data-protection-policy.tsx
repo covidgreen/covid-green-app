@@ -7,7 +7,7 @@ import {Link} from '../atoms/link';
 import {useNavigation} from '@react-navigation/native';
 import {colors} from '../../constants/colors';
 import {text} from '../../theme';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 
 const PrivacyIcon = () => (
   <Image

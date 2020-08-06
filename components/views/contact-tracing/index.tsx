@@ -20,7 +20,7 @@ import {TrackerAreaChart} from '../../molecules/area-chart';
 import {shareApp} from '../../organisms/tab-bar-bottom';
 import {colors} from '../../../constants/colors';
 import {text} from '../../../theme';
-import Layouts from '../../../theme/layouts';
+import Layouts from '../../templates';
 
 import {Active} from './active';
 import {NotActive} from './not-active';

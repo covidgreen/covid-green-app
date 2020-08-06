@@ -25,7 +25,7 @@ import {LocationDropdown} from '../molecules/locality-dropdown';
 import {Result} from '../molecules/result-card';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 import {text, shadows, baseStyles} from '../../theme';
 
 const width = Dimensions.get('window').width;

@@ -11,7 +11,7 @@ import {Markdown} from '../atoms/markdown';
 import {PhoneNumber} from '../organisms/phone-number';
 
 import {text} from '../../theme';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 import {saveMetric, METRIC_TYPES} from '../../services/api';
 import {useExposure} from '../../providers/exposure';
 

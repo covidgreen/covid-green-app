@@ -13,7 +13,7 @@ import {format} from 'date-fns';
 import {Button} from '../../atoms/button';
 import {useExposure} from '../../../providers/exposure';
 
-import Layouts from '../../../theme/layouts';
+import Layouts from '../../templates';
 
 const emitter = new NativeEventEmitter(ExposureNotification);
 

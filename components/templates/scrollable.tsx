@@ -4,8 +4,8 @@ import {useSafeArea} from 'react-native-safe-area-context';
 
 import {SPACING_TOP, SPACING_BOTTOM, SPACING_HORIZONTAL} from './shared';
 
-import {Spacing} from '../../components/atoms/layout';
-import {Heading} from '../../components/atoms/heading';
+import {Spacing} from '../atoms/layout';
+import {Heading} from '../atoms/heading';
 
 import {colors} from '../../constants/colors';
 

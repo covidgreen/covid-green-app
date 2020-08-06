@@ -5,7 +5,7 @@ import * as SecureStore from 'expo-secure-store';
 
 import {Markdown} from '../../atoms/markdown';
 
-import Layouts from '../../../theme/layouts';
+import Layouts from '../../templates';
 import {Spacing} from '../../atoms/spacing';
 import {DataProtectionLink} from '../data-protection-policy';
 import {text} from '../../../theme';

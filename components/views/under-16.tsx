@@ -6,7 +6,7 @@ import {Spacing} from '../atoms/spacing';
 import {ResponsiveImage} from '../atoms/responsive-image';
 
 import {text} from '../../theme';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 
 export const Under16: FC = () => {
   const {t} = useTranslation();

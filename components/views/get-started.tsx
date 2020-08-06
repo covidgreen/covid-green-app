@@ -18,7 +18,7 @@ import {Spacing} from '../atoms/spacing';
 import {Button} from '../atoms/button';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 import {text} from '../../theme';
 
 const OnboardingImage = require('../../assets/images/onboarding-bg/bg.png');

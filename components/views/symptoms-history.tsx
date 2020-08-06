@@ -14,7 +14,7 @@ import {Toast} from '../atoms/toast';
 import {CheckInCard} from '../molecules/check-in-card';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 import {text} from '../../theme';
 import {usePermissions} from '../../providers/permissions';
 

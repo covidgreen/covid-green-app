@@ -8,7 +8,7 @@ import {useApplication} from '../../providers/context';
 
 import {colors} from '../../constants/colors';
 import {shadows, text} from '../../theme';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 import {useIsFocused, useFocusEffect} from '@react-navigation/native';
 
 export const CountyBreakdown = () => {

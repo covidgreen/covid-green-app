@@ -10,7 +10,7 @@ import {useApplication} from '../../../providers/context';
 import {useExposure} from '../../../providers/exposure';
 import {forget} from '../../../services/api';
 
-import Layouts from '../../../theme/layouts';
+import Layouts from '../../templates';
 import {DataProtectionLink} from '../data-protection-policy';
 import {Spacing} from '../../atoms/spacing';
 import {ScrollView} from 'react-native-gesture-handler';

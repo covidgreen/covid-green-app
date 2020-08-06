@@ -13,7 +13,7 @@ import {useSettings} from '../../../providers/settings';
 import {useApplication, UserLocation} from '../../../providers/context';
 
 import {text, baseStyles} from '../../../theme';
-import Layouts from '../../../theme/layouts';
+import Layouts from '../../templates';
 
 interface ProfileData {
   sex: string;

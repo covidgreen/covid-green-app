@@ -7,7 +7,7 @@ import {Button} from '../atoms/button';
 import {ResponsiveImage} from '../atoms/responsive-image';
 
 import {text} from '../../theme';
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 
 export const Sorry: FC<any> = ({navigation}) => {
   const {t} = useTranslation();

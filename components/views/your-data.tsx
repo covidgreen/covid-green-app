@@ -14,7 +14,7 @@ import {Button} from '../atoms/button';
 import {Quote} from '../molecules/quote';
 import {Toast} from '../atoms/toast';
 
-import Layouts from '../../theme/layouts';
+import Layouts from '../templates';
 
 interface YourDataProps {
   navigation: StackNavigationProp<any>;
