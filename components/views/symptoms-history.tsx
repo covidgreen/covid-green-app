@@ -14,7 +14,7 @@ import {Toast} from '../atoms/toast';
 import {CheckInCard} from '../molecules/check-in-card';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../../theme/layouts';
+import {Scrollable} from '../templates/scrollable';
 import {text} from '../../theme';
 import {usePermissions} from '../../providers/permissions';
 
@@ -44,7 +44,7 @@ export const SymptomsHistory = ({navigation}) => {
   );
 
   return (
-    <Layouts.Scrollable safeArea={false} backgroundColor="#FAFAFA">
+    <Scrollable safeArea={false} backgroundColor="#FAFAFA">
       {completedChecker && (
         <>
           <Toast
@@ -156,7 +156,7 @@ export const SymptomsHistory = ({navigation}) => {
           );
         })}
       </Card>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

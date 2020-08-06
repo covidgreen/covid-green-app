@@ -14,7 +14,7 @@ import {Button} from '../atoms/button';
 import {Quote} from '../molecules/quote';
 import {Toast} from '../atoms/toast';
 
-import Layouts from '../../theme/layouts';
+import {Scrollable} from '../templates/scrollable';
 
 interface YourDataProps {
   navigation: StackNavigationProp<any>;
@@ -62,7 +62,7 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
   );
 
   return (
-    <Layouts.Scrollable toast={errorToast} heading={t('yourData:title')}>
+    <Scrollable toast={errorToast} heading={t('yourData:title')}>
       <Markdown markdownStyles={{block: {marginBottom: 16}}}>
         {t('yourData:info')}
       </Markdown>
@@ -72,6 +72,6 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
       <Quote text={t('yourData:viewInSettings')} />
       <Spacing s={36} />
       <Button onPress={onContinue}>{t('yourData:continue')}</Button>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };

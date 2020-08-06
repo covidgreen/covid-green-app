@@ -1,24 +1,16 @@
 import React, {FC, MutableRefObject} from 'react';
-import {
-  StyleSheet,
-  ScrollView,
-  RefreshControl,
-  KeyboardAvoidingView,
-  Platform
-} from 'react-native';
-import {useHeaderHeight} from '@react-navigation/stack';
+import {StyleSheet, View, ScrollView, RefreshControl} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {SPACING_TOP, SPACING_BOTTOM, SPACING_HORIZONTAL} from './shared';
-
-import {Spacing} from '../../components/atoms/layout';
-import {Heading} from '../../components/atoms/heading';
-
+import {Spacing} from '../atoms/layout';
+import {Heading} from '../atoms/heading';
 import {colors} from '../../constants/colors';
 
 interface LayoutProps {
   toast?: React.ReactNode;
   heading?: string;
+  headingShort?: boolean;
   backgroundColor?: string;
   refresh?: {
     refreshing: boolean;
@@ -27,28 +19,25 @@ interface LayoutProps {
   scrollViewRef?: MutableRefObject<ScrollView | null>;
   safeArea?: boolean;
   children: React.ReactNode;
+  accessibilityRefocus?: boolean;
 }
 
-export const KeyboardScrollable: FC<LayoutProps> = ({
+export const Scrollable: FC<LayoutProps> = ({
   toast,
   heading,
+  headingShort = false,
   backgroundColor,
   refresh,
   scrollViewRef,
   safeArea = true,
-  children
+  children,
+  accessibilityRefocus = false
 }) => {
   const insets = useSafeArea();
-  const headerHeight = useHeaderHeight();
-
   const refreshControl = refresh && <RefreshControl {...refresh} />;
 
   return (
-    <KeyboardAvoidingView
-      keyboardVerticalOffset={headerHeight}
-      style={[styles.container, !!backgroundColor && {backgroundColor}]}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      enabled>
+    <View style={[styles.container, !!backgroundColor && {backgroundColor}]}>
       <ScrollView
         ref={scrollViewRef}
         keyboardShouldPersistTaps="always"
@@ -63,10 +52,17 @@ export const KeyboardScrollable: FC<LayoutProps> = ({
             <Spacing s={8} />
           </>
         )}
-        {heading && <Heading accessibilityFocus text={heading} />}
+        {heading && (
+          <Heading
+            accessibilityRefocus={accessibilityRefocus}
+            accessibilityFocus
+            lineWidth={headingShort ? 75 : undefined}
+            text={heading}
+          />
+        )}
         {children}
       </ScrollView>
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 

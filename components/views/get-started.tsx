@@ -18,7 +18,7 @@ import {Spacing} from '../atoms/spacing';
 import {Button} from '../atoms/button';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../../theme/layouts';
+import {Basic} from '../templates/basic';
 import {text} from '../../theme';
 
 const OnboardingImage = require('../../assets/images/onboarding-bg/bg.png');
@@ -80,7 +80,7 @@ export const GetStarted = ({navigation}: GetStartedProps) => {
   };
 
   return (
-    <Layouts.Basic>
+    <Basic>
       <Animated.View
         style={[styles.animatedView, {opacity: navOpacity.current}]}>
         <NavBar
@@ -197,7 +197,7 @@ export const GetStarted = ({navigation}: GetStartedProps) => {
           </View>
         </ScrollView>
       </Animated.View>
-    </Layouts.Basic>
+    </Basic>
   );
 };
 

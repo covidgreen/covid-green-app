@@ -9,7 +9,7 @@ import {Card} from '../atoms/card';
 import {Markdown} from '../atoms/markdown';
 import {Button} from '../atoms/button';
 
-import Layouts from '../../theme/layouts';
+import {Scrollable} from '../templates/scrollable';
 import {text} from '../../theme';
 import {useSettings} from '../../providers/settings';
 import PushNotification from 'react-native-push-notification';
@@ -26,7 +26,7 @@ export const CloseContact: FC<any> = ({route}) => {
   PushNotification.setApplicationIconBadgeNumber(0);
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       heading={type ? t('closeContact:infoTitle') : t('closeContact:title')}>
       <Text style={text.largeBold}>
         {type ? t('closeContact:intro') : t('closeContact:alertintro')}
@@ -62,7 +62,7 @@ export const CloseContact: FC<any> = ({route}) => {
         {t('closeContact:symptoms:callHSE')}
       </Button>
       <Spacing s={32} />
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 
