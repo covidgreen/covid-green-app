@@ -1,9 +1,8 @@
-import React, {FC} from 'react';
+import React, {ReactNode, FC} from 'react';
 import {
   StyleSheet,
   View,
   TouchableWithoutFeedback,
-  Image,
   Text,
   Share,
   Platform
@@ -16,6 +15,7 @@ import {colors} from '../../constants/colors';
 import {text} from '../../theme';
 import {useExposure, StatusState} from '../../providers/exposure';
 import {TabBarIcons, AppIcons} from '../../assets/icons';
+import {getActionFromState} from '@react-navigation/native';
 
 export const shareApp = async (t: TFunction) => {
   try {
@@ -36,8 +36,28 @@ export const shareApp = async (t: TFunction) => {
   }
 };
 
+interface Tab {
+  label: string;
+  icon: {
+    active: ReactNode;
+    inactive: ReactNode;
+    unknown?: ReactNode;
+  };
+}
+
+const getIcon = (tab: Tab, active: Boolean, status: String) => {
+  if (status === StatusState.unknown && tab.icon.unknown) return tab.icon.unknown;
+  if (active) return tab.icon.active;
+  if (!active) return tab.icon.inactive;
+  return tab.icon.inactive;
+};
+
 const ctOnUnselected = (
-  <TabBarIcons.ContactTracing.Off width={32} height={24} color={colors.teal} />
+  <TabBarIcons.ContactTracing.On
+    width={32}
+    height={24}
+    color={colors.darkGray}
+  />
 );
 const ctOffUnselected = (
   <TabBarIcons.ContactTracing.Off
@@ -50,7 +70,15 @@ const ctOnSelected = (
   <TabBarIcons.ContactTracing.On width={32} height={24} color={colors.teal} />
 );
 const ctOffSelected = (
-  <TabBarIcons.ContactTracing.On
+  <TabBarIcons.ContactTracing.Off
+    width={32}
+    height={24}
+    color={colors.darkGray}
+  />
+);
+
+const ctUnknown = (
+  <TabBarIcons.ContactTracing.Unknown
     width={32}
     height={24}
     color={colors.darkGray}
@@ -108,7 +136,8 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
         active:
           status.state === StatusState.active && enabled
             ? ctOnSelected
-            : ctOffSelected
+            : ctOffSelected,
+        unknown: ctUnknown
       }
     },
     {
@@ -135,7 +164,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
                   : () => shareApp(t)
               }>
               <View style={[styles.tab]}>
-                {isActive ? tab.icon.active : tab.icon.inactive}
+                {getIcon(tab, isActive, status.state)}
                 <Text
                   allowFontScaling={false}
                   style={[styles.label, isActive && styles.labelActive]}>

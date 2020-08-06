@@ -29,6 +29,7 @@ import Updates from './tab-bar/updates.svg';
 import CheckIn from './tab-bar/check-in.svg';
 import ContactTracingOff from './tab-bar/contact-tracing-off.svg';
 import ContactTracingOn from './tab-bar/contact-tracing-on.svg';
+import ContactTracingUnknown from './tab-bar/contact-tracing-unknown.svg';
 import SettingsAndroid from './tab-bar/settings-android.svg';
 import SettingsIOS from './tab-bar//settings-ios.svg';
 
@@ -67,7 +68,8 @@ export const TabBarIcons = {
   CheckIn,
   ContactTracing: {
     Off: ContactTracingOff,
-    On: ContactTracingOn
+    On: ContactTracingOn,
+    Unknown: ContactTracingUnknown
   },
   Settings: Platform.OS === 'ios' ? SettingsIOS : SettingsAndroid
 };
