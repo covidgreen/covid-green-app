@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="26px" height="32px" viewBox="0 0 26 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>privacy</title>
-    <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
-        <g id="Icon/40x40/ic-privacy" transform="translate(-7.000000, -4.000000)" stroke="currentColor" stroke-width="2">
-            <g id="privacy" transform="translate(8.000000, 6.000000)">
-                <rect id="Rectangle" x="7" y="14" width="10" height="7"></rect>
-                <path d="M9,14 L9,11 C9,9.34314575 10.3431458,8 12,8 L12,8 C13.6568542,8 15,9.34314575 15,11 L15,14" id="Path"></path>
-                <path d="M24,17 C24,23.6274169 18.6274169,29 12,29 C5.37258307,29 0,23.6274169 0,17 L0,3 L12,0 L24,3 L24,17 Z" id="Path"></path>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="26" height="32" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M8 16h10v7H8zM10 16v-3a3 3 0 013-3h0a3 3 0 013 3v3"/><path d="M25 19c0 6.627-5.373 12-12 12S1 25.627 1 19V5l12-3 12 3v14z"/></g></svg>
