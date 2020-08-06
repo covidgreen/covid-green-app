@@ -22,7 +22,7 @@ import {Toast} from '../atoms/toast';
 import {CodeInput} from '../molecules/code-input';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../templates';
+import {KeyboardScrollable} from '../templates/keyboard-scrollable';
 import {text, baseStyles} from '../../theme';
 
 type UploadStatus =
@@ -213,7 +213,7 @@ export const UploadKeys = ({navigation}) => {
   };
 
   return (
-    <Layouts.KeyboardScrollable heading={t('uploadKeys:title')}>
+    <KeyboardScrollable heading={t('uploadKeys:title')}>
       {(status === 'validate' || status === 'upload') && renderValidation()}
       {status === 'permissionError' && renderPermissionError()}
       {status === 'error' && renderUploadError()}
@@ -223,7 +223,7 @@ export const UploadKeys = ({navigation}) => {
         status === 'permissionError') &&
         renderUpload()}
       {status === 'success' && renderUploadSuccess()}
-    </Layouts.KeyboardScrollable>
+    </KeyboardScrollable>
   );
 };
 

@@ -25,7 +25,7 @@ import {LocationDropdown} from '../molecules/locality-dropdown';
 import {Result} from '../molecules/result-card';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../templates';
+import {Scrollable} from '../templates/scrollable';
 import {text, shadows, baseStyles} from '../../theme';
 
 const width = Dimensions.get('window').width;
@@ -223,14 +223,14 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
 
   if (!app.checkInConsent) {
     return (
-      <Layouts.Scrollable safeArea={false} backgroundColor="#FAFAFA">
+      <Scrollable safeArea={false} backgroundColor="#FAFAFA">
         <Heading
           accessibilityRefocus
           accessibilityFocus
           text={t('checker:title')}
         />
         <CheckInConsent />
-      </Layouts.Scrollable>
+      </Scrollable>
     );
   }
 
@@ -316,7 +316,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
     : 'title';
 
   return (
-    <Layouts.Scrollable safeArea={false} backgroundColor="#FAFAFA">
+    <Scrollable safeArea={false} backgroundColor="#FAFAFA">
       <Heading
         accessibilityRefocus
         accessibilityFocus
@@ -365,7 +365,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
           </View>
         </Animated.View>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

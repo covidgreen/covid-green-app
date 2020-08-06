@@ -5,7 +5,7 @@ import * as SecureStore from 'expo-secure-store';
 
 import {Markdown} from '../../atoms/markdown';
 
-import Layouts from '../../templates';
+import {Scrollable} from '../../templates/scrollable';
 import {Spacing} from '../../atoms/spacing';
 import {DataProtectionLink} from '../data-protection-policy';
 import {text} from '../../../theme';
@@ -38,7 +38,7 @@ export const Metrics = () => {
   };
 
   return (
-    <Layouts.Scrollable heading={t('metrics:title')}>
+    <Scrollable heading={t('metrics:title')}>
       <Markdown style={{}}>{t('metrics:info')}</Markdown>
       <Spacing s={16} />
       <DataProtectionLink />
@@ -56,7 +56,7 @@ export const Metrics = () => {
           style={styles.switch}
         />
       </View>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

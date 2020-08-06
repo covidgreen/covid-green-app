@@ -10,7 +10,7 @@ import {Link} from '../atoms/link';
 import {Markdown} from '../atoms/markdown';
 import {Quote} from '../molecules/quote';
 
-import Layouts from '../templates';
+import {Scrollable} from '../templates/scrollable';
 
 interface AppUsageProps {
   navigation: any;
@@ -30,7 +30,7 @@ export const AppUsage: FC<AppUsageProps> = ({navigation}) => {
   };
 
   return (
-    <Layouts.Scrollable heading={t('appUsage:title')}>
+    <Scrollable heading={t('appUsage:title')}>
       <Markdown markdownStyles={{block: {marginBottom: 16}}}>
         {t('appUsage:info')}
       </Markdown>
@@ -46,6 +46,6 @@ export const AppUsage: FC<AppUsageProps> = ({navigation}) => {
       <Link align="center" onPress={() => handleNext(false)}>
         {t('appUsage:noThanks')}
       </Link>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };

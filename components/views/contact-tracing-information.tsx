@@ -14,7 +14,8 @@ import {Quote} from '../molecules/quote';
 import {Card} from '../atoms/card';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../templates';
+import {PinnedBottom} from '../templates/pinned';
+import {Scrollable} from '../templates/scrollable';
 import {text} from '../../theme';
 
 const TracingImage = require('../../assets/images/information/image.png');
@@ -71,7 +72,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
 
   if (!exposure.supported && !exposure.canSupport) {
     return (
-      <Layouts.PinnedBottom heading={t('onboarding:information:title')}>
+      <PinnedBottom heading={t('onboarding:information:title')}>
         <View style={notSupportedStyles.imageWrapper}>
           <Image
             accessibilityIgnoresInvertColors
@@ -93,7 +94,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
           }}>
           {t('onboarding:information:action')}
         </Button>
-      </Layouts.PinnedBottom>
+      </PinnedBottom>
     );
   }
 
@@ -189,9 +190,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
   );
 
   return (
-    <Layouts.Scrollable
-      heading={t('onboarding:information:title')}
-      headingShort={true}>
+    <Scrollable heading={t('onboarding:information:title')} headingShort={true}>
       <View style={headerStyles.row}>
         <View style={headerStyles.textBlock}>
           <Text style={headerStyles.text}>
@@ -213,7 +212,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
       <Text style={text.default}>{t('onboarding:information:text')}</Text>
       <Spacing s={24} />
       {exposure.supported ? permissionsInfo : upgradeNotice}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

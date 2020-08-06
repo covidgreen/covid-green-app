@@ -18,7 +18,7 @@ import {StatsSource} from '../molecules/stats-source';
 import {AppStats} from '../organisms/app-stats';
 import {CovidStats} from '../organisms/covid-stats';
 
-import Layouts from '../templates';
+import {Scrollable} from '../templates/scrollable';
 import {Button} from '../../components/atoms/button';
 import {Toast} from '../../components/atoms/toast';
 import {CloseContactWarning} from '../molecules/close-contact-warning';
@@ -80,7 +80,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
   );
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       safeArea={false}
       toast={errorToast}
       backgroundColor="#FAFAFA"
@@ -171,7 +171,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           />
         </>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

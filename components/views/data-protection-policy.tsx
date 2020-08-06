@@ -7,7 +7,7 @@ import {Link} from '../atoms/link';
 import {useNavigation} from '@react-navigation/native';
 import {colors} from '../../constants/colors';
 import {text} from '../../theme';
-import Layouts from '../templates';
+import {Scrollable} from '../templates/scrollable';
 
 const PrivacyIcon = () => (
   <Image
@@ -44,9 +44,9 @@ export const DataProtectionPolicy = () => {
   const {t} = useTranslation();
 
   return (
-    <Layouts.Scrollable heading={t('dataProtectionPolicy:title')}>
+    <Scrollable heading={t('dataProtectionPolicy:title')}>
       <Markdown markdownStyles={markDownStyles}>{dpinText}</Markdown>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 
@@ -55,9 +55,9 @@ export const TermsAndConditions = () => {
   const {t} = useTranslation();
 
   return (
-    <Layouts.Scrollable heading={t('tandcPolicy:title')}>
+    <Scrollable heading={t('tandcPolicy:title')}>
       <Markdown markdownStyles={markDownStyles}>{tandcText}</Markdown>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

@@ -13,7 +13,8 @@ import {useSettings} from '../../../providers/settings';
 import {useApplication, UserLocation} from '../../../providers/context';
 
 import {text, baseStyles} from '../../../theme';
-import Layouts from '../../templates';
+import {Basic} from '../../templates/basic';
+import {Scrollable} from '../../templates/scrollable';
 
 interface ProfileData {
   sex: string;
@@ -69,7 +70,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
 
   if (!sex || !ageRange || !location.county || !location.locality) {
     return (
-      <Layouts.Basic heading={t('checkInSettings:title')}>
+      <Basic heading={t('checkInSettings:title')}>
         <Text style={text.largeBold}>{t('checkInSettings:checkInFirst')}</Text>
         <Spacing s={48} />
         <Button
@@ -79,7 +80,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
           }>
           {t('checkInSettings:gotoCheckIn')}
         </Button>
-      </Layouts.Basic>
+      </Basic>
     );
   }
 
@@ -92,7 +93,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
   );
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       toast={successToast}
       heading={t('checkInSettings:title')}
       scrollViewRef={scrollViewRef}>
@@ -135,6 +136,6 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
         onPress={handleSave}>
         {t('common:confirmChanges')}
       </Button>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };

@@ -14,7 +14,7 @@ import {Markdown} from '../../atoms/markdown';
 import {PhoneNumber} from '../..//organisms/phone-number';
 import {Toast} from '../../atoms/toast';
 
-import Layouts from '../../templates';
+import {KeyboardScrollable} from '../../templates/keyboard-scrollable';
 import {text} from '../../../theme';
 import {METRIC_TYPES, saveMetric} from '../../../services/api';
 
@@ -115,7 +115,7 @@ export const ContactTracingSettings = () => {
   );
 
   return (
-    <Layouts.KeyboardScrollable
+    <KeyboardScrollable
       toast={successToast}
       heading={t('contactTracing:title')}
       scrollViewRef={scrollViewRef}>
@@ -169,6 +169,6 @@ export const ContactTracingSettings = () => {
           </Button>
         </>
       )}
-    </Layouts.KeyboardScrollable>
+    </KeyboardScrollable>
   );
 };

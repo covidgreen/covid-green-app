@@ -11,7 +11,7 @@ import {Markdown} from '../atoms/markdown';
 import {PhoneNumber} from '../organisms/phone-number';
 
 import {text} from '../../theme';
-import Layouts from '../templates';
+import {KeyboardScrollable} from '../templates/keyboard-scrollable';
 import {saveMetric, METRIC_TYPES} from '../../services/api';
 import {useExposure} from '../../providers/exposure';
 
@@ -43,7 +43,7 @@ export const FollowUpCall: FC<FollowUpCallProps> = ({navigation, route}) => {
   };
 
   return (
-    <Layouts.KeyboardScrollable scrollViewRef={scrollViewRef}>
+    <KeyboardScrollable scrollViewRef={scrollViewRef}>
       <View style={OStyles.row}>
         <View style={OStyles.image}>
           <Image
@@ -75,7 +75,7 @@ export const FollowUpCall: FC<FollowUpCallProps> = ({navigation, route}) => {
       <Link align="center" onPress={gotoDashboard}>
         {t('followUpCall:noThanks')}
       </Link>
-    </Layouts.KeyboardScrollable>
+    </KeyboardScrollable>
   );
 };
 
