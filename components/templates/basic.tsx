@@ -3,7 +3,6 @@ import {StyleSheet, View} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {SPACING_TOP, SPACING_BOTTOM, SPACING_HORIZONTAL} from './shared';
-
 import {Heading} from '../atoms/heading';
 import {colors} from '../../constants/colors';
 
