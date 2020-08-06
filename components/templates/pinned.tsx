@@ -3,8 +3,14 @@ import {StyleSheet, View} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {SPACING_TOP, SPACING_BOTTOM, SPACING_HORIZONTAL} from './shared';
+<<<<<<< HEAD:components/templates/pinned.tsx
 import {Heading} from '../atoms/heading';
 import {colors} from '../../constants/colors';
+=======
+
+import {colors} from 'constants/colors';
+import {Heading} from 'components/atoms/heading';
+>>>>>>> aliases import:src/theme/layouts/pinned.tsx
 
 interface LayoutProps {
   heading?: string;

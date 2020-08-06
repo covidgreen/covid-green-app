@@ -1,23 +1,23 @@
 import React, {FC, MutableRefObject} from 'react';
-import {StyleSheet, View, ScrollView, RefreshControl} from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  RefreshControl,
+  KeyboardAvoidingView,
+  Platform
+} from 'react-native';
+import {useHeaderHeight} from '@react-navigation/stack';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {SPACING_TOP, SPACING_BOTTOM, SPACING_HORIZONTAL} from './shared';
-<<<<<<< HEAD:components/templates/scrollable.tsx
-import {Spacing} from '../atoms/layout';
-import {Heading} from '../atoms/heading';
-import {colors} from '../../constants/colors';
-=======
 
 import {colors} from 'constants/colors';
 import {Heading} from 'components/atoms/heading';
 import {Spacing} from 'components/atoms/layout';
->>>>>>> aliases import:src/theme/layouts/scrollable.tsx
 
 interface LayoutProps {
   toast?: React.ReactNode;
   heading?: string;
-  headingShort?: boolean;
   backgroundColor?: string;
   refresh?: {
     refreshing: boolean;
@@ -26,25 +26,28 @@ interface LayoutProps {
   scrollViewRef?: MutableRefObject<ScrollView | null>;
   safeArea?: boolean;
   children: React.ReactNode;
-  accessibilityRefocus?: boolean;
 }
 
-export const Scrollable: FC<LayoutProps> = ({
+export const KeyboardScrollable: FC<LayoutProps> = ({
   toast,
   heading,
-  headingShort = false,
   backgroundColor,
   refresh,
   scrollViewRef,
   safeArea = true,
-  children,
-  accessibilityRefocus = false
+  children
 }) => {
   const insets = useSafeArea();
+  const headerHeight = useHeaderHeight();
+
   const refreshControl = refresh && <RefreshControl {...refresh} />;
 
   return (
-    <View style={[styles.container, !!backgroundColor && {backgroundColor}]}>
+    <KeyboardAvoidingView
+      keyboardVerticalOffset={headerHeight}
+      style={[styles.container, !!backgroundColor && {backgroundColor}]}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      enabled>
       <ScrollView
         ref={scrollViewRef}
         keyboardShouldPersistTaps="always"
@@ -59,17 +62,10 @@ export const Scrollable: FC<LayoutProps> = ({
             <Spacing s={8} />
           </>
         )}
-        {heading && (
-          <Heading
-            accessibilityRefocus={accessibilityRefocus}
-            accessibilityFocus
-            lineWidth={headingShort ? 75 : undefined}
-            text={heading}
-          />
-        )}
+        {heading && <Heading accessibilityFocus text={heading} />}
         {children}
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

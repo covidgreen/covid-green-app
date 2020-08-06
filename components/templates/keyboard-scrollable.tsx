@@ -10,9 +10,16 @@ import {useHeaderHeight} from '@react-navigation/stack';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {SPACING_TOP, SPACING_BOTTOM, SPACING_HORIZONTAL} from './shared';
+<<<<<<< HEAD:components/templates/keyboard-scrollable.tsx
 import {Spacing} from '../atoms/layout';
 import {Heading} from '../atoms/heading';
 import {colors} from '../../constants/colors';
+=======
+
+import {colors} from 'constants/colors';
+import {Heading} from 'components/atoms/heading';
+import {Spacing} from 'components/atoms/layout';
+>>>>>>> aliases import:src/theme/layouts/keyboard-scrollable.tsx
 
 interface LayoutProps {
   toast?: React.ReactNode;
