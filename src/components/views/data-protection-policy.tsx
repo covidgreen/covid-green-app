@@ -1,15 +1,14 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {useSettings} from '../../providers/settings';
-import {Markdown} from '../atoms/markdown';
-import {Link} from '../atoms/link';
 import {useNavigation} from '@react-navigation/native';
-import {colors} from '../../constants/colors';
-import {text} from '../../theme';
 
-import {Scrollable} from '../templates/scrollable';
-import Icons from '../../assets/icons';
+import Icons from 'assets/icons';
+import {colors, text} from 'theme';
+import {Link} from 'components/atoms/link';
+import {Markdown} from 'components/atoms/markdown';
+import {Scrollable} from 'components/templates/scrollable';
+import {useSettings} from 'providers/settings';
 
 const styles = StyleSheet.create({
   privacy: {

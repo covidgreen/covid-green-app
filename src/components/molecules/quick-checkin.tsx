@@ -1,23 +1,17 @@
 import React, {useRef, useEffect, FC} from 'react';
-import {
-  Text,
-  View,
-  TouchableWithoutFeedback,
-  Animated
-} from 'react-native';
+import {Text, View, TouchableWithoutFeedback, Animated} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {TFunction} from 'i18next';
 
-import {Spacing} from '../atoms/spacing';
-import {Button} from '../atoms/button';
-import {Link} from '../atoms/link';
-
 import {styles} from './checkin-consent';
-import {useApplication} from '../../providers/context';
 
-import {text} from '../../theme';
-import {AppIcons} from '../../assets/icons';
+import {AppIcons} from 'assets/icons';
+import {Button} from 'components/atoms/button';
+import {Link} from 'components/atoms/link';
+import {Spacing} from 'components/atoms/spacing';
+import {text} from 'theme';
+import {useApplication} from 'providers/context';
 
 interface Props {
   onDismissed: () => void;

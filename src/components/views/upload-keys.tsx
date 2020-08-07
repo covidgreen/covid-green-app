@@ -3,28 +3,24 @@ import {Text, StyleSheet} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import {useTranslation} from 'react-i18next';
 
-import {useApplication} from '../../providers/context';
-import {useExposure} from '../../providers/exposure';
+import {DataProtectionLink} from './data-protection-policy';
 
+import {useApplication} from 'providers/context';
+import {useExposure} from 'providers/exposure';
 import {
   validateCode,
   uploadExposureKeys,
   ValidationResult
-} from '../../services/api/exposures';
-
-import {DataProtectionLink} from './data-protection-policy';
-
-import {Spacing} from '../atoms/layout';
-import {Markdown} from '../atoms/markdown';
-import {Button} from '../atoms/button';
-import {Card} from '../atoms/card';
-import {Toast} from '../atoms/toast';
-import {CodeInput} from '../molecules/code-input';
-
-import {colors} from '../../constants/colors';
-import {KeyboardScrollable} from '../templates/keyboard-scrollable';
-import {text, baseStyles} from '../../theme';
-import {AppIcons} from '../../assets/icons';
+} from 'services/api/exposures';
+import {AppIcons} from 'assets/icons';
+import {Button} from 'components/atoms/button';
+import {Card} from 'components/atoms/card';
+import {CodeInput} from 'components/molecules/code-input';
+import {colors, text, baseStyles} from 'theme';
+import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
+import {Markdown} from 'components/atoms/markdown';
+import {Spacing} from 'components/atoms/layout';
+import {Toast} from 'components/atoms/toast';
 
 type UploadStatus =
   | 'initialising'

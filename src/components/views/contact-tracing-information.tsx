@@ -4,30 +4,27 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import * as SecureStore from 'expo-secure-store';
 
-import {usePermissions} from '../../providers/permissions';
-import {useExposure} from '../../providers/exposure';
+import {usePermissions} from 'providers/permissions';
+import {useExposure} from 'providers/exposure';
+import {SingleRow, Spacing} from 'components/atoms/layout';
+import {Button} from 'components/atoms/button';
+import {Link} from 'components/atoms/link';
+import {Quote} from 'components/molecules/quote';
+import {Card} from 'components/atoms/card';
+import {PinnedBottom} from 'components/templates/pinned';
+import {Scrollable} from 'components/templates/scrollable';
+import {colors, text} from 'theme';
+import {AppIcons} from 'assets/icons';
 
-import {SingleRow, Spacing} from '../atoms/layout';
-import {Button} from '../atoms/button';
-import {Link} from '../atoms/link';
-import {Quote} from '../molecules/quote';
-import {Card} from '../atoms/card';
-
-import {colors} from '../../constants/colors';
-import {PinnedBottom} from '../templates/pinned';
-import {Scrollable} from '../templates/scrollable';
-import {text} from '../../theme';
-import {AppIcons} from '../../assets/icons';
-
-const TracingImage = require('../../assets/images/information/image.png');
+const TracingImage = require('assets/images/information/image.png');
 
 interface Props {
   navigation: StackNavigationProp<any>;
 }
 
 const upgradeImage: {[key: string]: any} = {
-  ios: require('../../assets/images/apple/image.png'),
-  android: require('../../assets/images/google/image.png')
+  ios: require('assets/images/apple/image.png'),
+  android: require('assets/images/google/image.png')
 };
 
 export const ContactTracingInformation = ({navigation, route}: Props) => {
@@ -79,7 +76,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
             accessibilityIgnoresInvertColors
             style={notSupportedStyles.image}
             {...notSupportedStyles.image}
-            source={require('../../assets/images/phone/not-active.png')}
+            source={require('assets/images/phone/not-active.png')}
           />
         </View>
         <Spacing s={20} />

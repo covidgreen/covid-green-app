@@ -2,22 +2,18 @@ import React, {useState, useRef} from 'react';
 import {Text, ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {Spacing, Separator} from '../../atoms/layout';
-import {Button} from '../../atoms/button';
-import {SelectList} from '../../atoms/select-list';
-import {Dropdown} from '../../atoms/dropdown';
-import {Toast} from '../../atoms/toast';
-import {LocationDropdown} from '../../molecules/locality-dropdown';
-
-import {useSettings} from '../../../providers/settings';
-import {useApplication, UserLocation} from '../../../providers/context';
-
-import {text, baseStyles} from '../../../theme';
-
-import {Basic} from '../../templates/basic';
-import {Scrollable} from '../../templates/scrollable';
-import {AppIcons} from '../../../assets/icons';
-import {colors} from '../../../constants/colors';
+import {AppIcons} from 'assets/icons';
+import {Basic} from 'components/templates/basic';
+import {Button} from 'components/atoms/button';
+import {colors, text, baseStyles} from 'theme';
+import {Dropdown} from 'components/atoms/dropdown';
+import {LocationDropdown} from 'components/molecules/locality-dropdown';
+import {Scrollable} from 'components/templates/scrollable';
+import {SelectList} from 'components/atoms/select-list';
+import {Spacing, Separator} from 'components/atoms/layout';
+import {Toast} from 'components/atoms/toast';
+import {useApplication, UserLocation} from 'providers/context';
+import {useSettings} from 'providers/settings';
 
 interface ProfileData {
   sex: string;

@@ -2,14 +2,12 @@ import React, {FC} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {Spacing} from '../atoms/layout';
-import {Heading} from '../atoms/heading';
-import {Card} from '../atoms/card';
-import {Progress} from '../atoms/progress';
-
-import {colors} from '../../constants/colors';
-import {text} from '../../theme';
-import {BubbleIcons} from '../../assets/icons';
+import {Spacing} from 'components/atoms/layout';
+import {Heading} from 'components/atoms/heading';
+import {Card} from 'components/atoms/card';
+import {Progress} from 'components/atoms/progress';
+import {colors, text} from 'theme';
+import {BubbleIcons} from 'assets/icons';
 
 export interface AppStats {
   totalCheckins: number;

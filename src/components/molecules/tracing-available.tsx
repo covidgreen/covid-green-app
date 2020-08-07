@@ -9,14 +9,11 @@ import {
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
-import {SingleRow} from '../atoms/layout';
+import {SingleRow} from 'components/atoms/layout';
+import {colors, shadows, text} from 'theme';
+import {AppIcons} from 'assets/icons';
 
-import {colors} from '../../constants/colors';
-
-import {shadows, text} from '../../theme';
-import { AppIcons } from '../../assets/icons';
-
-const TracingImage = require('../../assets/images/information/alt.png');
+const TracingImage = require('assets/images/information/alt.png');
 
 export const TracingAvailable: FC = () => {
   const {t} = useTranslation();
@@ -39,7 +36,7 @@ export const TracingAvailable: FC = () => {
           </Text>
         </View>
         <SingleRow>
-          <AppIcons.ArrowRight width={24} height={24} color={colors.teal}/>
+          <AppIcons.ArrowRight width={24} height={24} color={colors.teal} />
         </SingleRow>
       </View>
     </TouchableWithoutFeedback>

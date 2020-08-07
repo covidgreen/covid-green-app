@@ -4,21 +4,18 @@ import * as IntentLauncher from 'expo-intent-launcher';
 import {useTranslation} from 'react-i18next';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 
-import {useExposure, StatusState} from '../../../providers/exposure';
-import {usePermissions} from '../../../providers/permissions';
-import {useAppState} from '../../../hooks/app-state';
-
-import {Spacing, Separator} from '../../atoms/layout';
-import {Button} from '../../atoms/button';
-import {Markdown} from '../../atoms/markdown';
-import {PhoneNumber} from '../..//organisms/phone-number';
-import {Toast} from '../../atoms/toast';
-
-import {KeyboardScrollable} from '../../templates/keyboard-scrollable';
-import {text} from '../../../theme';
-import {METRIC_TYPES, saveMetric} from '../../../services/api';
-import {colors} from '../../../constants/colors';
-import {AppIcons} from '../../../assets/icons';
+import {AppIcons} from 'assets/icons';
+import {Button} from 'components/atoms/button';
+import {colors, text} from 'theme';
+import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
+import {Markdown} from 'components/atoms/markdown';
+import {METRIC_TYPES, saveMetric} from 'services/api';
+import {PhoneNumber} from 'components/organisms/phone-number';
+import {Spacing, Separator} from 'components/atoms/layout';
+import {Toast} from 'components/atoms/toast';
+import {useAppState} from 'hooks/app-state';
+import {useExposure, StatusState} from 'providers/exposure';
+import {usePermissions} from 'providers/permissions';
 
 export const ContactTracingSettings = () => {
   const {t} = useTranslation();

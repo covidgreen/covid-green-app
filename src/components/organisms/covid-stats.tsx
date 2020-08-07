@@ -1,16 +1,13 @@
 import React, {FC} from 'react';
-import {StyleSheet, View, ViewStyle, Image, Text} from 'react-native';
+import {StyleSheet, View, ViewStyle, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {CovidStatistics} from '../../services/api';
-
-import {Spacing} from '../atoms/spacing';
-import {Heading} from '../atoms/heading';
-import {CountyBreakdownCard} from '../molecules/county-breakdown-card';
-
-import {colors} from '../../constants/colors';
-import {shadows, text} from '../../theme';
-import {BubbleIcons} from '../../assets/icons';
+import {CovidStatistics} from 'services/api';
+import {Spacing} from 'components/atoms/spacing';
+import {Heading} from 'components/atoms/heading';
+import {CountyBreakdownCard} from 'components/molecules/county-breakdown-card';
+import {colors, shadows, text} from 'theme';
+import {BubbleIcons} from 'assets/icons';
 
 interface CovidStatsProps {
   style?: ViewStyle;

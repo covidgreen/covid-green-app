@@ -3,15 +3,13 @@ import {
   Text,
   View,
   TouchableWithoutFeedback,
-  StyleSheet,
-  Image
+  StyleSheet
 } from 'react-native';
 
 import {DropdownModal} from './modal';
-import {colors} from '../../../constants/colors';
-import {Spacing} from '../spacing';
-import {text} from '../../../theme';
-import {AppIcons} from '../../../assets/icons';
+import {Spacing} from 'components/atoms/spacing';
+import {text, colors} from 'theme';
+import {AppIcons} from 'assets/icons';
 
 interface DropdownProps {
   label?: string;

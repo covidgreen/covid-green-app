@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Image,
   Text,
   View,
   StyleSheet,
@@ -8,16 +7,13 @@ import {
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {useApplication} from '../../providers/context';
-import {DataProtectionLink} from '../views/data-protection-policy';
-
-import {Spacing} from '../atoms/spacing';
-import {Button} from '../atoms/button';
-import {Markdown} from '../atoms/markdown';
-
-import {colors} from '../../constants/colors';
-import {text} from '../../theme';
-import {AppIcons} from '../../assets/icons';
+import {AppIcons} from 'assets/icons';
+import {Button} from 'components/atoms/button';
+import {colors, text} from 'theme';
+import {DataProtectionLink} from 'components/views/data-protection-policy';
+import {Markdown} from 'components/atoms/markdown';
+import {Spacing} from 'components/atoms/spacing';
+import {useApplication} from 'providers/context';
 
 interface CheckInConsentProps {
   onDismissed?: () => void;

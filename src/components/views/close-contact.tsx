@@ -1,19 +1,17 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text, Linking} from 'react-native';
 import {useTranslation} from 'react-i18next';
-
-import {useApplication} from '../../providers/context';
-
-import {Spacing} from '../atoms/layout';
-import {Card} from '../atoms/card';
-import {Markdown} from '../atoms/markdown';
-import {Button} from '../atoms/button';
-
-import {Scrollable} from '../templates/scrollable';
-import {text} from '../../theme';
-import {useSettings} from '../../providers/settings';
 import PushNotification from 'react-native-push-notification';
-import {BubbleIcons} from '../../assets/icons';
+
+import {BubbleIcons} from 'assets/icons';
+import {Button} from 'components/atoms/button';
+import {Card} from 'components/atoms/card';
+import {Markdown} from 'components/atoms/markdown';
+import {Scrollable} from 'components/templates/scrollable';
+import {Spacing} from 'components/atoms/layout';
+import {text} from 'theme';
+import {useApplication} from 'providers/context';
+import {useSettings} from 'providers/settings';
 
 export const CloseContact: FC<any> = ({route}) => {
   const {t} = useTranslation();

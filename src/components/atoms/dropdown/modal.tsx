@@ -12,11 +12,9 @@ import {
 import Modal, {ModalProps} from 'react-native-modal';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-import {Spacing} from '../layout';
-
-import {colors} from '../../../constants/colors';
-import {text} from '../../../theme';
-import Icons, {AppIcons} from '../../../assets/icons';
+import {Spacing} from 'components/atoms/layout';
+import {colors, text} from 'theme';
+import Icons, {AppIcons} from 'assets/icons';
 
 interface DropdownModalProps extends Partial<ModalProps> {
   title: string;

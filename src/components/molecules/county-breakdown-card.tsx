@@ -1,12 +1,10 @@
 import React, {FC} from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {Card} from '../atoms/card';
-
-import {colors} from '../../constants/colors';
-import {text} from '../../theme';
-import {BubbleIcons} from '../../assets/icons';
+import {BubbleIcons} from 'assets/icons';
+import {Card} from 'components/atoms/card';
+import {colors, text} from 'theme';
 
 interface CountyBreakdownCardProps {
   onPress: () => void;

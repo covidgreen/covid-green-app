@@ -14,12 +14,9 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {BUILD_VERSION, HIDE_DEBUG} from 'react-native-dotenv';
 
-import {colors} from '../../../constants/colors';
-import {text, shadows} from '../../../theme';
-
-import {Basic} from '../../templates/basic';
-import {AppIcons} from '../../../assets/icons';
-
+import {AppIcons} from 'assets/icons';
+import {Basic} from 'components/templates/basic';
+import {colors, text, shadows} from 'theme';
 
 const REQUIRED_PRESS_COUNT = 3;
 

@@ -11,11 +11,9 @@ import {TFunction} from 'i18next';
 import {useTranslation} from 'react-i18next';
 import Constants from 'expo-constants';
 
-import {colors} from '../../constants/colors';
-import {text} from '../../theme';
-import {useExposure, StatusState} from '../../providers/exposure';
-import {TabBarIcons, AppIcons} from '../../assets/icons';
-import {getActionFromState} from '@react-navigation/native';
+import {colors, text} from 'theme';
+import {TabBarIcons, AppIcons} from 'assets/icons';
+import {useExposure, StatusState} from 'providers/exposure';
 
 export const shareApp = async (t: TFunction) => {
   try {

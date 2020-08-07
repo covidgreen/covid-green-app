@@ -5,9 +5,9 @@ import {
   View,
   Text,
 } from 'react-native';
-import {colors} from '../../constants/colors';
-import {text} from '../../theme';
-import Icons from '../../assets/icons';
+
+import {colors, text} from 'theme';
+import Icons from 'assets/icons';
 
 interface ListItem {
   value: any;

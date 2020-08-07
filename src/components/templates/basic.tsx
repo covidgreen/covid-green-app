@@ -8,7 +8,7 @@ import {
   SPACING_HORIZONTAL
 } from 'constants/shared';
 import {Heading} from 'components/atoms/heading';
-import {colors} from 'src/theme';
+import {colors} from 'theme';
 
 interface LayoutProps {
   heading?: string;

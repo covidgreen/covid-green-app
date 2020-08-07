@@ -342,23 +342,23 @@ export default function App(props: {
     async function loadResourcesAndDataAsync() {
       try {
         const imageAssets = cacheImages([
-          require('./assets/images/onboard1/image.png'),
-          require('./assets/images/onboard2/image.png'),
-          require('./assets/images/onboard3/image.png'),
-          require('./assets/images/permissions/bluetooth.png'),
-          require('./assets/images/permissions/notifications.png'),
-          require('./assets/images/logo/logo.png'),
-          require('./assets/images/symptoma/image.png'),
-          require('./assets/images/symptomb/image.png'),
-          require('./assets/images/symptomc/image.png'),
-          require('./assets/images/symptomd/image.png')
+          require('assets/images/onboard1/image.png'),
+          require('assets/images/onboard2/image.png'),
+          require('assets/images/onboard3/image.png'),
+          require('assets/images/permissions/bluetooth.png'),
+          require('assets/images/permissions/notifications.png'),
+          require('assets/images/logo/logo.png'),
+          require('assets/images/symptoma/image.png'),
+          require('assets/images/symptomb/image.png'),
+          require('assets/images/symptomc/image.png'),
+          require('assets/images/symptomd/image.png')
         ]);
 
         const fonts = await Font.loadAsync({
-          'lato-black': require('./assets/fonts/lato/Lato-Black.ttf'),
-          'lato-bold': require('./assets/fonts/lato/Lato-Bold.ttf'),
-          lato: require('./assets/fonts/lato/Lato-Regular.ttf'),
-          'lato-thin': require('./assets/fonts/lato/Lato-Thin.ttf')
+          'lato-black': require('assets/fonts/lato/Lato-Black.ttf'),
+          'lato-bold': require('assets/fonts/lato/Lato-Bold.ttf'),
+          lato: require('assets/fonts/lato/Lato-Regular.ttf'),
+          'lato-thin': require('assets/fonts/lato/Lato-Thin.ttf')
         });
 
         await Promise.all([...imageAssets, fonts]);

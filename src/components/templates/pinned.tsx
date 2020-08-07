@@ -7,7 +7,7 @@ import {
   SPACING_BOTTOM,
   SPACING_HORIZONTAL
 } from 'constants/shared';
-import {colors} from 'constants/colors';
+import {colors} from 'theme';
 import {Heading} from 'components/atoms/heading';
 
 interface LayoutProps {

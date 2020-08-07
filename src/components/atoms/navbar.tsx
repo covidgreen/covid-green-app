@@ -9,10 +9,9 @@ import {
 import {useTranslation} from 'react-i18next';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-import {text} from '../../theme';
-import {colors} from '../../constants/colors'
-import {useApplication} from '../../providers/context';
-import Icons, {AppIcons, TabBarIcons} from '../../assets/icons';
+import Icons, {AppIcons, TabBarIcons} from 'assets/icons';
+import {colors, text} from 'theme';
+import {useApplication} from 'providers/context';
 
 interface NavBarProps {
   navigation: any;
@@ -65,7 +64,7 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
           }
         ]}
         resizeMode="cover"
-        source={require('../../assets/headerbg.png')}
+        source={require('assets/headerbg.png')}
         accessibilityIgnoresInvertColors={false}
       />
       <View style={styles.container}>

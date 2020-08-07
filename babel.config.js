@@ -12,7 +12,6 @@ module.exports = {
   }
 };
 
-
 module.exports = api => {
   api.cache(false);
   return {

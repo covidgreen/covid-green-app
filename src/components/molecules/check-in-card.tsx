@@ -3,17 +3,15 @@ import {
   StyleSheet,
   View,
   Text,
-  Image,
   findNodeHandle,
   AccessibilityInfo
 } from 'react-native';
-import {Card} from '../atoms/card';
-
-import {colors} from '../../constants/colors';
-import {text} from '../../theme';
 import {useTranslation} from 'react-i18next';
 import {useIsFocused, useFocusEffect} from '@react-navigation/native';
-import {BubbleIcons} from '../../assets/icons';
+
+import {Card} from 'components/atoms/card';
+import {colors, text} from 'theme';
+import {BubbleIcons} from 'assets/icons';
 
 interface CheckInCardProps {
   onPress?: () => void;

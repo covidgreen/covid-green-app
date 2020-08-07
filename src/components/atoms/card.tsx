@@ -1,9 +1,8 @@
 import React, {ReactNode, FC} from 'react';
 import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
-import {colors} from '../../constants/colors';
-import {shadows} from '../../theme';
-import {AppIcons} from '../../assets/icons';
+import {colors, shadows} from 'theme';
+import {AppIcons} from 'assets/icons';
 
 interface CardProps {
   type?: 'warning';

@@ -3,20 +3,17 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import * as SecureStore from 'expo-secure-store';
 import {useTranslation} from 'react-i18next';
 
-import {useApplication} from '../../providers/context';
-import {register} from '../../services/api';
-
 import {DataProtectionLink} from './data-protection-policy';
 
-import {Spacing} from '../atoms/layout';
-import {Markdown} from '../atoms/markdown';
-import {Button} from '../atoms/button';
-import {Quote} from '../molecules/quote';
-import {Toast} from '../atoms/toast';
-
-
-import {Scrollable} from '../templates/scrollable';
-import {AppIcons} from '../../assets/icons';
+import {useApplication} from 'providers/context';
+import {register} from 'services/api';
+import {Spacing} from 'components/atoms/layout';
+import {Markdown} from 'components/atoms/markdown';
+import {Button} from 'components/atoms/button';
+import {Quote} from 'components/molecules/quote';
+import {Toast} from 'components/atoms/toast';
+import {Scrollable} from 'components/templates/scrollable';
+import {AppIcons} from 'assets/icons';
 
 interface YourDataProps {
   navigation: StackNavigationProp<any>;

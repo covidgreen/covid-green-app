@@ -4,26 +4,23 @@ import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
 
-import {useApplication} from '../../providers/context';
-import {useAppState} from '../../hooks/app-state';
-
-import {Spacing} from '../atoms/layout';
-import {Card} from '../atoms/card';
-import {Heading} from '../atoms/heading';
-import {Toast} from '../atoms/toast';
-import {CheckInCard} from '../molecules/check-in-card';
-
-import {colors} from '../../constants/colors';
-import {Scrollable} from '../templates/scrollable';
-import {text} from '../../theme';
-import {usePermissions} from '../../providers/permissions';
-import {BubbleIcons, AppIcons} from '../../assets/icons';
+import {useApplication} from 'providers/context';
+import {useAppState} from 'hooks/app-state';
+import {Spacing} from 'components/atoms/layout';
+import {Card} from 'components/atoms/card';
+import {Heading} from 'components/atoms/heading';
+import {Toast} from 'components/atoms/toast';
+import {CheckInCard} from 'components/molecules/check-in-card';
+import {Scrollable} from 'components/templates/scrollable';
+import {colors, text} from 'theme';
+import {usePermissions} from 'providers/permissions';
+import {BubbleIcons} from 'assets/icons';
 
 const symptomsHistoryIcons = {
-  '1': require('../../assets/images/symptoms-history/1_temp.png'),
-  '2': require('../../assets/images/symptoms-history/2_cough.png'),
-  '3': require('../../assets/images/symptoms-history/3_shortness.png'),
-  '4': require('../../assets/images/symptoms-history/4_nose.png')
+  '1': require('assets/images/symptoms-history/1_temp.png'),
+  '2': require('assets/images/symptoms-history/2_cough.png'),
+  '3': require('assets/images/symptoms-history/3_shortness.png'),
+  '4': require('assets/images/symptoms-history/4_nose.png')
 };
 
 export const SymptomsHistory = ({navigation}) => {

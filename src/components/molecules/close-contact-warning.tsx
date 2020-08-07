@@ -9,12 +9,9 @@ import {
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
-import {SingleRow} from '../atoms/layout';
-
-import {colors} from '../../constants/colors';
-
-import {shadows, text} from '../../theme';
-import { AppIcons } from '../../assets/icons';
+import {AppIcons} from 'assets/icons';
+import {colors, shadows, text} from 'theme';
+import {SingleRow} from 'components/atoms/layout';
 
 export const CloseContactWarning: FC = () => {
   const {t} = useTranslation();
@@ -30,7 +27,7 @@ export const CloseContactWarning: FC = () => {
             style={styles.imageSize}
             width={styles.imageSize.width}
             height={styles.imageSize.height}
-            source={require('../../assets/images/exposure-alert/exposure-alert.png')}
+            source={require('assets/images/exposure-alert/exposure-alert.png')}
           />
         </View>
         <View style={styles.content}>
