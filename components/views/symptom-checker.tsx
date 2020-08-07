@@ -13,7 +13,6 @@ import {useFocusEffect} from '@react-navigation/native';
 
 import {useApplication, Symptoms} from '../../providers/context';
 import {useSettings} from '../../providers/settings';
-
 import {Spacing, Separator} from '../atoms/layout';
 import {Heading} from '../atoms/heading';
 import {Button} from '../atoms/button';
@@ -23,10 +22,9 @@ import {SelectList} from '../atoms/select-list';
 import {CheckInConsent} from '../molecules/checkin-consent';
 import {LocationDropdown} from '../molecules/locality-dropdown';
 import {Result} from '../molecules/result-card';
-
-import {colors} from '../../constants/colors';
 import {Scrollable} from '../templates/scrollable';
-import {text, shadows, baseStyles} from '../../theme';
+import {text, baseStyles} from '../../theme';
+import {Card} from '../atoms/card';
 
 const width = Dimensions.get('window').width;
 const ANIMATION_DURATION = 300;
@@ -236,7 +234,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
 
   const renderIntro = () => (
     <>
-      <View style={styles.card}>
+      <Card padding={{v: 12, h: 12}}>
         <Text style={text.largeBold}>{t('checker:introWelcome')}</Text>
         <Spacing s={16} />
         <Text style={baseStyles.label}>{t('sex:label')}</Text>
@@ -259,7 +257,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
           value={state.location}
           onValueChange={(location) => setState((s) => ({...s, location}))}
         />
-      </View>
+      </Card>
       <Spacing s={16} />
       <Button width="100%" onPress={introContinue}>
         {t('checker:introButton')}
@@ -269,7 +267,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
 
   const renderQuickCheckIn = () => (
     <Animated.View style={{transform: [{translateX: state.slideInX}]}}>
-      <View style={styles.card}>
+      <Card padding={{v: 12, h: 12}}>
         <Text style={text.largeBold}>{t('returning:subtitle')}</Text>
         <Spacing s={12} />
         <Button
@@ -299,7 +297,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
           }>
           {t('returning:action2')}
         </Button>
-      </View>
+      </Card>
     </Animated.View>
   );
 
@@ -330,7 +328,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
         <Animated.View
           style={{transform: [{translateX: state.slideInX}]}}
           accessibilityLiveRegion="polite">
-          <View style={styles.card}>
+          <Card padding={{v: 12, h: 12}}>
             <View style={styles.row}>
               <Image
                 accessibilityIgnoresInvertColors
@@ -362,7 +360,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
                 {t('checker:yes')}
               </Button>
             </View>
-          </View>
+          </Card>
         </Animated.View>
       )}
     </Scrollable>
@@ -370,11 +368,6 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
 };
 
 const styles = StyleSheet.create({
-  card: {
-    ...shadows.default,
-    backgroundColor: colors.white,
-    padding: 12
-  },
   row: {
     flexDirection: 'row',
     width: '100%',
