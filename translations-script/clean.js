@@ -29,7 +29,7 @@ async function cleanLangFile(sourceFile, targetFile) {
   const output = {};
   process(source, target, output, '');
 
-  fs.writeFileSync(
+  return fs.promises.writeFile(
     `../assets/lang/${targetFile}.json`,
     JSON.stringify(output, null, 2)
   );
