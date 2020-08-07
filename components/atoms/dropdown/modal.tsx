@@ -8,7 +8,6 @@ import {
   View,
   Text,
   TextInput,
-  Image
 } from 'react-native';
 import Modal, {ModalProps} from 'react-native-modal';
 import {useSafeArea} from 'react-native-safe-area-context';
@@ -17,6 +16,7 @@ import {Spacing} from '../layout';
 
 import {colors} from '../../../constants/colors';
 import {text} from '../../../theme';
+import Icons, {AppIcons} from '../../../assets/icons';
 
 interface DropdownModalProps extends Partial<ModalProps> {
   title: string;
@@ -82,7 +82,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
           )}
           {value === selectedValue && (
             <View style={listStyles.iconWrapper}>
-              <IconSelected />
+              <Icons.CheckMark width={26} height={26} />
             </View>
           )}
         </View>
@@ -130,12 +130,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
               accessibilityHint={`Close ${title}`}
               accessibilityLabel={`Close ${title}`}
               onPress={onClose}>
-              <Image
-                accessibilityIgnoresInvertColors
-                style={styles.closeIcon}
-                {...styles.closeIcon}
-                source={require('../../../assets/images/close/close.png')}
-              />
+              <AppIcons.Close width={16} height={16} />
             </TouchableWithoutFeedback>
           </View>
           <Text style={text.small}>{title}</Text>
@@ -163,15 +158,6 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
     </Modal>
   );
 };
-
-const IconSelected = () => (
-  <Image
-    accessibilityIgnoresInvertColors
-    style={styles.selectedIconSize}
-    {...styles.selectedIconSize}
-    source={require('../../../assets/images/check-mark/check-mark.png')}
-  />
-);
 
 const styles = StyleSheet.create({
   modal: {

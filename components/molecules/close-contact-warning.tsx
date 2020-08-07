@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, Image} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
@@ -15,12 +15,15 @@ export const CloseContactWarning: FC = () => {
     <Card
       padding={{v: 0, h: 0}}
       type="warning"
-      icon={{
-        w: 107,
-        h: 137,
-        mr: -25,
-        source: require('../../assets/images/exposure-alert/exposure-alert.png')
-      }}
+      icon={
+        <Image
+          accessibilityIgnoresInvertColors
+          style={styles.imageSize}
+          width={styles.imageSize.width}
+          height={styles.imageSize.height}
+          source={require('../../assets/images/exposure-alert/exposure-alert.png')}
+        />
+      }
       onPress={() => navigation.navigate('closeContact')}>
       <Text style={styles.title}>{t('closeContactWarn:title')}</Text>
       <Text style={styles.notice}>{t('closeContactWarn:notice')}</Text>
@@ -37,5 +40,9 @@ const styles = StyleSheet.create({
     ...text.default,
     color: colors.white,
     lineHeight: 21
+  },
+  imageSize: {
+    width: 107,
+    height: 137
   }
 });

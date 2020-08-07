@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, Image} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
 import {colors} from '../../constants/colors';
+
 import {text} from '../../theme';
 import {Card} from '../atoms/card';
 
@@ -16,11 +17,15 @@ export const TracingAvailable: FC = () => {
   return (
     <Card
       padding={{h: 0}}
-      icon={{
-        w: 82,
-        h: 100,
-        source: TracingImage
-      }}
+      icon={
+        <Image
+          accessibilityIgnoresInvertColors
+          width={106}
+          height={100}
+          resizeMode="contain"
+          source={TracingImage}
+        />
+      }
       onPress={() => navigation.navigate('tracing')}>
       <Text style={styles.title}>{t('tracingAvailable:title')}</Text>
       <Text style={[text.smallBold, {color: colors.teal}]}>

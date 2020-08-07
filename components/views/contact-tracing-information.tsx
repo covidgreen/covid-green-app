@@ -17,6 +17,7 @@ import {colors} from '../../constants/colors';
 import {PinnedBottom} from '../templates/pinned';
 import {Scrollable} from '../templates/scrollable';
 import {text} from '../../theme';
+import {AppIcons} from '../../assets/icons';
 
 const TracingImage = require('../../assets/images/information/image.png');
 
@@ -103,12 +104,11 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
       <Text style={text.default}>{t('onboarding:information:text1')}</Text>
       <Spacing s={20} />
       <View style={permissionsStyles.row}>
-        <Image
-          accessibilityIgnoresInvertColors
+        <AppIcons.Bluetooth
           style={permissionsStyles.icon}
-          width={32}
-          height={32}
-          source={require('../../assets/images/bluetooth/image.png')}
+          width={24}
+          height={24}
+          color={colors.darkGray}
         />
         <Text style={text.defaultBold}>
           {t('onboarding:information:bluetooth')}
@@ -120,12 +120,11 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
           <Text style={text.default}>{t('onboarding:information:text2')}</Text>
           <Spacing s={20} />
           <View style={permissionsStyles.row}>
-            <Image
-              accessibilityIgnoresInvertColors
+            <AppIcons.Notification
               style={permissionsStyles.icon}
-              width={32}
-              height={32}
-              source={require('../../assets/images/notification/image.png')}
+              width={24}
+              height={24}
+              color={colors.darkGray}
             />
             <Text style={text.defaultBold}>
               {t('onboarding:information:notifications')}
