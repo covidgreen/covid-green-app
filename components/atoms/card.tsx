@@ -20,6 +20,7 @@ interface CardProps {
   icon?: {
     w: number;
     h: number;
+    mr?: number;
     source: ImageRequireSource;
   };
   onPress?: () => void;
@@ -44,7 +45,7 @@ export const Card: FC<CardProps> = ({
         <View style={styles.icon}>
           <Image
             accessibilityIgnoresInvertColors
-            style={{width: icon.w, height: icon.h}}
+            style={{width: icon.w, height: icon.h, marginRight: icon.mr}}
             width={icon.w}
             height={icon.h}
             source={icon.source}
@@ -84,7 +85,8 @@ const styles = StyleSheet.create({
   },
   cardWarning: {
     borderWidth: 2,
-    borderColor: colors.red
+    borderColor: colors.red,
+    backgroundColor: colors.red
   },
   icon: {
     alignItems: 'center',
