@@ -3,10 +3,10 @@ import {StyleSheet, View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useIsFocused, useFocusEffect} from '@react-navigation/native';
 
-import Layouts from 'theme/layouts';
 import {colors, shadows, text} from 'theme';
 import {Heading} from 'components/atoms/heading';
 import {useApplication} from 'providers/context';
+import {Scrollable} from 'components/templates/scrollable';
 
 export const CountyBreakdown = () => {
   const {t} = useTranslation();
@@ -39,7 +39,7 @@ export const CountyBreakdown = () => {
     : 0;
 
   return (
-    <Layouts.Scrollable refresh={{refreshing, onRefresh}}>
+    <Scrollable refresh={{refreshing, onRefresh}}>
       <Heading accessibilityFocus text={t('casesByCounty:title')} />
       {app.data && app.data.counties !== null && (
         <View style={styles.card}>
@@ -82,7 +82,7 @@ export const CountyBreakdown = () => {
           })}
         </View>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

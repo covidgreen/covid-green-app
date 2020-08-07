@@ -3,7 +3,6 @@ import {View, StyleSheet} from 'react-native';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
-import Layouts from 'theme/layouts';
 import {AppStats} from 'components/organisms/app-stats';
 import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
@@ -21,6 +20,7 @@ import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
 import {useExposure} from 'providers/exposure';
 import {usePermissions} from 'providers/permissions';
+import {Scrollable} from 'components/templates/scrollable';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const app = useApplication();
@@ -77,7 +77,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
   );
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       safeArea={false}
       toast={errorToast}
       backgroundColor="#FAFAFA"
@@ -168,7 +168,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           />
         </>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

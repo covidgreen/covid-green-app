@@ -4,7 +4,6 @@ import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
 
-import Layouts from 'theme/layouts';
 import {Card} from 'components/atoms/card';
 import {CheckInCard} from 'components/molecules/check-in-card';
 import {colors, text} from 'theme';
@@ -14,6 +13,7 @@ import {Toast} from 'components/atoms/toast';
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
 import {usePermissions} from 'providers/permissions';
+import {Scrollable} from 'components/templates/scrollable';
 
 const symptomsHistoryIcons = {
   '1': require('assets/images/symptoms-history/1_temp.png'),
@@ -41,7 +41,7 @@ export const SymptomsHistory = ({navigation}) => {
   );
 
   return (
-    <Layouts.Scrollable safeArea={false} backgroundColor="#FAFAFA">
+    <Scrollable safeArea={false} backgroundColor="#FAFAFA">
       {completedChecker && (
         <>
           <Toast
@@ -153,7 +153,7 @@ export const SymptomsHistory = ({navigation}) => {
           );
         })}
       </Card>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

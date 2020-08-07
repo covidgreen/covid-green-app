@@ -3,12 +3,12 @@ import {useTranslation} from 'react-i18next';
 import {Text, Switch, View, StyleSheet} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 
-import Layouts from 'theme/layouts';
 import {colors, text} from 'theme';
 import {DataProtectionLink} from 'components/views/data-protection-policy';
 import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
 import {useExposure} from 'providers/exposure';
+import {Scrollable} from 'components/templates/scrollable';
 
 export const Metrics = () => {
   const {t} = useTranslation();
@@ -36,7 +36,7 @@ export const Metrics = () => {
   };
 
   return (
-    <Layouts.Scrollable heading={t('metrics:title')}>
+    <Scrollable heading={t('metrics:title')}>
       <Markdown style={{}}>{t('metrics:info')}</Markdown>
       <Spacing s={16} />
       <DataProtectionLink />
@@ -54,7 +54,7 @@ export const Metrics = () => {
           style={styles.switch}
         />
       </View>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

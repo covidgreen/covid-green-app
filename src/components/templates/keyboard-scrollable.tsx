@@ -9,8 +9,11 @@ import {
 import {useHeaderHeight} from '@react-navigation/stack';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-import {SPACING_TOP, SPACING_BOTTOM, SPACING_HORIZONTAL} from './shared';
-
+import {
+  SPACING_TOP,
+  SPACING_BOTTOM,
+  SPACING_HORIZONTAL
+} from 'constants/shared';
 import {colors} from 'constants/colors';
 import {Heading} from 'components/atoms/heading';
 import {Spacing} from 'components/atoms/layout';

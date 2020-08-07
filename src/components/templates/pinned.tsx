@@ -2,33 +2,35 @@ import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-import {SPACING_TOP, SPACING_BOTTOM, SPACING_HORIZONTAL} from './shared';
-import {colors} from '../';
-
+import {
+  SPACING_TOP,
+  SPACING_BOTTOM,
+  SPACING_HORIZONTAL
+} from 'constants/shared';
+import {colors} from 'constants/colors';
 import {Heading} from 'components/atoms/heading';
 
 interface LayoutProps {
   heading?: string;
-  backgroundColor?: string;
-  children: React.ReactNode;
+  children: any;
 }
 
-export const Basic: FC<LayoutProps> = ({
-  children,
-  heading,
-  backgroundColor
-}) => {
+export const PinnedBottom: FC<LayoutProps> = ({children, heading}) => {
   const insets = useSafeArea();
+  const content = React.Children.toArray(children);
+  const bottom = content.pop();
 
   return (
     <View
       style={[
         styles.container,
-        {paddingBottom: insets.bottom + SPACING_BOTTOM},
-        !!backgroundColor && {backgroundColor}
+        {paddingBottom: insets.bottom + SPACING_BOTTOM}
       ]}>
-      {heading && <Heading accessibilityFocus text={heading} />}
-      {children}
+      <View>
+        {heading && <Heading accessibilityFocus text={heading} />}
+        {content}
+      </View>
+      <View>{bottom}</View>
     </View>
   );
 };
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
+    justifyContent: 'space-between',
     paddingTop: SPACING_TOP,
     paddingHorizontal: SPACING_HORIZONTAL
   }

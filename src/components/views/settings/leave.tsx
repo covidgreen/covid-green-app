@@ -4,7 +4,6 @@ import {useTranslation} from 'react-i18next';
 import * as Haptics from 'expo-haptics';
 import {ScrollView} from 'react-native-gesture-handler';
 
-import Layouts from 'theme/layouts';
 import {Button} from 'components/atoms/button';
 import {DataProtectionLink} from 'components/views/data-protection-policy';
 import {forget} from 'services/api';
@@ -12,6 +11,7 @@ import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
 import {useApplication} from 'providers/context';
 import {useExposure} from 'providers/exposure';
+import {Basic} from 'components/templates/basic';
 
 export const Leave = ({navigation}) => {
   const {t} = useTranslation();
@@ -65,7 +65,7 @@ export const Leave = ({navigation}) => {
   };
 
   return (
-    <Layouts.Basic heading={t('leave:title')}>
+    <Basic heading={t('leave:title')}>
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
@@ -79,7 +79,7 @@ export const Leave = ({navigation}) => {
       <Button type="danger" onPress={confirm}>
         {t('leave:button')}
       </Button>
-    </Layouts.Basic>
+    </Basic>
   );
 };
 

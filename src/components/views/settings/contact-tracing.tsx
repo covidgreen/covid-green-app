@@ -4,7 +4,6 @@ import * as IntentLauncher from 'expo-intent-launcher';
 import {useTranslation} from 'react-i18next';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 
-import Layouts from 'theme/layouts';
 import {Button} from 'components/atoms/button';
 import {Markdown} from 'components/atoms/markdown';
 import {METRIC_TYPES, saveMetric} from 'services/api';
@@ -15,6 +14,7 @@ import {Toast} from 'components/atoms/toast';
 import {useAppState} from 'hooks/app-state';
 import {useExposure, StatusState} from 'providers/exposure';
 import {usePermissions} from 'providers/permissions';
+import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
 
 export const ContactTracingSettings = () => {
   const {t} = useTranslation();
@@ -113,7 +113,7 @@ export const ContactTracingSettings = () => {
   );
 
   return (
-    <Layouts.KeyboardScrollable
+    <KeyboardScrollable
       toast={successToast}
       heading={t('contactTracing:title')}
       scrollViewRef={scrollViewRef}>
@@ -167,6 +167,6 @@ export const ContactTracingSettings = () => {
           </Button>
         </>
       )}
-    </Layouts.KeyboardScrollable>
+    </KeyboardScrollable>
   );
 };

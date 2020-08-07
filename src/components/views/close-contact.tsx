@@ -3,7 +3,6 @@ import {StyleSheet, Text, Linking} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import PushNotification from 'react-native-push-notification';
 
-import Layouts from 'theme/layouts';
 import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
 import {Markdown} from 'components/atoms/markdown';
@@ -11,6 +10,7 @@ import {Spacing} from 'components/atoms/layout';
 import {text} from 'theme';
 import {useApplication} from 'providers/context';
 import {useSettings} from 'providers/settings';
+import {Scrollable} from 'components/templates/scrollable';
 
 export const CloseContact: FC<any> = ({route}) => {
   const {t} = useTranslation();
@@ -24,7 +24,7 @@ export const CloseContact: FC<any> = ({route}) => {
   PushNotification.setApplicationIconBadgeNumber(0);
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       heading={type ? t('closeContact:infoTitle') : t('closeContact:title')}>
       <Text style={text.largeBold}>
         {type ? t('closeContact:intro') : t('closeContact:alertintro')}
@@ -60,7 +60,7 @@ export const CloseContact: FC<any> = ({route}) => {
         {t('closeContact:symptoms:callHSE')}
       </Button>
       <Spacing s={32} />
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

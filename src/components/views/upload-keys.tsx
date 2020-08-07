@@ -18,8 +18,8 @@ import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
 import {Toast} from 'components/atoms/toast';
 import {CodeInput} from 'components/molecules/code-input';
-import Layouts from 'theme/layouts';
 import {colors, text, baseStyles} from 'theme';
+import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
 
 type UploadStatus =
   | 'initialising'
@@ -209,7 +209,7 @@ export const UploadKeys = ({navigation}) => {
   };
 
   return (
-    <Layouts.KeyboardScrollable heading={t('uploadKeys:title')}>
+    <KeyboardScrollable heading={t('uploadKeys:title')}>
       {(status === 'validate' || status === 'upload') && renderValidation()}
       {status === 'permissionError' && renderPermissionError()}
       {status === 'error' && renderUploadError()}
@@ -219,7 +219,7 @@ export const UploadKeys = ({navigation}) => {
         status === 'permissionError') &&
         renderUpload()}
       {status === 'success' && renderUploadSuccess()}
-    </Layouts.KeyboardScrollable>
+    </KeyboardScrollable>
   );
 };
 

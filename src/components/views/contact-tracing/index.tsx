@@ -3,7 +3,6 @@ import {Text, View} from 'react-native';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
-import Layouts from 'theme/layouts';
 import {
   useExposure,
   StatusState,
@@ -26,6 +25,7 @@ import {NotActive} from './not-active';
 import {NoSupport} from './no-support';
 import {CanSupport} from './can-support';
 import {NotEnabled} from './not-enabled';
+import {Scrollable} from 'components/templates/scrollable';
 
 export const ContactTracing = ({navigation}) => {
   const {t} = useTranslation();
@@ -74,7 +74,7 @@ export const ContactTracing = ({navigation}) => {
   }
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       safeArea={false}
       heading={t('contactTracing:title')}
       accessibilityRefocus>
@@ -137,6 +137,6 @@ export const ContactTracing = ({navigation}) => {
           </Card>
         </>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };

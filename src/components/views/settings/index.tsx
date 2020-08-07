@@ -16,7 +16,7 @@ import {useTranslation} from 'react-i18next';
 import {BUILD_VERSION, HIDE_DEBUG} from 'react-native-dotenv';
 
 import {colors, text, shadows} from 'theme';
-import Layouts from 'theme/layouts';
+import {Basic} from 'components/templates/basic';
 
 const REQUIRED_PRESS_COUNT = 3;
 
@@ -119,7 +119,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   }
 
   return (
-    <Layouts.Basic heading={t('settings:title')} backgroundColor="#FAFAFA">
+    <Basic heading={t('settings:title')} backgroundColor="#FAFAFA">
       <FlatList
         style={styles.list}
         data={settings}
@@ -156,7 +156,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       <Text style={text.default} onPress={versionPressHandler}>
         App version {Platform.OS === 'ios' ? 'iOS' : 'Android'} {BUILD_VERSION}
       </Text>
-    </Layouts.Basic>
+    </Basic>
   );
 };
 

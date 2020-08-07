@@ -14,12 +14,12 @@ import {
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 
-import Layouts from 'theme/layouts';
 import {Button} from 'components/atoms/button';
 import {colors, text} from 'theme';
 import {NavBar} from 'components/atoms/navbar';
 import {Spacing} from 'components/atoms/spacing';
 import {useApplication} from 'providers/context';
+import {Basic} from 'components/templates/basic';
 
 const OnboardingImage = require('assets/images/onboarding-bg/bg.png');
 const Logo = require('assets/images/logo/logo.png');
@@ -77,7 +77,7 @@ export const GetStarted = ({navigation}: GetStartedProps) => {
   };
 
   return (
-    <Layouts.Basic>
+    <Basic>
       <Animated.View
         style={[styles.animatedView, {opacity: navOpacity.current}]}>
         <NavBar
@@ -194,7 +194,7 @@ export const GetStarted = ({navigation}: GetStartedProps) => {
           </View>
         </ScrollView>
       </Animated.View>
-    </Layouts.Basic>
+    </Basic>
   );
 };
 

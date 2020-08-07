@@ -4,7 +4,6 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import * as SecureStore from 'expo-secure-store';
 
-import Layouts from 'theme/layouts';
 import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
 import {Link} from 'components/atoms/link';
@@ -13,6 +12,8 @@ import {SingleRow, Spacing} from 'components/atoms/layout';
 import {text, colors} from 'theme';
 import {useExposure} from 'providers/exposure';
 import {usePermissions} from 'providers/permissions';
+import {PinnedBottom} from 'components/templates/pinned';
+import {Scrollable} from 'components/templates/scrollable';
 
 const TracingImage = require('assets/images/information/image.png');
 
@@ -68,7 +69,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
 
   if (!exposure.supported && !exposure.canSupport) {
     return (
-      <Layouts.PinnedBottom heading={t('onboarding:information:title')}>
+      <PinnedBottom heading={t('onboarding:information:title')}>
         <View style={notSupportedStyles.imageWrapper}>
           <Image
             accessibilityIgnoresInvertColors
@@ -90,7 +91,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
           }}>
           {t('onboarding:information:action')}
         </Button>
-      </Layouts.PinnedBottom>
+      </PinnedBottom>
     );
   }
 
@@ -186,9 +187,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
   );
 
   return (
-    <Layouts.Scrollable
-      heading={t('onboarding:information:title')}
-      headingShort={true}>
+    <Scrollable heading={t('onboarding:information:title')} headingShort={true}>
       <View style={headerStyles.row}>
         <View style={headerStyles.textBlock}>
           <Text style={headerStyles.text}>
@@ -210,7 +209,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
       <Text style={text.default}>{t('onboarding:information:text')}</Text>
       <Spacing s={24} />
       {exposure.supported ? permissionsInfo : upgradeNotice}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

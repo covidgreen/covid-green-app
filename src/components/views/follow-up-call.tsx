@@ -10,9 +10,9 @@ import {Link} from 'components/atoms/link';
 import {Markdown} from 'components/atoms/markdown';
 import {PhoneNumber} from 'components/organisms/phone-number';
 import {text} from 'theme';
-import Layouts from 'theme/layouts';
 import {saveMetric, METRIC_TYPES} from 'services/api';
 import {useExposure} from 'providers/exposure';
+import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
 
 const CallbackImage = require('assets/images/callback/image.png');
 
@@ -42,7 +42,7 @@ export const FollowUpCall: FC<FollowUpCallProps> = ({navigation, route}) => {
   };
 
   return (
-    <Layouts.KeyboardScrollable scrollViewRef={scrollViewRef}>
+    <KeyboardScrollable scrollViewRef={scrollViewRef}>
       <View style={OStyles.row}>
         <View style={OStyles.image}>
           <Image
@@ -74,7 +74,7 @@ export const FollowUpCall: FC<FollowUpCallProps> = ({navigation, route}) => {
       <Link align="center" onPress={gotoDashboard}>
         {t('followUpCall:noThanks')}
       </Link>
-    </Layouts.KeyboardScrollable>
+    </KeyboardScrollable>
   );
 };
 

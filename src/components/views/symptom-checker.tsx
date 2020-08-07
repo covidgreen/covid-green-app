@@ -11,7 +11,6 @@ import {useTranslation} from 'react-i18next';
 import {RouteProp} from '@react-navigation/native';
 import {useFocusEffect} from '@react-navigation/native';
 
-import Layouts from 'theme/layouts';
 import {Button} from 'components/atoms/button';
 import {CheckInConsent} from 'components/molecules/checkin-consent';
 import {colors, text, shadows, baseStyles} from 'theme';
@@ -24,6 +23,7 @@ import {SelectList} from 'components/atoms/select-list';
 import {Spacing, Separator} from 'components/atoms/layout';
 import {useApplication, Symptoms} from 'providers/context';
 import {useSettings} from 'providers/settings';
+import {Scrollable} from 'components/templates/scrollable';
 
 const width = Dimensions.get('window').width;
 const ANIMATION_DURATION = 300;
@@ -220,14 +220,14 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
 
   if (!app.checkInConsent) {
     return (
-      <Layouts.Scrollable safeArea={false} backgroundColor="#FAFAFA">
+      <Scrollable safeArea={false} backgroundColor="#FAFAFA">
         <Heading
           accessibilityRefocus
           accessibilityFocus
           text={t('checker:title')}
         />
         <CheckInConsent />
-      </Layouts.Scrollable>
+      </Scrollable>
     );
   }
 
@@ -313,7 +313,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
     : 'title';
 
   return (
-    <Layouts.Scrollable safeArea={false} backgroundColor="#FAFAFA">
+    <Scrollable safeArea={false} backgroundColor="#FAFAFA">
       <Heading
         accessibilityRefocus
         accessibilityFocus
@@ -362,7 +362,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
           </View>
         </Animated.View>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

@@ -5,7 +5,6 @@ import {useTranslation} from 'react-i18next';
 
 import {DataProtectionLink} from './data-protection-policy';
 
-import Layouts from 'theme/layouts';
 import {Button} from 'components/atoms/button';
 import {Markdown} from 'components/atoms/markdown';
 import {Quote} from 'components/molecules/quote';
@@ -13,6 +12,7 @@ import {register} from 'services/api';
 import {Spacing} from 'components/atoms/layout';
 import {Toast} from 'components/atoms/toast';
 import {useApplication} from 'providers/context';
+import {Scrollable} from 'components/templates/scrollable';
 
 interface YourDataProps {
   navigation: StackNavigationProp<any>;
@@ -60,7 +60,7 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
   );
 
   return (
-    <Layouts.Scrollable toast={errorToast} heading={t('yourData:title')}>
+    <Scrollable toast={errorToast} heading={t('yourData:title')}>
       <Markdown markdownStyles={{block: {marginBottom: 16}}}>
         {t('yourData:info')}
       </Markdown>
@@ -70,6 +70,6 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
       <Quote text={t('yourData:viewInSettings')} />
       <Spacing s={36} />
       <Button onPress={onContinue}>{t('yourData:continue')}</Button>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };

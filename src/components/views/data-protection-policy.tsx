@@ -3,11 +3,11 @@ import {Image, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
-import Layouts from 'theme/layouts';
 import {colors, text} from 'theme';
 import {Link} from 'components/atoms/link';
 import {Markdown} from 'components/atoms/markdown';
 import {useSettings} from 'providers/settings';
+import {Scrollable} from 'components/templates/scrollable';
 
 const PrivacyIcon = () => (
   <Image
@@ -44,9 +44,9 @@ export const DataProtectionPolicy = () => {
   const {t} = useTranslation();
 
   return (
-    <Layouts.Scrollable heading={t('dataProtectionPolicy:title')}>
+    <Scrollable heading={t('dataProtectionPolicy:title')}>
       <Markdown markdownStyles={markDownStyles}>{dpinText}</Markdown>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 
@@ -55,9 +55,9 @@ export const TermsAndConditions = () => {
   const {t} = useTranslation();
 
   return (
-    <Layouts.Scrollable heading={t('tandcPolicy:title')}>
+    <Scrollable heading={t('tandcPolicy:title')}>
       <Markdown markdownStyles={markDownStyles}>{tandcText}</Markdown>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 
