@@ -3,13 +3,11 @@ import {StyleSheet, View, ViewStyle, Image, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {CovidStatistics} from '../../services/api';
-
 import {Spacing} from '../atoms/spacing';
 import {Heading} from '../atoms/heading';
 import {CountyBreakdownCard} from '../molecules/county-breakdown-card';
-
-import {colors} from '../../constants/colors';
-import {shadows, text} from '../../theme';
+import {text} from '../../theme';
+import {Card} from '../atoms/card';
 
 interface CovidStatsProps {
   style?: ViewStyle;
@@ -29,7 +27,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
       <Heading text={t('stats:title')} />
       <CountyBreakdownCard onPress={onCountyBreakdown} />
       <Spacing s={16} />
-      <View style={styles.card}>
+      <Card>
         <View style={styles.row}>
           <View style={[iconStyle.icon, styles.confirmedBackground]}>
             <Image
@@ -105,7 +103,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
             </Text>
           </View>
         </View>
-      </View>
+      </Card>
     </View>
   );
 };
@@ -124,11 +122,6 @@ const iconStyle = StyleSheet.create({
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  card: {
-    backgroundColor: colors.white,
-    padding: 16,
-    ...shadows.default
   },
   row: {
     flexDirection: 'row',
