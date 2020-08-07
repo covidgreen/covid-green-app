@@ -3,16 +3,20 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import * as SecureStore from 'expo-secure-store';
 import {useTranslation} from 'react-i18next';
 
+import {useApplication} from '../../providers/context';
+import {register} from '../../services/api';
+
 import {DataProtectionLink} from './data-protection-policy';
 
-import {Button} from 'components/atoms/button';
-import {Markdown} from 'components/atoms/markdown';
-import {Quote} from 'components/molecules/quote';
-import {register} from 'services/api';
-import {Spacing} from 'components/atoms/layout';
-import {Toast} from 'components/atoms/toast';
-import {useApplication} from 'providers/context';
-import {Scrollable} from 'components/templates/scrollable';
+import {Spacing} from '../atoms/layout';
+import {Markdown} from '../atoms/markdown';
+import {Button} from '../atoms/button';
+import {Quote} from '../molecules/quote';
+import {Toast} from '../atoms/toast';
+
+
+import {Scrollable} from '../templates/scrollable';
+import {AppIcons} from '../../assets/icons';
 
 interface YourDataProps {
   navigation: StackNavigationProp<any>;
@@ -54,7 +58,7 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
   const errorToast = !!registerError && (
     <Toast
       type="error"
-      icon={require('assets/images/alert/alert.png')}
+      icon={<AppIcons.Alert width={24} height={24} />}
       message={registerError}
     />
   );

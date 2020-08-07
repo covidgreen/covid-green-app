@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
   StyleSheet,
   TouchableWithoutFeedback,
@@ -11,7 +11,7 @@ import {text as textStyles, colors} from 'theme';
 
 interface LinkProps {
   style?: ViewStyle;
-  Icon?: any;
+  Icon?: ReactNode;
   text?: string;
   align?: 'left' | 'right' | 'center';
   large?: boolean;
@@ -27,7 +27,7 @@ export const Link: React.FC<LinkProps> = React.forwardRef(
     const linkText = text || children;
     return (
       <View style={[styles.container, style]}>
-        {Icon && <Icon />}
+        {Icon}
         <TouchableWithoutFeedback
           ref={ref}
           accessibilityRole="link"

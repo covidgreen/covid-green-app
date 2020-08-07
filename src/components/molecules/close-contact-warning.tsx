@@ -9,8 +9,12 @@ import {
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
-import {SingleRow} from 'components/atoms/layout';
-import {shadows, text, colors} from 'theme';
+import {SingleRow} from '../atoms/layout';
+
+import {colors} from '../../constants/colors';
+
+import {shadows, text} from '../../theme';
+import { AppIcons } from '../../assets/icons';
 
 export const CloseContactWarning: FC = () => {
   const {t} = useTranslation();
@@ -26,7 +30,7 @@ export const CloseContactWarning: FC = () => {
             style={styles.imageSize}
             width={styles.imageSize.width}
             height={styles.imageSize.height}
-            source={require('assets/images/exposure-alert/exposure-alert.png')}
+            source={require('../../assets/images/exposure-alert/exposure-alert.png')}
           />
         </View>
         <View style={styles.content}>
@@ -34,13 +38,7 @@ export const CloseContactWarning: FC = () => {
           <Text style={styles.notice}>{t('closeContactWarn:notice')}</Text>
         </View>
         <SingleRow>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={styles.iconSize}
-            width={styles.iconSize.width}
-            height={styles.iconSize.height}
-            source={require('assets/images/arrow-right/white.png')}
-          />
+          <AppIcons.ArrowRight width={24} height={24} color={colors.white} />
         </SingleRow>
       </View>
     </TouchableWithoutFeedback>
@@ -75,10 +73,6 @@ const styles = StyleSheet.create({
     ...text.default,
     color: colors.white,
     lineHeight: 21
-  },
-  iconSize: {
-    width: 24,
-    height: 24
   },
   imageSize: {
     width: 107,

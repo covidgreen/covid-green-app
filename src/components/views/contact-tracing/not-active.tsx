@@ -3,14 +3,17 @@ import {Platform, Linking} from 'react-native';
 import * as IntentLauncher from 'expo-intent-launcher';
 import {useTranslation} from 'react-i18next';
 
-import {Button} from 'components/atoms/button';
-import {Card} from 'components/atoms/card';
-import {colors, text} from 'theme';
-import {Markdown} from 'components/atoms/markdown';
-import {ResponsiveImage} from 'components/atoms/responsive-image';
-import {Spacing} from 'components/atoms/layout';
-import {Toast} from 'components/atoms/toast';
-import {useExposure} from 'providers/exposure';
+import {Spacing} from '../../atoms/layout';
+import {Card} from '../../atoms/card';
+import {ResponsiveImage} from '../../atoms/responsive-image';
+import {Toast} from '../../atoms/toast';
+import {Button} from '../../atoms/button';
+import {Markdown} from '../../atoms/markdown';
+
+import {colors} from '../../../constants/colors';
+import {text} from '../../../theme';
+import {useExposure} from '../../../providers/exposure';
+import {AppIcons} from '../../../assets/icons';
 
 interface NotActiveProps {
   exposureOff?: boolean;
@@ -67,13 +70,13 @@ export const NotActive: FC<NotActiveProps> = ({
     <Card padding={{v: 12}}>
       <ResponsiveImage
         h={150}
-        source={require('assets/images/phone/not-active.png')}
+        source={require('../../../assets/images/phone/not-active.png')}
       />
       <Spacing s={8} />
       <Toast
         color={colors.red}
         message={t('contactTracing:notActive:title')}
-        icon={require('assets/images/alert/alert.png')}
+        icon={<AppIcons.Alert width={24} height={24} />}
       />
       <Spacing s={16} />
       <Markdown style={text.default}>

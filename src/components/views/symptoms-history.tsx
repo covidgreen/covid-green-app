@@ -4,22 +4,26 @@ import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
 
-import {Card} from 'components/atoms/card';
-import {CheckInCard} from 'components/molecules/check-in-card';
-import {colors, text} from 'theme';
-import {Heading} from 'components/atoms/heading';
-import {Spacing} from 'components/atoms/layout';
-import {Toast} from 'components/atoms/toast';
-import {useApplication} from 'providers/context';
-import {useAppState} from 'hooks/app-state';
-import {usePermissions} from 'providers/permissions';
-import {Scrollable} from 'components/templates/scrollable';
+import {useApplication} from '../../providers/context';
+import {useAppState} from '../../hooks/app-state';
+
+import {Spacing} from '../atoms/layout';
+import {Card} from '../atoms/card';
+import {Heading} from '../atoms/heading';
+import {Toast} from '../atoms/toast';
+import {CheckInCard} from '../molecules/check-in-card';
+
+import {colors} from '../../constants/colors';
+import {Scrollable} from '../templates/scrollable';
+import {text} from '../../theme';
+import {usePermissions} from '../../providers/permissions';
+import {BubbleIcons, AppIcons} from '../../assets/icons';
 
 const symptomsHistoryIcons = {
-  '1': require('assets/images/symptoms-history/1_temp.png'),
-  '2': require('assets/images/symptoms-history/2_cough.png'),
-  '3': require('assets/images/symptoms-history/3_shortness.png'),
-  '4': require('assets/images/symptoms-history/4_nose.png')
+  '1': require('../../assets/images/symptoms-history/1_temp.png'),
+  '2': require('../../assets/images/symptoms-history/2_cough.png'),
+  '3': require('../../assets/images/symptoms-history/3_shortness.png'),
+  '4': require('../../assets/images/symptoms-history/4_nose.png')
 };
 
 export const SymptomsHistory = ({navigation}) => {
@@ -47,7 +51,9 @@ export const SymptomsHistory = ({navigation}) => {
           <Toast
             color={`${colors.success}1A`}
             message={t('symptomsHistory:completed')}
-            icon={require('assets/images/covid-teal/covid.png')}
+            icon={
+              <BubbleIcons.Cases width={24} height={24} color={colors.teal} />
+            }
           />
           <Spacing s={16} />
         </>
@@ -100,23 +106,12 @@ export const SymptomsHistory = ({navigation}) => {
               accessibilityRole="text">
               <View style={styles.summary}>
                 <View style={styles.row}>
-                  <View
-                    style={[
-                      styles.icon,
-                      styles.iconDimensions,
-                      hasSymptoms && styles.iconPink
-                    ]}>
-                    <Image
-                      accessibilityIgnoresInvertColors
-                      style={styles.iconDimensions}
-                      width={20}
-                      height={20}
-                      source={
-                        !hasSymptoms
-                          ? require('assets/images/checkin-blue/checkin.png')
-                          : require('assets/images/covid-red/covid.png')
-                      }
-                    />
+                  <View style={styles.icon}>
+                    {hasSymptoms ? (
+                      <BubbleIcons.Cases width={32} height={32} />
+                    ) : (
+                      <BubbleIcons.Shield width={32} height={32} />
+                    )}
                   </View>
                   <Text style={text.xlargeBlack}>{symptoms.length}</Text>
                   <Text>&nbsp;</Text>
@@ -183,8 +178,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 12
   },
-  iconPink: {
-    backgroundColor: 'rgb(254, 215, 226)',
-    borderRadius: 16
-  }
 });

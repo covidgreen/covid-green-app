@@ -8,12 +8,16 @@ import {
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {Button} from 'components/atoms/button';
-import {DataProtectionLink} from 'components/views/data-protection-policy';
-import {Markdown} from 'components/atoms/markdown';
-import {Spacing} from 'components/atoms/spacing';
-import {text, colors} from 'theme';
-import {useApplication} from 'providers/context';
+import {useApplication} from '../../providers/context';
+import {DataProtectionLink} from '../views/data-protection-policy';
+
+import {Spacing} from '../atoms/spacing';
+import {Button} from '../atoms/button';
+import {Markdown} from '../atoms/markdown';
+
+import {colors} from '../../constants/colors';
+import {text} from '../../theme';
+import {AppIcons} from '../../assets/icons';
 
 interface CheckInConsentProps {
   onDismissed?: () => void;
@@ -37,13 +41,7 @@ export const CheckInConsent: React.FC<CheckInConsentProps> = ({
       {onDismissed && (
         <View style={styles.dismissed}>
           <TouchableWithoutFeedback onPress={onDismissed}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={styles.iconSize}
-              width={styles.iconSize.width}
-              height={styles.iconSize.height}
-              source={require('assets/images/dismiss/dismiss.png')}
-            />
+            <AppIcons.Close width={24} height={24} />
           </TouchableWithoutFeedback>
         </View>
       )}
@@ -95,8 +93,4 @@ export const styles = StyleSheet.create({
     right: 9,
     zIndex: 99
   },
-  iconSize: {
-    width: 24,
-    height: 24
-  }
 });

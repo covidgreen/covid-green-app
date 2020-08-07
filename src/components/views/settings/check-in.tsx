@@ -2,17 +2,22 @@ import React, {useState, useRef} from 'react';
 import {Text, ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {Button} from 'components/atoms/button';
-import {Dropdown} from 'components/atoms/dropdown';
-import {LocationDropdown} from 'components/molecules/locality-dropdown';
-import {SelectList} from 'components/atoms/select-list';
-import {Spacing, Separator} from 'components/atoms/layout';
-import {text, baseStyles} from 'theme';
-import {Toast} from 'components/atoms/toast';
-import {useApplication, UserLocation} from 'providers/context';
-import {useSettings} from 'providers/settings';
-import {Basic} from 'components/templates/basic';
-import {Scrollable} from 'components/templates/scrollable';
+import {Spacing, Separator} from '../../atoms/layout';
+import {Button} from '../../atoms/button';
+import {SelectList} from '../../atoms/select-list';
+import {Dropdown} from '../../atoms/dropdown';
+import {Toast} from '../../atoms/toast';
+import {LocationDropdown} from '../../molecules/locality-dropdown';
+
+import {useSettings} from '../../../providers/settings';
+import {useApplication, UserLocation} from '../../../providers/context';
+
+import {text, baseStyles} from '../../../theme';
+
+import {Basic} from '../../templates/basic';
+import {Scrollable} from '../../templates/scrollable';
+import {AppIcons} from '../../../assets/icons';
+import {colors} from '../../../constants/colors';
 
 interface ProfileData {
   sex: string;
@@ -84,9 +89,10 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
 
   const successToast = profile.saved && (
     <Toast
+      type="success"
       color="rgba(0, 207, 104, 0.16)"
       message={t('common:changesUpdated')}
-      icon={require('assets/images/success/green.png')}
+      icon={<AppIcons.Success width={24} height={24} color={colors.success} />}
     />
   );
 

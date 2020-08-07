@@ -4,26 +4,30 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import * as SecureStore from 'expo-secure-store';
 
-import {Button} from 'components/atoms/button';
-import {Card} from 'components/atoms/card';
-import {Link} from 'components/atoms/link';
-import {Quote} from 'components/molecules/quote';
-import {SingleRow, Spacing} from 'components/atoms/layout';
-import {text, colors} from 'theme';
-import {useExposure} from 'providers/exposure';
-import {usePermissions} from 'providers/permissions';
-import {PinnedBottom} from 'components/templates/pinned';
-import {Scrollable} from 'components/templates/scrollable';
+import {usePermissions} from '../../providers/permissions';
+import {useExposure} from '../../providers/exposure';
 
-const TracingImage = require('assets/images/information/image.png');
+import {SingleRow, Spacing} from '../atoms/layout';
+import {Button} from '../atoms/button';
+import {Link} from '../atoms/link';
+import {Quote} from '../molecules/quote';
+import {Card} from '../atoms/card';
+
+import {colors} from '../../constants/colors';
+import {PinnedBottom} from '../templates/pinned';
+import {Scrollable} from '../templates/scrollable';
+import {text} from '../../theme';
+import {AppIcons} from '../../assets/icons';
+
+const TracingImage = require('../../assets/images/information/image.png');
 
 interface Props {
   navigation: StackNavigationProp<any>;
 }
 
 const upgradeImage: {[key: string]: any} = {
-  ios: require('assets/images/apple/image.png'),
-  android: require('assets/images/google/image.png')
+  ios: require('../../assets/images/apple/image.png'),
+  android: require('../../assets/images/google/image.png')
 };
 
 export const ContactTracingInformation = ({navigation, route}: Props) => {
@@ -75,7 +79,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
             accessibilityIgnoresInvertColors
             style={notSupportedStyles.image}
             {...notSupportedStyles.image}
-            source={require('assets/images/phone/not-active.png')}
+            source={require('../../assets/images/phone/not-active.png')}
           />
         </View>
         <Spacing s={20} />
@@ -100,12 +104,11 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
       <Text style={text.default}>{t('onboarding:information:text1')}</Text>
       <Spacing s={20} />
       <View style={permissionsStyles.row}>
-        <Image
-          accessibilityIgnoresInvertColors
+        <AppIcons.Bluetooth
           style={permissionsStyles.icon}
-          width={32}
-          height={32}
-          source={require('assets/images/bluetooth/image.png')}
+          width={24}
+          height={24}
+          color={colors.darkGray}
         />
         <Text style={text.defaultBold}>
           {t('onboarding:information:bluetooth')}
@@ -117,12 +120,11 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
           <Text style={text.default}>{t('onboarding:information:text2')}</Text>
           <Spacing s={20} />
           <View style={permissionsStyles.row}>
-            <Image
-              accessibilityIgnoresInvertColors
+            <AppIcons.Notification
               style={permissionsStyles.icon}
-              width={32}
-              height={32}
-              source={require('assets/images/notification/image.png')}
+              width={24}
+              height={24}
+              color={colors.darkGray}
             />
             <Text style={text.defaultBold}>
               {t('onboarding:information:notifications')}

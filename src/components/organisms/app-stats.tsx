@@ -1,12 +1,15 @@
 import React, {FC} from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {Card} from 'components/atoms/card';
-import {Heading} from 'components/atoms/heading';
-import {Progress} from 'components/atoms/progress';
-import {Spacing} from 'components/atoms/layout';
-import {text, colors} from 'theme';
+import {Spacing} from '../atoms/layout';
+import {Heading} from '../atoms/heading';
+import {Card} from '../atoms/card';
+import {Progress} from '../atoms/progress';
+
+import {colors} from '../../constants/colors';
+import {text} from '../../theme';
+import {BubbleIcons} from '../../assets/icons';
 
 export interface AppStats {
   totalCheckins: number;
@@ -26,13 +29,8 @@ export const AppStats: FC<AppStatsProps> = ({data}) => {
       <Heading text={t('appStats:title')} />
       <Card>
         <View style={styles.row} accessible accessibilityRole="text">
-          <View style={[styles.icon, styles.iconBackground]}>
-            <Image
-              accessibilityIgnoresInvertColors
-              style={styles.iconSize}
-              {...styles.iconSize}
-              source={require('assets/images/checkin-blue/checkin.png')}
-            />
+          <View style={styles.icon}>
+            <BubbleIcons.Shield width={56} height={56} />
           </View>
           <View style={styles.col}>
             <Text style={text.xxlargeBlack}>
@@ -100,11 +98,6 @@ const styles = StyleSheet.create({
     alignItems: 'baseline'
   },
   icon: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginRight: 20
   },
   progress: {
@@ -112,12 +105,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 20
-  },
-  iconSize: {
-    width: 24,
-    height: 24
-  },
-  iconBackground: {
-    backgroundColor: 'rgb(230, 248, 255)'
   }
 });

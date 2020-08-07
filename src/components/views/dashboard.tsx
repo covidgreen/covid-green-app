@@ -3,24 +3,28 @@ import {View, StyleSheet} from 'react-native';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
-import {AppStats} from 'components/organisms/app-stats';
-import {Button} from 'components/atoms/button';
-import {Card} from 'components/atoms/card';
-import {CheckInCard} from 'components/molecules/check-in-card';
-import {CloseContactWarning} from 'components/molecules/close-contact-warning';
-import {CovidStats} from 'components/organisms/covid-stats';
-import {QuickCheckIn} from 'components/molecules/quick-checkin';
-import {Spacing} from 'components/atoms/spacing';
-import {StatsSource} from 'components/molecules/stats-source';
-import {Toast} from 'components/atoms/toast';
-import {TracingAvailable} from 'components/molecules/tracing-available';
-import {TrackerAreaChart} from 'components/molecules/area-chart';
-import {TransmissionChart} from 'components/molecules/transmission-chart';
-import {useApplication} from 'providers/context';
-import {useAppState} from 'hooks/app-state';
-import {useExposure} from 'providers/exposure';
-import {usePermissions} from 'providers/permissions';
-import {Scrollable} from 'components/templates/scrollable';
+import {useApplication} from '../../providers/context';
+import {useExposure} from '../../providers/exposure';
+import {useAppState} from '../../hooks/app-state';
+
+import {Spacing} from '../atoms/spacing';
+import {Card} from '../atoms/card';
+
+import {CheckInCard} from '../molecules/check-in-card';
+import {QuickCheckIn} from '../molecules/quick-checkin';
+import {TrackerAreaChart} from '../molecules/area-chart';
+import {TransmissionChart} from '../molecules/transmission-chart';
+import {StatsSource} from '../molecules/stats-source';
+import {AppStats} from '../organisms/app-stats';
+import {CovidStats} from '../organisms/covid-stats';
+
+import {Scrollable} from '../templates/scrollable';
+import {Button} from '../../components/atoms/button';
+import {Toast} from '../../components/atoms/toast';
+import {CloseContactWarning} from '../molecules/close-contact-warning';
+import {TracingAvailable} from '../molecules/tracing-available';
+import {usePermissions} from '../../providers/permissions';
+import {AppIcons} from '../../assets/icons';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const app = useApplication();
@@ -71,7 +75,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const errorToast = app.data === null && (
     <Toast
       type="error"
-      icon={require('assets/images/alert/alert.png')}
+      icon={<AppIcons.Alert width={24} height={24} />}
       message={t('common:missingError')}
     />
   );
