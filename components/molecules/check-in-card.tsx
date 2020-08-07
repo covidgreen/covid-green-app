@@ -13,6 +13,7 @@ import {colors} from '../../constants/colors';
 import {text} from '../../theme';
 import {useTranslation} from 'react-i18next';
 import {useIsFocused, useFocusEffect} from '@react-navigation/native';
+import {BubbleIcons} from '../../assets/icons';
 
 interface CheckInCardProps {
   onPress?: () => void;
@@ -50,13 +51,7 @@ export const CheckInCard: FC<CheckInCardProps> = ({
     <Card onPress={onPress} padding={{r: 4}}>
       <View style={styles.row}>
         <View style={styles.icon}>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={styles.imageSize}
-            width={styles.imageSize.width}
-            height={styles.imageSize.height}
-            source={require('../../assets/images/handkerchief/handkerchief.png')}
-          />
+          <BubbleIcons.CheckIn width={56} height={56} />
         </View>
         <View>
           <Text style={text.largeBlack}>{t('checker:title')}</Text>
@@ -76,10 +71,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   icon: {
-    width: 64,
-    height: 64,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginRight: 12
   },
   imageSize: {

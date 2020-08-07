@@ -14,7 +14,9 @@ import {Button} from '../atoms/button';
 import {Quote} from '../molecules/quote';
 import {Toast} from '../atoms/toast';
 
+
 import {Scrollable} from '../templates/scrollable';
+import {AppIcons} from '../../assets/icons';
 
 interface YourDataProps {
   navigation: StackNavigationProp<any>;
@@ -56,7 +58,7 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
   const errorToast = !!registerError && (
     <Toast
       type="error"
-      icon={require('../../assets/images/alert/alert.png')}
+      icon={<AppIcons.Alert width={24} height={24} />}
       message={registerError}
     />
   );

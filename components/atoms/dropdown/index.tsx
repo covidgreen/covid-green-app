@@ -11,6 +11,7 @@ import {DropdownModal} from './modal';
 import {colors} from '../../../constants/colors';
 import {Spacing} from '../spacing';
 import {text} from '../../../theme';
+import {AppIcons} from '../../../assets/icons';
 
 interface DropdownProps {
   label?: string;
@@ -82,12 +83,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
               {displayValue}
             </Text>
           </View>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={styles.arrowSize}
-            {...styles.arrowSize}
-            source={require('../../../assets/images/arrow-right/teal.png')}
-          />
+          <AppIcons.ArrowRight width={18} height={18} color={colors.teal} />
         </View>
       </TouchableWithoutFeedback>
       {isModalVisible && (

@@ -14,6 +14,7 @@ import {SingleRow} from '../atoms/layout';
 import {colors} from '../../constants/colors';
 
 import {shadows, text} from '../../theme';
+import { AppIcons } from '../../assets/icons';
 
 export const CloseContactWarning: FC = () => {
   const {t} = useTranslation();
@@ -37,13 +38,7 @@ export const CloseContactWarning: FC = () => {
           <Text style={styles.notice}>{t('closeContactWarn:notice')}</Text>
         </View>
         <SingleRow>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={styles.iconSize}
-            width={styles.iconSize.width}
-            height={styles.iconSize.height}
-            source={require('../../assets/images/arrow-right/white.png')}
-          />
+          <AppIcons.ArrowRight width={24} height={24} color={colors.white} />
         </SingleRow>
       </View>
     </TouchableWithoutFeedback>
@@ -78,10 +73,6 @@ const styles = StyleSheet.create({
     ...text.default,
     color: colors.white,
     lineHeight: 21
-  },
-  iconSize: {
-    width: 24,
-    height: 24
   },
   imageSize: {
     width: 107,

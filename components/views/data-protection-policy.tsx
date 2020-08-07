@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useSettings} from '../../providers/settings';
 import {Markdown} from '../atoms/markdown';
@@ -7,15 +7,9 @@ import {Link} from '../atoms/link';
 import {useNavigation} from '@react-navigation/native';
 import {colors} from '../../constants/colors';
 import {text} from '../../theme';
-import {Scrollable} from '../templates/scrollable';
 
-const PrivacyIcon = () => (
-  <Image
-    accessibilityIgnoresInvertColors
-    style={styles.privacy}
-    source={require('../../assets/images/privacy/privacy.png')}
-  />
-);
+import {Scrollable} from '../templates/scrollable';
+import Icons from '../../assets/icons';
 
 const styles = StyleSheet.create({
   privacy: {
@@ -30,7 +24,7 @@ export const DataProtectionLink = () => {
   const navigation = useNavigation();
   return (
     <Link
-      Icon={PrivacyIcon}
+      Icon={<Icons.Privacy style={styles.privacy} width={34} height={34} color={colors.teal} />}
       text={t('dataProtectionPolicy:link')}
       onPress={() => {
         navigation.navigate('privacy', {screen: 'settings.privacy'});

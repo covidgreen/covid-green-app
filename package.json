@@ -11,6 +11,7 @@
     "test:android": "detox test --configuration=ios",
     "pre:test:ios": "detox build --configuration=ios",
     "pre:test:android": "detox build --configuration=ios",
+    "optimize:svg": "svgo -f assets/icons",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --fix --ext .ts,.tsx"
   },
@@ -81,7 +82,9 @@
     "jest": "^26.0.1",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^2.0.4",
+    "react-native-svg-transformer": "^0.14.3",
     "react-test-renderer": "16.13.1",
+    "svgo": "^1.3.2",
     "typescript": "^3.9.5"
   },
   "jest": {

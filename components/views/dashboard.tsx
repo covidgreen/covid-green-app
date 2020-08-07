@@ -24,6 +24,7 @@ import {Toast} from '../../components/atoms/toast';
 import {CloseContactWarning} from '../molecules/close-contact-warning';
 import {TracingAvailable} from '../molecules/tracing-available';
 import {usePermissions} from '../../providers/permissions';
+import {AppIcons} from '../../assets/icons';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const app = useApplication();
@@ -74,7 +75,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const errorToast = app.data === null && (
     <Toast
       type="error"
-      icon={require('../../assets/images/alert/alert.png')}
+      icon={<AppIcons.Alert width={24} height={24} />}
       message={t('common:missingError')}
     />
   );

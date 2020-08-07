@@ -10,6 +10,7 @@ import {Toast} from '../../atoms/toast';
 
 import {colors} from '../../../constants/colors';
 import {text} from '../../../theme';
+import {AppIcons} from '../../../assets/icons';
 
 export const NoSupport: FC = () => {
   const {t} = useTranslation();
@@ -24,7 +25,7 @@ export const NoSupport: FC = () => {
       <Toast
         color={colors.red}
         message={t('contactTracing:noSupport:title')}
-        icon={require('../../../assets/images/alert/alert.png')}
+        icon={<AppIcons.Alert width={24} height={24} />}
       />
       <Spacing s={16} />
       <Text style={text.default}>{t('contactTracing:noSupport:message')}</Text>

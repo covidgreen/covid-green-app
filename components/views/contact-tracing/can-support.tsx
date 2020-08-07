@@ -11,6 +11,7 @@ import {Button} from '../../atoms/button';
 import {colors} from '../../../constants/colors';
 import {text} from '../../../theme';
 import {useExposure} from '../../../providers/exposure';
+import {AppIcons} from '../../../assets/icons';
 
 export const CanSupport: FC = () => {
   const {t} = useTranslation();
@@ -39,7 +40,7 @@ export const CanSupport: FC = () => {
       <Toast
         color={colors.red}
         message={t('contactTracing:canSupport:title')}
-        icon={require('../../../assets/images/alert/alert.png')}
+        icon={<AppIcons.Alert width={24} height={24} />}
       />
       <Spacing s={16} />
       <Text style={text.default}>
