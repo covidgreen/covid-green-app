@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text, Image} from 'react-native';
+import {StyleSheet, Text, Image, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
@@ -25,13 +25,18 @@ export const CloseContactWarning: FC = () => {
         />
       }
       onPress={() => navigation.navigate('closeContact')}>
-      <Text style={styles.title}>{t('closeContactWarn:title')}</Text>
-      <Text style={styles.notice}>{t('closeContactWarn:notice')}</Text>
+      <View style={styles.content}>
+        <Text style={styles.title}>{t('closeContactWarn:title')}</Text>
+        <Text style={styles.notice}>{t('closeContactWarn:notice')}</Text>
+      </View>
     </Card>
   );
 };
 
 const styles = StyleSheet.create({
+  content: {
+    marginLeft: -25
+  },
   title: {
     ...text.largeBlack,
     color: colors.white
