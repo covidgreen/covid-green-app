@@ -7,7 +7,7 @@ async function main(filename) {
   const ga = {};
 
   const [, ...rows] = await readXlsxFile(filename);
-  rows.forEach(row => {
+  rows.forEach((row) => {
     const path = row[0];
     _.set(en, path, row[1]);
     _.set(ga, path, row[2]);

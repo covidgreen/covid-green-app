@@ -12,22 +12,27 @@ function process(source, target, output, path) {
     return;
   }
 
-  Object.keys(source).forEach(key => {
+  Object.keys(source).forEach((key) => {
     process(source[key], target, output, path === '' ? key : `${path}.${key}`);
   });
 }
 
 async function cleanLangFile(sourceFile, targetFile) {
-  const srcRaw = fs.readFileSync(`../assets/lang/${sourceFile}.json`);
+  const srcRaw = fs.promises.readFile(`../assets/lang/${sourceFile}.json`);
   const source = JSON.parse(srcRaw);
 
-  const targetRaw = fs.readFileSync(`../assets/lang/${targetFile}.json`);
+  const targetRaw = await fs.promises.readFile(
+    `../assets/lang/${targetFile}.json`
+  );
   const target = JSON.parse(targetRaw);
 
   const output = {};
   process(source, target, output, '');
 
-  fs.writeFileSync(`../assets/lang/${targetFile}.json`, JSON.stringify(output, null, 2));
+  fs.writeFileSync(
+    `../assets/lang/${targetFile}.json`,
+    JSON.stringify(output, null, 2)
+  );
 }
 
 cleanLangFile('en', 'ga');

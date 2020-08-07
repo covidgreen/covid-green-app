@@ -22,8 +22,8 @@ function process(ws, path, enObj, gaObj) {
 }
 
 async function generateFile() {
-  const enRaw = fs.readFileSync('../assets/lang/en.json');
-  const gaRaw = fs.readFileSync('../assets/lang/ga.json');
+  const enRaw = await fs.promises.readFile('../assets/lang/en.json');
+  const gaRaw = await fs.promises.readFile('../assets/lang/ga.json');
   const en = JSON.parse(enRaw);
   const ga = JSON.parse(gaRaw);
 
