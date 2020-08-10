@@ -14,9 +14,11 @@ import {Markdown} from '../../atoms/markdown';
 import {PhoneNumber} from '../..//organisms/phone-number';
 import {Toast} from '../../atoms/toast';
 
-import Layouts from '../../../theme/layouts';
+import {KeyboardScrollable} from '../../templates/keyboard-scrollable';
 import {text} from '../../../theme';
 import {METRIC_TYPES, saveMetric} from '../../../services/api';
+import {colors} from '../../../constants/colors';
+import {AppIcons} from '../../../assets/icons';
 
 export const ContactTracingSettings = () => {
   const {t} = useTranslation();
@@ -110,12 +112,13 @@ export const ContactTracingSettings = () => {
     <Toast
       color="rgba(0, 207, 104, 0.16)"
       message={t('common:changesUpdated')}
-      icon={require('../../../assets/images/success/green.png')}
+      type="success"
+      icon={<AppIcons.Success width={24} height={24} color={colors.success} />}
     />
   );
 
   return (
-    <Layouts.KeyboardScrollable
+    <KeyboardScrollable
       toast={successToast}
       heading={t('contactTracing:title')}
       scrollViewRef={scrollViewRef}>
@@ -169,6 +172,6 @@ export const ContactTracingSettings = () => {
           </Button>
         </>
       )}
-    </Layouts.KeyboardScrollable>
+    </KeyboardScrollable>
   );
 };

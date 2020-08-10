@@ -14,9 +14,10 @@ import {Toast} from '../atoms/toast';
 import {CheckInCard} from '../molecules/check-in-card';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../../theme/layouts';
+import {Scrollable} from '../templates/scrollable';
 import {text} from '../../theme';
 import {usePermissions} from '../../providers/permissions';
+import {BubbleIcons, AppIcons} from '../../assets/icons';
 
 const symptomsHistoryIcons = {
   '1': require('../../assets/images/symptoms-history/1_temp.png'),
@@ -44,13 +45,15 @@ export const SymptomsHistory = ({navigation}) => {
   );
 
   return (
-    <Layouts.Scrollable safeArea={false} backgroundColor="#FAFAFA">
+    <Scrollable safeArea={false} backgroundColor="#FAFAFA">
       {completedChecker && (
         <>
           <Toast
             color={`${colors.success}1A`}
             message={t('symptomsHistory:completed')}
-            icon={require('../../assets/images/covid-teal/covid.png')}
+            icon={
+              <BubbleIcons.Cases width={24} height={24} color={colors.teal} />
+            }
           />
           <Spacing s={16} />
         </>
@@ -103,23 +106,12 @@ export const SymptomsHistory = ({navigation}) => {
               accessibilityRole="text">
               <View style={styles.summary}>
                 <View style={styles.row}>
-                  <View
-                    style={[
-                      styles.icon,
-                      styles.iconDimensions,
-                      hasSymptoms && styles.iconPink
-                    ]}>
-                    <Image
-                      accessibilityIgnoresInvertColors
-                      style={styles.iconDimensions}
-                      width={20}
-                      height={20}
-                      source={
-                        !hasSymptoms
-                          ? require('../../assets/images/checkin-blue/checkin.png')
-                          : require('../../assets/images/covid-red/covid.png')
-                      }
-                    />
+                  <View style={styles.icon}>
+                    {hasSymptoms ? (
+                      <BubbleIcons.Cases width={32} height={32} />
+                    ) : (
+                      <BubbleIcons.Shield width={32} height={32} />
+                    )}
                   </View>
                   <Text style={text.xlargeBlack}>{symptoms.length}</Text>
                   <Text>&nbsp;</Text>
@@ -156,7 +148,7 @@ export const SymptomsHistory = ({navigation}) => {
           );
         })}
       </Card>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 
@@ -186,8 +178,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 12
   },
-  iconPink: {
-    backgroundColor: 'rgb(254, 215, 226)',
-    borderRadius: 16
-  }
 });

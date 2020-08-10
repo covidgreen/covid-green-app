@@ -10,7 +10,7 @@ import {useApplication} from '../../../providers/context';
 import {useExposure} from '../../../providers/exposure';
 import {forget} from '../../../services/api';
 
-import Layouts from '../../../theme/layouts';
+import {Basic} from '../../templates/basic';
 import {DataProtectionLink} from '../data-protection-policy';
 import {Spacing} from '../../atoms/spacing';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -67,7 +67,7 @@ export const Leave = ({navigation}) => {
   };
 
   return (
-    <Layouts.Basic heading={t('leave:title')}>
+    <Basic heading={t('leave:title')}>
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
@@ -81,7 +81,7 @@ export const Leave = ({navigation}) => {
       <Button type="danger" onPress={confirm}>
         {t('leave:button')}
       </Button>
-    </Layouts.Basic>
+    </Basic>
   );
 };
 

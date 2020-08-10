@@ -9,10 +9,11 @@ import {Card} from '../atoms/card';
 import {Markdown} from '../atoms/markdown';
 import {Button} from '../atoms/button';
 
-import Layouts from '../../theme/layouts';
+import {Scrollable} from '../templates/scrollable';
 import {text} from '../../theme';
 import {useSettings} from '../../providers/settings';
 import PushNotification from 'react-native-push-notification';
+import {BubbleIcons} from '../../assets/icons';
 
 export const CloseContact: FC<any> = ({route}) => {
   const {t} = useTranslation();
@@ -26,7 +27,7 @@ export const CloseContact: FC<any> = ({route}) => {
   PushNotification.setApplicationIconBadgeNumber(0);
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       heading={type ? t('closeContact:infoTitle') : t('closeContact:title')}>
       <Text style={text.largeBold}>
         {type ? t('closeContact:intro') : t('closeContact:alertintro')}
@@ -34,12 +35,7 @@ export const CloseContact: FC<any> = ({route}) => {
       <Spacing s={16} />
       {callBackData && !type && (
         <>
-          <Card
-            icon={{
-              w: 56,
-              h: 56,
-              source: require('../../assets/images/phone-call/phone-call.png')
-            }}>
+          <Card icon={<BubbleIcons.PhoneCall width={56} height={56} />}>
             <Text style={text.largeBlack}>{t('closeContact:callBack')}</Text>
             <Text style={styles.notice}>{t('closeContact:callBackQueue')}</Text>
           </Card>
@@ -62,7 +58,7 @@ export const CloseContact: FC<any> = ({route}) => {
         {t('closeContact:symptoms:callHSE')}
       </Button>
       <Spacing s={32} />
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

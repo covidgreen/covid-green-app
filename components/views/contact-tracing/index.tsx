@@ -20,7 +20,7 @@ import {TrackerAreaChart} from '../../molecules/area-chart';
 import {shareApp} from '../../organisms/tab-bar-bottom';
 import {colors} from '../../../constants/colors';
 import {text} from '../../../theme';
-import Layouts from '../../../theme/layouts';
+import {Scrollable} from '../../templates/scrollable';
 
 import {Active} from './active';
 import {NotActive} from './not-active';
@@ -78,7 +78,7 @@ export const ContactTracing = ({navigation}) => {
   }
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       safeArea={false}
       heading={t('contactTracing:title')}
       accessibilityRefocus>
@@ -141,6 +141,6 @@ export const ContactTracing = ({navigation}) => {
           </Card>
         </>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };

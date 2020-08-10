@@ -13,6 +13,7 @@ import {Markdown} from '../../atoms/markdown';
 import {colors} from '../../../constants/colors';
 import {text} from '../../../theme';
 import {useExposure} from '../../../providers/exposure';
+import {AppIcons} from '../../../assets/icons';
 
 interface NotActiveProps {
   exposureOff?: boolean;
@@ -75,7 +76,7 @@ export const NotActive: FC<NotActiveProps> = ({
       <Toast
         color={colors.red}
         message={t('contactTracing:notActive:title')}
-        icon={require('../../../assets/images/alert/alert.png')}
+        icon={<AppIcons.Alert width={24} height={24} />}
       />
       <Spacing s={16} />
       <Markdown style={text.default}>

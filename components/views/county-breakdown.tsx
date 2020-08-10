@@ -8,7 +8,7 @@ import {useApplication} from '../../providers/context';
 
 import {colors} from '../../constants/colors';
 import {shadows, text} from '../../theme';
-import Layouts from '../../theme/layouts';
+import {Scrollable} from '../templates/scrollable';
 import {useIsFocused, useFocusEffect} from '@react-navigation/native';
 
 export const CountyBreakdown = () => {
@@ -42,7 +42,7 @@ export const CountyBreakdown = () => {
     : 0;
 
   return (
-    <Layouts.Scrollable refresh={{refreshing, onRefresh}}>
+    <Scrollable refresh={{refreshing, onRefresh}}>
       <Heading accessibilityFocus text={t('casesByCounty:title')} />
       {app.data && app.data.counties !== null && (
         <View style={styles.card}>
@@ -85,7 +85,7 @@ export const CountyBreakdown = () => {
           })}
         </View>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 

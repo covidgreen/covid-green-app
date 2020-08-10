@@ -14,6 +14,7 @@ import {SingleRow} from '../atoms/layout';
 import {colors} from '../../constants/colors';
 
 import {shadows, text} from '../../theme';
+import { AppIcons } from '../../assets/icons';
 
 const TracingImage = require('../../assets/images/information/alt.png');
 
@@ -38,12 +39,7 @@ export const TracingAvailable: FC = () => {
           </Text>
         </View>
         <SingleRow>
-          <Image
-            accessibilityIgnoresInvertColors
-            style={styles.iconSize}
-            {...styles.iconSize}
-            source={require('../../assets/images/arrow-right/teal.png')}
-          />
+          <AppIcons.ArrowRight width={24} height={24} color={colors.teal}/>
         </SingleRow>
       </View>
     </TouchableWithoutFeedback>

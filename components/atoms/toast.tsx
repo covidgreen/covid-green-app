@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
   StyleSheet,
   View,
   ViewStyle,
   Text,
   TextStyle,
-  Image,
-  ImageRequireSource
 } from 'react-native';
 
 import {Markdown} from './markdown';
@@ -16,7 +14,7 @@ import {text} from '../../theme';
 
 interface ToastProps {
   type?: string;
-  icon?: ImageRequireSource;
+  icon?: ReactNode;
   color?: string;
   message?: string;
   markdown?: boolean;
@@ -52,9 +50,7 @@ const Toast: React.FC<ToastProps> = ({
       accessibilityRole="alert"
       accessibilityLiveRegion="assertive"
       style={[styles.container, style]}>
-      <View style={iconStyling}>
-        {icon && <Image accessibilityIgnoresInvertColors source={icon} />}
-      </View>
+      {icon && <View style={iconStyling}>{icon}</View>}
       <View style={styles.messageContainer}>
         {message && <Text style={textStyling}>{message}</Text>}
         {children && <Markdown>{children}</Markdown>}

@@ -10,7 +10,9 @@ import {useTranslation} from 'react-i18next';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {text} from '../../theme';
+import {colors} from '../../constants/colors'
 import {useApplication} from '../../providers/context';
+import Icons, {AppIcons, TabBarIcons} from '../../assets/icons';
 
 interface NavBarProps {
   navigation: any;
@@ -74,11 +76,7 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
               accessibilityHint={t('navbar:backHint')}
               onPress={() => navigation.goBack()}>
               <View style={styles.back}>
-                <Image
-                  accessibilityIgnoresInvertColors={false}
-                  style={styles.iconSize}
-                  source={require('../../assets/images/back/back.png')}
-                />
+                <AppIcons.Back width={24} height={24} color={colors.text} />
                 <Text allowFontScaling={false} style={styles.backText}>
                   {t('navbar:back')}
                 </Text>
@@ -92,12 +90,7 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
           accessibilityHint={t('common:name')}
           accessibilityRole="text"
           style={[styles.col, styles.center]}>
-          <Image
-            accessibilityIgnoresInvertColors={false}
-            style={styles.logoSize}
-            {...styles.logoSize}
-            source={require('../../assets/images/logo/logo.png')}
-          />
+          <Icons.Logo width={92} height={36} color={colors.text}/>
         </View>
         <View style={[styles.col, styles.right]}>
           {showSettings && (
@@ -105,11 +98,7 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
               accessibilityHint={t('navbar:settingsHint')}
               onPress={() => navigation.navigate('settings')}>
               <View style={styles.settings}>
-                <Image
-                  accessibilityIgnoresInvertColors={false}
-                  style={styles.iconSize}
-                  source={require('../../assets/images/settings/settings.png')}
-                />
+                <TabBarIcons.Settings width={24} height={24} color={colors.text} />
                 <Text allowFontScaling={false} style={text.xsmallBold}>
                   {t('navbar:settings')}
                 </Text>

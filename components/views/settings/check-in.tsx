@@ -13,7 +13,11 @@ import {useSettings} from '../../../providers/settings';
 import {useApplication, UserLocation} from '../../../providers/context';
 
 import {text, baseStyles} from '../../../theme';
-import Layouts from '../../../theme/layouts';
+
+import {Basic} from '../../templates/basic';
+import {Scrollable} from '../../templates/scrollable';
+import {AppIcons} from '../../../assets/icons';
+import {colors} from '../../../constants/colors';
 
 interface ProfileData {
   sex: string;
@@ -69,7 +73,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
 
   if (!sex || !ageRange || !location.county || !location.locality) {
     return (
-      <Layouts.Basic heading={t('checkInSettings:title')}>
+      <Basic heading={t('checkInSettings:title')}>
         <Text style={text.largeBold}>{t('checkInSettings:checkInFirst')}</Text>
         <Spacing s={48} />
         <Button
@@ -79,20 +83,21 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
           }>
           {t('checkInSettings:gotoCheckIn')}
         </Button>
-      </Layouts.Basic>
+      </Basic>
     );
   }
 
   const successToast = profile.saved && (
     <Toast
+      type="success"
       color="rgba(0, 207, 104, 0.16)"
       message={t('common:changesUpdated')}
-      icon={require('../../../assets/images/success/green.png')}
+      icon={<AppIcons.Success width={24} height={24} color={colors.success} />}
     />
   );
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       toast={successToast}
       heading={t('checkInSettings:title')}
       scrollViewRef={scrollViewRef}>
@@ -135,6 +140,6 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
         onPress={handleSave}>
         {t('common:confirmChanges')}
       </Button>
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };

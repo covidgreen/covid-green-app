@@ -13,7 +13,7 @@ import {format} from 'date-fns';
 import {Button} from '../../atoms/button';
 import {useExposure} from '../../../providers/exposure';
 
-import Layouts from '../../../theme/layouts';
+import {Basic} from '../../templates/basic';
 
 const emitter = new NativeEventEmitter(ExposureNotification);
 
@@ -167,7 +167,7 @@ export const Debug = ({navigation}) => {
   };
 
   return (
-    <Layouts.Basic heading="Debug">
+    <Basic heading="Debug">
       <Button type="major" onPress={checkExposure}>
         Check Exposure
       </Button>
@@ -225,7 +225,7 @@ export const Debug = ({navigation}) => {
       <ScrollView>
         <Text selectable={true}>{JSON.stringify(events, null, 2)}</Text>
       </ScrollView>
-    </Layouts.Basic>
+    </Basic>
   );
 };
 

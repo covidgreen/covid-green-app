@@ -22,8 +22,9 @@ import {Toast} from '../atoms/toast';
 import {CodeInput} from '../molecules/code-input';
 
 import {colors} from '../../constants/colors';
-import Layouts from '../../theme/layouts';
+import {KeyboardScrollable} from '../templates/keyboard-scrollable';
 import {text, baseStyles} from '../../theme';
+import {AppIcons} from '../../assets/icons';
 
 type UploadStatus =
   | 'initialising'
@@ -170,7 +171,7 @@ export const UploadKeys = ({navigation}) => {
         <Toast
           color={colors.red}
           message={t('uploadKeys:permissionError')}
-          icon={require('../../assets/images/alert/alert.png')}
+          icon={<AppIcons.Alert width={24} height={24} />}
         />
         <Spacing s={8} />
       </>
@@ -183,7 +184,7 @@ export const UploadKeys = ({navigation}) => {
         <Toast
           color={colors.red}
           message={t('uploadKeys:uploadError')}
-          icon={require('../../assets/images/alert/alert.png')}
+          icon={<AppIcons.Alert width={24} height={24} />}
         />
         <Spacing s={8} />
       </>
@@ -197,7 +198,8 @@ export const UploadKeys = ({navigation}) => {
         <Toast
           color="rgba(0, 207, 104, 0.16)"
           message={t('uploadKeys:uploadSuccess:toast')}
-          icon={require('../../assets/images/success/green.png')}
+          type="success"
+          icon={<AppIcons.Success width={24} height={24} color={colors.success} />}
         />
         <Text style={[text.default, styles.successText]}>
           {t('uploadKeys:uploadSuccess:thanks')}
@@ -213,7 +215,7 @@ export const UploadKeys = ({navigation}) => {
   };
 
   return (
-    <Layouts.KeyboardScrollable heading={t('uploadKeys:title')}>
+    <KeyboardScrollable heading={t('uploadKeys:title')}>
       {(status === 'validate' || status === 'upload') && renderValidation()}
       {status === 'permissionError' && renderPermissionError()}
       {status === 'error' && renderUploadError()}
@@ -223,7 +225,7 @@ export const UploadKeys = ({navigation}) => {
         status === 'permissionError') &&
         renderUpload()}
       {status === 'success' && renderUploadSuccess()}
-    </Layouts.KeyboardScrollable>
+    </KeyboardScrollable>
   );
 };
 

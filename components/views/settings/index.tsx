@@ -5,7 +5,6 @@ import {
   View,
   ViewStyle,
   Text,
-  Image,
   FlatList,
   TouchableWithoutFeedback,
   Platform
@@ -17,7 +16,10 @@ import {BUILD_VERSION, HIDE_DEBUG} from 'react-native-dotenv';
 
 import {colors} from '../../../constants/colors';
 import {text, shadows} from '../../../theme';
-import Layouts from '../../../theme/layouts';
+
+import {Basic} from '../../templates/basic';
+import {AppIcons} from '../../../assets/icons';
+
 
 const REQUIRED_PRESS_COUNT = 3;
 
@@ -120,7 +122,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   }
 
   return (
-    <Layouts.Basic heading={t('settings:title')} backgroundColor="#FAFAFA">
+    <Basic heading={t('settings:title')} backgroundColor="#FAFAFA">
       <FlatList
         style={styles.list}
         data={settings}
@@ -141,12 +143,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
               onPress={() => navigation.navigate(screen)}>
               <View style={itemStyle}>
                 <Text style={styles.text}>{title}</Text>
-                <Image
-                  accessibilityIgnoresInvertColors
-                  style={styles.iconSize}
-                  {...styles.iconSize}
-                  source={require('../../../assets/images/arrow-right/teal.png')}
-                />
+                <AppIcons.ArrowRight width={24} height={24} color={colors.teal} />
               </View>
             </TouchableWithoutFeedback>
           );
@@ -157,7 +154,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       <Text style={text.default} onPress={versionPressHandler}>
         App version {Platform.OS === 'ios' ? 'iOS' : 'Android'} {BUILD_VERSION}
       </Text>
-    </Layouts.Basic>
+    </Basic>
   );
 };
 

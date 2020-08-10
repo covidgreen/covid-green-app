@@ -18,12 +18,13 @@ import {StatsSource} from '../molecules/stats-source';
 import {AppStats} from '../organisms/app-stats';
 import {CovidStats} from '../organisms/covid-stats';
 
-import Layouts from '../../theme/layouts';
+import {Scrollable} from '../templates/scrollable';
 import {Button} from '../../components/atoms/button';
 import {Toast} from '../../components/atoms/toast';
 import {CloseContactWarning} from '../molecules/close-contact-warning';
 import {TracingAvailable} from '../molecules/tracing-available';
 import {usePermissions} from '../../providers/permissions';
+import {AppIcons} from '../../assets/icons';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const app = useApplication();
@@ -74,13 +75,13 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const errorToast = app.data === null && (
     <Toast
       type="error"
-      icon={require('../../assets/images/alert/alert.png')}
+      icon={<AppIcons.Alert width={24} height={24} />}
       message={t('common:missingError')}
     />
   );
 
   return (
-    <Layouts.Scrollable
+    <Scrollable
       safeArea={false}
       toast={errorToast}
       backgroundColor="#FAFAFA"
@@ -171,7 +172,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           />
         </>
       )}
-    </Layouts.Scrollable>
+    </Scrollable>
   );
 };
 
