@@ -62,6 +62,14 @@ To start the iOS one, run:
 yarn ios
 ```
 
+## Adding and optimizing icons
+Any new SVG icons which are included within `assets/icons` should be optimized with `npm run optimize:svg`.
+
+## Translations
+There are import and export scripts located in `translations-script`. These can be run with `npm run translations:import` and `npm run:translations:export`. The output file(`output.xlsx`) is output in the `translations-script` directory.
+
+The import script expects an `input.xlsx` file to be located in the `translations-script` directory.
+
 ## Creating a test/beta build
 
 ### Install fastlane
@@ -129,6 +137,7 @@ This command will increment the build number. It will not change the app version
 ### Contributors
 
 * @dharding - David J Harding <davidjasonharding@gmail.com>
+* @jh3y - Jhey Tompkins <jhey@jhey.dev>
 
 ### Past Contributors
 
