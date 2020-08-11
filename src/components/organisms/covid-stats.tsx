@@ -5,8 +5,9 @@ import {useTranslation} from 'react-i18next';
 import {CovidStatistics} from 'services/api';
 import {Spacing} from 'components/atoms/spacing';
 import {Heading} from 'components/atoms/heading';
+import {Card} from 'components/atoms/card';
 import {CountyBreakdownCard} from 'components/molecules/county-breakdown-card';
-import {colors, shadows, text} from 'theme';
+import {text} from 'theme';
 import {BubbleIcons} from 'assets/icons';
 
 interface CovidStatsProps {
@@ -27,7 +28,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
       <Heading text={t('stats:title')} />
       <CountyBreakdownCard onPress={onCountyBreakdown} />
       <Spacing s={16} />
-      <View style={styles.card}>
+      <Card>
         <View style={styles.row}>
           <View style={[iconStyle.icon, styles.confirmedBackground]}>
             <BubbleIcons.Cases width={56} height={56} />
@@ -83,7 +84,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
             </Text>
           </View>
         </View>
-      </View>
+      </Card>
     </View>
   );
 };
@@ -98,11 +99,6 @@ const iconStyle = StyleSheet.create({
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  card: {
-    backgroundColor: colors.white,
-    padding: 16,
-    ...shadows.default
   },
   row: {
     flexDirection: 'row',

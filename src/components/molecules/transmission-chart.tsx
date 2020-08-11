@@ -1,23 +1,22 @@
 import React, {FC} from 'react';
-import {StyleSheet, View, ViewStyle, Text} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 
+import {Card} from 'components/atoms/card';
 import {colors, shadows, text} from 'theme';
 
 interface TransmissionChartProps {
-  style?: ViewStyle;
   title?: string;
   data: [string, number][];
 }
 
 export const TransmissionChart: FC<TransmissionChartProps> = ({
-  style,
   title,
   data
 }) => {
   const maxValue = Math.max(...data.map(([_, y]) => y));
 
   return (
-    <View style={[styles.container, style]}>
+    <Card>
       {title && (
         <Text maxFontSizeMultiplier={2} style={styles.title}>
           {title}
@@ -48,17 +47,11 @@ export const TransmissionChart: FC<TransmissionChartProps> = ({
           </View>
         </View>
       ))}
-    </View>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-    padding: 16,
-    ...shadows.default
-  },
   title: {
     ...text.defaultBold,
     textAlign: 'center'

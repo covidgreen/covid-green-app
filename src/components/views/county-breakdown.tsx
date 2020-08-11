@@ -3,7 +3,8 @@ import {StyleSheet, View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useIsFocused, useFocusEffect} from '@react-navigation/native';
 
-import {colors, shadows, text} from 'theme';
+import {Card} from 'components/atoms/card';
+import {colors, text} from 'theme';
 import {Heading} from 'components/atoms/heading';
 import {useApplication} from 'providers/context';
 import {Scrollable} from 'components/templates/scrollable';
@@ -42,7 +43,7 @@ export const CountyBreakdown = () => {
     <Scrollable refresh={{refreshing, onRefresh}}>
       <Heading accessibilityFocus text={t('casesByCounty:title')} />
       {app.data && app.data.counties !== null && (
-        <View style={styles.card}>
+        <Card padding={{v: 12}}>
           {app.data.counties.map(({county, cases}, index) => {
             const percentage = Math.round((cases * 100) / total);
             const widthPercentage = Math.round((cases * 100) / max);
@@ -80,28 +81,13 @@ export const CountyBreakdown = () => {
               </View>
             );
           })}
-        </View>
+        </Card>
       )}
     </Scrollable>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    backgroundColor: '#FAFAFA'
-  },
-  contentContainerStyle: {
-    paddingHorizontal: 24,
-    paddingTop: 16,
-    paddingBottom: 48
-  },
-  card: {
-    backgroundColor: colors.white,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    ...shadows.default
-  },
   line: {
     flex: 2,
     height: 40,

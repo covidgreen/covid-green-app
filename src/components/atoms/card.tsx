@@ -27,14 +27,18 @@ export const Card: FC<CardProps> = ({
     paddingVertical: v,
     ...(r !== undefined && {paddingRight: r})
   };
+  const isWarning = type === 'warning';
   const cardContent = (
-    <View
-      style={[styles.card, type === 'warning' && styles.cardWarning, padding]}>
+    <View style={[styles.card, isWarning && styles.cardWarning, padding]}>
       {icon && <View style={styles.icon}>{icon}</View>}
       <View style={styles.childrenView}>{children}</View>
       {onPress && (
         <View style={styles.row}>
-          <AppIcons.ArrowRight width={18} height={18} color={colors.teal} />
+          <AppIcons.ArrowRight
+            width={18}
+            height={18}
+            color={isWarning ? colors.white : colors.teal}
+          />
         </View>
       )}
     </View>
@@ -59,7 +63,8 @@ const styles = StyleSheet.create({
   },
   cardWarning: {
     borderWidth: 2,
-    borderColor: colors.red
+    borderColor: colors.red,
+    backgroundColor: colors.red
   },
   icon: {
     alignItems: 'center',
