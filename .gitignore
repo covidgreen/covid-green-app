@@ -171,3 +171,7 @@ fastlane/test_output
 builds/*
 *.xcarchive
 app/android/app/release/
+
+# Translation script output
+translations-script/output.xlsx
+translations-script/input.xlsx

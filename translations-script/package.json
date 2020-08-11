@@ -1,0 +1,16 @@
+{
+  "name": "translations-script",
+  "version": "1.0.0",
+  "description": "scripts for importing and exporting translations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "import": "node import.js",
+    "export": "node export.js"
+  },
+  "dependencies": {
+    "exceljs": "^4.0.1",
+    "lodash": "^4.17.15",
+    "read-excel-file": "^4.0.6"
+  }
+}
