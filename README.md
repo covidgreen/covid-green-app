@@ -137,6 +137,7 @@ This command will increment the build number. It will not change the app version
 ### Contributors
 
 * @dharding - David J Harding <davidjasonharding@gmail.com>
+* @ckiss - Cristian Kiss <cristian.kiss@nearform.com>
 * @jh3y - Jhey Tompkins <jhey@jhey.dev>
 
 ### Past Contributors
