@@ -62,6 +62,62 @@ To start the iOS one, run:
 yarn ios
 ```
 
+## Adding and optimizing icons
+Any new SVG icons which are included within `assets/icons` should be optimized with `npm run optimize:svg`.
+
+## Translations
+There are import and export scripts located in `translations-script`. These can be run with `npm run translations:import` and `npm run:translations:export`. The output file(`output.xlsx`) is output in the `translations-script` directory.
+
+The import script expects an `input.xlsx` file to be located in the `translations-script` directory.
+
+## Creating a test/beta build
+
+### Install fastlane
+
+```bash
+bundle install
+```
+
+### Build for iOS
+
+In order to build, sign, and upload your app to TestFlight, you need to have configured a provisioning profile (with the Exposure Notification entitlement) and added a signing key to your Keychain.
+
+Copy and then customize the dotenv file with your developer account information:
+
+```bash
+cd ios
+cp .env.default.sample .env.default
+```
+
+Use fastlane to build the app and upload it to TestFlight:
+
+```bash
+cd ios
+fastlane beta
+```
+
+This command will increment the build number. It will not change the app version. That must be done in the project settings manually.
+
+### Build for Android
+
+In order to build, sign, and upload your app to an internal test track, you need to have configured an app in the Play console that has been enabled for the Exposure Notification API, and installed an upload key and API access key locally. You will also need to know the keystore and key passwords.
+
+Copy and then customize the dotenv file with your signing information:
+
+```bash
+cd android
+cp .env.default.sample .env.default
+```
+
+Use fastlane to build the app and push it to a draft Internal Test Track:
+
+```bash
+cd android
+fastlane internal
+```
+
+This command will increment the build number. It will not change the app version. That must be done in the project settings manually.
+
 ## Team
 
 ### Lead Maintainers
@@ -81,6 +137,7 @@ yarn ios
 ### Contributors
 
 * @dharding - David J Harding <davidjasonharding@gmail.com>
+* @jh3y - Jhey Tompkins <jhey@jhey.dev>
 
 ### Past Contributors
 

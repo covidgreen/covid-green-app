@@ -158,6 +158,10 @@ local.properties
 # fastlane specific
 fastlane/report.xml
 
+# fastlane environment
+ios/.env.default
+android/.env.default
+
 # deliver temporary files
 fastlane/Preview.html
 
@@ -171,3 +175,7 @@ fastlane/test_output
 builds/*
 *.xcarchive
 app/android/app/release/
+
+# Translation script output
+translations-script/output.xlsx
+translations-script/input.xlsx

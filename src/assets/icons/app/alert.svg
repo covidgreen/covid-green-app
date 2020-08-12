@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/24x24/ic-alert</title>
+    <g id="Icon/24x24/ic-alert" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="notification-2" transform="translate(1.000000, 2.000000)" stroke="#FFFFFF" stroke-width="2">
+            <circle id="Oval" cx="11" cy="10" r="4"></circle>
+            <path d="M6,19.8 C2.31557554,17.921696 -0.00400160128,14.1355785 -0.00400160128,10 C-0.00400160128,5.86442152 2.31557554,2.07830395 6,0.2" id="Path"></path>
+            <path d="M16,0.2 C19.6844245,2.07830395 22.0040016,5.86442152 22.0040016,10 C22.0040016,14.1355785 19.6844245,17.921696 16,19.8" id="Path"></path>
+        </g>
+    </g>
+</svg>
