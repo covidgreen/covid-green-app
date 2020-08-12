@@ -1,6 +1,13 @@
 import React, {useEffect} from 'react';
 import {enableScreens} from 'react-native-screens';
-import {Platform, StatusBar, Image, View, AppState} from 'react-native';
+import {
+  Platform,
+  StatusBar,
+  Image,
+  View,
+  AppState,
+  YellowBox
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -63,6 +70,10 @@ import {colors} from 'theme';
 import {Loading} from 'components/views/loading';
 
 enableScreens();
+
+YellowBox.ignoreWarnings([
+  'Warning: componentWillReceiveProps has been renamed'
+]);
 
 try {
   NetInfo.fetch().then((state) => console.log(state));
