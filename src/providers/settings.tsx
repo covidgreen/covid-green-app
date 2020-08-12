@@ -13,10 +13,12 @@ import {isObject} from 'formik';
 
 import * as api from 'services/api';
 import {fallback} from 'services/i18n/common';
+import {counties} from 'assets/counties';
 
 export interface BasicItem {
   label: string;
   value: any;
+  freeText?: boolean;
 }
 
 export interface AppConfig {
@@ -50,8 +52,11 @@ interface SettingsContextValue {
   traceConfiguration: TraceConfiguration;
   user: string | null;
   consent: string | null;
-  sexOptions: BasicItem[];
+  genderOptions: BasicItem[];
+  raceOptions: BasicItem[];
+  ethnicityOptions: BasicItem[];
   ageRangeOptions: AgeOption[];
+  countiesOptions: BasicItem[];
   exposedTodo: string;
   dpinText: string;
   tandcText: string;
@@ -73,8 +78,11 @@ const defaultValue: SettingsContextValue = {
     fileLimit: 1,
     fileLimitiOS: 2
   },
-  sexOptions: [],
+  genderOptions: [],
+  raceOptions: [],
+  ethnicityOptions: [],
   ageRangeOptions: [],
+  countiesOptions: [],
   exposedTodo: '',
   dpinText: '',
   tandcText: '',
@@ -172,8 +180,11 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
         consent: consent[1],
         appConfig,
         traceConfiguration,
-        sexOptions: getSexOptions(t),
+        genderOptions: getGenderOptions(t),
+        raceOptions: getRaceOptions(t),
+        ethnicityOptions: getEthnicityOptions(t),
         ageRangeOptions: getAgeRangeOptions(t),
+        countiesOptions: getCountiesOptions(t),
         exposedTodo,
         dpinText,
         tandcText,
@@ -187,6 +198,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
       console.log(err, 'Error loading settings');
       setState({...state, loaded: true});
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -198,19 +210,51 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
 
 export const useSettings = () => useContext(SettingsContext);
 
-function getSexOptions(t: TFunction) {
+function getGenderOptions(t: TFunction): BasicItem[] {
   return [
-    {label: t('sex:female'), value: 'f'},
-    {label: t('sex:male'), value: 'm'},
-    {label: t('common:preferNotToSay'), value: 'u'}
+    {label: t('common:preferNotToSay'), value: 'u'},
+    {label: t('gender:male'), value: 'm'},
+    {label: t('gender:female'), value: 'f'},
+    {label: t('gender:nonBinary'), value: 'nb'},
+    {label: t('gender:other'), value: 'other'}
   ];
 }
 
-function getAgeRangeOptions(t: TFunction) {
+function getRaceOptions(t: TFunction): BasicItem[] {
   return [
     {label: t('common:preferNotToSay'), value: 'u'},
-    {label: '16-39', value: '16-39'},
-    {label: '40-59', value: '40-59'},
-    {label: '60+', value: '60+', riskGroup: true}
+    {label: t('race:white'), value: 'white'},
+    {label: t('race:black'), value: 'black'},
+    {label: t('race:american'), value: 'american'},
+    {label: t('race:asian'), value: 'asian'},
+    {label: t('race:hawaiian'), value: 'hawaiian'},
+    {label: t('race:other'), value: 'unknown'}
+  ];
+}
+
+function getEthnicityOptions(t: TFunction): BasicItem[] {
+  return [
+    {label: t('common:preferNotToSay'), value: 'u'},
+    {label: t('ethnicity:hispanic'), value: 'hispanic'},
+    {label: t('ethnicity:not_hispanic'), value: 'not_hispanic'}
+  ];
+}
+
+function getAgeRangeOptions(t: TFunction): AgeOption[] {
+  return [
+    {label: t('common:preferNotToSay'), value: 'u'},
+    {label: '0-17', value: '0-17'},
+    {label: '18-34', value: '18-34'},
+    {label: '35-49', value: '35-49'},
+    {label: '50-69', value: '50-69', riskGroup: true},
+    {label: '70-79', value: '70-79', riskGroup: true},
+    {label: '80+', value: '80+', riskGroup: true}
+  ];
+}
+
+function getCountiesOptions(t: TFunction): BasicItem[] {
+  return [
+    {label: t('common:preferNotToSay'), value: 'u'},
+    ...counties.map((c) => ({label: c.county, value: c.code}))
   ];
 }

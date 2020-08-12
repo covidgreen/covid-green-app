@@ -35,9 +35,9 @@
     "backHint": "Navigate back to previous screen"
   },
   "tabBar": {
-    "updates": "Updates",
-    "symptomCheck": "COVID Check-In",
-    "contactTracing": "Contact Tracing",
+    "updates": "NY COVID Data",
+    "symptomCheck": "My Health Log",
+    "contactTracing": "My COVID Alerts",
     "shareApp": "Share app ",
     "shareError": "There was an error sharing. Please try again or contact us."
   },
@@ -107,53 +107,41 @@
     "requiredICU": "Required ICU"
   },
   "checker": {
-    "title": "COVID Check-In",
+    "title": "My Health Today",
     "resultTitle": "Thank you",
-    "question1": "**Do you have a fever – a high temperature over 38 degrees Celsius?**\n\nSymptoms of a fever can include flushed cheeks, feeling tired and being warm or hot to touch.",
-    "question1id": "fever",
-    "question1Label": "High temperature or chills",
-    "question2id": "cough",
-    "question2": "**Do you have any type of cough?**",
-    "question2Label": "Cough",
-    "question3id": "breath",
-    "question3": "**Do you have any difficulty breathing?**\n\nThis might be like panting or feeling like you can't fill your lungs.",
-    "question3Label": "Difficulty breathing",
-    "question4id": "flu",
-    "question4": "**Do you have any loss of sense of taste or smell?**\n\nThis might mean you can't taste or smell anything, or things taste or smell different to normal.",
-    "question4Label": "Loss of sense of taste or smell",
-    "yes": "Yes",
-    "no": "No",
-    "virusIsolation": "These symptoms are a match for the symptoms of coronavirus. Remember, 8 out of 10 people with COVID-19 recover at home with rest and over-the-counter medicine.\n\n## What to do next\n\nPlease self-isolate at home to protect others.\n\nCall your GP to get advice and see if you should be tested for COVID-19.",
-    "recovered": "Good to hear you’re feeling better. Stay well by following the advice on hse.ie.",
-    "linkButton": "Read more advice here",
-    "viewHistory": "View my history",
-    "introTitle": "COVID Check-In",
-    "introWelcome": "About you",
+    "symptoms": {
+      "subtitle": "Do you have any of the following?",
+      "nextButton": "Continue",
+      "fever": "Fever or feeling feverish (such as chills, sweating)",
+      "cough": "Cough",
+      "breath": "Mild or moderate difficulty breathing",
+      "fatigue": "Fatigue",
+      "throat": "Sore throat",
+      "congestion": "Congestion or runny nose",
+      "aches": "Muscle aches or body aches",
+      "headache": "Headache",
+      "nausea": "Nausea or Vomiting",
+      "diarrhea": "Diarrhea",
+      "taste": "New loss of taste or smell"
+    },
+    "results": {
+      "title": "Thank you",
+      "noSymptomsFeelingWell": "We’re happy to hear you’re feeling well. Thank you for checking in. Even if you are still well, please come back tomorrow to let us know how you're doing.\n\nVisit **health.pa.gov** to read more about how to protect yourself and others from coronavirus.",
+      "riskGroup": "Because of your age, we would like you to take extra care to protect yourself from COVID-19.\n\nWe know this isn't an easy time. If you need support or advice on how to manage at home, tap below for more information.",
+      "noSymptomsNotFeelingWell": "Thank you for checking in. Sorry to hear you are not feeling well.\n\nIt sounds like you do not have any of the common symptoms of COVID-19, such as fever, cough, shortness of breath, diarrhea, chills, muscle pain, headache, sore throat, or new loss of taste or smell. If you begin to develop any of these symptoms, come back to complete another COVID Check-In and we will do our best to help.\n\nIn the meantime, visit **health.pa.gov** to read more about how to protect yourself and others from coronavirus.\n\nIf you are need mental health or substance use disorder care services, please visit [Mental Health in PA](https://www.dhs.pa.gov/Services/Mental-Health-In-PA/Pages/default.aspx).",
+      "recovered": "Good to hear you’re feeling better. Stay well by following the advice on **health.pa.gov**",
+      "coronavirus": "**Thank you for checking in.**\n**Sorry to hear you're not feeling well.**\n\nIf your symptoms are mild most people can recover at home without medical care.\n\n**If you'd like to get tested** for a diagnosis, contact your healthcare provider or schedule an appointment at a publicly accessible testing site. [Find a testing site in Pennsylvania](https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx).\n\n**If you do not want to get tested**, it's still important to stay home, isolate and avoid contact with others, rest, and drink fluids. Take acetaminophen to bring down your fever. If you feel worse, call your health care provider.\n\nIf your symptoms are severe (including a fever above 100°), call your health care provider. If you don't have a health care provider, call the nearest hospital or urgent care to schedule an appointment. [Find a testing site in Pennsylvania](https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx).\n\n**If it’s an emergency, call 911.**\nEmergency warning signs can include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
+      "stopTheSpread": "Learn how to stop the spread"
+    },
+    "introTitle": "My Health Today",
+    "introOptional": "All responses are optional.",
     "introButton": "Continue",
-    "noresults": "You haven't tried the symptom checker yet. Start now by tapping the button above",
-    "noSymptomsWell": {
-      "message": "We’re happy to hear you’re feeling well. Thank you for checking in. Even if you are still well, please come back tomorrow to let us know how you're doing.",
-      "viewHistory": "View my history",
-      "advice": "Visit hse.ie to read more about how to protect yourself and others from coronavirus.",
-      "protectionAdvice": "Advice on protection"
-    },
-    "noSymptomsNotWell": {
-      "message": "Thank you for checking in. Sorry to hear you're not feeing well.\n\nIf you have symptoms like a runny nose or sore throat, you should behave like you have coronavirus and self-isolate for 14 days to protect other people.\n\nPhone your GP to discuss your symptoms and whether you need a test for coronavirus.",
-      "viewHistory": "View my history",
-      "advice": "Visit hse.ie to read more about how to protect yourself and others from coronavirus.",
-      "protectionAdvice": "Advice on protection"
-    },
-    "riskGroup": {
-      "warning": "Because of your age, we would like you to take extra care to protect yourself from COVID-19.\n\nPeople who are older and people who have long-term health conditions are more at risk of serious illness if they get COVID-19.",
-      "warningReadMore": "Read more about this here",
-      "advice": "We know this isn’t an easy time. If you need support or advice on how to manage at home, tap below for more information.",
-      "adviceReadMore": "Get more information"
-    }
+    "noresults": "You haven't tried the symptom checker yet. Start now by tapping the button above"
   },
   "welcome": {
     "title": "Hi there 👋",
-    "text": "COVID Check-In allows everyone using the app to check symptoms and get advice. It also helps the HSE to map and track how COVID-19 is affecting Ireland.\n\nThe COVID Check-In does not reveal your identity. You can share your age, sex and locality to help make the information more useful for public health analysis.\n\nThe COVID Check-In also keeps a record on your phone of any symptoms you've had, so you can check back and review at any time.",
-    "action": "Yes, I'd like to use COVID Check-In",
+    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. Your symptoms data helps them understand how COVID-19 is affecting NY.\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
+    "action": "Yes I'd like to start my log",
     "letUsKnow": "Let us know if you have\nsymptoms today"
   },
   "returning": {
@@ -376,13 +364,33 @@
       "updates": "Return to Updates"
     }
   },
-  "sex": {
-    "label": "Your sex (optional)",
+  "gender": {
+    "label": "Gender identity(optional)",
+    "placeholder": "Choose your gender identity",
     "female": "Female",
-    "male": "Male"
+    "male": "Male",
+    "transgender": "Transgender",
+    "nonBinary": "Non-binary",
+    "other": "Other"
+  },
+  "race": {
+    "label": "Race(optional)",
+    "placeholder": "Choose your race",
+    "american": "American Indian/Alaskan",
+    "asian": "Asian",
+    "black": "Black",
+    "hawaiian": "Native Hawaiian/Other Pacific Islander",
+    "white": "White",
+    "other": "Other"
+  },
+  "ethnicity": {
+    "label": "Ethnicity(optional)",
+    "placeholder": "Choose your ethnicity",
+    "hispanic": "Hispanic/Latino",
+    "not_hispanic": "Not Hispanic/Latino"
   },
   "ageRange": {
-    "label": "Your age range (optional)",
+    "label": "Age range(optional)",
     "placeholder": "Choose your age range"
   },
   "phoneNumber": {
@@ -406,7 +414,7 @@
     }
   },
   "county": {
-    "label": "Your county (optional)",
+    "label": "County(optional)",
     "placeholder": "Choose your county",
     "searchPlaceholder": "Search",
     "noResults": "No results found for this search.\nTry with something else."
@@ -436,5 +444,5 @@
   "codeInput": {
     "accessibilityLabel": "Code digit {{number}}",
     "accessibilityHint": "Enter {{count}} digit code"
-  }  
+  }
 }

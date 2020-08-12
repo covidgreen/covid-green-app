@@ -1,38 +1,46 @@
 import React, {FC} from 'react';
-import {
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  Text,
-} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, View, Text} from 'react-native';
 
-import {colors, text} from 'theme';
+import {text, colors} from 'theme';
+
 import Icons from 'assets/icons';
 
+type Value = string | number; // May be used as object keys
+
 interface ListItem {
-  value: any;
+  value: Value;
   label: string;
 }
 
 interface SelectListProps {
   items: ListItem[];
-  selectedValue?: any;
+  selectedValue?: Value | Value[];
+  multiSelect?: boolean;
   onItemSelected: (value: any) => void;
 }
 
 export const SelectList: FC<SelectListProps> = ({
   items,
   selectedValue,
-  onItemSelected
+  onItemSelected,
+  multiSelect
 }) => {
+  const hasSelectedValue = (value: Value) =>
+    multiSelect && Array.isArray(selectedValue)
+      ? selectedValue.includes(value)
+      : selectedValue === value;
+
   const renderItem = ({label, value}: ListItem, index: number) => {
     const isLast = index === items.length - 1;
     let color = colors.text;
     let backgroundColor = colors.gray;
-    if (value === selectedValue) {
-      color = colors.white;
-      backgroundColor = colors.teal;
+    if (hasSelectedValue(value)) {
+      color = colors.teal;
+      backgroundColor = colors.white;
     }
+
+    const IconCheckMark =
+      Icons[multiSelect ? 'CheckMarkMultiSelect' : 'RadioSelected'];
 
     return (
       <TouchableWithoutFeedback
@@ -41,13 +49,22 @@ export const SelectList: FC<SelectListProps> = ({
         accessibilityLabel={
           value === selectedValue ? `${label} selected` : `${label} unselected`
         }
+        accessibilityHint={
+          value === selectedValue ? `${label} selected` : `${label} unselected`
+        }
         accessibilityRole="checkbox">
         <View
           style={[styles.row, {backgroundColor}, isLast && styles.lastItem]}>
           <View style={styles.icon}>
-            {value === selectedValue ? <IconSelected /> : <IconNotSelected />}
+            {hasSelectedValue(value) ? (
+              <IconCheckMark width={26} height={26} color={colors.teal} />
+            ) : (
+              <View style={styles[multiSelect ? 'square' : 'circle']} />
+            )}
           </View>
-          <Text style={[text.defaultBold, {color}]}>{label}</Text>
+          <View style={styles.textWrap}>
+            <Text style={[text.defaultBold, {color}]}>{label}</Text>
+          </View>
         </View>
       </TouchableWithoutFeedback>
     );
@@ -56,42 +73,39 @@ export const SelectList: FC<SelectListProps> = ({
   return <View>{items.map(renderItem)}</View>;
 };
 
-const IconSelected = () => (
-  <Icons.CheckMark width={26} height={26} color={colors.teal} />
-);
-
-const IconNotSelected = () => <View style={styles.circle} />;
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    borderWidth: 1
-  },
   row: {
     flexDirection: 'row',
+    flex: 0,
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 12,
     borderWidth: 1,
-    borderColor: `${colors.dot}80`,
+    borderColor: colors.dot,
     borderRadius: 8,
     marginBottom: 8
   },
   icon: {
     marginRight: 12
   },
+  textWrap: {
+    flex: 2
+  },
   circle: {
-    width: 26,
-    height: 26,
+    width: 22,
+    height: 22,
     backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: `${colors.dot}80`,
+    borderColor: colors.dot,
     borderRadius: 13
   },
-  iconSize: {
-    width: 26,
-    height: 26
+  square: {
+    width: 22,
+    height: 22,
+    margin: 2,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.dot
   },
   lastItem: {
     marginBottom: 0

@@ -10,13 +10,15 @@ import RNGoogleSafetyNet from 'react-native-google-safetynet';
 import RNIOS11DeviceCheck from 'react-native-ios11-devicecheck';
 
 import {urls} from 'constants/urls';
-import {Check, UserLocation} from 'providers/context';
+import {Check} from 'providers/context';
 import {isMountedRef, navigationRef} from 'navigation';
 
 interface CheckIn {
-  sex: string;
+  gender: string;
+  race: string;
+  ethnicity: string;
   ageRange: string;
-  location: UserLocation;
+  county: string;
   ok: boolean;
 }
 
@@ -199,19 +201,20 @@ export async function forget(): Promise<boolean> {
 }
 
 export async function checkIn(checks: Check[], checkInData: CheckIn) {
-  const {sex, ageRange, location, ok} = checkInData;
+  const {gender, race, ethnicity, ageRange, county, ok} = checkInData;
 
   try {
     const data = checks.map((c) => ({
       ...c.symptoms,
-      status: c.status || 'u',
       date: format(c.timestamp, 'dd/MM/yyyy')
     }));
 
     const body = {
+      gender,
+      race,
+      ethnicity,
       ageRange,
-      sex,
-      locality: [location.county || 'u', location.locality || 'u'].join(', '),
+      county,
       ok,
       data
     };

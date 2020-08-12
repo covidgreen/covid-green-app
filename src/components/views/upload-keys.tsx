@@ -195,7 +195,9 @@ export const UploadKeys = ({navigation}) => {
           color="rgba(0, 207, 104, 0.16)"
           message={t('uploadKeys:uploadSuccess:toast')}
           type="success"
-          icon={<AppIcons.Success width={24} height={24} color={colors.success} />}
+          icon={
+            <AppIcons.Success width={24} height={24} color={colors.success} />
+          }
         />
         <Text style={[text.default, styles.successText]}>
           {t('uploadKeys:uploadSuccess:thanks')}

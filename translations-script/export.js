@@ -16,7 +16,7 @@ function process(ws, path, enObj, gaObj) {
     return;
   }
 
-  Object.keys(enObj).forEach(key => {
+  Object.keys(enObj).forEach((key) => {
     process(ws, path === '' ? key : `${path}.${key}`, enObj[key], gaObj);
   });
 }
@@ -31,9 +31,9 @@ async function generateFile() {
   const worksheet = workbook.addWorksheet('Translations');
 
   worksheet.columns = [
-    { header: 'Context', key: 'context' },
-    { header: 'English', key: 'english' },
-    { header: 'Gaeilge', key: 'gaeilge' }
+    {header: 'Context', key: 'context'},
+    {header: 'English', key: 'english'},
+    {header: 'Gaeilge', key: 'gaeilge'}
   ];
 
   process(worksheet, '', en, ga);

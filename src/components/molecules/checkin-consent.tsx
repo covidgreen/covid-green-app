@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableWithoutFeedback
-} from 'react-native';
+import {Text, View, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {AppIcons} from 'assets/icons';
@@ -88,5 +83,5 @@ export const styles = StyleSheet.create({
     top: 9,
     right: 9,
     zIndex: 99
-  },
+  }
 });

@@ -12,7 +12,7 @@ module.exports = {
   }
 };
 
-module.exports = api => {
+module.exports = (api) => {
   api.cache(false);
   return {
     presets: [

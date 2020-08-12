@@ -22,6 +22,7 @@ import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
 import {useExposure} from 'providers/exposure';
 import {usePermissions} from 'providers/permissions';
+import {useSymptomChecker} from 'hooks/symptom-checker';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const app = useApplication();
@@ -32,6 +33,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const isFocused = useIsFocused();
   const exposure = useExposure();
   const {readPermissions} = usePermissions();
+  const {getNextScreen} = useSymptomChecker();
 
   const {verifyCheckerStatus} = app;
   const {checkInConsent, quickCheckIn, checks} = app;
@@ -99,7 +101,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
         <>
           <CheckInCard
             onPress={() =>
-              navigation.navigate('symptoms', {screen: 'symptoms.checker'})
+              navigation.navigate('symptoms', {screen: getNextScreen()})
             }
           />
           <Spacing s={16} />
@@ -110,8 +112,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           onDismissed={() => setQuickCheckInDismissed(true)}
           nextHandler={() =>
             navigation.navigate('symptoms', {
-              screen: 'symptoms.checker',
-              params: {timestamp: Date.now(), skipQuickCheckIn: true}
+              screen: getNextScreen('checker.quick', {skipQuickCheckIn: true})
             })
           }
         />

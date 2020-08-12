@@ -7,20 +7,23 @@ import {
   ScrollView,
   View,
   Text,
-  TextInput,
+  TextInput
 } from 'react-native';
 import Modal, {ModalProps} from 'react-native-modal';
 import {useSafeArea} from 'react-native-safe-area-context';
 
+import {BasicItem} from 'providers/settings';
+
 import {Spacing} from 'components/atoms/layout';
-import {colors, text} from 'theme';
+
+import {text, colors} from 'theme';
 import Icons, {AppIcons} from 'assets/icons';
 
 interface DropdownModalProps extends Partial<ModalProps> {
   title: string;
-  items: any[];
+  items: BasicItem[];
   selectedValue: string;
-  onSelect: (value: any) => void;
+  onSelect: (value: string) => void;
   onClose: () => void;
   search?: {
     placeholder: string;
@@ -28,7 +31,7 @@ interface DropdownModalProps extends Partial<ModalProps> {
     onChange: (value: string) => void;
     noResults: string;
   };
-  itemRenderer?: (item: any) => React.ReactNode;
+  itemRenderer?: (item: BasicItem) => React.ReactNode;
   instructions?: () => React.ReactNode;
 }
 
@@ -49,9 +52,9 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
     searchInputRef.current?.focus();
   }, []);
 
-  const renderItem = (item: any, index: number) => {
+  const renderItem = (item: BasicItem, index: number) => {
     const {label, value} = item;
-    let color = value === selectedValue ? colors.teal : colors.text;
+    const color = value === selectedValue ? colors.teal : colors.text;
 
     if (!item.value) {
       return (
@@ -75,12 +78,12 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
             itemRenderer(item)
           ) : (
             <View style={listStyles.textWrapper}>
-              <Text style={[text.xlargeBold, {color}]}>{label}</Text>
+              <Text style={[listStyles.text, {color}]}>{label}</Text>
             </View>
           )}
           {value === selectedValue && (
             <View style={listStyles.iconWrapper}>
-              <Icons.CheckMark width={26} height={26} />
+              <Icons.CheckMark width={24} height={24} />
             </View>
           )}
         </View>
@@ -128,7 +131,9 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
               accessibilityHint={`Close ${title}`}
               accessibilityLabel={`Close ${title}`}
               onPress={onClose}>
-              <AppIcons.Close width={16} height={16} />
+              <View>
+                <AppIcons.Close width={18} height={18} />
+              </View>
             </TouchableWithoutFeedback>
           </View>
           <Text style={text.small}>{title}</Text>
@@ -143,7 +148,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
                   styles.searchInput,
                   !!search.term && styles.searchUnderlined
                 ]}
-                placeholderTextColor="rgb(106, 116, 128)"
+                placeholderTextColor={colors.text}
                 placeholder={search.placeholder}
                 onChangeText={search.onChange}
                 value={search.term}
@@ -187,23 +192,15 @@ const styles = StyleSheet.create({
   search: {
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgb(221, 221, 221)'
+    borderBottomColor: colors.dot
   },
   searchInput: {
     height: 48,
     ...text.xlarge,
     color: colors.teal
   },
-  selectedIconSize: {
-    width: 26,
-    height: 26
-  },
   searchUnderlined: {
     textDecorationLine: 'underline'
-  },
-  closeIcon: {
-    width: 16,
-    height: 16
   }
 });
 
@@ -216,7 +213,8 @@ const listStyles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    marginVertical: 8
+    marginVertical: 8,
+    marginHorizontal: 24
   },
   rowFirst: {
     marginTop: 0
@@ -229,9 +227,13 @@ const listStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  text: {
+    ...text.xlargeBold,
+    textAlign: 'center'
+  },
   iconWrapper: {
     position: 'absolute',
-    right: 0
+    right: -24
   },
   contentWrapper: {
     flex: 1,

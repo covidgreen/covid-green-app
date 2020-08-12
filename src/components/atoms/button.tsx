@@ -10,8 +10,10 @@ import {
 
 import {text, scale, colors} from 'theme';
 
+export type ButtonType = 'default' | 'empty' | 'danger';
+
 interface ButtonProps {
-  type?: 'default' | 'empty' | 'danger';
+  type?: ButtonType;
   disabled?: boolean;
   onPress: () => void;
   style?: ViewStyle;

@@ -1,31 +1,29 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  TouchableWithoutFeedback,
-  StyleSheet
-} from 'react-native';
+import {Text, View, TouchableWithoutFeedback, StyleSheet} from 'react-native';
 
-import {DropdownModal} from './modal';
+import {BasicItem} from 'providers/settings';
+
 import {Spacing} from 'components/atoms/spacing';
+import {DropdownModal} from './modal';
+
 import {text, colors} from 'theme';
 import {AppIcons} from 'assets/icons';
 
-interface DropdownProps {
+export interface DropdownProps {
   label?: string;
   placeholder: string;
   title?: string;
-  items: any[];
-  value: any;
-  onValueChange: (value: any) => void;
+  items: BasicItem[];
+  value: string;
+  onValueChange: (value: string) => void;
   search?: {
     placeholder: string;
     term: string;
     onChange: (value: string) => void;
     noResults: string;
   };
-  itemRenderer?: (item: any) => React.ReactNode;
-  display?: (item: any) => string;
+  itemRenderer?: (item: BasicItem) => React.ReactNode;
+  display?: (item: BasicItem) => string;
   forceDisplay?: () => string;
   instructions?: () => React.ReactNode;
 }
@@ -45,7 +43,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
-  const onItemSelected = (newValue: any) => {
+  const onItemSelected = (newValue: string) => {
     setModalVisible(false);
     if (newValue !== value) {
       onValueChange(newValue);
@@ -111,9 +109,5 @@ const styles = StyleSheet.create({
   displayValue: {
     ...text.largeBold,
     color: colors.teal
-  },
-  arrowSize: {
-    width: 24,
-    height: 24
   }
 });
