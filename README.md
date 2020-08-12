@@ -63,9 +63,11 @@ yarn ios
 ```
 
 ## Adding and optimizing icons
+
 Any new SVG icons which are included within `assets/icons` should be optimized with `npm run optimize:svg`.
 
 ## Translations
+
 There are import and export scripts located in `translations-script`. These can be run with `npm run translations:import` and `npm run:translations:export`. The output file(`output.xlsx`) is output in the `translations-script` directory.
 
 The import script expects an `input.xlsx` file to be located in the `translations-script` directory.
@@ -118,32 +120,66 @@ fastlane internal
 
 This command will increment the build number. It will not change the app version. That must be done in the project settings manually.
 
+## End to end testing
+
+End to end tests are executed using [Detox](https://github.com/wix/Detox).
+
+The [Detox Environment Setup](https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-environment-setup) provides instructions on how to set up your local environment however there's a specific caveat when it comes to Android.
+
+Rather than using the AOSP emulators as suggested by Detox we need to use a version with Google Play Services enabled.
+
+You can set up an emulator in Android Studio following the [Android Emulator Guide](https://developer.android.com/studio/run/emulator). The default for this project is a Pixel 3 device with API version 29 but this can be changed as necessary in `.detoxrc.json`.
+
+For iOS the only requirement is to have iOS 13.5 or above. We default to the iPhone 11 Pro Max but again this can be changed as necessary in `.detoxrc.json`.
+
+Once your environment is set up the Android and iOS applications can be built with `yarn test:build:android` and `yarn test:build:ios` respectively.
+
+Start the React Native bundler before running the tests:
+
+```bash
+yarn start
+```
+
+The tests can then be run with:
+
+```bash
+yarn test:ios
+```
+
+for iOS, and:
+
+```bash
+yarn test:android
+```
+
+for Android.
+
 ## Team
 
 ### Lead Maintainers
 
-* @colmharte - Colm Harte <colm.harte@nearform.com>
-* @jasnell - James M Snell <jasnell@gmail.com>
-* @aspiringarc - Gar Mac Críosta <gar.maccriosta@hse.ie>
+- @colmharte - Colm Harte <colm.harte@nearform.com>
+- @jasnell - James M Snell <jasnell@gmail.com>
+- @aspiringarc - Gar Mac Críosta <gar.maccriosta@hse.ie>
 
 ### Core Team
 
-* @ShaunBaker - Shaun Baker <shaun.baker@nearform.com>
-* @floridemai - Paul Negrutiu <paul.negrutiu@nearform.com>
-* @jackdclark - Jack Clark <jack.clark@nearform.com>
-* @andreaforni - Andrea Forni <andrea.forni@nearform.com>
-* @jackmurdoch - Jack Murdoch <jack.murdoch@nearform.com>
+- @ShaunBaker - Shaun Baker <shaun.baker@nearform.com>
+- @floridemai - Paul Negrutiu <paul.negrutiu@nearform.com>
+- @jackdclark - Jack Clark <jack.clark@nearform.com>
+- @andreaforni - Andrea Forni <andrea.forni@nearform.com>
+- @jackmurdoch - Jack Murdoch <jack.murdoch@nearform.com>
 
 ### Contributors
 
-* @dharding - David J Harding <davidjasonharding@gmail.com>
-* @ckiss - Cristian Kiss <cristian.kiss@nearform.com>
-* @jh3y - Jhey Tompkins <jhey@jhey.dev>
+- @dharding - David J Harding <davidjasonharding@gmail.com>
+- @ckiss - Cristian Kiss <cristian.kiss@nearform.com>
+- @jh3y - Jhey Tompkins <jhey@jhey.dev>
 
 ### Past Contributors
 
-* TBD
-* TBD
+- TBD
+- TBD
 
 ## Hosted By
 
