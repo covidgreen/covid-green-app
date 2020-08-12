@@ -7,7 +7,7 @@ import {
   ScrollView,
   View,
   Text,
-  TextInput,
+  TextInput
 } from 'react-native';
 import Modal, {ModalProps} from 'react-native-modal';
 import {useSafeArea} from 'react-native-safe-area-context';
@@ -74,7 +74,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
           {itemRenderer ? (
             itemRenderer(item)
           ) : (
-            <View style={listStyles.textWrapper}>
+            <View style={listStyles.textWrapper} testID={label}>
               <Text style={[text.xlargeBold, {color}]}>{label}</Text>
             </View>
           )}
@@ -138,6 +138,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
             <Spacing s={12} />
             <View style={styles.search}>
               <TextInput
+                testID={search.placeholder}
                 ref={searchInputRef}
                 style={[
                   styles.searchInput,

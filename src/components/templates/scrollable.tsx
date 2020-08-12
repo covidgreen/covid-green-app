@@ -24,6 +24,7 @@ interface LayoutProps {
   safeArea?: boolean;
   children: React.ReactNode;
   accessibilityRefocus?: boolean;
+  testID?: string;
 }
 
 export const Scrollable: FC<LayoutProps> = ({
@@ -35,7 +36,8 @@ export const Scrollable: FC<LayoutProps> = ({
   scrollViewRef,
   safeArea = true,
   children,
-  accessibilityRefocus = false
+  accessibilityRefocus = false,
+  testID
 }) => {
   const insets = useSafeArea();
   const refreshControl = refresh && <RefreshControl {...refresh} />;
@@ -49,7 +51,8 @@ export const Scrollable: FC<LayoutProps> = ({
           styles.scrollView,
           {paddingBottom: (safeArea ? insets.bottom : 0) + SPACING_BOTTOM}
         ]}
-        refreshControl={refreshControl}>
+        refreshControl={refreshControl}
+        testID={testID}>
         {toast && (
           <>
             {toast}
