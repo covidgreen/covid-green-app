@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>app-success</title>
-    <g id="app-success" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M12,0 C5.372583,0 0,5.372583 0,12 C0,18.627417 5.372583,24 12,24 C18.627417,24 24,18.627417 24,12 C23.9807773,5.38056166 18.6194383,0.0192227178 12,0 Z" id="Shape" fill="#523178" fill-rule="nonzero"></path>
-        <polygon id="Path" fill="#FFFFFF" points="10 17.414 4.586 12 6 10.586 10 14.586 18 6.586 19.414 8"></polygon>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs/><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="M12 0a12 12 0 100 24 12 12 0 000-24z"/><path fill="#FFF" d="M10 17.41L4.59 12 6 10.59l4 4 8-8L19.41 8z"/></g></svg>

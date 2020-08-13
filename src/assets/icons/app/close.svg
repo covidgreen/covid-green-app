@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>app-close</title>
-    <g id="app-close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M17.951843,4.5 L19.5,5.66111772 L13.2900459,12 L19.5,18.3388823 L17.951843,19.5 L12,13.423 L6.04815696,19.5 L4.5,18.3388823 L10.7099541,12 L4.5,5.66111772 L6.04815696,4.5 L12,10.576 L17.951843,4.5 Z" id="Combined-Shape" fill="#523178" fill-rule="nonzero"></path>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs/><path fill="currentColor" fill-rule="nonzero" d="M17.95 4.5l1.55 1.16L13.29 12l6.21 6.34-1.55 1.16L12 13.42 6.05 19.5 4.5 18.34 10.71 12 4.5 5.66 6.05 4.5 12 10.58l5.95-6.08z"/></svg>
