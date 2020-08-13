@@ -44,9 +44,15 @@ interface Tab {
 }
 
 const getIcon = (tab: Tab, active: Boolean, status: String) => {
-  if (status === StatusState.unknown && tab.icon.unknown) return tab.icon.unknown;
-  if (active) return tab.icon.active;
-  if (!active) return tab.icon.inactive;
+  if (status === StatusState.unknown && tab.icon.unknown) {
+    return tab.icon.unknown;
+  }
+  if (active) {
+    return tab.icon.active;
+  }
+  if (!active) {
+    return tab.icon.inactive;
+  }
   return tab.icon.inactive;
 };
 

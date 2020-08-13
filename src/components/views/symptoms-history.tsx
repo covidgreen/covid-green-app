@@ -1,34 +1,34 @@
-import React from 'react';
-import {StyleSheet, View, Image, Text, ViewStyle} from 'react-native';
+import React, {FC} from 'react';
+import {StyleSheet, View, Text} from 'react-native';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
+import {useExposure} from 'react-native-exposure-notification-service';
 
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
-import {Spacing} from 'components/atoms/layout';
+
+import {Spacing, SingleRow} from 'components/atoms/layout';
 import {Card} from 'components/atoms/card';
 import {Heading} from 'components/atoms/heading';
-import {Toast} from 'components/atoms/toast';
-import {CheckInCard} from 'components/molecules/check-in-card';
 import {Scrollable} from 'components/templates/scrollable';
-import {colors, text} from 'theme';
-import {usePermissions} from 'providers/permissions';
+
+import {Symptom, SymptomRecord} from 'constants/symptoms';
+import {text, colors} from 'theme';
 import {BubbleIcons} from 'assets/icons';
 
-const symptomsHistoryIcons = {
-  '1': require('assets/images/symptoms-history/1_temp.png'),
-  '2': require('assets/images/symptoms-history/2_cough.png'),
-  '3': require('assets/images/symptoms-history/3_shortness.png'),
-  '4': require('assets/images/symptoms-history/4_nose.png')
-};
+interface SymptomListItem {
+  value: Symptom;
+  label: string;
+}
 
-export const SymptomsHistory = ({navigation}) => {
+export const SymptomsHistory: FC<any> = () => {
   const {t} = useTranslation();
-  const {completedChecker, checks, verifyCheckerStatus} = useApplication();
-  const [appState] = useAppState();
   const isFocused = useIsFocused();
-  const {readPermissions} = usePermissions();
+  const [appState] = useAppState();
+
+  const {checks, verifyCheckerStatus} = useApplication();
+  const {readPermissions} = useExposure();
 
   useFocusEffect(
     React.useCallback(() => {
@@ -42,34 +42,8 @@ export const SymptomsHistory = ({navigation}) => {
   );
 
   return (
-    <Scrollable safeArea={false} backgroundColor="#FAFAFA">
-      {completedChecker && (
-        <>
-          <Toast
-            color={`${colors.success}1A`}
-            message={t('symptomsHistory:completed')}
-            icon={
-              <BubbleIcons.Cases width={24} height={24} color={colors.teal} />
-            }
-          />
-          <Spacing s={16} />
-        </>
-      )}
-      {!completedChecker && (
-        <>
-          <CheckInCard
-            accessibilityRefocus
-            accessibilityFocus
-            onPress={() =>
-              navigation.navigate('symptoms', {
-                screen: 'symptoms.checker',
-                params: {timestamp: Date.now()}
-              })
-            }
-          />
-          <Spacing s={20} />
-        </>
-      )}
+    <Scrollable safeArea={false} backgroundColor={colors.white}>
+      <Spacing s={20} />
       <Heading
         accessibilityRefocus
         accessibilityFocus
@@ -79,64 +53,62 @@ export const SymptomsHistory = ({navigation}) => {
         {!checks.length && (
           <Text style={text.smallBold}>{t('checker:noresults')}</Text>
         )}
-        {checks.map((check, index) => {
-          const allSymptoms = Array.from(
-            new Array(4),
-            (_, index) => index + 1
-          ).map((i) => ({
-            index: i,
-            questionId: t(`checker:question${i}id`),
-            label: t(`checker:question${i}Label`)
-          }));
-          const symptoms = allSymptoms.filter(
-            (s) => check.symptoms[s.questionId] === 1
-          );
-          const hasSymptoms = symptoms.length > 0;
+        {checks.map((check, idx) => {
+          const record = check.symptoms as SymptomRecord;
+          const symptomsList = (Object.keys(record) as Array<
+            keyof typeof record
+          >).reduce((items: SymptomListItem[], symptom) => {
+            if (!check.symptoms[symptom]) {
+              return items;
+            }
+            const combined: SymptomListItem[] = [
+              ...items,
+              {value: symptom, label: t(`checker:symptoms:${symptom}`)}
+            ];
+            return combined;
+          }, [] as SymptomListItem[]);
 
           return (
             <View
               key={`check-${check.timestamp}`}
               style={
-                checks.length > 1 && index < checks.length - 1 && styles.check
+                checks.length > 1 &&
+                idx < checks.length - 1 &&
+                styles.checkInWrapper
               }
               accessible
               accessibilityRole="text">
               <View style={styles.summary}>
-                <View style={styles.row}>
-                  <View style={styles.icon}>
-                    {hasSymptoms ? (
-                      <BubbleIcons.Cases width={32} height={32} />
-                    ) : (
-                      <BubbleIcons.Shield width={32} height={32} />
-                    )}
-                  </View>
-                  <Text style={text.xlargeBlack}>{symptoms.length}</Text>
-                  <Text>&nbsp;</Text>
+                <View style={styles.icon}>
+                  {symptomsList.length > 0 ? (
+                    <BubbleIcons.Symptom width={32} height={32} />
+                  ) : (
+                    <BubbleIcons.Shield width={32} height={32} />
+                  )}
+                </View>
+                {symptomsList.length === 1 ? (
                   <Text style={text.xsmallBoldOpacity70}>
-                    {t(
-                      `symptomsHistory:${
-                        symptoms.length === 1 ? 'symptom' : 'symptoms'
-                      }`
-                    )}
+                    {symptomsList[0].label}
+                  </Text>
+                ) : (
+                  <SingleRow>
+                    <Text style={text.xlargeBlack}>{symptomsList.length}</Text>
+                    <Text>&nbsp;</Text>
+                    <Text style={text.xsmallBoldOpacity70}>
+                      {t('symptomsHistory:symptoms')}
+                    </Text>
+                  </SingleRow>
+                )}
+                <View style={styles.date}>
+                  <Text style={text.xsmallBoldOpacity70}>
+                    {format(new Date(Number(check.timestamp)), 'do MMMM')}
                   </Text>
                 </View>
-                <Text style={text.xsmallBoldOpacity70}>
-                  {format(new Date(Number(check.timestamp)), 'do MMMM')}
-                </Text>
               </View>
-              {symptoms.length > 0 &&
-                symptoms.map(({index, label}) => {
+              {symptomsList.length > 1 &&
+                symptomsList.map(({value, label}) => {
                   return (
-                    <View key={`symptom-${index}`} style={styles.row}>
-                      <View style={[styles.icon, styles.iconDimensions]}>
-                        <Image
-                          accessibilityIgnoresInvertColors
-                          style={styles.iconDimensions}
-                          width={32}
-                          height={32}
-                          source={symptomsHistoryIcons[index.toString()]}
-                        />
-                      </View>
+                    <View key={`symptom-${value}`} style={styles.symptom}>
                       <Text style={text.xsmallBoldOpacity70}>{label}</Text>
                     </View>
                   );
@@ -149,30 +121,25 @@ export const SymptomsHistory = ({navigation}) => {
   );
 };
 
-const rowStyle: ViewStyle = {
-  height: 44,
-  flexDirection: 'row',
-  alignItems: 'center'
-};
-
 const styles = StyleSheet.create({
-  check: {
+  checkInWrapper: {
     borderBottomWidth: 1,
     borderBottomColor: colors.dot
   },
   summary: {
-    ...rowStyle,
-    flex: 1,
-    justifyContent: 'space-between'
-  },
-  row: rowStyle,
-  iconDimensions: {
-    width: 32,
-    height: 32
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 4
   },
   icon: {
-    justifyContent: 'center',
-    alignItems: 'center',
     marginRight: 12
   },
+  date: {
+    flex: 1,
+    alignItems: 'flex-end'
+  },
+  symptom: {
+    marginLeft: 32 + 12,
+    marginVertical: 8
+  }
 });

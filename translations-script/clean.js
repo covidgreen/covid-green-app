@@ -18,7 +18,9 @@ function process(source, target, output, path) {
 }
 
 async function cleanLangFile(sourceFile, targetFile) {
-  const srcRaw = await fs.promises.readFile(`../assets/lang/${sourceFile}.json`);
+  const srcRaw = await fs.promises.readFile(
+    `../assets/lang/${sourceFile}.json`
+  );
   const source = JSON.parse(srcRaw);
 
   const targetRaw = await fs.promises.readFile(

@@ -12,10 +12,15 @@ const sortCountryCodes = (a: CountryCode, b: CountryCode) => {
   const aPrimaryIndex = primaryCodes.indexOf(a.iso);
   const bPrimaryIndex = primaryCodes.indexOf(b.iso);
 
-  if (aPrimaryIndex > -1 && bPrimaryIndex > -1)
+  if (aPrimaryIndex > -1 && bPrimaryIndex > -1) {
     return aPrimaryIndex - bPrimaryIndex;
-  if (aPrimaryIndex > -1) return -1;
-  if (bPrimaryIndex > -1) return 1;
+  }
+  if (aPrimaryIndex > -1) {
+    return -1;
+  }
+  if (bPrimaryIndex > -1) {
+    return 1;
+  }
   return a.name < b.name ? -1 : 1;
 };
 

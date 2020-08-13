@@ -23,7 +23,14 @@ export const DataProtectionLink = () => {
   const navigation = useNavigation();
   return (
     <Link
-      Icon={<Icons.Privacy style={styles.privacy} width={34} height={34} color={colors.teal} />}
+      Icon={
+        <Icons.Privacy
+          style={styles.privacy}
+          width={34}
+          height={34}
+          color={colors.teal}
+        />
+      }
       text={t('dataProtectionPolicy:link')}
       onPress={() => {
         navigation.navigate('privacy', {screen: 'settings.privacy'});

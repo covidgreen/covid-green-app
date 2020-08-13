@@ -50,5 +50,5 @@ const styles = StyleSheet.create({
     flex: 1,
     ...text.smallBold,
     color: colors.teal
-  },
+  }
 });

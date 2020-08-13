@@ -45,7 +45,12 @@ import {
   TermsAndConditions
 } from 'components/views/data-protection-policy';
 import {Dashboard} from 'components/views/dashboard';
-import {SymptomChecker} from 'components/views/symptom-checker';
+import {
+  CheckInConsent,
+  CheckInIntro,
+  CheckInSymptoms,
+  CheckInFinal
+} from 'components/views/symptom-checker';
 import {SymptomsHistory} from 'components/views/symptoms-history';
 import {ContactTracing} from 'components/views/contact-tracing';
 import {CountyBreakdown} from 'components/views/county-breakdown';
@@ -65,6 +70,7 @@ import {Debug} from 'components/views/settings/debug';
 import {isMountedRef, navigationRef} from 'navigation';
 import {colors} from 'theme';
 import {Loading} from 'components/views/loading';
+import {useSymptomChecker} from 'hooks/symptom-checker';
 
 enableScreens();
 
@@ -90,10 +96,9 @@ const Tab = createBottomTabNavigator();
 const SymptomsStack = () => {
   const app = useApplication();
   const {t} = useTranslation();
+  const {getNextScreen} = useSymptomChecker();
 
-  const initialRouteName = app.checks.length
-    ? 'symptoms.history'
-    : 'symptoms.checker';
+  const initialRouteName = app.checks.length ? 'history' : getNextScreen();
 
   return (
     <Stack.Navigator
@@ -104,13 +109,29 @@ const SymptomsStack = () => {
       initialRouteName={initialRouteName}
       headerMode="none">
       <Stack.Screen
-        name="symptoms.history"
+        name="history"
         component={SymptomsHistory}
         options={{title: t('viewNames:symptomchecker')}}
       />
       <Stack.Screen
-        name="symptoms.checker"
-        component={SymptomChecker}
+        name="checker.consent"
+        component={CheckInConsent}
+        options={{title: t('viewNames:symptomchecker')}}
+      />
+      <Stack.Screen
+        name="checker.intro"
+        component={CheckInIntro}
+        options={{title: t('viewNames:symptomchecker')}}
+      />
+      <Stack.Screen
+        name="checker.symptoms.1"
+        component={CheckInSymptoms}
+        initialParams={{page: 1, back: true}}
+        options={{title: t('viewNames:symptomchecker')}}
+      />
+      <Stack.Screen
+        name="checker.final"
+        component={CheckInFinal}
         options={{title: t('viewNames:symptomchecker')}}
       />
     </Stack.Navigator>

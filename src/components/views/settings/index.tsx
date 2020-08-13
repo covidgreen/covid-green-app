@@ -57,7 +57,10 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
           setShowDebug(showDebugData === 'y');
         }
       } catch (err) {
-        console.log('Error reading "covidApp.showDebug" from async storage:', err);
+        console.log(
+          'Error reading "covidApp.showDebug" from async storage:',
+          err
+        );
       }
     };
     init();
@@ -140,7 +143,11 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
               onPress={() => navigation.navigate(screen)}>
               <View style={itemStyle}>
                 <Text style={styles.text}>{title}</Text>
-                <AppIcons.ArrowRight width={24} height={24} color={colors.teal} />
+                <AppIcons.ArrowRight
+                  width={24}
+                  height={24}
+                  color={colors.teal}
+                />
               </View>
             </TouchableWithoutFeedback>
           );

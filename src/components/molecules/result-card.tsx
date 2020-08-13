@@ -31,9 +31,9 @@ export const ResultCard: FC<props> = ({
   return (
     <Card padding={{h: 20, v: 20}}>
       <View style={styles.fullWidthToast}>
-        <Spacing s={48}></Spacing>
+        <Spacing s={48} />
         {icon}
-        <Spacing s={32}></Spacing>
+        <Spacing s={32} />
       </View>
       <Spacing s={16} />
       {messageTitle && (

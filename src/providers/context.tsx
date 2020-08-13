@@ -11,12 +11,17 @@ import * as SecureStore from 'expo-secure-store';
 import {format, compareDesc, startOfDay, subDays, isBefore} from 'date-fns';
 
 import {AppConfig} from './settings';
-import {loadData, StatsData} from 'services/api';
-import * as api from 'services/api';
+import {loadData, StatsData, checkIn as apiCheckIn} from 'services/api';
+import {SymptomRecord} from 'constants/symptoms';
 
 export interface UserLocation {
   county?: string;
   locality?: string;
+}
+
+interface CheckInParams {
+  feelingWell: boolean;
+  quickCheckIn?: boolean;
 }
 
 export interface Accessibility {
@@ -26,19 +31,18 @@ export interface Accessibility {
 
 export interface User {
   valid: boolean;
-  sex?: string;
+  gender?: string;
+  race?: string;
+  ethnicity?: string;
   ageRange?: string;
-  location: UserLocation;
+  county?: string;
   tracking?: any[];
 }
 
-type Symptom = 'fever' | 'cough' | 'breath' | 'flu';
-export type Symptoms = {[key in Symptom]: 0 | 1};
-
 export interface Check {
   timestamp: number;
-  symptoms: Symptoms;
-  status?: 'p' | 'c' | 'u';
+  symptoms: SymptomRecord;
+  feelingWell: boolean;
 }
 
 type CallBackQueuedTs = number | undefined;
@@ -51,26 +55,21 @@ interface State {
   checkInConsent: boolean;
   completedChecker: boolean;
   completedCheckerDate: string | null;
+  checkerSymptoms: SymptomRecord;
   quickCheckIn: boolean;
   checks: Check[];
   callBackQueuedTs?: CallBackQueuedTs;
   accessibility: Accessibility;
 }
 
-interface ApplicationContextValue extends State {
+export interface ApplicationContextValue extends State {
   uploadRequired?: boolean;
   setContext: (data: any) => Promise<void>;
   clearContext: () => Promise<void>;
   showActivityIndicator: (message?: string) => void;
   hideActivityIndicator: () => void;
   loadAppData: () => Promise<void>;
-  checkIn: (
-    sex: string,
-    ageRange: string,
-    location: UserLocation,
-    symptoms: Symptoms,
-    params?: {quickCheckIn: boolean}
-  ) => Promise<void>;
+  checkIn: (symptoms: SymptomRecord, params: CheckInParams) => Promise<void>;
   verifyCheckerStatus: () => void;
 }
 
@@ -102,6 +101,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     checkInConsent: consent === 'y',
     completedChecker: false,
     completedCheckerDate: null,
+    checkerSymptoms: {} as SymptomRecord,
     quickCheckIn: false,
     checks: [],
     user: (user && JSON.parse(user as string)) || null,
@@ -255,6 +255,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       checkInConsent: false,
       completedChecker: false,
       completedCheckerDate: null,
+      checkerSymptoms: {} as SymptomRecord,
       quickCheckIn: false,
       checks: [],
       user: undefined,
@@ -271,18 +272,15 @@ export const AP = ({appConfig, user, consent, children}: API) => {
   const hideActivityIndicatorRef = useCallback(hideActivityIndicator, []);
 
   const checkIn = async (
-    sex: string,
-    ageRange: string,
-    location: UserLocation,
-    symptoms: any,
-    {quickCheckIn = false} = {}
+    symptoms: SymptomRecord,
+    {feelingWell, quickCheckIn = false}: CheckInParams
   ) => {
-    const {user} = state;
     const timestamp = Date.now();
 
     const currentCheck: Check = {
       timestamp,
-      symptoms
+      symptoms,
+      feelingWell
     };
 
     const checks = [currentCheck, ...state.checks];
@@ -306,21 +304,18 @@ export const AP = ({appConfig, user, consent, children}: API) => {
         checks,
         completedChecker: true,
         completedCheckerDate: format(timestamp, 'dd/MM/yyyy'),
-        quickCheckIn,
-        user: {
-          ...user,
-          sex,
-          ageRange,
-          location
-        }
+        checkerSymptoms: {} as SymptomRecord,
+        quickCheckIn
       });
 
-      SecureStore.setItemAsync('covidApp.checks', JSON.stringify(checks));
+      SecureStore.setItemAsync('app.checks', JSON.stringify(checks));
 
-      api.checkIn(checks, {
-        sex: state.user!.sex!,
+      apiCheckIn(checks, {
+        gender: state.user!.gender!,
+        race: state.user!.race!,
+        ethnicity: state.user!.ethnicity!,
         ageRange: state.user!.ageRange!,
-        location: state.user!.location!,
+        county: state.user!.county!,
         ok: Object.values(checks[0].symptoms).every((r) => r === 0)
       });
     } catch (err) {
