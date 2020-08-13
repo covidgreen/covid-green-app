@@ -11,7 +11,7 @@ import {
 import {text, scale, colors} from 'theme';
 
 interface ButtonProps {
-  type?: 'default' | 'empty' | 'danger';
+  type?: 'default' | 'secondary' | 'empty' | 'danger';
   disabled?: boolean;
   onPress: () => void;
   style?: ViewStyle;
@@ -36,6 +36,8 @@ export const Button: React.FC<ButtonProps> = ({
       ? colors.buttons.empty
       : type === 'danger'
       ? colors.buttons.danger
+      : type === 'secondary'
+      ? colors.buttons.secondary
       : colors.buttons.default;
 
   let backgroundColor = buttonColors.shadow;

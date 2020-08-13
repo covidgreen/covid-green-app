@@ -1,48 +1,28 @@
 const alias = require('./aliases.config.js');
 
 module.exports = {
-  presets: [
-    'module:metro-react-native-babel-preset',
-    'module:react-native-dotenv'
-  ],
+  presets: ['module:metro-react-native-babel-preset'],
   env: {
     production: {
       plugins: ['transform-remove-console']
     }
-  }
-};
-
-module.exports = api => {
-  api.cache(false);
-  return {
-    presets: [
-      'module:metro-react-native-babel-preset',
-      'module:react-native-dotenv'
-    ],
-    env: {
-      development: {
-        plugins: [
-          [
-            'module-resolver',
-            {
-              root: ['./src'],
-              alias
-            }
-          ]
-        ]
-      },
-      production: {
-        plugins: [
-          'transform-remove-console',
-          [
-            'module-resolver',
-            {
-              root: ['./src'],
-              alias
-            }
-          ]
-        ]
+  },
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: ['./src'],
+        alias
       }
-    }
-  };
+    ],
+    [
+      'dotenv-import',
+      {
+        moduleName: '@env',
+        path: '.env',
+        safe: false,
+        allowUndefined: false
+      }
+    ]
+  ]
 };

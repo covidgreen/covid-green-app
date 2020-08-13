@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 48,
     minHeight: 48,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.purple,
     justifyContent: 'center',
     alignItems: 'center'
   },

@@ -3,6 +3,7 @@ import {StyleSheet, View, Image, Text, ViewStyle} from 'react-native';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
+import {useExposure} from 'react-native-exposure-notification-service';
 
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
@@ -13,7 +14,6 @@ import {Toast} from 'components/atoms/toast';
 import {CheckInCard} from 'components/molecules/check-in-card';
 import {Scrollable} from 'components/templates/scrollable';
 import {colors, text} from 'theme';
-import {usePermissions} from 'providers/permissions';
 import {BubbleIcons} from 'assets/icons';
 
 const symptomsHistoryIcons = {
@@ -28,7 +28,7 @@ export const SymptomsHistory = ({navigation}) => {
   const {completedChecker, checks, verifyCheckerStatus} = useApplication();
   const [appState] = useAppState();
   const isFocused = useIsFocused();
-  const {readPermissions} = usePermissions();
+  const {readPermissions} = useExposure();
 
   useFocusEffect(
     React.useCallback(() => {

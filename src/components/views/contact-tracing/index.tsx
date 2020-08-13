@@ -8,7 +8,7 @@ import {
   StatusState,
   AuthorisedStatus,
   StatusType
-} from 'providers/exposure';
+} from 'react-native-exposure-notification-service';
 import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
 import {CloseContactWarning} from 'components/molecules/close-contact-warning';
@@ -18,7 +18,6 @@ import {Spacing} from 'components/atoms/spacing';
 import {TrackerAreaChart} from 'components/molecules/area-chart';
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
-import {usePermissions} from 'providers/permissions';
 
 import {Active} from './active';
 import {NotActive} from './not-active';
@@ -32,7 +31,6 @@ export const ContactTracing = ({navigation}) => {
   const exposure = useExposure();
   const {data} = useApplication();
   const isFocused = useIsFocused();
-  const {readPermissions} = usePermissions();
   const [appState] = useAppState();
 
   const {supported, canSupport, status, enabled, isAuthorised} = exposure;
@@ -44,7 +42,7 @@ export const ContactTracing = ({navigation}) => {
       }
 
       async function onFocus() {
-        await readPermissions();
+        await exposure.readPermissions();
         exposure.getCloseContacts();
       }
 
@@ -94,8 +92,8 @@ export const ContactTracing = ({navigation}) => {
               title={t('contactTracing:registrationsTitle')}
               hint={t('contactTracing:registrationsHint')}
               yesterday={t('contactTracing:registrationsYesterday')}
-              gradientStart={colors.yellow}
-              lineColor={colors.yellow}
+              gradientStart={colors.purple}
+              lineColor={colors.purple}
               intervalsCount={5}
             />
             <Spacing s={12} />

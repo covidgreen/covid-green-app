@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next';
 import {DataProtectionLink} from './data-protection-policy';
 
 import {useApplication} from 'providers/context';
-import {useExposure} from 'providers/exposure';
+import {useExposure} from 'react-native-exposure-notification-service';
 import {
   validateCode,
   uploadExposureKeys,

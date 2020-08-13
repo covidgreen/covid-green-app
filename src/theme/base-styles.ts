@@ -1,6 +1,6 @@
 import {TextStyle} from 'react-native';
 
-import {colors} from './';
+import {colors} from 'constants/colors';
 
 export const getBaseStyles = (text: any) => ({
   label: {

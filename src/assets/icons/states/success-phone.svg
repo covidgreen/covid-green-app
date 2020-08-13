@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144px" height="144px" viewBox="0 0 144 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>notif-succes-phone</title>
+    <g id="notif-succes-phone" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/24x24/ic-success-Copy" transform="translate(42.000000, 42.000000)">
+            <circle id="Oval" fill="#FFFFFF" cx="30" cy="30" r="22.5"></circle>
+            <path d="M30,0 C13.4314575,0 0,13.4314575 0,30 C0,46.5685425 13.4314575,60 30,60 C46.5685425,60 60,46.5685425 60,30 C59.9519432,13.4514042 46.5485958,0.0480567944 30,0 Z M25,43.535 L11.465,30 L15,26.465 L25,36.465 L45,16.465 L48.535,20 L25,43.535 Z" id="Shape" fill="#038543"></path>
+        </g>
+    </g>
+</svg>

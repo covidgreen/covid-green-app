@@ -11,7 +11,7 @@ import {Markdown} from 'components/atoms/markdown';
 import {ResponsiveImage} from 'components/atoms/responsive-image';
 import {Spacing} from 'components/atoms/layout';
 import {Toast} from 'components/atoms/toast';
-import {useExposure} from 'providers/exposure';
+import {useExposure} from 'react-native-exposure-notification-service';
 
 interface NotActiveProps {
   exposureOff?: boolean;

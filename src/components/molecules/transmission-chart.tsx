@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     minHeight: 16,
     borderTopRightRadius: 3,
     borderBottomRightRadius: 3,
-    backgroundColor: colors.darkerYellow
+    backgroundColor: colors.darkerpurple
   },
   label: {
     ...text.smallBold,
