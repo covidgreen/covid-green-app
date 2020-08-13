@@ -3,6 +3,10 @@ import {Platform, ScrollView, Text, Linking, Alert} from 'react-native';
 import * as IntentLauncher from 'expo-intent-launcher';
 import {useTranslation} from 'react-i18next';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
+import {
+  useExposure,
+  StatusState
+} from 'react-native-exposure-notification-service';
 
 import {AppIcons} from 'assets/icons';
 import {Button} from 'components/atoms/button';
@@ -12,14 +16,11 @@ import {Markdown} from 'components/atoms/markdown';
 import {Spacing, Separator} from 'components/atoms/layout';
 import {Toast} from 'components/atoms/toast';
 import {useAppState} from 'hooks/app-state';
-import {useExposure, StatusState} from 'providers/exposure';
-import {usePermissions} from 'providers/permissions';
 
 export const ContactTracingSettings = () => {
   const {t} = useTranslation();
   const [appState] = useAppState();
   const isFocused = useIsFocused();
-  const {readPermissions} = usePermissions();
   const {
     supported,
     status,
@@ -27,10 +28,11 @@ export const ContactTracingSettings = () => {
     supportsExposureApi,
     contacts,
     deleteExposureData,
-    authoriseExposure
+    authoriseExposure,
+    readPermissions
   } = useExposure();
 
-  const [confirmedChanges, setConfirmedChanges] = useState<boolean>(false);
+  const [confirmedChanges] = useState<boolean>(false);
   const scrollViewRef = useRef<ScrollView>(null);
 
   const serviceStatus =

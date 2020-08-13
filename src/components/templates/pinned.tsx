@@ -26,7 +26,7 @@ export const PinnedBottom: FC<LayoutProps> = ({children, heading}) => {
         styles.container,
         {paddingBottom: insets.bottom + SPACING_BOTTOM}
       ]}>
-      <View>
+      <View style={{flex: 1}}>
         {heading && <Heading accessibilityFocus text={heading} />}
         {content}
       </View>

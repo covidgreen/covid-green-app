@@ -12,7 +12,7 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
-import {BUILD_VERSION, HIDE_DEBUG} from 'react-native-dotenv';
+import {BUILD_VERSION, HIDE_DEBUG} from '@env';
 
 import {AppIcons} from 'assets/icons';
 import {Basic} from 'components/templates/basic';

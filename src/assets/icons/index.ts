@@ -32,13 +32,21 @@ import ContactTracingOff from './tab-bar/contact-tracing-off.svg';
 import ContactTracingOn from './tab-bar/contact-tracing-on.svg';
 import ContactTracingUnknown from './tab-bar/contact-tracing-unknown.svg';
 import SettingsAndroid from './tab-bar/settings-android.svg';
-import SettingsIOS from './tab-bar//settings-ios.svg';
+import SettingsIOS from './tab-bar/settings-ios.svg';
 
 // icons
 import CheckMark from './check-mark.svg';
 import CheckMarkMultiSelect from './check-mark-multiselect.svg';
 import Logo from './logo.svg';
 import Privacy from './privacy.svg';
+
+import StateLogo from './app-logo.svg'
+
+import StateErrorBluetooth from './states/error-bluetooth.svg';
+import StateErrorENS from './states/error-ens.svg';
+import StateErrorUpgrade from './states/error-upgrade.svg';
+import StateSuccess from './states/success.svg';
+import StateSuccessPhone from './states/success-phone.svg';
 
 export const AppIcons = {
   Alert,
@@ -76,9 +84,18 @@ export const TabBarIcons = {
   Settings: Platform.OS === 'ios' ? SettingsIOS : SettingsAndroid
 };
 
+export const StateIcons = {
+  ErrorBluetooth: StateErrorBluetooth,
+  ErrorENS: StateErrorENS,
+  ErrorUpgrade: StateErrorUpgrade,
+  Success: StateSuccess,
+  SuccessPhone: StateSuccessPhone
+};
+
 export default {
   CheckMark,
   CheckMarkMultiSelect,
   Logo,
-  Privacy
+  Privacy,
+  StateLogo
 };

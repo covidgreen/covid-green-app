@@ -253,7 +253,7 @@ export const styles = StyleSheet.create({
     color: colors.teal
   },
   divider: {
-    backgroundColor: colors.lightYellow,
+    backgroundColor: colors.lightpurple,
     height: 6,
     width: 70,
     marginBottom: 1

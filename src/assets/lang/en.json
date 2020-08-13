@@ -9,11 +9,23 @@
     "preferNotToSay": "Prefer not to say",
     "confirmChanges": "Confirm changes",
     "changesUpdated": "Changes updated",
-    "dismiss": "Dismiss"
+    "dismiss": "Dismiss",
+    "ok": {
+      "label": "OK",
+      "hint": "Close the pop-up"
+    },
+    "tryAgain": {
+      "title": "Please try again",
+      "description": "Sorry, that didn’t work properly.\nPlease check that you have a network connection and try again.",
+      "timestampTitle": "Check Date & Time",
+      "timestamp": "We couldn't verify your device. Please check it's set to the correct date and time, and try again."
+    }
   },
   "viewNames": {
-    "age": "Confirm your age",
-    "getStarted": "Get Started",
+    "introduction": "Help Stop the Spread of COVID-19 in Your Community",
+    "permissions": "Set Up Closeness Sensing for COVID Alerts",
+    "completion": "Closeness Sensing and COVID Alerts are now active!",
+    "dashboard": "Updates",
     "casesByCounty": "Cases By County",
     "updates": "Updates",
     "symptomchecker": "COVID Checker",
@@ -37,10 +49,63 @@
     "updates": "NY COVID Data",
     "symptomCheck": "My Health Log",
     "contactTracing": "My COVID Alerts",
-    "shareApp": "Share app ",
-    "shareError": "There was an error sharing. Please try again or contact us."
+    "settings": "App Settings"
   },
   "onboarding": {
+    "introduction": {
+      "blocks": [
+        {
+          "title": "Help Stop the Spread of COVID-19 in Your Community",
+          "list": [
+            "Get alerted if a sick person spent enough time very near you that you may have caught the virus.",
+            "Alert others if you test positive, without revealing your identity.",
+            "Keep an eye on trends in your community."
+          ]
+        },
+        {
+          "title": "We never see:",
+          "list": [
+            "Your location or identity.",
+            "Your phone number, unless you explicitly share it with us."
+          ]
+        }
+      ],
+      "learnAction": "Learn how it works",
+      "continueAction": "Get Started"
+    },
+    "permissions": {
+      "title": "Set Up Closeness Sensing for COVID Alerts",
+      "line1": "This app needs your permission to:",
+      "track": "**Sense when another phone with this app is close by.**\n\nIf another app user spends 10 minutes within 6 feet of you, your phones swap random codes to remember the contact. These codes don't say anything about you or your location.",
+      "notifications": "**Send you notifications.**\n\nIf the other app user tests positive for the virus within the next few days, the app can send you a COVID Alert after checking your codes.",
+      "subtitle": "The app never:",
+      "list": [
+        "Sees your location.",
+        "Shares your phone number.",
+        "Reveals your identity"
+      ],
+      "statement": "You can change your mind at any time by going to App Settings",
+      "learnAction": "Learn how it works",
+      "skipAction": "Skip for now",
+      "continueAction": "Next"
+    },
+    "completion": {
+      "title": "Closeness Sensing and COVID Alerts are now active!",
+      "text": "Thank you for doing your part to stop the spread of COVID-19.",
+      "shareText": "Share this app with friends. Help keep NY Safe.",
+      "next": "Done"
+    },
+    "tour": {
+      "title": "How it works",
+      "statements": [
+        "As you go about your day, the app uses Bluetooth to sense when another person with the app has come within 6 feet of you.\n\nYour phone exchanges a secure random code with the other phone to record that they were near. The app doesn't collect or share your name, location, or phone number, or those of the people around you",
+        "If you are within 6 feet of someone for more than 10 minutes, the app puts their phone's random code on a list of close contacts.\n\nPeople who are just passing by or stand more than 6 feet away from you are not put on the list of close contacts. You will never get any alerts because of them.",
+        "If you test positive for COVID-19, a Health Advisor will call you as soon as possible.\n\nThe Health Advisor will ask if you are willing to share your app's list of close contacts to help protect other people.\n\nSharing your list is secure and private. The app never reveals who you are to anyone.",
+        "Each day, the list of \"infected\" codes is sent to every phone that has the app. The app compares its own list of close contact codes to the list of infected codes. If there's a match, the app displays a COVID alert.\n\nUsing these lists of anonymous codes, the alert is kept private. No one ever knows who the COVID Alert comes from."
+      ],
+      "previous": "Previous",
+      "next": "Next"
+    },
     "intro": {
       "title": "With COVID Green you can do 3 things to help fight COVID-19:",
       "view1": {

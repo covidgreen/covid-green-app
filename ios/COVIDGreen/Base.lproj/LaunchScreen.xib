@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,22 +13,28 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_background_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-cT-K4l" userLabel="Background Image View">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-w1-owJ">
+                    <rect key="frame" x="86" y="178" width="242" height="64"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StateLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2rD-OZ-cRc">
+                    <rect key="frame" x="87" y="636" width="240" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="BF2-7U-Mwg"/>
+                    </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.91764705882352937" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.30322104690000001" green="0.19894212480000001" blue="0.45493906740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Bsh-cT-K4l" secondAttribute="trailing" id="4Bz-Vy-RfD"/>
-                <constraint firstItem="Bsh-cT-K4l" firstAttribute="top" secondItem="OfY-5Y-tS4" secondAttribute="top" id="5FF-OI-m4s"/>
-                <constraint firstItem="Bsh-cT-K4l" firstAttribute="leading" secondItem="OfY-5Y-tS4" secondAttribute="leading" id="ZLr-Ag-Lsg"/>
-                <constraint firstAttribute="bottom" secondItem="Bsh-cT-K4l" secondAttribute="bottom" id="xDi-Tc-3P0"/>
+                <constraint firstItem="MlZ-w1-owJ" firstAttribute="centerX" secondItem="OfY-5Y-tS4" secondAttribute="centerX" id="IbQ-68-4th"/>
+                <constraint firstAttribute="bottom" secondItem="2rD-OZ-cRc" secondAttribute="bottom" constant="20" id="J0h-XR-Gq6"/>
+                <constraint firstItem="MlZ-w1-owJ" firstAttribute="top" secondItem="OfY-5Y-tS4" secondAttribute="top" constant="178" id="jQk-Mz-x6l"/>
+                <constraint firstItem="2rD-OZ-cRc" firstAttribute="centerX" secondItem="OfY-5Y-tS4" secondAttribute="centerX" id="wCA-xJ-t19"/>
             </constraints>
             <point key="canvasLocation" x="198" y="430"/>
         </view>
     </objects>
     <resources>
-        <image name="launch_background_image.png" width="1242" height="2436"/>
+        <image name="AppLogo" width="242" height="64"/>
+        <image name="StateLogo" width="335" height="80"/>
     </resources>
 </document>

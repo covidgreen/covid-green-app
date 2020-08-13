@@ -10,8 +10,9 @@ import {forget} from 'services/api';
 import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
 import {useApplication} from 'providers/context';
-import {useExposure} from 'providers/exposure';
+import {useExposure} from 'react-native-exposure-notification-service';
 import {Basic} from 'components/templates/basic';
+import {ScreenNames} from 'navigation';
 
 export const Leave = ({navigation}) => {
   const {t} = useTranslation();
@@ -35,7 +36,7 @@ export const Leave = ({navigation}) => {
 
       navigation.reset({
         index: 0,
-        routes: [{name: 'over16'}]
+        routes: [{name: ScreenNames.Introduction}]
       });
     } catch (e) {
       app.hideActivityIndicator();

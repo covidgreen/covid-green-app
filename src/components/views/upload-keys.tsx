@@ -2,14 +2,14 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {Text, StyleSheet} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import {useTranslation} from 'react-i18next';
+import {useExposure} from 'react-native-exposure-notification-service';
 
+import {useApplication} from 'providers/context';
 import {
   validateCode,
   uploadExposureKeys,
   ValidationResult
 } from 'services/api/exposures';
-import {useApplication} from 'providers/context';
-import {useExposure} from 'providers/exposure';
 
 import {Spacing} from 'components/atoms/layout';
 import {Button} from 'components/atoms/button';

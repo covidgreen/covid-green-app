@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     borderRadius: 6.5,
-    backgroundColor: colors.darkerYellow
+    backgroundColor: colors.darkerpurple
   }
 });

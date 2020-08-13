@@ -2,26 +2,43 @@ const teal = '#3A7B7F';
 const red = '#B4083A';
 const white = '#FFFFFF';
 
+const purple = '#523178';
+const background = '#f3f3f8';
+
 export const colors = {
+  purple,
+  background,
+  icons: {
+    gray: '#b2b2b2'
+  },
+  tabs: {
+    highlighted: '#e7e8f2'
+  },
+
   yellow: '#FFEA0C', // review & remove,
-  lightYellow: '#fff37a',
-  mildYellow: '#fff16f',
-  darkerYellow: '#FFDA1A', // review & merge to yellow
+  lightpurple: '#fff37a',
+  mildpurple: '#fff16f',
+  darkerpurple: '#FFDA1A', // review & merge to purple
   orange: '#FF8248', // review as used only in toast
   white,
   red,
   teal,
   gray: '#F5F5F5', // review - only input
   darkGray: '#96989B', // review - only input
-  dot: '#B2B2B2',
+  dot: '#D8D8D8',
   selectedDot: '#2E2E2E',
   success: '#00CF68', // only 1 usage?
   text: '#2E2E2E',
   buttons: {
     default: {
       text: white,
-      background: teal,
-      shadow: '#255E62'
+      background: purple,
+      shadow: '#000000'
+    },
+    secondary: {
+      text: purple,
+      background: background,
+      shadow: '#D8D8D8'
     },
     danger: {
       text: white,

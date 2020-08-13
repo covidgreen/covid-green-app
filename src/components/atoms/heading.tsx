@@ -73,12 +73,12 @@ const styles = StyleSheet.create({
     height: 6
   },
   lineOneColor: {
-    backgroundColor: colors.darkerYellow
+    backgroundColor: colors.darkerpurple
   },
   lineTwoColor: {
-    backgroundColor: colors.yellow
+    backgroundColor: colors.purple
   },
   lineThreeColor: {
-    backgroundColor: colors.mildYellow
+    backgroundColor: colors.mildpurple
   }
 });

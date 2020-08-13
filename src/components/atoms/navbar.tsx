@@ -1,25 +1,26 @@
 import React, {FC, useEffect, useState} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableWithoutFeedback
-} from 'react-native';
+import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-import Icons, {AppIcons, TabBarIcons} from 'assets/icons';
+import Icons, {AppIcons} from 'assets/icons';
 import {colors, text} from 'theme';
 import {useApplication} from 'providers/context';
+import {shareApp} from 'components/organisms/tab-bar-bottom';
 
 interface NavBarProps {
   navigation: any;
   scene: any;
   placeholder?: boolean;
+  modal?: boolean;
 }
 
-export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
+export const NavBar: FC<NavBarProps> = ({
+  navigation,
+  scene,
+  placeholder,
+  modal = false
+}) => {
   const {t} = useTranslation();
   const insets = useSafeArea();
   const {user} = useApplication();
@@ -56,17 +57,6 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
 
   return (
     <View style={[styles.wrapper, {paddingTop: insets.top + 2}]}>
-      <Image
-        style={[
-          styles.background,
-          {
-            maxHeight: styles.background.maxHeight + insets.top
-          }
-        ]}
-        resizeMode="cover"
-        source={require('assets/headerbg.png')}
-        accessibilityIgnoresInvertColors={false}
-      />
       <View style={styles.container}>
         <View style={[styles.col, styles.left]}>
           {state.back && (
@@ -75,10 +65,21 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
               accessibilityHint={t('navbar:backHint')}
               onPress={() => navigation.goBack()}>
               <View style={styles.back}>
-                <AppIcons.Back width={24} height={24} color={colors.text} />
-                <Text allowFontScaling={false} style={styles.backText}>
-                  {t('navbar:back')}
-                </Text>
+                {!modal && (
+                  <>
+                    <AppIcons.Back
+                      width={18}
+                      height={18}
+                      color={colors.white}
+                    />
+                    <Text allowFontScaling={false} style={styles.backText}>
+                      {t('navbar:back')}
+                    </Text>
+                  </>
+                )}
+                {modal && (
+                  <AppIcons.Close width={18} height={18} color={colors.white} />
+                )}
               </View>
             </TouchableWithoutFeedback>
           )}
@@ -89,22 +90,15 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
           accessibilityHint={t('common:name')}
           accessibilityRole="text"
           style={[styles.col, styles.center]}>
-          <Icons.Logo width={92} height={36} color={colors.text} />
+          <Icons.StateLogo width={92} height={36} color={colors.text} />
         </View>
         <View style={[styles.col, styles.right]}>
           {showSettings && (
             <TouchableWithoutFeedback
               accessibilityHint={t('navbar:settingsHint')}
-              onPress={() => navigation.navigate('settings')}>
+              onPress={() => shareApp(t)}>
               <View style={styles.settings}>
-                <TabBarIcons.Settings
-                  width={24}
-                  height={24}
-                  color={colors.text}
-                />
-                <Text allowFontScaling={false} style={text.xsmallBold}>
-                  {t('navbar:settings')}
-                </Text>
+                <AppIcons.Share width={24} height={24} color={colors.white} />
               </View>
             </TouchableWithoutFeedback>
           )}
@@ -116,7 +110,8 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: colors.purple
   },
   background: {
     flex: 1,
@@ -158,9 +153,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   backText: {
-    ...text.largeBold,
+    ...text.default,
     textAlign: 'left',
-    marginLeft: -4
+    color: colors.white
   },
   settings: {
     flexDirection: 'column',
@@ -174,5 +169,10 @@ const styles = StyleSheet.create({
   logoSize: {
     width: 92,
     height: 36
+  },
+  shareText: {
+    ...text.default,
+    textAlign: 'center',
+    color: colors.white
   }
 });

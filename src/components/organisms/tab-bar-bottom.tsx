@@ -12,8 +12,11 @@ import {useTranslation} from 'react-i18next';
 import Constants from 'expo-constants';
 
 import {colors, text} from 'theme';
-import {TabBarIcons, AppIcons} from 'assets/icons';
-import {useExposure, StatusState} from 'providers/exposure';
+import {TabBarIcons} from 'assets/icons';
+import {
+  useExposure,
+  StatusState
+} from 'react-native-exposure-notification-service';
 
 export const shareApp = async (t: TFunction) => {
   try {
@@ -71,7 +74,7 @@ const ctOffUnselected = (
   />
 );
 const ctOnSelected = (
-  <TabBarIcons.ContactTracing.On width={32} height={24} color={colors.teal} />
+  <TabBarIcons.ContactTracing.On width={32} height={24} color={colors.purple} />
 );
 const ctOffSelected = (
   <TabBarIcons.ContactTracing.Off
@@ -93,18 +96,18 @@ const barChartInactive = (
   <TabBarIcons.Updates width={32} height={24} color={colors.darkGray} />
 );
 const barChartActive = (
-  <TabBarIcons.Updates width={32} height={24} color={colors.teal} />
+  <TabBarIcons.Updates width={32} height={24} color={colors.purple} />
 );
 
 const checkInactive = (
   <TabBarIcons.CheckIn width={32} height={24} color={colors.darkGray} />
 );
 const checkActive = (
-  <TabBarIcons.CheckIn width={32} height={24} color={colors.teal} />
+  <TabBarIcons.CheckIn width={32} height={24} color={colors.purple} />
 );
 
-const shareIcon = (
-  <AppIcons.Share width={32} height={24} color={colors.darkGray} />
+const settingsIcon = (
+  <TabBarIcons.Settings width={32} height={24} color={colors.darkGray} />
 );
 
 /**
@@ -145,10 +148,18 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
       }
     },
     {
-      label: t('tabBar:shareApp'),
+      label: t('tabBar:settings'),
       icon: {
-        active: shareIcon,
-        inactive: shareIcon
+        active: (
+          <TabBarIcons.Settings width={32} height={24} color={colors.purple} />
+        ),
+        inactive: (
+          <TabBarIcons.Settings
+            width={32}
+            height={24}
+            color={colors.darkGray}
+          />
+        )
       }
     }
   ];
@@ -162,12 +173,8 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
           return (
             <TouchableWithoutFeedback
               key={`tab-bar-item-${index}`}
-              onPress={
-                index !== 3
-                  ? () => navigation.navigate(routeName)
-                  : () => shareApp(t)
-              }>
-              <View style={[styles.tab]}>
+              onPress={() => navigation.navigate(routeName)}>
+              <View style={[styles.tab, isActive ? styles.highlighted : {}]}>
                 {getIcon(tab, isActive, status.state)}
                 <Text
                   allowFontScaling={false}
@@ -192,17 +199,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: colors.white,
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    paddingBottom: 4,
+    padding: 0,
     borderTopColor: colors.gray,
     borderTopWidth: 2
   },
   tab: {
-    maxWidth: '22%',
+    width: '25%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    borderRadius: 3
+    borderRadius: 3,
+    paddingVertical: 6,
+    paddingHorizontal: 6
   },
   label: {
     ...text.smallBold,
@@ -213,5 +220,14 @@ const styles = StyleSheet.create({
   },
   labelActive: {
     color: colors.text
+  },
+  highlighted: {
+    backgroundColor: colors.tabs.highlighted,
+    borderStyle: 'solid',
+    borderTopWidth: 2,
+    borderColor: colors.purple,
+    borderRadius: 0,
+    paddingTop: 4,
+    paddingBottom: 4
   }
 });

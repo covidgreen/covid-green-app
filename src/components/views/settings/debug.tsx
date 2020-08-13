@@ -11,7 +11,7 @@ import ExposureNotification from 'react-native-exposure-notification-service';
 import {format} from 'date-fns';
 
 import {Button} from 'components/atoms/button';
-import {useExposure} from 'providers/exposure';
+import {useExposure} from 'react-native-exposure-notification-service';
 import {Basic} from 'components/templates/basic';
 
 const emitter = new NativeEventEmitter(ExposureNotification);
