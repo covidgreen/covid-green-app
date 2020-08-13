@@ -11,7 +11,7 @@ import {Markdown} from 'components/atoms/markdown';
 import {PhoneNumber} from 'components/organisms/phone-number';
 import {text} from 'theme';
 import {saveMetric, METRIC_TYPES} from 'services/api';
-import {useExposure} from 'providers/exposure';
+import {useExposure} from 'react-native-exposure-notification-service';
 import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
 
 const CallbackImage = require('assets/images/callback/image.png');

@@ -13,7 +13,7 @@ import Constants from 'expo-constants';
 
 import {colors, text} from 'theme';
 import {TabBarIcons, AppIcons} from 'assets/icons';
-import {useExposure, StatusState} from 'providers/exposure';
+import {useExposure, StatusState} from 'react-native-exposure-notification-service';
 
 export const shareApp = async (t: TFunction) => {
   try {

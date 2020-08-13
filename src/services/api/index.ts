@@ -4,8 +4,8 @@ import {format} from 'date-fns';
 // To enable certificate pinning uncomment line below, add your cert files and reference them in request method below
 // import {fetch} from 'react-native-ssl-pinning';
 import NetInfo from '@react-native-community/netinfo';
-import {SAFETYNET_KEY} from 'react-native-dotenv';
-import {BUILD_VERSION, ENV, TEST_TOKEN} from 'react-native-dotenv';
+import {SAFETYNET_KEY} from '@env';
+import {BUILD_VERSION, ENV, TEST_TOKEN} from '@env';
 import RNGoogleSafetyNet from 'react-native-google-safetynet';
 import RNIOS11DeviceCheck from 'react-native-ios11-devicecheck';
 
@@ -13,7 +13,7 @@ import {CallBackData} from 'components/organisms/phone-number-us';
 
 import {urls} from 'constants/urls';
 import {Check} from 'providers/context';
-import {isMountedRef, navigationRef} from 'navigation';
+import {isMountedRef, navigationRef, ScreenNames} from 'navigation';
 
 interface CheckIn {
   gender: string;
@@ -146,7 +146,7 @@ async function createToken(): Promise<string> {
     if (isMountedRef.current && navigationRef.current) {
       navigationRef.current.reset({
         index: 0,
-        routes: [{name: 'over16'}]
+        routes: [{name: ScreenNames.Introduction}]
       });
     }
     return '';

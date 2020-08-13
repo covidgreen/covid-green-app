@@ -133,6 +133,6 @@ const styles = StyleSheet.create({
     height: 32,
     borderTopLeftRadius: 3,
     borderBottomLeftRadius: 3,
-    backgroundColor: colors.darkerYellow
+    backgroundColor: colors.darkerpurple
   }
 });

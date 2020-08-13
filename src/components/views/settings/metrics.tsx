@@ -7,7 +7,7 @@ import {colors, text} from 'theme';
 import {DataProtectionLink} from 'components/views/data-protection-policy';
 import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
-import {useExposure} from 'providers/exposure';
+import {useExposure} from 'react-native-exposure-notification-service';
 import {Scrollable} from 'components/templates/scrollable';
 
 export const Metrics = () => {

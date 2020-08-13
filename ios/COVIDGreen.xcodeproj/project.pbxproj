@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* COVIDGreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = COVIDGreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* COVID Green.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Green.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* COVID Smart NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Smart NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = COVIDGreen/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = COVIDGreen/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = COVIDGreen/Info.plist; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* COVID Green.app */,
+				13B07F961A680F5B00A75B9A /* COVID Smart NY.app */,
 				00E356EE1AD99517003FC87E /* COVIDGreenTests.xctest */,
 			);
 			name = Products;
@@ -185,7 +185,7 @@
 			);
 			name = COVIDGreen;
 			productName = COVIDGreen;
-			productReference = 13B07F961A680F5B00A75B9A /* COVID Green.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* COVID Smart NY.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -318,6 +318,7 @@
 				"${BUILT_PRODUCTS_DIR}/react-native-exposure-notification-service/react_native_exposure_notification_service.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-netinfo/react_native_netinfo.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-safe-area-context/react_native_safe_area_context.framework",
+				"${BUILT_PRODUCTS_DIR}/react-native-viewpager/react_native_viewpager.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -369,6 +370,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_exposure_notification_service.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_netinfo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_safe_area_context.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_viewpager.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -528,8 +530,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.lfph.covidgreen;
-				PRODUCT_NAME = "COVID Green";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hse.ftapp;
+				PRODUCT_NAME = "COVID Smart NY";
 				PROVISIONING_PROFILE_SPECIFIER = CTIEDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "COVIDGreen-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -559,7 +561,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.lfph.covidgreen;
-				PRODUCT_NAME = "COVID Green";
+				PRODUCT_NAME = "COVID Smart NY";
 				PROVISIONING_PROFILE_SPECIFIER = CTIEAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "COVIDGreen-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

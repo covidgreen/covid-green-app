@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {enableScreens} from 'react-native-screens';
 import {Platform, StatusBar, Image, View, AppState} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
@@ -15,26 +15,29 @@ import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import NetInfo from '@react-native-community/netinfo';
 import {useTranslation} from 'react-i18next';
+import {TFunction} from 'i18next';
+import * as SecureStore from 'expo-secure-store';
+
+import {
+  ExposureProvider,
+  TraceConfiguration
+} from 'react-native-exposure-notification-service';
+import {BUILD_VERSION} from '@env';
 
 import {Asset} from 'expo-asset';
-import * as Font from 'expo-font';
 
 import 'services/i18n';
 
 import {ApplicationProvider, useApplication} from 'providers/context';
-import {ExposureProvider} from 'providers/exposure';
-import {PermissionsProvider} from 'providers/permissions';
 import {
   SettingsProvider,
   SettingsContext,
-  TraceConfiguration
+  useSettings
 } from 'providers/settings';
 
 import {Base} from 'components/templates/base';
 import {NavBar} from 'components/atoms/navbar';
 import {TabBarBottom} from 'components/organisms/tab-bar-bottom';
-import {Over16} from 'components/views/over-16';
-import {Under16} from 'components/views/under-16';
 import {GetStarted} from 'components/views/get-started';
 import {YourData} from 'components/views/your-data';
 import {AppUsage} from 'components/views/app-usage';
@@ -67,10 +70,15 @@ import {CheckInSettings} from 'components/views/settings/check-in';
 import {Metrics} from 'components/views/settings/metrics';
 import {Leave} from 'components/views/settings/leave';
 import {Debug} from 'components/views/settings/debug';
-import {isMountedRef, navigationRef} from 'navigation';
+import {isMountedRef, navigationRef, ScreenNames} from 'navigation';
 import {colors} from 'theme';
 import {Loading} from 'components/views/loading';
 import {useSymptomChecker} from 'hooks/symptom-checker';
+
+import {Introduction, Permissions, Completion} from 'components/views/onboarding';
+import Tour from 'components/views/tour';
+
+import { urls } from 'constants/urls';
 
 enableScreens();
 
@@ -92,6 +100,71 @@ function cacheImages(images: (string | number)[]) {
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const Screens = (t: TFunction, user: User | undefined) => {
+  const header = () => null;
+  return [
+    {
+      name: ScreenNames.Introduction,
+      component: Introduction,
+      options: {
+        headerShown: true,
+        title: t('viewNames:introduction'),
+        cardStyle: {
+          backgroundColor: colors.background
+        }
+      }
+    },
+    {
+      name: ScreenNames.Permissions,
+      component: Permissions,
+      options: {
+        headerShown: true,
+        title: t('viewNames:permissions'),
+        cardStyle: {
+          backgroundColor: colors.background
+        }
+      }
+    },
+    {
+      name: ScreenNames.Completion,
+      component: Completion,
+      options: {
+        headerShown: true,
+        title: t('viewNames:completion'),
+        cardStyle: {
+          backgroundColor: colors.background
+        }
+      }
+    },
+    {
+      name: ScreenNames.Tour,
+      component: Tour,
+      options: {
+        headerShown: false,
+        title: t('viewNames:completion'),
+        cardStyle: {
+          backgroundColor: colors.white
+        },
+        cardStyleInterpolator:
+          CardStyleInterpolators.forRevealFromBottomAndroid,
+        gestureEnabled: true,
+        gestureDirection: 'vertical'
+      }
+    },
+    {
+      name: ScreenNames.Dashboard,
+      component: Dashboard,
+      options: {
+        headerShown: true,
+        title: t('viewNames:dashboard'),
+        cardStyle: {
+          backgroundColor: colors.background
+        }
+      }
+    }
+  ];
+};
 
 const SymptomsStack = () => {
   const app = useApplication();
@@ -175,7 +248,7 @@ function Navigation({
 }) {
   const app = useApplication();
   const {t} = useTranslation();
-  const initialScreen = app.user ? 'main' : 'over16';
+  const initialScreen = app.user ? 'main' : ScreenNames.Introduction;
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -221,25 +294,31 @@ function Navigation({
       ref={(e) => {
         navigationRef.current = e;
       }}>
-      <Spinner animation="fade" visible={app.loading} />
+      <Spinner animation="fade" visible={!!app.loading} />
       <Stack.Navigator
-        screenOptions={{
+        screenOptions={({ route, navigation }) => ({
+          header: (props) => <NavBar {...props} />,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-          cardStyle: {backgroundColor: 'transparent'},
+          cardStyle: {backgroundColor: colors.purple},
           gestureEnabled: true,
           gestureDirection: 'horizontal',
           animationEnabled: true,
-          header: (props) => <NavBar {...props} />
-        }}
-        initialRouteName={initialScreen}
-        headerMode="float">
-        <Stack.Screen
+          headerShown: false
+        })}
+        mode="modal"
+        initialRouteName={initialScreen}>
+        {Screens(t, app.user).map((screen, index) => (
+          // @ts-ignore
+          <Stack.Screen {...screen} key={`screen-${index}`} />
+        ))}
+
+        {/* <Stack.Screen
           name="over16"
           component={Over16}
           options={{
             title: t('viewNames:age'),
             header: () => null,
-            cardStyle: {backgroundColor: colors.yellow}
+            cardStyle: {backgroundColor: colors.purple}
           }}
         />
         <Stack.Screen name="under16" component={Under16} />
@@ -249,7 +328,7 @@ function Navigation({
           options={{
             title: t('viewNames:getStarted'),
             header: () => null,
-            cardStyle: {backgroundColor: colors.yellow}
+            cardStyle: {backgroundColor: colors.purple}
           }}
         />
         <Stack.Screen
@@ -358,10 +437,57 @@ function Navigation({
           component={TermsAndConditions}
           options={{title: t('viewNames:terms')}}
         />
+        */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const ExposureApp: React.FC = ({children}) => {
+  const {t} = useTranslation();
+  const [tokens, setTokens] = useState<{
+    authToken: string;
+    refreshToken: string;
+  }>({authToken: '', refreshToken: ''});
+
+  const settings = useSettings();
+  const app = useApplication();
+
+  useEffect(() => {
+    async function getTokens() {
+      try {
+        const storedAuthToken = await SecureStore.getItemAsync('token');
+        const storedRefreshToken = await SecureStore.getItemAsync(
+          'refreshToken'
+        );
+        setTokens({
+          authToken: storedAuthToken || '',
+          refreshToken: storedRefreshToken || ''
+        });
+      } catch (err) {
+        console.error('error getting tokens', err);
+      }
+    }
+
+    getTokens();
+  }, [app.user]);
+
+  return (
+    <ExposureProvider
+      isReady={Boolean(
+        app.user?.valid && tokens.authToken && tokens.refreshToken
+      )}
+      traceConfiguration={settings.traceConfiguration}
+      appVersion={BUILD_VERSION}
+      serverUrl={urls.api}
+      authToken={tokens.authToken}
+      refreshToken={tokens.refreshToken}
+      notificationTitle={t('closeContactNotification:title')}
+      notificationDescription={t('closeContactNotification:description')}>
+      {children}
+    </ExposureProvider>
+  );
+};
 
 interface State {
   loading: boolean;
@@ -382,27 +508,8 @@ export default function App(props: {
   useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
-        const imageAssets = cacheImages([
-          require('assets/images/onboard1/image.png'),
-          require('assets/images/onboard2/image.png'),
-          require('assets/images/onboard3/image.png'),
-          require('assets/images/permissions/bluetooth.png'),
-          require('assets/images/permissions/notifications.png'),
-          require('assets/images/logo/logo.png'),
-          require('assets/images/symptoma/image.png'),
-          require('assets/images/symptomb/image.png'),
-          require('assets/images/symptomc/image.png'),
-          require('assets/images/symptomd/image.png')
-        ]);
-
-        const fonts = await Font.loadAsync({
-          'lato-black': require('assets/fonts/lato/Lato-Black.ttf'),
-          'lato-bold': require('assets/fonts/lato/Lato-Bold.ttf'),
-          lato: require('assets/fonts/lato/Lato-Regular.ttf'),
-          'lato-thin': require('assets/fonts/lato/Lato-Thin.ttf')
-        });
-
-        await Promise.all([...imageAssets, fonts]);
+        const imageAssets = cacheImages([]);
+        await Promise.all([...imageAssets]);
       } catch (e) {
         console.warn(e);
       } finally {
@@ -415,7 +522,6 @@ export default function App(props: {
       onNotification: async function (notification) {
         let requiresHandling = false;
         if (Platform.OS === 'ios') {
-          console.log('iOS notification', notification, AppState.currentState);
           if (
             (notification && notification.userInteraction) ||
             (AppState.currentState === 'active' && notification)
@@ -432,7 +538,6 @@ export default function App(props: {
           }
         }
         if (requiresHandling) {
-          console.log('setting notification');
           setTimeout(() => setState((s) => ({...s, notification})), 500);
         }
       },
@@ -463,19 +568,17 @@ export default function App(props: {
                   user={settingsValue.user}
                   consent={settingsValue.consent}
                   appConfig={settingsValue.appConfig}>
-                  <PermissionsProvider user={settingsValue.user}>
-                    <ExposureProvider>
-                      <StatusBar barStyle="default" />
-                      <Navigation
-                        traceConfiguration={settingsValue.traceConfiguration}
-                        notification={state.notification}
-                        exposureNotificationClicked={
-                          state.exposureNotificationClicked
-                        }
-                        setState={setState}
-                      />
-                    </ExposureProvider>
-                  </PermissionsProvider>
+                  <ExposureApp>
+                    <StatusBar barStyle="default" />
+                    <Navigation
+                      traceConfiguration={settingsValue.traceConfiguration}
+                      notification={state.notification}
+                      exposureNotificationClicked={
+                        state.exposureNotificationClicked
+                      }
+                      setState={setState}
+                    />
+                  </ExposureApp>
                 </ApplicationProvider>
               );
             }}

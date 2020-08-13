@@ -3,9 +3,8 @@ import {Text, View, Image, StyleSheet, Platform, Linking} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import * as SecureStore from 'expo-secure-store';
+import {useExposure} from 'react-native-exposure-notification-service';
 
-import {usePermissions} from 'providers/permissions';
-import {useExposure} from 'providers/exposure';
 import {SingleRow, Spacing} from 'components/atoms/layout';
 import {Button} from 'components/atoms/button';
 import {Link} from 'components/atoms/link';
@@ -30,7 +29,6 @@ const upgradeImage: {[key: string]: any} = {
 export const ContactTracingInformation = ({navigation, route}: Props) => {
   const {t} = useTranslation();
   const exposure = useExposure();
-  const {askPermissions} = usePermissions();
 
   const checkForUpgradeHandler = async () => {
     try {
@@ -52,11 +50,9 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
   }, []);
 
   const handlePermissions = async () => {
-    await askPermissions();
-    navigation.reset({
-      index: 0,
-      routes: [{name: 'main'}]
-    });
+    await exposure.askPermissions();
+    const opts = (route && route.params) || {};
+    navigation.navigate('followUpCall', opts);
   };
 
   const handleLater = () => {

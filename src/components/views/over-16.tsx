@@ -65,14 +65,14 @@ const styles = StyleSheet.create({
   bg: {
     ...StyleSheet.absoluteFillObject,
     height: 250,
-    backgroundColor: colors.yellow
+    backgroundColor: colors.purple
   },
   scroll: {
     flex: 1
   },
   empty: {
     flex: 1,
-    backgroundColor: colors.yellow
+    backgroundColor: colors.purple
   },
   bottom: {
     paddingHorizontal: 20

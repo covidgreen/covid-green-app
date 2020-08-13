@@ -2,6 +2,7 @@ import React, {FC, useState, useEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
+import {useExposure} from 'react-native-exposure-notification-service';
 
 import {AppIcons} from 'assets/icons';
 import {AppStats} from 'components/organisms/app-stats';
@@ -20,8 +21,6 @@ import {TrackerAreaChart} from 'components/molecules/area-chart';
 import {TransmissionChart} from 'components/molecules/transmission-chart';
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
-import {useExposure} from 'providers/exposure';
-import {usePermissions} from 'providers/permissions';
 import {useSymptomChecker} from 'hooks/symptom-checker';
 
 export const Dashboard: FC<any> = ({navigation}) => {
@@ -32,7 +31,6 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const [appState] = useAppState();
   const isFocused = useIsFocused();
   const exposure = useExposure();
-  const {readPermissions} = usePermissions();
   const {getNextScreen} = useSymptomChecker();
 
   const {verifyCheckerStatus} = app;
@@ -48,7 +46,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
       if (!isFocused || appState !== 'active') {
         return;
       }
-      readPermissions();
+      exposure.readPermissions();
       verifyCheckerStatus();
     }, [isFocused, appState, verifyCheckerStatus])
   );
@@ -61,8 +59,9 @@ export const Dashboard: FC<any> = ({navigation}) => {
   useEffect(onRefresh, []);
 
   const appStats = () => {
-    const total = Number(app.data.checkIns.total);
-    const ok = Number(app.data.checkIns.ok);
+    const total =
+      app.data && app.data.checkIns ? Number(app.data.checkIns.total) : 0;
+    const ok = app.data && app.data.checkIns ? Number(app.data.checkIns.ok) : 0;
     const okPercentage = total && Math.round((ok / total) * 100);
     return {
       totalCheckins: total,
@@ -129,45 +128,61 @@ export const Dashboard: FC<any> = ({navigation}) => {
       {app.data && (
         <>
           <AppStats data={appStats()} />
-          <Spacing s={16} />
-          <CovidStats
-            data={app.data.statistics}
-            onCountyBreakdown={() => navigation.navigate('casesByCounty')}
-          />
-          <Spacing s={16} />
-          <Card padding={{h: 12}}>
-            <TrackerAreaChart
-              title={t('confirmedChart:title')}
-              hint={t('confirmedChart:hint')}
-              yesterday={t('confirmedChart:yesterday')}
-              data={app.data.chart}
-            />
-          </Card>
-          <Spacing s={16} />
-          <TransmissionChart
-            title={t('transmissionChart:title')}
-            data={[
-              [
-                t('transmissionChart:community'),
-                app.data.statistics.transmission.community
-              ],
-              [
-                t('transmissionChart:contact'),
-                app.data.statistics.transmission.closeContact
-              ],
-              [
-                t('transmissionChart:travel'),
-                app.data.statistics.transmission.travelAbroad
-              ]
-            ]}
-          />
-          <Spacing s={16} />
-          <StatsSource
-            lastUpdated={{
-              stats: new Date(app.data.statistics.lastUpdated.stats),
-              profile: new Date(app.data.statistics.lastUpdated.profile)
-            }}
-          />
+          {app.data && app.data.statistics && (
+            <>
+              <Spacing s={16} />
+              <CovidStats
+                data={app.data.statistics}
+                onCountyBreakdown={() => navigation.navigate('casesByCounty')}
+              />
+            </>
+          )}
+          {app.data && app.data.chart && (
+            <>
+              <Spacing s={16} />
+              <Card padding={{h: 12}}>
+                <TrackerAreaChart
+                  title={t('confirmedChart:title')}
+                  hint={t('confirmedChart:hint')}
+                  yesterday={t('confirmedChart:yesterday')}
+                  data={app.data.chart}
+                />
+              </Card>
+            </>
+          )}
+          {app.data && app.data.statistics && (
+            <>
+              <Spacing s={16} />
+              <TransmissionChart
+                title={t('transmissionChart:title')}
+                data={[
+                  [
+                    t('transmissionChart:community'),
+                    app.data.statistics.transmission.community
+                  ],
+                  [
+                    t('transmissionChart:contact'),
+                    app.data.statistics.transmission.closeContact
+                  ],
+                  [
+                    t('transmissionChart:travel'),
+                    app.data.statistics.transmission.travelAbroad
+                  ]
+                ]}
+              />
+            </>
+          )}
+          {app.data && app.data.statistics && (
+            <>
+              <Spacing s={16} />
+              <StatsSource
+                lastUpdated={{
+                  stats: new Date(app.data.statistics.lastUpdated.stats),
+                  profile: new Date(app.data.statistics.lastUpdated.profile)
+                }}
+              />
+            </>
+          )}
         </>
       )}
     </Scrollable>

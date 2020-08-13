@@ -1,79 +1,88 @@
 import {colors} from 'constants/colors';
+import {TextStyle} from 'react-native';
 
-export default (scale: (v: number) => number) => ({
-  // lato-regular
+export default (scale: (v: number) => number): {[key: string]: TextStyle} => ({
   small: {
-    fontFamily: 'lato',
+    fontFamily: 'System',
     fontSize: scale(14),
     color: colors.text,
     lineHeight: 21
   },
   default: {
-    fontFamily: 'lato',
+    fontFamily: 'System',
     fontSize: scale(16),
+    lineHeight: scale(21),
     color: colors.text
   },
   large: {
-    fontFamily: 'lato',
+    fontFamily: 'System',
     fontSize: scale(18),
     color: colors.text
   },
   xlarge: {
-    fontFamily: 'lato',
+    fontFamily: 'System',
     fontSize: scale(21),
     color: colors.text
   },
 
-  // lato-bold
   xsmallBold: {
-    fontFamily: 'lato-bold',
+    fontFamily: 'System',
+    fontWeight: 'bold',
     fontSize: scale(12),
     color: colors.text
   },
   xsmallBoldOpacity70: {
-    fontFamily: 'lato-bold',
+    fontFamily: 'System',
+    fontWeight: 'bold',
     fontSize: scale(12),
     color: `${colors.text}B3`
   },
   smallBold: {
-    fontFamily: 'lato-bold',
+    fontFamily: 'System',
+    fontWeight: 'bold',
     fontSize: scale(14),
     color: `${colors.text}B3`
   },
   defaultBold: {
-    fontFamily: 'lato-bold',
+    fontFamily: 'System',
+    fontWeight: 'bold',
     fontSize: scale(16),
     color: colors.text
   },
   defaultBoldOpacity70: {
-    fontFamily: 'lato-bold',
+    fontFamily: 'System',
+    fontWeight: 'bold',
     fontSize: scale(16),
     color: `${colors.text}B3`
   },
   largeBold: {
-    fontFamily: 'lato-bold',
+    fontFamily: 'System',
+    fontWeight: 'bold',
     fontSize: scale(18),
+    lineHeight: scale(24),
+    letterSpacing: -0.37,
     color: colors.text
   },
   xlargeBold: {
-    fontFamily: 'lato-bold',
+    fontFamily: 'System',
+    fontWeight: 'bold',
     fontSize: scale(21),
     color: colors.text
   },
 
   // lato-black
   largeBlack: {
-    fontFamily: 'lato-black',
+    fontFamily: 'System',
     fontSize: scale(18),
     color: colors.text
   },
   xlargeBlack: {
-    fontFamily: 'lato-black',
+    fontFamily: 'System',
     fontSize: scale(21),
     color: colors.text
   },
   xxlargeBlack: {
-    fontFamily: 'lato-black',
+    fontFamily: 'System',
     fontSize: scale(32),
     letterSpacing: -0.65,
     color: colors.text
