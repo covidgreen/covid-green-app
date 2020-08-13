@@ -187,7 +187,7 @@ export async function register(): Promise<{
   }
 
   const resp = await verifyResponse.json();
-  console.log('resp', resp)
+
   return resp as {
     token: string;
     refreshToken: string;

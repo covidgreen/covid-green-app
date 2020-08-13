@@ -75,10 +75,14 @@ import {colors} from 'theme';
 import {Loading} from 'components/views/loading';
 import {useSymptomChecker} from 'hooks/symptom-checker';
 
-import {Introduction, Permissions, Completion} from 'components/views/onboarding';
+import {
+  Introduction,
+  Permissions,
+  Completion
+} from 'components/views/onboarding';
 import Tour from 'components/views/tour';
 
-import { urls } from 'constants/urls';
+import {urls} from 'constants/urls';
 
 enableScreens();
 
@@ -218,7 +222,7 @@ const MainStack = () => {
       initialRouteName="dashboard"
       tabBar={(props: any) => <TabBarBottom {...props} />}>
       <Tab.Screen
-        name="dashboard"
+        name={ScreenNames.Dashboard}
         component={Dashboard}
         options={{title: t('viewNames:updates')}}
       />
@@ -248,7 +252,9 @@ function Navigation({
 }) {
   const app = useApplication();
   const {t} = useTranslation();
-  const initialScreen = app.user ? 'main' : ScreenNames.Introduction;
+  const initialScreen = app.user
+    ? 'main'
+    : ScreenNames.Introduction;
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -296,7 +302,7 @@ function Navigation({
       }}>
       <Spinner animation="fade" visible={!!app.loading} />
       <Stack.Navigator
-        screenOptions={({ route, navigation }) => ({
+        screenOptions={({route, navigation}) => ({
           header: (props) => <NavBar {...props} />,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           cardStyle: {backgroundColor: colors.purple},
@@ -311,6 +317,11 @@ function Navigation({
           // @ts-ignore
           <Stack.Screen {...screen} key={`screen-${index}`} />
         ))}
+        <Stack.Screen
+          name="main"
+          component={MainStack}
+          options={{showSettings: true}}
+        />
 
         {/* <Stack.Screen
           name="over16"
