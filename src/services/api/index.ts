@@ -175,14 +175,19 @@ export async function register(): Promise<{
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({nonce, ...(await verify(nonce))})
+    body: JSON.stringify({
+      nonce,
+      timestamp: Date.now(),
+      ...(await verify(nonce))
+    })
   });
+
   if (!verifyResponse) {
     throw new Error('Invalid response');
   }
 
   const resp = await verifyResponse.json();
-
+  console.log('resp', resp)
   return resp as {
     token: string;
     refreshToken: string;

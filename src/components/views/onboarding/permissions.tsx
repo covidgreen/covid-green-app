@@ -45,6 +45,7 @@ export const Permissions: FC<any> = () => {
 
       await app.clearContext();
       const {token, refreshToken} = await register();
+      console.log(token, refreshToken)
 
       await SecureStore.setItemAsync('token', token);
       await SecureStore.setItemAsync('refreshToken', refreshToken, {});
