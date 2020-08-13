@@ -39,7 +39,6 @@ import {GetStarted} from 'components/views/get-started';
 import {YourData} from 'components/views/your-data';
 import {AppUsage} from 'components/views/app-usage';
 import {ContactTracingInformation} from 'components/views/contact-tracing-information';
-import {FollowUpCall} from 'components/views/follow-up-call';
 import {Sorry} from 'components/views/sorry';
 import {
   DataProtectionPolicy,
@@ -55,7 +54,12 @@ import {
 import {SymptomsHistory} from 'components/views/symptoms-history';
 import {ContactTracing} from 'components/views/contact-tracing';
 import {CountyBreakdown} from 'components/views/county-breakdown';
+import {CloseContactInfo} from 'components/views/close-contact-info';
 import {CloseContact} from 'components/views/close-contact';
+import {CloseContactRequiredAge} from 'components/views/close-contact-required-age';
+import {CloseContactUnderAge} from 'components/views/close-contact-under-age';
+import {CallBack} from 'components/views/call-back';
+
 import {UploadKeys} from 'components/views/upload-keys';
 import {Settings} from 'components/views/settings';
 import {ContactTracingSettings} from 'components/views/settings/contact-tracing';
@@ -263,11 +267,6 @@ function Navigation({
           component={ContactTracingInformation}
           options={{title: t('tabBar:contactTracing')}}
         />
-        <Stack.Screen
-          name="followUpCall"
-          component={FollowUpCall}
-          options={{title: t('followUpCall:contactTracing')}}
-        />
 
         <Stack.Screen
           name="main"
@@ -280,10 +279,31 @@ function Navigation({
           options={{title: t('viewNames:casesByCounty')}}
         />
         <Stack.Screen
+          name="closeContactInfo"
+          component={CloseContactInfo}
+          options={{title: t('closeContactInfo:title')}}
+        />
+        <Stack.Screen
           name="closeContact"
           component={CloseContact}
-          options={{title: t('viewNames:closeContact')}}
+          options={{title: t('closeContact:title')}}
         />
+        <Stack.Screen
+          name="closeContactRequiredAge"
+          component={CloseContactRequiredAge}
+          options={{title: t('closeContact:requiredAge:title')}}
+        />
+        <Stack.Screen
+          name="closeContactUnderAge"
+          component={CloseContactUnderAge}
+          options={{title: t('closeContact:underAge:title')}}
+        />
+        <Stack.Screen
+          name="callBack"
+          component={CallBack}
+          options={{title: t('callBack:title')}}
+        />
+
         <Stack.Screen
           name="uploadKeys"
           component={UploadKeys}

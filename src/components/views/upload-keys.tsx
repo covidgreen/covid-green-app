@@ -3,24 +3,26 @@ import {Text, StyleSheet} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import {useTranslation} from 'react-i18next';
 
-import {DataProtectionLink} from './data-protection-policy';
-
-import {useApplication} from 'providers/context';
-import {useExposure} from 'providers/exposure';
 import {
   validateCode,
   uploadExposureKeys,
   ValidationResult
 } from 'services/api/exposures';
-import {AppIcons} from 'assets/icons';
-import {Button} from 'components/atoms/button';
-import {Card} from 'components/atoms/card';
-import {CodeInput} from 'components/molecules/code-input';
-import {colors, text, baseStyles} from 'theme';
-import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
-import {Markdown} from 'components/atoms/markdown';
+import {useApplication} from 'providers/context';
+import {useExposure} from 'providers/exposure';
+
 import {Spacing} from 'components/atoms/layout';
+import {Button} from 'components/atoms/button';
+import {CodeInput} from 'components/molecules/code-input';
+import {Markdown} from 'components/atoms/markdown';
 import {Toast} from 'components/atoms/toast';
+import {ResultCard} from 'components/molecules/result-card';
+import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
+
+import {colors, baseStyles} from 'theme';
+import {AppIcons} from 'assets/icons';
+
+import {DataProtectionLink} from './data-protection-policy';
 
 type UploadStatus =
   | 'initialising'
@@ -187,30 +189,15 @@ export const UploadKeys = ({navigation}) => {
     );
   };
 
-  const renderUploadSuccess = () => {
-    return (
-      <Card padding={{v: 4}}>
-        <Spacing s={16} />
-        <Toast
-          color="rgba(0, 207, 104, 0.16)"
-          message={t('uploadKeys:uploadSuccess:toast')}
-          type="success"
-          icon={
-            <AppIcons.Success width={24} height={24} color={colors.success} />
-          }
-        />
-        <Text style={[text.default, styles.successText]}>
-          {t('uploadKeys:uploadSuccess:thanks')}
-        </Text>
-        <Button
-          type="empty"
-          onPress={() => navigation.navigate('main', {screen: 'dashboard'})}>
-          {t('uploadKeys:uploadSuccess:updates')}
-        </Button>
-        <Spacing s={16} />
-      </Card>
-    );
-  };
+  const renderUploadSuccess = () => (
+    <ResultCard
+      messageTitle={t('uploadKeys:uploadSuccess:toast')}
+      message={t('uploadKeys:uploadSuccess:thanks')}
+      buttonType={'empty'}
+      buttonText={t('uploadKeys:uploadSuccess:updates')}
+      onButtonPress={() => navigation.navigate('main', {screen: 'dashboard'})}
+    />
+  );
 
   return (
     <KeyboardScrollable heading={t('uploadKeys:title')}>

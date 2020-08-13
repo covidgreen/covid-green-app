@@ -1,17 +1,17 @@
 import React, {FC} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
 
 import {Spacing} from 'components/atoms/spacing';
 import {Card} from 'components/atoms/card';
 import {Button, ButtonType} from 'components/atoms/button';
 import {Markdown} from 'components/atoms/markdown';
-import {Toast, ToastType} from 'components/atoms/toast';
-import {colors} from 'theme';
+
+import {text, colors} from 'theme';
 import {AppIcons} from 'assets/icons';
 
 interface props {
+  messageTitle?: string;
   message?: string;
-  statusMessage?: string;
-  statusType?: ToastType;
   icon?: React.ReactNode;
   markdownProps?: any;
   buttonType?: ButtonType;
@@ -19,31 +19,26 @@ interface props {
   onButtonPress?: () => void;
 }
 
-const getDefaultIcon = (statusType: ToastType) => {
-  switch (statusType) {
-    case 'success':
-      return <AppIcons.Success width={24} height={24} color={colors.success} />;
-    case 'warning':
-      return <AppIcons.Alert width={24} height={24} color={colors.orange} />;
-  }
-};
-
 export const ResultCard: FC<props> = ({
+  messageTitle,
   message,
-  statusMessage,
-  statusType = 'success',
-  icon = getDefaultIcon(statusType),
+  icon = <AppIcons.Success width={60} height={60} color={colors.success} />,
   markdownProps,
   buttonType,
   buttonText,
   onButtonPress
 }) => {
   return (
-    <Card padding={{v: 4}}>
+    <Card padding={{h: 20, v: 20}}>
+      <View style={styles.fullWidthToast}>
+        <Spacing s={48} />
+        {icon}
+        <Spacing s={32} />
+      </View>
       <Spacing s={16} />
-      {statusMessage && (
+      {messageTitle && (
         <>
-          <Toast type={statusType} icon={icon} message={statusMessage} />
+          <Text style={text.largeBlack}>{messageTitle}</Text>
           <Spacing s={16} />
         </>
       )}
@@ -61,3 +56,17 @@ export const ResultCard: FC<props> = ({
     </Card>
   );
 };
+
+const styles = StyleSheet.create({
+  fullWidthToast: {
+    marginLeft: -20,
+    marginRight: -20,
+    marginTop: -20,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // TODO: setup color
+    backgroundColor: 'rgba(3,133,67,0.1)'
+  }
+});

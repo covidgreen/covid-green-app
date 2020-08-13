@@ -1,12 +1,17 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {Route, Text} from 'react-native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {useFormik} from 'formik';
 
 import {SelectList} from 'components/atoms/select-list';
 
-import {emptySymptomRecord, Symptom, SymptomRecord, symptoms} from 'constants/symptoms';
+import {
+  emptySymptomRecord,
+  Symptom,
+  SymptomRecord,
+  symptomsByPage
+} from 'constants/symptoms';
 
 import {Spacing} from 'components/atoms/layout';
 import {Card} from 'components/atoms/card';
@@ -15,7 +20,6 @@ import {Scrollable} from 'components/templates/scrollable';
 
 import {text, colors} from 'theme';
 import {useApplication} from 'providers/context';
-import {useSymptomChecker} from "hooks/symptom-checker";
 
 interface FormikReturn {
   values: SymptomRecord;
@@ -35,7 +39,12 @@ export const CheckInSymptoms = () => {
   const {t} = useTranslation();
   const navigation = useNavigation();
   const app = useApplication();
-  const {getNextScreen} = useSymptomChecker();
+
+  const route: Route = useRoute();
+  const page = route.params?.page || 1;
+
+  const pageIndex = page - 1;
+  const pageSymptoms = symptomsByPage[pageIndex];
 
   const {values, setFieldValue}: FormikReturn = useFormik({
     initialValues: app.checkerSymptoms,
@@ -60,7 +69,7 @@ export const CheckInSymptoms = () => {
     });
   };
 
-  const items: SymptomListItem[] = symptoms.map((symptom) => ({
+  const items: SymptomListItem[] = pageSymptoms.map((symptom) => ({
     label: t(`checker:symptoms:${symptom}`),
     value: symptom
   }));
@@ -83,13 +92,18 @@ export const CheckInSymptoms = () => {
     });
   };
 
-  const onFeelingWell = async () => {
+  const onFeelingWell = () => {
     try {
-      await app.checkIn(emptySymptomRecord, {feelingWell: true, quickCheckIn: false});
+      app.checkIn(emptySymptomRecord, {
+        feelingWell: true,
+        quickCheckIn: false
+      });
     } catch (err) {
       console.log(err);
     }
-    navigation.navigate('symptoms', {screen: getNextScreen()});
+    navigation.navigate('symptoms', {
+      screen: 'checker.final'
+    });
   };
 
   return (

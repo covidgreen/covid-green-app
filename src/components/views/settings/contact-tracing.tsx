@@ -9,8 +9,6 @@ import {Button} from 'components/atoms/button';
 import {colors, text} from 'theme';
 import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
 import {Markdown} from 'components/atoms/markdown';
-import {METRIC_TYPES, saveMetric} from 'services/api';
-import {PhoneNumber} from 'components/organisms/phone-number';
 import {Spacing, Separator} from 'components/atoms/layout';
 import {Toast} from 'components/atoms/toast';
 import {useAppState} from 'hooks/app-state';
@@ -29,7 +27,6 @@ export const ContactTracingSettings = () => {
     supportsExposureApi,
     contacts,
     deleteExposureData,
-    configure,
     authoriseExposure
   } = useExposure();
 
@@ -138,22 +135,6 @@ export const ContactTracingSettings = () => {
           ? t('contactTracing:settings:status:gotoSettings')
           : t('contactTracing:settings:status:android:gotoSettings')}
       </Button>
-
-      <Separator />
-
-      <Text style={text.defaultBold}>{t('followUpCall:shortTitle')}</Text>
-      <Spacing s={12} />
-      <Markdown>{t('followUpCall:noteAlt')}</Markdown>
-      <Spacing s={12} />
-      <PhoneNumber
-        buttonLabel={t('common:confirmChanges')}
-        onSuccess={() => {
-          scrollViewRef.current?.scrollTo({x: 0, y: 0, animated: true});
-          setConfirmedChanges(true);
-          saveMetric({event: METRIC_TYPES.CALLBACK_OPTIN});
-          configure();
-        }}
-      />
 
       {contacts && contacts.length > 0 && (
         <>

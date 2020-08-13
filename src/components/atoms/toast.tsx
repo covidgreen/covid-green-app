@@ -5,10 +5,10 @@ import {Markdown} from './markdown';
 
 import {text, colors} from 'theme';
 
-export type ToastType = 'default' | 'success' | 'warning' | 'error';
+export type ToastType = 'default' | 'success' | 'warning';
 
 interface ToastProps {
-  type?: ToastType;
+  type?: string;
   icon?: ReactNode;
   color?: string;
   message?: string;

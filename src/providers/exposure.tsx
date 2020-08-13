@@ -187,7 +187,7 @@ export function ExposureProvider({children}: props) {
       const refreshToken = await SecureStore.getItemAsync('refreshToken');
       const analyticsOptin = await SecureStore.getItemAsync('analyticsConsent');
       let mobile = '';
-      const ctiCallBack = await SecureStore.getItemAsync('cti.callBack');
+      const ctiCallBack = await SecureStore.getItemAsync('covidApp.callBack');
       if (ctiCallBack) {
         const callBackData = JSON.parse(ctiCallBack);
         mobile = (callBackData && callBackData.mobile) || '';

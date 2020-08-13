@@ -1,5 +1,5 @@
 import {useApplication, ApplicationContextValue, User} from 'providers/context';
-import {symptomsByPage, Symptom} from 'constants/symptoms';
+import {symptomsByPage} from 'constants/symptoms';
 
 interface SymptomCheckerHook {
   getNextScreen(currentPage?: string): string;
@@ -14,25 +14,9 @@ const isIntroToDo = (user?: User): boolean =>
   !user.ethnicity ||
   !user.ageRange ||
   !user.county;
-const isSymptomsPageToDo = (
-  app: ApplicationContextValue,
-  nextPageSymptoms: Symptom[] | undefined
-): boolean => {
-  if (app.completedChecker) {
-    return false;
-  }
 
-  // If check in is incomplete, get last symptom selection page where user took any select action
-  if (!nextPageSymptoms) {
-    return true;
-  }
-  return (
-    !app.checkerSymptoms ||
-    nextPageSymptoms.every(
-      (symptom: Symptom) => app.checkerSymptoms[symptom] === undefined
-    )
-  );
-};
+const isSymptomsPageToDo = (app: ApplicationContextValue): boolean =>
+  !app.completedChecker;
 
 export function useSymptomChecker(): SymptomCheckerHook {
   const app = useApplication();
@@ -40,7 +24,7 @@ export function useSymptomChecker(): SymptomCheckerHook {
   const getNextScreen = (currentPage?: string): string => {
     const symptomPages: [string, boolean][] = symptomsByPage.map((_, index) => [
       `checker.symptoms.${index + 1}`,
-      isSymptomsPageToDo(app, symptomsByPage[index + 1])
+      isSymptomsPageToDo(app)
     ]);
 
     const pages: [string, boolean][] = [
