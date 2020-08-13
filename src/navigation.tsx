@@ -13,5 +13,6 @@ export enum ScreenNames {
   Completion = 'completion',
   Tour = 'tour',
 
-  Dashboard = 'dashboard'
+  Dashboard = 'dashboard',
+  Settings = 'settings'
 }

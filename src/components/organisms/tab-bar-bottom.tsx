@@ -12,8 +12,11 @@ import {useTranslation} from 'react-i18next';
 import Constants from 'expo-constants';
 
 import {colors, text} from 'theme';
-import {TabBarIcons, AppIcons} from 'assets/icons';
-import {useExposure, StatusState} from 'react-native-exposure-notification-service';
+import {TabBarIcons} from 'assets/icons';
+import {
+  useExposure,
+  StatusState
+} from 'react-native-exposure-notification-service';
 
 export const shareApp = async (t: TFunction) => {
   try {
@@ -103,8 +106,8 @@ const checkActive = (
   <TabBarIcons.CheckIn width={32} height={24} color={colors.teal} />
 );
 
-const shareIcon = (
-  <AppIcons.Share width={32} height={24} color={colors.darkGray} />
+const settingsIcon = (
+  <TabBarIcons.Settings width={32} height={24} color={colors.darkGray} />
 );
 
 /**
@@ -145,10 +148,10 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
       }
     },
     {
-      label: t('tabBar:shareApp'),
+      label: t('tabBar:settings'),
       icon: {
-        active: shareIcon,
-        inactive: shareIcon
+        active: settingsIcon,
+        inactive: settingsIcon
       }
     }
   ];
@@ -162,11 +165,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
           return (
             <TouchableWithoutFeedback
               key={`tab-bar-item-${index}`}
-              onPress={
-                index !== 3
-                  ? () => navigation.navigate(routeName)
-                  : () => shareApp(t)
-              }>
+              onPress={() => navigation.navigate(routeName)}>
               <View style={[styles.tab]}>
                 {getIcon(tab, isActive, status.state)}
                 <Text

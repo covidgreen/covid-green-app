@@ -3,9 +3,10 @@ import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-import Icons, {AppIcons, TabBarIcons} from 'assets/icons';
+import Icons, {AppIcons} from 'assets/icons';
 import {colors, text} from 'theme';
 import {useApplication} from 'providers/context';
+import {shareApp} from 'components/organisms/tab-bar-bottom';
 
 interface NavBarProps {
   navigation: any;
@@ -95,16 +96,9 @@ export const NavBar: FC<NavBarProps> = ({
           {showSettings && (
             <TouchableWithoutFeedback
               accessibilityHint={t('navbar:settingsHint')}
-              onPress={() => navigation.navigate('settings')}>
+              onPress={() => shareApp(t)}>
               <View style={styles.settings}>
-                <TabBarIcons.Settings
-                  width={24}
-                  height={24}
-                  color={colors.text}
-                />
-                <Text allowFontScaling={false} style={text.xsmallBold}>
-                  {t('navbar:settings')}
-                </Text>
+                <AppIcons.Share width={24} height={24} color={colors.white} />
               </View>
             </TouchableWithoutFeedback>
           )}
@@ -175,5 +169,10 @@ const styles = StyleSheet.create({
   logoSize: {
     width: 92,
     height: 36
+  },
+  shareText: {
+    ...text.default,
+    textAlign: 'center',
+    color: colors.white
   }
 });

@@ -49,8 +49,7 @@
     "updates": "NY COVID Data",
     "symptomCheck": "My Health Log",
     "contactTracing": "My COVID Alerts",
-    "shareApp": "Share app ",
-    "shareError": "There was an error sharing. Please try again or contact us."
+    "settings": "App Settings"
   },
   "onboarding": {
     "introduction": {

@@ -32,7 +32,7 @@ import ContactTracingOff from './tab-bar/contact-tracing-off.svg';
 import ContactTracingOn from './tab-bar/contact-tracing-on.svg';
 import ContactTracingUnknown from './tab-bar/contact-tracing-unknown.svg';
 import SettingsAndroid from './tab-bar/settings-android.svg';
-import SettingsIOS from './tab-bar//settings-ios.svg';
+import SettingsIOS from './tab-bar/settings-ios.svg';
 
 // icons
 import CheckMark from './check-mark.svg';

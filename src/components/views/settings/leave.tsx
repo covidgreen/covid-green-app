@@ -12,7 +12,7 @@ import {Spacing} from 'components/atoms/spacing';
 import {useApplication} from 'providers/context';
 import {useExposure} from 'react-native-exposure-notification-service';
 import {Basic} from 'components/templates/basic';
-import {ScreenNames} from 'src/navigation';
+import {ScreenNames} from 'navigation';
 
 export const Leave = ({navigation}) => {
   const {t} = useTranslation();

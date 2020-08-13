@@ -236,6 +236,11 @@ const MainStack = () => {
         component={ContactTracing}
         options={{title: t('viewNames:contactTracing')}}
       />
+      <Tab.Screen
+        name={ScreenNames.Settings}
+        component={Settings}
+        options={{title: t('viewNames:contactTracing')}}
+      />
     </Tab.Navigator>
   );
 };
@@ -252,9 +257,7 @@ function Navigation({
 }) {
   const app = useApplication();
   const {t} = useTranslation();
-  const initialScreen = app.user
-    ? 'main'
-    : ScreenNames.Introduction;
+  const initialScreen = app.user ? 'main' : ScreenNames.Introduction;
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -320,7 +323,14 @@ function Navigation({
         <Stack.Screen
           name="main"
           component={MainStack}
-          options={{showSettings: true}}
+          options={{
+            headerShown: true,
+            title: t('viewNames:introduction'),
+            cardStyle: {
+              backgroundColor: colors.background
+            },
+            showSettings: true
+          }}
         />
 
         {/* <Stack.Screen

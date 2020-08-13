@@ -45,7 +45,13 @@ export const Completion: FC<any> = () => {
               </View>
             </TouchableWithoutFeedback>
             <Spacing s={30} />
-            <Button onPress={() => nav.navigate(ScreenNames.Dashboard)}>
+            <Button
+              onPress={() =>
+                nav.reset({
+                  index: 0,
+                  routes: [{name: 'main'}]
+                })
+              }>
               {t('onboarding:completion:next')}
             </Button>
           </View>
