@@ -21,8 +21,7 @@ export interface BasicItem {
 
 export interface AppConfig {
   checkInMaxAge: number;
-  riskGroupMinAge: number;
-  hsePhoneNumber: string;
+  callBackResetHrs: number;
 }
 
 export interface TraceConfiguration {
@@ -52,7 +51,6 @@ interface SettingsContextValue {
   consent: string | null;
   sexOptions: BasicItem[];
   ageRangeOptions: AgeOption[];
-  exposedTodo: string;
   dpinText: string;
   tandcText: string;
   checkerThankYouText: CheckerThankYouText;
@@ -64,21 +62,38 @@ const defaultValue: SettingsContextValue = {
   consent: null,
   appConfig: {
     checkInMaxAge: 28,
-    riskGroupMinAge: 60,
-    hsePhoneNumber: 'XXXX-XXXXXX'
+    callBackResetHrs: 72 // hours
   },
   traceConfiguration: {
     exposureCheckInterval: 120,
-    storeExposuresFor: 14,
+    storeExposuresFor: 14, // days
     fileLimit: 1,
     fileLimitiOS: 2
   },
   sexOptions: [],
   ageRangeOptions: [],
-  exposedTodo: '',
   dpinText: '',
   tandcText: '',
   checkerThankYouText: {}
+};
+
+const getDbText = (apiSettings: any, key: string): any => {
+  const data =
+    (apiSettings[key] &&
+      (apiSettings[key][i18n.language] || apiSettings[key][fallback])) ||
+    '';
+
+  if (isObject(data)) {
+    const item: any = {};
+    Object.keys(data).forEach((k: string) => {
+      item[k] = data[k]
+        .replace(/\\n/g, '\n')
+        .replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
+    });
+    return item;
+  } else {
+    return data.replace(/\\n/g, '\n').replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
+  }
 };
 
 export const SettingsContext = createContext<SettingsContextValue>(
@@ -96,11 +111,11 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
   useEffect(() => {
     const loadSettingsAsync = async () => {
       const [user, consent] = await AsyncStorage.multiGet([
-        'cti.user',
-        'cti.checkInConsent'
+        'covidApp.user',
+        'covidApp.checkInConsent'
       ]);
 
-      let apiSettings;
+      let apiSettings: Record<any, string>;
       try {
         apiSettings = await api.loadSettings();
       } catch (e) {
@@ -108,46 +123,29 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
         apiSettings = {};
       }
 
-      const appConfig = Object.assign({}, defaultValue.appConfig, {
-        checkInMaxAge: Number(apiSettings.checkInMaxAge),
-        riskGroupMinAge: Number(apiSettings.riskGroupMinAge),
-        hsePhoneNumber: apiSettings.hsePhoneNumber
-      });
+      const appConfig: AppConfig = {...defaultValue.appConfig};
+      if (apiSettings.checkInMaxAge) {
+        appConfig.checkInMaxAge = Number(apiSettings.checkInMaxAge);
+      }
+      if (apiSettings.callBackResetHrs) {
+        appConfig.callBackResetHrs = Number(apiSettings.callBackResetHrs);
+      }
 
-      const traceConfiguration = Object.assign(
-        {},
-        defaultValue.traceConfiguration,
-        {
-          exposureCheckInterval: Number(apiSettings.exposureCheckInterval),
-          storeExposuresFor: Number(apiSettings.storeExposuresFor),
-          fileLimit: Number(apiSettings.fileLimit),
-          fileLimitiOS: Number(apiSettings.fileLimitiOS)
-        }
-      );
-      const getDbText = (apiSettings: any, key: string): any => {
-        let data =
-          (apiSettings[key] &&
-            (apiSettings[key][i18n.language] || apiSettings[key][fallback])) ||
-          '';
-
-        if (isObject(data)) {
-          const item: any = {};
-          Object.keys(data).forEach((key: string) => {
-            item[key] = data[key]
-              .replace(/\\n/g, '\n')
-              .replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
-          });
-          return item;
-        } else {
-          return data
-            .replace(/\\n/g, '\n')
-            .replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
-        }
+      const tc: TraceConfiguration = {
+        ...defaultValue.traceConfiguration
       };
-
-      const exposedTodo =
-        getDbText(apiSettings, 'exposedTodoList') ||
-        t('closeContact:todo:list');
+      if (apiSettings.exposureCheckInterval) {
+        tc.exposureCheckInterval = Number(apiSettings.exposureCheckInterval);
+      }
+      if (apiSettings.storeExposuresFor) {
+        tc.storeExposuresFor = Number(apiSettings.storeExposuresFor);
+      }
+      if (apiSettings.fileLimit) {
+        tc.fileLimit = Number(apiSettings.fileLimit);
+      }
+      if (apiSettings.fileLimitiOS) {
+        tc.fileLimitiOS = Number(apiSettings.fileLimitiOS);
+      }
 
       const dpinText =
         getDbText(apiSettings, 'dpinText') || t('dataProtectionPolicy:text');
@@ -171,10 +169,9 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
         user: user[1],
         consent: consent[1],
         appConfig,
-        traceConfiguration,
+        traceConfiguration: tc,
         sexOptions: getSexOptions(t),
         ageRangeOptions: getAgeRangeOptions(t),
-        exposedTodo,
         dpinText,
         tandcText,
         checkerThankYouText

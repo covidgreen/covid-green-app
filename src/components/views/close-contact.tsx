@@ -1,71 +1,69 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text, Linking} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import {StyleSheet, Text} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import PushNotification from 'react-native-push-notification';
+import {useTranslation} from 'react-i18next';
 
-import {BubbleIcons} from 'assets/icons';
-import {Button} from 'components/atoms/button';
+import {useCallBackStatus} from 'hooks/call-back-status';
+
+import {Spacing} from 'components/atoms/layout';
 import {Card} from 'components/atoms/card';
 import {Markdown} from 'components/atoms/markdown';
 import {Scrollable} from 'components/templates/scrollable';
-import {Spacing} from 'components/atoms/layout';
+
 import {text} from 'theme';
-import {useApplication} from 'providers/context';
-import {useSettings} from 'providers/settings';
+import {BubbleIcons} from 'assets/icons';
 
-export const CloseContact: FC<any> = ({route}) => {
+const markdownStyles = {
+  text: {
+    ...text.large,
+    flexWrap: 'wrap'
+  },
+  strong: {
+    ...text.largeBold
+  },
+  block: {
+    marginBottom: 32
+  }
+};
+
+export const CloseContact: FC = () => {
   const {t} = useTranslation();
-  const {callBackData} = useApplication();
-  const {exposedTodo} = useSettings();
-
-  const todoList = exposedTodo;
-
-  const type = route.params && route.params.info;
+  const navigation = useNavigation();
+  const {callBackIsQueued} = useCallBackStatus();
 
   PushNotification.setApplicationIconBadgeNumber(0);
 
   return (
-    <Scrollable
-      heading={type ? t('closeContact:infoTitle') : t('closeContact:title')}>
-      <Text style={text.largeBold}>
-        {type ? t('closeContact:intro') : t('closeContact:alertintro')}
-      </Text>
-      <Spacing s={16} />
-      {callBackData && !type && (
+    <Scrollable heading={t('closeContact:title')}>
+      <Markdown markdownStyles={markdownStyles}>
+        {t('closeContact:intro')}
+      </Markdown>
+      {callBackIsQueued ? (
         <>
-          <Card icon={<BubbleIcons.PhoneCall width={56} height={56} />}>
-            <Text style={text.largeBlack}>{t('closeContact:callBack')}</Text>
-            <Text style={styles.notice}>{t('closeContact:callBackQueue')}</Text>
+          <Text style={text.largeBold}>
+            {t('closeContact:callQueued:title')}
+          </Text>
+          <Spacing s={12} />
+          <Text style={text.default}>{t('closeContact:callQueued:text')}</Text>
+        </>
+      ) : (
+        <>
+          <Card
+            icon={<BubbleIcons.PhoneCall width={56} height={56} />}
+            onPress={() => navigation.navigate('closeContactRequiredAge')}>
+            <Text style={text.largeBlack}>
+              {t('closeContact:callBackCard')}
+            </Text>
           </Card>
-          <Spacing s={16} />
         </>
       )}
-      <Text style={text.defaultBold}>{t('closeContact:todo:title')}</Text>
-      <Spacing s={8} />
-      <Markdown>{todoList}</Markdown>
-      <Spacing s={24} />
-      <Text style={text.defaultBold}>{t('closeContact:symptoms:title')}</Text>
-      <Spacing s={8} />
-      <Markdown>{t('closeContact:symptoms:intro')}</Markdown>
-      <Spacing s={12} />
-      <Button
-        width="100%"
-        onPress={() =>
-          Linking.openURL('https://www2.hse.ie/app/in-app-close-contact')
-        }>
-        {t('closeContact:symptoms:callHSE')}
-      </Button>
-      <Spacing s={32} />
+      <Spacing s={20} />
+      <Card
+        icon={<BubbleIcons.Info width={56} height={56} />}
+        onPress={() => navigation.navigate('closeContactInfo')}>
+        <Text style={text.largeBlack}>{t('closeContact:infoCard')}</Text>
+      </Card>
     </Scrollable>
   );
 };
-
-const styles = StyleSheet.create({
-  content: {
-    flex: 1
-  },
-  notice: {
-    ...text.default,
-    lineHeight: 21
-  }
-});

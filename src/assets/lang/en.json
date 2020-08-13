@@ -19,12 +19,11 @@
     "symptomchecker": "COVID Checker",
     "settings": "Settings",
     "uploadKeys": "Upload Your Random Keys",
-    "closeContact": "Close Contact",
     "settingsContactTracing": "Contact Tracing Settings",
     "settingsCheckin": "COVID Checkin Settings",
     "dataPolicy": "Data Protection Policy",
     "terms": "Terms and Conditions",
-    "metrics":"Settings For App Metrics",
+    "metrics": "Settings For App Metrics",
     "leave": "Leave COVID Green",
     "contactTracing": "Contact Tracing"
   },
@@ -339,21 +338,32 @@
     "notice": "The app has detected that you have been in close contact with someone who has tested positive for COVID-19."
   },
   "closeContact": {
-    "title": "Close Contact Alert",
-    "infoTitle": "Close contact information",
-    "intro": "If you have received a notification from the app, or a call from our Contact Tracing team, telling you that you have been in close contact with someone that has tested positive for coronavirus, you may need to be tested.",
-    "alertintro": "The COVID Green App has detected that you have been in close contact with someone that has tested positive for coronavirus. You may need to be tested.",
-    "callBack": "Call Back",
-    "callBackQueue": "The HSE contact tracing team will call you as soon as possible.",
-    "todo": {
-      "title": "There are some things that you should do to protect others.",
-      "selfIsolationDetails": "For details on how to self-isolate go to [https://www2.hse.ie/conditions/coronavirus/self-isolation-and-limited-social-interaction.html#close-contact](https://www2.hse.ie/conditions/coronavirus/self-isolation-and-limited-social-interaction.html#close-contact)",
-      "list": "1. Stay at home.\n\n2. Do not go to work.\n\n3. Do not use public transport.\n\n4. Do not have visitors at your home.\n\n5. Do not visit others, even if you usually care for them.\n\n6. Do not go to the shops or pharmacy unless it's absolutely necessary - where possible, order your groceries online or have some family or friends drop them off.\n\n7. Keep away from older people, anyone with long-term medical conditions and pregnant women."
+    "title": "COVID Alert",
+    "intro": "**The app has detected that on September 1st 2020 someone who tested positive for COVID-19 was too close to you for too long.**\n\nTo protect others it would be best to **stay at home**.\n\nA Health Advisor can help you find support for staying at home and getting a test.",
+    "callBackCard": "Speak to a health advisor",
+    "infoCard": "Learn how to keep others safe",
+    "requiredAge": {
+      "title": "Are you 18 years or older?",
+      "yes": "Yes, I’m 18 or older",
+      "no": "No, I'm under 18"
     },
-    "symptoms": {
-      "title": "Phone your GP if you develop symptoms.",
-      "intro": "Find out more about what you need to do on hse.ie.",
-      "callHSE": "Go to HSE.ie"
+    "underAge": {
+      "title": "COVID Alert",
+      "intro": "**We can’t call you back because you’re too young.**\n\nYou must be 18 years or older to let us collect personal information like your phone number.\n\nInstead, you can:",
+      "callUs": "Call us"
+    }
+  },
+  "closeContactInfo": {
+    "title": "How to Keep Others Safe",
+    "info": "**To limit the risk of spreading COVID-19 to your family and community, please take the following precautions until you’ve been cleared by a public health professional:**\n\n1. **Isolate yourself.**\nStay in a room or living area that has its own bathroom and keep other people out. If you're in a home with other people, make sure there’s a door to separate the area from the rest of your home and keep it closed. If you must share a bathroom, have plenty of cleaning supplies (like household disinfectant wipes, bleach) to clean all surfaces after each use.\n\n2. **Stay at home and don’t leave your property.**\nDon’t go out into public. It’s important to avoid contact with other people, even your family.\n\n3. **Secure your living area.**\nKeep others from entering without your permission.\n\n4. **Wash your hands often.**\nMake sure you have access to a sink with soap, water, and plenty of paper towels.\n\n5. **Sleep by yourself.**\nIf you are in quarantine with others, sleep in separate bedrooms. You could start to have symptoms while you sleep.\n\n6. **Have food brought to you.**\nDon’t leave your living area to get or prepare food.\n\n7. **Bag up your garbage and leave it outside your door. **\nAsk someone else to pick it up regularly. (No special handling is needed.)\n\n8. **Keep a supply of face masks.**\nWear one if you start to have symptoms or must come in contact with others.\n\n9. **Monitor your temperature and symptoms carefully.**\nYou can keep track of them in the 'My Health Log' feature of this app or another way. A daily log helps Health Workers figure out the most effective treatments for you if you get sick.\n\n10. **Call ahead if you must leave to get health care.**\nTell the health care provider about your exposure to COVID-19. Wear a mask when you go and avoid using public transportation, such as subways, buses, or taxis."
+  },
+  "callBack": {
+    "title": "What phone number should we call you at?",
+    "button": "Call me as soon as you can",
+    "success": {
+      "title": "Got it",
+      "text": "Our health workers are helping many New Yorkers.\n\nWe will call you as soon as we can at (917) 485-1028.\n\nWhile you wait: Protect others by staying at home",
+      "button": "Done"
     }
   },
   "uploadKeys": {
@@ -405,6 +415,15 @@
       }
     }
   },
+  "phoneNumberUs": {
+    "label": "Your phone number (US phones only)",
+    "placeholder": "Your number",
+    "error": {
+      "invalid": "Your number is not valid. Please provide your full phone number.",
+      "short": "Your number is incomplete. Please provide your full phone number.",
+      "required": "Your number is required."
+    }
+  },
   "county": {
     "label": "Your county (optional)",
     "placeholder": "Choose your county",
@@ -436,5 +455,5 @@
   "codeInput": {
     "accessibilityLabel": "Code digit {{number}}",
     "accessibilityHint": "Enter {{count}} digit code"
-  }  
+  }
 }

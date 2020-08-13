@@ -73,12 +73,14 @@ export const ContactTracing = ({navigation}) => {
     }
   }
 
+  const hasCloseContact = exposure.contacts && exposure.contacts.length > 0;
+
   return (
     <Scrollable
       safeArea={false}
       heading={t('contactTracing:title')}
       accessibilityRefocus>
-      {exposure.contacts && exposure.contacts.length > 0 && (
+      {hasCloseContact && (
         <>
           <CloseContactWarning />
           <Spacing s={16} />
@@ -113,7 +115,11 @@ export const ContactTracing = ({navigation}) => {
         <>
           <Spacing s={16} />
           <Card
-            onPress={() => navigation.navigate('closeContact', {info: true})}
+            onPress={() =>
+              navigation.navigate(
+                hasCloseContact ? 'closeContact' : 'closeContactInfo'
+              )
+            }
             padding={{r: 4}}>
             <Text style={text.defaultBold}>
               {t('contactTracing:closeContactCard:title')}

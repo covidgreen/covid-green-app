@@ -18,7 +18,7 @@ import {Dropdown} from 'components/atoms/dropdown';
 import {Heading} from 'components/atoms/heading';
 import {LocationDropdown} from 'components/molecules/locality-dropdown';
 import {Markdown} from 'components/atoms/markdown';
-import {Result} from 'components/molecules/result-card';
+import {SymptomCheckerResult} from 'components/molecules/symptom-checker-result';
 import {SelectList} from 'components/atoms/select-list';
 import {Spacing, Separator} from 'components/atoms/layout';
 import {useApplication, Symptoms} from 'providers/context';
@@ -303,7 +303,7 @@ export const SymptomChecker: FC<SymptomCheckerProps> = ({route}) => {
 
   const renderResults = () => (
     <Animated.View style={{transform: [{translateX: state.slideInX}]}}>
-      <Result result={state.result || ''} />
+      <SymptomCheckerResult result={state.result || ''} />
     </Animated.View>
   );
 

@@ -4,17 +4,22 @@ export interface CountryCode {
   iso: string;
 }
 
+// Codes of countries to push to start of list, in order
+export const primaryCodes = ['US'];
+
+const sortCountryCodes = (a: CountryCode, b: CountryCode) => {
+  // Sort so first are primaryCodes in given order, then the rest alphabetically
+  const aPrimaryIndex = primaryCodes.indexOf(a.iso);
+  const bPrimaryIndex = primaryCodes.indexOf(b.iso);
+
+  if (aPrimaryIndex > -1 && bPrimaryIndex > -1)
+    return aPrimaryIndex - bPrimaryIndex;
+  if (aPrimaryIndex > -1) return -1;
+  if (bPrimaryIndex > -1) return 1;
+  return a.name < b.name ? -1 : 1;
+};
+
 const countryCodes: CountryCode[] = [
-  {
-    code: '+353',
-    name: 'Ireland',
-    iso: 'IE'
-  },
-  {
-    code: '+44',
-    name: 'United Kingdom',
-    iso: 'GB'
-  },
   {
     code: '+93',
     name: 'Afghanistan',
@@ -37,7 +42,7 @@ const countryCodes: CountryCode[] = [
   },
   {
     code: '+1 684',
-    name: 'AmericanSamoa',
+    name: 'American Samoa',
     iso: 'AS'
   },
   {
@@ -514,6 +519,11 @@ const countryCodes: CountryCode[] = [
     code: '+964',
     name: 'Iraq',
     iso: 'IQ'
+  },
+  {
+    code: '+353',
+    name: 'Ireland',
+    iso: 'IE'
   },
   {
     code: '+972',
@@ -1136,6 +1146,11 @@ const countryCodes: CountryCode[] = [
     iso: 'AE'
   },
   {
+    code: '+44',
+    name: 'United Kingdom',
+    iso: 'GB'
+  },
+  {
     code: '+1 ',
     name: 'United States',
     iso: 'US'
@@ -1197,4 +1212,4 @@ const countryCodes: CountryCode[] = [
   }
 ];
 
-export default countryCodes;
+export default countryCodes.sort(sortCountryCodes);

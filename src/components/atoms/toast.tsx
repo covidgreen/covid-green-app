@@ -1,15 +1,11 @@
-import React, { ReactNode } from 'react';
-import {
-  StyleSheet,
-  View,
-  ViewStyle,
-  Text,
-  TextStyle,
-} from 'react-native';
+import React, {ReactNode} from 'react';
+import {StyleSheet, View, ViewStyle, Text, TextStyle} from 'react-native';
 
 import {Markdown} from './markdown';
 
 import {text, colors} from 'theme';
+
+export type ToastType = 'default' | 'success' | 'warning';
 
 interface ToastProps {
   type?: string;

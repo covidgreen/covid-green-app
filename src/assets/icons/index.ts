@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 
 // app
 import Alert from './app/alert.svg';
@@ -18,6 +18,7 @@ import BubbleCheckIn from './bubble/check-in.svg';
 import BubbleDeaths from './bubble/deaths.svg';
 import BubbleHospital from './bubble/hospital.svg';
 import BubbleICU from './bubble/icu.svg';
+import BubbleInfo from './bubble/info.svg';
 import BubbleMapPin from './bubble/map-pin.svg';
 import BubblePhoneCall from './bubble/phone-call.svg';
 import BubbleShield from './bubble/shield.svg';
@@ -56,6 +57,7 @@ export const BubbleIcons = {
   Deaths: BubbleDeaths,
   Hospital: BubbleHospital,
   ICU: BubbleICU,
+  Info: BubbleInfo,
   MapPin: BubbleMapPin,
   PhoneCall: BubblePhoneCall,
   Shield: BubbleShield,

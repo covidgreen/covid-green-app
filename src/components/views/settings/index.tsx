@@ -44,7 +44,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   const versionPressHandler = async () => {
     setPressCount(pressCount + 1);
     if (!showDebug && pressCount + 1 >= REQUIRED_PRESS_COUNT) {
-      await AsyncStorage.setItem('cti.showDebug', 'y');
+      await AsyncStorage.setItem('covidApp.showDebug', 'y');
       setShowDebug(true);
     }
   };
@@ -52,12 +52,12 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   useEffect(() => {
     const init = async () => {
       try {
-        const showDebugData = await AsyncStorage.getItem('cti.showDebug');
+        const showDebugData = await AsyncStorage.getItem('covidApp.showDebug');
         if (showDebugData) {
           setShowDebug(showDebugData === 'y');
         }
       } catch (err) {
-        console.log('Error reading "cti.showDebug" from async storage:', err);
+        console.log('Error reading "covidApp.showDebug" from async storage:', err);
       }
     };
     init();

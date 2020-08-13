@@ -9,6 +9,8 @@ import {BUILD_VERSION, ENV, TEST_TOKEN} from 'react-native-dotenv';
 import RNGoogleSafetyNet from 'react-native-google-safetynet';
 import RNIOS11DeviceCheck from 'react-native-ios11-devicecheck';
 
+import {CallBackData} from 'components/organisms/phone-number-us';
+
 import {urls} from 'constants/urls';
 import {Check, UserLocation} from 'providers/context';
 import {isMountedRef, navigationRef} from 'navigation';
@@ -19,6 +21,8 @@ interface CheckIn {
   location: UserLocation;
   ok: boolean;
 }
+
+export type UploadResponse = Response | undefined;
 
 export const verify = async (nonce: string) => {
   if (Platform.OS === 'android') {
@@ -388,3 +392,22 @@ export async function saveMetric({event = ''}) {
     return false;
   }
 }
+
+export const uploadCallBackData = async (
+  callBackData: CallBackData
+): Promise<UploadResponse> => {
+  const resp = (await request(`${urls.api}/callback`, {
+    authorizationHeaders: true,
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      mobile: callBackData.mobile,
+      closeContactDate: Date.now() // required field, is forwarded to the lambda
+    })
+  })) as UploadResponse;
+
+  return resp;
+};

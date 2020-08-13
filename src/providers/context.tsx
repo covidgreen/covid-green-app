@@ -41,12 +41,7 @@ export interface Check {
   status?: 'p' | 'c' | 'u';
 }
 
-export interface CallBackData {
-  iso: string;
-  code: string;
-  number: string;
-  mobile: string;
-}
+type CallBackQueuedTs = number | undefined;
 
 interface State {
   initializing: boolean;
@@ -58,7 +53,7 @@ interface State {
   completedCheckerDate: string | null;
   quickCheckIn: boolean;
   checks: Check[];
-  callBackData?: CallBackData;
+  callBackQueuedTs?: CallBackQueuedTs;
   accessibility: Accessibility;
 }
 
@@ -163,13 +158,13 @@ export const AP = ({appConfig, user, consent, children}: API) => {
 
   useEffect(() => {
     const load = async () => {
-      let callBackData: CallBackData;
+      let callBackQueuedTs: CallBackQueuedTs;
       let checks: Check[] = [];
       let completedCheckerDate: string | null = null;
       let completedChecker = false;
 
       if (state.user) {
-        const checksData = await SecureStore.getItemAsync('cti.checks');
+        const checksData = await SecureStore.getItemAsync('covidApp.checks');
         checks = checksData ? JSON.parse(checksData) : [];
         checks.sort((a, b) => compareDesc(a.timestamp, b.timestamp));
 
@@ -181,12 +176,17 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       }
 
       try {
-        const ctiCallBack = await SecureStore.getItemAsync('cti.callBack');
-        if (ctiCallBack) {
-          callBackData = JSON.parse(ctiCallBack) as CallBackData;
+        const storedCallBackQueuedTs = await SecureStore.getItemAsync(
+          'covidApp.callBackQueuedTs'
+        );
+        if (storedCallBackQueuedTs) {
+          callBackQueuedTs = Number(storedCallBackQueuedTs);
         }
       } catch (err) {
-        console.log('Error reading "cti.callBack" from async storage:', err);
+        console.log(
+          'Error reading "covidApp.callBack" from async storage:',
+          err
+        );
       }
 
       setState((s) => ({
@@ -195,7 +195,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
         completedChecker,
         completedCheckerDate,
         checks,
-        callBackData: callBackData
+        callBackQueuedTs
       }));
     };
 
@@ -225,15 +225,15 @@ export const AP = ({appConfig, user, consent, children}: API) => {
   const setContext = async (data: Partial<State>) => {
     setState((s) => ({...s, ...data}));
     if (data.user) {
-      await AsyncStorage.setItem('cti.user', JSON.stringify(data.user));
+      await AsyncStorage.setItem('covidApp.user', JSON.stringify(data.user));
     }
     if (data.checkInConsent) {
-      await AsyncStorage.setItem('cti.checkInConsent', 'y');
+      await AsyncStorage.setItem('covidApp.checkInConsent', 'y');
     }
-    if (data.callBackData) {
+    if (data.callBackQueuedTs) {
       await SecureStore.setItemAsync(
-        'cti.callBack',
-        JSON.stringify(data.callBackData)
+        'covidApp.callBackQueuedTs',
+        JSON.stringify(data.callBackQueuedTs)
       );
     }
   };
@@ -241,12 +241,12 @@ export const AP = ({appConfig, user, consent, children}: API) => {
   const clearContext = async (): Promise<void> => {
     await SecureStore.deleteItemAsync('refreshToken');
     await SecureStore.deleteItemAsync('token');
-    await SecureStore.deleteItemAsync('cti.checks');
+    await SecureStore.deleteItemAsync('covidApp.checks');
     await SecureStore.deleteItemAsync('uploadToken');
-    await SecureStore.deleteItemAsync('cti.callBack');
-    await AsyncStorage.removeItem('cti.user');
-    await AsyncStorage.removeItem('cti.checkInConsent');
-    await AsyncStorage.removeItem('cti.showDebug');
+    await SecureStore.deleteItemAsync('covidApp.callBackQueuedTs');
+    await AsyncStorage.removeItem('covidApp.user');
+    await AsyncStorage.removeItem('covidApp.checkInConsent');
+    await AsyncStorage.removeItem('covidApp.showDebug');
     await AsyncStorage.removeItem('analyticsConsent');
 
     setState((s) => ({
@@ -258,7 +258,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       quickCheckIn: false,
       checks: [],
       user: undefined,
-      callBackData: undefined
+      callBackQueuedTs: undefined
     }));
   };
 
@@ -315,7 +315,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
         }
       });
 
-      SecureStore.setItemAsync('cti.checks', JSON.stringify(checks));
+      SecureStore.setItemAsync('covidApp.checks', JSON.stringify(checks));
 
       api.checkIn(checks, {
         sex: state.user!.sex!,
