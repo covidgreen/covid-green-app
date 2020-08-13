@@ -11,6 +11,9 @@ export const colors = {
   icons: {
     gray: '#b2b2b2'
   },
+  tabs: {
+    highlighted: '#e7e8f2'
+  },
 
   yellow: '#FFEA0C', // review & remove,
   lightpurple: '#fff37a',

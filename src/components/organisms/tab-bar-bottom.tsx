@@ -74,7 +74,7 @@ const ctOffUnselected = (
   />
 );
 const ctOnSelected = (
-  <TabBarIcons.ContactTracing.On width={32} height={24} color={colors.teal} />
+  <TabBarIcons.ContactTracing.On width={32} height={24} color={colors.purple} />
 );
 const ctOffSelected = (
   <TabBarIcons.ContactTracing.Off
@@ -96,14 +96,14 @@ const barChartInactive = (
   <TabBarIcons.Updates width={32} height={24} color={colors.darkGray} />
 );
 const barChartActive = (
-  <TabBarIcons.Updates width={32} height={24} color={colors.teal} />
+  <TabBarIcons.Updates width={32} height={24} color={colors.purple} />
 );
 
 const checkInactive = (
   <TabBarIcons.CheckIn width={32} height={24} color={colors.darkGray} />
 );
 const checkActive = (
-  <TabBarIcons.CheckIn width={32} height={24} color={colors.teal} />
+  <TabBarIcons.CheckIn width={32} height={24} color={colors.purple} />
 );
 
 const settingsIcon = (
@@ -150,8 +150,16 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
     {
       label: t('tabBar:settings'),
       icon: {
-        active: settingsIcon,
-        inactive: settingsIcon
+        active: (
+          <TabBarIcons.Settings width={32} height={24} color={colors.purple} />
+        ),
+        inactive: (
+          <TabBarIcons.Settings
+            width={32}
+            height={24}
+            color={colors.darkGray}
+          />
+        )
       }
     }
   ];
@@ -166,7 +174,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
             <TouchableWithoutFeedback
               key={`tab-bar-item-${index}`}
               onPress={() => navigation.navigate(routeName)}>
-              <View style={[styles.tab]}>
+              <View style={[styles.tab, isActive ? styles.highlighted : {}]}>
                 {getIcon(tab, isActive, status.state)}
                 <Text
                   allowFontScaling={false}
@@ -191,17 +199,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: colors.white,
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    paddingBottom: 4,
+    padding: 0,
     borderTopColor: colors.gray,
     borderTopWidth: 2
   },
   tab: {
-    maxWidth: '22%',
+    width: '25%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    borderRadius: 3
+    borderRadius: 3,
+    paddingVertical: 6,
+    paddingHorizontal: 6
   },
   label: {
     ...text.smallBold,
@@ -212,5 +220,14 @@ const styles = StyleSheet.create({
   },
   labelActive: {
     color: colors.text
+  },
+  highlighted: {
+    backgroundColor: colors.tabs.highlighted,
+    borderStyle: 'solid',
+    borderTopWidth: 2,
+    borderColor: colors.purple,
+    borderRadius: 0,
+    paddingTop: 4,
+    paddingBottom: 4
   }
 });
