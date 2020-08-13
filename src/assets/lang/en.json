@@ -110,11 +110,11 @@
     "title": "My Health Today",
     "resultTitle": "Thank you",
     "symptoms": {
-      "subtitle": "Do you have any of the following?",
+      "subtitle": "Do you have any of the following 11 symptoms today?",
       "nextButton": "Continue",
       "fever": "Fever or feeling feverish (such as chills, sweating)",
       "cough": "Cough",
-      "breath": "Mild or moderate difficulty breathing",
+      "breath": "Shortness of breath or difficulty breathing",
       "fatigue": "Fatigue",
       "throat": "Sore throat",
       "congestion": "Congestion or runny nose",
@@ -129,9 +129,8 @@
       "noSymptomsFeelingWell": "We’re happy to hear you’re feeling well. Thank you for checking in. Even if you are still well, please come back tomorrow to let us know how you're doing.\n\nVisit **health.pa.gov** to read more about how to protect yourself and others from coronavirus.",
       "riskGroup": "Because of your age, we would like you to take extra care to protect yourself from COVID-19.\n\nWe know this isn't an easy time. If you need support or advice on how to manage at home, tap below for more information.",
       "noSymptomsNotFeelingWell": "Thank you for checking in. Sorry to hear you are not feeling well.\n\nIt sounds like you do not have any of the common symptoms of COVID-19, such as fever, cough, shortness of breath, diarrhea, chills, muscle pain, headache, sore throat, or new loss of taste or smell. If you begin to develop any of these symptoms, come back to complete another COVID Check-In and we will do our best to help.\n\nIn the meantime, visit **health.pa.gov** to read more about how to protect yourself and others from coronavirus.\n\nIf you are need mental health or substance use disorder care services, please visit [Mental Health in PA](https://www.dhs.pa.gov/Services/Mental-Health-In-PA/Pages/default.aspx).",
-      "recovered": "Good to hear you’re feeling better. Stay well by following the advice on **health.pa.gov**",
-      "coronavirus": "**Thank you for checking in.**\n**Sorry to hear you're not feeling well.**\n\nIf your symptoms are mild most people can recover at home without medical care.\n\n**If you'd like to get tested** for a diagnosis, contact your healthcare provider or schedule an appointment at a publicly accessible testing site. [Find a testing site in Pennsylvania](https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx).\n\n**If you do not want to get tested**, it's still important to stay home, isolate and avoid contact with others, rest, and drink fluids. Take acetaminophen to bring down your fever. If you feel worse, call your health care provider.\n\nIf your symptoms are severe (including a fever above 100°), call your health care provider. If you don't have a health care provider, call the nearest hospital or urgent care to schedule an appointment. [Find a testing site in Pennsylvania](https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx).\n\n**If it’s an emergency, call 911.**\nEmergency warning signs can include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
-      "stopTheSpread": "Learn how to stop the spread"
+      "coronavirus": "**Thank you for checking in.**\n**Sorry to hear you're not feeling well.**\n\nIf your symptoms are mild most people can recover at home without medical care.\n\n**If you'd like to get tested** for a diagnosis, contact your healthcare provider or schedule an appointment at a publicly accessible testing site. [Find a testing site in Pennsylvania](https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx).\n\n**If you do not want to get tested**, it's still important to stay home, isolate and avoid contact with others, rest, and drink fluids. Take acetaminophen to bring down your fever. If you feel worse, call your health care provider.\n\nIf your symptoms are severe (including a fever above 100°), call your health care provider. If you don't have a health care provider, call the nearest hospital or urgent care to schedule an appointment.\n\n**If it’s an emergency, call 911.**\nEmergency warning signs can include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
+      "viewLog": "View My Health Log"
     },
     "introTitle": "My Health Today",
     "introOptional": "All responses are optional.",
@@ -147,7 +146,7 @@
   "returning": {
     "title": "Welcome back 👋",
     "subtitle": "How are you feeling today?",
-    "action1": "I’m good, no symptoms",
+    "action1": "No, I am feeling well today",
     "action2": "I'm not feeling well today",
     "completeTitle": "Great to hear 👍",
     "completeLink": "View your history"
@@ -280,7 +279,7 @@
     "lastUpdatedProfile": "Cases profile last update: "
   },
   "symptomsHistory": {
-    "title": "Your symptom history",
+    "title": "My Health Log",
     "symptom": "Symptom",
     "symptoms": "Symptoms",
     "completed": "You can check symptoms again tomorrow"
@@ -365,7 +364,7 @@
     }
   },
   "gender": {
-    "label": "Gender identity(optional)",
+    "label": "Gender identity",
     "placeholder": "Choose your gender identity",
     "female": "Female",
     "male": "Male",
@@ -374,7 +373,7 @@
     "other": "Other"
   },
   "race": {
-    "label": "Race(optional)",
+    "label": "Race",
     "placeholder": "Choose your race",
     "american": "American Indian/Alaskan",
     "asian": "Asian",
@@ -384,13 +383,13 @@
     "other": "Other"
   },
   "ethnicity": {
-    "label": "Ethnicity(optional)",
+    "label": "Ethnicity",
     "placeholder": "Choose your ethnicity",
     "hispanic": "Hispanic/Latino",
     "not_hispanic": "Not Hispanic/Latino"
   },
   "ageRange": {
-    "label": "Age range(optional)",
+    "label": "Age range",
     "placeholder": "Choose your age range"
   },
   "phoneNumber": {
@@ -414,14 +413,8 @@
     }
   },
   "county": {
-    "label": "County(optional)",
+    "label": "County",
     "placeholder": "Choose your county",
-    "searchPlaceholder": "Search",
-    "noResults": "No results found for this search.\nTry with something else."
-  },
-  "locality": {
-    "label": "Your locality (optional)",
-    "placeholder": "Choose your locality",
     "searchPlaceholder": "Search",
     "noResults": "No results found for this search.\nTry with something else."
   },

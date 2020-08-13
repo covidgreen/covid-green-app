@@ -39,11 +39,10 @@ interface AgeOption extends BasicItem {
 }
 
 interface CheckerThankYouText {
-  noSymptomsWell?: string;
-  noSymptomsNotWell?: string;
+  noSymptomsFeelingWell?: string;
+  noSymptomsNotFeelingWell?: string;
   riskGroup?: string;
-  recovered?: string;
-  virusIsolation?: string;
+  coronavirus?: string;
 }
 
 interface SettingsContextValue {
@@ -165,11 +164,12 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
 
       const checkerThankYouText: CheckerThankYouText = Object.assign(
         {
-          noSymptomsWell: t('checker:noSymptomsWell:message'),
-          noSymptomsNotWell: t('checker:noSymptomsNotWell:message'),
-          riskGroup: t('checker:riskGroup:warning'),
-          recovered: t('checker:recovered'),
-          virusIsolation: t('checker:virusIsolation')
+          noSymptomsFeelingWell: t('checker:results:noSymptomsFeelingWell'),
+          noSymptomsNotFeelingWell: t(
+            'checker:results:noSymptomsNotFeelingWell'
+          ),
+          riskGroup: t('checker:results:riskGroup'),
+          coronavirus: t('checker:results:coronavirus')
         },
         getDbText(apiSettings, 'checkerThankYouText')
       );

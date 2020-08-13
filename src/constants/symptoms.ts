@@ -1,15 +1,14 @@
 export const symptoms = [
+  'fatigue',
+  'aches',
+  'headache',
+  'throat',
+  'congestion',
+  'nausea',
+  'diarrhea',
   'fever',
   'cough',
   'breath',
-  'fatigue',
-  'throat',
-  'congestion',
-  // page break here
-  'aches',
-  'headache',
-  'nausea',
-  'diarrhea',
   'taste'
 ] as const;
 
@@ -17,7 +16,6 @@ export type SymptomsCheckResult =
   | 'noSymptomsFeelingWell'
   | 'noSymptomsNotFeelingWell'
   | 'riskGroup'
-  | 'recovered'
   | 'coronavirus';
 
 export const symptomsByPage = [symptoms];

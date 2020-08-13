@@ -112,7 +112,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           onDismissed={() => setQuickCheckInDismissed(true)}
           nextHandler={() =>
             navigation.navigate('symptoms', {
-              screen: getNextScreen('checker.quick', {skipQuickCheckIn: true})
+              screen: getNextScreen('checker.quick')
             })
           }
         />

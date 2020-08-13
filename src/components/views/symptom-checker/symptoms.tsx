@@ -6,7 +6,7 @@ import {useFormik} from 'formik';
 
 import {SelectList} from 'components/atoms/select-list';
 
-import {Symptom, SymptomRecord, symptoms} from 'constants/symptoms';
+import {emptySymptomRecord, Symptom, SymptomRecord, symptoms} from 'constants/symptoms';
 
 import {Spacing} from 'components/atoms/layout';
 import {Card} from 'components/atoms/card';
@@ -15,6 +15,7 @@ import {Scrollable} from 'components/templates/scrollable';
 
 import {text, colors} from 'theme';
 import {useApplication} from 'providers/context';
+import {useSymptomChecker} from "hooks/symptom-checker";
 
 interface FormikReturn {
   values: SymptomRecord;
@@ -34,6 +35,7 @@ export const CheckInSymptoms = () => {
   const {t} = useTranslation();
   const navigation = useNavigation();
   const app = useApplication();
+  const {getNextScreen} = useSymptomChecker();
 
   const {values, setFieldValue}: FormikReturn = useFormik({
     initialValues: app.checkerSymptoms,
@@ -81,6 +83,15 @@ export const CheckInSymptoms = () => {
     });
   };
 
+  const onFeelingWell = async () => {
+    try {
+      await app.checkIn(emptySymptomRecord, {feelingWell: true, quickCheckIn: false});
+    } catch (err) {
+      console.log(err);
+    }
+    navigation.navigate('symptoms', {screen: getNextScreen()});
+  };
+
   return (
     <Scrollable
       safeArea={false}
@@ -90,6 +101,10 @@ export const CheckInSymptoms = () => {
         <Text style={text.largeBold}>{`${t(
           'checker:symptoms:subtitle'
         )}`}</Text>
+        <Spacing s={36} />
+        <Button width="100%" type="empty" onPress={onFeelingWell}>
+          {t('returning:action1')}
+        </Button>
         <Spacing s={36} />
         <SelectList
           items={items}

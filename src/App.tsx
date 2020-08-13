@@ -49,8 +49,8 @@ import {Dashboard} from 'components/views/dashboard';
 import {
   CheckInConsent,
   CheckInIntro,
-  CheckInQuick,
-  CheckInSymptoms
+  CheckInSymptoms,
+  CheckInFinal
 } from 'components/views/symptom-checker';
 import {SymptomsHistory} from 'components/views/symptoms-history';
 import {ContactTracing} from 'components/views/contact-tracing';
@@ -120,20 +120,14 @@ const SymptomsStack = () => {
         options={{title: t('viewNames:symptomchecker')}}
       />
       <Stack.Screen
-        name="checker.quick"
-        component={CheckInQuick}
-        options={{title: t('viewNames:symptomchecker')}}
-      />
-      <Stack.Screen
         name="checker.symptoms.1"
         component={CheckInSymptoms}
         initialParams={{page: 1, back: true}}
         options={{title: t('viewNames:symptomchecker')}}
       />
       <Stack.Screen
-        name="checker.symptoms.2"
-        component={CheckInSymptoms}
-        initialParams={{page: 2, back: true}}
+        name="checker.final"
+        component={CheckInFinal}
         options={{title: t('viewNames:symptomchecker')}}
       />
     </Stack.Navigator>

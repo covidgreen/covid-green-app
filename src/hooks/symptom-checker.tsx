@@ -2,11 +2,7 @@ import {useApplication, ApplicationContextValue, User} from 'providers/context';
 import {symptomsByPage, Symptom} from 'constants/symptoms';
 
 interface SymptomCheckerHook {
-  getNextScreen(currentPage?: string, options?: NextScreenOptions): string;
-}
-
-interface NextScreenOptions {
-  skipQuickCheckIn?: boolean;
+  getNextScreen(currentPage?: string): string;
 }
 
 const isConsentToDo = (app: ApplicationContextValue): boolean =>
@@ -18,8 +14,6 @@ const isIntroToDo = (user?: User): boolean =>
   !user.ethnicity ||
   !user.ageRange ||
   !user.county;
-const isQuickCheckToDo = (options?: NextScreenOptions): boolean =>
-  !options || !options.skipQuickCheckIn;
 const isSymptomsPageToDo = (
   app: ApplicationContextValue,
   nextPageSymptoms: Symptom[] | undefined
@@ -43,10 +37,7 @@ const isSymptomsPageToDo = (
 export function useSymptomChecker(): SymptomCheckerHook {
   const app = useApplication();
 
-  const getNextScreen = (
-    currentPage?: string,
-    options?: NextScreenOptions
-  ): string => {
+  const getNextScreen = (currentPage?: string): string => {
     const symptomPages: [string, boolean][] = symptomsByPage.map((_, index) => [
       `checker.symptoms.${index + 1}`,
       isSymptomsPageToDo(app, symptomsByPage[index + 1])
@@ -55,8 +46,8 @@ export function useSymptomChecker(): SymptomCheckerHook {
     const pages: [string, boolean][] = [
       ['checker.consent', isConsentToDo(app)],
       ['checker.intro', isIntroToDo(app.user)],
-      ['checker.quick', isQuickCheckToDo(options)],
-      ...symptomPages
+      ...symptomPages,
+      ['checker.final', true]
     ];
 
     const start = pages.findIndex((p) => p[0] === currentPage) + 1;
