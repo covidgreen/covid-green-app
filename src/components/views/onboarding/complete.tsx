@@ -3,8 +3,6 @@ import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {View, Text, TouchableWithoutFeedback} from 'react-native';
 
-import {ScreenNames} from 'navigation';
-
 import {Scrollable} from 'components/templates/scrollable';
 import {Button} from 'components/atoms/button';
 import {Spacing} from 'components/atoms/spacing';
@@ -25,7 +23,7 @@ export const Completion: FC<any> = () => {
       <View style={styles.fill}>
         <View style={styles.cardContainer}>
           <View style={styles.cardImage}>
-            <StateIcons.Success />
+            <StateIcons.Success height={144} width={144} />
           </View>
           <View style={styles.cardContent}>
             <Text style={styles.bold}>{t('onboarding:completion:title')}</Text>
@@ -35,7 +33,11 @@ export const Completion: FC<any> = () => {
             <TouchableWithoutFeedback onPress={() => shareApp(t)}>
               <View style={styles.shareContainer}>
                 <View style={styles.listIcon}>
-                  <AppIcons.Share color={colors.purple} />
+                  <AppIcons.Share
+                    color={colors.purple}
+                    width={24}
+                    height={24}
+                  />
                 </View>
                 <View style={styles.listContent}>
                   <Text style={styles.shareText}>
