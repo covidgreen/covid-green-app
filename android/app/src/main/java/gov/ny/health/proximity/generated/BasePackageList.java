@@ -1,4 +1,4 @@
-package io.lfph.covidgreen.generated;
+package gov.ny.health.proximity.generated;
 
 import java.util.Arrays;
 import java.util.List;

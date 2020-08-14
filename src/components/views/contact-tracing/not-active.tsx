@@ -45,7 +45,7 @@ export const NotActive: FC<NotActiveProps> = ({
         } else {
           await IntentLauncher.startActivityAsync(
             IntentLauncher.ACTION_APPLICATION_DETAILS_SETTINGS,
-            {data: 'package:io.lfph.covidgreen'}
+            {data: 'package:gov.ny.health.proximity'}
           );
         }
 
