@@ -15,14 +15,13 @@ import ViewPager from '@react-native-community/viewpager';
 
 import {Markdown} from 'components/atoms/markdown';
 import {AppIcons} from 'assets/icons';
-
 import {colors, text} from 'theme';
-
-const {width} = Dimensions.get('window');
 
 import Step2 from 'assets/icons/how-it-works/howitworks2.svg';
 import Step3 from 'assets/icons/how-it-works/howitworks3.svg';
 import Step4 from 'assets/icons/how-it-works/howitworks4.svg';
+
+const {width} = Dimensions.get('window');
 
 const Tour: FC<any> = () => {
   const {t} = useTranslation();
@@ -35,6 +34,8 @@ const Tour: FC<any> = () => {
     returnObjects: true
   });
 
+  const onClose = () => nav.goBack();
+
   return (
     <View
       style={[
@@ -46,10 +47,8 @@ const Tour: FC<any> = () => {
       <View style={styles.fill}>
         <View style={[styles.header, styles.row]}>
           <View style={[styles.padded, styles.close]}>
-            <TouchableWithoutFeedback
-              onPress={() => nav.goBack()}
-              style={styles.close}>
-              <AppIcons.Close width={28} height={28} color={colors.darkGray} />
+            <TouchableWithoutFeedback onPress={onClose} style={styles.close}>
+              <AppIcons.Close width={28} height={28} color={colors.purple} />
             </TouchableWithoutFeedback>
           </View>
           <View style={styles.headerContent}>
@@ -114,20 +113,37 @@ const Tour: FC<any> = () => {
             )
           )}
         </View>
-        <View style={styles.button}>
-          <TouchableWithoutFeedback
-            onPress={() => pager.current?.setPage(position + 1)}>
-            <Text
-              style={[
-                styles.buttonText,
-                position === statements.length - 1
-                  ? styles.hidden
-                  : styles.visible
-              ]}>
-              {t('onboarding:tour:next')}
-            </Text>
-          </TouchableWithoutFeedback>
-        </View>
+        {position < statements.length - 1 && (
+          <View style={styles.button}>
+            <TouchableWithoutFeedback
+              onPress={() => pager.current?.setPage(position + 1)}>
+              <Text
+                style={[
+                  styles.buttonText,
+                  position === statements.length - 1
+                    ? styles.hidden
+                    : styles.visible
+                ]}>
+                {t('onboarding:tour:next')}
+              </Text>
+            </TouchableWithoutFeedback>
+          </View>
+        )}
+        {position === statements.length - 1 && (
+          <View style={styles.button}>
+            <TouchableWithoutFeedback onPress={onClose}>
+              <Text
+                style={[
+                  styles.buttonText,
+                  position === statements.length - 1
+                    ? styles.visible
+                    : styles.hidden
+                ]}>
+                {t('onboarding:tour:close')}
+              </Text>
+            </TouchableWithoutFeedback>
+          </View>
+        )}
       </View>
     </View>
   );

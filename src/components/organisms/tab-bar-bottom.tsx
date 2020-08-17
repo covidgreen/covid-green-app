@@ -1,13 +1,5 @@
 import React, {ReactNode, FC} from 'react';
-import {
-  StyleSheet,
-  View,
-  TouchableWithoutFeedback,
-  Text,
-  Share,
-  Platform
-} from 'react-native';
-import {TFunction} from 'i18next';
+import {StyleSheet, View, TouchableWithoutFeedback, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import Constants from 'expo-constants';
 
@@ -17,25 +9,6 @@ import {
   useExposure,
   StatusState
 } from 'react-native-exposure-notification-service';
-
-export const shareApp = async (t: TFunction) => {
-  try {
-    await Share.share(
-      {
-        title: t('common:message'),
-        message:
-          Platform.OS === 'android' ? t('common:url') : t('common:message'),
-        url: t('common:url')
-      },
-      {
-        subject: t('common:name'),
-        dialogTitle: t('common:name')
-      }
-    );
-  } catch (error) {
-    console.log(t('tabBar:shareError'));
-  }
-};
 
 interface Tab {
   label: string;
@@ -104,10 +77,6 @@ const checkInactive = (
 );
 const checkActive = (
   <TabBarIcons.CheckIn width={32} height={24} color={colors.purple} />
-);
-
-const settingsIcon = (
-  <TabBarIcons.Settings width={32} height={24} color={colors.darkGray} />
 );
 
 /**

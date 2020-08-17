@@ -37,7 +37,7 @@ export const colors = {
     },
     secondary: {
       text: purple,
-      background: background,
+      background: white,
       shadow: '#D8D8D8'
     },
     danger: {
@@ -46,7 +46,7 @@ export const colors = {
       shadow: '#8B042A'
     },
     empty: {
-      text: teal,
+      text: purple,
       background: white,
       shadow: '#D3D0D0'
     }

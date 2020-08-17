@@ -1,17 +1,14 @@
 import React, {FC} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, TouchableWithoutFeedback} from 'react-native';
+import {View, Text} from 'react-native';
 
-import {Scrollable} from 'components/templates/scrollable';
+import {StateIcons} from 'assets/icons';
 import {Button} from 'components/atoms/button';
+import {Scrollable} from 'components/templates/scrollable';
 import {Spacing} from 'components/atoms/spacing';
-import {AppIcons, StateIcons} from 'assets/icons';
-
 import {styles} from './styles';
-import {colors} from 'theme';
-
-import {shareApp} from 'components/organisms/tab-bar-bottom';
+import {shareApp} from 'components/atoms/navbar';
 
 export const Completion: FC<any> = () => {
   const {t} = useTranslation();
@@ -29,24 +26,14 @@ export const Completion: FC<any> = () => {
             <Text style={styles.bold}>{t('onboarding:completion:title')}</Text>
             <Spacing s={10} />
             <Text style={styles.text}>{t('onboarding:completion:text')}</Text>
+            <Text style={styles.shareText}>
+              {t('onboarding:completion:shareText')}
+            </Text>
             <Spacing s={30} />
-            <TouchableWithoutFeedback onPress={() => shareApp(t)}>
-              <View style={styles.shareContainer}>
-                <View style={styles.listIcon}>
-                  <AppIcons.Share
-                    color={colors.purple}
-                    width={24}
-                    height={24}
-                  />
-                </View>
-                <View style={styles.listContent}>
-                  <Text style={styles.shareText}>
-                    {t('onboarding:completion:shareText')}
-                  </Text>
-                </View>
-              </View>
-            </TouchableWithoutFeedback>
-            <Spacing s={30} />
+            <Button onPress={() => shareApp(t)} type="empty">
+              {t('onboarding:completion:share')}
+            </Button>
+            <Spacing s={20} />
             <Button
               onPress={() =>
                 nav.reset({
