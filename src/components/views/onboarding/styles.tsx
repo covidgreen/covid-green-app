@@ -56,8 +56,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center'
   },
   shareText: {
-    ...text.defaultBold,
-    color: colors.purple
+    ...text.default,
+    paddingTop: 16
   },
   cardImage: {
     backgroundColor: '#e5f2eb',

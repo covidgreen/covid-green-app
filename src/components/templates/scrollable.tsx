@@ -72,8 +72,8 @@ export const Scrollable: FC<LayoutProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    ...StyleSheet.absoluteFillObject,
+    flex: 1
   },
   scrollView: {
     paddingTop: SPACING_TOP,

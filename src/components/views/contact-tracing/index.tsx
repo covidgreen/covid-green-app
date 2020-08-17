@@ -13,7 +13,7 @@ import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
 import {CloseContactWarning} from 'components/molecules/close-contact-warning';
 import {colors, text} from 'theme';
-import {shareApp} from 'components/organisms/tab-bar-bottom';
+import {shareApp} from 'components/atoms/navbar';
 import {Spacing} from 'components/atoms/spacing';
 import {TrackerAreaChart} from 'components/molecules/area-chart';
 import {useApplication} from 'providers/context';

@@ -106,7 +106,7 @@ const localMarkdownStyles = StyleSheet.create({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background,
     flex: 1
   }
 });

@@ -1,12 +1,19 @@
 import React, {FC, useEffect, useState} from 'react';
-import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableWithoutFeedback,
+  Share,
+  Platform
+} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import Icons, {AppIcons} from 'assets/icons';
 import {colors, text} from 'theme';
 import {useApplication} from 'providers/context';
-import {shareApp} from 'components/organisms/tab-bar-bottom';
+import {TFunction} from 'i18next';
 
 interface NavBarProps {
   navigation: any;
@@ -15,9 +22,27 @@ interface NavBarProps {
   modal?: boolean;
 }
 
+export const shareApp = async (t: TFunction) => {
+  try {
+    await Share.share(
+      {
+        title: t('common:message'),
+        message:
+          Platform.OS === 'android' ? t('common:url') : t('common:message'),
+        url: t('common:url')
+      },
+      {
+        subject: t('common:name'),
+        dialogTitle: t('common:name')
+      }
+    );
+  } catch (error) {
+    console.log(t('tabBar:shareError'));
+  }
+};
+
 export const NavBar: FC<NavBarProps> = ({
   navigation,
-  scene,
   placeholder,
   modal = false
 }) => {
@@ -26,7 +51,6 @@ export const NavBar: FC<NavBarProps> = ({
   const {user} = useApplication();
 
   const [state, setState] = useState({back: false});
-  const showSettings = scene.descriptor.options.showSettings === true;
 
   useEffect(() => {
     let unsubscribeStart: (() => any) | null = null;
@@ -93,15 +117,13 @@ export const NavBar: FC<NavBarProps> = ({
           <Icons.StateLogo width={92} height={36} color={colors.text} />
         </View>
         <View style={[styles.col, styles.right]}>
-          {showSettings && (
-            <TouchableWithoutFeedback
-              accessibilityHint={t('navbar:settingsHint')}
-              onPress={() => shareApp(t)}>
-              <View style={styles.settings}>
-                <AppIcons.Share width={24} height={24} color={colors.white} />
-              </View>
-            </TouchableWithoutFeedback>
-          )}
+          <TouchableWithoutFeedback
+            accessibilityHint={t('navbar:settingsHint')}
+            onPress={() => shareApp(t)}>
+            <View style={styles.settings}>
+              <AppIcons.Share width={24} height={24} color={colors.white} />
+            </View>
+          </TouchableWithoutFeedback>
         </View>
       </View>
     </View>
@@ -135,7 +157,7 @@ const styles = StyleSheet.create({
   left: {
     width: '25%',
     alignItems: 'flex-start',
-    paddingLeft: 4
+    paddingLeft: 12
   },
   center: {
     width: '50%',
@@ -154,6 +176,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     ...text.default,
+    marginLeft: 5,
     textAlign: 'left',
     color: colors.white
   },

@@ -71,7 +71,7 @@
         }
       ],
       "learnAction": "Learn how it works",
-      "continueAction": "Get Started"
+      "continueAction": "Get started"
     },
     "permissions": {
       "title": "Set Up Closeness Sensing for COVID Alerts",
@@ -93,7 +93,8 @@
       "title": "Closeness Sensing and COVID Alerts are now active!",
       "text": "Thank you for doing your part to stop the spread of COVID-19.",
       "shareText": "Share this app with friends. Help keep NY Safe.",
-      "next": "Done"
+      "next": "Done",
+      "share": "Share"
     },
     "tour": {
       "title": "How it works",
@@ -104,7 +105,8 @@
         "Each day, the list of \"infected\" codes is sent to every phone that has the app. The app compares its own list of close contact codes to the list of infected codes. If there's a match, the app displays a COVID alert.\n\nUsing these lists of anonymous codes, the alert is kept private. No one ever knows who the COVID Alert comes from."
       ],
       "previous": "Previous",
-      "next": "Next"
+      "next": "Next",
+      "close": "Close"
     },
     "intro": {
       "title": "With COVID Green you can do 3 things to help fight COVID-19:",

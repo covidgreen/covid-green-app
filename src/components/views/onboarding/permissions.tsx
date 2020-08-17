@@ -141,18 +141,6 @@ export const Permissions: FC<any> = () => {
             </Markdown>
           </View>
         </View>
-
-        <Text style={styles.title}>{t('onboarding:permissions:subtitle')}</Text>
-
-        {list.map((item: string, l: number) => (
-          <View key={`l-${l}`} style={[styles.list, styles.center]}>
-            <View style={styles.dot} />
-            <View style={styles.listContent}>
-              <Text style={styles.text}>{item}</Text>
-            </View>
-          </View>
-        ))}
-        <Spacing s={30} />
         <View style={styles.statement}>
           <Text style={styles.text}>
             {t('onboarding:permissions:statement')}
