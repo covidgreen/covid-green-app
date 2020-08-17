@@ -1,4 +1,4 @@
-package io.lfph.covidgreen;
+package gov.ny.health.proximity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
-import com.rajivshah.safetynet.RNGoogleSafetyNetPackage;
 
 public class MainActivity extends ReactActivity {
 

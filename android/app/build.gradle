@@ -130,10 +130,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "io.lfph.covidgreen"
+        applicationId "gov.ny.health.proximity"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 3
         versionName "1.0.0"
         resConfigs "en", "ga"
     }

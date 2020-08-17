@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COVID Green</string>
+    <string name="app_name">COVID Smart NY</string>
     <string name="default_notification_channel_group">Default</string>
-    <string name="default_notification_channel_group_description">Notifications from COVID Green</string>
+    <string name="default_notification_channel_group_description">Notifications from COVID Smart NY</string>
 </resources>
