@@ -92,6 +92,9 @@ node_modules/
 # Yarn Integrity file
 .yarn-integrity
 
+# NPM Lock file
+package-lock.json
+
 # dotenv environment variables file
 .env
 
