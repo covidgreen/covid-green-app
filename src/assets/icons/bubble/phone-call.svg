@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>bubble-call</title>
-    <g id="bubble-call" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group-13">
-            <circle id="Oval" fill="#523178" opacity="0.12" cx="28" cy="28" r="28"></circle>
-            <path d="M37.10625,33.38125 L33.88375,30.13875 C33.39625,29.6475 32.6025,29.6475 32.11375,30.13625 L29.25,33 L23,26.75 L25.8675,23.8825 C26.355,23.395 26.35625,22.60375 25.86875,22.115 L22.64375,18.885 C22.155,18.39625 21.36375,18.39625 20.875,18.885 L18.005,21.75375 L18,21.75 C18,30.725 25.275,38 34.25,38 L37.10375,35.14625 C37.59125,34.65875 37.5925,33.87 37.10625,33.38125 Z" id="Path" fill="#523178" fill-rule="nonzero"></path>
-            <path d="M38,28 L35.5,28 C35.5,23.86375 32.13625,20.5 28,20.5 L28,18 C33.51375,18 38,22.48625 38,28 Z" id="Path" fill="#523178" fill-rule="nonzero"></path>
-            <path d="M33,28 L30.5,28 C30.5,26.62125 29.37875,25.5 28,25.5 L28,23 C30.7575,23 33,25.2425 33,28 Z" id="Path" fill="#43285D" fill-rule="nonzero"></path>
-        </g>
-    </g>
-</svg>
+<svg width="56" height="56" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#523178" opacity=".12" cx="28" cy="28" r="28"/><path d="M37.106 33.381l-3.222-3.242a1.25 1.25 0 00-1.77-.003L29.25 33 23 26.75l2.867-2.867a1.25 1.25 0 00.002-1.768l-3.225-3.23a1.25 1.25 0 00-1.769 0l-2.87 2.869L18 21.75C18 30.725 25.275 38 34.25 38l2.854-2.854a1.249 1.249 0 00.002-1.765zM38 28h-2.5c0-4.136-3.364-7.5-7.5-7.5V18c5.514 0 10 4.486 10 10z" fill="#523178" fill-rule="nonzero"/><path d="M33 28h-2.5c0-1.379-1.121-2.5-2.5-2.5V23c2.758 0 5 2.242 5 5z" fill="#43285D" fill-rule="nonzero"/></g></svg>
