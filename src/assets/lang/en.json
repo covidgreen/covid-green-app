@@ -7,6 +7,7 @@
     "missingDataAction": "Refresh page",
     "missingError": "Loading issue. We were not able to load some of the data correctly.",
     "preferNotToSay": "Prefer not to say",
+    "allCounties": "All Counties in New York",
     "confirmChanges": "Confirm changes",
     "changesUpdated": "Changes updated",
     "dismiss": "Dismiss",
@@ -49,7 +50,7 @@
     "updates": "NY COVID Data",
     "symptomCheck": "My Health Log",
     "contactTracing": "My COVID Alerts",
-    "settings": "App Settings"
+    "settings": "App\nSettings"
   },
   "onboarding": {
     "introduction": {
@@ -327,10 +328,15 @@
     }
   },
   "confirmedChart": {
-    "title": "Daily confirmed cases",
-    "label": "Daily confirmed cases graph",
+    "title": "Total infections",
+    "label": "Total infections",
     "hint": "Graph showing daily confirmed cases over time",
     "yesterday": "confirmed cases yesterday"
+  },
+  "positivePercentage": {
+    "title": "How many of those tested are infected?",
+    "label": "How many of those tested are infected?",
+    "hint": "Graph showing daily confirmed cases relative to tests performed"
   },
   "transmissionChart": {
     "title": "How COVID-19 is spreading",
@@ -388,8 +394,8 @@
     "description": "Please check the COVID Green app now."
   },
   "closeContactWarn": {
-    "title": "Close Contact Alert",
-    "notice": "The app has detected that you have been in close contact with someone who has tested positive for COVID-19."
+    "notice": "You've had {{count}} COVID Alert in the last 14 days",
+    "notice_plural": "You've had {{count}} COVID Alerts in the last 14 days"
   },
   "closeContact": {
     "title": "COVID Alert",
@@ -501,6 +507,7 @@
   "county": {
     "label": "County",
     "placeholder": "Choose your county",
+    "dropdownPlaceholder": "Select your county",
     "searchPlaceholder": "Search",
     "noResults": "No results found for this search.\nTry with something else."
   },
@@ -517,11 +524,16 @@
     "share": "Share app usage statistics"
   },
   "tracingAvailable": {
-    "title": "Contact Tracing is now available for you",
-    "text": "Get setup now"
+    "text": "App can't alert you right now.\nSet up My COVID Alerts."
   },
   "codeInput": {
     "accessibilityLabel": "Code digit {{number}}",
     "accessibilityHint": "Enter {{count}} digit code"
+  },
+  "dashboard": {
+    "stats": {
+      "title": "NY COVID Data",
+      "subtitle": "How fast is COVID-19 spreading?"
+    }
   }
 }

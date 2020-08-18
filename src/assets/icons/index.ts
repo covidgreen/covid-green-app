@@ -11,6 +11,8 @@ import Notification from './app/notification.svg';
 import ShareAndroid from './app/share-android.svg';
 import ShareIOS from './app/share-ios.svg';
 import Success from './app/success.svg';
+import Filter from './app/filter.svg';
+import Selected from './app/selected.svg';
 
 // bubble
 import BubbleCases from './bubble/cases.svg';
@@ -24,6 +26,7 @@ import BubblePhoneCall from './bubble/phone-call.svg';
 import BubbleShield from './bubble/shield.svg';
 import BubbleSurvey from './bubble/survey.svg';
 import BubbleSymptom from './bubble/symptom.svg';
+import BubbleTestedPositive from './bubble/tested-positive.svg';
 
 // tab-bar
 import Updates from './tab-bar/updates.svg';
@@ -47,6 +50,8 @@ import StateErrorENS from './states/error-ens.svg';
 import StateErrorUpgrade from './states/error-upgrade.svg';
 import StateSuccess from './states/success.svg';
 import StateSuccessPhone from './states/success-phone.svg';
+import StateExposureAlert from './states/exposure-alert.svg';
+import StateExposureUnset from './states/exposure-unset.svg';
 
 export const AppIcons = {
   Alert,
@@ -56,7 +61,9 @@ export const AppIcons = {
   Close,
   Notification,
   Share: Platform.OS === 'ios' ? ShareIOS : ShareAndroid,
-  Success
+  Success,
+  Filter,
+  Selected
 };
 
 export const BubbleIcons = {
@@ -70,7 +77,8 @@ export const BubbleIcons = {
   PhoneCall: BubblePhoneCall,
   Shield: BubbleShield,
   Survey: BubbleSurvey,
-  Symptom: BubbleSymptom
+  Symptom: BubbleSymptom,
+  TestedPositive: BubbleTestedPositive
 };
 
 export const TabBarIcons = {
@@ -89,7 +97,9 @@ export const StateIcons = {
   ErrorENS: StateErrorENS,
   ErrorUpgrade: StateErrorUpgrade,
   Success: StateSuccess,
-  SuccessPhone: StateSuccessPhone
+  SuccessPhone: StateSuccessPhone,
+  ExposureAlert: StateExposureAlert,
+  ExposureUnset: StateExposureUnset
 };
 
 export default {

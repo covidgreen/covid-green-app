@@ -4,6 +4,9 @@ const white = '#FFFFFF';
 
 const purple = '#523178';
 const background = '#f3f3f8';
+const info = '#f2a900';
+
+const borderInfo = '#cb8e00';
 
 export const colors = {
   purple,
@@ -14,7 +17,11 @@ export const colors = {
   tabs: {
     highlighted: '#e7e8f2'
   },
-
+  info: {
+    primary: info,
+    border: borderInfo,
+    main: '#eeebeb'
+  },
   yellow: '#FFEA0C', // review & remove,
   lightpurple: '#fff37a',
   mildpurple: '#fff16f',

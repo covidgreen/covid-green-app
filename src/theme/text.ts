@@ -72,6 +72,7 @@ export default (scale: (v: number) => number): {[key: string]: TextStyle} => ({
 
   // lato-black
   largeBlack: {
+    // TODO: same as large, one should be removed
     fontFamily: 'System',
     fontSize: scale(18),
     color: colors.text

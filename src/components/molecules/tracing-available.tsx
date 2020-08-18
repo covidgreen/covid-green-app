@@ -1,12 +1,11 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text, Image} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
 import {Card} from 'components/atoms/card';
 import {colors, text} from 'theme';
-
-const TracingImage = require('assets/images/information/alt.png');
+import {StateIcons} from 'assets/icons';
 
 export const TracingAvailable: FC = () => {
   const {t} = useTranslation();
@@ -14,28 +13,25 @@ export const TracingAvailable: FC = () => {
 
   return (
     <Card
-      padding={{h: 0}}
-      icon={
-        <Image
-          accessibilityIgnoresInvertColors
-          width={106}
-          height={100}
-          resizeMode="contain"
-          source={TracingImage}
-        />
-      }
-      onPress={() => navigation.navigate('tracing')}>
-      <Text style={styles.title}>{t('tracingAvailable:title')}</Text>
-      <Text style={[text.smallBold, {color: colors.teal}]}>
-        {t('tracingAvailable:text')}
-      </Text>
+      padding={{h: 10, r: 16}}
+      onPress={() => navigation.navigate('tracing')}
+      type="info">
+      <View style={styles.row}>
+        <StateIcons.ExposureUnset width={40} height={40} color={colors.text} />
+        <Text style={styles.notice}>{t('tracingAvailable:text')}</Text>
+      </View>
     </Card>
   );
 };
 
 const styles = StyleSheet.create({
-  title: {
-    ...text.largeBlack,
-    marginBottom: 6
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  notice: {
+    ...text.defaultBold,
+    paddingRight: 30,
+    paddingLeft: 10
   }
 });

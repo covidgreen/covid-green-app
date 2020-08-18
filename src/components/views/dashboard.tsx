@@ -1,5 +1,5 @@
 import React, {FC, useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {useExposure} from 'react-native-exposure-notification-service';
@@ -14,14 +14,15 @@ import {CovidStats} from 'components/organisms/covid-stats';
 import {QuickCheckIn} from 'components/molecules/quick-checkin';
 import {Scrollable} from 'components/templates/scrollable';
 import {Spacing} from 'components/atoms/spacing';
-import {StatsSource} from 'components/molecules/stats-source';
 import {Toast} from 'components/atoms/toast';
 import {TracingAvailable} from 'components/molecules/tracing-available';
 import {TrackerAreaChart} from 'components/molecules/area-chart';
-import {TransmissionChart} from 'components/molecules/transmission-chart';
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
 import {useSymptomChecker} from 'hooks/symptom-checker';
+import {Heading} from 'components/atoms/heading';
+import {CountyDropdown} from 'components/molecules/county-dropdown';
+import {colors, text} from 'theme';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const app = useApplication();
@@ -82,7 +83,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
     <Scrollable
       safeArea={false}
       toast={errorToast}
-      backgroundColor="#FAFAFA"
+      backgroundColor={colors.background}
       refresh={{refreshing, onRefresh}}>
       {exposure.tracingAvailable && (
         <>
@@ -127,8 +128,17 @@ export const Dashboard: FC<any> = ({navigation}) => {
       )}
       {app.data && (
         <>
-          <AppStats data={appStats()} />
-          {app.data && app.data.statistics && (
+          <Heading
+            accessibilityFocus
+            lineWidth={75}
+            text={t('dashboard:stats:title')}
+          />
+          <CountyDropdown onValueChange={() => {}} value="u" />
+          <Spacing s={20} />
+          <Text style={text.defaultBold}>{t('dashboard:stats:subtitle')}</Text>
+          <Spacing s={18} />
+          {/*<AppStats data={appStats()} />*/}
+          {/*{app.data && app.data.statistics && (
             <>
               <Spacing s={16} />
               <CovidStats
@@ -136,10 +146,9 @@ export const Dashboard: FC<any> = ({navigation}) => {
                 onCountyBreakdown={() => navigation.navigate('casesByCounty')}
               />
             </>
-          )}
+          )}*/}
           {app.data && app.data.chart && (
             <>
-              <Spacing s={16} />
               <Card padding={{h: 12}}>
                 <TrackerAreaChart
                   title={t('confirmedChart:title')}
@@ -150,7 +159,19 @@ export const Dashboard: FC<any> = ({navigation}) => {
               </Card>
             </>
           )}
-          {app.data && app.data.statistics && (
+          {app.data && app.data.chart && (
+            <>
+              <Spacing s={20} />
+              <Card padding={{h: 12}}>
+                <TrackerAreaChart
+                  title={t('positivePercentage:title')}
+                  hint={t('positivePercentage:hint')}
+                  data={app.data.chart}
+                />
+              </Card>
+            </>
+          )}
+          {/*{app.data && app.data.statistics && (
             <>
               <Spacing s={16} />
               <TransmissionChart
@@ -182,7 +203,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
                 }}
               />
             </>
-          )}
+          )}*/}
         </>
       )}
     </Scrollable>

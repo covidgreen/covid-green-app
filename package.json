@@ -11,7 +11,7 @@
     "test:android": "detox test --configuration=ios",
     "pre:test:ios": "detox build --configuration=ios",
     "pre:test:android": "detox build --configuration=ios",
-    "optimize:svg": "svgo -f src/assets/icons",
+    "optimize:svg": "svgo -r -f src/assets/icons",
     "translations:import": "cd translations-script && node import.js",
     "translations:export": "cd translations-script && node export.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
