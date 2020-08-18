@@ -25,6 +25,6 @@ jobs:
 
     - run: brew tap wix/brew
     - run: brew install applesimutils
-    - run: yarn pre:test:ios
-    - run: yarn test:ios
+    - run: npm run pre:test:ios
+    - run: npm start & npm run test:ios
 
