@@ -11,7 +11,6 @@ import {useIsFocused, useFocusEffect} from '@react-navigation/native';
 
 import {Card} from 'components/atoms/card';
 import {colors, text} from 'theme';
-import {BubbleIcons} from 'assets/icons';
 
 interface CheckInCardProps {
   onPress?: () => void;
@@ -46,14 +45,11 @@ export const CheckInCard: FC<CheckInCardProps> = ({
   });
 
   return (
-    <Card onPress={onPress} padding={{r: 4}}>
+    <Card onPress={onPress} padding={{r: 16}}>
       <View style={styles.row}>
-        <View style={styles.icon}>
-          <BubbleIcons.CheckIn width={56} height={56} />
-        </View>
         <View>
-          <Text style={text.largeBlack}>{t('checker:title')}</Text>
-          <Text style={[text.smallBold, {color: colors.teal}]}>
+          <Text style={text.largeBold}>{t('checker:title')}</Text>
+          <Text style={[text.largeBold, styles.symptoms]}>
             {t('welcome:letUsKnow')}
           </Text>
         </View>
@@ -68,11 +64,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center'
   },
-  icon: {
-    marginRight: 12
-  },
   imageSize: {
     width: 64,
     height: 64
+  },
+  symptoms: {
+    color: colors.purple
   }
 });

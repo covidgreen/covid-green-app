@@ -1,10 +1,11 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text, Image, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
 import {colors, text} from 'theme';
 import {Card} from 'components/atoms/card';
+import {StateIcons} from 'assets/icons';
 
 export const CloseContactWarning: FC = () => {
   const {t} = useTranslation();
@@ -12,41 +13,28 @@ export const CloseContactWarning: FC = () => {
 
   return (
     <Card
-      padding={{v: 0, h: 0}}
-      type="warning"
-      icon={
-        <Image
-          accessibilityIgnoresInvertColors
-          style={styles.imageSize}
-          width={styles.imageSize.width}
-          height={styles.imageSize.height}
-          source={require('assets/images/exposure-alert/exposure-alert.png')}
-        />
-      }
-      onPress={() => navigation.navigate('closeContact')}>
-      <View style={styles.content}>
-        <Text style={styles.title}>{t('closeContactWarn:title')}</Text>
-        <Text style={styles.notice}>{t('closeContactWarn:notice')}</Text>
+      padding={{h: 10, r: 16}}
+      onPress={() => navigation.navigate('closeContact')}
+      type="warning">
+      <View style={styles.row}>
+        <StateIcons.ExposureAlert width={40} height={40} color={colors.white} />
+        <Text style={styles.notice}>
+          {t('closeContactWarn:notice', {contactsNumber: 1})}
+        </Text>
       </View>
     </Card>
   );
 };
 
 const styles = StyleSheet.create({
-  content: {
-    marginLeft: -25
-  },
-  title: {
-    ...text.largeBlack,
-    color: colors.white
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   notice: {
-    ...text.default,
+    ...text.defaultBold,
     color: colors.white,
-    lineHeight: 21
-  },
-  imageSize: {
-    width: 107,
-    height: 137
+    paddingRight: 30,
+    paddingLeft: 10
   }
 });

@@ -52,8 +52,6 @@ export const Heading: React.FC<HeadingProps> = ({
       </Text>
       <View style={[styles.line, !!lineWidth && {width: lineWidth}]}>
         <View style={[styles.lineThird, styles.lineOneColor]} />
-        <View style={[styles.lineThird, styles.lineTwoColor]} />
-        <View style={[styles.lineThird, styles.lineThreeColor]} />
       </View>
       <Spacing s={16} />
     </>
@@ -73,12 +71,6 @@ const styles = StyleSheet.create({
     height: 6
   },
   lineOneColor: {
-    backgroundColor: colors.darkerpurple
-  },
-  lineTwoColor: {
-    backgroundColor: colors.purple
-  },
-  lineThreeColor: {
-    backgroundColor: colors.mildpurple
+    backgroundColor: colors.info.main
   }
 });

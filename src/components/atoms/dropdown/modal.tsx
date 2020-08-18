@@ -20,6 +20,7 @@ import {text, colors} from 'theme';
 import Icons, {AppIcons} from 'assets/icons';
 
 interface DropdownModalProps extends Partial<ModalProps> {
+  close?: boolean;
   title: string;
   items: BasicItem[];
   selectedValue: string;
@@ -36,6 +37,7 @@ interface DropdownModalProps extends Partial<ModalProps> {
 }
 
 export const DropdownModal: React.FC<DropdownModalProps> = ({
+  close,
   title,
   items,
   selectedValue,
@@ -54,7 +56,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
 
   const renderItem = (item: BasicItem, index: number) => {
     const {label, value} = item;
-    const color = value === selectedValue ? colors.teal : colors.text;
+    const color = value === selectedValue ? colors.purple : colors.text;
 
     if (!item.value) {
       return (
@@ -83,7 +85,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
           )}
           {value === selectedValue && (
             <View style={listStyles.iconWrapper}>
-              <Icons.CheckMark width={24} height={24} />
+              <AppIcons.Selected width={24} height={24} />
             </View>
           )}
         </View>
@@ -123,7 +125,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
     <Modal
       isVisible={true}
       style={[styles.modal, {marginTop: insets.top + 12}]}>
-      <View style={styles.top}>
+      <View>
         <View style={styles.header}>
           <View style={styles.closeIconWrapper}>
             <TouchableWithoutFeedback
@@ -131,9 +133,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
               accessibilityHint={`Close ${title}`}
               accessibilityLabel={`Close ${title}`}
               onPress={onClose}>
-              <View>
-                <AppIcons.Close width={18} height={18} />
-              </View>
+              <AppIcons.Close width={28} height={28} color={colors.text} />
             </TouchableWithoutFeedback>
           </View>
           <Text style={text.small}>{title}</Text>
@@ -171,11 +171,9 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 8,
     borderTopWidth: 1
   },
-  top: {
-    paddingHorizontal: 32,
-    paddingTop: 32
-  },
   header: {
+    marginTop: 22,
+    marginHorizontal: 32,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -190,14 +188,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   search: {
-    paddingVertical: 12,
+    paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: colors.dot
   },
   searchInput: {
-    height: 48,
-    ...text.xlarge,
-    color: colors.teal
+    ...text.default,
+    marginHorizontal: 32
   },
   searchUnderlined: {
     textDecorationLine: 'underline'

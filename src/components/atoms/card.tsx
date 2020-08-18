@@ -5,7 +5,7 @@ import {colors, shadows} from 'theme';
 import {AppIcons} from 'assets/icons';
 
 interface CardProps {
-  type?: 'warning';
+  type?: 'warning' | 'info';
   padding?: {
     h?: number;
     v?: number;
@@ -17,7 +17,7 @@ interface CardProps {
 
 export const Card: FC<CardProps> = ({
   type,
-  padding: {h = 16, v = 16, r} = {},
+  padding: {h = 24, v = 20, r} = {},
   icon,
   onPress,
   children
@@ -28,8 +28,15 @@ export const Card: FC<CardProps> = ({
     ...(r !== undefined && {paddingRight: r})
   };
   const isWarning = type === 'warning';
+  const isInfo = type === 'info';
   const cardContent = (
-    <View style={[styles.card, isWarning && styles.cardWarning, padding]}>
+    <View
+      style={[
+        styles.card,
+        isWarning && styles.cardWarning,
+        isInfo && styles.cardInfo,
+        padding
+      ]}>
       {icon && <View style={styles.icon}>{icon}</View>}
       <View style={styles.childrenView}>{children}</View>
       {onPress && (
@@ -37,7 +44,7 @@ export const Card: FC<CardProps> = ({
           <AppIcons.ArrowRight
             width={18}
             height={18}
-            color={isWarning ? colors.white : colors.teal}
+            color={isWarning || isWarning ? colors.white : colors.text}
           />
         </View>
       )}
@@ -65,6 +72,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: colors.red,
     backgroundColor: colors.red
+  },
+  cardInfo: {
+    borderWidth: 1,
+    borderColor: colors.info.border,
+    backgroundColor: colors.info.primary
   },
   icon: {
     alignItems: 'center',
