@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-node@v1
 
     - name: Install Dependencies
-      run: yarn install
+      run: npm install
 
     - name: Update Pods
       run: |
