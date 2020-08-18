@@ -19,7 +19,7 @@ export const CloseContactWarning: FC = () => {
       <View style={styles.row}>
         <StateIcons.ExposureAlert width={40} height={40} color={colors.white} />
         <Text style={styles.notice}>
-          {t('closeContactWarn:notice', {contactsNumber: 1})}
+          {t('closeContactWarn:notice', {count: 1})}
         </Text>
       </View>
     </Card>

@@ -11,15 +11,12 @@ interface CountyOption {
 }
 
 const countyOptions: CountyOption[] = [];
-const map = new Map();
+
 for (const l of counties) {
-  if (!map.has(l.county)) {
-    map.set(l.county, true);
-    countyOptions.push({
-      label: l.county,
-      value: l.county
-    });
-  }
+  countyOptions.push({
+    label: l.county,
+    value: l.county
+  });
 }
 
 interface CountyDropdownProps {

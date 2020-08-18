@@ -394,7 +394,8 @@
     "description": "Please check the COVID Green app now."
   },
   "closeContactWarn": {
-    "notice": "You've had {{contactsNumber}} COVID Alert in the last 14 days"
+    "notice": "You've had {{count}} COVID Alert in the last 14 days",
+    "notice_plural": "You've had {{count}} COVID Alerts in the last 14 days"
   },
   "closeContact": {
     "title": "COVID Alert",
