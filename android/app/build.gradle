@@ -135,7 +135,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 3
         versionName "1.0.0"
-        resConfigs "en", "ga"
+        resConfigs "en", "ht", "ru", "bn", "ko", "zh"
     }
 
     splits {
