@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
-    ...textStyles.defaultBold,
-    color: colors.teal
+    ...textStyles.default,
+    color: colors.purple
   },
   textLarge: {
     ...textStyles.largeBold,
-    color: colors.teal
+    color: colors.purple
   }
 });

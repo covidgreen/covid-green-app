@@ -37,6 +37,7 @@ export const verify = async (nonce: string) => {
     };
   } else {
     if (ENV !== 'production' && TEST_TOKEN) {
+      console.log('using test token', TEST_TOKEN);
       return {
         platform: 'test',
         deviceVerificationPayload: TEST_TOKEN

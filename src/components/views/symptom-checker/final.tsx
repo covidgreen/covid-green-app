@@ -76,7 +76,7 @@ export const CheckInFinal: FC<any> = ({route}) => {
   }, []);
 
   return (
-    <Scrollable safeArea={false} backgroundColor={colors.white}>
+    <Scrollable safeArea={false}>
       {completedChecker && checkInResult && (
         <>
           <Heading

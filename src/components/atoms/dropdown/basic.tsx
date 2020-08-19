@@ -79,7 +79,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
               {displayValue}
             </Text>
           </View>
-          <AppIcons.ArrowRight width={18} height={18} color={colors.teal} />
+          <AppIcons.ArrowRight width={18} height={18} color={colors.purple} />
         </View>
       </TouchableWithoutFeedback>
       {isModalVisible && (
@@ -108,6 +108,6 @@ const styles = StyleSheet.create({
   },
   displayValue: {
     ...text.largeBold,
-    color: colors.teal
+    color: colors.purple
   }
 });

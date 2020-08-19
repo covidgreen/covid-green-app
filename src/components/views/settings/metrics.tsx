@@ -37,7 +37,9 @@ export const Metrics = () => {
 
   return (
     <Scrollable heading={t('metrics:title')}>
-      <Markdown style={{}}>{t('metrics:info')}</Markdown>
+      <Markdown style={{}} markdownStyles={markdownStyles}>
+        {t('metrics:info')}
+      </Markdown>
       <Spacing s={16} />
       <DataProtectionLink />
       <Spacing s={32} />
@@ -46,7 +48,7 @@ export const Metrics = () => {
         <Switch
           trackColor={{
             false: colors.darkGray,
-            true: colors.teal
+            true: colors.purple
           }}
           thumbColor={colors.white}
           onValueChange={toggleSwitch}
@@ -57,6 +59,17 @@ export const Metrics = () => {
     </Scrollable>
   );
 };
+
+const markdownStyles = StyleSheet.create({
+  text: {
+    ...text.default,
+    flexWrap: 'wrap',
+    marginBottom: 18
+  },
+  block: {
+    marginBottom: 18
+  }
+});
 
 const styles = StyleSheet.create({
   row: {

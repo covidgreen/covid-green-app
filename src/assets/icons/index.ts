@@ -53,6 +53,17 @@ import StateSuccessPhone from './states/success-phone.svg';
 import StateExposureAlert from './states/exposure-alert.svg';
 import StateExposureUnset from './states/exposure-unset.svg';
 
+import Call from './how-to-keep-others-safe/call.svg';
+import Food from './how-to-keep-others-safe/food.svg';
+import Garbage from './how-to-keep-others-safe/garbage.svg';
+import Isolate from './how-to-keep-others-safe/isolate.svg';
+import Mask from './how-to-keep-others-safe/mask.svg';
+import SecureLiving from './how-to-keep-others-safe/secure-living.svg';
+import Sleep from './how-to-keep-others-safe/sleep.svg';
+import StayHome from './how-to-keep-others-safe/stay-home.svg';
+import Temperature from './how-to-keep-others-safe/temperature.svg';
+import Wash from './how-to-keep-others-safe/wash.svg';
+
 export const AppIcons = {
   Alert,
   ArrowRight,
@@ -100,6 +111,20 @@ export const StateIcons = {
   SuccessPhone: StateSuccessPhone,
   ExposureAlert: StateExposureAlert,
   ExposureUnset: StateExposureUnset
+};
+
+// Maintain order = content markdown is dependant on this - needs refactoring
+export const KeepSafeIcons = {
+  Isolate,
+  StayHome,
+  SecureLiving,
+  Wash,
+  Sleep,
+  Food,
+  Garbage,
+  Mask,
+  Temperature,
+  Call
 };
 
 export default {

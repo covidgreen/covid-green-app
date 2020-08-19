@@ -60,14 +60,15 @@ export const Heading: React.FC<HeadingProps> = ({
 const styles = StyleSheet.create({
   heading: {
     ...textStyles.xlargeBold,
-    paddingBottom: 8
+    marginBottom: 18
   },
   line: {
     height: 6,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 6
   },
   lineThird: {
-    flex: 1,
+    width: 56,
     height: 6
   },
   lineOneColor: {

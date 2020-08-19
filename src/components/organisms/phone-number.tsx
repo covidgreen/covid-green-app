@@ -112,7 +112,7 @@ export const PhoneNumber: FC<PhoneNumberProps> = ({
           numberInputRef.current = e;
         }}
         style={phoneStyle}
-        placeholderTextColor={colors.teal}
+        placeholderTextColor={colors.purple}
         keyboardType="number-pad"
         returnKeyType="done"
         maxLength={14}

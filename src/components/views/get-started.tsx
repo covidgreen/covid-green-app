@@ -250,7 +250,7 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   highlight: {
-    color: colors.teal
+    color: colors.purple
   },
   divider: {
     backgroundColor: colors.lightpurple,
@@ -272,7 +272,7 @@ export const styles = StyleSheet.create({
   },
   link: {
     ...text.defaultBold,
-    color: colors.teal
+    color: colors.purple
   },
   animatedView: {
     position: 'absolute',

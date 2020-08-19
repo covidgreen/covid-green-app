@@ -1,47 +1,35 @@
-import React, {FC, useRef} from 'react';
-import {StyleSheet, View, Text, Animated} from 'react-native';
+import React, {FC} from 'react';
+import {StyleSheet, View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {Card} from 'components/atoms/card';
-import {colors, text} from 'theme';
-import {ResponsiveImage} from 'components/atoms/responsive-image';
+import {text} from 'theme';
 import {Spacing} from 'components/atoms/layout';
+import {StateIcons} from 'assets/icons';
 
 export const Active: FC = () => {
   const {t} = useTranslation();
-  const spinValue = useRef(new Animated.Value(0));
-
-  const spin = spinValue.current.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg']
-  });
 
   return (
-    <Card padding={{v: 12}}>
-      <ResponsiveImage
-        h={150}
-        source={require('assets/images/phone/active.png')}
-      />
+    <Card padding={{h: 0, v: 0}}>
+      <View style={styles.cardImage}>
+        <StateIcons.Success height={144} width={144} />
+      </View>
       <Spacing s={4} />
       <View style={styles.row}>
-        <View style={styles.traceIcon}>
-          <Animated.Image
-            style={[styles.image, {transform: [{rotate: spin}]}]}
-            resizeMode="contain"
-            source={require('assets/images/contact-tracing/contact-tracing-spin.png')}
-          />
-        </View>
         <View style={styles.messageWrapper}>
           <Text style={text.defaultBold}>
             {t('contactTracing:active:title')}
           </Text>
+          <Spacing s={8} />
+          <Text style={text.default}>{t('contactTracing:active:text')}</Text>
         </View>
       </View>
     </Card>
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   row: {
     flexDirection: 'row'
   },
@@ -54,13 +42,23 @@ const styles = StyleSheet.create({
   },
   messageWrapper: {
     flex: 1,
-    backgroundColor: colors.gray,
     justifyContent: 'center',
     alignItems: 'flex-start',
-    paddingHorizontal: 12
+    padding: 20
   },
   image: {
     width: 24,
     height: 24
+  },
+  cardImage: {
+    backgroundColor: '#e5f2eb',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    paddingTop: 18
+  },
+  button: {
+    width: '100%'
   }
 });

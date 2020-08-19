@@ -92,10 +92,7 @@ export function CheckInIntro() {
   };
 
   return (
-    <Scrollable
-      safeArea={false}
-      backgroundColor={colors.white}
-      heading={t('checker:introTitle')}>
+    <Scrollable safeArea={false} heading={t('checker:introTitle')}>
       <Card>
         <Text style={text.large}>{t('checker:introOptional')}</Text>
         <Spacing s={16} />

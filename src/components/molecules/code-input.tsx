@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     height: 64,
     flex: 1,
     ...text.xxlargeBlack,
-    color: colors.teal,
+    color: colors.purple,
     textAlign: 'center',
     paddingHorizontal: 12,
     paddingVertical: 16,

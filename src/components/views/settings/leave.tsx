@@ -75,6 +75,8 @@ export const Leave = ({navigation}) => {
           <Spacing s={32} />
           <DataProtectionLink />
           <Spacing s={32} />
+          <Markdown style={{}}>{t('leave:summary')}</Markdown>
+          <Spacing s={32} />
         </View>
       </ScrollView>
       <Button type="danger" onPress={confirm}>

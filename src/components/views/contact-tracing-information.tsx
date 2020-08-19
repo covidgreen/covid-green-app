@@ -234,7 +234,7 @@ const headerStyles = StyleSheet.create({
     flex: 1,
     paddingRight: 16,
     ...text.defaultBold,
-    color: colors.teal,
+    color: colors.purple,
     paddingBottom: 16
   },
   image: {

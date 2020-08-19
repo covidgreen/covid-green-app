@@ -28,7 +28,7 @@ export const DataProtectionLink = () => {
           style={styles.privacy}
           width={34}
           height={34}
-          color={colors.teal}
+          color={colors.purple}
         />
       }
       text={t('dataProtectionPolicy:link')}

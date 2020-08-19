@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
   subTitle: {
     flex: 1,
     ...text.smallBold,
-    color: colors.teal
+    color: colors.purple
   }
 });

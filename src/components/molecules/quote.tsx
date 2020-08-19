@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     borderLeftWidth: 4,
-    borderLeftColor: colors.teal
+    borderLeftColor: colors.purple
   },
   text: {
     ...textStyles.default,
