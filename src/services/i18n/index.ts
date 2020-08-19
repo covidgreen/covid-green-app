@@ -14,6 +14,8 @@ const languageDetector = {
   async: true,
   detect: async (callback: (lang: string) => void) => {
     console.log(Localization.locale);
+    console.log(Localization.locales);
+    console.log(Localization.locale.split('-')[0].replace('-', ''));
     callback(Localization.locale.split('-')[0].replace('-', ''));
   },
   init: () => {},

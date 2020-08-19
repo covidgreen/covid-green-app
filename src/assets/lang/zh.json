@@ -1,0 +1,535 @@
+{
+  "common": {
+    "name": "COVID绿",
+    "url": "https://www.covidtracker.ie/",
+    "message": "加入COVID绿能打击COVID-19",
+    "networkError": "连接问题。请检查您的网络连接，然后再试一次。",
+    "missingDataAction": "刷新页面",
+    "missingError": "加载问题。我们无法正确加载一些数据。",
+    "preferNotToSay": "不想说",
+    "allCounties": "在纽约州所有县",
+    "confirmChanges": "确认变更",
+    "changesUpdated": "变化更新",
+    "dismiss": "解雇",
+    "ok": {
+      "label": "好",
+      "hint": "关闭弹出窗口"
+    },
+    "tryAgain": {
+      "title": "请再试一遍",
+      "description": "对不起，这并不能正常工作。\\ n请检查您是否有网络连接，然后再试一次。",
+      "timestampTitle": "检查日期和时间",
+      "timestamp": "我们无法验证您的设备。请检查它的设置正确的日期和时间，然后再试一次。"
+    }
+  },
+  "viewNames": {
+    "introduction": "帮助阻止COVID-19在你的社区传播",
+    "permissions": "建立贴近传感，用于COVID警报",
+    "completion": "贴近传感和COVID警报是现在活跃！",
+    "dashboard": "更新",
+    "casesByCounty": "例县",
+    "updates": "更新",
+    "symptomchecker": "我的健康日志",
+    "settings": "设置",
+    "uploadKeys": "上传您的随机密钥",
+    "settingsContactTracing": "联系跟踪设置",
+    "settingsCheckin": "COVID签设置",
+    "dataPolicy": "数据保护政策",
+    "terms": "条款和条件",
+    "metrics": "设置对于应用程序度量",
+    "leave": "离开COVID绿",
+    "contactTracing": "接触者追踪"
+  },
+  "navbar": {
+    "settings": "设置",
+    "settingsHint": "查看或修改应用程序设置",
+    "back": "背部",
+    "backHint": "导航回到先前的屏幕"
+  },
+  "tabBar": {
+    "updates": "纽约COVID数据",
+    "symptomCheck": "我的健康日志",
+    "contactTracing": "我COVID警报",
+    "settings": "应用程序\\ n设定"
+  },
+  "onboarding": {
+    "introduction": {
+      "blocks": [
+        {
+          "title": "帮助阻止COVID-19在你的社区传播",
+          "list": [
+            "如果一个病人花了足够的时间非常接近你，你可捕获的病毒会收到通知。",
+            "提醒别人，如果你试验阳性，没有透露自己的身份。",
+            "保持对趋势的眼睛在你的社区。"
+          ]
+        },
+        {
+          "title": "我们从来没有看到：",
+          "list": [
+            "您的位置或身份。",
+            "您的电话号码，除非你明确地与我们分享。"
+          ]
+        }
+      ],
+      "learnAction": "了解它是如何工作",
+      "continueAction": "入门"
+    },
+    "permissions": {
+      "title": "建立贴近传感，用于COVID警报",
+      "line1": "此应用程序需要您的许可才能：",
+      "track": "**感觉，当与此应用程序的另一个电话是附近。** \\ n \\ n如果另一个应用程序用户花费6呎您在10分钟内，你的手机掉随机码记住接触。这些代码不说您或您的任何��置。",
+      "notifications": "**你发送通知。** \\ n \\ n如果在未来几天其他应用程序用户测试呈阳性的病毒，应用程序可以检查你的代码后，送你一个COVID警报。",
+      "subtitle": "该应用程序从未：",
+      "list": [
+        "看到您的位置。",
+        "分享你的电话号码。",
+        "表现出你的身份"
+      ],
+      "statement": "您可以通过将应用程序设置随时改变主意",
+      "learnAction": "了解它是如何工作",
+      "skipAction": "暂时略过",
+      "continueAction": "下一个"
+    },
+    "completion": {
+      "title": "贴近传感和COVID警报是现在活跃！",
+      "text": "谢谢你做你的一部分，停止COVID-19的传播。",
+      "shareText": "分享此应用程序与朋友。帮助保持NY安全。",
+      "next": "完成",
+      "share": "分享"
+    },
+    "tour": {
+      "title": "这个怎么运作",
+      "statements": [
+        "当你去你的一天，该应用程序使用蓝牙感觉，当其他人使用该应用已经6呎你内。\\ n \\ n您电话交流安全的随机代码与其他手机的记录，他们是附近。该应用程序不会收集或共享您的姓名，位置或电话号码，或那些人在你身边",
+        "如果你是6英尺有人超过10分钟之内，应用程序把密切接触者的名单上手机的随机码。\\ n \\ nPeople谁只是通过传递或站在超过6英尺远从你穿不上密切接触者的名单。你将永远不会得到，因为它们中的任何警报。",
+        "如果您对COVID-19试验阳性，一个健康顾问会尽快给您打电话越好。\\ n \\ n该健康顾问会询问你是否愿意分享亲密接触的你的应用程序的列表，以帮助保护其他人。\\ n \\ nSharing列表的安全性和私密性。该应用程序从未显露你的人谁。",
+        "每一天的“感染”代码列表发送到具有该应用程序的每个电话。该应用程序自身密切接触码列表与被感染的代码列表。如果有一个匹配，应用程序显示一个COVID警报。\\ n \\ n使用匿名代码这些名单，警告将保密。没有人知道谁是COVID警报的来源。"
+      ],
+      "previous": "以前",
+      "next": "下一个",
+      "close": "关"
+    },
+    "intro": {
+      "title": "随着COVID绿色，你可以做三件事情，以帮助打击COVID-19：",
+      "view1": {
+        "title": "接触者追踪",
+        "text": "帮助接触者追踪，保护您的隐私。"
+      },
+      "view2": {
+        "title": "COVID入住",
+        "text": "检查你的症状的每一天。"
+      },
+      "view3": {
+        "title": "更新",
+        "text": "跟上打击COVID-19的战斗。"
+      },
+      "view4": {
+        "text": "如果点击开始，你将接受",
+        "link": "条款和条件"
+      },
+      "action": "入门"
+    },
+    "information": {
+      "title": "接触者追踪",
+      "highlight": "接触者追踪，有助于防止COVID-19的传播。",
+      "highlight1": "此应用程序支持的HSE的接触者追踪工作队的工作，但这些球队也可能会与您联系手动接触者追踪的一部分。",
+      "text": "该应用程序会送你一个关闭联系人提醒，如果你一直在与别人谁测试呈阳性的病毒密切接触。",
+      "text1": "为了使接触者追踪了这个程序，你需要打开：",
+      "text2": "并得到一个提醒您需要打开：",
+      "action": "继续",
+      "later": "也许以后",
+      "skip": "暂时略过",
+      "bluetooth": "曝光通知服务",
+      "notifications": "通知",
+      "quote": "如果您改变了主意，你可以随时更改设置在您的权限。"
+    },
+    "upgrade": {
+      "ios": {
+        "title": "苹果iOS必须更新",
+        "text": "为了使接触者追踪，您需要升级到苹果iOS的最新版本。",
+        "action": "检查升级"
+      },
+      "android": {
+        "title": "谷歌播放服务必须更新",
+        "text": "为了使接触者追踪，您需要升级到谷歌Play服务的最新版本。",
+        "action": "检查升级"
+      }
+    }
+  },
+  "dataProtectionPolicy": {
+    "title": "数据保护信息公告",
+    "link": "你可以在这里阅读数据保护信息公告",
+    "text": "该DPIN无法加载"
+  },
+  "tandcPolicy": {
+    "title": "条款和条件",
+    "link": "条款和条件",
+    "text": "该条款不能被加载"
+  },
+  "stats": {
+    "title": "最新更新",
+    "totalConfirmed": "总确诊病例",
+    "totalDeaths": "总死亡",
+    "totalHospitalised": "住院号",
+    "requiredICU": "要求ICU"
+  },
+  "checker": {
+    "title": "我的健康日志",
+    "resultTitle": "谢谢",
+    "symptoms": {
+      "subtitle": "你今天有以下任何症状，11？",
+      "nextButton": "继续",
+      "fever": "发热或感觉发烧（如寒战，出汗）",
+      "cough": "咳嗽",
+      "breath": "呼吸急促或呼吸困难急促",
+      "fatigue": "疲劳",
+      "throat": "咽喉痛",
+      "congestion": "拥挤或流鼻涕",
+      "aches": "肌肉疼痛或全身酸痛",
+      "headache": "头痛",
+      "nausea": "恶心或呕吐",
+      "diarrhea": "腹泻",
+      "taste": "的味道或气味新的损失"
+    },
+    "results": {
+      "title": "谢谢",
+      "noSymptomsFeelingWell": "我们很高兴听到你的感觉很好。感谢您对检查，即使你仍然很好，请明天再来，让我们知道您是如何做的。\\ n \\ nVisit ** ** health.pa.gov了解更多关于如何保护自己和他人从冠状病毒。",
+      "riskGroup": "因为你的年龄，我们希望你从COVID-19格外小心，保护自己。\\ n \\ n我们知道这不是一个简单的时间。如果您需要关于如何在家里管理，点击以下更多的信息支持和建议。",
+      "noSymptomsNotFeelingWell": "感谢您检查。很遗憾听到你感觉不舒服。就像你\\ n \\ n它的声音没有任何的COVID-19的共同症状，如发热，咳嗽，呼吸急促，腹泻，发冷，肌肉急促痛，头痛，咽痛，或味道或气味新的损失。如果你开始开发这些症状，再来完成另一个COVID办理，我们将尽我们所能来帮助。\\ n \\ n在此期间，请访问** ** health.pa.gov了解更多关于如何为了保护自己和他人的冠状病毒。\\ n \\ n如果你需要心理健康或物质使用障碍护理服务，请访问[心理健康PA]（https://www.dhs.pa.gov/Services/Mental-Health -in-PA /页/ Default.aspx的）。",
+      "coronavirus": "**感谢您检查。** \\ n **很遗憾听到你感觉不舒服。** \\ n \\ n如果你的症状是轻微的大多数人都在家里没有恢复医疗服务。\\ n \\ n **如果您想获得测试**用于诊断，请联系您的医疗保健提供者或公众可访问的测试场地进行预约。 [查找宾夕法尼亚州的一个试验场（https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx）。\\ n \\ n **如果你不想得到测试**，它仍然是重要的呆在家里，隔离和与他人休息，喝饮料避免接触。以对乙酰氨基酚，以降低你的热度。如果你感觉更糟，打电话给你的卫生保健提供者。\\ n \\ n如果你的症状很严重（包括上述100°发烧），打电话给你的卫生保健提供者。如果你没有一个卫生保健提供者，请致电最近的医院或紧急护理安排预约\\ n \\ n **如果是紧急情况，请拨打911 ** \\ nEmergency征兆可能包括：。\\ n \\ n *呼吸困难\\ n *持续性疼痛或压在胸口\\ N *新的困惑\\ n *无力唤醒或保持清醒\\ n *嘴唇发紫或面部",
+      "viewLog": "查看我的健康日志"
+    },
+    "introTitle": "我今天生",
+    "introOptional": "所有的反应都是可选的。",
+    "introButton": "继续",
+    "noresults": "你还没有尝试过的症状检查呢。现在通过点击上面的按钮启动"
+  },
+  "welcome": {
+    "title": "您好👋",
+    "text": "你可以使用我的健康日志来跟踪你是如何每一天的感觉，让你的症状基本建议。您的手机存储的历史，您可以随时查看。\\ n \\ n该从你和其他应用程序用户日常日志匿名与卫生署纽约共享。你的症状的数据，帮助他们了解如何COVID-19是影响纽约。\\ n \\ n您身份的私密性，但你可以分享喜欢你的年龄，性别认同，种族，民族，县基本信息，使信息对公众健康更有益分析\\ n \\ n **注：**我的健康记录是可选的。你不必参与使用这个应用程序的其他功能。",
+    "action": "是的，我想开始我的日志",
+    "letUsKnow": "让我们知道，如果你有今天\\ nsymptoms"
+  },
+  "returning": {
+    "title": "欢迎回来👋",
+    "subtitle": "你今天感觉怎么样？",
+    "action1": "不，我今天感觉很好",
+    "action2": "我今天不舒服",
+    "completeTitle": "大听到👍",
+    "completeLink": "查看历史"
+  },
+  "settings": {
+    "title": "应用程序设置",
+    "covidAlerts": "我COVID警报",
+    "covidAlertsHint": "对于COVID警报查看或修改设置",
+    "healthLog": "我的健康日志",
+    "healthLogHint": "对于COVID入住查看或修改设置",
+    "privacyPolicy": "数据和隐私政策",
+    "privacyPolicyHint": "查看数据和隐私政策",
+    "language": "我的语言",
+    "languageHint": "查看或更改语言",
+    "metrics": "帮助改善这个应用程序",
+    "metricsHint": "查看或helpinig这个程序修改设置",
+    "leave": "删除我的数据",
+    "leaveHint": "删除数据和离开应用程序"
+  },
+  "leave": {
+    "title": "删除我的数据",
+    "info": "感谢您帮助我们在纽约打COVID-19的传播。我们很遗憾地看到你去，但你可以停止使用这个应用程序在任何时间。\\ n \\ n在您点击下面的“删除我的数据”按钮，我们将删除所有数据存储在手机上的应用程序，如您的健康记录的所有条目。",
+    "summary": "**注：** \\ n \\ n此按钮不会删除创建或通过您的手机贴近传感和COVID警报收集的随机码\\ n \\ n要删除的随机码，进入手机的设置，选择“谷歌服务＆ 优先。”然后，选择“COVID-19曝光的通知”，然后点击“删除随机的ID”按钮。要停止存储新代码，您应该关闭“使用曝光通知。”",
+    "button": "删除我的数据",
+    "confirmTitle": "删除我的数据",
+    "confirmText": "你确定要删除你的数据吗？",
+    "cancel": "取消",
+    "confirm": "确认",
+    "error": "出现错误删除数据。请重试或联系我们。"
+  },
+  "checkInSettings": {
+    "title": "COVID入住",
+    "checkInFirst": "您的设置会尽快你做你的第一个入住在这里看到。",
+    "intro": "你已经分享了我们以下信息。",
+    "gotoCheckIn": "转到COVID入住"
+  },
+  "appStats": {
+    "title": "今天的战斗",
+    "totalCheckins": "总入住手续的今天",
+    "noSymptoms": "感觉不错",
+    "someSymptoms": "有些症状",
+    "nationalPicture": "国家图片",
+    "breakdown": "点击县级击穿"
+  },
+  "contactTracing": {
+    "title": "我COVID警报",
+    "active": {
+      "title": "贴近传感和COVID警报是活跃！",
+      "text": "谢谢你做你的一部分，停止COVID-19的传播。"
+    },
+    "noSupport": {
+      "title": "贴近传感不可用",
+      "message": "不幸的是，您的设备不支持贴近感应，所以你不能接受COVID警报。你仍然可以使用这个应用程序来登录你的健康和查看纽约COVID数据。"
+    },
+    "canSupport": {
+      "title": "贴近传感不可用",
+      "message": {
+        "ios": "您需要升级到最新的iOS版本13.5或以上来启用它。",
+        "android": "您需要升级到谷歌Play服务的最新版本。"
+      },
+      "button": "检查升级"
+    },
+    "notEnabled": {
+      "title": "贴近传感未启用",
+      "message": "为了能够贴近传感与COVID提醒你需要它的设置。",
+      "button": "建立"
+    },
+    "notActive": {
+      "title": "贴近感应不活跃",
+      "message00": "你需要接受暴露通知服务在您的设置",
+      "message10": "你需要接受暴露通知服务在您的设置",
+      "message01": "请你的手机设置中启用蓝牙功能。",
+      "message11": "你需要接受暴露通知服务和蓝牙设置",
+      "button": "前往装置设定",
+      "android": {
+        "button": "启用",
+        "message": "您需要启用曝光通知服务激活贴近传感和COVID警报"
+      }
+    },
+    "uploadCard": {
+      "text": "了解如何让别人安全"
+    },
+    "closeContactCard": {
+      "text": "如果您COVID-19试验阳性怎么办"
+    },
+    "settings": {
+      "status": {
+        "title": "状态",
+        "active": "服务是当前活动",
+        "notActive": "服务是不活跃",
+        "intro": "要更新您的权限设置，去你的设备的应用设置。",
+        "gotoSettings": "更新设置",
+        "android": {
+          "intro": "曝光的通知目前尚未启用的服务，请单击启用启动。",
+          "gotoSettings": "启用"
+        }
+      },
+      "clearData": {
+        "title": "密切接触者",
+        "intro": "点击下面的按钮来清除所有的密切接触者的事件。",
+        "button": "清除所有",
+        "confirmTitle": "密切接触者",
+        "confirmText": "你确定要清除所有的密切接触者？",
+        "cancel": "取消",
+        "confirm": "确认",
+        "error": "有一个错误清除您的密切联系。请再试一遍。"
+      }
+    }
+  },
+  "confirmedChart": {
+    "title": "共感染",
+    "label": "共感染",
+    "hint": "该图显示了随着时间的推移，每天确诊病例",
+    "yesterday": "确诊病例昨天"
+  },
+  "positivePercentage": {
+    "title": "有多少测试被感染？",
+    "label": "有多少测试被感染？",
+    "hint": "该图显示相对于执行的测试每天确诊病例"
+  },
+  "transmissionChart": {
+    "title": "如何COVID-19正在蔓延",
+    "community": "社区传播",
+    "contact": "密切接触",
+    "travel": "出国旅行"
+  },
+  "statsSource": {
+    "monitor": "COVID-19卫生监督监测（爱尔兰）",
+    "communityTransmissions": "社区变速器，没有已知的亲密接触",
+    "lastUpdatedStats": "确诊病例最后更新：",
+    "lastUpdatedProfile": "案例简介最后更新："
+  },
+  "symptomsHistory": {
+    "title": "我的健康日志",
+    "symptom": "症状",
+    "symptoms": "症状",
+    "completed": "您可以再次检查症状明天"
+  },
+  "casesByCounty": {
+    "title": "由县案例"
+  },
+  "yourData": {
+    "title": "您的数据",
+    "info": "该COVID绿色应用程序保护您的隐私，不会分享你与其他应用程序用户的个人信息。 **您的身份不会被透露给其他应用程序的用户。** \\ n您提供\\ n任何个人资料，将符合GDPR和数据保护法进行处理。您可以在数据保护的信息请注意下面了解更多关于这一点。 **您的数据将只相对于COVID-19大流行应对**被用作载于数据保护信息公告。\\ n您必须\\ n如果被提醒，应用程序将启动这个过程，安全IN-应用程序的通知。单独使用这个应用程序时，HSE追踪接触者团队可能，如果你打电话的人与COVID-19用于识别您的亲密接触。如果你有一个COVID-19测试中，HSE将通过短信或电话。\\ n \\ nTake关怀与您联系与结果与任何可疑电话，电子邮件或文本要求您提供个人信息。 **的HSE不会要求您通过短信或电子邮件的个人信息。**",
+    "viewInSettings": "你可以在设置随时查看此通知。如果你不想继续，关闭和删除应用程序。如果你同意，请点击Continue继续。",
+    "continue": "继续"
+  },
+  "sorry": {
+    "title": "很遗憾听到",
+    "info": "不幸的是，你将不能够任何进一步的使用的应用程序。您可以随时归队。只需轻点返回按钮。",
+    "back": "背部"
+  },
+  "ageRequirement": {
+    "notice": "你必须是16岁或以上才能使用这个应用程序",
+    "over": "我是16岁以上",
+    "under": "我是16岁以下"
+  },
+  "underAge": {
+    "title": "在16",
+    "notice": "感谢您的关注可惜你太年轻了，参加这一倡议。\\ n \\ NKEEP安全。"
+  },
+  "followUpCall": {
+    "title": "接触者追踪随访电话",
+    "shortTitle": "打回来",
+    "intro": "如果有人你已经在测试中呈阳性COVID-19密切接触，该应用程序会送你一个关闭联系人提醒。在HSE也将电话你，如果你在下方提供您的电话号码。",
+    "note": "该HSE也可以电话，如果你被确定为手动接触者追踪密切接触。该HSE会给你建议和参考一下测试，如果如果你得到一个关闭联系人提醒适当的。\\ n \\ n此应用程序将只共享与HSE你的电话号码。你可以输入你的号码下方，或在后面设置添加它。",
+    "noteAlt": "如果有人你已经在测试中呈阳性COVID-19密切接触，该应用程序会送你一个关闭联系人提醒。在HSE也将电话你，如果你在下面提供你的电话号码。\\ n \\ n此HSE也可以电话，如果你被确定为手动接触者追踪密切接触。该HSE会给你建议和参考一下测试，如果如果你得到一个关闭联系人提醒适当的。\\ n \\ n此应用程序将只共享与HSE你的电话号码。您可以在下面输入你的电话号码。",
+    "noteSettings": "如果你想我们会尽量给你打电话，以提供进一步的援助，您将收到一条曝光通知。\\ n \\ n您的电话号码将只与HSE如果你得到一个通知曝光后共享。",
+    "optIn": "是的，我想选入",
+    "noThanks": "不用了，谢谢"
+  },
+  "closeContactNotification": {
+    "title": "关闭联系人提醒",
+    "description": "现在请检查COVID绿色应用。"
+  },
+  "closeContactWarn": {
+    "notice": "你已经有{{count}}个COVID警报在过去14天",
+    "notice_plural": "你已经有{{count}}个COVID警报在过去14天"
+  },
+  "closeContact": {
+    "title": "冠状病毒病警告",
+    "intro": "**该应用程序已检测到在2020年9月1日的人谁对COVID-19呈阳性是太靠近你太久。** \\ n \\ n要保护别人这将是最好的**留在家里**。\\ ñ\\ nA的健康顾问可以帮助您找到适合呆在家里得到一个测试支持。",
+    "callBackCard": "说话的健康顾问",
+    "infoCard": "了解如何让别人安全",
+    "requiredAge": {
+      "title": "你是18岁或以上？",
+      "yes": "是的，我是18岁或以上",
+      "no": "不，我是18岁以下"
+    },
+    "underAge": {
+      "title": "冠状病毒病警告",
+      "intro": "**因为你太年轻了，我们不能给你回电话** \\ n \\ n您必须是18岁以上，让我们收集您的电话号码的个人信息\\ n \\ nInstead，就可以了。：",
+      "callUs": "联系我们"
+    }
+  },
+  "closeContactInfo": {
+    "title": "如何让别人安全",
+    "info": "**为了限制COVID-19蔓延到你的家庭和社区的风险，请采取以下预防措施，直到你被一个公共卫生专业的清除：** \\ n \\ N1。 **隔离自己有自己的浴室，并保持其他人在房间或客厅。** \\ nStay。如果你与其他人回家的时候，确保有该地区从你家的其余部分分离的门，并保持它关闭。如果必须共用一个卫生间，有充足的清洁用品（如家用消毒湿巾，漂白剂）的每次使用。\\ n \\ N2之后，清洁所有的表面。 **留在家中，不要离开你的财产。** \\ nDon't就往公众。为了避免与其他人接触，甚至是你的家人。\\ n \\ N3是很重要的。 **进入未经您的许可保护您的生活区。** \\ NKEEP别人。\\ n \\ N4。 **经常洗手。** \\ n请确保您有肥皂，水和纸巾的大量进入水槽。\\ n \\ N5。 **通过自己的睡眠。** \\ n如果您在与他人，睡在独立的卧室隔离。你可以开始有症状，而你的睡眠。\\ n \\ N6。 **有食物带给你。** \\ nDon't离开你住的地方来获取或准备食物。\\ n \\ N7。 **包你的垃圾，并把它放在你的门外。 ** \\ NASK别人经常把它捡起来。 （无需特殊处理。）\\ n \\ n8。 **保持口罩的供应。** \\ nWear之一，如果你开始有症状或必须来与他人接触。\\ n \\ N9。 **仔细检查您的温度和症状。** \\ n您可以跟踪它们在此应用程序或另一种方式的“我的健康日志”功能。每天的日志可以帮助卫生工作者弄清楚最有效的治疗你，如果你生病了。\\ n \\ N10。 **提前打电话，如果你必须离开去保健。** \\ nTell你置身于COVID-19的卫生保健提供者。当你去避免使用公共交通工具，如地铁，公交车，出租车或戴口罩。"
+  },
+  "callBack": {
+    "title": "什么电话号码应我们叫你在哪里？",
+    "button": "只要你可以叫我",
+    "success": {
+      "title": "得到它了",
+      "text": "待在家里保护他人：我们卫生工作者正在帮助许多纽约人\\ n \\ n我们会尽快，我们可以给你打电话（917）485-1028 \\ n \\ nWhile你等待。",
+      "button": "完成"
+    }
+  },
+  "uploadKeys": {
+    "title": "上传随机编号",
+    "code": {
+      "intro": "联系跟踪团队成员可能会要求您分享您的手机在过去14天内产生的随机编号。\\ n \\ n如果是这样，你会通过短信收到一个唯一的6位数代码激活上传功能。",
+      "expiredError": "码已过期。联系HSE要求另一个。",
+      "invalidError": "无效的代码。请再试一遍。",
+      "error": "有一个错误的验证码。请再试一遍。"
+    },
+    "upload": {
+      "intro": "为了帮助我们在过去14天追踪您的最近联系人，我们要求大家分享您的手机与HSE产生的匿名随机编号。",
+      "button": "上传随机ID，以HSE"
+    },
+    "permissionError": "我们还没有上传你的钥匙，你没有授予权限。",
+    "uploadError": "发生错误试图上传",
+    "uploadSuccess": {
+      "toast": "上传完成",
+      "thanks": "感谢您的上传随机编号。这将有助于我们接触的寻人小组放缓COVID-19和保护他人的传播。",
+      "updates": "返回更新"
+    }
+  },
+  "gender": {
+    "label": "性别认同",
+    "placeholder": "选择你的性别认同",
+    "female": "女",
+    "male": "男",
+    "transgender": "变性",
+    "nonBinary": "非二进制",
+    "other": "其他"
+  },
+  "race": {
+    "label": "种族",
+    "placeholder": "选择你的种族",
+    "american": "美国印第安人/阿拉斯加",
+    "asian": "亚洲",
+    "black": "黑色",
+    "hawaiian": "夏威夷原住民/其他太平洋岛民",
+    "white": "白色",
+    "other": "其他"
+  },
+  "ethnicity": {
+    "label": "种族",
+    "placeholder": "选择你的种族",
+    "hispanic": "西班牙/拉丁美洲",
+    "not_hispanic": "不是西班牙/拉丁美洲"
+  },
+  "ageRange": {
+    "label": "年龄范围",
+    "placeholder": "选择你的年龄范围"
+  },
+  "phoneNumber": {
+    "code": {
+      "label": "您所在的国家代码",
+      "placeholder": "国家",
+      "searchPlaceholder": "搜索一个国家",
+      "noResults": "没有结果发现这个搜索。\\ n尝试别的东西。",
+      "error": {
+        "required": "国家代码是必需的。"
+      }
+    },
+    "number": {
+      "label": "您的电话号码（可选）",
+      "placeholder": "你的号码",
+      "error": {
+        "invalid": "您的号码是无效的。请提供您的完整的电话号码。",
+        "short": "您的号码是不完整的。请提供您的完整的电话号码。",
+        "required": "您的号码是必需的。"
+      }
+    }
+  },
+  "phoneNumberUs": {
+    "label": "您的电话号码（仅限美国电话）",
+    "placeholder": "你的号码",
+    "error": {
+      "invalid": "您的号码是无效的。请提供您的完整的电话号码。",
+      "short": "您的号码是不完整的。请提供您的完整的电话号码。",
+      "required": "您的号码是必需的。"
+    }
+  },
+  "county": {
+    "label": "县",
+    "placeholder": "选择您的县",
+    "dropdownPlaceholder": "选择您的县",
+    "searchPlaceholder": "搜索",
+    "noResults": "没有结果发现这个搜索。\\ n尝试别的东西。"
+  },
+  "appUsage": {
+    "title": "应用指标",
+    "info": "该HSE想了解您对应用程序的使用对于提高它的目的。\\ n \\ n该应用程序将收集有关您如何使用应用程序和联系跟踪流程的有效性匿名指标。\\ n \\ n此信息被收集到HSE直接和不使用任何第三方收集指标。 **此信息只收集您的同意，不能用来识别您的身份。**",
+    "settingsInfo": "如果您改变了主意，你可以随时更改设置中的这些权限。",
+    "yesButton": "是的，我同意",
+    "noThanks": "不用了，谢谢"
+  },
+  "metrics": {
+    "title": "帮助改善这个应用程序",
+    "info": "你可以帮助健康的纽约州部门分享关于如何使用它，以及如何以及贴近检测工作数据改善这个应用程序。\\ n \\ n **当您打开**此设置，应用程序将使用情况数据直接到健康的纽约州部门。该数据是匿名的 - 应用程序不约你的身份发送任何东西。没有第三方收集或看到任何这些数据。\\ n \\ n **如果保持此设置或更新版本**将其关闭，应用程序让您的使用情况数据的私有性，并且不将其发送给任何人。",
+    "share": "分享应用程式使用"
+  },
+  "tracingAvailable": {
+    "text": "应用程序现在不能提醒您。\\ n设置了我的COVID警报。"
+  },
+  "codeInput": {
+    "accessibilityLabel": "代码数字{{数}}",
+    "accessibilityHint": "输入{{count}}个位数的代码"
+  },
+  "dashboard": {
+    "stats": {
+      "title": "纽约COVID数据",
+      "subtitle": "COVID-19的速度有多快蔓延呢？"
+    }
+  }
+}

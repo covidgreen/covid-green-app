@@ -1,5 +1,9 @@
 import en from 'assets/lang/en.json';
-import ga from 'assets/lang/ga.json';
+import zh from 'assets/lang/zh.json';
+import ru from 'assets/lang/ru.json';
+import ht from 'assets/lang/ru.json';
+import bn from 'assets/lang/ru.json';
+import ko from 'assets/lang/ru.json';
 
 export const fallback = 'en';
 export const defaultNamespace = 'common';
@@ -10,8 +14,24 @@ export const supportedLocales = {
     name: 'English',
     ...en
   },
-  ga: {
-    name: 'Irish',
-    ...ga
+  ru: {
+    name: 'Russian',
+    ...ru
+  },
+  zh: {
+    name: 'Chinese',
+    ...zh
+  },
+  ht: {
+    name: 'Haitian Creole',
+    ...ht
+  },
+  bn: {
+    name: 'Bengali',
+    ...bn
+  },
+  ko: {
+    name: 'Korean',
+    ...ko
   }
 };
