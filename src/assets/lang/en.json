@@ -11,6 +11,7 @@
     "confirmChanges": "Confirm changes",
     "changesUpdated": "Changes updated",
     "dismiss": "Dismiss",
+    "placeholder": "Choose...",
     "ok": {
       "label": "OK",
       "hint": "Close the pop-up"
@@ -176,6 +177,7 @@
   "checker": {
     "title": "My Health Log",
     "resultTitle": "Thank you",
+    "feelingWell": "I am feeling well today",
     "symptoms": {
       "subtitle": "Do you have any of the following 11 symptoms today?",
       "nextButton": "Continue",
@@ -193,13 +195,15 @@
     },
     "results": {
       "title": "Thank you",
-      "noSymptomsFeelingWell": "We’re happy to hear you’re feeling well. Thank you for checking in. Even if you are still well, please come back tomorrow to let us know how you're doing.\n\nVisit **health.pa.gov** to read more about how to protect yourself and others from coronavirus.",
+      "noSymptomsFeelingWell": "**Thank you for today's log. We're glad to hear you're feeling well!**\n\nEven if you still feel OK, please come back tomorrow to let us know how you're doing.",
       "riskGroup": "Because of your age, we would like you to take extra care to protect yourself from COVID-19.\n\nWe know this isn't an easy time. If you need support or advice on how to manage at home, tap below for more information.",
-      "noSymptomsNotFeelingWell": "Thank you for checking in. Sorry to hear you are not feeling well.\n\nIt sounds like you do not have any of the common symptoms of COVID-19, such as fever, cough, shortness of breath, diarrhea, chills, muscle pain, headache, sore throat, or new loss of taste or smell. If you begin to develop any of these symptoms, come back to complete another COVID Check-In and we will do our best to help.\n\nIn the meantime, visit **health.pa.gov** to read more about how to protect yourself and others from coronavirus.\n\nIf you are need mental health or substance use disorder care services, please visit [Mental Health in PA](https://www.dhs.pa.gov/Services/Mental-Health-In-PA/Pages/default.aspx).",
-      "coronavirus": "**Thank you for checking in.**\n**Sorry to hear you're not feeling well.**\n\nIf your symptoms are mild most people can recover at home without medical care.\n\n**If you'd like to get tested** for a diagnosis, contact your healthcare provider or schedule an appointment at a publicly accessible testing site. [Find a testing site in Pennsylvania](https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx).\n\n**If you do not want to get tested**, it's still important to stay home, isolate and avoid contact with others, rest, and drink fluids. Take acetaminophen to bring down your fever. If you feel worse, call your health care provider.\n\nIf your symptoms are severe (including a fever above 100°), call your health care provider. If you don't have a health care provider, call the nearest hospital or urgent care to schedule an appointment.\n\n**If it’s an emergency, call 911.**\nEmergency warning signs can include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
-      "viewLog": "View My Health Log"
+      "noSymptomsNotFeelingWell": "**Thank you for today's log. We're sorry to hear you're not feeling well.**\n\nFortunately, you didn't report many symptoms. If you continue to feel unwell or get any new symptoms, talk to your health care provider or call the NYS Health Hotline at 1-888-364-3065.\n\nIf you'd like to get tested, contact your health provider or schedule an appointment at a publicly accessible testing site. \nFind a site near you.\n\nPlease remember to come back tomorrow to let us know how you're doing.",
+      "coronavirus1": "**We're sorry to hear you're not feeling well. Unfortunately, the symptoms you've reported today may be signs of COVID-19.**\n\nIf your symptoms are mild, remember that most people can recover at home without medical care.\n\nHowever, we recommend that anyone with COVID-19 symptoms should take the following steps to protect the health of themselves and others:\n\n**Please stay at home.** Avoid contact with other people (even your family) to help keep them from getting sick.\n\n**Contact a health care provider.** Call your doctor or the NYS Health Hotline at [1-888-364-3065](https://www.google.ro/).\n\n**Get tested.** Talk to your health care provider or schedule an appointment at a publicly accessible testing site. \n\n[Find a site near you.](https://www.google.ro/)",
+      "callEmergency": "If it's an emergency,\ncall 911 right away.",
+      "coronavirus2": "Signs of an emergency include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
+      "viewLog": "Done"
     },
-    "introTitle": "My Health Today",
+    "introTitle": "My Health Log",
     "introOptional": "All responses are optional.",
     "introButton": "Continue",
     "noresults": "You haven't tried the symptom checker yet. Start now by tapping the button above"
@@ -209,14 +213,6 @@
     "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. Your symptoms data helps them understand how COVID-19 is affecting NY.\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
     "action": "Yes I'd like to start my log",
     "letUsKnow": "Let us know if you have\nsymptoms today"
-  },
-  "returning": {
-    "title": "Welcome back 👋",
-    "subtitle": "How are you feeling today?",
-    "action1": "No, I am feeling well today",
-    "action2": "I'm not feeling well today",
-    "completeTitle": "Great to hear 👍",
-    "completeLink": "View your history"
   },
   "settings": {
     "title": "App Settings",
@@ -349,7 +345,8 @@
   "symptomsHistory": {
     "title": "My Health Log",
     "symptom": "Symptom",
-    "symptoms": "Symptoms",
+    "symptoms": "Symptom",
+    "symptoms_plural": "Symptoms",
     "completed": "You can check symptoms again tomorrow"
   },
   "casesByCounty": {
@@ -501,8 +498,7 @@
     }
   },
   "county": {
-    "label": "County",
-    "placeholder": "Choose your county",
+    "label": "New York State County you live in",
     "dropdownPlaceholder": "Select your county",
     "searchPlaceholder": "Search",
     "noResults": "No results found for this search.\nTry with something else."

@@ -1,18 +1,19 @@
 import React, {FC} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
 
 import {Spacing} from 'components/atoms/spacing';
 import {Card} from 'components/atoms/card';
 import {Button, ButtonType} from 'components/atoms/button';
 import {Markdown} from 'components/atoms/markdown';
-
-import {text, colors} from 'theme';
-import {AppIcons} from 'assets/icons';
+import {text} from 'theme';
+import {BubbleIcons} from 'assets/icons';
 
 interface props {
   messageTitle?: string;
   message?: string;
-  icon?: React.ReactNode;
+  children?: React.ReactNode;
   markdownProps?: any;
   buttonType?: ButtonType;
   buttonText?: string;
@@ -22,51 +23,44 @@ interface props {
 export const ResultCard: FC<props> = ({
   messageTitle,
   message,
-  icon = <AppIcons.Success width={60} height={60} color={colors.success} />,
+  children,
   markdownProps,
   buttonType,
   buttonText,
   onButtonPress
 }) => {
+  const {t} = useTranslation();
+  const navigation = useNavigation();
+
   return (
-    <Card padding={{h: 20, v: 20}}>
-      <View style={styles.fullWidthToast}>
-        <Spacing s={48} />
-        {icon}
-        <Spacing s={32} />
-      </View>
-      <Spacing s={16} />
-      {messageTitle && (
-        <>
-          <Text style={text.largeBlack}>{messageTitle}</Text>
-          <Spacing s={16} />
-        </>
-      )}
-      <Markdown {...markdownProps}>{message}</Markdown>
-      {buttonText && onButtonPress && (
-        <>
-          <Spacing s={8} />
-          <Button type={buttonType} onPress={onButtonPress}>
-            {buttonText}
-          </Button>
-          <Spacing s={8} />
-        </>
-      )}
-      <Spacing s={8} />
-    </Card>
+    <>
+      <Card padding={{h: 20, v: 20}}>
+        {messageTitle && (
+          <>
+            <Text style={text.largeBlack}>{messageTitle}</Text>
+            <Spacing s={16} />
+          </>
+        )}
+        {message && <Markdown {...markdownProps}>{message}</Markdown>}
+        {children}
+        {buttonText && onButtonPress && (
+          <>
+            <Spacing s={8} />
+            <Button type={buttonType} onPress={onButtonPress}>
+              {buttonText}
+            </Button>
+            <Spacing s={8} />
+          </>
+        )}
+        <Spacing s={8} />
+      </Card>
+      <Spacing s={20} />
+      <Card
+        icon={<BubbleIcons.Info width={56} height={56} />}
+        onPress={() => navigation.navigate('closeContactInfo')}>
+        <Text style={text.xlargeBold}>{t('closeContact:infoCard')}</Text>
+      </Card>
+      <Spacing s={26} />
+    </>
   );
 };
-
-const styles = StyleSheet.create({
-  fullWidthToast: {
-    marginLeft: -20,
-    marginRight: -20,
-    marginTop: -20,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    // TODO: setup color
-    backgroundColor: 'rgba(3,133,67,0.1)'
-  }
-});

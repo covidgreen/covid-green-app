@@ -5,7 +5,7 @@ import {colors, shadows} from 'theme';
 import {AppIcons} from 'assets/icons';
 
 interface CardProps {
-  type?: 'warning' | 'info';
+  type?: 'warning' | 'info' | 'empty';
   padding?: {
     h?: number;
     v?: number;
@@ -29,12 +29,14 @@ export const Card: FC<CardProps> = ({
   };
   const isWarning = type === 'warning';
   const isInfo = type === 'info';
+  const isEmpty = type === 'empty';
   const cardContent = (
     <View
       style={[
         styles.card,
         isWarning && styles.cardWarning,
         isInfo && styles.cardInfo,
+        isEmpty && styles.cardEmpty,
         padding
       ]}>
       {icon && <View style={styles.icon}>{icon}</View>}
@@ -44,7 +46,7 @@ export const Card: FC<CardProps> = ({
           <AppIcons.ArrowRight
             width={18}
             height={18}
-            color={isWarning || isWarning ? colors.white : colors.text}
+            color={isWarning || isInfo ? colors.white : colors.purple}
           />
         </View>
       )}
@@ -77,6 +79,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.info.border,
     backgroundColor: colors.info.primary
+  },
+  cardEmpty: {
+    borderWidth: 1,
+    borderColor: colors.empty.border,
+    backgroundColor: colors.white
   },
   icon: {
     alignItems: 'center',

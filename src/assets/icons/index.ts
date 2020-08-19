@@ -23,6 +23,7 @@ import BubbleICU from './bubble/icu.svg';
 import BubbleInfo from './bubble/info.svg';
 import BubbleMapPin from './bubble/map-pin.svg';
 import BubblePhoneCall from './bubble/phone-call.svg';
+import BubbleCallGreen from './bubble/call-green.svg';
 import BubbleShield from './bubble/shield.svg';
 import BubbleSurvey from './bubble/survey.svg';
 import BubbleSymptom from './bubble/symptom.svg';
@@ -43,7 +44,7 @@ import CheckMarkMultiSelect from './check-mark-multiselect.svg';
 import Logo from './logo.svg';
 import Privacy from './privacy.svg';
 
-import StateLogo from './app-logo.svg'
+import StateLogo from './app-logo.svg';
 
 import StateErrorBluetooth from './states/error-bluetooth.svg';
 import StateErrorENS from './states/error-ens.svg';
@@ -89,7 +90,8 @@ export const BubbleIcons = {
   Shield: BubbleShield,
   Survey: BubbleSurvey,
   Symptom: BubbleSymptom,
-  TestedPositive: BubbleTestedPositive
+  TestedPositive: BubbleTestedPositive,
+  CallGreen: BubbleCallGreen
 };
 
 export const TabBarIcons = {

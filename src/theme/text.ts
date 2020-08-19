@@ -69,6 +69,12 @@ export default (scale: (v: number) => number): {[key: string]: TextStyle} => ({
     fontSize: scale(21),
     color: colors.text
   },
+  defaultBoldBlue: {
+    fontFamily: 'System',
+    fontWeight: 'bold',
+    fontSize: scale(16),
+    color: colors.blue
+  },
 
   // lato-black
   largeBlack: {

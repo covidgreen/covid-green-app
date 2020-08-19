@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Route, Text} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -52,20 +52,16 @@ export const CheckInSymptoms = () => {
     enableReinitialize: true
   });
 
+  const [symptoms, setSymptoms] = useState<SymptomRecord>(values);
+
   const gotoResults = () => {
     try {
       app.checkIn(app.checkerSymptoms, {feelingWell: false});
     } catch (err) {
       console.log('Check-in error', err);
     }
-    navigation.reset({
-      index: 0,
-      routes: [
-        {
-          name: 'history',
-          params: {feelingWell: false, symptoms: app.checkerSymptoms}
-        }
-      ]
+    navigation.navigate('symptoms', {
+      screen: 'checker.final'
     });
   };
 
@@ -83,6 +79,8 @@ export const CheckInSymptoms = () => {
   const handleItemSelected = async (symptom: Symptom) => {
     const newValue = Number(!values[symptom]);
     setFieldValue(symptom, newValue, false);
+    setSymptoms((s) => ({...s, [symptom]: newValue}));
+
     await app.setContext({
       checkerSymptoms: {
         ...app.checkerSymptoms,
@@ -106,15 +104,22 @@ export const CheckInSymptoms = () => {
     });
   };
 
+  // @ts-ignore
+  const enableContinue = Object.keys(symptoms).find((s) => symptoms[s] === 1);
+
   return (
-    <Scrollable safeArea={false} heading={t('checker:title')}>
+    <Scrollable
+      safeArea={false}
+      headingShort
+      backgroundColor={colors.background}
+      heading={t('checker:title')}>
       <Card>
         <Text style={text.largeBold}>{`${t(
           'checker:symptoms:subtitle'
         )}`}</Text>
         <Spacing s={36} />
         <Button width="100%" type="empty" onPress={onFeelingWell}>
-          {t('returning:action1')}
+          {t('checker:feelingWell')}
         </Button>
         <Spacing s={36} />
         <SelectList
@@ -124,7 +129,7 @@ export const CheckInSymptoms = () => {
           onItemSelected={handleItemSelected}
         />
         <Spacing s={36} />
-        <Button onPress={gotoResults}>
+        <Button onPress={gotoResults} disabled={!enableContinue}>
           {t('checker:symptoms:nextButton')}
         </Button>
       </Card>
