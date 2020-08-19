@@ -30,14 +30,11 @@ export function CheckInConsent() {
   };
 
   return (
-    <Scrollable
-      safeArea={false}
-      backgroundColor={colors.white}
-      heading={t('checker:title')}>
+    <Scrollable safeArea={false} heading={t('checker:title')}>
       <Card>
         <Text style={text.largeBold}>{t('welcome:title')}</Text>
         <Spacing s={16} />
-        <Markdown markdownStyles={markdownStyles}>{t('welcome:text')}</Markdown>
+        <Markdown style={styles.markdown} markdownStyles={markdownStyles}>{t('welcome:text')}</Markdown>
         <Spacing s={8} />
         <View style={styles.buttonsContainer}>
           <Button width={'100%'} onPress={onYes}>
@@ -58,6 +55,9 @@ const markdownStyles = StyleSheet.create({
 });
 
 export const styles = StyleSheet.create({
+  markdown: {
+    backgroundColor: colors.white
+  },
   buttonsContainer: {
     alignItems: 'center'
   }

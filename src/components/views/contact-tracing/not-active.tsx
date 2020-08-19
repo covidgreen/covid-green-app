@@ -1,17 +1,16 @@
 import React, {FC} from 'react';
-import {Platform, Linking} from 'react-native';
+import {Platform, Linking, View, Text} from 'react-native';
 import * as IntentLauncher from 'expo-intent-launcher';
 import {useTranslation} from 'react-i18next';
 
-import {AppIcons} from 'assets/icons';
+import {StateIcons} from 'assets/icons';
 import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
-import {colors, text} from 'theme';
+import {text} from 'theme';
 import {Markdown} from 'components/atoms/markdown';
-import {ResponsiveImage} from 'components/atoms/responsive-image';
 import {Spacing} from 'components/atoms/layout';
-import {Toast} from 'components/atoms/toast';
 import {useExposure} from 'react-native-exposure-notification-service';
+import {styles as cardStyles} from './active';
 
 interface NotActiveProps {
   exposureOff?: boolean;
@@ -65,29 +64,31 @@ export const NotActive: FC<NotActiveProps> = ({
     : 'message00';
 
   return (
-    <Card padding={{v: 12}}>
-      <ResponsiveImage
-        h={150}
-        source={require('assets/images/phone/not-active.png')}
-      />
-      <Spacing s={8} />
-      <Toast
-        color={colors.red}
-        message={t('contactTracing:notActive:title')}
-        icon={<AppIcons.Alert width={24} height={24} />}
-      />
-      <Spacing s={16} />
-      <Markdown style={text.default}>
-        {Platform.OS === 'ios'
-          ? t(`contactTracing:notActive:${messageKey}`)
-          : t('contactTracing:notActive:android:message')}
-      </Markdown>
-      <Spacing s={12} />
-      <Button onPress={gotoSettings}>
-        {Platform.OS === 'ios'
-          ? t('contactTracing:notActive:button')
-          : t('contactTracing:notActive:android:button')}
-      </Button>
+    <Card padding={{h: 0, v: 0}}>
+      <View style={[cardStyles.cardImage, {backgroundColor: '#ecdbe4'}]}>
+        {exposureOff && <StateIcons.ErrorENS height={144} width={144} />}
+        {bluetoothOff && <StateIcons.ErrorBluetooth height={144} width={144} />}
+      </View>
+      <Spacing s={4} />
+      <View style={cardStyles.row}>
+        <View style={cardStyles.messageWrapper}>
+          <Text style={text.defaultBold}>
+            {t('contactTracing:notActive:title')}
+          </Text>
+          <Spacing s={16} />
+          <Markdown style={text.default}>
+            {Platform.OS === 'ios'
+              ? t(`contactTracing:notActive:${messageKey}`)
+              : t('contactTracing:notActive:android:message')}
+          </Markdown>
+          <Spacing s={12} />
+          <Button style={cardStyles.button} onPress={gotoSettings}>
+            {Platform.OS === 'ios'
+              ? t('contactTracing:notActive:button')
+              : t('contactTracing:notActive:android:button')}
+          </Button>
+        </View>
+      </View>
     </Card>
   );
 };

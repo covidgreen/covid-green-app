@@ -68,31 +68,24 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
 
   const settings: SettingLineItem[] = [
     {
-      id: 'contactTracing',
-      title: t('settings:contactTracing'),
-      label: t('settings:contactTracing'),
-      hint: t('settings:contactTracingHint'),
-      screen: 'settings.contactTracing'
-    },
-    {
       id: 'checkIn',
-      title: t('settings:checkIn'),
-      label: t('settings:checkIn'),
-      hint: t('settings:checkinHint'),
-      screen: 'settings.checkIn'
+      title: t('settings:healthLog'),
+      label: t('settings:healthLog'),
+      hint: t('settings:healthLogHint'),
+      screen: 'settings.healthLog'
     },
     {
-      id: 'privacy',
-      title: t('settings:privacyPolicy'),
-      label: t('settings:privacyPolicy'),
-      hint: t('settings:privacyPolicyHint'),
-      screen: 'settings.privacy'
+      id: 'contactTracing',
+      title: t('settings:covidAlerts'),
+      label: t('settings:covidAlerts'),
+      hint: t('settings:covidAlertsHint'),
+      screen: 'settings.covidAlerts'
     },
     {
-      id: 'terms',
-      title: t('settings:termsAndConditions'),
-      label: t('settings:termsAndConditions'),
-      hint: t('settings:termsAndConditionsHint'),
+      id: 'language',
+      title: t('settings:language'),
+      label: t('settings:language'),
+      hint: t('settings:languageHint'),
       screen: 'settings.terms'
     },
     {
@@ -101,6 +94,13 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       label: t('settings:metrics'),
       hint: t('settings:metricsHint'),
       screen: 'settings.metrics'
+    },
+    {
+      id: 'privacy',
+      title: t('settings:privacyPolicy'),
+      label: t('settings:privacyPolicy'),
+      hint: t('settings:privacyPolicyHint'),
+      screen: 'settings.privacy'
     },
     {
       id: 'leave',
@@ -146,7 +146,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
                 <AppIcons.ArrowRight
                   width={24}
                   height={24}
-                  color={colors.teal}
+                  color={colors.purple}
                 />
               </View>
             </TouchableWithoutFeedback>

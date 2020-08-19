@@ -10,6 +10,7 @@ import {text, colors} from 'theme';
 interface Markdown {
   style?: object;
   markdownStyles?: object;
+  renderListBullet?: (ordered: boolean, index: number) => any;
 }
 
 const MarkdownLink = (
@@ -46,6 +47,7 @@ const MarkdownLink = (
 const Markdown: React.FC<Markdown> = ({
   style,
   markdownStyles = {},
+  renderListBullet,
   children: C
 }) => {
   const navigation = useNavigation();
@@ -59,6 +61,7 @@ const Markdown: React.FC<Markdown> = ({
     <M
       markdownStyles={combinedStyles}
       style={style || styles.container}
+      renderListBullet={renderListBullet}
       renderLink={(href, title, children, key) =>
         MarkdownLink(href, title, children, key, navigation)
       }>
@@ -80,7 +83,7 @@ const localMarkdownStyles = StyleSheet.create({
   },
   link: {
     ...text.defaultBold,
-    color: colors.teal
+    color: colors.purple
   },
   list: {
     marginBottom: -12
@@ -92,7 +95,7 @@ const localMarkdownStyles = StyleSheet.create({
   },
   listItemNumber: {
     ...text.xxlargeBlack,
-    color: colors.teal,
+    color: colors.purple,
     marginRight: 12
   },
   listItemContent: {

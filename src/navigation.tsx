@@ -12,6 +12,17 @@ export enum ScreenNames {
   Permissions = 'permissions',
   Completion = 'completion',
   Tour = 'tour',
+  CloseContactInfo = 'closeContactInfo',
+  ContactTracingSettings = 'settings.contactTracing',
+  HealthLogSettings = 'settings.checkIn',
+  PrivacySettings = 'settings.privacy',
+  TermsSettings = 'settings.terms',
+  UsageSettings = 'settings.metrics',
+  LeaveSettings = 'settings.leave',
+  DebugSettings = 'settings.debug',
+  Privacy = 'privacy',
+  Terms = 'terms',
+  CloseContact = 'closeContact',
 
   Dashboard = 'dashboard',
   Settings = 'settings'

@@ -63,7 +63,7 @@ const ItemRenderer = (props: any) => {
   const {item, isSelected} = props;
   const {name, code} = item;
 
-  let color = isSelected ? colors.teal : colors.text;
+  let color = isSelected ? colors.purple : colors.text;
   return (
     <View style={styles.textWrapper}>
       <Text style={[text.xlargeBold, {color}]}>

@@ -107,10 +107,7 @@ export const CheckInSymptoms = () => {
   };
 
   return (
-    <Scrollable
-      safeArea={false}
-      backgroundColor={colors.white}
-      heading={t('checker:title')}>
+    <Scrollable safeArea={false} heading={t('checker:title')}>
       <Card>
         <Text style={text.largeBold}>{`${t(
           'checker:symptoms:subtitle'

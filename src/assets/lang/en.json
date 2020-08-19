@@ -29,7 +29,7 @@
     "dashboard": "Updates",
     "casesByCounty": "Cases By County",
     "updates": "Updates",
-    "symptomchecker": "COVID Checker",
+    "symptomchecker": "My Health Log",
     "settings": "Settings",
     "uploadKeys": "Upload Your Random Keys",
     "settingsContactTracing": "Contact Tracing Settings",
@@ -174,7 +174,7 @@
     "requiredICU": "Required ICU"
   },
   "checker": {
-    "title": "My Health Today",
+    "title": "My Health Log",
     "resultTitle": "Thank you",
     "symptoms": {
       "subtitle": "Do you have any of the following 11 symptoms today?",
@@ -219,29 +219,30 @@
     "completeLink": "View your history"
   },
   "settings": {
-    "title": "Settings",
-    "contactTracing": "Contact Tracing",
-    "contactTracingHint": "View or amend settings for Contact Tracing",
-    "checkIn": "COVID Check-In",
-    "checkinHint": "View or amend settings for COVID Check In",
-    "privacyPolicy": "Data Protection Information Notice",
-    "privacyPolicyHint": "View the Data Protection Information Notice",
-    "termsAndConditions": "Terms & Conditions",
-    "termsAndConditionsHint": "View the Terms and Conditions",
-    "metrics": "App Metrics",
-    "metricsHint": "View or amend settings for App Metrics",
-    "leave": "Leave",
-    "leaveHint": "Leave the application"
+    "title": "App Settings",
+    "covidAlerts": "My COVID Alerts",
+    "covidAlertsHint": "View or amend settings for COVID Alerts",
+    "healthLog": "My Health Log",
+    "healthLogHint": "View or amend settings for COVID Check In",
+    "privacyPolicy": "Data and Privacy Policy",
+    "privacyPolicyHint": "View the Data and Privacy Policy",
+    "language": "My Language",
+    "languageHint": "View or change language",
+    "metrics": "Help Improve This App",
+    "metricsHint": "View or amend settings for helpinig this app",
+    "leave": "Delete My Data",
+    "leaveHint": "Delete data and leave the application"
   },
   "leave": {
-    "title": "Leave",
-    "info": "Thank you for helping us fight COVID-19. We're sorry to see you go. When you tap 'I want to leave' we will remove all data stored by the app from your device including a mobile number, if you have shared one, symptom data and any demographic health data you may have shared. Non-identifying authorisation tokens stored on the server will also be deleted.\n\nRandom IDs created or collected by Exposure Notification Services cannot be removed by the COVID Green app. If you wish to remove these Random IDs you can do this via your device Settings.",
-    "button": "I want to leave",
-    "confirmTitle": "Leave",
-    "confirmText": "Are you sure you want to leave?",
+    "title": "Delete My Data",
+    "info": "Thank you for helping us fight the spread of COVID-19 in NY. We’re sorry to see you go, but you can stop using this app at any time.\n\nWhen you tap the “Delete My Data” button below, we’ll remove all the data that the app stored on your phone, such as all entries in your health log.",
+    "summary": "**Note:**\n\nThis button doesn’t delete the random codes created or collected by your phone for Closeness Sensing and COVID Alerts.\n\nTo delete the random codes, go to your phone’s Settings and select “Google Services & Preferences.” Then, select “COVID-19 Exposure Notifications” and tap the “Delete Random IDs” button. To stop storing new codes, you should turn off “Use Exposure Notifications.”",
+    "button": "Delete My Data",
+    "confirmTitle": "Delete My Data",
+    "confirmText": "Are you sure you want to delete your data?",
     "cancel": "Cancel",
     "confirm": "Confirm",
-    "error": "There was an error clearing your data. Please try again or contact us."
+    "error": "There was an error deleting your data. Please try again or contact us."
   },
   "checkInSettings": {
     "title": "COVID Check-In",
@@ -258,50 +259,45 @@
     "breakdown": "Tap for county breakdown"
   },
   "contactTracing": {
-    "title": "Contact Tracing",
+    "title": "My COVID Alerts",
     "active": {
-      "title": "Contact Tracing active"
+      "title": "Closeness Sensing and COVID Alerts are active!",
+      "text": "Thank you for doing your part to stop the spread of COVID-19."
     },
     "noSupport": {
-      "title": "Contact Tracing not available",
-      "message": "Unfortunately, this device does not support Contact Tracing. You can still use the app for COVID Check-In and Updates."
+      "title": "Closeness Sensing is not available",
+      "message": "Unfortunately, your device doesn’t support Closeness Sensing, so you can't receive COVID Alerts. You can still use this app to log your health and view NY COVID data."
     },
     "canSupport": {
-      "title": "Contact Tracing not available",
+      "title": "Closeness Sensing is not available",
       "message": {
-        "ios": "To enable Contact Tracing you need to upgrade to the latest iOS version (13.5 and above).",
-        "android": "To enable Contact Tracing you need to upgrade to the latest version of Google Play Services."
+        "ios": "You need to upgrade to the latest iOS version 13.5 or above to enable it.",
+        "android": "You need to upgrade to the latest version of Google Play Services."
       },
-      "button": "Check for upgrade"
+      "button": "Check for upgrades"
     },
     "notEnabled": {
-      "title": "Contact Tracing not enabled",
-      "message": "To enable Contact Tracing you need it setup.",
+      "title": "Closeness Sensing is not enabled",
+      "message": "To enable Closeness Sensing and COVID Alerts you need it setup.",
       "button": "Setup"
     },
     "notActive": {
-      "title": "Contact Tracing not active",
-      "message00": "You need to enable **Exposure notification service** in your settings",
-      "message10": "You need to enable **Exposure notification service** in your settings",
-      "message01": "You need to enable **Bluetooth** in your settings",
-      "message11": "You need to enable **Exposure notification service** and **Bluetooth** in your settings",
-      "button": "Go to settings",
+      "title": "Closeness Sensing is not active",
+      "message00": "You need to accept Exposure Notification Services in your settings",
+      "message10": "You need to accept Exposure Notification Services in your settings",
+      "message01": "Please enable Bluetooth in your phone settings.",
+      "message11": "You need to accept Exposure Notification Services and Bluetooth in your settings",
+      "button": "Go to device settings",
       "android": {
         "button": "Enable",
-        "message": "You need to enable **Exposure notification service** to activate Contact Tracing"
+        "message": "You need to enable Exposure Notification Services to activate Closeness Sensing and COVID Alerts"
       }
     },
-    "registrationsTitle": "App registrations",
-    "registrationsYesterday": "total app registrations",
-    "registrationsHint": "Graph displaying how many registrations there has been in the app over time",
-    "shareAppText": "The more people we can get using this app the more effective our Contact Tracing effort will become. Share the app to help us reach our goal.",
     "uploadCard": {
-      "title": "Upload your Random IDs",
-      "text": "For use only if the HSE contacts you."
+      "text": "Learn how to keep others safe"
     },
     "closeContactCard": {
-      "title": "Close contact information",
-      "text": "What to do if you are told you are a close contact of someone with COVID-19."
+      "text": "What to do if you test positive for COVID-19"
     },
     "settings": {
       "status": {
@@ -519,9 +515,9 @@
     "noThanks": "No thanks"
   },
   "metrics": {
-    "title": "App Metrics",
-    "info": "The HSE would like to understand your use of the App for the purpose of improving it.\n\nThe app will collect anonymous metrics about how you use the app and the effectiveness of Contact Tracing processes.\n\nThis information is gathered by the HSE directly and does not use any third parties to gather metrics. **This information is only gathered with your consent and cannot be used to identify you.**",
-    "share": "Share app usage statistics"
+    "title": "Help Improve This App",
+    "info": "You can help the New York State Department of Health improve this app by sharing data about how you use it and how well Closeness Sensing is working.\n\n**When you turn this setting on**, the app sends your usage data directly to the New York State Department of Health. The data is anonymous -- the app doesn’t send anything about your identity. No third parties collect or see any of this data.\n\n**If you keep this setting off or turn it off later**, the app keeps your usage data private and doesn’t send it to anyone.",
+    "share": "Share App Usage"
   },
   "tracingAvailable": {
     "text": "App can't alert you right now.\nSet up My COVID Alerts."

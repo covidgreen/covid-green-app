@@ -35,7 +35,7 @@ export const SelectList: FC<SelectListProps> = ({
     let color = colors.text;
     let backgroundColor = colors.gray;
     if (hasSelectedValue(value)) {
-      color = colors.teal;
+      color = colors.purple;
       backgroundColor = colors.white;
     }
 
@@ -57,7 +57,7 @@ export const SelectList: FC<SelectListProps> = ({
           style={[styles.row, {backgroundColor}, isLast && styles.lastItem]}>
           <View style={styles.icon}>
             {hasSelectedValue(value) ? (
-              <IconCheckMark width={26} height={26} color={colors.teal} />
+              <IconCheckMark width={26} height={26} color={colors.purple} />
             ) : (
               <View style={styles[multiSelect ? 'square' : 'circle']} />
             )}

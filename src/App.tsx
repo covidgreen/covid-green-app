@@ -38,11 +38,11 @@ import {
 import {Base} from 'components/templates/base';
 import {NavBar} from 'components/atoms/navbar';
 import {TabBarBottom} from 'components/organisms/tab-bar-bottom';
-import {GetStarted} from 'components/views/get-started';
-import {YourData} from 'components/views/your-data';
-import {AppUsage} from 'components/views/app-usage';
-import {ContactTracingInformation} from 'components/views/contact-tracing-information';
-import {Sorry} from 'components/views/sorry';
+// import {GetStarted} from 'components/views/get-started';
+// import {YourData} from 'components/views/your-data';
+// import {AppUsage} from 'components/views/app-usage';
+// import {ContactTracingInformation} from 'components/views/contact-tracing-information';
+// import {Sorry} from 'components/views/sorry';
 import {
   DataProtectionPolicy,
   TermsAndConditions
@@ -105,40 +105,37 @@ function cacheImages(images: (string | number)[]) {
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const Screens = (t: TFunction, user: User | undefined) => {
-  const header = () => null;
+const Screens = (t: TFunction) => {
+  const standardProps = {
+    headerShown: true,
+    cardStyle: {
+      backgroundColor: colors.background
+    }
+  };
+
   return [
     {
       name: ScreenNames.Introduction,
       component: Introduction,
       options: {
-        headerShown: true,
         title: t('viewNames:introduction'),
-        cardStyle: {
-          backgroundColor: colors.background
-        }
+        ...standardProps
       }
     },
     {
       name: ScreenNames.Permissions,
       component: Permissions,
       options: {
-        headerShown: true,
         title: t('viewNames:permissions'),
-        cardStyle: {
-          backgroundColor: colors.background
-        }
+        ...standardProps
       }
     },
     {
       name: ScreenNames.Completion,
       component: Completion,
       options: {
-        headerShown: true,
         title: t('viewNames:completion'),
-        cardStyle: {
-          backgroundColor: colors.background
-        }
+        ...standardProps
       }
     },
     {
@@ -160,11 +157,95 @@ const Screens = (t: TFunction, user: User | undefined) => {
       name: ScreenNames.Dashboard,
       component: Dashboard,
       options: {
-        headerShown: true,
         title: t('viewNames:dashboard'),
-        cardStyle: {
-          backgroundColor: colors.background
-        }
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.CloseContactInfo,
+      component: CloseContactInfo,
+      options: {
+        title: t('closeContactInfo:title'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.Settings,
+      component: Settings,
+      options: {
+        title: t('viewNames:settings'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.ContactTracingSettings,
+      component: ContactTracingSettings,
+      options: {
+        title: t('viewNames:settingsContactTracing'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.HealthLogSettings,
+      component: CheckInSettings,
+      options: {
+        title: t('viewNames:settingsCheckin'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.PrivacySettings,
+      component: DataProtectionPolicy,
+      options: {
+        title: t('viewNames:dataPolicy'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.TermsSettings,
+      component: TermsAndConditions,
+      options: {
+        title: t('viewNames:terms'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.UsageSettings,
+      component: Metrics,
+      options: {
+        title: t('viewNames:metrics'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.LeaveSettings,
+      component: Leave,
+      options: {
+        title: t('viewNames:leave'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.DebugSettings,
+      component: Debug,
+      options: {
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.Privacy,
+      component: DataProtectionPolicy,
+      options: {
+        title: t('viewNames:dataPolicy'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.Terms,
+      component: TermsAndConditions,
+      options: {
+        title: t('viewNames:terms'),
+        ...standardProps
       }
     }
   ];
@@ -188,28 +269,53 @@ const SymptomsStack = () => {
       <Stack.Screen
         name="history"
         component={SymptomsHistory}
-        options={{title: t('viewNames:symptomchecker')}}
+        options={{
+          title: t('viewNames:symptomchecker'),
+          cardStyle: {
+            backgroundColor: colors.background
+          }
+        }}
       />
       <Stack.Screen
         name="checker.consent"
         component={CheckInConsent}
-        options={{title: t('viewNames:symptomchecker')}}
+        options={{
+          title: t('viewNames:symptomchecker'),
+          cardStyle: {
+            backgroundColor: colors.background
+          }
+        }}
       />
       <Stack.Screen
         name="checker.intro"
         component={CheckInIntro}
-        options={{title: t('viewNames:symptomchecker')}}
+        options={{
+          title: t('viewNames:symptomchecker'),
+          cardStyle: {
+            backgroundColor: colors.background
+          }
+        }}
       />
       <Stack.Screen
         name="checker.symptoms.1"
         component={CheckInSymptoms}
         initialParams={{page: 1, back: true}}
-        options={{title: t('viewNames:symptomchecker')}}
+        options={{
+          title: t('viewNames:symptomchecker'),
+          cardStyle: {
+            backgroundColor: colors.background
+          }
+        }}
       />
       <Stack.Screen
         name="checker.final"
         component={CheckInFinal}
-        options={{title: t('viewNames:symptomchecker')}}
+        options={{
+          title: t('viewNames:symptomchecker'),
+          cardStyle: {
+            backgroundColor: colors.background
+          }
+        }}
       />
     </Stack.Navigator>
   );
@@ -229,7 +335,9 @@ const MainStack = () => {
       <Tab.Screen
         name="symptoms"
         component={SymptomsStack}
-        options={{title: t('viewNames:symptomchecker')}}
+        options={{
+          title: t('viewNames:symptomchecker')
+        }}
       />
       <Tab.Screen
         name="tracing"
@@ -272,7 +380,7 @@ function Navigation({
     }
 
     if (navigationRef.current && notification) {
-      navigationRef.current.navigate('closeContact');
+      navigationRef.current.navigate(ScreenNames.CloseContact);
 
       setState((s) => ({...s, notification: null}));
     }
@@ -285,7 +393,7 @@ function Navigation({
 
     if (navigationRef.current && exposureNotificationClicked) {
       console.log('exposureNotificationClicked', exposureNotificationClicked);
-      navigationRef.current.navigate('closeContact');
+      navigationRef.current.navigate(ScreenNames.CloseContact);
       setState((s) => ({...s, exposureNotificationClicked: null}));
     }
   }, [app, exposureNotificationClicked]);
@@ -316,7 +424,7 @@ function Navigation({
         })}
         mode="modal"
         initialRouteName={initialScreen}>
-        {Screens(t, app.user).map((screen, index) => (
+        {Screens(t).map((screen, index) => (
           // @ts-ignore
           <Stack.Screen {...screen} key={`screen-${index}`} />
         ))}
@@ -403,60 +511,12 @@ function Navigation({
           component={CallBack}
           options={{title: t('callBack:title')}}
         />
+        <Stack.Screen name="sorry" component={Sorry} />
 
         <Stack.Screen
           name="uploadKeys"
           component={UploadKeys}
           options={{title: t('viewNames:uploadKeys')}}
-        />
-
-        <Stack.Screen
-          name="settings"
-          component={Settings}
-          options={{title: t('viewNames:settings')}}
-        />
-        <Stack.Screen
-          name="settings.contactTracing"
-          component={ContactTracingSettings}
-          options={{title: t('viewNames:settingsContactTracing')}}
-        />
-        <Stack.Screen
-          name="settings.checkIn"
-          component={CheckInSettings}
-          options={{title: t('viewNames:settingsCheckin')}}
-        />
-        <Stack.Screen
-          name="settings.privacy"
-          component={DataProtectionPolicy}
-          options={{title: t('viewNames:dataPolicy')}}
-        />
-        <Stack.Screen
-          name="settings.terms"
-          component={TermsAndConditions}
-          options={{title: t('viewNames:terms')}}
-        />
-        <Stack.Screen
-          name="settings.metrics"
-          component={Metrics}
-          options={{title: t('viewNames:metrics')}}
-        />
-        <Stack.Screen
-          name="settings.leave"
-          component={Leave}
-          options={{title: t('viewNames:leave')}}
-        />
-        <Stack.Screen name="settings.debug" component={Debug} />
-
-        <Stack.Screen name="sorry" component={Sorry} />
-        <Stack.Screen
-          name="privacy"
-          component={DataProtectionPolicy}
-          options={{title: t('viewNames:dataPolicy')}}
-        />
-        <Stack.Screen
-          name="terms"
-          component={TermsAndConditions}
-          options={{title: t('viewNames:terms')}}
         />
         */}
       </Stack.Navigator>
