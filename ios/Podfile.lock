@@ -383,7 +383,7 @@ PODS:
   - RNFBApp (8.3.1):
     - Firebase/CoreOnly (~> 6.28.1)
     - React
-  - RNFBCrashlytics (8.3.1):
+  - RNFBCrashlytics (8.3.2):
     - Firebase/Core (~> 6.28.1)
     - Firebase/Crashlytics (~> 6.28.1)
     - React
@@ -717,7 +717,7 @@ SPEC CHECKSUMS:
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNCPushNotificationIOS: dc1c0c6aa18a128df123598149f42e848d26a4ac
   RNFBApp: a1d628d29c278f4e2c63f2eb02e22a879c0e264d
-  RNFBCrashlytics: f20461e80b8180f7a0251038bacfd4053b711ed4
+  RNFBCrashlytics: e96651d15481d1fec48e52f422dd752a8a9ee3d7
   RNFBRemoteConfig: 7b1dc0b2b34c0643153b65de934eb11da81ac2f3
   RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
   RNIOS11DeviceCheck: a4a545fdd08230a17a8ce7608e95038ee23a32aa
