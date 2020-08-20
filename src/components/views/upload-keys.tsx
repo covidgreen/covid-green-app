@@ -22,8 +22,6 @@ import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
 import {colors, baseStyles} from 'theme';
 import {AppIcons} from 'assets/icons';
 
-import {DataProtectionLink} from './data-protection-policy';
-
 type UploadStatus =
   | 'initialising'
   | 'validate'
@@ -158,7 +156,6 @@ export const UploadKeys = ({navigation}) => {
           {t('uploadKeys:upload:button')}
         </Button>
         <Spacing s={16} />
-        <DataProtectionLink />
       </>
     );
   };
@@ -167,9 +164,9 @@ export const UploadKeys = ({navigation}) => {
     return (
       <>
         <Toast
-          color={colors.red}
+          type="error"
           message={t('uploadKeys:permissionError')}
-          icon={<AppIcons.Alert width={24} height={24} />}
+          icon={<AppIcons.ErrorWarning width={24} height={24} />}
         />
         <Spacing s={8} />
       </>
@@ -180,9 +177,9 @@ export const UploadKeys = ({navigation}) => {
     return (
       <>
         <Toast
-          color={colors.red}
+          type="error"
           message={t('uploadKeys:uploadError')}
-          icon={<AppIcons.Alert width={24} height={24} />}
+          icon={<AppIcons.ErrorWarning width={24} height={24} />}
         />
         <Spacing s={8} />
       </>
@@ -191,19 +188,31 @@ export const UploadKeys = ({navigation}) => {
 
   const renderUploadSuccess = () => (
     <ResultCard
+      icon
       messageTitle={t('uploadKeys:uploadSuccess:toast')}
       message={t('uploadKeys:uploadSuccess:thanks')}
-      buttonType={'empty'}
+      buttonType={'default'}
       buttonText={t('uploadKeys:uploadSuccess:updates')}
       onButtonPress={() => navigation.navigate('main', {screen: 'dashboard'})}
+      markdownStyle={styles.markdownStyle}
     />
   );
 
+  let headerError =
+    status === 'permissionError'
+      ? renderPermissionError()
+      : status === 'error'
+      ? renderUploadError()
+      : null;
+
   return (
-    <KeyboardScrollable heading={t('uploadKeys:title')}>
+    <KeyboardScrollable
+      safeArea={false}
+      headingShort
+      backgroundColor={colors.background}
+      heading={t('uploadKeys:title')}
+      toast={headerError}>
       {(status === 'validate' || status === 'upload') && renderValidation()}
-      {status === 'permissionError' && renderPermissionError()}
-      {status === 'error' && renderUploadError()}
       {(status === 'upload' ||
         status === 'uploadOnly' ||
         status === 'error' ||
@@ -215,6 +224,9 @@ export const UploadKeys = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  markdownStyle: {
+    backgroundColor: colors.white
+  },
   successText: {
     marginTop: 16,
     marginBottom: 16

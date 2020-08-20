@@ -83,6 +83,7 @@ import {
 import Tour from 'components/views/tour';
 
 import {urls} from 'constants/urls';
+import {PositiveResult} from 'components/views/positive-result';
 
 enableScreens();
 
@@ -245,6 +246,22 @@ const Screens = (t: TFunction) => {
       component: TermsAndConditions,
       options: {
         title: t('viewNames:terms'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.UploadKeys,
+      component: UploadKeys,
+      options: {
+        title: t('viewNames:uploadKeys'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.PositiveResult,
+      component: PositiveResult,
+      options: {
+        title: t('viewNames:positiveResult'),
         ...standardProps
       }
     }

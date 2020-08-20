@@ -13,6 +13,7 @@ import ShareIOS from './app/share-ios.svg';
 import Success from './app/success.svg';
 import Filter from './app/filter.svg';
 import Selected from './app/selected.svg';
+import ErrorWarning from './app/error-warning.svg';
 
 // bubble
 import BubbleCases from './bubble/cases.svg';
@@ -75,7 +76,8 @@ export const AppIcons = {
   Share: Platform.OS === 'ios' ? ShareIOS : ShareAndroid,
   Success,
   Filter,
-  Selected
+  Selected,
+  ErrorWarning
 };
 
 export const BubbleIcons = {

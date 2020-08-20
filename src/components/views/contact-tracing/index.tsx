@@ -4,10 +4,10 @@ import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
 import {
-  useExposure,
-  StatusState,
   AuthorisedStatus,
-  StatusType
+  StatusState,
+  StatusType,
+  useExposure
 } from 'react-native-exposure-notification-service';
 import {Card} from 'components/atoms/card';
 import {CloseContactWarning} from 'components/molecules/close-contact-warning';
@@ -22,6 +22,7 @@ import {CanSupport} from './can-support';
 import {NotEnabled} from './not-enabled';
 import {Scrollable} from 'components/templates/scrollable';
 import {BubbleIcons} from 'assets/icons';
+import {ScreenNames} from 'navigation';
 
 export const ContactTracing = ({navigation}) => {
   const {t} = useTranslation();
@@ -85,11 +86,7 @@ export const ContactTracing = ({navigation}) => {
         <>
           <Spacing s={16} />
           <Card
-            onPress={() =>
-              navigation.navigate(
-                hasCloseContact ? 'closeContact' : 'closeContactInfo'
-              )
-            }
+            onPress={() => navigation.navigate(ScreenNames.PositiveResult)}
             icon={<BubbleIcons.TestedPositive />}
             padding={{r: 10}}>
             <Text style={text.defaultBold}>
