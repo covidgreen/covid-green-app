@@ -26,7 +26,5 @@ jobs:
     - run: brew tap wix/brew
     - run: brew install applesimutils
     - run: npm run pre:test:ios
-    - name: Run tests
-      run: npm start & npm run test:ios
-      env:
-        BUILD_VERSION: 1
+    - run: cp .env.sample .env
+    - run: npm start & npm run test:ios
