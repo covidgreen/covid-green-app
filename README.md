@@ -44,6 +44,14 @@ cd ios && pod install
 
 ## Running the applications locally
 
+### Configure Firebase
+
+This application uses Firebase. In order to run it locally, the configuration for Firebase needs to be added. Log in to the development project in Firebase and download the `GoogleService-Info.plist` file for the iOS version of the app and place it in `ios/firebase/development`. For the Android version, download the `google-services.json` file and place it in `android/app/src/debug`.
+
+For the production versions, log in to the production project in Firebase and place the configuration files in `ios/firebase/production` and `android/app/src/release` respectively.
+
+### Running the app in a simulator
+
 Start the React Native bundler:
 
 ```bash
