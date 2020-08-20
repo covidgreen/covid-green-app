@@ -23,6 +23,8 @@ export enum ScreenNames {
   Privacy = 'privacy',
   Terms = 'terms',
   CloseContact = 'closeContact',
+  UploadKeys = 'uploadKeys',
+  PositiveResult = 'positiveResult',
 
   Dashboard = 'dashboard',
   Settings = 'settings'

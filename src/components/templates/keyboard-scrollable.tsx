@@ -21,6 +21,7 @@ import {Spacing} from 'components/atoms/layout';
 interface LayoutProps {
   toast?: React.ReactNode;
   heading?: string;
+  headingShort?: boolean;
   backgroundColor?: string;
   refresh?: {
     refreshing: boolean;
@@ -34,6 +35,7 @@ interface LayoutProps {
 export const KeyboardScrollable: FC<LayoutProps> = ({
   toast,
   heading,
+  headingShort = false,
   backgroundColor,
   refresh,
   scrollViewRef,
@@ -65,7 +67,13 @@ export const KeyboardScrollable: FC<LayoutProps> = ({
             <Spacing s={8} />
           </>
         )}
-        {heading && <Heading accessibilityFocus text={heading} />}
+        {heading && (
+          <Heading
+            accessibilityFocus
+            text={heading}
+            lineWidth={headingShort ? 75 : undefined}
+          />
+        )}
         {children}
       </ScrollView>
     </KeyboardAvoidingView>
