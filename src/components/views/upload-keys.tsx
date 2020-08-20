@@ -164,9 +164,9 @@ export const UploadKeys = ({navigation}) => {
     return (
       <>
         <Toast
-          color={colors.red}
+          type="error"
           message={t('uploadKeys:permissionError')}
-          icon={<AppIcons.Alert width={24} height={24} />}
+          icon={<AppIcons.ErrorWarning width={24} height={24} />}
         />
         <Spacing s={8} />
       </>
@@ -177,9 +177,9 @@ export const UploadKeys = ({navigation}) => {
     return (
       <>
         <Toast
-          color={colors.red}
+          type="error"
           message={t('uploadKeys:uploadError')}
-          icon={<AppIcons.Alert width={24} height={24} />}
+          icon={<AppIcons.ErrorWarning width={24} height={24} />}
         />
         <Spacing s={8} />
       </>
@@ -198,15 +198,21 @@ export const UploadKeys = ({navigation}) => {
     />
   );
 
+  let headerError =
+    status === 'permissionError'
+      ? renderPermissionError()
+      : status === 'error'
+      ? renderUploadError()
+      : null;
+
   return (
     <KeyboardScrollable
       safeArea={false}
       headingShort
       backgroundColor={colors.background}
-      heading={t('uploadKeys:title')}>
+      heading={t('uploadKeys:title')}
+      toast={headerError}>
       {(status === 'validate' || status === 'upload') && renderValidation()}
-      {status === 'permissionError' && renderPermissionError()}
-      {status === 'error' && renderUploadError()}
       {(status === 'upload' ||
         status === 'uploadOnly' ||
         status === 'error' ||

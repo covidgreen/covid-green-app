@@ -83,7 +83,7 @@ import {
 import Tour from 'components/views/tour';
 
 import {urls} from 'constants/urls';
-import {PositiveResult} from "components/views/positive-result";
+import {PositiveResult} from 'components/views/positive-result';
 
 enableScreens();
 

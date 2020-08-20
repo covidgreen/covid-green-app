@@ -44,7 +44,11 @@ const Toast: React.FC<ToastProps> = ({
     <View
       accessibilityRole="alert"
       accessibilityLiveRegion="assertive"
-      style={[styles.container, style]}>
+      style={[
+        styles.container,
+        style,
+        type === 'error' && styles.containerError
+      ]}>
       {icon && <View style={iconStyling}>{icon}</View>}
       <View style={styles.messageContainer}>
         {message && <Text style={textStyling}>{message}</Text>}
@@ -56,14 +60,20 @@ const Toast: React.FC<ToastProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
-    minHeight: 48
+    padding: 20
+  },
+  containerError: {
+    borderRadius: 4,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: colors.red,
+    backgroundColor: colors.red
   },
   icon: {
-    width: 48,
-    minHeight: 48,
-    backgroundColor: colors.purple,
     justifyContent: 'center',
+    paddingRight: 10,
     alignItems: 'center'
   },
   iconError: {
@@ -71,13 +81,11 @@ const styles = StyleSheet.create({
   },
   messageContainer: {
     flex: 1,
-    backgroundColor: colors.gray,
     justifyContent: 'center',
-    alignItems: 'flex-start',
-    paddingHorizontal: 12
+    alignItems: 'flex-start'
   },
   messageError: {
-    color: colors.red
+    color: colors.white
   }
 });
 
