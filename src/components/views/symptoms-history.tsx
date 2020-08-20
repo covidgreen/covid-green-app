@@ -42,7 +42,10 @@ export const SymptomsHistory: FC<any> = () => {
   );
 
   return (
-    <Scrollable safeArea={false} backgroundColor={colors.white}>
+    <Scrollable
+      headingShort
+      safeArea={false}
+      backgroundColor={colors.background}>
       <Spacing s={20} />
       <Heading
         accessibilityRefocus
@@ -86,30 +89,26 @@ export const SymptomsHistory: FC<any> = () => {
                     <BubbleIcons.Shield width={32} height={32} />
                   )}
                 </View>
-                {symptomsList.length === 1 ? (
-                  <Text style={text.xsmallBoldOpacity70}>
-                    {symptomsList[0].label}
+                <SingleRow>
+                  <Text style={text.xlargeBlack}>{symptomsList.length}</Text>
+                  <Text>&nbsp;</Text>
+                  <Text style={text.defaultBold}>
+                    {t('symptomsHistory:symptoms', {
+                      count: symptomsList.length
+                    })}
                   </Text>
-                ) : (
-                  <SingleRow>
-                    <Text style={text.xlargeBlack}>{symptomsList.length}</Text>
-                    <Text>&nbsp;</Text>
-                    <Text style={text.xsmallBoldOpacity70}>
-                      {t('symptomsHistory:symptoms')}
-                    </Text>
-                  </SingleRow>
-                )}
+                </SingleRow>
                 <View style={styles.date}>
-                  <Text style={text.xsmallBoldOpacity70}>
+                  <Text style={text.default}>
                     {format(new Date(Number(check.timestamp)), 'do MMMM')}
                   </Text>
                 </View>
               </View>
-              {symptomsList.length > 1 &&
+              {!!symptomsList.length &&
                 symptomsList.map(({value, label}) => {
                   return (
                     <View key={`symptom-${value}`} style={styles.symptom}>
-                      <Text style={text.xsmallBoldOpacity70}>{label}</Text>
+                      <Text style={text.defaultBold}>{label}</Text>
                     </View>
                   );
                 })}

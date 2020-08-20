@@ -1,17 +1,28 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {Text, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import * as WebBrowser from 'expo-web-browser';
 import M from 'react-native-easy-markdown';
 
 import {Link} from 'components/atoms/link';
-import {text, colors} from 'theme';
+import {markdownStyles as defaultMarkdownStyles, colors} from 'theme';
+import {WarningBullet} from './warning-bullet';
 
 interface Markdown {
   style?: object;
   markdownStyles?: object;
+  warningList?: boolean;
   renderListBullet?: (ordered: boolean, index: number) => any;
 }
+
+type RenderListItem = (
+  index: number,
+  ordered: boolean,
+  children: ReactNode,
+  key: string
+) => React.ReactNode;
+
+const defaultMarkdownStylesheet = StyleSheet.create(defaultMarkdownStyles);
 
 const MarkdownLink = (
   href: string,
@@ -44,16 +55,18 @@ const MarkdownLink = (
   );
 };
 
-const Markdown: React.FC<Markdown> = ({
+export const Markdown: React.FC<Markdown> = ({
   style,
   markdownStyles = {},
   renderListBullet,
+  warningList,
   children: C
 }) => {
   const navigation = useNavigation();
 
   const combinedStyles = {
-    ...localMarkdownStyles,
+    ...defaultMarkdownStylesheet,
+    list: warningList ? styles.warningList : defaultMarkdownStylesheet.list,
     ...markdownStyles
   };
 
@@ -61,57 +74,42 @@ const Markdown: React.FC<Markdown> = ({
     <M
       markdownStyles={combinedStyles}
       style={style || styles.container}
-      renderListBullet={renderListBullet}
-      renderLink={(href, title, children, key) =>
-        MarkdownLink(href, title, children, key, navigation)
+      renderLink={(
+        href: string,
+        title: string,
+        children: ReactNode,
+        key: string
+      ) => MarkdownLink(href, title, children, key, navigation)}
+      renderListItem={
+        warningList
+          ? renderWarningListItem
+          : renderListBullet
+          ? renderListBullet
+          : null
       }>
       {C}
     </M>
   );
 };
 
-const localMarkdownStyles = StyleSheet.create({
-  h1: text.xlargeBold,
-  h2: text.largeBold,
-  text: {
-    ...text.default,
-    flexWrap: 'wrap',
-    marginBottom: 8
-  },
-  block: {
-    marginBottom: 8
-  },
-  link: {
-    ...text.defaultBold,
-    color: colors.purple
-  },
-  list: {
-    marginBottom: -12
-  },
-  listItem: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 12
-  },
-  listItemNumber: {
-    ...text.xxlargeBlack,
-    color: colors.purple,
-    marginRight: 12
-  },
-  listItemContent: {
-    flex: 1,
-    marginTop: 12
-  },
-  strong: {
-    ...text.defaultBold
-  }
-});
+// Can't set the color of `listItem` because `text` styles override it... need to fork the renderer
+export const renderWarningListItem: RenderListItem = (
+  index,
+  ordered,
+  children,
+  key
+) => (
+  <WarningBullet ordered={ordered} index={index} key={`${key}_${index}`}>
+    {children}
+  </WarningBullet>
+);
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.background,
     flex: 1
+  },
+  warningList: {
+    marginBottom: 6
   }
 });
-
-export {Markdown};

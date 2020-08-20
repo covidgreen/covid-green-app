@@ -92,45 +92,17 @@ export function CheckInIntro() {
   };
 
   return (
-    <Scrollable safeArea={false} heading={t('checker:introTitle')}>
+    <Scrollable
+      headingShort
+      backgroundColor={colors.background}
+      safeArea={false}
+      heading={t('checker:introTitle')}>
       <Card>
-        <Text style={text.large}>{t('checker:introOptional')}</Text>
-        <Spacing s={16} />
-        <Dropdown
-          label={t('gender:label')}
-          placeholder={t('gender:placeholder')}
-          items={genderOptions}
-          value={state.gender}
-          onValueChange={(gender) => setState((s) => ({...s, gender}))}
-        />
-        <Separator />
-        <Dropdown
-          label={t('ageRange:label')}
-          placeholder={t('ageRange:placeholder')}
-          items={ageRangeOptions}
-          value={state.ageRange}
-          onValueChange={(ageRange) => setState((s) => ({...s, ageRange}))}
-        />
-        <Separator />
-        <Dropdown
-          label={t('race:label')}
-          placeholder={t('race:placeholder')}
-          items={raceOptions}
-          value={state.race}
-          onValueChange={(race) => setState((s) => ({...s, race}))}
-        />
-        <Separator />
-        <Dropdown
-          label={t('ethnicity:label')}
-          placeholder={t('ethnicity:placeholder')}
-          items={ethnicityOptions}
-          value={state.ethnicity}
-          onValueChange={(ethnicity) => setState((s) => ({...s, ethnicity}))}
-        />
-        <Separator />
+        <Text style={text.default}>{t('checker:introOptional')}</Text>
+        <Spacing s={24} />
         <Dropdown
           label={t('county:label')}
-          placeholder={t('county:placeholder')}
+          placeholder={t('common:placeholder')}
           items={counties}
           value={state.county}
           search={{
@@ -140,6 +112,38 @@ export function CheckInIntro() {
             noResults: t('county:noResults')
           }}
           onValueChange={(county) => setState((s) => ({...s, county}))}
+        />
+        <Separator />
+        <Dropdown
+          label={t('gender:label')}
+          placeholder={t('common:placeholder')}
+          items={genderOptions}
+          value={state.gender}
+          onValueChange={(gender) => setState((s) => ({...s, gender}))}
+        />
+        <Separator />
+        <Dropdown
+          label={t('ageRange:label')}
+          placeholder={t('common:placeholder')}
+          items={ageRangeOptions}
+          value={state.ageRange}
+          onValueChange={(ageRange) => setState((s) => ({...s, ageRange}))}
+        />
+        <Separator />
+        <Dropdown
+          label={t('race:label')}
+          placeholder={t('common:placeholder')}
+          items={raceOptions}
+          value={state.race}
+          onValueChange={(race) => setState((s) => ({...s, race}))}
+        />
+        <Separator />
+        <Dropdown
+          label={t('ethnicity:label')}
+          placeholder={t('common:placeholder')}
+          items={ethnicityOptions}
+          value={state.ethnicity}
+          onValueChange={(ethnicity) => setState((s) => ({...s, ethnicity}))}
         />
         <Separator />
         <Button width="100%" onPress={onContinue}>

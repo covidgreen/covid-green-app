@@ -69,7 +69,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           <View style={styles.content}>
             {label && (
               <>
-                <Text style={[text.smallBold, {color: colors.text}]}>
+                <Text style={[text.default, {color: colors.text}]}>
                   {label}
                 </Text>
                 <Spacing s={8} />

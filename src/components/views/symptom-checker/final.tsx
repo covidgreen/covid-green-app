@@ -16,6 +16,7 @@ import {Scrollable} from 'components/templates/scrollable';
 
 import {SymptomRecord, SymptomsCheckResult} from 'constants/symptoms';
 import {colors} from 'theme';
+import {CoronavirusCard} from 'components/molecules/coronavirus-card';
 
 function countSymptoms(symptoms: SymptomRecord): number {
   return Object.values(symptoms).reduce((t: number, r: number) => t + r, 0);
@@ -32,13 +33,8 @@ export const CheckInFinal: FC<any> = ({route}) => {
   const isFocused = useIsFocused();
   const [appState] = useAppState();
 
-  const {ageRangeOptions, checkerThankYouText} = useSettings();
-  const {
-    user,
-    completedChecker,
-    checks,
-    verifyCheckerStatus
-  } = useApplication();
+  const {checkerThankYouText} = useSettings();
+  const {completedChecker, checks, verifyCheckerStatus} = useApplication();
   const {readPermissions} = useExposure();
 
   useFocusEffect(
@@ -59,24 +55,17 @@ export const CheckInFinal: FC<any> = ({route}) => {
     let result: SymptomsCheckResult;
 
     const symptomsCount = countSymptoms(symptoms);
-    if (!symptomsCount) {
-      if (
-        ageRangeOptions.find((g) => g.value === user?.ageRange && g.riskGroup)
-      ) {
-        result = 'riskGroup';
-      } else {
-        result = feelingWell
-          ? 'noSymptomsFeelingWell'
-          : 'noSymptomsNotFeelingWell';
-      }
-    } else {
-      result = 'coronavirus';
-    }
+    result =
+      !symptomsCount || feelingWell ? 'noSymptomsFeelingWell' : 'coronavirus';
+
     setCheckInResult(result);
   }, []);
 
   return (
-    <Scrollable safeArea={false}>
+    <Scrollable
+      safeArea={false}
+      headingShort
+      backgroundColor={colors.background}>
       {completedChecker && checkInResult && (
         <>
           <Heading
@@ -85,7 +74,11 @@ export const CheckInFinal: FC<any> = ({route}) => {
             text={t('checker:results:title')}
           />
           <ResultCard
-            message={checkerThankYouText[checkInResult]}
+            message={
+              checkInResult !== 'coronavirus'
+                ? checkerThankYouText[checkInResult]
+                : undefined
+            }
             buttonText={t('checker:results:viewLog')}
             onButtonPress={() =>
               navigation.reset({
@@ -98,8 +91,9 @@ export const CheckInFinal: FC<any> = ({route}) => {
             markdownProps={{
               style: {},
               warningList: true
-            }}
-          />
+            }}>
+            {checkInResult === 'coronavirus' && <CoronavirusCard />}
+          </ResultCard>
         </>
       )}
     </Scrollable>

@@ -166,7 +166,6 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
           noSymptomsNotFeelingWell: t(
             'checker:results:noSymptomsNotFeelingWell'
           ),
-          riskGroup: t('checker:results:riskGroup'),
           coronavirus: t('checker:results:coronavirus')
         },
         getDbText(apiSettings, 'checkerThankYouText')
