@@ -18,7 +18,7 @@
     },
     "tryAgain": {
       "title": "Please try again",
-      "description": "Sorry, that didn’t work properly.\nPlease check that you have a network connection and try again.",
+      "description": "Sorry, that didn’t work properly.\\nPlease check that you have a network connection and try again.",
       "timestampTitle": "Check Date & Time",
       "timestamp": "We couldn't verify your device. Please check it's set to the correct date and time, and try again."
     }
@@ -51,7 +51,7 @@
     "updates": "NY COVID Data",
     "symptomCheck": "My Health Log",
     "contactTracing": "My COVID Alerts",
-    "settings": "App\nSettings"
+    "settings": "App\\nSettings"
   },
   "onboarding": {
     "introduction": {
@@ -78,8 +78,8 @@
     "permissions": {
       "title": "Set Up Closeness Sensing for COVID Alerts",
       "line1": "This app needs your permission to:",
-      "track": "**Sense when another phone with this app is close by.**\n\nIf another app user spends 10 minutes within 6 feet of you, your phones swap random codes to remember the contact. These codes don't say anything about you or your location.",
-      "notifications": "**Send you notifications.**\n\nIf the other app user tests positive for the virus within the next few days, the app can send you a COVID Alert after checking your codes.",
+      "track": "**Sense when another phone with this app is close by.**\\n\\nIf another app user spends 10 minutes within 6 feet of you, your phones swap random codes to remember the contact. These codes don't say anything about you or your location.",
+      "notifications": "**Send you notifications.**\\n\\nIf the other app user tests positive for the virus within the next few days, the app can send you a COVID Alert after checking your codes.",
       "subtitle": "The app never:",
       "list": [
         "Sees your location.",
@@ -101,10 +101,10 @@
     "tour": {
       "title": "How it works",
       "statements": [
-        "As you go about your day, the app uses Bluetooth to sense when another person with the app has come within 6 feet of you.\n\nYour phone exchanges a secure random code with the other phone to record that they were near. The app doesn't collect or share your name, location, or phone number, or those of the people around you",
-        "If you are within 6 feet of someone for more than 10 minutes, the app puts their phone's random code on a list of close contacts.\n\nPeople who are just passing by or stand more than 6 feet away from you are not put on the list of close contacts. You will never get any alerts because of them.",
-        "If you test positive for COVID-19, a Health Advisor will call you as soon as possible.\n\nThe Health Advisor will ask if you are willing to share your app's list of close contacts to help protect other people.\n\nSharing your list is secure and private. The app never reveals who you are to anyone.",
-        "Each day, the list of \"infected\" codes is sent to every phone that has the app. The app compares its own list of close contact codes to the list of infected codes. If there's a match, the app displays a COVID alert.\n\nUsing these lists of anonymous codes, the alert is kept private. No one ever knows who the COVID Alert comes from."
+        "As you go about your day, the app uses Bluetooth to sense when another person with the app has come within 6 feet of you.\\n\\nYour phone exchanges a secure random code with the other phone to record that they were near. The app doesn't collect or share your name, location, or phone number, or those of the people around you",
+        "If you are within 6 feet of someone for more than 10 minutes, the app puts their phone's random code on a list of close contacts.\\n\\nPeople who are just passing by or stand more than 6 feet away from you are not put on the list of close contacts. You will never get any alerts because of them.",
+        "If you test positive for COVID-19, a Health Advisor will call you as soon as possible.\\n\\nThe Health Advisor will ask if you are willing to share your app's list of close contacts to help protect other people.\\n\\nSharing your list is secure and private. The app never reveals who you are to anyone.",
+        "Each day, the list of \"infected\" codes is sent to every phone that has the app. The app compares its own list of close contact codes to the list of infected codes. If there's a match, the app displays a COVID alert.\\n\\nUsing these lists of anonymous codes, the alert is kept private. No one ever knows who the COVID Alert comes from."
       ],
       "previous": "Previous",
       "next": "Next",
@@ -125,7 +125,7 @@
         "text": "Keep up to date on the fight against COVID-19."
       },
       "view4": {
-        "text": "If you tap Get started, you are accepting the ",
+        "text": "If you tap Get started, you are accepting the",
         "link": "Terms & Conditions"
       },
       "action": "Get started"
@@ -210,9 +210,9 @@
   },
   "welcome": {
     "title": "Hi there 👋",
-    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. Your symptoms data helps them understand how COVID-19 is affecting NY.\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
+    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\\n\\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. Your symptoms data helps them understand how COVID-19 is affecting NY.\\n\\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\\n\\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
     "action": "Yes I'd like to start my log",
-    "letUsKnow": "Let us know if you have\nsymptoms today"
+    "letUsKnow": "Let us know if you have\\nsymptoms today"
   },
   "settings": {
     "title": "App Settings",
@@ -231,8 +231,8 @@
   },
   "leave": {
     "title": "Delete My Data",
-    "info": "Thank you for helping us fight the spread of COVID-19 in NY. We’re sorry to see you go, but you can stop using this app at any time.\n\nWhen you tap the “Delete My Data” button below, we’ll remove all the data that the app stored on your phone, such as all entries in your health log.",
-    "summary": "**Note:**\n\nThis button doesn’t delete the random codes created or collected by your phone for Closeness Sensing and COVID Alerts.\n\nTo delete the random codes, go to your phone’s Settings and select “Google Services & Preferences.” Then, select “COVID-19 Exposure Notifications” and tap the “Delete Random IDs” button. To stop storing new codes, you should turn off “Use Exposure Notifications.”",
+    "info": "Thank you for helping us fight the spread of COVID-19 in NY. We’re sorry to see you go, but you can stop using this app at any time.\\n\\nWhen you tap the “Delete My Data” button below, we’ll remove all the data that the app stored on your phone, such as all entries in your health log.",
+    "summary": "**Note:**\\n\\nThis button doesn’t delete the random codes created or collected by your phone for Closeness Sensing and COVID Alerts.\\n\\nTo delete the random codes, go to your phone’s Settings and select “Google Services & Preferences.” Then, select “COVID-19 Exposure Notifications” and tap the “Delete Random IDs” button. To stop storing new codes, you should turn off “Use Exposure Notifications.”",
     "button": "Delete My Data",
     "confirmTitle": "Delete My Data",
     "confirmText": "Are you sure you want to delete your data?",
@@ -339,8 +339,8 @@
   "statsSource": {
     "monitor": "COVID-19 Health Surveillance Monitor (Ireland)",
     "communityTransmissions": "Community Transmissions, no known close contact",
-    "lastUpdatedStats": "Confirmed cases last update: ",
-    "lastUpdatedProfile": "Cases profile last update: "
+    "lastUpdatedStats": "Confirmed cases last update:",
+    "lastUpdatedProfile": "Cases profile last update:"
   },
   "symptomsHistory": {
     "title": "My Health Log",
@@ -354,7 +354,7 @@
   },
   "yourData": {
     "title": "Your data",
-    "info": "The COVID Green app protects your privacy and does not share personal information about you with other app users. **Your identity will never be revealed to other app users.**\n\nAny personal data you provide will be processed in line with GDPR and data protection law. You can read more about this in the Data Protection Information Notice below. **Your data will only be used in relation to the COVID-19 pandemic response** as set out in the Data Protection Information Notice.\n\nIf you need to be alerted, the app will start this process with a secure in-app notification. Separate to using this app, the HSE contact tracing team may phone you if someone with COVID-19 identifies you as a close contact. If you have a COVID-19 test, the HSE will contact you by text or by phone with results.\n\nTake care with any suspicious phone calls, emails or texts asking you for personal information. **The HSE will not ask you for personal information by text or email.**",
+    "info": "The COVID Green app protects your privacy and does not share personal information about you with other app users. **Your identity will never be revealed to other app users.**\\n\\nAny personal data you provide will be processed in line with GDPR and data protection law. You can read more about this in the Data Protection Information Notice below. **Your data will only be used in relation to the COVID-19 pandemic response** as set out in the Data Protection Information Notice.\\n\\nIf you need to be alerted, the app will start this process with a secure in-app notification. Separate to using this app, the HSE contact tracing team may phone you if someone with COVID-19 identifies you as a close contact. If you have a COVID-19 test, the HSE will contact you by text or by phone with results.\\n\\nTake care with any suspicious phone calls, emails or texts asking you for personal information. **The HSE will not ask you for personal information by text or email.**",
     "viewInSettings": "You can view this notice at any time in Settings. If you do not want to continue, close and delete the app. If you consent, tap Continue to proceed.",
     "continue": "Continue"
   },
@@ -370,15 +370,15 @@
   },
   "underAge": {
     "title": "Under 16",
-    "notice": "Thank you for your interest but unfortunately you are too young to participate in this initiative.\n\nKeep safe."
+    "notice": "Thank you for your interest but unfortunately you are too young to participate in this initiative.\\n\\nKeep safe."
   },
   "followUpCall": {
     "title": "Contact Tracing follow-up call",
     "shortTitle": "Call Back",
     "intro": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert.  The HSE will also phone you if you provide your number below.",
-    "note": "The HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below, or add it later in Settings.",
-    "noteAlt": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert.  The HSE will also phone you if you provide your number below.\n\nThe HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below.",
-    "noteSettings": "If you want we will try to call you to provide further assistance after you receive an exposure notification.\n\nYour phone number will only be shared with the HSE if you get an exposure notification.",
+    "note": "The HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\\n\\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below, or add it later in Settings.",
+    "noteAlt": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert.  The HSE will also phone you if you provide your number below.\\n\\nThe HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\\n\\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below.",
+    "noteSettings": "If you want we will try to call you to provide further assistance after you receive an exposure notification.\\n\\nYour phone number will only be shared with the HSE if you get an exposure notification.",
     "optIn": "Yes, I want to opt-in",
     "noThanks": "No thanks"
   },
@@ -392,7 +392,7 @@
   },
   "closeContact": {
     "title": "COVID Alert",
-    "intro": "**The app has detected that on September 1st 2020 someone who tested positive for COVID-19 was too close to you for too long.**\n\nTo protect others it would be best to **stay at home**.\n\nA Health Advisor can help you find support for staying at home and getting a test.",
+    "intro": "**The app has detected that on September 1st 2020 someone who tested positive for COVID-19 was too close to you for too long.**\\n\\nTo protect others it would be best to **stay at home**.\\n\\nA Health Advisor can help you find support for staying at home and getting a test.",
     "callBackCard": "Speak to a health advisor",
     "infoCard": "Learn how to keep others safe",
     "requiredAge": {
@@ -402,27 +402,27 @@
     },
     "underAge": {
       "title": "COVID Alert",
-      "intro": "**We can’t call you back because you’re too young.**\n\nYou must be 18 years or older to let us collect personal information like your phone number.\n\nInstead, you can:",
+      "intro": "**We can’t call you back because you’re too young.**\\n\\nYou must be 18 years or older to let us collect personal information like your phone number.\\n\\nInstead, you can:",
       "callUs": "Call us"
     }
   },
   "closeContactInfo": {
     "title": "How to Keep Others Safe",
-    "info": "**To limit the risk of spreading COVID-19 to your family and community, please take the following precautions until you’ve been cleared by a public health professional:**\n\n1. **Isolate yourself.**\nStay in a room or living area that has its own bathroom and keep other people out. If you're in a home with other people, make sure there’s a door to separate the area from the rest of your home and keep it closed. If you must share a bathroom, have plenty of cleaning supplies (like household disinfectant wipes, bleach) to clean all surfaces after each use.\n\n2. **Stay at home and don’t leave your property.**\nDon’t go out into public. It’s important to avoid contact with other people, even your family.\n\n3. **Secure your living area.**\nKeep others from entering without your permission.\n\n4. **Wash your hands often.**\nMake sure you have access to a sink with soap, water, and plenty of paper towels.\n\n5. **Sleep by yourself.**\nIf you are in quarantine with others, sleep in separate bedrooms. You could start to have symptoms while you sleep.\n\n6. **Have food brought to you.**\nDon’t leave your living area to get or prepare food.\n\n7. **Bag up your garbage and leave it outside your door. **\nAsk someone else to pick it up regularly. (No special handling is needed.)\n\n8. **Keep a supply of face masks.**\nWear one if you start to have symptoms or must come in contact with others.\n\n9. **Monitor your temperature and symptoms carefully.**\nYou can keep track of them in the 'My Health Log' feature of this app or another way. A daily log helps Health Workers figure out the most effective treatments for you if you get sick.\n\n10. **Call ahead if you must leave to get health care.**\nTell the health care provider about your exposure to COVID-19. Wear a mask when you go and avoid using public transportation, such as subways, buses, or taxis."
+    "info": "**To limit the risk of spreading COVID-19 to your family and community, please take the following precautions until you’ve been cleared by a public health professional:**\\n\\n1. **Isolate yourself.**\\nStay in a room or living area that has its own bathroom and keep other people out. If you're in a home with other people, make sure there’s a door to separate the area from the rest of your home and keep it closed. If you must share a bathroom, have plenty of cleaning supplies (like household disinfectant wipes, bleach) to clean all surfaces after each use.\\n\\n2. **Stay at home and don’t leave your property.**\\nDon’t go out into public. It’s important to avoid contact with other people, even your family.\\n\\n3. **Secure your living area.**\\nKeep others from entering without your permission.\\n\\n4. **Wash your hands often.**\\nMake sure you have access to a sink with soap, water, and plenty of paper towels.\\n\\n5. **Sleep by yourself.**\\nIf you are in quarantine with others, sleep in separate bedrooms. You could start to have symptoms while you sleep.\\n\\n6. **Have food brought to you.**\\nDon’t leave your living area to get or prepare food.\\n\\n7. **Bag up your garbage and leave it outside your door. **\\nAsk someone else to pick it up regularly. (No special handling is needed.)\\n\\n8. **Keep a supply of face masks.**\\nWear one if you start to have symptoms or must come in contact with others.\\n\\n9. **Monitor your temperature and symptoms carefully.**\\nYou can keep track of them in the 'My Health Log' feature of this app or another way. A daily log helps Health Workers figure out the most effective treatments for you if you get sick.\\n\\n10. **Call ahead if you must leave to get health care.**\\nTell the health care provider about your exposure to COVID-19. Wear a mask when you go and avoid using public transportation, such as subways, buses, or taxis."
   },
   "callBack": {
     "title": "What phone number should we call you at?",
     "button": "Call me as soon as you can",
     "success": {
       "title": "Got it",
-      "text": "Our health workers are helping many New Yorkers.\n\nWe will call you as soon as we can at (917) 485-1028.\n\nWhile you wait: Protect others by staying at home",
+      "text": "Our health workers are helping many New Yorkers.\\n\\nWe will call you as soon as we can at (917) 485-1028.\\n\\nWhile you wait: Protect others by staying at home",
       "button": "Done"
     }
   },
   "uploadKeys": {
     "title": "Upload your Random IDs",
     "code": {
-      "intro": "A member of the Contact Tracing team may ask you to share Random IDs generated by your phone over the previous 14 days.\n\nIf so, you will receive a unique 6-digit code by text message to activate the upload functionality.",
+      "intro": "A member of the Contact Tracing team may ask you to share Random IDs generated by your phone over the previous 14 days.\\n\\nIf so, you will receive a unique 6-digit code by text message to activate the upload functionality.",
       "expiredError": "Code has expired. Contact HSE to request another one.",
       "invalidError": "Invalid code. Please try again.",
       "error": "There was an error validating the code. Please try again."
@@ -473,7 +473,7 @@
       "label": "Your country code",
       "placeholder": "Country",
       "searchPlaceholder": "Search a country",
-      "noResults": "No results found for this search.\nTry with something else.",
+      "noResults": "No results found for this search.\\nTry with something else.",
       "error": {
         "required": "Your country code is required."
       }
@@ -501,22 +501,22 @@
     "label": "New York State County you live in",
     "dropdownPlaceholder": "Select your county",
     "searchPlaceholder": "Search",
-    "noResults": "No results found for this search.\nTry with something else."
+    "noResults": "No results found for this search.\\nTry with something else."
   },
   "appUsage": {
     "title": "App Metrics",
-    "info": "The HSE would like to understand your use of the App for the purpose of improving it.\n\nThe app will collect anonymous metrics about how you use the app and the effectiveness of Contact Tracing processes.\n\nThis information is gathered by the HSE directly and does not use any third parties to gather metrics. **This information is only gathered with your consent and cannot be used to identify you.**",
+    "info": "The HSE would like to understand your use of the App for the purpose of improving it.\\n\\nThe app will collect anonymous metrics about how you use the app and the effectiveness of Contact Tracing processes.\\n\\nThis information is gathered by the HSE directly and does not use any third parties to gather metrics. **This information is only gathered with your consent and cannot be used to identify you.**",
     "settingsInfo": "If you change your mind, you can change these permissions in Settings at any time.",
     "yesButton": "Yes, I consent",
     "noThanks": "No thanks"
   },
   "metrics": {
     "title": "Help Improve This App",
-    "info": "You can help the New York State Department of Health improve this app by sharing data about how you use it and how well Closeness Sensing is working.\n\n**When you turn this setting on**, the app sends your usage data directly to the New York State Department of Health. The data is anonymous -- the app doesn’t send anything about your identity. No third parties collect or see any of this data.\n\n**If you keep this setting off or turn it off later**, the app keeps your usage data private and doesn’t send it to anyone.",
+    "info": "You can help the New York State Department of Health improve this app by sharing data about how you use it and how well Closeness Sensing is working.\\n\\n**When you turn this setting on**, the app sends your usage data directly to the New York State Department of Health. The data is anonymous -- the app doesn’t send anything about your identity. No third parties collect or see any of this data.\\n\\n**If you keep this setting off or turn it off later**, the app keeps your usage data private and doesn’t send it to anyone.",
     "share": "Share App Usage"
   },
   "tracingAvailable": {
-    "text": "App can't alert you right now.\nSet up My COVID Alerts."
+    "text": "App can't alert you right now.\\nSet up My COVID Alerts."
   },
   "codeInput": {
     "accessibilityLabel": "Code digit {{number}}",

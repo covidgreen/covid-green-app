@@ -37,4 +37,4 @@ async function cleanLangFile(sourceFile, targetFile) {
   );
 }
 
-cleanLangFile('en', 'ga');
+cleanLangFile('en', 'ht', 'ru', 'bn', 'ko', 'zh');
