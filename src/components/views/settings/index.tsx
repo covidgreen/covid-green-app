@@ -17,6 +17,7 @@ import {BUILD_VERSION, HIDE_DEBUG} from '@env';
 import {AppIcons} from 'assets/icons';
 import {Basic} from 'components/templates/basic';
 import {colors, text, shadows} from 'theme';
+import {ScreenNames} from 'navigation';
 
 const REQUIRED_PRESS_COUNT = 3;
 
@@ -79,35 +80,35 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       title: t('settings:covidAlerts'),
       label: t('settings:covidAlerts'),
       hint: t('settings:covidAlertsHint'),
-      screen: 'settings.covidAlerts'
+      screen: ScreenNames.ContactTracingSettings
     },
     {
       id: 'language',
       title: t('settings:language'),
       label: t('settings:language'),
       hint: t('settings:languageHint'),
-      screen: 'settings.terms'
+      screen: ScreenNames.LanguageSetttings
     },
     {
       id: 'metrics',
       title: t('settings:metrics'),
       label: t('settings:metrics'),
       hint: t('settings:metricsHint'),
-      screen: 'settings.metrics'
+      screen: ScreenNames.UsageSettings
     },
     {
       id: 'privacy',
       title: t('settings:privacyPolicy'),
       label: t('settings:privacyPolicy'),
       hint: t('settings:privacyPolicyHint'),
-      screen: 'settings.privacy'
+      screen: ScreenNames.PrivacySettings
     },
     {
       id: 'leave',
       title: t('settings:leave'),
       label: t('settings:leave'),
       hint: t('settings:leaveHint'),
-      screen: 'settings.leave'
+      screen: ScreenNames.LeaveSettings
     }
   ];
 

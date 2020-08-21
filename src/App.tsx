@@ -85,6 +85,7 @@ import Tour from 'components/views/tour';
 
 import {urls} from 'constants/urls';
 import {PositiveResult} from 'components/views/positive-result';
+import {Language} from 'components/views/settings/language';
 
 enableScreens();
 
@@ -192,6 +193,14 @@ const Screens = (t: TFunction) => {
       component: CheckInSettings,
       options: {
         title: t('viewNames:settingsCheckin'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.LanguageSetttings,
+      component: Language,
+      options: {
+        title: t('viewNames:settingsLanguage'),
         ...standardProps
       }
     },
