@@ -23,7 +23,9 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   groupOfPeople: {
-    marginTop: -10
+    marginTop: -14,
+    // backgroundColor: colors.background,
+    alignSelf: 'flex-start'
   },
   list: {
     flexDirection: 'row',
@@ -78,5 +80,37 @@ export const styles = StyleSheet.create({
   cardContent: {
     paddingHorizontal: 16,
     paddingVertical: 30
+  },
+  relative: {
+    position: 'relative',
+    overflow: 'visible'
+  },
+  index2: {
+    zIndex: 2
+  },
+  index1: {
+    zIndex: 1
+  },
+  index0: {
+    zIndex: 0
+  },
+  sloped: {
+    backgroundColor: colors.purple,
+    position: 'absolute',
+    top: -25,
+    left: 0,
+    right: 0,
+    height: 80,
+    transform: [
+      {
+        skewY: '-5.9deg'
+      }
+    ]
+  },
+  slopeIcon: {
+    flex: 1,
+    position: 'relative',
+    alignSelf: 'flex-end',
+    marginTop: 0
   }
 });
