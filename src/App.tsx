@@ -122,7 +122,10 @@ const Screens = (t: TFunction) => {
       component: Introduction,
       options: {
         title: t('viewNames:introduction'),
-        ...standardProps
+        headerShown: true,
+        cardStyle: {
+          backgroundColor: colors.purple
+        }
       }
     },
     {
