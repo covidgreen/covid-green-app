@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24"><path fill="currentColor" fill-rule="evenodd" d="M9 11a1 1 0 011 1v7a1 1 0 01-1 1H7a1 1 0 01-1-1v-7a1 1 0 011-1h2zm8-7a1 1 0 011 1v14a1 1 0 01-1 1h-2a1 1 0 01-1-1V5a1 1 0 011-1h2zm8 5a1 1 0 011 1v9a1 1 0 01-1 1h-2a1 1 0 01-1-1v-9a1 1 0 011-1h2z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="24px" viewBox="0 0 32 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tab-updates</title>
+    <g id="tab-updates" stroke="none" stroke-width="1" fill="none">
+        <path d="M9,11 C9.55228475,11 10,11.4477153 10,12 L10,19 C10,19.5522847 9.55228475,20 9,20 L7,20 C6.44771525,20 6,19.5522847 6,19 L6,12 C6,11.4477153 6.44771525,11 7,11 L9,11 Z M17,4 C17.5522847,4 18,4.44771525 18,5 L18,19 C18,19.5522847 17.5522847,20 17,20 L15,20 C14.4477153,20 14,19.5522847 14,19 L14,5 C14,4.44771525 14.4477153,4 15,4 L17,4 Z M25,9 C25.5522847,9 26,9.44771525 26,10 L26,19 C26,19.5522847 25.5522847,20 25,20 L23,20 C22.4477153,20 22,19.5522847 22,19 L22,10 C22,9.44771525 22.4477153,9 23,9 L25,9 Z" id="Combined-Shape" fill="#B2B2B2" opacity="0"></path>
+        <g id="Group" transform="translate(6.000000, 3.000000)" stroke="currentColor" stroke-linecap="round">
+            <polyline id="Path-2" stroke-width="2" points="8.02913291e-13 0 8.02913291e-13 18 18.8472691 18"></polyline>
+            <polyline id="Path-4" stroke-width="3" points="4.17309539 7.96131347 8.61124143 2.29202562 11.5662379 10.970782 14.5679708 7.79202562 18 13.2920256"></polyline>
+        </g>
+    </g>
+</svg>

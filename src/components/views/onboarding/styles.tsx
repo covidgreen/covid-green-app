@@ -98,7 +98,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.purple,
     position: 'absolute',
     top: -25,
-    left: 0,
+    left: -10,
     right: 0,
     height: 80,
     transform: [

@@ -298,7 +298,7 @@ PODS:
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
   - React-jsinspector (0.63.2)
-  - react-native-exposure-notification-service (1.1.19):
+  - react-native-exposure-notification-service (1.1.17):
     - Alamofire (~> 5.2)
     - KeychainSwift (~> 19.0)
     - React
@@ -374,11 +374,11 @@ PODS:
     - React-Core (= 0.63.2)
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
-  - RNCAsyncStorage (1.12.0):
+  - RNCAsyncStorage (1.11.0):
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNCPushNotificationIOS (1.4.1):
+  - RNCPushNotificationIOS (1.4.0):
     - React
   - RNFBApp (8.3.1):
     - Firebase/CoreOnly (~> 6.28.1)
@@ -658,7 +658,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: cde416483dac037923206447da6e1454df403714
+  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   EXConstants: f907b3b6ce16e20d1750f22af1e095e924574bcb
   EXCrypto: 867e1d45d513e39ab9d7706232435edb1cf756cd
   EXFileSystem: 76875135b61708b9afa7e6a89b72a60ba0fdfa20
@@ -680,7 +680,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 3c520c951305cbf9ca54eb891ff9e6d1fd384881
   FirebaseRemoteConfig: a7d272194b5336a66ca3e35beb5de67f18c79b91
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
-  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
+  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   GoogleAppMeasurement: 8cd1f289d60e629cf16ab03363b9e89c776b9651
   GoogleDataTransport: 672fb0ce96fe7f7f31d43672fca62ad2c9c86f7b
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
@@ -698,7 +698,7 @@ SPEC CHECKSUMS:
   React-jsi: 54245e1d5f4b690dec614a73a3795964eeef13a8
   React-jsiexecutor: 8ca588cc921e70590820ce72b8789b02c67cce38
   React-jsinspector: b14e62ebe7a66e9231e9581279909f2fc3db6606
-  react-native-exposure-notification-service: 0402b22ff0874cf1f8e833c64cc96ba75cc8c096
+  react-native-exposure-notification-service: 0504718c5eb28fb1c4cac71b17c7055abca387e5
   react-native-netinfo: 38a1e0b3e89b48e4b5833ed475d8df5f049f6f90
   react-native-safe-area-context: eb91fe1fb3f7b87d9c30a7f0808407d8569d539d
   react-native-video: eee541262ada11bc7ffe8ec5508e6a877937c462
@@ -713,9 +713,9 @@ SPEC CHECKSUMS:
   React-RCTText: 1b6773e776e4b33f90468c20fe3b16ca3e224bb8
   React-RCTVibration: 4d2e726957f4087449739b595f107c0d4b6c2d2d
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
-  RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
+  RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNCPushNotificationIOS: c145c6253ea016e5efeff604f2720736b4a596f7
+  RNCPushNotificationIOS: dc1c0c6aa18a128df123598149f42e848d26a4ac
   RNFBApp: a1d628d29c278f4e2c63f2eb02e22a879c0e264d
   RNFBCrashlytics: e96651d15481d1fec48e52f422dd752a8a9ee3d7
   RNFBRemoteConfig: 7b1dc0b2b34c0643153b65de934eb11da81ac2f3
