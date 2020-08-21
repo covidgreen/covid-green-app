@@ -16,8 +16,16 @@ const map: {[key: number]: any} = Object.entries(KeepSafeIcons).reduce(
   {}
 );
 
-function renderListBullet(_: boolean, index: number) {
-  return <View style={styles.listIcon}>{map[index]}</View>;
+function renderListBullet(index: number, _: boolean, children: any) {
+  console.log(index);
+  return (
+    <View key={`list-item-${index}`} style={styles.listIcon}>
+      <View style={styles.icon}>{map[index]}</View>
+      <View style={styles.content}>
+        {children}
+      </View>
+    </View>
+  );
 }
 
 export const CloseContactInfo: FC = () => {
@@ -32,8 +40,16 @@ export const CloseContactInfo: FC = () => {
 };
 
 const styles = StyleSheet.create({
-  listIcon: {
-    marginTop: 12,
+  icon: {
     marginRight: 12
+  },
+  content: {
+    flex: 1
+  },
+  listIcon: {
+    flexDirection: 'row',
+    flex: 1,
+    marginRight: 12,
+    marginTop: 12
   }
 });

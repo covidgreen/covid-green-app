@@ -12,7 +12,7 @@ interface Markdown {
   style?: object;
   markdownStyles?: object;
   warningList?: boolean;
-  renderListBullet?: (ordered: boolean, index: number) => any;
+  renderListBullet?: (index: number, ordered: boolean) => any;
 }
 
 type RenderListItem = (

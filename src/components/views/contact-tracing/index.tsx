@@ -95,7 +95,7 @@ export const ContactTracing = ({navigation}) => {
           </Card>
           <Spacing s={16} />
           <Card
-            onPress={() => navigation.navigate('uploadKeys')}
+            onPress={() => navigation.navigate(ScreenNames.CloseContactInfo)}
             icon={
               <BubbleIcons.Info fill={colors.purple} width={56} height={57} />
             }
