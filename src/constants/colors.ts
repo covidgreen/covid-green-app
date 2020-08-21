@@ -62,6 +62,11 @@ export const colors = {
       text: purple,
       background: white,
       shadow: '#D3D0D0'
+    },
+    link: {
+      text: purple,
+      background: background,
+      shadow: 'transparent'
     }
   }
 };

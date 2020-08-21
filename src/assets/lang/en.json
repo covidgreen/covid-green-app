@@ -60,19 +60,13 @@
         {
           "title": "Help Stop the Spread of COVID-19 in Your Community",
           "list": [
-            "Get alerted if a sick person spent enough time very near you that you may have caught the virus.",
-            "Alert others if you test positive, without revealing your identity.",
+            "Get alerted if you recently spent more than 10 minutes within 6 feet of someone who tests positive.",
+            "Alert others if you test positive.",
             "Keep an eye on trends in your community."
-          ]
-        },
-        {
-          "title": "We never see:",
-          "list": [
-            "Your location or identity.",
-            "Your phone number, unless you explicitly share it with us."
           ]
         }
       ],
+      "disclaimer": "**We don’t collect info that can identify you. Your identity and location are always confidential.**",
       "learnAction": "Learn how it works",
       "continueAction": "Get started"
     },
@@ -95,7 +89,7 @@
     "completion": {
       "title": "Closeness Sensing and COVID Alerts are now active!",
       "text": "Thank you for doing your part to stop the spread of COVID-19.",
-      "shareText": "Share this app with friends. Help keep NY Safe.",
+      "shareText": "Share this app with friends.\n Help keep NY Safe.",
       "next": "Done",
       "share": "Share"
     },

@@ -7,7 +7,6 @@ import {
   SPACING_BOTTOM,
   SPACING_HORIZONTAL
 } from 'constants/shared';
-import {colors} from 'theme';
 import {Heading} from 'components/atoms/heading';
 import {Spacing} from 'components/atoms/layout';
 

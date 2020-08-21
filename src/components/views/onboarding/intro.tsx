@@ -3,11 +3,15 @@ import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {View, Text} from 'react-native';
 
-import {Scrollable} from 'components/templates/scrollable';
 import {Button} from 'components/atoms/button';
-import {Spacing} from 'components/atoms/spacing';
+import {LearnHowItWorks} from 'components/views/tour/learn-how-it-works';
+import {Markdown} from 'components/atoms/markdown';
 import {ScreenNames} from 'navigation';
+import {Scrollable} from 'components/templates/scrollable';
+import {Spacing} from 'components/atoms/spacing';
 import {styles} from './styles';
+
+import GroupOfPeople from 'assets/icons/how-it-works/howitworks1.svg';
 
 interface Content {
   title: string;
@@ -27,7 +31,12 @@ export const Introduction: FC<any> = () => {
       <View style={styles.fill}>
         {content.map(({title, list}, index) => (
           <View key={`c-${index}`} style={styles.block}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={[styles.title, styles.introTitle]}>{title}</Text>
+            <GroupOfPeople
+              width={213}
+              height={145}
+              style={styles.groupOfPeople}
+            />
             {list.map((item: string, l: number) => (
               <View key={`l-${l}`} style={[styles.list, styles.center]}>
                 <View style={styles.dot} />
@@ -38,15 +47,15 @@ export const Introduction: FC<any> = () => {
             ))}
           </View>
         ))}
+        <Markdown>{t('onboarding:introduction:disclaimer')}</Markdown>
+        <Spacing s={20} />
       </View>
       <View>
-        <Button onPress={() => nav.navigate(ScreenNames.Tour)} type="secondary">
-          {t('onboarding:introduction:learnAction')}
-        </Button>
-        <Spacing s={12} />
         <Button onPress={() => nav.navigate(ScreenNames.Permissions)}>
           {t('onboarding:introduction:continueAction')}
         </Button>
+        <Spacing s={12} />
+        <LearnHowItWorks />
       </View>
       <Spacing s={30} />
     </Scrollable>

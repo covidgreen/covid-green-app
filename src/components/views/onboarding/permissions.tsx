@@ -17,6 +17,7 @@ import {useApplication} from 'providers/context';
 import {register} from 'services/api';
 
 import {styles} from './styles';
+import {LearnHowItWorks} from 'components/views/tour/learn-how-it-works';
 
 enum RegistrationError {
   'INVALID' = 'Invalid verification',
@@ -34,10 +35,6 @@ export const Permissions: FC<any> = () => {
       SecureStore.setItemAsync('supportPossible', 'true');
     }
   }, []);
-
-  const list: string[] = t('onboarding:permissions:list', {
-    returnObjects: true
-  });
 
   const handleRegistration = async (skip: boolean) => {
     try {
@@ -151,17 +148,15 @@ export const Permissions: FC<any> = () => {
       </View>
 
       <View>
-        <Button onPress={() => nav.navigate(ScreenNames.Tour)} type="secondary">
-          {t('onboarding:permissions:learnAction')}
-        </Button>
-        <Spacing s={12} />
-        <Button onPress={() => handleRegistration(true)} type="secondary">
-          {t('onboarding:permissions:skipAction')}
-        </Button>
-        <Spacing s={12} />
         <Button onPress={handlePermissionsRequest}>
           {t('onboarding:permissions:continueAction')}
         </Button>
+        <Spacing s={12} />
+        <Button onPress={() => handleRegistration(true)} type="link">
+          {t('onboarding:permissions:skipAction')}
+        </Button>
+        <Spacing s={12} />
+        <LearnHowItWorks />
       </View>
       <Spacing s={30} />
     </Scrollable>
