@@ -89,17 +89,17 @@
     "completion": {
       "title": "Closeness Sensing and COVID Alerts are now active!",
       "text": "Thank you for doing your part to stop the spread of COVID-19.",
-      "shareText": "Share this app with friends.\n Help keep NY Safe.",
+      "shareText": "Share this app with friends.\nHelp keep NY Safe.",
       "next": "Done",
       "share": "Share"
     },
     "tour": {
       "title": "How it works",
       "statements": [
-        "As you go about your day, the app uses Bluetooth to sense when another person with the app has come within 6 feet of you.\n\nYour phone exchanges a secure random code with the other phone to record that they were near. The app doesn't collect or share your name, location, or phone number, or those of the people around you",
-        "If you are within 6 feet of someone for more than 10 minutes, the app puts their phone's random code on a list of close contacts.\n\nPeople who are just passing by or stand more than 6 feet away from you are not put on the list of close contacts. You will never get any alerts because of them.",
-        "If you test positive for COVID-19, a Health Advisor will call you as soon as possible.\n\nThe Health Advisor will ask if you are willing to share your app's list of close contacts to help protect other people.\n\nSharing your list is secure and private. The app never reveals who you are to anyone.",
-        "Each day, the list of \"infected\" codes is sent to every phone that has the app. The app compares its own list of close contact codes to the list of infected codes. If there's a match, the app displays a COVID alert.\n\nUsing these lists of anonymous codes, the alert is kept private. No one ever knows who the COVID Alert comes from."
+        "As you go about your day, the app uses Bluetooth to sense when you spend more than 10 minutes within 6 feet of another person with the app.\n\nThis is “close contact”. It’s long enough and close enough for you to catch the virus.\n\nThe app ignores people who just pass by or stand more than 6 feet away from you. You’ll never get any alerts because of them.",
+        "When your app senses the close contact, your phone exchanges a secure random code with the other person’s phone. Your phone stores this close contact code in a list.\n\nThe codes are random and don’t reveal any information about you or the other person. The app doesn’t collect or share any names, locations, or phone numbers.",
+        "If you test positive for COVID-19, a public health representative will call you as soon as possible.\n\nThe representative will ask if you’re willing to share your app’s list of close contact codes to help protect other people.\n\nSharing your list is secure and private. The app never reveals who you are to anyone.",
+        "Each day, every phone that has the app compares its own list of close contact codes to the list of \"infected\" codes.\n\nIf there's a match, the app displays a COVID Alert."
       ],
       "previous": "Previous",
       "next": "Next",

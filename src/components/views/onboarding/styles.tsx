@@ -8,9 +8,7 @@ export const styles = StyleSheet.create({
     marginBottom: 20
   },
   introTitle: {
-    ...text.xxlargeHeavy,
-    paddingHorizontal: 10,
-    marginTop: 20
+    ...text.xxlargeHeavy
   },
   bold: {
     ...text.defaultBold
@@ -25,6 +23,7 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   groupOfPeople: {
+    marginTop: -3,
     alignSelf: 'flex-end'
   },
   list: {

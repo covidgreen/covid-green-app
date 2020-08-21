@@ -11,7 +11,7 @@ import {Scrollable} from 'components/templates/scrollable';
 import {Button} from 'components/atoms/button';
 import {Spacing} from 'components/atoms/spacing';
 import {Markdown} from 'components/atoms/markdown';
-import {AppIcons, TabBarIcons} from 'assets/icons';
+import {AppIcons, StateIcons} from 'assets/icons';
 import {ScreenNames} from 'navigation';
 import {useApplication} from 'providers/context';
 import {register} from 'services/api';
@@ -109,10 +109,10 @@ export const Permissions: FC<any> = () => {
       <View>
         <Text style={styles.title}>{t('onboarding:permissions:title')}</Text>
         <Text style={styles.text}>{t('onboarding:permissions:line1')}</Text>
-
+        <Spacing s={10} />
         <View style={styles.list}>
           <View style={styles.listIcon}>
-            <TabBarIcons.ContactTracing.On
+            <StateIcons.AppENS
               width={32}
               height={32}
               color={colors.icons.gray}

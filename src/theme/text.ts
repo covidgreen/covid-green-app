@@ -80,7 +80,7 @@ export default (scale: (v: number) => number): {[key: string]: TextStyle} => ({
     fontWeight: 'bold',
     lineHeight: scale(38),
     letterSpacing: -0.61,
-    color: colors.purple
+    color: colors.white
   },
 
   // lato-black
