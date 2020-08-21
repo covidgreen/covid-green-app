@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
 
 import {Button} from 'components/atoms/button';
 import {LearnHowItWorks} from 'components/views/tour/learn-how-it-works';
@@ -30,12 +30,19 @@ export const Introduction: FC<any> = () => {
   return (
     <Scrollable scrollStyle={style.page}>
       <View style={styles.fill}>
-        {content.map(({title, list}, index) => (
+        <View style={style.top}>
+          <Text style={[styles.title, styles.introTitle]}>
+            {content[0].title}
+          </Text>
+        </View>
+        <GroupOfPeople
+          width={Dimensions.get('screen').width}
+          height={190}
+          style={styles.groupOfPeople}
+        />
+        <Spacing s={12} />
+        {content.map(({list}, index) => (
           <View key={`c-${index}`} style={styles.block}>
-            <View style={style.top}>
-              <Text style={[styles.title, styles.introTitle]}>{title}</Text>
-            </View>
-            <GroupOfPeople width="100%" style={styles.groupOfPeople} />
             {list.map((item: string, l: number) => (
               <View
                 key={`l-${l}`}
@@ -68,7 +75,9 @@ export const Introduction: FC<any> = () => {
 const style = StyleSheet.create({
   page: {
     paddingHorizontal: 0,
-    paddingTop: 0
+    paddingTop: 0,
+    backgroundColor: colors.background,
+    paddingBottom: 100
   },
   top: {
     flex: 1,
