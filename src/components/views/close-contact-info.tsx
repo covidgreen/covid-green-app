@@ -17,13 +17,10 @@ const map: {[key: number]: any} = Object.entries(KeepSafeIcons).reduce(
 );
 
 function renderListBullet(index: number, _: boolean, children: any) {
-  console.log(index);
   return (
     <View key={`list-item-${index}`} style={styles.listIcon}>
       <View style={styles.icon}>{map[index]}</View>
-      <View style={styles.content}>
-        {children}
-      </View>
+      <View style={styles.content}>{children}</View>
     </View>
   );
 }
