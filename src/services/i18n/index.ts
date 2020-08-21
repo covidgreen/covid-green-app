@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import * as Localization from 'expo-localization';
+import * as SecureStore from 'expo-secure-store';
 import {
   fallback,
   defaultNamespace,
@@ -13,10 +14,10 @@ const languageDetector = {
   type: 'languageDetector',
   async: true,
   detect: async (callback: (lang: string) => void) => {
-    console.log(Localization.locale);
-    console.log(Localization.locales);
-    console.log(Localization.locale.split('-')[0].replace('-', ''));
-    callback(Localization.locale.split('-')[0].replace('-', ''));
+    const storedLanguage = await SecureStore.getItemAsync('appLanguage');
+    callback(
+      storedLanguage || Localization.locale.split('-')[0].replace('-', '')
+    );
   },
   init: () => {},
   cacheUserLanguage: () => {}
@@ -34,11 +35,12 @@ i18n
     debug: false,
     interpolation: {
       escapeValue: false,
-      format: (value, format) => {
-        if (value instanceof Date) {
+      format: (value: Date | string, format: string | undefined): string => {
+        if (value instanceof Date && format) {
           return F(value, format);
+        } else {
+          return value.toString();
         }
-        return value;
       }
     }
   });

@@ -251,6 +251,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     await SecureStore.deleteItemAsync('covidApp.checks');
     await SecureStore.deleteItemAsync('uploadToken');
     await SecureStore.deleteItemAsync('covidApp.callBackQueuedTs');
+    await SecureStore.deleteItemAsync('appLanguage');
     await AsyncStorage.removeItem('covidApp.user');
     await AsyncStorage.removeItem('covidApp.checkInConsent');
     await AsyncStorage.removeItem('covidApp.showDebug');
