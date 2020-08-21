@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 import {Button} from 'components/atoms/button';
 import {LearnHowItWorks} from 'components/views/tour/learn-how-it-works';
@@ -12,7 +12,6 @@ import {Spacing} from 'components/atoms/spacing';
 import {styles} from './styles';
 
 import Step1 from 'assets/icons/how-it-works/howitworks1.svg';
-import GroupOfPeople from 'assets/icons/intro-visual.svg';
 import {colors} from 'theme';
 import {SPACING_HORIZONTAL} from 'constants/shared';
 
@@ -20,9 +19,6 @@ interface Content {
   title: string;
   list: string[];
 }
-
-const dimensions = Dimensions.get('screen');
-console.log(dimensions);
 
 export const Introduction: FC<any> = () => {
   const {t} = useTranslation();
