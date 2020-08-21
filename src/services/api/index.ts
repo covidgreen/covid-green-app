@@ -14,6 +14,7 @@ import {CallBackData} from 'components/organisms/phone-number-us';
 import {urls} from 'constants/urls';
 import {Check} from 'providers/context';
 import {isMountedRef, navigationRef, ScreenNames} from 'navigation';
+import {County} from 'assets/counties';
 
 interface CheckIn {
   gender: string;
@@ -28,13 +29,21 @@ export type UploadResponse = Response | undefined;
 
 export const verify = async (nonce: string) => {
   if (Platform.OS === 'android') {
-    return {
-      platform: 'android',
-      deviceVerificationPayload: await RNGoogleSafetyNet.sendAttestationRequestJWT(
+    console.log(SAFETYNET_KEY);
+    console.log(urls.api);
+    try {
+      const deviceVerificationPayload = await RNGoogleSafetyNet.sendAttestationRequestJWT(
         nonce,
         SAFETYNET_KEY
-      )
-    };
+      );
+      return {
+        platform: 'android',
+        deviceVerificationPayload
+      };
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
   } else {
     if (ENV !== 'production' && TEST_TOKEN) {
       console.log('using test token', TEST_TOKEN);
@@ -171,16 +180,22 @@ export async function register(): Promise<{
   }
   const {nonce} = await registerResponse.json();
 
+  const body = {
+    nonce,
+    timestamp: Date.now(),
+    ...(await verify(nonce))
+  };
+
+  console.log(SAFETYNET_KEY);
+  console.log(urls.api);
+  console.log(body);
+
   const verifyResponse = await request(`${urls.api}/register`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      nonce,
-      timestamp: Date.now(),
-      ...(await verify(nonce))
-    })
+    body: JSON.stringify(body)
   });
 
   if (!verifyResponse) {
@@ -265,36 +280,77 @@ export async function loadSettings() {
   }
 }
 
-export interface CheckIns {
-  total: number;
-  ok: number;
+// export interface CheckIns {
+//   total: number;
+//   ok: number;
+// }
+
+// export type ConfirmedCasesData = [Date, number][];
+
+// export interface CovidStatistics {
+//   confirmed: number;
+//   deaths: number;
+//   recovered: number;
+//   hospitalised: number;
+//   requiredICU: number;
+//   transmission: {
+//     community: number;
+//     closeContact: number;
+//     travelAbroad: number;
+//   };
+//   lastUpdated: {
+//     stats: Date;
+//     profile: Date;
+//   };
+// }
+
+export interface BaseStatRecord {
+  cumulative_number_of_positives: number;
+  cumulative_number_of_tests: number;
+  new_positives: number;
+  total_number_of_tests: number;
 }
 
-export type ConfirmedCasesData = [Date, number][];
+export interface DateData extends BaseStatRecord {
+  county: County;
+}
 
-export interface CovidStatistics {
-  confirmed: number;
-  deaths: number;
-  recovered: number;
-  hospitalised: number;
-  requiredICU: number;
-  transmission: {
-    community: number;
-    closeContact: number;
-    travelAbroad: number;
+export interface CountyAggregateRecord {
+  cumulative_number_of_positives: number;
+  cumulative_number_of_tests: number;
+  last_test_date: string;
+}
+
+export interface CountyRecord extends BaseStatRecord {
+  test_date: string;
+}
+
+export interface CountyStatsData {
+  aggregate: {
+    [key in County]: CountyAggregateRecord;
   };
-  lastUpdated: {
-    stats: Date;
-    profile: Date;
+  counties: {
+    [key in County]: CountyRecord | CountyAggregateRecord;
+  };
+}
+
+export interface DateStatsData {
+  aggregate: {
+    [key: string]: BaseStatRecord;
+  };
+  counties: {
+    [key: string]: DateData[];
   };
 }
 
 export interface StatsData {
-  checkIns: CheckIns;
-  statistics: CovidStatistics;
-  chart: ConfirmedCasesData;
-  installs: [Date, number][];
-  counties: {cases: number; county: string}[];
+  byCounty: CountyStatsData;
+  byDate: DateStatsData;
+  // checkIns: CheckIns;
+  // statistics: CovidStatistics;
+  // chart: ConfirmedCasesData;
+  // installs: [Date: number][];
+  // counties: {cases: number; county: string}[];
 }
 
 export async function loadData(): Promise<StatsData> {

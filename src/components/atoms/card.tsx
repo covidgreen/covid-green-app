@@ -13,6 +13,7 @@ interface CardProps {
   };
   icon?: ReactNode;
   onPress?: () => void;
+  arrowColor?: string;
 }
 
 export const Card: FC<CardProps> = ({
@@ -20,7 +21,8 @@ export const Card: FC<CardProps> = ({
   padding: {h = 24, v = 20, r} = {},
   icon,
   onPress,
-  children
+  children,
+  arrowColor
 }) => {
   const padding = {
     paddingHorizontal: h,
@@ -46,7 +48,13 @@ export const Card: FC<CardProps> = ({
           <AppIcons.ArrowRight
             width={18}
             height={18}
-            color={isWarning || isInfo ? colors.white : colors.purple}
+            color={
+              arrowColor
+                ? arrowColor
+                : isWarning || isInfo
+                ? colors.white
+                : colors.purple
+            }
           />
         </View>
       )}

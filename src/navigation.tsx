@@ -25,6 +25,7 @@ export enum ScreenNames {
   CloseContact = 'closeContact',
   UploadKeys = 'uploadKeys',
   PositiveResult = 'positiveResult',
+  Tracing = 'tracing',
 
   Dashboard = 'dashboard',
   Settings = 'settings'

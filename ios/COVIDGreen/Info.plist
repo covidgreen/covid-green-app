@@ -41,7 +41,7 @@
 			<string>OAuthRedirect</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.fighttogether.hse</string>
+				<string>gov.ny.health.proximity</string>
 			</array>
 		</dict>
 	</array>

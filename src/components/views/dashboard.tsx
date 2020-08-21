@@ -20,13 +20,17 @@ import {useSymptomChecker} from 'hooks/symptom-checker';
 import {Heading} from 'components/atoms/heading';
 import {CountyDropdown} from 'components/molecules/county-dropdown';
 import {colors, text} from 'theme';
+import {County} from 'assets/counties';
+import {AlertInformation} from 'components/molecules/alert-information';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const {
     verifyCheckerStatus,
     checkInConsent,
     loadAppData,
-    data
+    data,
+    county,
+    setCountyScope
   } = useApplication();
   const {t} = useTranslation();
   const [refreshing, setRefreshing] = useState(false);
@@ -78,6 +82,12 @@ export const Dashboard: FC<any> = ({navigation}) => {
           <Spacing s={16} />
         </>
       )}
+      {exposure.initialised && !exposure.enabled && (
+        <>
+          <AlertInformation />
+          <Spacing s={16} />
+        </>
+      )}
       {!checkInConsent && (
         <>
           <CheckInCard
@@ -104,30 +114,44 @@ export const Dashboard: FC<any> = ({navigation}) => {
             lineWidth={75}
             text={t('dashboard:stats:title')}
           />
-          <CountyDropdown onValueChange={() => {}} value="u" />
+          <CountyDropdown
+            onValueChange={(option) => {
+              setCountyScope(option.label as County);
+            }}
+            value={county}
+          />
           <Spacing s={20} />
           <Text style={text.defaultBold}>{t('dashboard:stats:subtitle')}</Text>
           <Spacing s={18} />
-          {data && data.chart && (
+          {data && data.byDate && (
             <>
               <Card padding={{h: 12}}>
                 <TrackerAreaChart
-                  title={t('confirmedChart:title')}
-                  hint={t('confirmedChart:hint')}
-                  yesterday={t('confirmedChart:yesterday')}
-                  data={data.chart}
+                  title={t('charts:tests:title')}
+                  hint={t('charts:tests:hint')}
+                  quantityKey="total_number_of_tests"
+                  data={
+                    county !== 'u'
+                      ? data.byCounty.counties[county]
+                      : data.byDate.aggregate
+                  }
                 />
               </Card>
             </>
           )}
-          {data && data.chart && (
+          {data && data.byDate && (
             <>
               <Spacing s={20} />
               <Card padding={{h: 12}}>
                 <TrackerAreaChart
-                  title={t('positivePercentage:title')}
-                  hint={t('positivePercentage:hint')}
-                  data={data.chart}
+                  title={t('charts:positiveTests:title')}
+                  hint={t('charts:positiveTests:hint')}
+                  quantityKey="new_positives"
+                  data={
+                    county !== 'u'
+                      ? data.byCounty.counties[county]
+                      : data.byDate.aggregate
+                  }
                 />
               </Card>
             </>

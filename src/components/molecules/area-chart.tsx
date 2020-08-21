@@ -5,7 +5,6 @@ import {AreaChart, YAxis, Grid} from 'react-native-svg-charts';
 import {differenceInDays, format} from 'date-fns';
 import * as shape from 'd3-shape';
 
-import {ConfirmedCasesData} from 'services/api';
 import {text, colors} from 'theme';
 
 interface TrackerAreaChartProps {
@@ -13,11 +12,12 @@ interface TrackerAreaChartProps {
   label?: string;
   hint?: string;
   yesterday?: string;
-  data: ConfirmedCasesData;
+  data: any;
   intervalsCount?: number;
   gradientStart?: string;
   gradientEnd?: string;
   lineColor?: string;
+  quantityKey: string;
 }
 
 function formatLabel(value: number) {
@@ -37,24 +37,52 @@ function formatLabel(value: number) {
 export const TrackerAreaChart: FC<TrackerAreaChartProps> = ({
   title,
   data,
-  label,
   hint,
   yesterday,
   intervalsCount = 5,
   gradientStart = colors.orange,
   gradientEnd = colors.white,
-  lineColor = colors.orange
+  lineColor = colors.orange,
+  quantityKey
 }) => {
-  const axisData: Date[] = data.map(([x, _]) => new Date(x));
-  const chartData: number[] = data.map(([_, y]) => y);
+  let axisData: Date[] = [];
+  let chartData: number[] = [];
+  const dataKeys = Object.keys(data);
+
+  if (!Array.isArray(data)) {
+    const reducedData = dataKeys.reduce(
+      (records, date: string, index: number) => {
+        const dataRecord = data[date] || data[index];
+        return {
+          axisData: [...records.axisData, new Date(date)],
+          chartData: [...records.chartData, dataRecord[quantityKey]]
+        };
+      },
+      {
+        axisData: [],
+        chartData: []
+      } as {
+        axisData: Date[];
+        chartData: number[];
+      }
+    );
+    axisData = reducedData.axisData;
+    chartData = reducedData.chartData;
+  } else {
+    data.forEach((record) => {
+      axisData.push(new Date(record.test_date || record.last_test_date));
+      chartData.push(record[quantityKey]);
+    });
+  }
 
   const totalDays = differenceInDays(
     axisData[axisData.length - 1],
     axisData[0]
   );
+
   const interval = Math.floor(totalDays / intervalsCount);
 
-  const visibleAxisData = Array.from(new Array(6), (_, i) => i).map(
+  const visibleAxisData = Array.from(new Array(7), (_, i) => i).map(
     (i) => axisData[Math.min(i * interval, axisData.length - 1)]
   );
 
@@ -71,8 +99,8 @@ export const TrackerAreaChart: FC<TrackerAreaChartProps> = ({
     </Defs>
   );
 
-  const last = data[data.length - 1];
-  const labelString = `${last[1]} ${yesterday}`;
+  const last = chartData[chartData.length - 1];
+  const labelString = `${last} ${yesterday}`;
 
   return (
     <>

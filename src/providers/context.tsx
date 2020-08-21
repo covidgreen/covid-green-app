@@ -13,6 +13,7 @@ import {format, compareDesc, startOfDay, subDays, isBefore} from 'date-fns';
 import {AppConfig} from './settings';
 import {loadData, StatsData, checkIn as apiCheckIn} from 'services/api';
 import {SymptomRecord} from 'constants/symptoms';
+import {County} from 'assets/counties';
 
 export interface UserLocation {
   county?: string;
@@ -60,6 +61,7 @@ interface State {
   checks: Check[];
   callBackQueuedTs?: CallBackQueuedTs;
   accessibility: Accessibility;
+  county: County | 'u';
 }
 
 export interface ApplicationContextValue extends State {
@@ -71,6 +73,7 @@ export interface ApplicationContextValue extends State {
   loadAppData: () => Promise<void>;
   checkIn: (symptoms: SymptomRecord, params: CheckInParams) => Promise<void>;
   verifyCheckerStatus: () => void;
+  setCountyScope: (county: County | 'u') => void;
 }
 
 const initialState = {
@@ -108,7 +111,8 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     accessibility: {
       reduceMotionEnabled: false,
       screenReaderEnabled: false
-    }
+    },
+    county: 'u'
   });
 
   const handleReduceMotionChange = (reduceMotionEnabled: boolean): void => {
@@ -189,13 +193,16 @@ export const AP = ({appConfig, user, consent, children}: API) => {
         );
       }
 
+      const county = await AsyncStorage.getItem('nysCounty');
+
       setState((s) => ({
         ...s,
         initializing: false,
         completedChecker,
         completedCheckerDate,
         checks,
-        callBackQueuedTs
+        callBackQueuedTs,
+        county: county ? (county as County | 'u') : 'u'
       }));
     };
 
@@ -248,6 +255,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     await AsyncStorage.removeItem('covidApp.checkInConsent');
     await AsyncStorage.removeItem('covidApp.showDebug');
     await AsyncStorage.removeItem('analyticsConsent');
+    await AsyncStorage.removeItem('nysCounty');
 
     setState((s) => ({
       ...s,
@@ -336,6 +344,11 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     }
   };
 
+  const setCountyScope = (county: County | 'u') => {
+    AsyncStorage.setItem('nysCounty', county);
+    setState((s) => ({...s, county}));
+  };
+
   const verifyCheckerStatusRef = useCallback(verifyCheckerStatus, [
     state.completedChecker,
     state.completedCheckerDate
@@ -349,7 +362,8 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     hideActivityIndicator: hideActivityIndicatorRef,
     loadAppData: loadAppDataRef,
     checkIn,
-    verifyCheckerStatus: verifyCheckerStatusRef
+    verifyCheckerStatus: verifyCheckerStatusRef,
+    setCountyScope
   };
 
   return (

@@ -358,7 +358,7 @@ const MainStack = () => {
         }}
       />
       <Tab.Screen
-        name="tracing"
+        name={ScreenNames.Tracing}
         component={ContactTracing}
         options={{title: t('viewNames:contactTracing')}}
       />
