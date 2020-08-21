@@ -75,6 +75,13 @@ export default (scale: (v: number) => number): {[key: string]: TextStyle} => ({
     fontSize: scale(16),
     color: colors.blue
   },
+  xxlargeHeavy: {
+    fontSize: scale(30),
+    fontWeight: 'bold',
+    lineHeight: scale(38),
+    letterSpacing: -0.61,
+    color: colors.white
+  },
 
   // lato-black
   largeBlack: {

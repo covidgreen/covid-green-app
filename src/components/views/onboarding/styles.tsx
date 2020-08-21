@@ -7,6 +7,9 @@ export const styles = StyleSheet.create({
     ...text.largeBold,
     marginBottom: 20
   },
+  introTitle: {
+    ...text.xxlargeHeavy
+  },
   bold: {
     ...text.defaultBold
   },
@@ -19,9 +22,13 @@ export const styles = StyleSheet.create({
   fill: {
     flex: 1
   },
+  groupOfPeople: {
+    marginTop: -3,
+    alignSelf: 'flex-end'
+  },
   list: {
     flexDirection: 'row',
-    marginVertical: 15
+    marginBottom: 15
   },
   listIcon: {
     marginRight: 10
@@ -30,11 +37,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center'
   },
   dot: {
-    backgroundColor: colors.dot,
-    borderRadius: 4,
-    width: 9,
-    height: 9,
-    marginRight: 10
+    width: 4,
+    backgroundColor: colors.purple,
+    height: '100%',
+    marginRight: 18
   },
   listContent: {
     flex: 1

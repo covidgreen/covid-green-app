@@ -47,6 +47,7 @@ import Privacy from './privacy.svg';
 
 import StateLogo from './app-logo.svg';
 
+// states
 import StateErrorBluetooth from './states/error-bluetooth.svg';
 import StateErrorENS from './states/error-ens.svg';
 import StateErrorUpgrade from './states/error-upgrade.svg';
@@ -54,6 +55,7 @@ import StateSuccess from './states/success.svg';
 import StateSuccessPhone from './states/success-phone.svg';
 import StateExposureAlert from './states/exposure-alert.svg';
 import StateExposureUnset from './states/exposure-unset.svg';
+import StateAppENS from './states/app-ens.svg';
 
 import Call from './how-to-keep-others-safe/call.svg';
 import Food from './how-to-keep-others-safe/food.svg';
@@ -114,7 +116,8 @@ export const StateIcons = {
   Success: StateSuccess,
   SuccessPhone: StateSuccessPhone,
   ExposureAlert: StateExposureAlert,
-  ExposureUnset: StateExposureUnset
+  ExposureUnset: StateExposureUnset,
+  AppENS: StateAppENS
 };
 
 // Maintain order = content markdown is dependant on this - needs refactoring

@@ -1,5 +1,11 @@
 import React, {FC, MutableRefObject} from 'react';
-import {StyleSheet, View, ScrollView, RefreshControl} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  RefreshControl,
+  ViewStyle
+} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {
@@ -7,7 +13,6 @@ import {
   SPACING_BOTTOM,
   SPACING_HORIZONTAL
 } from 'constants/shared';
-import {colors} from 'theme';
 import {Heading} from 'components/atoms/heading';
 import {Spacing} from 'components/atoms/layout';
 
@@ -24,6 +29,7 @@ interface LayoutProps {
   safeArea?: boolean;
   children: React.ReactNode;
   accessibilityRefocus?: boolean;
+  scrollStyle?: ViewStyle;
 }
 
 export const Scrollable: FC<LayoutProps> = ({
@@ -35,7 +41,8 @@ export const Scrollable: FC<LayoutProps> = ({
   scrollViewRef,
   safeArea = true,
   children,
-  accessibilityRefocus = false
+  accessibilityRefocus = false,
+  scrollStyle
 }) => {
   const insets = useSafeArea();
   const refreshControl = refresh && <RefreshControl {...refresh} />;
@@ -47,7 +54,8 @@ export const Scrollable: FC<LayoutProps> = ({
         keyboardShouldPersistTaps="always"
         contentContainerStyle={[
           styles.scrollView,
-          {paddingBottom: (safeArea ? insets.bottom : 0) + SPACING_BOTTOM}
+          {paddingBottom: (safeArea ? insets.bottom : 0) + SPACING_BOTTOM},
+          {...scrollStyle}
         ]}
         refreshControl={refreshControl}>
         {toast && (
