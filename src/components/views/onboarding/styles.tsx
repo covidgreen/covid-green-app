@@ -23,8 +23,7 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   groupOfPeople: {
-    marginTop: -10,
-    alignSelf: 'flex-end'
+    marginTop: -10
   },
   list: {
     flexDirection: 'row',
