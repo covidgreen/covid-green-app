@@ -286,7 +286,9 @@ const SymptomsStack = () => {
   const {t} = useTranslation();
   const {getNextScreen} = useSymptomChecker();
 
-  const initialRouteName = app.checks.length ? 'history' : getNextScreen();
+  const initialRouteName = app.checks.length
+    ? ScreenNames.History
+    : getNextScreen();
 
   return (
     <Stack.Navigator
@@ -297,7 +299,7 @@ const SymptomsStack = () => {
       initialRouteName={initialRouteName}
       headerMode="none">
       <Stack.Screen
-        name="history"
+        name={ScreenNames.History}
         component={SymptomsHistory}
         options={{
           title: t('viewNames:symptomchecker'),

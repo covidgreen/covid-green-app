@@ -14,6 +14,7 @@ import {Basic} from 'components/templates/basic';
 import {Scrollable} from 'components/templates/scrollable';
 import {text, colors} from 'theme';
 import {AppIcons} from 'assets/icons';
+import {Card} from 'components/atoms/card';
 
 interface ProfileData {
   gender: string;
@@ -82,9 +83,11 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
 
   if (!gender || !race || !ethnicity || !ageRange || !county) {
     return (
-      <Basic heading={t('checkInSettings:title')}>
-        <Text style={text.largeBold}>{t('checkInSettings:checkInFirst')}</Text>
-        <Spacing s={48} />
+      <Basic
+        backgroundColor={colors.background}
+        heading={t('checkInSettings:title')}>
+        <Text style={text.default}>{t('checkInSettings:checkInFirst')}</Text>
+        <Spacing s={26} />
         <Button
           type="empty"
           onPress={() =>
@@ -109,75 +112,77 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
       toast={successToast}
       heading={t('checkInSettings:title')}
       scrollViewRef={scrollViewRef}>
-      <Text style={text.largeBold}>{t('checkInSettings:intro')}</Text>
+      <Text style={text.default}>{t('checkInSettings:intro')}</Text>
       <Spacing s={16} />
-      <Dropdown
-        label={t('gender:label')}
-        placeholder={t('gender:placeholder')}
-        items={genderOptions}
-        value={profile.gender}
-        onValueChange={(value) =>
-          setProfile({...profile, saved: false, gender: value})
-        }
-      />
-      <Separator />
-      <Dropdown
-        label={t('race:label')}
-        placeholder={t('race:placeholder')}
-        items={raceOptions}
-        value={profile.race}
-        onValueChange={(value) =>
-          setProfile({...profile, saved: false, race: value})
-        }
-      />
-      <Separator />
-      <Dropdown
-        label={t('ethnicity:label')}
-        placeholder={t('ethnicity:placeholder')}
-        items={ethnicityOptions}
-        value={profile.ethnicity}
-        onValueChange={(value) =>
-          setProfile({...profile, saved: false, ethnicity: value})
-        }
-      />
-      <Separator />
-      <Dropdown
-        label={t('ageRange:label')}
-        placeholder={t('ageRange:placeholder')}
-        items={ageRangeOptions}
-        value={profile.ageRange}
-        onValueChange={(value) =>
-          setProfile({...profile, saved: false, ageRange: value})
-        }
-      />
-      <Separator />
-      <Dropdown
-        label={t('county:label')}
-        placeholder={t('county:placeholder')}
-        items={counties}
-        value={profile.county}
-        search={{
-          placeholder: t('county:searchPlaceholder'),
-          term: searchTerm,
-          onChange: setSearchTerm,
-          noResults: t('county:noResults')
-        }}
-        onValueChange={(value) =>
-          setProfile({...profile, saved: false, county: value})
-        }
-      />
-      <Spacing s={24} />
-      <Button
-        disabled={
-          profile.gender === gender &&
-          profile.race === race &&
-          profile.ethnicity === ethnicity &&
-          profile.ageRange === ageRange &&
-          profile.county === county
-        }
-        onPress={handleSave}>
-        {t('common:confirmChanges')}
-      </Button>
+      <Card>
+        <Dropdown
+          label={t('county:label')}
+          placeholder={t('county:placeholder')}
+          items={counties}
+          value={profile.county}
+          search={{
+            placeholder: t('county:searchPlaceholder'),
+            term: searchTerm,
+            onChange: setSearchTerm,
+            noResults: t('county:noResults')
+          }}
+          onValueChange={(value) =>
+            setProfile({...profile, saved: false, county: value})
+          }
+        />
+        <Separator />
+        <Dropdown
+          label={t('gender:label')}
+          placeholder={t('gender:placeholder')}
+          items={genderOptions}
+          value={profile.gender}
+          onValueChange={(value) =>
+            setProfile({...profile, saved: false, gender: value})
+          }
+        />
+        <Separator />
+        <Dropdown
+          label={t('ageRange:label')}
+          placeholder={t('ageRange:placeholder')}
+          items={ageRangeOptions}
+          value={profile.ageRange}
+          onValueChange={(value) =>
+            setProfile({...profile, saved: false, ageRange: value})
+          }
+        />
+        <Separator />
+        <Dropdown
+          label={t('race:label')}
+          placeholder={t('race:placeholder')}
+          items={raceOptions}
+          value={profile.race}
+          onValueChange={(value) =>
+            setProfile({...profile, saved: false, race: value})
+          }
+        />
+        <Separator />
+        <Dropdown
+          label={t('ethnicity:label')}
+          placeholder={t('ethnicity:placeholder')}
+          items={ethnicityOptions}
+          value={profile.ethnicity}
+          onValueChange={(value) =>
+            setProfile({...profile, saved: false, ethnicity: value})
+          }
+        />
+        <Spacing s={24} />
+        <Button
+          disabled={
+            profile.gender === gender &&
+            profile.race === race &&
+            profile.ethnicity === ethnicity &&
+            profile.ageRange === ageRange &&
+            profile.county === county
+          }
+          onPress={handleSave}>
+          {t('common:confirmChanges')}
+        </Button>
+      </Card>
     </Scrollable>
   );
 };

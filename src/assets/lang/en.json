@@ -237,10 +237,10 @@
     "error": "There was an error deleting your data. Please try again or contact us."
   },
   "checkInSettings": {
-    "title": "COVID Check-In",
-    "checkInFirst": "Your settings will be visible here as soon as you do your first Check-In.",
-    "intro": "You have shared the following information with us.",
-    "gotoCheckIn": "Go to COVID Check-In"
+    "title": "My Health Log",
+    "checkInFirst": "Your settings will be visible here as soon as you do your first log.",
+    "intro": "You shared the following information with us about yourself.  You can change these selections at any time.",
+    "gotoCheckIn": "Go to My Health Log"
   },
   "appStats": {
     "title": "Today's fight",

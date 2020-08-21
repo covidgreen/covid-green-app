@@ -73,7 +73,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       title: t('settings:healthLog'),
       label: t('settings:healthLog'),
       hint: t('settings:healthLogHint'),
-      screen: 'settings.healthLog'
+      screen: ScreenNames.HealthLogSettings
     },
     {
       id: 'contactTracing',

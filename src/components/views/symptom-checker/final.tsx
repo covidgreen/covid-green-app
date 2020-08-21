@@ -4,6 +4,7 @@ import {
   useIsFocused,
   useNavigation
 } from '@react-navigation/native';
+import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useExposure} from 'react-native-exposure-notification-service';
 
@@ -17,6 +18,7 @@ import {Scrollable} from 'components/templates/scrollable';
 import {SymptomRecord, SymptomsCheckResult} from 'constants/symptoms';
 import {colors} from 'theme';
 import {CoronavirusCard} from 'components/molecules/coronavirus-card';
+import {ScreenNames} from 'navigation';
 
 function countSymptoms(symptoms: SymptomRecord): number {
   return Object.values(symptoms).reduce((t: number, r: number) => t + r, 0);
@@ -80,11 +82,15 @@ export const CheckInFinal: FC<any> = ({route}) => {
                 : undefined
             }
             buttonText={t('checker:results:viewLog')}
+            markdownStyle={styles.markdown}
             onButtonPress={() =>
               navigation.reset({
                 index: 0,
                 routes: [
-                  {name: 'history', params: {feelingWell: true, symptoms: {}}}
+                  {
+                    name: ScreenNames.History,
+                    params: {feelingWell: true, symptoms: {}}
+                  }
                 ]
               })
             }
@@ -99,3 +105,7 @@ export const CheckInFinal: FC<any> = ({route}) => {
     </Scrollable>
   );
 };
+
+const styles = StyleSheet.create({
+  markdown: {backgroundColor: colors.white}
+});
