@@ -10,6 +10,7 @@ const blue = '#0012ff';
 const borderInfo = '#cb8e00';
 
 export const colors = {
+  black: '#000000',
   purple,
   background,
   blue,

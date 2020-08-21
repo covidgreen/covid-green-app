@@ -605,7 +605,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hse.ftapp;
+				PRODUCT_BUNDLE_IDENTIFIER = gov.ny.health.proximity;
 				PRODUCT_NAME = "COVID Smart NY";
 				PROVISIONING_PROFILE_SPECIFIER = CTIEDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "COVIDGreen-Bridging-Header.h";

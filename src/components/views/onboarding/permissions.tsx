@@ -49,6 +49,7 @@ export const Permissions: FC<any> = () => {
 
       await SecureStore.setItemAsync('token', token);
       await SecureStore.setItemAsync('refreshToken', refreshToken, {});
+      await SecureStore.setItemAsync('analyticsConsent', String(true), {});
 
       await app.setContext({
         user: {
