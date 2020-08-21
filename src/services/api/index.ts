@@ -338,7 +338,7 @@ export interface DateStatsData {
   aggregate: {
     [key: string]: BaseStatRecord;
   };
-  counties: {
+  dates: {
     [key: string]: DateData[];
   };
 }
