@@ -162,7 +162,6 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
-    paddingBottom: Constants.statusBarHeight === 44 ? 34 : 0
   },
   tabBar: {
     flexDirection: 'row',
@@ -178,7 +177,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 3,
     paddingVertical: 6,
-    paddingHorizontal: 6
+    paddingHorizontal: 6,
+    paddingBottom: Constants.statusBarHeight === 44 ? 34 : 0
   },
   label: {
     ...text.smallBold,

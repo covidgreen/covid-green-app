@@ -13,7 +13,7 @@ import {Button} from 'components/atoms/button';
 import {colors, text} from 'theme';
 import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
 import {Markdown} from 'components/atoms/markdown';
-import {Spacing, Separator} from 'components/atoms/layout';
+import {Spacing} from 'components/atoms/layout';
 import {Toast} from 'components/atoms/toast';
 import {useAppState} from 'hooks/app-state';
 
@@ -118,20 +118,20 @@ export const ContactTracingSettings = () => {
       toast={successToast}
       heading={t('contactTracing:title')}
       scrollViewRef={scrollViewRef}>
-      <Text style={text.defaultBold}>
+      <Text style={text.default}>
         {t('contactTracing:settings:status:title')}
       </Text>
-      <Spacing s={12} />
+      <Spacing s={30} />
       <Text style={text.largeBold}>
         {t(`contactTracing:settings:status:${serviceStatus}`)}
       </Text>
-      <Spacing s={12} />
+      <Spacing s={30} />
       <Text style={text.default}>
         {Platform.OS === 'ios' || enabled
           ? t('contactTracing:settings:status:intro')
           : t('contactTracing:settings:status:android:intro')}
       </Text>
-      <Spacing s={12} />
+      <Spacing s={30} />
       <Button type="empty" onPress={gotoSettings}>
         {Platform.OS === 'ios' || enabled
           ? t('contactTracing:settings:status:gotoSettings')
@@ -140,13 +140,15 @@ export const ContactTracingSettings = () => {
 
       {contacts && contacts.length > 0 && (
         <>
-          <Separator />
+          <Spacing s={30} />
           <Text style={text.defaultBold}>
             {t('contactTracing:settings:clearData:title')}
           </Text>
-          <Spacing s={12} />
-          <Markdown>{t('contactTracing:settings:clearData:intro')}</Markdown>
-          <Spacing s={12} />
+          <Spacing s={30} />
+          <Markdown style={{background: colors.white}}>
+            {t('contactTracing:settings:clearData:intro')}
+          </Markdown>
+          <Spacing s={30} />
           <Button type="danger" onPress={clearDataHandler}>
             {t('contactTracing:settings:clearData:button')}
           </Button>

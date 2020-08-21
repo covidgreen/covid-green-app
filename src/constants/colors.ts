@@ -1,6 +1,7 @@
 const teal = '#3A7B7F';
 const red = '#B4083A';
 const white = '#FFFFFF';
+const disabled = '#B2B2B2';
 
 const purple = '#523178';
 const background = '#f3f3f8';
@@ -11,6 +12,8 @@ const borderInfo = '#cb8e00';
 
 export const colors = {
   black: '#000000',
+  blank: white,
+  disabled,
   purple,
   background,
   blue,

@@ -35,12 +35,12 @@ export const SelectList: FC<SelectListProps> = ({
     let color = colors.text;
     let backgroundColor = colors.gray;
     if (hasSelectedValue(value)) {
-      color = colors.purple;
-      backgroundColor = colors.white;
+      color = colors.blank;
+      backgroundColor = colors.purple;
     }
 
     const IconCheckMark =
-      Icons[multiSelect ? 'CheckMarkMultiSelect' : 'RadioSelected'];
+      Icons[multiSelect ? 'CheckMarkMultiSelect' : 'CheckMark'];
 
     return (
       <TouchableWithoutFeedback
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 12,
     borderWidth: 1,
-    borderColor: colors.dot,
+    borderColor: colors.disabled,
     borderRadius: 8,
     marginBottom: 8
   },
@@ -94,18 +94,18 @@ const styles = StyleSheet.create({
   circle: {
     width: 22,
     height: 22,
-    backgroundColor: colors.white,
+    backgroundColor: colors.blank,
     borderWidth: 1,
-    borderColor: colors.dot,
+    borderColor: colors.disabled,
     borderRadius: 13
   },
   square: {
     width: 22,
     height: 22,
     margin: 2,
-    backgroundColor: colors.white,
+    backgroundColor: colors.blank,
     borderWidth: 1,
-    borderColor: colors.dot
+    borderColor: colors.disabled
   },
   lastItem: {
     marginBottom: 0

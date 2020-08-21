@@ -4,6 +4,7 @@ import ru from 'assets/lang/ru.json';
 import ht from 'assets/lang/ru.json';
 import bn from 'assets/lang/ru.json';
 import ko from 'assets/lang/ru.json';
+import es from 'assets/lang/es.json';
 
 export const fallback = 'en';
 export const defaultNamespace = 'common';
@@ -15,23 +16,27 @@ export const supportedLocales = {
     ...en
   },
   ru: {
-    name: 'Russian',
+    name: 'русский',
     ...ru
   },
   zh: {
-    name: 'Chinese',
+    name: '中文',
     ...zh
   },
   ht: {
-    name: 'Haitian Creole',
+    name: 'Kreyòl ayisyen',
     ...ht
   },
   bn: {
-    name: 'Bengali',
+    name: 'বাংলা',
     ...bn
   },
   ko: {
-    name: 'Korean',
+    name: '한국어',
     ...ko
+  },
+  es: {
+    name: 'Español',
+    ...es
   }
 };
