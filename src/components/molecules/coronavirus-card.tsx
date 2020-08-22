@@ -8,9 +8,14 @@ import {Card} from 'components/atoms/card';
 import {Spacing} from 'components/atoms/spacing';
 import {colors, text} from 'theme';
 import {BubbleIcons} from 'assets/icons';
+import {Linking, TouchableWithoutFeedback} from 'react-native'
 
 export const CoronavirusCard: FC = () => {
   const {t} = useTranslation();
+
+  const callEmergency = () => {
+    Linking.openURL(`tel:911`)
+  }
 
   return (
     <>
@@ -18,12 +23,15 @@ export const CoronavirusCard: FC = () => {
         {t('checker:results:coronavirus1')}
       </Markdown>
       <Card type="empty" padding={{h: 16}}>
-        <View style={styles.row}>
-          <BubbleIcons.CallGreen height={56} width={56} />
-          <Text style={[text.largeBold, styles.text]}>
-            {t('checker:results:callEmergency')}
-          </Text>
-        </View>
+        <TouchableWithoutFeedback
+          onPress={callEmergency}>
+          <View style={styles.row}>
+            <BubbleIcons.CallGreen height={56} width={56} />
+            <Text style={[text.largeBold, styles.text]}>
+              {t('checker:results:callEmergency')}
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
       </Card>
       <Spacing s={20} />
       <Markdown style={styles.markdown} warningList>

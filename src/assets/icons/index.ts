@@ -66,6 +66,7 @@ import SecureLiving from './how-to-keep-others-safe/secure-living.svg';
 import Sleep from './how-to-keep-others-safe/sleep.svg';
 import StayHome from './how-to-keep-others-safe/stay-home.svg';
 import Temperature from './how-to-keep-others-safe/temperature.svg';
+import NoTouch from './how-to-keep-others-safe/temperature.svg';
 import Wash from './how-to-keep-others-safe/wash.svg';
 
 export const AppIcons = {
@@ -122,16 +123,17 @@ export const StateIcons = {
 
 // Maintain order = content markdown is dependant on this - needs refactoring
 export const KeepSafeIcons = {
-  Isolate,
   StayHome,
-  SecureLiving,
-  Wash,
+  Call,
   Sleep,
-  Food,
-  Garbage,
+  SecureLiving,
   Mask,
+  Food,
+  Garbage, 
   Temperature,
-  Call
+  Isolate,
+  Wash,
+  NoTouch
 };
 
 export default {

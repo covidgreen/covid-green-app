@@ -60,7 +60,7 @@ export const Permissions: FC<any> = () => {
       if (skip) {
         nav.reset({
           index: 0,
-          routes: [{name: ScreenNames.Dashboard}]
+          routes: [{name: 'main'}]
         });
       } else {
         return true;
