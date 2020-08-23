@@ -1,13 +1,11 @@
 import React, {FC} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
-import {Text, View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import {Markdown} from 'components/atoms/markdown';
-import {Card} from 'components/atoms/card';
+import {CallCard} from 'components/molecules/call-card';
 import {Spacing} from 'components/atoms/spacing';
-import {colors, text} from 'theme';
-import {BubbleIcons} from 'assets/icons';
+import {colors, text} from 'theme';import {BubbleIcons} from 'assets/icons';
 import {Linking} from 'react-native'
 
 export const CoronavirusCard: FC = () => {
@@ -18,15 +16,10 @@ export const CoronavirusCard: FC = () => {
       <Markdown style={styles.markdown} markdownStyles={markdown}>
         {t('checker:results:coronavirus1')}
       </Markdown>
-      <Card type="empty" padding={{h: 16}}
-        onPress={() => Linking.openURL('tel:911')}>
-        <View style={styles.row}>
-          <BubbleIcons.CallGreen height={56} width={56} />
-          <Text style={[text.largeBold, styles.text]}>
-            {t('checker:results:callEmergency')}
-          </Text>
-        </View>
-      </Card>
+      <CallCard 
+        onPress={() => Linking.openURL('tel:911')}
+        message={t('checker:results:callEmergency')}>        
+      </CallCard>
       <Spacing s={20} />
       <Markdown style={styles.markdown} warningList>
         {t('checker:results:coronavirus2')}

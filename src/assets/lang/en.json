@@ -197,7 +197,8 @@
       "coronavirus1": "**We're sorry to hear you're not feeling well. Unfortunately, the symptoms you've reported today may be signs of COVID-19.**\n\nIf your symptoms are mild, remember that most people can recover at home without medical care.\n\nHowever, we recommend that anyone with COVID-19 symptoms should take the following steps to protect the health of themselves and others:\n\n**Please stay at home.** Avoid contact with other people (even your family) to help keep them from getting sick.\n\n**Contact a health care provider.** Call your doctor or the NYS Health Hotline at [1-888-364-3065](tel:1234).\n\n**Get tested.** Talk to your health care provider or schedule an appointment at a publicly accessible testing site. \n\n[Find a site near you.](https://www.google.ro/)",
       "callEmergency": "If it's an emergency,\ncall 911 right away.",
       "coronavirus2": "Signs of an emergency include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
-      "viewLog": "Done"
+      "viewLog": "Done",
+      "callHelp": "If you need more help,\nCall NYS Health Hotline"
     },
     "introTitle": "My Health Log",
     "introOptional": "All responses are optional.",
