@@ -1,8 +1,8 @@
 {
   "common": {
-    "name": "COVID Green",
-    "url": "https://www.covidtracker.ie/",
-    "message": "Join COVID Green to fight against COVID-19",
+    "name": "COVID Smart NY",
+    "url": "https://CovidSmartNY.health.ny.gov",
+    "message": "Join COVID Smart NY to fight against COVID-19",
     "networkError": "Connection issue. Please check your internet connection and try again.",
     "missingDataAction": "Refresh page",
     "missingError": "Loading issue. We were not able to load some of the data correctly.",
