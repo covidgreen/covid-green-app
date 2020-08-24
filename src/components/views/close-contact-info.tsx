@@ -35,7 +35,7 @@ export const CloseContactInfo: FC = () => {
         {t('closeContactInfo:info')}
       </Markdown>
       <CallCard
-        onPress={() => Linking.openURL('tel:911')}
+        onPress={() => Linking.openURL('tel:18883643065')}
         message={t('checker:results:callHelp')}>        
       </CallCard>
      

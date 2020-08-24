@@ -100,7 +100,7 @@ export const SymptomsHistory: FC<any> = () => {
                 </SingleRow>
                 <View style={styles.date}>
                   <Text style={text.default}>
-                    {format(new Date(Number(check.timestamp)), 'do MMMM')}
+                    {format(new Date(Number(check.timestamp)), 'MMM dd')}
                   </Text>
                 </View>
               </View>
