@@ -1,8 +1,8 @@
 {
   "common": {
-    "name": "COVID Green",
-    "url": "https://www.covidtracker.ie/",
-    "message": "Join COVID Green to fight against COVID-19",
+    "name": "COVID Smart NY",
+    "url": "https://CovidSmartNY.health.ny.gov",
+    "message": "Join COVID Smart NY to fight against COVID-19",
     "networkError": "Connection issue. Please check your internet connection and try again.",
     "missingDataAction": "Refresh page",
     "missingError": "Loading issue. We were not able to load some of the data correctly.",
@@ -38,7 +38,7 @@
     "dataPolicy": "Data Protection Policy",
     "terms": "Terms and Conditions",
     "metrics": "Settings For App Metrics",
-    "leave": "Leave COVID Green",
+    "leave": "Leave COVID Smart NY",
     "contactTracing": "Contact Tracing",
     "positiveResult": "If you test positive for COVID-19",
     "settingsLanguage": "My Language"
@@ -107,7 +107,7 @@
       "close": "Close"
     },
     "intro": {
-      "title": "With COVID Green you can do 3 things to help fight COVID-19:",
+      "title": "With COVID Smart NY you can do 3 things to help fight COVID-19:",
       "view1": {
         "title": "Contact Tracing",
         "text": "Help contact tracing, protecting your privacy."
@@ -193,14 +193,15 @@
       "title": "Thank you",
       "noSymptomsFeelingWell": "**Thank you for today's log. We're glad to hear you're feeling well!**\n\nEven if you still feel OK, please come back tomorrow to let us know how you're doing.",
       "riskGroup": "Because of your age, we would like you to take extra care to protect yourself from COVID-19.\n\nWe know this isn't an easy time. If you need support or advice on how to manage at home, tap below for more information.",
-      "noSymptomsNotFeelingWell": "**Thank you for today's log. We're sorry to hear you're not feeling well.**\n\nFortunately, you didn't report many symptoms. If you continue to feel unwell or get any new symptoms, talk to your health care provider or call the NYS Health Hotline at 1-888-364-3065.\n\nIf you'd like to get tested, contact your health provider or schedule an appointment at a publicly accessible testing site. \nFind a site near you.\n\nPlease remember to come back tomorrow to let us know how you're doing.",
-      "coronavirus1": "**We're sorry to hear you're not feeling well. Unfortunately, the symptoms you've reported today may be signs of COVID-19.**\n\nIf your symptoms are mild, remember that most people can recover at home without medical care.\n\nHowever, we recommend that anyone with COVID-19 symptoms should take the following steps to protect the health of themselves and others:\n\n**Please stay at home.** Avoid contact with other people (even your family) to help keep them from getting sick.\n\n**Contact a health care provider.** Call your doctor or the NYS Health Hotline at [1-888-364-3065](https://www.google.ro/).\n\n**Get tested.** Talk to your health care provider or schedule an appointment at a publicly accessible testing site. \n\n[Find a site near you.](https://www.google.ro/)",
+      "noSymptomsNotFeelingWell": "**Thank you for today's log. We're sorry to hear you're not feeling well.**\n\nFortunately, you didn't report many symptoms. If you continue to feel unwell or get any new symptoms, talk to your health care provider or call the NYS Health Hotline at [1-888-364-3065](tel:12345).\n\nIf you'd like to get tested, contact your health provider or schedule an appointment at a publicly accessible testing site. \nFind a site near you.\n\nPlease remember to come back tomorrow to let us know how you're doing.",
+      "coronavirus1": "**We're sorry to hear you're not feeling well. Unfortunately, the symptoms you've reported today may be signs of COVID-19.**\n\nIf your symptoms are mild, remember that most people can recover at home without medical care.\n\nHowever, we recommend that anyone with COVID-19 symptoms should take the following steps to protect the health of themselves and others:\n\n**Please stay at home.** Avoid contact with other people (even your family) to help keep them from getting sick.\n\n**Contact a health care provider.** Call your doctor or the NYS Health Hotline at [1-888-364-3065](tel:1234).\n\n**Get tested.** Talk to your health care provider or schedule an appointment at a publicly accessible testing site. \n\n[Find a site near you.](https://www.google.ro/)",
       "callEmergency": "If it's an emergency,\ncall 911 right away.",
       "coronavirus2": "Signs of an emergency include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
-      "viewLog": "Done"
+      "viewLog": "Done",
+      "callHelp": "If you need more help,\nCall NYS Health Hotline"
     },
     "introTitle": "My Health Log",
-    "introOptional": "All responses are optional.",
+    "introOptional": "All responses are optional. They will only be used anonymously for public health analysis.",
     "introButton": "Continue",
     "noresults": "You haven't tried the symptom checker yet. Start now by tapping the button above"
   },
@@ -337,7 +338,7 @@
   },
   "yourData": {
     "title": "Your data",
-    "info": "The COVID Green app protects your privacy and does not share personal information about you with other app users. **Your identity will never be revealed to other app users.**\n\nAny personal data you provide will be processed in line with GDPR and data protection law. You can read more about this in the Data Protection Information Notice below. **Your data will only be used in relation to the COVID-19 pandemic response** as set out in the Data Protection Information Notice.\n\nIf you need to be alerted, the app will start this process with a secure in-app notification. Separate to using this app, the HSE contact tracing team may phone you if someone with COVID-19 identifies you as a close contact. If you have a COVID-19 test, the HSE will contact you by text or by phone with results.\n\nTake care with any suspicious phone calls, emails or texts asking you for personal information. **The HSE will not ask you for personal information by text or email.**",
+    "info": "The COVID Smart NY app protects your privacy and does not share personal information about you with other app users. **Your identity will never be revealed to other app users.**\n\nAny personal data you provide will be processed in line with GDPR and data protection law. You can read more about this in the Data Protection Information Notice below. **Your data will only be used in relation to the COVID-19 pandemic response** as set out in the Data Protection Information Notice.\n\nIf you need to be alerted, the app will start this process with a secure in-app notification. Separate to using this app, the HSE contact tracing team may phone you if someone with COVID-19 identifies you as a close contact. If you have a COVID-19 test, the HSE will contact you by text or by phone with results.\n\nTake care with any suspicious phone calls, emails or texts asking you for personal information. **The HSE will not ask you for personal information by text or email.**",
     "viewInSettings": "You can view this notice at any time in Settings. If you do not want to continue, close and delete the app. If you consent, tap Continue to proceed.",
     "continue": "Continue"
   },
@@ -367,11 +368,11 @@
   },
   "alertsUnavailablePrompt": {
     "title": "App can't alert you right now. Set up My COVID Alerts.",
-    "description": "Please check the COVID Green app now."
+    "description": "Please check the COVID Smart NY app now."
   },
   "closeContactNotification": {
     "title": "Close Contact Alert",
-    "description": "Please check the COVID Green app now."
+    "description": "Please check the COVID Smart NY app now."
   },
   "closeContactWarn": {
     "notice": "You've had {{count}} COVID Alert in the last 14 days",
@@ -395,7 +396,7 @@
   },
   "closeContactInfo": {
     "title": "How to Keep Others Safe",
-    "info": "**To limit the risk of spreading COVID-19 to your family and community, please take the following precautions until you’ve been cleared by a public health professional:**\n\n1. **Isolate yourself.**\nStay in a room or living area that has its own bathroom and keep other people out. If you're in a home with other people, make sure there’s a door to separate the area from the rest of your home and keep it closed. If you must share a bathroom, have plenty of cleaning supplies (like household disinfectant wipes, bleach) to clean all surfaces after each use.\n\n2. **Stay at home and don’t leave your property.**\nDon’t go out into public. It’s important to avoid contact with other people, even your family.\n\n3. **Secure your living area.**\nKeep others from entering without your permission.\n\n4. **Wash your hands often.**\nMake sure you have access to a sink with soap, water, and plenty of paper towels.\n\n5. **Sleep by yourself.**\nIf you are in quarantine with others, sleep in separate bedrooms. You could start to have symptoms while you sleep.\n\n6. **Have food brought to you.**\nDon’t leave your living area to get or prepare food.\n\n7. **Bag up your garbage and leave it outside your door. **\nAsk someone else to pick it up regularly. (No special handling is needed.)\n\n8. **Keep a supply of face masks.**\nWear one if you start to have symptoms or must come in contact with others.\n\n9. **Monitor your temperature and symptoms carefully.**\nYou can keep track of them in the 'My Health Log' feature of this app or another way. A daily log helps Health Workers figure out the most effective treatments for you if you get sick.\n\n10. **Call ahead if you must leave to get health care.**\nTell the health care provider about your exposure to COVID-19. Wear a mask when you go and avoid using public transportation, such as subways, buses, or taxis."
+    "info": "**To limit the risk of spreading COVID-19 to your family and community, please take the following precautions until you’ve been cleared by a public health professional:**\n\n1. **Stay home, except to get health care.**\n\n2. **Call ahead if you must leave to get health care.**\nWear a face mask when you go and avoid using public transportation such as subways, buses, taxis.\n\n3. **Separate yourself**\nStay in a room that is not shared with others and keep your door closed. Sleep by yourself. Stay at least 6 feet away from others at all times, even your family.\n\n4. **Don’t have visitors.**\nKeep others from entering without your permission.\n\n5. **Use a separate bathroom.**\nIf not possible, clean and disinfect all surfaces after each use.\n\n6. **Have food brought to you.**\nArrange for food, medicine, and other supplies to be left at your door.\n\n7. **Cover your coughs and sneezes.**\nThrow away used tissues. Bag your trash and leave outside your door. (No special handling is needed.)\n\n8. **Don’t touch pets.**\n\n9. **Arrange for others to care for your children, if possible.**\n\n10. **Wash your hands often** with soap and water for 20 seconds each time, or if unavailable, use hand sanitizer with at least 60% alcohol. Use paper towels instead of shared towels.\n\n11. **Monitor your temperature and symptoms carefully.**\nou can keep track of them in the \"My Health Log\" feature of this app or another way. A daily log helps public health representatives figure out the next steps if you get sick."
   },
   "callBack": {
     "title": "What phone number should we call you at?",
@@ -448,8 +449,8 @@
   "ethnicity": {
     "label": "Ethnicity",
     "placeholder": "Choose your ethnicity",
-    "hispanic": "Hispanic/Latino",
-    "not_hispanic": "Not Hispanic/Latino"
+    "hispanic": "Hispanic/Latinx",
+    "not_hispanic": "Not Hispanic/Latinx"
   },
   "ageRange": {
     "label": "Age range",
@@ -488,7 +489,8 @@
     "label": "New York State County you live in",
     "dropdownPlaceholder": "Select your county",
     "searchPlaceholder": "Search",
-    "noResults": "No results found for this search.\nTry with something else."
+    "noResults": "No results found for this search.\nTry with something else.",
+    "notinny": "Not in New York State"
   },
   "appUsage": {
     "title": "App Metrics",

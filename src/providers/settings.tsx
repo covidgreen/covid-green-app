@@ -208,49 +208,49 @@ export const useSettings = () => useContext(SettingsContext);
 
 function getGenderOptions(t: TFunction): BasicItem[] {
   return [
-    {label: t('common:preferNotToSay'), value: 'u'},
-    {label: t('gender:male'), value: 'm'},
     {label: t('gender:female'), value: 'f'},
+    {label: t('gender:male'), value: 'm'},
     {label: t('gender:nonBinary'), value: 'nb'},
-    {label: t('gender:other'), value: 'other'}
+    {label: t('gender:other'), value: 'other'},
+    {label: t('common:preferNotToSay'), value: 'u'}
   ];
 }
 
 function getRaceOptions(t: TFunction): BasicItem[] {
   return [
-    {label: t('common:preferNotToSay'), value: 'u'},
-    {label: t('race:white'), value: 'white'},
-    {label: t('race:black'), value: 'black'},
     {label: t('race:american'), value: 'american'},
     {label: t('race:asian'), value: 'asian'},
+    {label: t('race:black'), value: 'black'},
     {label: t('race:hawaiian'), value: 'hawaiian'},
-    {label: t('race:other'), value: 'unknown'}
+    {label: t('race:white'), value: 'white'},
+    {label: t('race:other'), value: 'unknown'},
+    {label: t('common:preferNotToSay'), value: 'u'}    
   ];
 }
 
 function getEthnicityOptions(t: TFunction): BasicItem[] {
   return [
-    {label: t('common:preferNotToSay'), value: 'u'},
     {label: t('ethnicity:hispanic'), value: 'hispanic'},
-    {label: t('ethnicity:not_hispanic'), value: 'not_hispanic'}
+    {label: t('ethnicity:not_hispanic'), value: 'not_hispanic'},
+    {label: t('common:preferNotToSay'), value: 'u'}
   ];
 }
 
 function getAgeRangeOptions(t: TFunction): AgeOption[] {
-  return [
-    {label: t('common:preferNotToSay'), value: 'u'},
+  return [    
     {label: '0-17', value: '0-17'},
     {label: '18-34', value: '18-34'},
     {label: '35-49', value: '35-49'},
     {label: '50-69', value: '50-69', riskGroup: true},
     {label: '70-79', value: '70-79', riskGroup: true},
-    {label: '80+', value: '80+', riskGroup: true}
+    {label: '80+', value: '80+', riskGroup: true},
+    {label: t('common:preferNotToSay'), value: 'u'}
   ];
 }
 
 function getCountiesOptions(t: TFunction): BasicItem[] {
   return [
-    {label: t('common:preferNotToSay'), value: 'u'},
+    {label: t('county:notinny'), value: 'u'},
     ...counties.map((c) => ({label: c.county, value: c.code}))
   ];
 }

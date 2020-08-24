@@ -1,534 +1,535 @@
 {
   "common": {
-    "name": "COVID Green",
-    "url": "https://www.covidtracker.ie/",
-    "message": "Join COVID Green to fight against COVID-19",
-    "networkError": "Connection issue. Please check your internet connection and try again.",
-    "missingDataAction": "Refresh page",
-    "missingError": "Loading issue. We were not able to load some of the data correctly.",
-    "preferNotToSay": "Prefer not to say",
-    "allCounties": "All Counties in New York",
-    "confirmChanges": "Confirm changes",
-    "changesUpdated": "Changes updated",
-    "dismiss": "Dismiss",
-    "placeholder": "Choose...",
+    "name": "COVID inteligente NY",
+    "url": "https://CovidSmartNY.health.ny.gov",
+    "message": "Únete COVID inteligente NY a lucha contra COVID-19",
+    "networkError": "problema de conexión. Por favor, compruebe su conexión a Internet y vuelve a intentarlo.",
+    "missingDataAction": "Actualizar página",
+    "missingError": "Cargando tema. No pudimos cargar algunos de los datos correctamente.",
+    "preferNotToSay": "Prefiero no decirlo",
+    "allCounties": "Todos los condados en Nueva York",
+    "confirmChanges": "Confirmar los cambios",
+    "changesUpdated": "Los cambios actualizados",
+    "dismiss": "Descartar",
     "ok": {
-      "label": "OK",
-      "hint": "Close the pop-up"
+      "label": "Okay",
+      "hint": "Cerrar la ventana emergente"
     },
     "tryAgain": {
-      "title": "Please try again",
-      "description": "Sorry, that didn’t work properly.\nPlease check that you have a network connection and try again.",
-      "timestampTitle": "Check Date & Time",
-      "timestamp": "We couldn't verify your device. Please check it's set to the correct date and time, and try again."
+      "title": "Inténtalo de nuevo",
+      "description": "Lo sentimos, no funcionó correctamente. \\ N Por favor compruebe que dispone de una conexión de red y vuelve a intentarlo.",
+      "timestampTitle": "Compruebe Fecha y Hora",
+      "timestamp": "No hemos podido verificar su dispositivo. Por favor, compruebe que está establecido en la fecha y hora correcta, y vuelve a intentarlo."
     }
   },
   "viewNames": {
-    "introduction": "Help Stop the Spread of COVID-19 in Your Community",
-    "permissions": "Set Up Closeness Sensing for COVID Alerts",
-    "completion": "Closeness Sensing and COVID Alerts are now active!",
-    "dashboard": "Updates",
-    "casesByCounty": "Cases By County",
-    "updates": "Updates",
-    "symptomchecker": "My Health Log",
-    "settings": "Settings",
-    "uploadKeys": "Upload Your Random Keys",
-    "settingsContactTracing": "My COVID Alerts",
-    "settingsCheckin": "COVID Checkin Settings",
-    "dataPolicy": "Data Protection Policy",
-    "terms": "Terms and Conditions",
-    "metrics": "Settings For App Metrics",
-    "leave": "Leave COVID Green",
-    "contactTracing": "Contact Tracing",
-    "positiveResult": "If you test positive for COVID-19",
-    "settingsLanguage": "My Language"
+    "introduction": "Ayuda a detener la propagación de COVID-19 en su Comunidad",
+    "permissions": "Configurar La proximidad de detección de alertas COVID",
+    "completion": "La proximidad de detección y alertas COVID ahora están activos!",
+    "dashboard": "actualizaciones",
+    "casesByCounty": "Casos por condado",
+    "updates": "actualizaciones",
+    "symptomchecker": "Mi registro de la Salud",
+    "settings": "ajustes",
+    "uploadKeys": "Sube Sus claves aleatorias",
+    "settingsContactTracing": "Configuración de contacto de Rastreo",
+    "settingsCheckin": "Ajustes Checkin COVID",
+    "dataPolicy": "Política de protección de datos",
+    "terms": "Términos y Condiciones",
+    "metrics": "Ajustes Para la aplicación de métricas",
+    "leave": "Deja COVID inteligente NY",
+    "contactTracing": "El rastreo de contactos"
   },
   "navbar": {
-    "settings": "Settings",
-    "settingsHint": "View or amend application settings",
-    "back": "Back",
-    "backHint": "Navigate back to previous screen"
+    "settings": "ajustes",
+    "settingsHint": "Ver o modificar la configuración de aplicaciones",
+    "back": "Espalda",
+    "backHint": "Navegar volver a la pantalla anterior"
   },
   "tabBar": {
-    "updates": "NY COVID Data",
-    "symptomCheck": "My Health Log",
-    "contactTracing": "My COVID Alerts",
-    "settings": "App\nSettings"
+    "updates": "NY datos COVID",
+    "symptomCheck": "Mi registro de la Salud",
+    "contactTracing": "Mi COVID Alertas",
+    "settings": "App \\ nSettings"
   },
   "onboarding": {
     "introduction": {
       "blocks": [
         {
-          "title": "Help Stop the Spread of COVID-19 in Your Community",
+          "title": "Ayuda a detener la propagación de COVID-19 en su Comunidad",
           "list": [
-            "Get alerted if a sick person spent enough time very near you that you may have caught the virus.",
-            "Alert others if you test positive, without revealing your identity.",
-            "Keep an eye on trends in your community."
+            "Recibe una alerta si una persona enferma pasado suficiente tiempo muy cerca de usted que puede haber contraído el virus.",
+            "demás de alerta si el resultado es positivo, sin revelar su identidad.",
+            "Nunca vemos:"
           ]
         },
         {
-          "title": "We never see:",
+          "title": "#VALUE!",
           "list": [
-            "Your location or identity.",
-            "Your phone number, unless you explicitly share it with us."
+            "Su ubicación o identidad.",
+            "Su número de teléfono, a menos que compartas explícitamente con nosotros."
           ]
         }
       ],
-      "learnAction": "Learn how it works",
-      "continueAction": "Get started"
+      "learnAction": "Aprender cómo funciona",
+      "continueAction": "Empezar"
     },
     "permissions": {
-      "title": "Set Up Closeness Sensing for COVID Alerts",
-      "line1": "This app needs your permission to:",
-      "track": "**Sense when another phone with this app is close by.**\n\nIf another app user spends 10 minutes within 6 feet of you, your phones swap random codes to remember the contact. These codes don't say anything about you or your location.",
-      "notifications": "**Send you notifications.**\n\nIf the other app user tests positive for the virus within the next few days, the app can send you a COVID Alert after checking your codes.",
-      "subtitle": "The app never:",
+      "title": "Configurar La proximidad de detección de alertas COVID",
+      "line1": "Esta aplicación necesita su permiso para:",
+      "track": "** sentido cuando otro teléfono con esta aplicación está cerca. ** \\ n \\ nSi otra aplicación de usuario pasa 10 minutos a menos de 6 pies de usted, sus teléfonos intercambiar códigos aleatorios para recordar el contacto. Estos códigos no dicen nada acerca de usted o de su ubicación.",
+      "notifications": "** Le enviará notificaciones. ** \\ n \\ nSi las otras pruebas de usuario de la aplicación positivos para el virus dentro de los próximos días, la aplicación puede enviar una alerta de COVID después de comprobar sus códigos.",
+      "subtitle": "La aplicación no:",
       "list": [
-        "Sees your location.",
-        "Shares your phone number.",
-        "Reveals your identity"
+        "Ve a su ubicación.",
+        "Comparte su número de teléfono.",
+        "Revela su identidad"
       ],
-      "statement": "You can change your mind at any time by going to App Settings",
-      "learnAction": "Learn how it works",
-      "skipAction": "Skip for now",
-      "continueAction": "Next"
+      "statement": "Se puede cambiar de opinión en cualquier momento a través de la aplicación Ajustes",
+      "learnAction": "Aprender cómo funciona",
+      "skipAction": "Saltar por ahora",
+      "continueAction": "próximo"
     },
     "completion": {
-      "title": "Closeness Sensing and COVID Alerts are now active!",
-      "text": "Thank you for doing your part to stop the spread of COVID-19.",
-      "shareText": "Share this app with friends. Help keep NY Safe.",
-      "next": "Done",
-      "share": "Share"
+      "title": "La proximidad de detección y alertas COVID ahora están activos!",
+      "text": "Gracias por hacer su parte para detener la propagación de COVID-19 te.",
+      "shareText": "Compartir esta aplicación con sus amigos. Ayuda a mantener NY seguro.",
+      "next": "Hecho",
+      "share": "Compartir"
     },
     "tour": {
-      "title": "How it works",
+      "title": "Cómo funciona",
       "statements": [
-        "As you go about your day, the app uses Bluetooth to sense when another person with the app has come within 6 feet of you.\n\nYour phone exchanges a secure random code with the other phone to record that they were near. The app doesn't collect or share your name, location, or phone number, or those of the people around you",
-        "If you are within 6 feet of someone for more than 10 minutes, the app puts their phone's random code on a list of close contacts.\n\nPeople who are just passing by or stand more than 6 feet away from you are not put on the list of close contacts. You will never get any alerts because of them.",
-        "If you test positive for COVID-19, a Health Advisor will call you as soon as possible.\n\nThe Health Advisor will ask if you are willing to share your app's list of close contacts to help protect other people.\n\nSharing your list is secure and private. The app never reveals who you are to anyone.",
-        "Each day, the list of \"infected\" codes is sent to every phone that has the app. The app compares its own list of close contact codes to the list of infected codes. If there's a match, the app displays a COVID alert.\n\nUsing these lists of anonymous codes, the alert is kept private. No one ever knows who the COVID Alert comes from."
+        "A medida que va sobre su día, la aplicación utiliza Bluetooth para detectar cuando otra persona con la aplicación ha llegado a 6 pies de usted. \\ N \\ nLos intercambios de teléfono un código aleatorio seguro con el otro teléfono para grabar que estaban cerca. La aplicación no recopila o comparte su nombre, ubicación o número de teléfono, o los de las personas a su alrededor",
+        "Si está dentro de 6 pies de una persona durante más de 10 minutos, la aplicación pone código aleatorio de su teléfono en una lista de contactos cercanos. \\ N \\ Npeople que están de paso por o estar de pie más de 6 pies de distancia de usted no se ponen en la lista de los contactos cercanos. Nunca recibirá alertas a causa de ellos.",
+        "Si el resultado es positivo para COVID-19, un Asesor de Salud le llamará tan pronto como sea posible. \\ N \\ nEl consejero de salud le preguntará si usted está dispuesto a compartir la lista de la aplicación de los contactos cercanos para ayudar a proteger a otras personas. \\ N \\ nSharing su lista es segura y privada. La aplicación nunca revela quién es usted a nadie.",
+        "Cada día, la lista de códigos \"infectados\" se envía a cada teléfono que tiene la aplicación. La aplicación compara su propia lista de códigos de contacto cercanas a la lista de códigos infectados. Si hay una coincidencia, la aplicación muestra una alerta de COVID. \\ N \\ nUso estas listas de códigos anónimos, la alerta se mantiene como privado. Nunca nadie sabe quién es el Alerta COVID viene."
       ],
-      "previous": "Previous",
-      "next": "Next",
-      "close": "Close"
+      "previous": "Anterior",
+      "next": "próximo",
+      "close": "Cerca"
     },
     "intro": {
-      "title": "With COVID Green you can do 3 things to help fight COVID-19:",
+      "title": "Con COVID verde se puede hacer 3 cosas para ayudar a combatir COVID-19:",
       "view1": {
-        "title": "Contact Tracing",
-        "text": "Help contact tracing, protecting your privacy."
+        "title": "El rastreo de contactos",
+        "text": "Ayuda rastreo de contactos, proteger su privacidad."
       },
       "view2": {
-        "title": "COVID Check-In",
-        "text": "Check your symptoms every day."
+        "title": "COVID Check-in",
+        "text": "Revisar sus síntomas todos los días."
       },
       "view3": {
-        "title": "Updates",
-        "text": "Keep up to date on the fight against COVID-19."
+        "title": "actualizaciones",
+        "text": "Manténgase al día sobre la lucha contra COVID-19."
       },
       "view4": {
-        "text": "If you tap Get started, you are accepting the",
-        "link": "Terms & Conditions"
+        "text": "Si toca empezar, usted está aceptando la",
+        "link": "Términos y condiciones"
       },
-      "action": "Get started"
+      "action": "Empezar"
     },
     "information": {
-      "title": "Contact Tracing",
-      "highlight": "Contact tracing helps prevent the spread of COVID-19.",
-      "highlight1": "This app supports the work of the HSE’s Contact Tracing teams, but those teams may also contact you as part of manual contact tracing.",
-      "text": "The app will send you a Close Contact Alert if you have been in close contact with someone who has tested positive for the virus.",
-      "text1": "To enable Contact Tracing for this app you need to turn on:",
-      "text2": "and to get an alert you need to turn on:",
-      "action": "Continue",
-      "later": "Maybe later",
-      "skip": "Skip for now",
-      "bluetooth": "Exposure Notification Service",
-      "notifications": "Notifications",
-      "quote": "If you change your mind, you can change your permissions in Settings at any time."
+      "title": "El rastreo de contactos",
+      "highlight": "El rastreo de contactos ayuda a prevenir la propagación de COVID-19.",
+      "highlight1": "Esta aplicación es compatible con el trabajo de los equipos de localización de los contactos de las agencias de seguridad, pero esos equipos también puede ponerse en contacto con usted como parte del seguimiento de contactos manual.",
+      "text": "La aplicación le enviará un primer alerta de contacto si ha estado en contacto cercano con alguien que ha dado positivo para el virus.",
+      "text1": "Para habilitar el rastreo de contactos para esta aplicación que necesita para encender:",
+      "text2": "y para obtener una alerta que necesita para convertir en:",
+      "action": "Seguir",
+      "later": "Quizas mas tarde",
+      "skip": "Saltar por ahora",
+      "bluetooth": "Servicio de notificación de la exposición",
+      "notifications": "Notificaciones",
+      "quote": "Si cambia de opinión, puede cambiar sus permisos de configuración en cualquier momento."
     },
     "upgrade": {
       "ios": {
-        "title": "Apple iOS must be updated",
-        "text": "To enable Contact Tracing, you need to upgrade to the latest version of Apple iOS.",
-        "action": "Check for upgrades"
+        "title": "Apple iOS debe ser actualizado",
+        "text": "Para habilitar el rastreo de contactos, es necesario actualizar a la última versión de iOS de Apple.",
+        "action": "Comprobar si hay actualizaciones"
       },
       "android": {
-        "title": "Google Play Services must be updated",
-        "text": "To enable Contact Tracing, you need to upgrade to the latest version of Google Play Services.",
-        "action": "Check for upgrades"
+        "title": "Play Services deben actualizarse",
+        "text": "Para habilitar el rastreo de contactos, es necesario actualizar a la versión más reciente de los servicios de Play.",
+        "action": "Comprobar si hay actualizaciones"
       }
     }
   },
   "dataProtectionPolicy": {
-    "title": "Data Protection Information Notice",
-    "link": "You can read the Data Protection Information Notice here",
-    "text": "The DPIN could not be loaded"
+    "title": "Protección de datos Aviso de Información",
+    "link": "Se puede leer la información de protección de datos Aviso aquí",
+    "text": "El dpin no se pudo cargar"
   },
   "tandcPolicy": {
-    "title": "Terms & Conditions",
-    "link": "Terms & Conditions",
-    "text": "The Terms & Conditions could not be loaded"
+    "title": "Términos y condiciones",
+    "link": "Términos y condiciones",
+    "text": "Los Términos y Condiciones No se pudieron cargar"
   },
   "stats": {
-    "title": "Latest update",
-    "totalConfirmed": "Total confirmed cases",
-    "totalDeaths": "Total deaths",
-    "totalHospitalised": "Number hospitalised",
-    "requiredICU": "Required ICU"
+    "title": "Última actualización",
+    "totalConfirmed": "Total de casos confirmados",
+    "totalDeaths": "El total de muertes",
+    "totalHospitalised": "número hospitalizado",
+    "requiredICU": "Obligatorio UCI"
   },
   "checker": {
-    "title": "My Health Log",
-    "resultTitle": "Thank you",
-    "feelingWell": "I am feeling well today",
+    "title": "Mi registro de la Salud",
+    "resultTitle": "Gracias",
     "symptoms": {
-      "subtitle": "Do you have any of the following 11 symptoms today?",
-      "nextButton": "Continue",
-      "fever": "Fever or feeling feverish (such as chills, sweating)",
-      "cough": "Cough",
-      "breath": "Shortness of breath or difficulty breathing",
-      "fatigue": "Fatigue",
-      "throat": "Sore throat",
-      "congestion": "Congestion or runny nose",
-      "aches": "Muscle aches or body aches",
-      "headache": "Headache",
-      "nausea": "Nausea or Vomiting",
-      "diarrhea": "Diarrhea",
-      "taste": "New loss of taste or smell"
+      "subtitle": "¿Tiene alguno de los síntomas siguientes 11 hoy?",
+      "nextButton": "Seguir",
+      "fever": "Fiebre o febril sensación (tales como escalofríos, sudoración)",
+      "cough": "Tos",
+      "breath": "Falta de aliento o dificultad para respirar",
+      "fatigue": "Fatiga",
+      "throat": "Dolor de garganta",
+      "congestion": "La congestión o moqueo",
+      "aches": "dolores musculares o dolores en el cuerpo",
+      "headache": "Dolor de cabeza",
+      "nausea": "Náuseas o vómitos",
+      "diarrhea": "Diarrea",
+      "taste": "Nueva pérdida del gusto o el olfato"
     },
     "results": {
-      "title": "Thank you",
-      "noSymptomsFeelingWell": "**Thank you for today's log. We're glad to hear you're feeling well!**\n\nEven if you still feel OK, please come back tomorrow to let us know how you're doing.",
-      "riskGroup": "Because of your age, we would like you to take extra care to protect yourself from COVID-19.\n\nWe know this isn't an easy time. If you need support or advice on how to manage at home, tap below for more information.",
-      "noSymptomsNotFeelingWell": "**Thank you for today's log. We're sorry to hear you're not feeling well.**\n\nFortunately, you didn't report many symptoms. If you continue to feel unwell or get any new symptoms, talk to your health care provider or call the NYS Health Hotline at 1-888-364-3065.\n\nIf you'd like to get tested, contact your health provider or schedule an appointment at a publicly accessible testing site. \nFind a site near you.\n\nPlease remember to come back tomorrow to let us know how you're doing.",
-      "coronavirus1": "**We're sorry to hear you're not feeling well. Unfortunately, the symptoms you've reported today may be signs of COVID-19.**\n\nIf your symptoms are mild, remember that most people can recover at home without medical care.\n\nHowever, we recommend that anyone with COVID-19 symptoms should take the following steps to protect the health of themselves and others:\n\n**Please stay at home.** Avoid contact with other people (even your family) to help keep them from getting sick.\n\n**Contact a health care provider.** Call your doctor or the NYS Health Hotline at [1-888-364-3065](https://www.google.ro/).\n\n**Get tested.** Talk to your health care provider or schedule an appointment at a publicly accessible testing site. \n\n[Find a site near you.](https://www.google.ro/)",
-      "callEmergency": "If it's an emergency,\ncall 911 right away.",
-      "coronavirus2": "Signs of an emergency include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
-      "viewLog": "Done"
+      "title": "Gracias",
+      "noSymptomsFeelingWell": "Estamos encantados de oír bien sientes. Gracias por el registro. Incluso si usted todavía está bien, vuelve al día siguiente para hacernos saber cómo lo está haciendo. \\ N \\ nVisita ** ** health.pa.gov para leer más sobre cómo protegerse y proteger a los demás de coronavirus.",
+      "riskGroup": "Debido a su edad, nos gustaría que tener un cuidado especial para protegerse de COVID-19. \\ N \\ nSe que esto no es un momento fácil. Si necesita ayuda o consejo sobre cómo manejar en casa, toque abajo para más información.",
+      "noSymptomsNotFeelingWell": "Gracias por el registro. Siento lo que no se siente bien. Sonidos \\ n \\ Nit como que no tienen ninguno de los síntomas comunes de COVID-19, tales como fiebre, tos, dificultad para respirar, diarrea, escalofríos, músculo dolor, dolor de cabeza, dolor de garganta, o una nueva pérdida del gusto o el olfato. Si se empieza a desarrollar cualquiera de estos síntomas, volver a completar otra COVID Check-in y haremos todo lo posible para ayudarle. \\ N \\ nEn el ínterin, visita ** ** health.pa.gov para leer más acerca de cómo protegerse a sí mismo ya los demás de coronavirus. \\ n \\ nSi es necesidad de salud mental o servicios de atención trastorno por uso de sustancias, por favor visita [salud Mental en PA] (https://www.dhs.pa.gov/Services/Mental-Health -in-PA / Pages / default.aspx).",
+      "coronavirus": "** Gracias por el registro. ** \\ n ** Lo siento oír que no se siente bien. ** \\ n \\ n Si sus síntomas son leves la mayoría de la gente puede recuperarse en casa sin atención médica. \\ N \\ n ** Si desea hacerse la prueba ** para un diagnóstico, en contacto con su proveedor de atención médica o programar una cita en un lugar de la prueba de acceso público. [Encontrar un sitio de pruebas en Pennsylvania] (https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx). \\ N \\ n ** Si no desea ** hacerse la prueba, sigue siendo importante quedarse en casa, aislar y evitar el contacto con los demás, reposo y beber líquidos. Tomar paracetamol para bajar la fiebre. Si se siente peor, llame a su proveedor de cuidados de la salud. \\ N \\ n Si sus síntomas son graves (incluyendo una fiebre por encima de 100 °), llame a su proveedor de cuidados de la salud. Si no tiene un proveedor de cuidado de la salud, llame al hospital más cercano o de atención de urgencia para programar una cita \\ n \\ n ** Si se trata de una emergencia, llame al 911 ** \\ señales de advertencia nEmergency pueden incluir:.. \\ N \\ n * Dificultad para respirar \\ n * el dolor persistente o presión en el pecho \\ n * Nueva confusión \\ n * Incapacidad para despertarse o permanecer despierto \\ n * los labios azulados o la cara",
+      "viewLog": "Ver Mi registro de la Salud"
     },
-    "introTitle": "My Health Log",
-    "introOptional": "All responses are optional.",
-    "introButton": "Continue",
-    "noresults": "You haven't tried the symptom checker yet. Start now by tapping the button above"
+    "introTitle": "Mi Salud Hoy",
+    "introOptional": "Todas las respuestas son opcionales.",
+    "introButton": "Seguir",
+    "noresults": "Usted no ha probado el corrector síntoma todavía. Comienza ahora pulsando el botón de arriba"
   },
   "welcome": {
-    "title": "Hi there 👋",
-    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. Your symptoms data helps them understand how COVID-19 is affecting NY.\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
-    "action": "Yes I'd like to start my log",
-    "letUsKnow": "Let us know if you have\nsymptoms today"
+    "title": "Hola 👋",
+    "text": "Puede utilizar Mi Salud registro para realizar un seguimiento de cómo se siente cada día y obtener consejos básicos acerca de sus síntomas. El teléfono guarda una historia, que puede revisar en cualquier momento. \\ N \\ nLa registros diarios de usted y otros usuarios de la aplicación se comparten de forma anónima con el Departamento de Salud de Nueva York. Sus datos síntomas ayuda a entender cómo COVID-19 está afectando NY. \\ N estancias de identidad \\ nTus privada, pero se pueden compartir datos básicos como su edad, identidad de género, raza, etnia, y de condado a hacer la información más útil para la salud pública El análisis \\ n \\ n. ** Nota: ** Mi Salud Log es opcional. Usted no tiene que participar de usar las otras características de esta aplicación.",
+    "action": "Sí me gustaría empezar mi registro",
+    "letUsKnow": "Háganos saber si usted tiene \\ nsymptoms hoy"
+  },
+  "returning": {
+    "title": "Bienvenido de vuelta 👋",
+    "subtitle": "¿Cómo te sientes hoy?",
+    "action1": "No, me siento bien hoy",
+    "action2": "No me siento bien hoy",
+    "completeTitle": "Muy bueno escuchar 👍",
+    "completeLink": "Ver su historial"
   },
   "settings": {
-    "title": "App Settings",
-    "covidAlerts": "My COVID Alerts",
-    "covidAlertsHint": "View or amend settings for COVID Alerts",
-    "healthLog": "My Health Log",
-    "healthLogHint": "View or amend settings for COVID Check In",
-    "privacyPolicy": "Data and Privacy Policy",
-    "privacyPolicyHint": "View the Data and Privacy Policy",
-    "language": "My Language",
-    "languageHint": "View or change language",
-    "metrics": "Help Improve This App",
-    "metricsHint": "View or amend settings for helpinig this app",
-    "leave": "Delete My Data",
-    "leaveHint": "Delete data and leave the application"
+    "title": "Ajustes de Aplicacion",
+    "covidAlerts": "Mi COVID Alertas",
+    "covidAlertsHint": "Ver o modificar la configuración de las alertas COVID",
+    "healthLog": "Mi registro de la Salud",
+    "healthLogHint": "Ver o modificar la configuración de COVID Entradas",
+    "privacyPolicy": "Política de privacidad de datos y",
+    "privacyPolicyHint": "Ver la Política de Datos y Privacidad",
+    "language": "Mi idioma",
+    "languageHint": "Ver o cambiar el idioma",
+    "metrics": "Ayuda a mejorar esta aplicación",
+    "metricsHint": "Ver o modificar la configuración de esta aplicación helpinig",
+    "leave": "Eliminar mis datos",
+    "leaveHint": "Borrar datos y salir de la aplicación"
   },
   "leave": {
-    "title": "Delete My Data",
-    "info": "Thank you for helping us fight the spread of COVID-19 in NY. We’re sorry to see you go, but you can stop using this app at any time.\n\nWhen you tap the “Delete My Data” button below, we’ll remove all the data that the app stored on your phone, such as all entries in your health log.",
-    "summary": "**Note:**\n\nThis button doesn’t delete the random codes created or collected by your phone for Closeness Sensing and COVID Alerts.\n\nTo delete the random codes, go to your phone’s Settings and select “Google Services & Preferences.” Then, select “COVID-19 Exposure Notifications” and tap the “Delete Random IDs” button. To stop storing new codes, you should turn off “Use Exposure Notifications.”",
-    "button": "Delete My Data",
-    "confirmTitle": "Delete My Data",
-    "confirmText": "Are you sure you want to delete your data?",
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "error": "There was an error deleting your data. Please try again or contact us."
+    "title": "Eliminar mis datos",
+    "info": "Gracias por ayudarnos a luchar contra la propagación de COVID-19 en NY ti. Lo sentimos que te vayas, pero puede dejar de usar esta aplicación en cualquier momento. \\ N \\ nCuando puntear debajo del botón “Eliminar mis datos”, vamos a eliminar todos los datos que la aplicación almacenada en su teléfono, como todas las entradas en el registro de la salud.",
+    "summary": "** Nota: **. \\ N botón de \\ nEsta no elimina los códigos aleatorios creados o recogidos por el teléfono en las Alertas de proximidad Sensores y COVID \\ n \\ n Para borrar los códigos aleatorios, ir a la configuración del teléfono y seleccione “Servicios de Google y preferencias “. A continuación, seleccione “COVID-19 Notificaciones de exposición” y pulse el botón “Eliminar aleatoria identificaciones”. Para detener el almacenamiento de nuevos códigos, debe desactivar la opción “Use Notificaciones de exposición.”",
+    "button": "Eliminar mis datos",
+    "confirmTitle": "Eliminar mis datos",
+    "confirmText": "¿Está seguro de que quiere borrar sus datos?",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "error": "Hubo un error al eliminar sus datos. Inténtelo de nuevo o póngase en contacto con nosotros."
   },
   "checkInSettings": {
-    "title": "COVID Check-In",
-    "checkInFirst": "Your settings will be visible here as soon as you do your first Check-In.",
-    "intro": "You have shared the following information with us.",
-    "gotoCheckIn": "Go to COVID Check-In"
+    "title": "COVID Check-in",
+    "checkInFirst": "Sus ajustes serán visibles aquí tan pronto como lo hace su primera Check-In.",
+    "intro": "Ha compartido la siguiente información con nosotros.",
+    "gotoCheckIn": "Ir a COVID Check-in"
   },
   "appStats": {
-    "title": "Today's fight",
-    "totalCheckins": "Total Check-Ins today",
-    "noSymptoms": "Feeling good",
-    "someSymptoms": "Some symptoms",
-    "nationalPicture": "The national picture",
-    "breakdown": "Tap for county breakdown"
+    "title": "La lucha de hoy",
+    "totalCheckins": "De registros total hoy",
+    "noSymptoms": "Sentirse bien",
+    "someSymptoms": "algunos de los síntomas",
+    "nationalPicture": "El cuadro nacional",
+    "breakdown": "Toque para la descomposición del condado"
   },
   "contactTracing": {
-    "title": "My COVID Alerts",
+    "title": "Mi COVID Alertas",
     "active": {
-      "title": "Closeness Sensing and COVID Alerts are active!",
-      "text": "Thank you for doing your part to stop the spread of COVID-19."
+      "title": "La proximidad de detección y alertas COVID están activos!",
+      "text": "Gracias por hacer su parte para detener la propagación de COVID-19 te."
     },
     "noSupport": {
-      "title": "Closeness Sensing is not available",
-      "message": "Unfortunately, your device doesn’t support Closeness Sensing, so you can't receive COVID Alerts. You can still use this app to log your health and view NY COVID data."
+      "title": "La proximidad de detección no está disponible",
+      "message": "Por desgracia, el dispositivo no es compatible con la cercanía de detección, por lo que no puede recibir alertas COVID. Todavía se puede utilizar esta aplicación para registrar su salud y ver datos NY COVID."
     },
     "canSupport": {
-      "title": "Closeness Sensing is not available",
+      "title": "La proximidad de detección no está disponible",
       "message": {
-        "ios": "You need to upgrade to the latest iOS version 13.5 or above to enable it.",
-        "android": "You need to upgrade to the latest version of Google Play Services."
+        "ios": "Es necesario actualizar a la última versión de IOS 13.5 o superior para que pueda.",
+        "android": "Es necesario actualizar a la versión más reciente de los servicios de Play."
       },
-      "button": "Check for upgrades"
+      "button": "Comprobar si hay actualizaciones"
     },
     "notEnabled": {
-      "title": "Closeness Sensing is not enabled",
-      "message": "To enable Closeness Sensing and COVID Alerts you need it setup.",
-      "button": "Setup"
+      "title": "La proximidad de detección no está habilitado",
+      "message": "Para habilitar la detección de proximidad y alertas COVID lo necesita instalación.",
+      "button": "Preparar"
     },
     "notActive": {
-      "title": "Closeness Sensing is not active",
-      "message00": "You need to accept Exposure Notification Services in your settings",
-      "message10": "You need to accept Exposure Notification Services in your settings",
-      "message01": "Please enable Bluetooth in your phone settings.",
-      "message11": "You need to accept Exposure Notification Services and Bluetooth in your settings",
-      "button": "Go to device settings",
+      "title": "La proximidad de detección no está activo",
+      "message00": "Tienes que aceptar servicios de notificación de la exposición en la configuración de",
+      "message10": "Tienes que aceptar servicios de notificación de la exposición en la configuración de",
+      "message01": "Por favor, activa Bluetooth en la configuración del teléfono.",
+      "message11": "Tienes que aceptar servicios de notificación de la exposición y Bluetooth en la configuración de",
+      "button": "Ir a la configuración del dispositivo",
       "android": {
-        "button": "Enable",
-        "message": "You need to enable Exposure Notification Services to activate Closeness Sensing and COVID Alerts"
+        "button": "Habilitar",
+        "message": "Necesita habilitar servicios de notificación de exposición para activar cercanía de detección y alertas COVID"
       }
     },
     "uploadCard": {
-      "text": "Learn how to keep others safe"
+      "text": "Aprender a mantener a otros seguros"
     },
     "closeContactCard": {
-      "text": "What to do if you test positive for COVID-19"
+      "text": "Qué hacer si el resultado es positivo para COVID-19"
     },
     "settings": {
       "status": {
-        "title": "Status",
-        "active": "Closeness Sensing is currently active.",
-        "notActive": "Closeness Sensing is not active",
-        "intro": "To change the status, go to your phone’s settings by tapping the “Update Settings” button below.",
-        "gotoSettings": "Update settings",
+        "title": "Estado",
+        "active": "El servicio es actualmente activo",
+        "notActive": "El servicio no está activo",
+        "intro": "Para actualizar la configuración de permisos, ir a la configuración de la aplicación del dispositivo.",
+        "gotoSettings": "Ajustes de actualización",
         "android": {
-          "intro": "Closeness Sensing is not currently enabled, click enable to start.",
-          "gotoSettings": "Enable"
+          "intro": "notificaciones de exposición servicio no está activado actualmente, haga clic en Habilitar para empezar.",
+          "gotoSettings": "Habilitar"
         }
       },
       "clearData": {
-        "title": "COVID Alerts",
-        "intro": "Your phone keeps a record of all the COVID Alerts you’ve received.  To delete all of your past COVID Alerts, tap the “Delete All” button below.",
-        "button": "Delete All",
-        "confirmTitle": "Delete All",
-        "confirmText": "Are you sure you want to clear all your COVID Alerts?",
-        "cancel": "Cancel",
-        "confirm": "Confirm",
-        "error": "There was an error clearing your COVID Alerts. Please try again."
+        "title": "Los contactos cercanos",
+        "intro": "Pulse en el botón de abajo para borrar todos sus contactos cercanos eventos.",
+        "button": "Limpiar todo",
+        "confirmTitle": "Los contactos cercanos",
+        "confirmText": "¿Está seguro de que desea borrar todos sus contactos cercanos?",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar",
+        "error": "Hubo un error al borrar sus contactos cercanos. Inténtalo de nuevo."
       }
     }
   },
-  "charts": {
-    "tests": {
-      "title": "Total persons tested",
-      "hint": "Graph showing daily tests over time"
-    },
-    "positiveTests": {
-      "title": "Total tested positive",
-      "hint": "Graph showing daily positive test results over time"
-    }
+  "confirmedChart": {
+    "title": "infecciones totales",
+    "label": "infecciones totales",
+    "hint": "Gráfico que muestra los casos confirmados en el tiempo diario",
+    "yesterday": "Los casos confirmados ayer"
+  },
+  "positivePercentage": {
+    "title": "¿Cuántos de los evaluados están infectados?",
+    "label": "¿Cuántos de los evaluados están infectados?",
+    "hint": "Gráfico que muestra los casos diaria confirmados con respecto a las pruebas realizadas"
+  },
+  "transmissionChart": {
+    "title": "Cómo COVID-19 se está extendiendo",
+    "community": "transmisión comunitaria",
+    "contact": "Contacto cercano",
+    "travel": "Viajar al extranjero"
+  },
+  "statsSource": {
+    "monitor": "COVID-19 Monitor de Vigilancia de la Salud (Irlanda)",
+    "communityTransmissions": "Comunidad Transmisiones, sin contacto cercano conocido",
+    "lastUpdatedStats": "Los casos confirmados actualizado:",
+    "lastUpdatedProfile": "Casos perfil última actualización:"
   },
   "symptomsHistory": {
-    "title": "My Health Log",
-    "symptom": "Symptom",
-    "symptoms": "Symptom",
-    "symptoms_plural": "Symptoms",
-    "completed": "You can check symptoms again tomorrow"
+    "title": "Mi registro de la Salud",
+    "symptom": "Síntoma",
+    "symptoms": "Los síntomas",
+    "completed": "Puede comprobar los síntomas de nuevo mañana"
   },
   "casesByCounty": {
-    "title": "Cases by county"
+    "title": "Casos por condado"
   },
   "yourData": {
-    "title": "Your data",
-    "info": "The COVID Green app protects your privacy and does not share personal information about you with other app users. **Your identity will never be revealed to other app users.**\n\nAny personal data you provide will be processed in line with GDPR and data protection law. You can read more about this in the Data Protection Information Notice below. **Your data will only be used in relation to the COVID-19 pandemic response** as set out in the Data Protection Information Notice.\n\nIf you need to be alerted, the app will start this process with a secure in-app notification. Separate to using this app, the HSE contact tracing team may phone you if someone with COVID-19 identifies you as a close contact. If you have a COVID-19 test, the HSE will contact you by text or by phone with results.\n\nTake care with any suspicious phone calls, emails or texts asking you for personal information. **The HSE will not ask you for personal information by text or email.**",
-    "viewInSettings": "You can view this notice at any time in Settings. If you do not want to continue, close and delete the app. If you consent, tap Continue to proceed.",
-    "continue": "Continue"
+    "title": "Tu información",
+    "info": "The Green aplicación COVID protege su privacidad y no comparte su información personal con otros usuarios de la aplicación. ** Su identidad nunca será revelada a otros usuarios de la aplicación. ** \\ n \\ nCualquier los datos personales que nos facilite serán tratados de acuerdo con GDPR y la ley de protección de datos. Puede leer más sobre esto en la protección de datos Aviso La información a continuación. ** Sus datos sólo será utilizada en relación con el COVID-19 ** respuesta a la pandemia tal como se establece en el Aviso de Protección de Datos de Información. \\ N \\ nSi necesita ser alertado, la aplicación va a iniciar este proceso con un in- segura notificacion de la aplicación. Separar al uso de esta aplicación, el equipo del estudio de contactos HSE le puede llamar si alguien con COVID-19 le identifica como un contacto cercano. Si usted tiene una prueba COVID-19, el HSE pondrá en contacto con usted por texto o por teléfono con los resultados de la atención. \\ N \\ Ntake con cualquier llamadas telefónicas, correos electrónicos o textos sospechosas que piden información personal. ** El HSE no se le pedirá información personal por correo electrónico o de texto. **",
+    "viewInSettings": "Puede ver el aviso en cualquier momento en Ajustes. Si no desea continuar, cerrar y eliminar la aplicación. Si usted autoriza, toque Continuar para proceder.",
+    "continue": "Seguir"
   },
   "sorry": {
-    "title": "Sorry to hear",
-    "info": "Unfortunately you won’t be able to use the app any further. You can rejoin at any time. Just tap the back button.",
-    "back": "Back"
+    "title": "Lamento escuchar",
+    "info": "Desafortunadamente usted no será capaz de utilizar la aplicación más lejos. Puede reunirse en cualquier momento. Sólo tienes que pulsar el botón de retroceso.",
+    "back": "Espalda"
   },
   "ageRequirement": {
-    "notice": "You must be 16 or older to use this app",
-    "over": "I am 16 or older",
-    "under": "I am under 16"
+    "notice": "Usted debe ser mayor de 16 años para utilizar esta aplicación",
+    "over": "Soy mayor de 16 años",
+    "under": "Soy menor de 16 años"
   },
   "underAge": {
-    "title": "Under 16",
-    "notice": "Thank you for your interest but unfortunately you are too young to participate in this initiative.\n\nKeep safe."
+    "title": "Menores de 16 años",
+    "notice": "Gracias por su interés, pero por desgracia, es demasiado joven para participar en esta iniciativa. \\ N \\ Nkeep seguro."
   },
   "followUpCall": {
-    "title": "Contact Tracing follow-up call",
-    "shortTitle": "Call Back",
-    "intro": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert.  The HSE will also phone you if you provide your number below.",
-    "note": "The HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below, or add it later in Settings.",
-    "noteAlt": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert.  The HSE will also phone you if you provide your number below.\n\nThe HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below.",
-    "noteSettings": "If you want we will try to call you to provide further assistance after you receive an exposure notification.\n\nYour phone number will only be shared with the HSE if you get an exposure notification.",
-    "optIn": "Yes, I want to opt-in",
-    "noThanks": "No thanks"
-  },
-  "alertsUnavailablePrompt": {
-    "title": "App can't alert you right now. Set up My COVID Alerts.",
-    "description": "Please check the COVID Green app now."
+    "title": "Localización de los contactos de seguimiento de llamadas",
+    "shortTitle": "Llamar de vuelta",
+    "intro": "Si alguien que ha estado en contacto cercano con pruebas positivas para COVID-19, la aplicación enviará un alerta Cerrar contacto. El HSE también le teléfono si usted proporciona su número a continuación.",
+    "note": "El HSE también puede teléfono si se identifica como un estrecho contacto mediante trazado de contacto manual. El HSE le dará consejos y referirlo para probar su caso. \\ N \\ n La aplicación sólo compartirá su número de teléfono con las agencias de seguridad si se obtiene un Cerca de alerta de contacto. Puede introducir su número a continuación, o añadirlo después en Configuración.",
+    "noteAlt": "Si alguien que ha estado en contacto cercano con pruebas positivas para COVID-19, la aplicación enviará un alerta Cerrar contacto. El HSE también le teléfono si usted proporciona su número a continuación. \\ N \\ nLa HSE también puede teléfono si usted está identificado como un contacto cercano con la localización de contactos manual. El HSE le dará consejos y referirlo para probar su caso. \\ N \\ n La aplicación sólo compartirá su número de teléfono con las agencias de seguridad si se obtiene un Cerca de alerta de contacto. Puede introducir su número a continuación.",
+    "noteSettings": "Si quieres vamos a tratar de llamar a usted para proporcionar más ayuda después de haber recibido una notificación de la exposición. \\ N el número de teléfono \\ nSu sólo será compartida con las agencias de seguridad si recibe una notificación de la exposición.",
+    "optIn": "Sí, quiero opt-in",
+    "noThanks": "No, gracias"
   },
   "closeContactNotification": {
-    "title": "Close Contact Alert",
-    "description": "Please check the COVID Green app now."
+    "title": "Cerrar alerta de contacto",
+    "description": "Por favor, compruebe la aplicación COVID verde ahora."
   },
   "closeContactWarn": {
-    "notice": "You've had {{count}} COVID Alert in the last 14 days",
-    "notice_plural": "You've had {{count}} COVID Alerts in the last 14 days"
+    "notice": "Usted ha tenido {{count}} COVID Alerta en los últimos 14 días",
+    "notice_plural": "Usted ha tenido {{count}} COVID Alertas en los últimos 14 días"
   },
   "closeContact": {
-    "title": "COVID Alert",
-    "intro": "**The app has detected that on September 1st 2020 someone who tested positive for COVID-19 was too close to you for too long.**\n\nTo protect others it would be best to **stay at home**.\n\nA Health Advisor can help you find support for staying at home and getting a test.",
-    "callBackCard": "Speak to a health advisor",
-    "infoCard": "Learn how to keep others safe",
+    "title": "Alerta por COVID-19",
+    "intro": "** La aplicación ha detectado que el 1 de septiembre 2020 alguien que dio positivo por COVID-19 era demasiado cerca de usted durante mucho tiempo. ** \\ n \\ n Para otros protegen sería mejor quedarse en casa ** **. \\ n \\ nA Health Advisor puede ayudarle a encontrar soporte para quedarse en casa y hacer una prueba.",
+    "callBackCard": "Hablar con un asesor de salud",
+    "infoCard": "Aprender a mantener a otros seguros",
     "requiredAge": {
-      "title": "Are you 18 years or older?",
-      "yes": "Yes, I’m 18 or older",
-      "no": "No, I'm under 18"
+      "title": "¿Tiene 18 años o más?",
+      "yes": "Sí, soy mayor de 18 años",
+      "no": "No, soy menor de 18 años"
     },
     "underAge": {
-      "title": "COVID Alert",
-      "intro": "**We can’t call you back because you’re too young.**\n\nYou must be 18 years or older to let us collect personal information like your phone number.\n\nInstead, you can:",
-      "callUs": "Call us"
+      "title": "Alerta por COVID-19",
+      "intro": "** No puede volver a llamar porque eres demasiado joven ** \\ n \\ nNo hay que tener 18 años o más para que nos recogemos información personal como su número de teléfono \\ n \\ nEn, se puede..:",
+      "callUs": "llámenos"
     }
   },
   "closeContactInfo": {
-    "title": "How to Keep Others Safe",
-    "info": "**To limit the risk of spreading COVID-19 to your family and community, please take the following precautions until you’ve been cleared by a public health professional:**\n\n1. **Isolate yourself.**\nStay in a room or living area that has its own bathroom and keep other people out. If you're in a home with other people, make sure there’s a door to separate the area from the rest of your home and keep it closed. If you must share a bathroom, have plenty of cleaning supplies (like household disinfectant wipes, bleach) to clean all surfaces after each use.\n\n2. **Stay at home and don’t leave your property.**\nDon’t go out into public. It’s important to avoid contact with other people, even your family.\n\n3. **Secure your living area.**\nKeep others from entering without your permission.\n\n4. **Wash your hands often.**\nMake sure you have access to a sink with soap, water, and plenty of paper towels.\n\n5. **Sleep by yourself.**\nIf you are in quarantine with others, sleep in separate bedrooms. You could start to have symptoms while you sleep.\n\n6. **Have food brought to you.**\nDon’t leave your living area to get or prepare food.\n\n7. **Bag up your garbage and leave it outside your door. **\nAsk someone else to pick it up regularly. (No special handling is needed.)\n\n8. **Keep a supply of face masks.**\nWear one if you start to have symptoms or must come in contact with others.\n\n9. **Monitor your temperature and symptoms carefully.**\nYou can keep track of them in the 'My Health Log' feature of this app or another way. A daily log helps Health Workers figure out the most effective treatments for you if you get sick.\n\n10. **Call ahead if you must leave to get health care.**\nTell the health care provider about your exposure to COVID-19. Wear a mask when you go and avoid using public transportation, such as subways, buses, or taxis."
+    "title": "Cómo evitar que otros Segura",
+    "info": "** Para limitar el riesgo de propagación de COVID-19 a su familia y la comunidad, por favor tome las siguientes precauciones hasta que haya sido aprobado por un profesional de salud pública: ** \\ n \\ n 1. ** aislarse. ** \\ Nstay en una habitación o sala de estar que tiene su propio cuarto de baño y evitar que otras personas fuera. Si estás en una casa con otras personas, asegúrese de que hay una puerta para separar el área del resto de su hogar y mantenerlo cerrado. Si tiene que compartir el baño, tienen un montón de artículos de limpieza (como toallitas desinfectantes domésticos, lejía) para limpiar todas las superficies después de cada uso. \\ N \\ n2. ** quedarse en casa y no deje su propiedad. ** \\ Ndon't salir al público. Es importante evitar el contacto con otras personas, incluso su familia. \\ N \\ n3. ** Asegure su sala de estar. ** \\ Nkeep otros entren sin su permiso. \\ N \\ n4. ** Lávese las manos con frecuencia. ** \\ nAsegúrese que tiene acceso a un lavabo con jabón, agua y un montón de toallas de papel. \\ N \\ n5. ** El sueño por sí mismo. ** \\ nSi están en cuarentena con otros, el sueño en habitaciones separadas. Se podría empezar a tener síntomas durante el sueño. \\ N \\ n6. ** tienen comida llevado a usted. ** \\ Ndon't dejar su área de vida para obtener o preparar la comida. \\ N \\ n7. ** bolsa hasta su basura y dejarlo fuera de su puerta. ** \\ NASK otra persona para recogerlo con regularidad. (No se necesita ningún tratamiento especial.) \\ N \\ n8. ** Mantenga un suministro de mascarillas. ** \\ nWear uno si usted comienza a tener síntomas o debe entrar en contacto con otros. \\ N \\ n9. ** Monitor de su temperatura y síntomas cuidadosamente. ** \\ nNo puede realizar un seguimiento de ellos en la función 'Mi Salud Log' de esta aplicación o de otra manera. Un registro diario ayuda a la figura Trabajadores de la Salud a cabo los tratamientos más eficaces para usted si usted se enferma. \\ N \\ n10. ** Llame con anticipación si tiene que salir para recibir atención médica. ** \\ Ntell el proveedor de atención médica acerca de su exposición a COVID-19. Use una máscara cuando se va y evitar el uso de transporte público, como el metro, autobuses o taxis."
   },
   "callBack": {
-    "title": "What phone number should we call you at?",
-    "button": "Call me as soon as you can",
+    "title": "¿Qué número de teléfono deberíamos llamarle a?",
+    "button": "Llámame tan pronto como sea posible",
     "success": {
-      "title": "Got it",
-      "text": "Our health workers are helping many New Yorkers.\n\nWe will call you as soon as we can at (917) 485-1028.\n\nWhile you wait: Protect others by staying at home",
-      "button": "Done"
+      "title": "Entendido",
+      "text": "Nuestros trabajadores de la salud están ayudando a muchos neoyorquinos \\ n \\ nSe le llamará tan pronto como sea posible al (917) 485-1028 \\ n \\ Nwhile que esperan:.. Otros protegen por quedarse en casa",
+      "button": "Hecho"
     }
   },
   "uploadKeys": {
-    "title": "Share Your Close Contact Codes",
+    "title": "Sube tu ID de Azar",
     "code": {
-      "intro": "Please enter the 6-digit number that the public health representative has given you over the phone or texted to you:",
-      "expiredError": "Code has expired. Contact HSE to request another one.",
-      "invalidError": "Invalid code. Please try again.",
-      "error": "There was an error validating the code. Please try again."
+      "intro": "Un miembro del equipo de localización de los contactos puede pedirle que compartir identificaciones aleatorias generadas por el teléfono durante los 14 días anteriores. \\ N \\ n Si es así, usted recibirá un código único de 6 dígitos por mensaje de texto para activar la funcionalidad de carga.",
+      "expiredError": "Código ha expirado. Contacto HSE para solicitar otro.",
+      "invalidError": "Codigo invalido. Inténtalo de nuevo.",
+      "error": "Hubo un error al validar el código. Inténtalo de nuevo."
     },
     "upload": {
-      "intro": "When you tap “Next”, you’ll see a confirmation screen. \n\nPlease tap “Share” on that screen to upload your records.",
-      "button": "Next"
+      "intro": "Para que nos ayude en la localización de los contactos recientes en los últimos 14 días, le estamos pidiendo a compartir sus identificadores anónimos aleatorios generados por el teléfono con el HSE.",
+      "button": "Subir su ID de azar a HSE"
     },
-    "permissionError": "We have not uploaded your keys as you did not grant permission.",
-    "uploadError": "An error occurred trying to upload",
+    "permissionError": "No hemos subido las llaves y cuando no se concede permiso.",
+    "uploadError": "Se produjo un error al intentar cargar",
     "uploadSuccess": {
-      "toast": "Thank you",
-      "thanks": "Thank you for sharing your codes. You may have just saved many people in your community from getting COVID-19.\n\nYour public health representative will offer support and do their best to help you plan what to do next. They’ll check in with you daily to see how you’re doing.",
-      "updates": "Done"
+      "toast": "Carga completa",
+      "thanks": "Gracias por subir tu aleatoria documentos de identidad. Esto ayudará a nuestro equipo de rastreo de contactos para frenar la propagación de COVID-19 y otros protegen.",
+      "updates": "Volver a Actualizaciones"
     }
   },
   "gender": {
-    "label": "Gender identity",
-    "placeholder": "Choose your gender identity",
-    "female": "Female",
-    "male": "Male",
-    "transgender": "Transgender",
-    "nonBinary": "Non-binary",
-    "other": "Other"
+    "label": "Identidad de género",
+    "placeholder": "Cambiar la identidad de género",
+    "female": "Hembra",
+    "male": "Masculino",
+    "transgender": "Transgénero",
+    "nonBinary": "No binario",
+    "other": "Otro"
   },
   "race": {
-    "label": "Race",
-    "placeholder": "Choose your race",
-    "american": "American Indian/Alaskan",
-    "asian": "Asian",
-    "black": "Black",
-    "hawaiian": "Native Hawaiian/Other Pacific Islander",
-    "white": "White",
-    "other": "Other"
+    "label": "Carrera",
+    "placeholder": "Elegir su raza",
+    "american": "Los indios americanos / Alaska",
+    "asian": "asiático",
+    "black": "Negro",
+    "hawaiian": "Nativo / otras islas del Pacífico de Hawai",
+    "white": "Blanco",
+    "other": "Otro"
   },
   "ethnicity": {
-    "label": "Ethnicity",
-    "placeholder": "Choose your ethnicity",
-    "hispanic": "Hispanic/Latino",
-    "not_hispanic": "Not Hispanic/Latino"
+    "label": "etnicidad",
+    "placeholder": "Elija su etnia",
+    "hispanic": "Hispano / latino",
+    "not_hispanic": "No Hispano / Latino"
   },
   "ageRange": {
-    "label": "Age range",
-    "placeholder": "Choose your age range"
+    "label": "Rango de edad",
+    "placeholder": "Elija su rango de edad"
   },
   "phoneNumber": {
     "code": {
-      "label": "Your country code",
-      "placeholder": "Country",
-      "searchPlaceholder": "Search a country",
-      "noResults": "No results found for this search.\nTry with something else.",
+      "label": "Su código de país",
+      "placeholder": "País",
+      "searchPlaceholder": "Buscar un país",
+      "noResults": "No se han encontrado resultados para esta búsqueda. \\ NIntente con otra cosa.",
       "error": {
-        "required": "Your country code is required."
+        "required": "Se requiere el código de país."
       }
     },
     "number": {
-      "label": "Your phone number (optional)",
-      "placeholder": "Your number",
+      "label": "Su número de teléfono (opcional)",
+      "placeholder": "Tu número",
       "error": {
-        "invalid": "Your number is not valid. Please provide your full phone number.",
-        "short": "Your number is incomplete. Please provide your full phone number.",
-        "required": "Your number is required."
+        "invalid": "Su número no es válido. Por favor, proporcione su número de teléfono completo.",
+        "short": "Su número es incompleta. Por favor, proporcione su número de teléfono completo.",
+        "required": "Se requiere su número."
       }
     }
   },
   "phoneNumberUs": {
-    "label": "Your phone number (US phones only)",
-    "placeholder": "Your number",
+    "label": "Su número de teléfono (sólo teléfonos de Estados Unidos)",
+    "placeholder": "Tu número",
     "error": {
-      "invalid": "Your number is not valid. Please provide your full phone number.",
-      "short": "Your number is incomplete. Please provide your full phone number.",
-      "required": "Your number is required."
+      "invalid": "Su número no es válido. Por favor, proporcione su número de teléfono completo.",
+      "short": "Su número es incompleta. Por favor, proporcione su número de teléfono completo.",
+      "required": "Se requiere su número."
     }
   },
   "county": {
-    "label": "New York State County you live in",
-    "dropdownPlaceholder": "Select your county",
-    "searchPlaceholder": "Search",
-    "noResults": "No results found for this search.\nTry with something else."
+    "label": "Condado",
+    "placeholder": "Elija su condado",
+    "dropdownPlaceholder": "Seleccione su condado",
+    "searchPlaceholder": "Buscar",
+    "noResults": "No se han encontrado resultados para esta búsqueda. \\ NIntente con otra cosa."
   },
   "appUsage": {
-    "title": "App Metrics",
-    "info": "The HSE would like to understand your use of the App for the purpose of improving it.\n\nThe app will collect anonymous metrics about how you use the app and the effectiveness of Contact Tracing processes.\n\nThis information is gathered by the HSE directly and does not use any third parties to gather metrics. **This information is only gathered with your consent and cannot be used to identify you.**",
-    "settingsInfo": "If you change your mind, you can change these permissions in Settings at any time.",
-    "yesButton": "Yes, I consent",
-    "noThanks": "No thanks"
+    "title": "aplicación de métricas",
+    "info": "El HSE le gustaría entender su uso de la App con el fin de mejorarla. \\ N \\ n La aplicación va a recolectar métricas anónimas sobre cómo utilizar la aplicación y la eficacia de los procesos de localización de los contactos. \\ N información \\ nEste es recogida por la HSE directamente y no utiliza ningún tercero para recopilar métricas. ** Esta información sólo se reunió con su consentimiento y no puede ser utilizada para identificarlo. **",
+    "settingsInfo": "Si cambia de opinión, puede cambiar estos permisos de configuración en cualquier momento.",
+    "yesButton": "Sí, me acuerdo",
+    "noThanks": "No, gracias"
   },
   "metrics": {
-    "title": "Help Improve This App",
-    "info": "You can help the New York State Department of Health improve this app by sharing data about how you use it and how well Closeness Sensing is working.\n\n**When you turn this setting on**, the app sends your usage data directly to the New York State Department of Health. The data is anonymous -- the app doesn’t send anything about your identity. No third parties collect or see any of this data.\n\n**If you keep this setting off or turn it off later**, the app keeps your usage data private and doesn’t send it to anyone.",
-    "share": "Share App Usage"
+    "title": "Ayuda a mejorar esta aplicación",
+    "info": "Puede ayudar al Departamento de Salud del Estado de Nueva York a mejorar esta aplicación mediante el intercambio de datos sobre cómo lo usa y qué tan bien está funcionando cercanía de detección. \\ N \\ n ** Cuando se activa este ajuste **, la aplicación envía sus datos de uso directamente al Departamento de Salud del Estado de Nueva York. Los datos son anónimos - la aplicación no envía nada acerca de su identidad. No hay terceros recopilen o ver cualquiera de estos datos. \\ N \\ n ** Si se mantiene este ajuste o lo apaga después **, la aplicación mantiene sus datos de uso privado y no envía a nadie.",
+    "share": "Acciones de aplicaciones de uso"
   },
   "tracingAvailable": {
-    "text": "App can't alert you right now.\nSet up My COVID Alerts."
+    "text": "La aplicación no se puede alertar en este momento. \\ NSET Alertas Mi COVID."
   },
   "codeInput": {
-    "accessibilityLabel": "Code digit {{number}}",
-    "accessibilityHint": "Enter {{count}} digit code"
+    "accessibilityLabel": "Código dígitos {{número}}",
+    "accessibilityHint": "Introduzca {{count}} código de cuatro dígitos"
   },
   "dashboard": {
     "stats": {
-      "title": "NY COVID Data",
-      "subtitle": "How fast is COVID-19 spreading?"
+      "title": "NY datos COVID",
+      "subtitle": "¿A qué velocidad se propaga COVID-19?"
     }
-  },
-  "positiveResult": {
-    "title": "If you test positive for COVID-19",
-    "text1": "If you test positive for COVID-19, the first thing you should do is **stay at home** and **isolate yourself** to keep others safe.",
-    "text2": "A public health representative will call you as soon as possible. They’ll offer you help with getting medical attention and dealing with challenges you may face, such as how to get food and medicine while you’re isolating.\n\nThe representative will also ask if you’re willing to share your app’s list of close contact codes. If so, the app can send an anonymous COVID Alert to other app users who recently spent more than 10 minutes within 6 feet of you.\n\nSharing your list is secure and private. The app never reveals who you are to anyone.\n",
-    "shareCodes": "Share your Close Contact Codes"
-  },
-  "languageSettings": {
-    "title": "My Language",
-    "intro": "Choose your language:"
   }
 }

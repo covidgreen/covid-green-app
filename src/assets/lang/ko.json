@@ -1,8 +1,8 @@
 {
   "common": {
-    "name": "COVID 그린",
-    "url": "https://www.covidtracker.ie/",
-    "message": "COVID-19에 맞서 싸울 COVID 녹색 가입",
+    "name": "COVID 스마트 NY",
+    "url": "https://CovidSmartNY.health.ny.gov",
+    "message": "COVID-19에 맞서 싸울 COVID 스마트 NY 가입",
     "networkError": "연결 문제. 인터넷 연결을 확인하고 다시 시도하십시오.",
     "missingDataAction": "새로 고침 페이지",
     "missingError": "로드 문제. 우리는 제대로 일부 데이터를로드 할 수 없었습니다.",
@@ -37,7 +37,7 @@
     "dataPolicy": "데이터 보호 정책",
     "terms": "이용 약관",
     "metrics": "앱 통계에 대한 설정",
-    "leave": "휴가 COVID 그린",
+    "leave": "COVID 스마트 NY를 남겨",
     "contactTracing": "연락 추적"
   },
   "navbar": {
@@ -60,7 +60,7 @@
           "list": [
             "아픈 사람은 당신이 바이러스를 잡은 수 있다는 것을 매우 가까운 충분한 시간을 할애하는 경우 경고하기.",
             "경고 다른 사람들이 당신의 신원을 공개하지 않고, 양성합니다.",
-            "지역 사회의 동향에 눈을 유지합니다."
+            "#REF!"
           ]
         },
         {
@@ -174,7 +174,7 @@
     "requiredICU": "필수 ICU"
   },
   "checker": {
-    "title": "내 건강 로그��",
+    "title": "내 건��� 로그인",
     "resultTitle": "감사합니다",
     "symptoms": {
       "subtitle": "오늘 다음 (11 개) 증상이 있습니까?",
