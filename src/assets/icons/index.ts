@@ -68,6 +68,9 @@ import StayHome from './how-to-keep-others-safe/stay-home.svg';
 import Temperature from './how-to-keep-others-safe/temperature.svg';
 import NoTouch from './how-to-keep-others-safe/temperature.svg';
 import Wash from './how-to-keep-others-safe/wash.svg';
+import TouchPets from './how-to-keep-others-safe/dont-touch-pets.svg';
+import ChildCare from './how-to-keep-others-safe/child-care.svg';
+import SeparateBathroom from './how-to-keep-others-safe/separate-bathroom.svg';
 
 export const AppIcons = {
   Alert,
@@ -127,11 +130,11 @@ export const KeepSafeIcons = {
   Call,
   Sleep,
   SecureLiving,
-  Mask,
+  SeparateBathroom,
   Food,
   Garbage, 
-  Temperature,
-  Isolate,
+  TouchPets,
+  ChildCare,
   Wash,
   NoTouch
 };
