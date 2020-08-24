@@ -3,8 +3,9 @@
 const fs = require('fs');
 const _ = require('lodash');
 const Excel = require('exceljs');
+const { es } = require('date-fns/locale');
 
-function process(ws, path, en, ht, ru, bn, ko, zh) {
+function process(ws, path, en, ht, ru, bn, ko, zh, es) {
   if (!_.isObject(en)) {
     const enVal = en.replace(/\n/g, '\\n');
     const htVal = _.get(ht, path, '');
@@ -12,6 +13,7 @@ function process(ws, path, en, ht, ru, bn, ko, zh) {
     const bnVal = _.get(bn, path, '');
     const koVal = _.get(ko, path, '');
     const zhVal = _.get(zh, path, '');
+    const esVal = _.get(es, path, '');
 
     ws.addRow({
       context: path,
@@ -20,7 +22,8 @@ function process(ws, path, en, ht, ru, bn, ko, zh) {
       russian: ruVal,
       bengali: bnVal,
       korean: koVal,
-      chinese: zhVal
+      chinese: zhVal,
+      spanish: esVal
     });
     return;
   }
@@ -34,7 +37,8 @@ function process(ws, path, en, ht, ru, bn, ko, zh) {
       ru,
       bn,
       ko,
-      zh
+      zh,
+      es
     );
   });
 }
@@ -46,6 +50,8 @@ async function generateFile() {
   const ruRaw = await fs.promises.readFile('../src/assets/lang/ru.json');
   const koRaw = await fs.promises.readFile('../src/assets/lang/ko.json');
   const zhRaw = await fs.promises.readFile('../src/assets/lang/zh.json');
+  const esRaw = await fs.promises.readFile('../src/assets/lang/es.json');
+
 
   const en = JSON.parse(enRaw);
   const ht = JSON.parse(htRaw);
@@ -53,6 +59,7 @@ async function generateFile() {
   const ru = JSON.parse(ruRaw);
   const ko = JSON.parse(koRaw);
   const zh = JSON.parse(zhRaw);
+  const es = JSON.parse(esRaw);
 
   const workbook = new Excel.Workbook();
   const worksheet = workbook.addWorksheet('Translations');
@@ -64,10 +71,11 @@ async function generateFile() {
     {header: 'Russian', key: 'russian'},
     {header: 'Bengali', key: 'bengali'},
     {header: 'Korean', key: 'korean'},
-    {header: 'Chinese', key: 'chinese'}
+    {header: 'Chinese', key: 'chinese'},
+    {header: 'Spanish', key: 'spanish'}
   ];
 
-  process(worksheet, '', en, ht, ru, bn, ko, zh);
+  process(worksheet, '', en, ht, ru, bn, ko, zh, es);
 
   await workbook.xlsx.writeFile('output.xlsx');
 }

@@ -1,8 +1,8 @@
 {
   "common": {
-    "name": "COVID Green",
-    "url": "https://www.covidtracker.ie/",
-    "message": "Jwenn ak COVID Green nan batay kont COVID-19",
+    "name": "COVID Smart NY",
+    "url": "https://CovidSmartNY.health.ny.gov",
+    "message": "Jwenn ak COVID Smart NY nan batay kont COVID-19",
     "networkError": "pwoblèm koneksyon. Tanpri tcheke koneksyon entènèt ou epi eseye ankò.",
     "missingDataAction": "Refresh paj",
     "missingError": "Loading pwoblèm. Nou pa t 'kapab chaje kèk nan done yo kòrèkteman.",
@@ -37,7 +37,7 @@
     "dataPolicy": "Règleman Pwoteksyon Done",
     "terms": "Tèm ak Kondisyon yo",
     "metrics": "Anviwònman Pou App Mesures",
-    "leave": "Kite COVID Green",
+    "leave": "Kite COVID Smart NY",
     "contactTracing": "Kontakte tras"
   },
   "navbar": {
@@ -60,7 +60,7 @@
           "list": [
             "Debarase okouran si yon moun malad pase ase tan trè pre ou ke ou ka te kenbe viris la.",
             "lòt moun Alert si ou teste pozitif, san yo pa revele idantite ou.",
-            "Kenbe yon je sou tandans nan kominote w la."
+            "#REF!"
           ]
         },
         {

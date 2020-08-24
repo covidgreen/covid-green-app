@@ -1,8 +1,8 @@
 {
   "common": {
-    "name": "COVID绿",
-    "url": "https://www.covidtracker.ie/",
-    "message": "加入COVID绿能打击COVID-19",
+    "name": "COVID智能NY",
+    "url": "https://CovidSmartNY.health.ny.gov",
+    "message": "加入COVID智能NY以打击COVID-19",
     "networkError": "连接问题。请检查您的网络连接，然后再试一次。",
     "missingDataAction": "刷新页面",
     "missingError": "加载问题。我们无法正确加载一些数据。",
@@ -37,7 +37,7 @@
     "dataPolicy": "数据保护政策",
     "terms": "条款和条件",
     "metrics": "设置对于应用程序度量",
-    "leave": "离开COVID绿",
+    "leave": "离开COVID智能NY",
     "contactTracing": "接触者追踪"
   },
   "navbar": {
@@ -60,7 +60,7 @@
           "list": [
             "如果一个病人花了足够的时间非常接近你，你可捕获的病毒会收到通知。",
             "提醒别人，如果你试验阳性，没有透露自己的身份。",
-            "保持对趋势的眼睛在你的社区。"
+            "#REF!"
           ]
         },
         {
@@ -77,7 +77,7 @@
     "permissions": {
       "title": "建立贴近传感，用于COVID警报",
       "line1": "此应用程序需要您的许可才能：",
-      "track": "**感觉，当与此应用程序的另一个电话是附近。** \\ n \\ n如果另一个应用程序用户花费6呎您在10分钟内，你的手机掉随机码记住接触。这些代码不说您或您的任何��置。",
+      "track": "**感觉，当与此应用程序的另一个电话是附近。** \\ n \\ n如果另一个应用程序用户花费6呎您在10分钟内，你的手机掉随机码记住接触。这些代码不说您或您的任何位置。",
       "notifications": "**你发送通知。** \\ n \\ n如果在未来几天其他应用程序用户测试呈阳性的病毒，应用程序可以检查你的代码后，送你一个COVID警报。",
       "subtitle": "该应用程序从未：",
       "list": [
@@ -319,7 +319,7 @@
         "confirmText": "你确定要清除所有的密切接触者？",
         "cancel": "取消",
         "confirm": "确认",
-        "error": "有一个错误清除您的密切联系。请再试一遍。"
+        "error": "有一个错误清除您的���切联系。请再试一遍。"
       }
     }
   },
