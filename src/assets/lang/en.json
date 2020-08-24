@@ -201,7 +201,7 @@
       "callHelp": "If you need more help,\nCall NYS Health Hotline"
     },
     "introTitle": "My Health Log",
-    "introOptional": "All responses are optional.",
+    "introOptional": "All responses are optional. They will only be used anonymously for public health analysis.",
     "introButton": "Continue",
     "noresults": "You haven't tried the symptom checker yet. Start now by tapping the button above"
   },
