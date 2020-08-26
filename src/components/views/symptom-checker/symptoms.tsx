@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Route, Text} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {useFormik} from 'formik';
 
@@ -37,7 +38,7 @@ interface SymptomListItem {
 
 export const CheckInSymptoms = () => {
   const {t} = useTranslation();
-  const navigation = useNavigation();
+  const navigation: StackNavigationProp<any> = useNavigation();
   const app = useApplication();
 
   const route: Route = useRoute();
@@ -60,9 +61,7 @@ export const CheckInSymptoms = () => {
     } catch (err) {
       console.log('Check-in error', err);
     }
-    navigation.navigate('symptoms', {
-      screen: 'checker.final'
-    });
+    navigation.replace('checker.final');
   };
 
   const items: SymptomListItem[] = pageSymptoms.map((symptom) => ({
@@ -99,9 +98,7 @@ export const CheckInSymptoms = () => {
     } catch (err) {
       console.log(err);
     }
-    navigation.navigate('symptoms', {
-      screen: 'checker.final'
-    });
+    navigation.replace('checker.final');
   };
 
   // @ts-ignore
