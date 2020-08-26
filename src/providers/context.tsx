@@ -317,7 +317,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
         quickCheckIn
       });
 
-      SecureStore.setItemAsync('app.checks', JSON.stringify(checks));
+      SecureStore.setItemAsync('covidApp.checks', JSON.stringify(checks));
 
       apiCheckIn(checks, {
         gender: state.user!.gender!,
