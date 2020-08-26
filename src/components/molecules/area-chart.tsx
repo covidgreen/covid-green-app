@@ -45,6 +45,10 @@ export const TrackerAreaChart: FC<TrackerAreaChartProps> = ({
   lineColor = colors.orange,
   quantityKey
 }) => {
+  if (!data) {
+    return null;
+  }
+
   let axisData: Date[] = [];
   let chartData: number[] = [];
   const dataKeys = Object.keys(data);
