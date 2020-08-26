@@ -79,7 +79,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
         </View>
         <Spacing s={20} />
         <Text style={text.default}>
-          {t('contactTracing:noSupport:message')}
+          {t('closenessSensing:notSupported:message')}
         </Text>
         <Button
           onPress={() => {

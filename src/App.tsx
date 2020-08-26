@@ -56,7 +56,7 @@ import {
   CheckInFinal
 } from 'components/views/symptom-checker';
 import {SymptomsHistory} from 'components/views/symptoms-history';
-import {ContactTracing} from 'components/views/contact-tracing';
+import {MyCovidAlerts} from 'components/views/my-covid-alerts';
 import {CountyBreakdown} from 'components/views/county-breakdown';
 import {CloseContactInfo} from 'components/views/close-contact-info';
 import {CloseContact} from 'components/views/close-contact';
@@ -372,8 +372,8 @@ const MainStack = () => {
         }}
       />
       <Tab.Screen
-        name={ScreenNames.Tracing}
-        component={ContactTracing}
+        name={ScreenNames.MyCovidAlerts}
+        component={MyCovidAlerts}
         options={{title: t('viewNames:contactTracing')}}
       />
       <Tab.Screen

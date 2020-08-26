@@ -77,25 +77,22 @@ export const ContactTracingSettings = () => {
 
   const clearDataHandler = async () => {
     Alert.alert(
-      t('contactTracing:settings:clearData:confirmTitle'),
-      t('contactTracing:settings:clearData:confirmText'),
+      t('myCovidAlerts:settings:clearData:confirmTitle'),
+      t('myCovidAlerts:settings:clearData:confirmText'),
       [
         {
-          text: t('contactTracing:settings:clearData:cancel'),
+          text: t('myCovidAlerts:settings:clearData:cancel'),
           onPress: () => {},
           style: 'cancel'
         },
         {
-          text: t('contactTracing:settings:clearData:confirm'),
+          text: t('myCovidAlerts:settings:clearData:confirm'),
           onPress: async () => {
             try {
               await deleteExposureData();
             } catch (e) {
               console.log('Error deleting exposure data', e);
-              Alert.alert(
-                'Error',
-                t('contactTracing:settings:clearData:error')
-              );
+              Alert.alert('Error', t('myCovidAlerts:settings:clearData:error'));
             }
           },
           style: 'destructive'
@@ -116,41 +113,41 @@ export const ContactTracingSettings = () => {
   return (
     <KeyboardScrollable
       toast={successToast}
-      heading={t('contactTracing:title')}
+      heading={t('myCovidAlerts:title')}
       scrollViewRef={scrollViewRef}>
       <Text style={text.default}>
-        {t('contactTracing:settings:status:title')}
+        {t('myCovidAlerts:settings:status:title')}
       </Text>
       <Spacing s={30} />
       <Text style={text.largeBold}>
-        {t(`contactTracing:settings:status:${serviceStatus}`)}
+        {t(`myCovidAlerts:settings:status:${serviceStatus}`)}
       </Text>
       <Spacing s={30} />
       <Text style={text.default}>
         {Platform.OS === 'ios' || enabled
-          ? t('contactTracing:settings:status:intro')
-          : t('contactTracing:settings:status:android:intro')}
+          ? t('myCovidAlerts:settings:status:intro')
+          : t('myCovidAlerts:settings:status:android:intro')}
       </Text>
       <Spacing s={30} />
       <Button type="empty" onPress={gotoSettings}>
         {Platform.OS === 'ios' || enabled
-          ? t('contactTracing:settings:status:gotoSettings')
-          : t('contactTracing:settings:status:android:gotoSettings')}
+          ? t('myCovidAlerts:settings:status:gotoSettings')
+          : t('myCovidAlerts:settings:status:android:gotoSettings')}
       </Button>
 
       {contacts && contacts.length > 0 && (
         <>
           <Spacing s={30} />
           <Text style={text.defaultBold}>
-            {t('contactTracing:settings:clearData:title')}
+            {t('myCovidAlerts:settings:clearData:title')}
           </Text>
           <Spacing s={30} />
           <Markdown style={{background: colors.white}}>
-            {t('contactTracing:settings:clearData:intro')}
+            {t('myCovidAlerts:settings:clearData:intro')}
           </Markdown>
           <Spacing s={30} />
           <Button type="danger" onPress={clearDataHandler}>
-            {t('contactTracing:settings:clearData:button')}
+            {t('myCovidAlerts:settings:clearData:button')}
           </Button>
         </>
       )}

@@ -15,7 +15,7 @@ export const AlertInformation: FC = () => {
   return (
     <Card
       padding={{h: 10, r: 16}}
-      onPress={() => navigation.navigate(ScreenNames.Tracing)}
+      onPress={() => navigation.navigate(ScreenNames.MyCovidAlerts)}
       type="info"
       arrowColor={colors.black}>
       <View style={styles.row}>

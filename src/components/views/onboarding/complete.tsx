@@ -1,52 +1,73 @@
 import React, {FC} from 'react';
-import {useTranslation} from 'react-i18next';
+import {View} from 'react-native';
+import {
+  useExposure,
+  StatusState,
+  AuthorisedStatus,
+  StatusType
+} from 'react-native-exposure-notification-service';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
-import {StateIcons} from 'assets/icons';
 import {Button} from 'components/atoms/button';
+import {Spacing} from 'components/atoms/layout';
 import {Scrollable} from 'components/templates/scrollable';
-import {Spacing} from 'components/atoms/spacing';
 import {styles} from './styles';
-import {shareApp} from 'components/atoms/navbar';
+
+import {ClosenessSensing} from 'components/molecules/closeness-sensing';
 
 export const Completion: FC<any> = () => {
   const {t} = useTranslation();
   const nav = useNavigation();
+  const {supported, canSupport, status, enabled, isAuthorised} = useExposure();
+
+  const gotoDashboard = () =>
+    nav.reset({
+      index: 0,
+      routes: [{name: 'main'}]
+    });
+
+  let closenessSensingStatusCard;
+  let statusKey;
+
+  if (!supported) {
+    statusKey = !canSupport ? 'notSupported' : 'supported';
+    closenessSensingStatusCard = !canSupport ? (
+      <ClosenessSensing.NotSupported />
+    ) : (
+      <ClosenessSensing.Supported />
+    );
+  } else {
+    if (isAuthorised === AuthorisedStatus.blocked) {
+      statusKey = 'notEnabled';
+      closenessSensingStatusCard = <ClosenessSensing.NotEnabled />;
+    } else if (status.state === StatusState.active && enabled) {
+      statusKey = 'active';
+      closenessSensingStatusCard = <ClosenessSensing.Active share />;
+    } else {
+      statusKey = 'notActive';
+      const type = status.type || [];
+      closenessSensingStatusCard = (
+        <ClosenessSensing.NotActive
+          exposureOff={type.indexOf(StatusType.exposure) !== -1}
+          bluetoothOff={type.indexOf(StatusType.bluetooth) !== -1}
+        />
+      );
+    }
+  }
 
   return (
     <Scrollable>
       <Spacing s={10} />
       <View style={styles.fill}>
-        <View style={styles.cardContainer}>
-          <View style={styles.cardImage}>
-            <StateIcons.Success height={144} width={144} />
-          </View>
-          <View style={styles.cardContent}>
-            <Text style={styles.bold}>{t('onboarding:completion:title')}</Text>
-            <Spacing s={10} />
-            <Text style={styles.text}>{t('onboarding:completion:text')}</Text>
-            <Text style={styles.shareText}>
-              {t('onboarding:completion:shareText')}
-            </Text>
-            <Spacing s={30} />
-            <Button onPress={() => shareApp(t)} type="empty">
-              {t('onboarding:completion:share')}
-            </Button>
-            <Spacing s={20} />
-            <Button
-              onPress={() =>
-                nav.reset({
-                  index: 0,
-                  routes: [{name: 'main'}]
-                })
-              }>
-              {t('onboarding:completion:next')}
-            </Button>
-          </View>
-        </View>
+        {closenessSensingStatusCard}
+        <Spacing s={20} />
+        <Button
+          type={statusKey === 'active' ? 'default' : 'empty'}
+          onPress={gotoDashboard}>
+          {t(`closenessSensing:${statusKey}:next`)}
+        </Button>
       </View>
-      <Spacing s={30} />
     </Scrollable>
   );
 };

@@ -26,7 +26,7 @@ export enum ScreenNames {
   CloseContact = 'closeContact',
   UploadKeys = 'uploadKeys',
   PositiveResult = 'positiveResult',
-  Tracing = 'tracing',
+  MyCovidAlerts = 'myCovidAlerts',
   History = 'history',
 
   Dashboard = 'dashboard',

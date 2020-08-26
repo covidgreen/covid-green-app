@@ -1,30 +1,27 @@
 import React, {useCallback} from 'react';
 import {Text} from 'react-native';
-import {useFocusEffect, useIsFocused} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
-
 import {
   AuthorisedStatus,
   StatusState,
   StatusType,
   useExposure
 } from 'react-native-exposure-notification-service';
-import {Card} from 'components/atoms/card';
-import {CloseContactWarning} from 'components/molecules/close-contact-warning';
-import {colors, text} from 'theme';
-import {Spacing} from 'components/atoms/spacing';
+import {useFocusEffect, useIsFocused} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
+
+import {ScreenNames} from 'navigation';
 import {useAppState} from 'hooks/app-state';
 
-import {Active} from './active';
-import {NotActive} from './not-active';
-import {NoSupport} from './no-support';
-import {CanSupport} from './can-support';
-import {NotEnabled} from './not-enabled';
+import {Card} from 'components/atoms/card';
+import {Spacing} from 'components/atoms/spacing';
+import {CloseContactWarning} from 'components/molecules/close-contact-warning';
+import {ClosenessSensing} from 'components/molecules/closeness-sensing';
 import {Scrollable} from 'components/templates/scrollable';
-import {BubbleIcons} from 'assets/icons';
-import {ScreenNames} from 'navigation';
 
-export const ContactTracing = ({navigation}) => {
+import {colors, text} from 'theme';
+import {BubbleIcons} from 'assets/icons';
+
+export const MyCovidAlerts = ({navigation}) => {
   const {t} = useTranslation();
   const exposure = useExposure();
   const isFocused = useIsFocused();
@@ -50,17 +47,23 @@ export const ContactTracing = ({navigation}) => {
   let showCards = true;
   let exposureStatusCard;
   if (!supported) {
-    exposureStatusCard = !canSupport ? <NoSupport /> : <CanSupport />;
+    exposureStatusCard = !canSupport ? (
+      <ClosenessSensing.NotSupported />
+    ) : (
+      <ClosenessSensing.Supported />
+    );
     showCards = false;
   } else {
-    if (status.state === StatusState.active && enabled) {
-      exposureStatusCard = <Active />;
-    } else if (isAuthorised === AuthorisedStatus.unknown) {
-      exposureStatusCard = <NotEnabled />;
+    if (isAuthorised === AuthorisedStatus.unknown) {
+      exposureStatusCard = <ClosenessSensing.NotAuthorized />;
+    } else if (isAuthorised === AuthorisedStatus.blocked) {
+      exposureStatusCard = <ClosenessSensing.NotEnabled />;
+    } else if (status.state === StatusState.active && enabled) {
+      exposureStatusCard = <ClosenessSensing.Active />;
     } else {
       const type = status.type || [];
       exposureStatusCard = (
-        <NotActive
+        <ClosenessSensing.NotActive
           exposureOff={type.indexOf(StatusType.exposure) !== -1}
           bluetoothOff={type.indexOf(StatusType.bluetooth) !== -1}
         />
@@ -73,7 +76,7 @@ export const ContactTracing = ({navigation}) => {
   return (
     <Scrollable
       safeArea={false}
-      heading={t('contactTracing:title')}
+      heading={t('myCovidAlerts:title')}
       accessibilityRefocus>
       {hasCloseContact && (
         <>
@@ -90,7 +93,7 @@ export const ContactTracing = ({navigation}) => {
             icon={<BubbleIcons.TestedPositive />}
             padding={{r: 10}}>
             <Text style={text.defaultBold}>
-              {t('contactTracing:closeContactCard:text')}
+              {t('myCovidAlerts:closeContactCard:text')}
             </Text>
           </Card>
           <Spacing s={16} />
@@ -101,7 +104,7 @@ export const ContactTracing = ({navigation}) => {
             }
             padding={{r: 10}}>
             <Text style={text.defaultBold}>
-              {t('contactTracing:uploadCard:text')}
+              {t('myCovidAlerts:uploadCard:text')}
             </Text>
           </Card>
           <Spacing s={16} />
