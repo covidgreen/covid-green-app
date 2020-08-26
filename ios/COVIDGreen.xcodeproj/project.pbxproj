@@ -16,6 +16,11 @@
 		2836A7912449D2B1006215C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2836A78F2449D2B1006215C7 /* LaunchScreen.xib */; };
 		413AFFC2249366F9001D3D6E /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413AFFC1249366F9001D3D6E /* Stub.swift */; };
 		4E10F55EB1FF6E0F653DA6EF /* Pods_COVIDGreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671B0BFC15F79CF7EC5A105 /* Pods_COVIDGreen.framework */; };
+		DAE5873224F6CF8E002FFA54 /* cert2.cer in Resources */ = {isa = PBXBuildFile; fileRef = DAE5872D24F6CF8E002FFA54 /* cert2.cer */; };
+		DAE5873324F6CF8E002FFA54 /* cert1.cer in Resources */ = {isa = PBXBuildFile; fileRef = DAE5872E24F6CF8E002FFA54 /* cert1.cer */; };
+		DAE5873424F6CF8E002FFA54 /* cert3.cer in Resources */ = {isa = PBXBuildFile; fileRef = DAE5872F24F6CF8E002FFA54 /* cert3.cer */; };
+		DAE5873524F6CF8E002FFA54 /* cert4.cer in Resources */ = {isa = PBXBuildFile; fileRef = DAE5873024F6CF8E002FFA54 /* cert4.cer */; };
+		DAE5873624F6CF8E002FFA54 /* cert5.cer in Resources */ = {isa = PBXBuildFile; fileRef = DAE5873124F6CF8E002FFA54 /* cert5.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		41C3C226249C94E300634DB9 /* ga */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ga; path = COVIDGreen/ga.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6671B0BFC15F79CF7EC5A105 /* Pods_COVIDGreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDGreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D344A63170C83782608F761 /* Pods-COVIDGreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDGreen.debug.xcconfig"; path = "Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen.debug.xcconfig"; sourceTree = "<group>"; };
+		DAE5872D24F6CF8E002FFA54 /* cert2.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert2.cer; sourceTree = "<group>"; };
+		DAE5872E24F6CF8E002FFA54 /* cert1.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert1.cer; sourceTree = "<group>"; };
+		DAE5872F24F6CF8E002FFA54 /* cert3.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert3.cer; sourceTree = "<group>"; };
+		DAE5873024F6CF8E002FFA54 /* cert4.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert4.cer; sourceTree = "<group>"; };
+		DAE5873124F6CF8E002FFA54 /* cert5.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert5.cer; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -75,6 +85,11 @@
 		13B07FAE1A68108700A75B9A /* COVIDGreen */ = {
 			isa = PBXGroup;
 			children = (
+				DAE5872E24F6CF8E002FFA54 /* cert1.cer */,
+				DAE5872D24F6CF8E002FFA54 /* cert2.cer */,
+				DAE5872F24F6CF8E002FFA54 /* cert3.cer */,
+				DAE5873024F6CF8E002FFA54 /* cert4.cer */,
+				DAE5873124F6CF8E002FFA54 /* cert5.cer */,
 				267BB6D624EB2FBC003BA6F4 /* firebase */,
 				2836A78F2449D2B1006215C7 /* LaunchScreen.xib */,
 				28D77FD7243F5B48001A4277 /* COVIDGreen.entitlements */,
@@ -270,6 +285,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE5873324F6CF8E002FFA54 /* cert1.cer in Resources */,
+				DAE5873224F6CF8E002FFA54 /* cert2.cer in Resources */,
+				DAE5873424F6CF8E002FFA54 /* cert3.cer in Resources */,
+				DAE5873524F6CF8E002FFA54 /* cert4.cer in Resources */,
+				DAE5873624F6CF8E002FFA54 /* cert5.cer in Resources */,
 				2828A173243F41CC00C4BB5D /* Assets.xcassets in Resources */,
 				2828A179243F42FF00C4BB5D /* launch_icon.png in Resources */,
 				2828A178243F42FF00C4BB5D /* launch_background_image.png in Resources */,

@@ -1,8 +1,7 @@
 import {Platform} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import {format} from 'date-fns';
-// To enable certificate pinning uncomment line below, add your cert files and reference them in request method below
-// import {fetch} from 'react-native-ssl-pinning';
+import {fetch} from 'react-native-ssl-pinning';
 import NetInfo from '@react-native-community/netinfo';
 import {SAFETYNET_KEY} from '@env';
 import {BUILD_VERSION, ENV, TEST_TOKEN} from '@env';
@@ -94,11 +93,11 @@ export const request = async (url: string, cfg: any) => {
   let resp;
   try {
     resp = await fetch(url, {
-      ...config
-      // timeoutInterval: 30000,
-      // sslPinning: {
-      //  certs: ['certx', 'certy']
-      //}
+      ...config,
+      timeoutInterval: 30000,
+      sslPinning: {
+        certs: ['cert1', 'cert2', 'cert3', 'cert4', 'cert5']
+      }
     });
     isUnauthorised = resp && resp.status === 401;
   } catch (e) {
@@ -116,11 +115,11 @@ export const request = async (url: string, cfg: any) => {
     };
 
     return fetch(url, {
-      ...newConfig
-      // timeoutInterval: 30000,
-      // sslPinning: {
-      //   certs: ['certx', 'certy']
-      // }
+      ...newConfig,
+      timeoutInterval: 30000,
+      sslPinning: {
+        certs: ['cert1', 'cert2', 'cert3', 'cert4', 'cert5']
+      }
     });
   }
 
