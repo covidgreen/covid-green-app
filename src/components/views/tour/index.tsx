@@ -48,7 +48,9 @@ const Tour: FC<any> = () => {
         <View style={[styles.header, styles.row]}>
           <View style={[styles.padded, styles.close]}>
             <TouchableWithoutFeedback onPress={onClose} style={styles.close}>
-              <AppIcons.Close width={28} height={28} color={colors.purple} />
+              <View>
+                <AppIcons.Close width={28} height={28} color={colors.purple} />
+              </View>
             </TouchableWithoutFeedback>
           </View>
           <View style={styles.headerContent}>

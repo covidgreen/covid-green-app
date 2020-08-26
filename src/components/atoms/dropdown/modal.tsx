@@ -133,7 +133,9 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
               accessibilityHint={`Close ${title}`}
               accessibilityLabel={`Close ${title}`}
               onPress={onClose}>
-              <AppIcons.Close width={28} height={28} color={colors.text} />
+              <View>
+                <AppIcons.Close width={28} height={28} color={colors.text} />
+              </View>
             </TouchableWithoutFeedback>
           </View>
           <Text style={text.small}>{title}</Text>

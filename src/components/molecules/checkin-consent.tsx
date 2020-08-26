@@ -32,7 +32,9 @@ export const CheckInConsent: React.FC<CheckInConsentProps> = ({
       {onDismissed && (
         <View style={styles.dismissed}>
           <TouchableWithoutFeedback onPress={onDismissed}>
-            <AppIcons.Close width={24} height={24} />
+            <View>
+              <AppIcons.Close width={24} height={24} />
+            </View>
           </TouchableWithoutFeedback>
         </View>
       )}
