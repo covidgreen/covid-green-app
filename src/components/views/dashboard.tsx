@@ -39,6 +39,9 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const exposure = useExposure();
   const {getNextScreen} = useSymptomChecker();
 
+  let isChartDataAvailable =
+    county === 'u' ? data?.byDate?.aggregate : data?.byCounty?.counties[county];
+
   useFocusEffect(
     React.useCallback(() => {
       if (!isFocused || appState !== 'active') {
@@ -123,7 +126,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           <Spacing s={20} />
           <Text style={text.defaultBold}>{t('dashboard:stats:subtitle')}</Text>
           <Spacing s={18} />
-          {data && data.byDate && (
+          {isChartDataAvailable && (
             <>
               <Card padding={{h: 12}}>
                 <TrackerAreaChart
@@ -139,7 +142,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
               </Card>
             </>
           )}
-          {data && data.byDate && (
+          {isChartDataAvailable && (
             <>
               <Spacing s={20} />
               <Card padding={{h: 12}}>
