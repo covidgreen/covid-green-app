@@ -23,7 +23,7 @@ import {
   ExposureProvider,
   TraceConfiguration
 } from 'react-native-exposure-notification-service';
-import {BUILD_VERSION} from '@env';
+import {getReadableVersion} from 'react-native-device-info';
 
 import {Asset} from 'expo-asset';
 
@@ -585,13 +585,15 @@ const ExposureApp: React.FC = ({children}) => {
     getTokens();
   }, [app.user]);
 
+  const version = getReadableVersion();
+
   return (
     <ExposureProvider
       isReady={Boolean(
         app.user?.valid && tokens.authToken && tokens.refreshToken
       )}
       traceConfiguration={settings.traceConfiguration}
-      appVersion={BUILD_VERSION}
+      appVersion={version}
       serverUrl={urls.api}
       authToken={tokens.authToken}
       refreshToken={tokens.refreshToken}

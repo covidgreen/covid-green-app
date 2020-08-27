@@ -4,9 +4,10 @@ import {format} from 'date-fns';
 import {fetch} from 'react-native-ssl-pinning';
 import NetInfo from '@react-native-community/netinfo';
 import {SAFETYNET_KEY} from '@env';
-import {BUILD_VERSION, ENV, TEST_TOKEN} from '@env';
+import {ENV, TEST_TOKEN} from '@env';
 import RNGoogleSafetyNet from 'react-native-google-safetynet';
 import RNIOS11DeviceCheck from 'react-native-ios11-devicecheck';
+import {getReadableVersion} from 'react-native-device-info';
 
 import {CallBackData} from 'components/organisms/phone-number-us';
 
@@ -436,7 +437,7 @@ export async function saveMetric({event = ''}) {
       return false;
     }
     const os = Platform.OS;
-    const version = BUILD_VERSION;
+    const version = getReadableVersion();
     const req = await request(`${urls.api}/metrics`, {
       authorizationHeaders: true,
       method: 'POST',

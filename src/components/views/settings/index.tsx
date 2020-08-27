@@ -12,7 +12,8 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
-import {BUILD_VERSION, HIDE_DEBUG} from '@env';
+import {HIDE_DEBUG} from '@env';
+import {getReadableVersion} from 'react-native-device-info';
 
 import {AppIcons} from 'assets/icons';
 import {Scrollable} from 'components/templates/scrollable';
@@ -122,6 +123,8 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
     });
   }
 
+  const version = getReadableVersion();
+
   return (
     <Scrollable heading={t('settings:title')} backgroundColor="#FAFAFA">
       <FlatList
@@ -157,7 +160,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       />
       <View style={styles.flex} />
       <Text style={text.default} onPress={versionPressHandler}>
-        App version {Platform.OS === 'ios' ? 'iOS' : 'Android'} {BUILD_VERSION}
+        App version {Platform.OS === 'ios' ? 'iOS' : 'Android'} {version}
       </Text>
     </Scrollable>
   );
