@@ -55,12 +55,9 @@ import StateAppENS from './states/app-ens.svg';
 import Call from './how-to-keep-others-safe/call.svg';
 import Food from './how-to-keep-others-safe/food.svg';
 import Garbage from './how-to-keep-others-safe/garbage.svg';
-import Isolate from './how-to-keep-others-safe/isolate.svg';
-import Mask from './how-to-keep-others-safe/mask.svg';
 import SecureLiving from './how-to-keep-others-safe/secure-living.svg';
 import Sleep from './how-to-keep-others-safe/sleep.svg';
 import StayHome from './how-to-keep-others-safe/stay-home.svg';
-import Temperature from './how-to-keep-others-safe/temperature.svg';
 import NoTouch from './how-to-keep-others-safe/temperature.svg';
 import Wash from './how-to-keep-others-safe/wash.svg';
 import TouchPets from './how-to-keep-others-safe/dont-touch-pets.svg';
@@ -82,13 +79,8 @@ export const AppIcons = {
 };
 
 export const BubbleIcons = {
-  Cases: BubbleCases,
   CheckIn: BubbleCheckIn,
-  Deaths: BubbleDeaths,
-  Hospital: BubbleHospital,
-  ICU: BubbleICU,
   Info: BubbleInfo,
-  MapPin: BubbleMapPin,
   PhoneCall: BubblePhoneCall,
   Shield: BubbleShield,
   Survey: BubbleSurvey,
@@ -127,7 +119,7 @@ export const KeepSafeIcons = {
   SecureLiving,
   SeparateBathroom,
   Food,
-  Garbage, 
+  Garbage,
   TouchPets,
   ChildCare,
   Wash,
