@@ -2,7 +2,7 @@
   "common": {
     "name": "COVID Smart NY",
     "url": "https://CovidSmartNY.health.ny.gov",
-    "message": "Join COVID Smart NY to fight against COVID-19",
+    "message": "Help keep your fellow NYers safe from COVID-19 by flattening the curve. Get the COVID Smart NY app:",
     "networkError": "Connection issue. Please check your internet connection and try again.",
     "missingDataAction": "Refresh page",
     "missingError": "Loading issue. We were not able to load some of the data correctly.",
