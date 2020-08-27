@@ -10,7 +10,6 @@ import {Spacing, Separator} from 'components/atoms/layout';
 import {Button} from 'components/atoms/button';
 import {Dropdown} from 'components/atoms/dropdown';
 import {Toast} from 'components/atoms/toast';
-import {Basic} from 'components/templates/basic';
 import {Scrollable} from 'components/templates/scrollable';
 import {text, colors} from 'theme';
 import {AppIcons} from 'assets/icons';
@@ -83,7 +82,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
 
   if (!gender || !race || !ethnicity || !ageRange || !county) {
     return (
-      <Basic
+      <Scrollable
         backgroundColor={colors.background}
         heading={t('checkInSettings:title')}>
         <Text style={text.default}>{t('checkInSettings:checkInFirst')}</Text>
@@ -95,7 +94,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
           }>
           {t('checkInSettings:gotoCheckIn')}
         </Button>
-      </Basic>
+      </Scrollable>
     );
   }
 

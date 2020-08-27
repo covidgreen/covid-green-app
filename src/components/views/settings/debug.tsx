@@ -12,7 +12,7 @@ import {format} from 'date-fns';
 
 import {Button} from 'components/atoms/button';
 import {useExposure} from 'react-native-exposure-notification-service';
-import {Basic} from 'components/templates/basic';
+import {Scrollable} from 'components/templates/scrollable';
 
 const emitter = new NativeEventEmitter(ExposureNotification);
 
@@ -166,7 +166,7 @@ export const Debug = ({navigation}) => {
   };
 
   return (
-    <Basic heading="Debug">
+    <Scrollable heading="Debug">
       <Button type="major" onPress={checkExposure}>
         Check Exposure
       </Button>
@@ -224,7 +224,7 @@ export const Debug = ({navigation}) => {
       <ScrollView>
         <Text selectable={true}>{JSON.stringify(events, null, 2)}</Text>
       </ScrollView>
-    </Basic>
+    </Scrollable>
   );
 };
 

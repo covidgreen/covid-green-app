@@ -1,8 +1,7 @@
 import React from 'react';
-import {Alert, StyleSheet, View} from 'react-native';
+import {Alert, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import * as Haptics from 'expo-haptics';
-import {ScrollView} from 'react-native-gesture-handler';
 
 import {Button} from 'components/atoms/button';
 import {DataProtectionLink} from 'components/views/data-protection-policy';
@@ -11,7 +10,7 @@ import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
 import {useApplication} from 'providers/context';
 import {useExposure} from 'react-native-exposure-notification-service';
-import {Basic} from 'components/templates/basic';
+import {PinnedBottom} from 'components/templates/pinned';
 import {ScreenNames} from 'navigation';
 
 export const Leave = ({navigation}) => {
@@ -66,33 +65,18 @@ export const Leave = ({navigation}) => {
   };
 
   return (
-    <Basic heading={t('leave:title')}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View>
-          <Markdown style={{}}>{t('leave:info')}</Markdown>
-          <Spacing s={32} />
-          <DataProtectionLink />
-          <Spacing s={32} />
-          <Markdown style={{}}>{t('leave:summary')}</Markdown>
-          <Spacing s={32} />
-        </View>
-      </ScrollView>
+    <PinnedBottom heading={t('leave:title')}>
+      <View>
+        <Markdown style={{}}>{t('leave:info')}</Markdown>
+        <Spacing s={32} />
+        <DataProtectionLink />
+        <Spacing s={32} />
+        <Markdown style={{}}>{t('leave:summary')}</Markdown>
+        <Spacing s={32} />
+      </View>
       <Button type="danger" onPress={confirm}>
         {t('leave:button')}
       </Button>
-    </Basic>
+    </PinnedBottom>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    height: '100%'
-  },
-  contentContainer: {
-    flex: 1
-  }
-});

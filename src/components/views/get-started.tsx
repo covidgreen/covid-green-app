@@ -19,7 +19,8 @@ import {colors, text} from 'theme';
 import {NavBar} from 'components/atoms/navbar';
 import {Spacing} from 'components/atoms/spacing';
 import {useApplication} from 'providers/context';
-import {Basic} from 'components/templates/basic';
+
+import {SPACING_TOP, SPACING_HORIZONTAL} from 'constants/shared';
 
 const OnboardingImage = require('assets/images/onboarding-bg/bg.png');
 const Logo = require('assets/images/logo/logo.png');
@@ -77,7 +78,7 @@ export const GetStarted = ({navigation}: GetStartedProps) => {
   };
 
   return (
-    <Basic>
+    <View>
       <Animated.View
         style={[styles.animatedView, {opacity: navOpacity.current}]}>
         <NavBar
@@ -194,11 +195,17 @@ export const GetStarted = ({navigation}: GetStartedProps) => {
           </View>
         </ScrollView>
       </Animated.View>
-    </Basic>
+    </View>
   );
 };
 
 export const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: colors.white,
+    paddingTop: SPACING_TOP,
+    paddingHorizontal: SPACING_HORIZONTAL
+  },
   linkColor: {
     color: '#20585B'
   },

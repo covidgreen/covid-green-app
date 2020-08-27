@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {
@@ -26,10 +26,10 @@ export const PinnedBottom: FC<LayoutProps> = ({children, heading}) => {
         styles.container,
         {paddingBottom: insets.bottom + SPACING_BOTTOM}
       ]}>
-      <View style={{flex: 1}}>
+      <ScrollView style={{flex: 1}} keyboardShouldPersistTaps="always">
         {heading && <Heading accessibilityFocus text={heading} />}
         {content}
-      </View>
+      </ScrollView>
       <View>{bottom}</View>
     </View>
   );

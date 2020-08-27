@@ -15,7 +15,7 @@ import {useTranslation} from 'react-i18next';
 import {BUILD_VERSION, HIDE_DEBUG} from '@env';
 
 import {AppIcons} from 'assets/icons';
-import {Basic} from 'components/templates/basic';
+import {Scrollable} from 'components/templates/scrollable';
 import {colors, text, shadows} from 'theme';
 import {ScreenNames} from 'navigation';
 
@@ -123,7 +123,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   }
 
   return (
-    <Basic heading={t('settings:title')} backgroundColor="#FAFAFA">
+    <Scrollable heading={t('settings:title')} backgroundColor="#FAFAFA">
       <FlatList
         style={styles.list}
         data={settings}
@@ -159,7 +159,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       <Text style={text.default} onPress={versionPressHandler}>
         App version {Platform.OS === 'ios' ? 'iOS' : 'Android'} {BUILD_VERSION}
       </Text>
-    </Basic>
+    </Scrollable>
   );
 };
 
