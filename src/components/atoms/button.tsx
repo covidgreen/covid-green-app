@@ -54,6 +54,11 @@ export const Button: React.FC<ButtonProps> = ({
     // this should be enough for the moment
     backgroundColor += '66';
     foregroundColor += '66';
+    if (type === 'empty') {
+      backgroundColor = colors.gray;
+      foregroundColor = colors.gray;
+      textColor = colors.text;
+    }
   }
 
   const pressHandlers = disabled

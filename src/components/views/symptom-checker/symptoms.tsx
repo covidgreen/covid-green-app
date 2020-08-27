@@ -115,7 +115,11 @@ export const CheckInSymptoms = () => {
           'checker:symptoms:subtitle'
         )}`}</Text>
         <Spacing s={36} />
-        <Button width="100%" type="empty" onPress={onFeelingWell}>
+        <Button
+          width="100%"
+          type="empty"
+          onPress={onFeelingWell}
+          disabled={!!enableContinue}>
           {t('checker:feelingWell')}
         </Button>
         <Spacing s={36} />
