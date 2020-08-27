@@ -30,7 +30,10 @@ export const CheckInCard: FC<CheckInCardProps> = ({
     if (ref.current && accessibilityFocus) {
       const tag = findNodeHandle(ref.current);
       if (tag) {
-        setTimeout(() => AccessibilityInfo.setAccessibilityFocus(tag), 250);
+        setTimeout(
+          () => ref.current && AccessibilityInfo.setAccessibilityFocus(tag),
+          250
+        );
       }
     }
   }, []);
@@ -39,7 +42,10 @@ export const CheckInCard: FC<CheckInCardProps> = ({
     if (isFocused && accessibilityRefocus && ref.current) {
       const tag = findNodeHandle(ref.current);
       if (tag) {
-        setTimeout(() => AccessibilityInfo.setAccessibilityFocus(tag), 250);
+        setTimeout(
+          () => ref.current && AccessibilityInfo.setAccessibilityFocus(tag),
+          250
+        );
       }
     }
   });
