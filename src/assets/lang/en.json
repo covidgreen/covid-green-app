@@ -163,13 +163,6 @@
     "link": "Terms & Conditions",
     "text": "The Terms & Conditions could not be loaded"
   },
-  "stats": {
-    "title": "Latest update",
-    "totalConfirmed": "Total confirmed cases",
-    "totalDeaths": "Total deaths",
-    "totalHospitalised": "Number hospitalised",
-    "requiredICU": "Required ICU"
-  },
   "checker": {
     "title": "My Health Log",
     "resultTitle": "Thank you",
@@ -242,14 +235,6 @@
     "checkInFirst": "Your settings will be visible here as soon as you do your first log.",
     "intro": "You shared the following information with us about yourself.  You can change these selections at any time.",
     "gotoCheckIn": "Go to My Health Log"
-  },
-  "appStats": {
-    "title": "Today's fight",
-    "totalCheckins": "Total Check-Ins today",
-    "noSymptoms": "Feeling good",
-    "someSymptoms": "Some symptoms",
-    "nationalPicture": "The national picture",
-    "breakdown": "Tap for county breakdown"
   },
   "myCovidAlerts": {
     "title": "My COVID Alerts",

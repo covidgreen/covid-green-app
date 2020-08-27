@@ -166,13 +166,6 @@
     "link": "Términos y condiciones",
     "text": "Los Términos y Condiciones No se pudieron cargar"
   },
-  "stats": {
-    "title": "Última actualización",
-    "totalConfirmed": "Total de casos confirmados",
-    "totalDeaths": "El total de muertes",
-    "totalHospitalised": "número hospitalizado",
-    "requiredICU": "Obligatorio UCI"
-  },
   "checker": {
     "title": "Mi registro de la Salud",
     "resultTitle": "Gracias",
@@ -249,14 +242,6 @@
     "checkInFirst": "Sus ajustes serán visibles aquí tan pronto como lo hace su primera Check-In.",
     "intro": "Ha compartido la siguiente información con nosotros.",
     "gotoCheckIn": "Ir a COVID Check-in"
-  },
-  "appStats": {
-    "title": "La lucha de hoy",
-    "totalCheckins": "De registros total hoy",
-    "noSymptoms": "Sentirse bien",
-    "someSymptoms": "algunos de los síntomas",
-    "nationalPicture": "El cuadro nacional",
-    "breakdown": "Toque para la descomposición del condado"
   },
   "contactTracing": {
     "title": "Mi COVID Alertas",

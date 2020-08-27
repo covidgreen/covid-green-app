@@ -166,13 +166,6 @@
     "link": "Правила и условия",
     "text": "Настоящие Условия и условия не могут быть загружены"
   },
-  "stats": {
-    "title": "Последнее обновление",
-    "totalConfirmed": "Всего подтвержденных случаев",
-    "totalDeaths": "Всего смертей",
-    "totalHospitalised": "Количество госпитализированных",
-    "requiredICU": "Обязательно ICU"
-  },
   "checker": {
     "title": "My Health Вход",
     "resultTitle": "Спасибо",
@@ -249,14 +242,6 @@
     "checkInFirst": "Ваши настройки будут видны здесь, как только вы сделаете свой первый Check-In.",
     "intro": "Вы поделились следующей информацией с нами.",
     "gotoCheckIn": "Перейти к COVID Check-In"
-  },
-  "appStats": {
-    "title": "Сегодняшний бой",
-    "totalCheckins": "Всего Check-Ins сегодня",
-    "noSymptoms": "Чувство хорошо",
-    "someSymptoms": "Некоторые симптомы",
-    "nationalPicture": "Национальная картина",
-    "breakdown": "Нажмите для пробоя округа"
   },
   "contactTracing": {
     "title": "Мой COVID Alerts",

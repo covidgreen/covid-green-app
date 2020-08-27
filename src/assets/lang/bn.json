@@ -166,13 +166,6 @@
     "link": "শর্তাবলী",
     "text": "শর্তাবলী লোড করা যায়নি"
   },
-  "stats": {
-    "title": "সর্বশেষ আপডেট",
-    "totalConfirmed": "মোট মামলা নিশ্চিত",
-    "totalDeaths": "মোট মৃত্যুর",
-    "totalHospitalised": "নম্বর হাসপাতালে",
-    "requiredICU": "প্রয়োজনীয় আইসিইউ"
-  },
   "checker": {
     "title": "আমার স্বাস্থ্য লগিন",
     "resultTitle": "ধন্যবাদ",
@@ -249,14 +242,6 @@
     "checkInFirst": "আপনার সেটিংস প্রোফাইল এখানে যত তাড়াতাড়ি আপনি আপনার প্রথম চেক-ইন কি হিসাবে থাকবে।",
     "intro": "আপনি আমাদের সাথে নিম্নলিখিত তথ্য ভাগ করে নিয়েছি।",
     "gotoCheckIn": "COVID চেক-ইন যান"
-  },
-  "appStats": {
-    "title": "আজকের যুদ্ধ",
-    "totalCheckins": "মোট চেক-ইন আজ",
-    "noSymptoms": "ভালো লাগছে",
-    "someSymptoms": "কিছু উপসর্গ",
-    "nationalPicture": "জাতীয় ছবি",
-    "breakdown": "কাউন্টি ভাঙ্গন পেতে ট্যাপ"
   },
   "contactTracing": {
     "title": "আমার COVID সতর্কতা",

@@ -65,10 +65,7 @@
         },
         {
           "title": "我们从来没有看到：",
-          "list": [
-            "您的位置或身份。",
-            "您的电话号码，除非你明确地与我们分享。"
-          ]
+          "list": ["您的位置或身份。", "您的电话号码，除非你明确地与我们分享。"]
         }
       ],
       "learnAction": "了解它是如何工作",
@@ -80,11 +77,7 @@
       "track": "**感觉，当与此应用程序的另一个电话是附近。** \\ n \\ n如果另一个应用程序用户花费6呎您在10分钟内，你的手机掉随机码记住接触。这些代码不说您或您的任何位置。",
       "notifications": "**你发送通知。** \\ n \\ n如果在未来几天其他应用程序用户测试呈阳性的病毒，应用程序可以检查你的代码后，送你一个COVID警报。",
       "subtitle": "该应用程序从未：",
-      "list": [
-        "看到您的位置。",
-        "分享你的电话号码。",
-        "表现出你的身份"
-      ],
+      "list": ["看到您的位置。", "分享你的电话号码。", "表现出你的身份"],
       "statement": "您可以通过将应用程序设置随时改变主意",
       "learnAction": "了解它是如何工作",
       "skipAction": "暂时略过",
@@ -166,13 +159,6 @@
     "link": "条款和条件",
     "text": "该条款不能被加载"
   },
-  "stats": {
-    "title": "最新更新",
-    "totalConfirmed": "总确诊病例",
-    "totalDeaths": "总死亡",
-    "totalHospitalised": "住院号",
-    "requiredICU": "要求ICU"
-  },
   "checker": {
     "title": "我的健康日志",
     "resultTitle": "谢谢",
@@ -249,14 +235,6 @@
     "checkInFirst": "您的设置会尽快你做你的第一个入住在这里看到。",
     "intro": "你已经分享了我们以下信息。",
     "gotoCheckIn": "转到COVID入住"
-  },
-  "appStats": {
-    "title": "今天的战斗",
-    "totalCheckins": "总入住手续的今天",
-    "noSymptoms": "感觉不错",
-    "someSymptoms": "有些症状",
-    "nationalPicture": "国家图片",
-    "breakdown": "点击县级击穿"
   },
   "contactTracing": {
     "title": "我COVID警报",

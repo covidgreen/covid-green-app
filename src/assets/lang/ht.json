@@ -166,13 +166,6 @@
     "link": "tèm ak Kondisyon",
     "text": "Regleman & Kondisyon yo pa t 'ka chaje"
   },
-  "stats": {
-    "title": "Anpil resan aktyalizasyon",
-    "totalConfirmed": "Total konfime ka",
-    "totalDeaths": "lanmò Total",
-    "totalHospitalised": "nimewo entène lopital",
-    "requiredICU": "Egzije entansif"
-  },
   "checker": {
     "title": "Mwen Sante Log",
     "resultTitle": "Mèsi",
@@ -249,14 +242,6 @@
     "checkInFirst": "anviwònman ou yo pral vizib isit la le pli vit ke ou fè premye fwa ou Check-In.",
     "intro": "Ou te pataje enfòmasyon sa yo avèk nou.",
     "gotoCheckIn": "Ale nan COVID Check-In"
-  },
-  "appStats": {
-    "title": "batay Jodi a",
-    "totalCheckins": "Total Tcheke-Ins jodi a",
-    "noSymptoms": "bon santiman",
-    "someSymptoms": "Gen kèk sentòm",
-    "nationalPicture": "Foto a nasyonal",
-    "breakdown": "Tap pou pann konte"
   },
   "contactTracing": {
     "title": "Mwen COVID Jwenn Avètisman yo",

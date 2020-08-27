@@ -16,13 +16,8 @@ import Selected from './app/selected.svg';
 import ErrorWarning from './app/error-warning.svg';
 
 // bubble
-import BubbleCases from './bubble/cases.svg';
 import BubbleCheckIn from './bubble/check-in.svg';
-import BubbleDeaths from './bubble/deaths.svg';
-import BubbleHospital from './bubble/hospital.svg';
-import BubbleICU from './bubble/icu.svg';
 import BubbleInfo from './bubble/info.svg';
-import BubbleMapPin from './bubble/map-pin.svg';
 import BubblePhoneCall from './bubble/phone-call.svg';
 import BubbleCallGreen from './bubble/call-green.svg';
 import BubbleShield from './bubble/shield.svg';

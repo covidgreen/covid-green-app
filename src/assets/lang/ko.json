@@ -166,13 +166,6 @@
     "link": "이용 약관",
     "text": "이용 약관로드 할 수 없습니다"
   },
-  "stats": {
-    "title": "최근 업데이트",
-    "totalConfirmed": "총 확인 된 사례",
-    "totalDeaths": "총 사망",
-    "totalHospitalised": "번호 입원",
-    "requiredICU": "필수 ICU"
-  },
   "checker": {
     "title": "내 건��� 로그인",
     "resultTitle": "감사합니다",
@@ -249,14 +242,6 @@
     "checkInFirst": "설정이 바로 첫 번째 체크인을 여기에 표시됩니다.",
     "intro": "당신은 우리와 함께 다음과 같은 정보를 공유했다.",
     "gotoCheckIn": "COVID 체크인로 이동"
-  },
-  "appStats": {
-    "title": "오늘의 싸움",
-    "totalCheckins": "총 체크인 오늘",
-    "noSymptoms": "기분 좋은",
-    "someSymptoms": "일부 증상",
-    "nationalPicture": "국가 사진",
-    "breakdown": "카운티 고장에 대한 탭"
   },
   "contactTracing": {
     "title": "내 COVID 경고",
