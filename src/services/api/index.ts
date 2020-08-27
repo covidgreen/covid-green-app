@@ -28,7 +28,13 @@ interface CheckIn {
 export type UploadResponse = Response | undefined;
 
 export const verify = async (nonce: string) => {
-  if (Platform.OS === 'android') {
+  if (ENV !== 'production' && TEST_TOKEN) {
+    console.log('using test token', TEST_TOKEN);
+    return {
+      platform: 'test',
+      deviceVerificationPayload: TEST_TOKEN
+    };
+  } else if (Platform.OS === 'android') {
     console.log(SAFETYNET_KEY);
     console.log(urls.api);
     try {
@@ -45,13 +51,6 @@ export const verify = async (nonce: string) => {
       throw err;
     }
   } else {
-    if (ENV !== 'production' && TEST_TOKEN) {
-      console.log('using test token', TEST_TOKEN);
-      return {
-        platform: 'test',
-        deviceVerificationPayload: TEST_TOKEN
-      };
-    }
     return {
       platform: 'ios',
       deviceVerificationPayload: await RNIOS11DeviceCheck.getToken()
