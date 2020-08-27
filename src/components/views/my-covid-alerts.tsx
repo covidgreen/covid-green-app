@@ -1,13 +1,18 @@
 import React, {useCallback} from 'react';
-import {Text} from 'react-native';
+import {Text, Platform} from 'react-native';
 import {
   AuthorisedStatus,
   StatusState,
   StatusType,
   useExposure
 } from 'react-native-exposure-notification-service';
-import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
+import {
+  useFocusEffect,
+  useIsFocused,
+  useNavigation
+} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 import {ScreenNames} from 'navigation';
 import {useAppState} from 'hooks/app-state';
@@ -21,8 +26,9 @@ import {Scrollable} from 'components/templates/scrollable';
 import {colors, text} from 'theme';
 import {BubbleIcons} from 'assets/icons';
 
-export const MyCovidAlerts = ({navigation}) => {
+export const MyCovidAlerts = () => {
   const {t} = useTranslation();
+  const navigation: StackNavigationProp<any> = useNavigation();
   const exposure = useExposure();
   const isFocused = useIsFocused();
   const [appState] = useAppState();
@@ -54,20 +60,24 @@ export const MyCovidAlerts = ({navigation}) => {
     );
     showCards = false;
   } else {
-    if (isAuthorised === AuthorisedStatus.unknown) {
-      exposureStatusCard = <ClosenessSensing.NotAuthorized />;
-    } else if (isAuthorised === AuthorisedStatus.blocked) {
-      exposureStatusCard = <ClosenessSensing.NotEnabled />;
-    } else if (status.state === StatusState.active && enabled) {
+    if (status.state === StatusState.active && enabled) {
       exposureStatusCard = <ClosenessSensing.Active />;
-    } else {
-      const type = status.type || [];
-      exposureStatusCard = (
-        <ClosenessSensing.NotActive
-          exposureOff={type.indexOf(StatusType.exposure) !== -1}
-          bluetoothOff={type.indexOf(StatusType.bluetooth) !== -1}
-        />
-      );
+    } else if (Platform.OS === 'android') {
+      exposureStatusCard = <ClosenessSensing.NotAuthorized />;
+    } else if (Platform.OS === 'ios') {
+      if (isAuthorised === AuthorisedStatus.unknown) {
+        exposureStatusCard = <ClosenessSensing.NotAuthorized />;
+      } else if (isAuthorised === AuthorisedStatus.blocked) {
+        exposureStatusCard = <ClosenessSensing.NotEnabledIOS />;
+      } else {
+        const type = status.type || [];
+        exposureStatusCard = (
+          <ClosenessSensing.NotActiveIOS
+            exposureOff={type.indexOf(StatusType.exposure) !== -1}
+            bluetoothOff={type.indexOf(StatusType.bluetooth) !== -1}
+          />
+        );
+      }
     }
   }
 

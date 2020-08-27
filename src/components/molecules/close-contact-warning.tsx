@@ -11,7 +11,7 @@ import {StateIcons} from 'assets/icons';
 export const CloseContactWarning: FC = () => {
   const {t} = useTranslation();
   const navigation = useNavigation();
-  const {contacts} = useExposure();
+  const {contacts, permissions} = useExposure();
 
   return (
     <Card

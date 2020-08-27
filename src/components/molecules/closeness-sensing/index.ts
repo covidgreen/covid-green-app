@@ -1,15 +1,15 @@
 import {Active} from './active';
-import {NotActive} from './not-active';
+import {NotActiveIOS} from './not-active-ios';
 import {NotAuthorized} from './not-authorized';
-import {NotEnabled} from './not-enabled';
+import {NotEnabledIOS} from './not-enabled-ios';
 import {NotSupported} from './not-supported';
 import {Supported} from './supported';
 
 export const ClosenessSensing = {
   Active,
-  NotActive,
+  NotActiveIOS,
   NotAuthorized,
-  NotEnabled,
+  NotEnabledIOS,
   NotSupported,
   Supported
 };
