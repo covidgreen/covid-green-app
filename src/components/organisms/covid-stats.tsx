@@ -9,6 +9,7 @@ import {Card} from 'components/atoms/card';
 import {CountyBreakdownCard} from 'components/molecules/county-breakdown-card';
 import {text} from 'theme';
 import {BubbleIcons} from 'assets/icons';
+import {formatNumber} from 'services/i18n';
 
 interface CovidStatsProps {
   style?: ViewStyle;
@@ -35,7 +36,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
           </View>
           <View style={styles.column} accessible accessibilityRole="text">
             <Text style={[text.xxlargeBlack, styles.columnText]}>
-              {new Intl.NumberFormat('en-IE').format(data.confirmed)}
+              {formatNumber(data.confirmed)}
             </Text>
             <Text style={[text.defaultBoldOpacity70, styles.columnText]}>
               {t('stats:totalConfirmed')}
@@ -48,9 +49,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
             <BubbleIcons.Deaths width={56} height={56} />
           </View>
           <View style={styles.column} accessible accessibilityRole="text">
-            <Text style={text.xxlargeBlack}>
-              {new Intl.NumberFormat('en-IE').format(data.deaths)}
-            </Text>
+            <Text style={text.xxlargeBlack}>{formatNumber(data.deaths)}</Text>
             <Text style={text.defaultBoldOpacity70}>
               {t('stats:totalDeaths')}
             </Text>
@@ -63,7 +62,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
           </View>
           <View style={styles.column} accessible accessibilityRole="text">
             <Text style={text.xxlargeBlack}>
-              {new Intl.NumberFormat('en-IE').format(data.hospitalised)}
+              {formatNumber(data.hospitalised)}
             </Text>
             <Text style={text.defaultBoldOpacity70}>
               {t('stats:totalHospitalised')}
@@ -77,7 +76,7 @@ export const CovidStats: FC<CovidStatsProps> = ({
           </View>
           <View style={styles.column} accessible accessibilityRole="text">
             <Text style={text.xxlargeBlack}>
-              {new Intl.NumberFormat('en-IE').format(data.requiredICU)}
+              {formatNumber(data.requiredICU)}
             </Text>
             <Text style={text.defaultBoldOpacity70}>
               {t('stats:requiredICU')}

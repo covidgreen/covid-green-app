@@ -8,6 +8,7 @@ import {Card} from 'components/atoms/card';
 import {Progress} from 'components/atoms/progress';
 import {colors, text} from 'theme';
 import {BubbleIcons} from 'assets/icons';
+import {formatNumber} from 'services/i18n';
 
 export interface AppStats {
   totalCheckins: number;
@@ -32,7 +33,7 @@ export const AppStats: FC<AppStatsProps> = ({data}) => {
           </View>
           <View style={styles.col}>
             <Text style={text.xxlargeBlack}>
-              {new Intl.NumberFormat('en-IE').format(data.totalCheckins)}
+              {formatNumber(data.totalCheckins)}
             </Text>
             <Text style={styles.text}>{t('appStats:totalCheckins')}</Text>
           </View>
@@ -48,7 +49,7 @@ export const AppStats: FC<AppStatsProps> = ({data}) => {
           </View>
           <View style={styles.rowPercentage}>
             <Text style={text.xxlargeBlack}>
-              {new Intl.NumberFormat('en-IE').format(data.noSymptoms)}
+              {formatNumber(data.noSymptoms)}
             </Text>
             <Text style={text.xlargeBlack}>%</Text>
             <Text>&nbsp;</Text>
@@ -62,7 +63,7 @@ export const AppStats: FC<AppStatsProps> = ({data}) => {
           </View>
           <View style={styles.rowPercentage}>
             <Text style={text.xxlargeBlack}>
-              {new Intl.NumberFormat('en-IE').format(data.someSymptoms)}
+              {formatNumber(data.someSymptoms)}
             </Text>
             <Text style={text.xlargeBlack}>%</Text>
             <Text>&nbsp;</Text>

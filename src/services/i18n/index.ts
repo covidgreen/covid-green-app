@@ -41,4 +41,9 @@ i18n
     }
   });
 
+export const formatNumber = (value: number): string => {
+  const currentLanguage = i18n.language;
+  return new Intl.NumberFormat(currentLanguage).format(value);
+};
+
 export default i18n;
