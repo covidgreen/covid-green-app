@@ -37,6 +37,7 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   cornerRoundness = 4,
   gapPercent = 25,
   style,
+  scale,
   yMax
 }) => {
   const rollingOffset = Math.max(0, rollingAverage - 1);
@@ -116,6 +117,7 @@ export const BarChartContent: FC<BarChartContentProps> = ({
       style={style}
       data={visibleChartData}
       gridMin={0}
+      scale={scale}
       numberOfTicks={3}
       spacingInner={gapPercent / 100}
       spacingOuter={gapPercent / 100}

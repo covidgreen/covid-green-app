@@ -3,11 +3,12 @@ import {StyleSheet, View, Text} from 'react-native';
 import Svg, {Line} from 'react-native-svg';
 import {YAxis, XAxis} from 'react-native-svg-charts';
 import {useTranslation} from 'react-i18next';
-import {format, sub} from 'date-fns';
+import {format} from 'date-fns';
 
 import {text, colors} from 'theme';
 import {BarChartContent} from 'components/atoms/bar-chart-content';
 import {Spacing} from 'components/atoms/spacing';
+import {scaleBand} from 'd3-scale';
 
 interface TrackerBarChartProps {
   title?: string;
@@ -155,6 +156,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             chartData={chartData}
             days={daysLimit}
             cornerRoundness={2}
+            scale={scaleBand}
             contentInset={contentInset}
             style={styles.chart}
             primaryColor={primaryColor}
@@ -166,9 +168,10 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
           <XAxis
             data={chartData}
             contentInset={contentInset}
+            scale={scaleBand}
             svg={{...xAxisSvg, y: 3}}
             formatLabel={(_, index) => {
-              if (index % intervalsCount) {
+              if (chartData.length > 10 && index % intervalsCount) {
                 return '';
               }
               const date = new Date(axisData[index]);
@@ -178,6 +181,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
           <XAxis
             data={chartData}
             contentInset={contentInset}
+            scale={scaleBand}
             svg={xAxisSvg}
             formatLabel={(_, index) => {
               if (index % intervalsCount) {
