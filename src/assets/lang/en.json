@@ -276,6 +276,9 @@
     "positiveTests": {
       "title": "Total tested positive",
       "hint": "Graph showing daily positive test results over time"
+    },
+    "legend": {
+      "averageLine": "7 day average"
     }
   },
   "symptomsHistory": {

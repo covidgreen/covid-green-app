@@ -35,7 +35,8 @@ export const colors = {
   lightpurple: '#fff37a',
   mildpurple: '#fff16f',
   darkerpurple: '#FFDA1A', // review & merge to purple
-  orange: '#FF8248', // review as used only in toast
+  orange: '#FF8248',
+  lightOrange: '#FFC0A3',
   white,
   red,
   teal,

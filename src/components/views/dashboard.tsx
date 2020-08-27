@@ -13,7 +13,7 @@ import {Scrollable} from 'components/templates/scrollable';
 import {Spacing} from 'components/atoms/spacing';
 import {Toast} from 'components/atoms/toast';
 import {TracingAvailable} from 'components/molecules/tracing-available';
-import {TrackerAreaChart} from 'components/molecules/area-chart';
+import {TrackerBarChart} from 'components/molecules/bar-chart';
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
 import {useSymptomChecker} from 'hooks/symptom-checker';
@@ -129,7 +129,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           {isChartDataAvailable && (
             <>
               <Card padding={{h: 12}}>
-                <TrackerAreaChart
+                <TrackerBarChart
                   title={t('charts:tests:title')}
                   hint={t('charts:tests:hint')}
                   quantityKey="total_number_of_tests"
@@ -146,7 +146,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
             <>
               <Spacing s={20} />
               <Card padding={{h: 12}}>
-                <TrackerAreaChart
+                <TrackerBarChart
                   title={t('charts:positiveTests:title')}
                   hint={t('charts:positiveTests:hint')}
                   quantityKey="new_positives"
