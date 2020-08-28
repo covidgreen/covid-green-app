@@ -268,6 +268,10 @@
       "title": "Total tested positive",
       "hint": "Graph showing daily positive test results over time"
     },
+    "positivityPercent": {
+      "title": "Percent tested positive",
+      "hint": "Graph showing the percent of daily tests with positive results over time"
+    },
     "legend": {
       "averageLine": "7 day average",
       "dailyTotal": "Daily total"

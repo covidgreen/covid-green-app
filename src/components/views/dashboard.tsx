@@ -22,6 +22,7 @@ import {CountyDropdown} from 'components/molecules/county-dropdown';
 import {colors, text} from 'theme';
 import {County} from 'assets/counties';
 import {AlertInformation} from 'components/molecules/alert-information';
+import { TrackerCharts } from '../organisms/tracker-charts';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const {
@@ -38,9 +39,6 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const isFocused = useIsFocused();
   const exposure = useExposure();
   const {getNextScreen} = useSymptomChecker();
-
-  let isChartDataAvailable =
-    county === 'u' ? data?.byDate?.aggregate : data?.byCounty?.counties[county];
 
   useFocusEffect(
     React.useCallback(() => {
@@ -126,39 +124,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           <Spacing s={20} />
           <Text style={text.defaultBold}>{t('dashboard:stats:subtitle')}</Text>
           <Spacing s={18} />
-          {isChartDataAvailable && (
-            <>
-              <Card padding={{h: 12}}>
-                <TrackerBarChart
-                  title={t('charts:tests:title')}
-                  hint={t('charts:tests:hint')}
-                  quantityKey="total_number_of_tests"
-                  data={
-                    county !== 'u'
-                      ? data.byCounty.counties[county]
-                      : data.byDate.aggregate
-                  }
-                />
-              </Card>
-            </>
-          )}
-          {isChartDataAvailable && (
-            <>
-              <Spacing s={20} />
-              <Card padding={{h: 12}}>
-                <TrackerBarChart
-                  title={t('charts:positiveTests:title')}
-                  hint={t('charts:positiveTests:hint')}
-                  quantityKey="new_positives"
-                  data={
-                    county !== 'u'
-                      ? data.byCounty.counties[county]
-                      : data.byDate.aggregate
-                  }
-                />
-              </Card>
-            </>
-          )}
+          <TrackerCharts data={data} county={county} />
         </>
       )}
     </Scrollable>
