@@ -1,8 +1,8 @@
 {
   "common": {
-    "name": "COVID Smart NY",
+    "name": "COVID Alert NY",
     "url": "https://CovidAlertNY.health.ny.gov",
-    "message": "Help keep your fellow NYers safe from COVID-19 by flattening the curve. Get the COVID Smart NY app:",
+    "message": "Help keep your fellow NYers safe from COVID-19 by flattening the curve. Get the COVID Alert NY app:",
     "networkError": "Connection issue. Please check your internet connection and try again.",
     "missingDataAction": "Refresh page",
     "missingError": "Loading issue. We were not able to load some of the data correctly.",
@@ -38,7 +38,7 @@
     "dataPolicy": "Data Protection Policy",
     "terms": "Terms and Conditions",
     "metrics": "Settings For App Metrics",
-    "leave": "Leave COVID Smart NY",
+    "leave": "Leave COVID Alert NY",
     "contactTracing": "Contact Tracing",
     "positiveResult": "If you test positive for COVID-19",
     "settingsLanguage": "My Language"
@@ -100,7 +100,7 @@
       "close": "Close"
     },
     "intro": {
-      "title": "With COVID Smart NY you can do 3 things to help fight COVID-19:",
+      "title": "With COVID Alert NY you can do 3 things to help fight COVID-19:",
       "view1": {
         "title": "Contact Tracing",
         "text": "Help contact tracing, protecting your privacy."
@@ -289,7 +289,7 @@
   },
   "yourData": {
     "title": "Your data",
-    "info": "The COVID Smart NY app protects your privacy and does not share personal information about you with other app users. **Your identity will never be revealed to other app users.**\n\nAny personal data you provide will be processed in line with GDPR and data protection law. You can read more about this in the Data Protection Information Notice below. **Your data will only be used in relation to the COVID-19 pandemic response** as set out in the Data Protection Information Notice.\n\nIf you need to be alerted, the app will start this process with a secure in-app notification. Separate to using this app, the HSE contact tracing team may phone you if someone with COVID-19 identifies you as a close contact. If you have a COVID-19 test, the HSE will contact you by text or by phone with results.\n\nTake care with any suspicious phone calls, emails or texts asking you for personal information. **The HSE will not ask you for personal information by text or email.**",
+    "info": "The COVID Alert NY app protects your privacy and does not share personal information about you with other app users. **Your identity will never be revealed to other app users.**\n\nAny personal data you provide will be processed in line with GDPR and data protection law. You can read more about this in the Data Protection Information Notice below. **Your data will only be used in relation to the COVID-19 pandemic response** as set out in the Data Protection Information Notice.\n\nIf you need to be alerted, the app will start this process with a secure in-app notification. Separate to using this app, the HSE contact tracing team may phone you if someone with COVID-19 identifies you as a close contact. If you have a COVID-19 test, the HSE will contact you by text or by phone with results.\n\nTake care with any suspicious phone calls, emails or texts asking you for personal information. **The HSE will not ask you for personal information by text or email.**",
     "viewInSettings": "You can view this notice at any time in Settings. If you do not want to continue, close and delete the app. If you consent, tap Continue to proceed.",
     "continue": "Continue"
   },
@@ -319,11 +319,11 @@
   },
   "alertsUnavailablePrompt": {
     "title": "App can't alert you right now. Set up My COVID Alerts.",
-    "description": "Please check the COVID Smart NY app now."
+    "description": "Please check the COVID Alert NY app now."
   },
   "closeContactNotification": {
     "title": "Close Contact Alert",
-    "description": "Please check the COVID Smart NY app now."
+    "description": "Please check the COVID Alert NY app now."
   },
   "closeContactWarn": {
     "notice": "You've had {{count}} COVID Alert in the last 14 days",

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "COVID Smart NY.app"
+               BuildableName = "COVID Alert NY.app"
                BlueprintName = "COVIDGreen"
                ReferencedContainer = "container:COVIDGreen.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "COVID Smart NY.app"
+            BuildableName = "COVID Alert NY.app"
             BlueprintName = "COVIDGreen"
             ReferencedContainer = "container:COVIDGreen.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "COVID Smart NY.app"
+            BuildableName = "COVID Alert NY.app"
             BlueprintName = "COVIDGreen"
             ReferencedContainer = "container:COVIDGreen.xcodeproj">
          </BuildableReference>

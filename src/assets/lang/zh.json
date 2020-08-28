@@ -1,6 +1,6 @@
 {
   "common": {
-    "name": "COVID Smart NY（纽约COVID智能库）",
+    "name": "COVID Alert NY（纽约COVID智能库）",
     "url": "https://CovidAlertNY.health.ny.gov",
     "message": "加入纽约COVID智能库来对抗COVID-19",
     "networkError": "连接问题。请检查您的互联网连接并重试。",

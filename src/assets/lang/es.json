@@ -1,6 +1,6 @@
 {
   "common": {
-    "name": "COVID Smart NY (NY alerta ante COVID)",
+    "name": "COVID Alert NY (NY alerta ante COVID)",
     "url": "https://CovidAlertNY.health.ny.gov",
     "message": "Únase a NY alerta ante COVID para luchar contra la COVID-19",
     "networkError": "Problemas de conexión. Revise su conexión a Internet e inténtelo de nuevo.",

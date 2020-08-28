@@ -1,6 +1,6 @@
 {
   "common": {
-    "name": "COVID Smart NY (COVID Смарт Нью-Йорк)",
+    "name": "COVID Alert NY (COVID Смарт Нью-Йорк)",
     "url": "https://CovidAlertNY.health.ny.gov",
     "message": "Зарегистрируйтесь в COVID Смарт Нью-Йорк для борьбы с COVID-19",
     "networkError": "Проблема с соединением. Проверьте подключение к Интернету и повторите попытку.",
