@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "{{GCM_SENDER_ID}}",
+    "firebase_url": "{{DATABASE_URL}}",
+    "project_id": "{{PROJECT_ID}}",
+    "storage_bucket": "{{STORAGE_BUCKET}}"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "{{ANDROID_GOOGLE_APP_ID}}",
+        "android_client_info": {
+          "package_name": "{{BUNDLE_ID}}"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "{{ANDROID_CLIENT_ID}}",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "{{ANDROID_API_KEY}}"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "{{ANDROID_CLIENT_ID}}",
+              "client_type": 3
+            },
+            {
+              "client_id": "{{IOS_CLIENT_ID}}",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "{{BUNDLE_ID}}"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -16,6 +16,25 @@
 default_platform(:ios)
 
 platform :ios do
+  desc "Setup Github Actions Environment"
+  lane :gha_setup do
+    keychain_password = SecureRandom.uuid
+    create_keychain(
+      name: "ios-build.keychain",
+      password: keychain_password,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600
+    )
+    import_certificate(
+      certificate_path: ENV["IOS_CERTIFICATE_FILE"],
+      certificate_password: ENV["SIGNING_KEY_P12_PASSWORD"],
+      keychain_name: "ios-build.keychain",
+      keychain_password: keychain_password,
+      log_output: true
+    )
+  end
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
     increment_build_number(xcodeproj: ENV['XCODEPROJ'])

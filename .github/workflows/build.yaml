@@ -1,0 +1,200 @@
+name: Build and Push to Fastlane
+on:
+  push:
+    tags:
+      - v1.*
+
+jobs:
+  android-build:
+    name: Android Build
+    runs-on: macos-latest 
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [ 14.x ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Generate .env file
+        uses: project-vagabond/template-action@v1
+        with:
+          template: .templates/.env.template
+          output: .env
+          vars: |
+            {
+              "API_HOST": "${{ secrets.API_HOST }}",
+              "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}"
+            }
+
+      - name: Generate Android API Key file
+        run: echo "${{ secrets.ANDROID_API_KEY }}" | base64 -d -o "android/android-api-key.json"
+
+      - name: Generate Android Upload Keystore
+        run: echo "${{ secrets.ANDROID_UPLOAD_KEYSTORE }}" | base64 -d -o "android/upload-keystore.jks"        
+
+      - name: Generate Android firebase config DEV
+        run: echo "${{ secrets.FIREBASE_CFG_ANDROID_DEV }}" | base64 -d -o "android/app/src/debug/google-services.json"        
+
+      - name: Generate Android firebase config PROD
+        run: echo "${{ secrets.FIREBASE_CFG_ANDROID_PROD }}" | base64 -d -o "android/app/src/release/google-services.json"        
+
+      - name: Generate Android env.default
+        uses: project-vagabond/template-action@v1
+        with:
+          template: .templates/android/env.default.template
+          output: android/.env.default
+          vars: |
+            {
+              "GITHUB_WORKSPACE": "${{ github.workspace }}",
+              "API_HOST": "${{ secrets.API_HOST }}",
+              "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}",
+              "ANDROID_KEYSTORE_PASSWORD": "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}",
+              "ANDROID_KEY_PASSWORD": "${{ secrets.ANDROID_KEY_PASSWORD }}",
+              "PACKAGE_NAME": "${{ secrets.PROX_BUNDLE_ID_PROD}}"
+            }
+
+      - name: Running tests with node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+#
+      - name: Setup Yarn Cache
+        uses: bahmutov/npm-install@v1.4.3
+        with:
+          useLockFile: false
+
+      - name: Kick yarn
+        run: yarn install
+
+      - name: Setup Ruby 
+        uses: actions/setup-ruby@v1
+        env:
+          BUNDLE_GEMFILE: "${{ github.workspace }}/ios/Gemfile"
+        with:
+          ruby-version: '2.6'
+          bundler-cache: true
+
+      - name: Printenv
+        run: printenv && npx react-native info
+
+      - name: Android Jetify
+        run: npx jetify
+#
+      - name: Android Build
+        run: cd android && . .env.default && fastlane internal
+
+  ios-build:
+    name: iOS Build
+    runs-on: macos-latest 
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [ 14.x ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Generate .env file
+        uses: project-vagabond/template-action@v1
+        with:
+          template: .templates/.env.template
+          output: .env
+          vars: |
+            {
+              "API_HOST": "${{ secrets.API_HOST }}",
+              "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}"
+            }
+
+      - name: Generate iOS AuthKey
+        run: echo "${{ secrets.IOS_AUTH_KEY }}" > "ios/AuthKey_${{ secrets.IOS_AUTH_KEY_ID }}.p8"
+
+      - name: Generate iOS Signing Key
+        run: echo "${{ secrets.SIGNING_KEY_P12_B64 }}" | base64 -d > "ios/NY COVID Proximity.key.p12"
+
+      - name: Generate iOS mobile provisioning profile        
+        run: |
+          echo "${{ secrets.IOS_MOBILE_PROV }}" | base64 -d -o "ios/COVID_Proximity_Tracing.mobileprovision"
+          uuid=`grep UUID -A1 -a "ios/COVID_Proximity_Tracing.mobileprovision" | grep -io "[-A-F0-9]\{36\}"`
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp "ios/COVID_Proximity_Tracing.mobileprovision"  ~/Library/MobileDevice/Provisioning\ Profiles/$uuid.mobileprovision
+          chmod a+rw ~/Library/MobileDevice/Provisioning\ Profiles/$uuid.mobileprovision
+          echo "~/Library"
+          ls -la ~/Library
+          echo "~/Library/MobileDevice"
+          ls -la ~/Library/MobileDevice
+          echo "~/Library/MobileDevice/Provisioning Profiles/"
+          ls -la ~/Library/MobileDevice/Provisioning\ Profiles/
+
+      - name: Generate iOS firebase config DEV
+        run: echo "${{ secrets.FIREBASE_CFG_IOS_DEV }}" | base64 -d -o "ios/firebase/development/GoogleService-Info.plist"        
+
+      - name: Generate iOS firebase config PROD
+        run: echo "${{ secrets.FIREBASE_CFG_IOS_PROD }}" | base64 -d -o "ios/firebase/production/GoogleService-Info.plist"        
+            
+
+      - name: Generate iOS env.default
+        uses: project-vagabond/template-action@v1
+        with:
+          template: .templates/ios/env.default.template
+          output: ios/.env.default
+          vars: |
+            {
+              "GITHUB_WORKSPACE": "${{ github.workspace }}",
+              "APPLE_ID": "${{ secrets.FASTLANE_USER }}",
+              "APP_IDENTIFIER": "${{ secrets.PROX_BUNDLE_ID_PROD }}",
+              "ITC_TEAM_ID": "${{ secrets.ITC_TEAM_ID }}",
+              "TEAM_ID": "${{ secrets.TEAM_ID }}",
+              "API_HOST": "${{ secrets.API_HOST }}",
+              "SIGNING_KEY_P12_PASSWORD": "${{ secrets.SIGNING_KEY_P12_PASSWORD }}",
+              "FASTLANE_USER": "${{ secrets.FASTLANE_USER }}",
+              "FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD": "${{ secrets.FASTLANE_PASSWORD }}",
+              "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}"              
+            }
+
+
+      - name: Running tests with node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+#
+      - name: Setup Yarn Cache
+        uses: bahmutov/npm-install@v1.4.3
+        with:
+          useLockFile: false
+
+      - name: Kick yarn
+        run: yarn install
+
+      - name: Setup CocoaPods Cache
+        uses: actions/cache@v1
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Setup Ruby 
+        uses: actions/setup-ruby@v1
+        env:
+          BUNDLE_GEMFILE: "${{ github.workspace }}/ios/Gemfile"
+        with:
+          ruby-version: '2.6' # Version range or exact version of a Ruby version to use, using semvers version range syntax.
+          bundler-cache: true
+
+      - name: Install CocoaPods Dependencies
+        run: cd ios && pod install
+
+      - name: iOS Cert Setup
+        run: cd ios && . .env.default && fastlane gha_setup
+
+      - name: iOS Build
+        env:
+          FASTLANE_USER: "${{ secrets.FASTLANE_USER }}"
+          FASTLANE_SESSION: '${{ secrets.FASTLANE_SESSION }}'
+        run: |
+          cd ios 
+          . .env.default
+          fastlane beta
