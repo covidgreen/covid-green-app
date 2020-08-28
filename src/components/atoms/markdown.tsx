@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, Linking} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import * as WebBrowser from 'expo-web-browser';
 import M from 'react-native-easy-markdown';
@@ -32,26 +32,32 @@ const MarkdownLink = (
   navigation: any
 ) => {
   const isHttp = href.startsWith('http');
+  const isTel = href.startsWith('tel');
 
-  if (!isHttp) {
+  if (isHttp || isTel) {
+    const handle = isTel
+      ? () => {
+          const crossPlatformTarget = href.replace(/:(?=\d|\+)/, '://');
+          Linking.openURL(crossPlatformTarget);
+        }
+      : () => {
+          WebBrowser.openBrowserAsync(href, {
+            enableBarCollapsing: true,
+            showInRecents: true
+          });
+        };
+
     return (
-      <Link key={key} onPress={() => navigation.navigate(href)}>
+      <Text key={key} onPress={handle}>
         {children}
-      </Link>
+      </Text>
     );
   }
 
-  const handle = () => {
-    WebBrowser.openBrowserAsync(href, {
-      enableBarCollapsing: true,
-      showInRecents: true
-    });
-  };
-
   return (
-    <Text key={key} onPress={handle}>
+    <Link key={key} onPress={() => navigation.navigate(href)}>
       {children}
-    </Text>
+    </Link>
   );
 };
 
