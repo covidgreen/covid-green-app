@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import i18n, {TFunction} from 'i18next';
 import {useTranslation} from 'react-i18next';
 import {isObject} from 'formik';
+import {AllHtmlEntities} from 'html-entities';
 
 import * as api from 'services/api';
 import {fallback} from 'services/i18n/common';
@@ -110,9 +111,11 @@ const getDbText = (apiSettings: any, key: string): any => {
         .replace(/\\n/g, '\n')
         .replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
     });
-    return item;
+    return AllHtmlEntities.decode(item);
   } else {
-    return data.replace(/\\n/g, '\n').replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n');
+    return AllHtmlEntities.decode(
+      data.replace(/\\n/g, '\n').replace(/(^|[^\n])\n(?!\n)/g, '$1\n\n')
+    );
   }
 };
 
