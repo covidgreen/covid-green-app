@@ -109,9 +109,9 @@ export const uploadExposureKeys = async (
     padding: RNSimpleCrypto.utils.convertArrayBufferToBase64(padding)
   }
 
-  console.log(`uploading keys to ${urls.publish}/publish`, publishData)
+  console.log(`uploading keys to ${urls.keyServer}/publish`, publishData)
 
-  const resp = await fetch(`${urls.publish}/publish`, {
+  const resp = await fetch(`${urls.keyServer}/publish`, {
     method: 'POST',
     mode: 'cors',
     headers: {
