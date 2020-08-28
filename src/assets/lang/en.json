@@ -269,7 +269,8 @@
       "hint": "Graph showing daily positive test results over time"
     },
     "legend": {
-      "averageLine": "7 day average"
+      "averageLine": "7 day average",
+      "dailyTotal": "Daily total"
     }
   },
   "symptomsHistory": {

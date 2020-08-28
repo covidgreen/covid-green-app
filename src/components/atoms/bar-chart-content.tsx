@@ -11,9 +11,9 @@ interface BarChartContentProps {
   contentInset: {top: number; bottom: number};
   rollingAverage?: number;
   days?: number;
-  primaryColor?: string;
-  backgroundColor?: string;
-  secondaryColor?: string;
+  primaryColor: string;
+  backgroundColor: string;
+  secondaryColor: string;
   cornerRoundness?: number;
   gapPercent?: number;
   style?: StyleProp<ViewStyle>;
@@ -33,9 +33,9 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   contentInset,
   rollingAverage = 0,
   days = chartData.length,
-  primaryColor = colors.orange,
-  secondaryColor = colors.lightOrange,
-  backgroundColor = colors.white,
+  primaryColor,
+  secondaryColor,
+  backgroundColor,
   cornerRoundness = 4,
   gapPercent = 25,
   style,

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import Svg, {Line} from 'react-native-svg';
+import Svg, {Line, Rect} from 'react-native-svg';
 import {YAxis, XAxis} from 'react-native-svg-charts';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
@@ -25,7 +25,7 @@ interface TrackerBarChartProps {
   quantityKey: string;
 }
 
-const legendLineSize = 24;
+const legendItemSize = 16;
 const nbsp = ' ';
 
 function formatLabel(value: number) {
@@ -62,9 +62,9 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   rollingAverage = 7,
   days = 30,
   intervalsCount = 6,
-  primaryColor,
-  backgroundColor,
-  secondaryColor,
+  primaryColor = colors.orange,
+  secondaryColor = colors.tabs.highlighted,
+  backgroundColor = colors.white,
   quantityKey
 }) => {
   const {t} = useTranslation();
@@ -198,17 +198,31 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
       </View>
       <Spacing s={16} />
       <View style={styles.legend}>
-        <Svg height={legendLineSize} width={legendLineSize}>
-          <Line
-            x1={0}
-            x2={legendLineSize}
-            y={legendLineSize / 2}
-            strokeWidth={3}
-            stroke={colors.orange}
-          />
-        </Svg>
-        <Text style={styles.legendLabel}>{t('charts:legend:averageLine')}</Text>
-      </View>
+        <View style={styles.legend}>
+          <Svg height={legendItemSize} width={legendItemSize}>
+            <Rect
+              x={0}
+              y={0}
+              width={legendItemSize}
+              height={legendItemSize}
+              fill={secondaryColor}
+            />
+          </Svg>
+          <Text style={styles.legendLabel}>{t('charts:legend:dailyTotal')}</Text>
+        </View>
+        <View style={styles.legend}>
+          <Svg height={legendItemSize} width={legendItemSize}>
+            <Line
+              x1={0}
+              x2={legendItemSize}
+              y={legendItemSize / 2}
+              strokeWidth={3}
+              stroke={primaryColor}
+            />
+          </Svg>
+          <Text style={styles.legendLabel}>{t('charts:legend:averageLine')}</Text>
+        </View>
+       </View>
     </>
   );
 };
@@ -251,10 +265,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginHorizontal: 16
   },
   legendLabel: {
+    ...text.small,
     textAlign: 'left',
-    marginLeft: 16
+    marginLeft: 8
   }
 });
