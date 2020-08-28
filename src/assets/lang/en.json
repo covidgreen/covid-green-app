@@ -87,13 +87,6 @@
       "skipAction": "Skip for now",
       "continueAction": "Next"
     },
-    "completion": {
-      "title": "Closeness Sensing and COVID Alerts are now active!",
-      "text": "Thank you for doing your part to stop the spread of COVID-19.",
-      "shareText": "Share this app with friends.\nHelp keep NY Safe.",
-      "next": "Done",
-      "share": "Share"
-    },
     "tour": {
       "title": "How it works",
       "statements": [
@@ -217,7 +210,28 @@
     "metrics": "Help Improve This App",
     "metricsHint": "View or amend settings for helpinig this app",
     "leave": "Delete My Data",
-    "leaveHint": "Delete data and leave the application"
+    "leaveHint": "Delete data and leave the application",
+    "status": {
+      "title": "Status",
+      "active": "Closeness Sensing is currently active.",
+      "notActive": "Closeness Sensing is not active",
+      "intro": "To change the status, go to your phone’s settings by tapping the “Update Settings” button below.",
+      "gotoSettings": "Update settings",
+      "android": {
+        "intro": "Closeness Sensing is not currently enabled, click enable to start.",
+        "gotoSettings": "Enable"
+      }
+    },
+    "clearData": {
+      "title": "COVID Alerts",
+      "intro": "Your phone keeps a record of all the COVID Alerts you’ve received. To delete all of your past COVID Alerts, tap the “Delete All” button below.",
+      "button": "Delete All",
+      "confirmTitle": "Delete All",
+      "confirmText": "Are you sure you want to clear all your COVID Alerts?",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "error": "There was an error clearing your COVID Alerts. Please try again."
+    }
   },
   "leave": {
     "title": "Delete My Data",
@@ -233,7 +247,7 @@
   "checkInSettings": {
     "title": "My Health Log",
     "checkInFirst": "Your settings will be visible here as soon as you do your first log.",
-    "intro": "You shared the following information with us about yourself.  You can change these selections at any time.",
+    "intro": "You shared the following information with us about yourself. You can change these selections at any time.",
     "gotoCheckIn": "Go to My Health Log"
   },
   "myCovidAlerts": {
@@ -243,29 +257,6 @@
     },
     "closeContactCard": {
       "text": "What to do if you test positive for COVID-19"
-    },
-    "settings": {
-      "status": {
-        "title": "Status",
-        "active": "Closeness Sensing is currently active.",
-        "notActive": "Closeness Sensing is not active",
-        "intro": "To change the status, go to your phone’s settings by tapping the “Update Settings” button below.",
-        "gotoSettings": "Update settings",
-        "android": {
-          "intro": "Closeness Sensing is not currently enabled, click enable to start.",
-          "gotoSettings": "Enable"
-        }
-      },
-      "clearData": {
-        "title": "COVID Alerts",
-        "intro": "Your phone keeps a record of all the COVID Alerts you’ve received.  To delete all of your past COVID Alerts, tap the “Delete All” button below.",
-        "button": "Delete All",
-        "confirmTitle": "Delete All",
-        "confirmText": "Are you sure you want to clear all your COVID Alerts?",
-        "cancel": "Cancel",
-        "confirm": "Confirm",
-        "error": "There was an error clearing your COVID Alerts. Please try again."
-      }
     }
   },
   "charts": {
@@ -314,9 +305,9 @@
   "followUpCall": {
     "title": "Contact Tracing follow-up call",
     "shortTitle": "Call Back",
-    "intro": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert.  The HSE will also phone you if you provide your number below.",
+    "intro": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert. The HSE will also phone you if you provide your number below.",
     "note": "The HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below, or add it later in Settings.",
-    "noteAlt": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert.  The HSE will also phone you if you provide your number below.\n\nThe HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below.",
+    "noteAlt": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert. The HSE will also phone you if you provide your number below.\n\nThe HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below.",
     "noteSettings": "If you want we will try to call you to provide further assistance after you receive an exposure notification.\n\nYour phone number will only be shared with the HSE if you get an exposure notification.",
     "optIn": "Yes, I want to opt-in",
     "noThanks": "No thanks"

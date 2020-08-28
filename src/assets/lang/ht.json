@@ -1,520 +1,482 @@
 {
   "common": {
-    "name": "COVID Smart NY",
+    "name": "COVID Smart NY (NY Entelijan parapò ak COVID)",
     "url": "https://CovidSmartNY.health.ny.gov",
-    "message": "Jwenn ak COVID Smart NY nan batay kont COVID-19",
-    "networkError": "pwoblèm koneksyon. Tanpri tcheke koneksyon entènèt ou epi eseye ankò.",
-    "missingDataAction": "Refresh paj",
-    "missingError": "Loading pwoblèm. Nou pa t 'kapab chaje kèk nan done yo kòrèkteman.",
-    "preferNotToSay": "Prefere pa vle di",
+    "message": "Vin mete w ansanm avèk NY Entelijan parapò ak COVID pou konbat COVID-19",
+    "networkError": "Pwoblèm koneksyon. Tanpri tcheke koneksyon entènèt ou a epi eseye ankò.",
+    "missingDataAction": "Aktyalize paj la.",
+    "missingError": "Pwoblèm chajman. Nou pa t kapab chaje kèk nan done yo kòrèkteman.",
+    "preferNotToSay": "Pito pa di",
     "allCounties": "Tout Konte nan New York",
-    "confirmChanges": "chanjman konfime",
-    "changesUpdated": "chanjman mete ajou",
-    "dismiss": "rejte",
+    "confirmChanges": "Konfime chanjman yo",
+    "changesUpdated": "Chanjman yo ajou",
+    "dismiss": "Inyore",
+    "placeholder": "Chwazi...",
     "ok": {
-      "label": "OK",
-      "hint": "Close pòp-up"
+      "label": "OKE",
+      "hint": "Fèmen fenèt dyalòg la"
     },
     "tryAgain": {
       "title": "Tanpri eseye ankò",
-      "description": "Padon, ki pa t 'travay byen. \\ NPlease tcheke ke ou gen yon koneksyon rezo epi eseye ankò.",
-      "timestampTitle": "Tcheke Dat & Tan",
-      "timestamp": "Nou pa t 'kapab verifye aparèy ou an. Tanpri tcheke li nan mete nan dat ki kòrèk la ak tan, epi eseye ankò."
+      "description": "Dezole, men sa pa t byen fonksyone.\nTanpri verifye ou gen yon koneksyon rezo epi eseye ankò.",
+      "timestampTitle": "Verifye Dat ak Lè a",
+      "timestamp": "Nou pa t kapab verifye aparèy ou a. Tanpri tcheke si li pwograme sou bon dat ak bon lè a, epi eseye ankò."
     }
   },
   "viewNames": {
-    "introduction": "Ede sispann gaye nan COVID-19 nan kominote ou",
-    "permissions": "Mete sou fermeture Capteur pou COVID Jwenn Avètisman yo",
-    "completion": "Fermeture Capteur ak COVID Jwenn Avètisman yo yo kounye a se aktif!",
-    "dashboard": "Updates",
-    "casesByCounty": "Ka Pa Konte",
-    "updates": "Updates",
-    "symptomchecker": "Mwen Sante Log",
-    "settings": "anviwònman",
-    "uploadKeys": "Voye kle Random ou",
-    "settingsContactTracing": "Kontakte tras Anviwònman",
-    "settingsCheckin": "COVID cheken Anviwònman",
-    "dataPolicy": "Règleman Pwoteksyon Done",
-    "terms": "Tèm ak Kondisyon yo",
-    "metrics": "Anviwònman Pou App Mesures",
-    "leave": "Kite COVID Smart NY",
-    "contactTracing": "Kontakte tras"
+    "introduction": "Ede Sispann Pwopagasyon COVID-19 nan Kominote W la",
+    "permissions": "Konfigire Deteksyon Pwoksimite (Closeness Sensing) a pou Alèt COVID yo",
+    "completion": "Deteksyon Pwoksimite ak Alèt COVID yo aktif kounye a!",
+    "dashboard": "Mizajou",
+    "casesByCounty": "Ka yo nan Chak Konte",
+    "updates": "Mizajou",
+    "symptomchecker": "Rejis Sante Mwen",
+    "settings": "Paramèt",
+    "uploadKeys": "Telechaje Touch Aleyatwa W (Random Keys) yo",
+    "settingsContactTracing": "Alèt COVID Mwen yo",
+    "settingsCheckin": "Paramèt Kontwòl COVID",
+    "dataPolicy": "Règleman sou Pwoteksyon Done",
+    "terms": "Kondisyon Jeneral yo",
+    "metrics": "Paramèt pou Metrik Aplikasyon yo",
+    "leave": "Soti nan NY Entelijan parapò ak COVID",
+    "contactTracing": "Rechèch Kontak yo",
+    "positiveResult": "Si ou teste pozitif pou COVID-19",
+    "settingsLanguage": "Lang Mwen"
   },
   "navbar": {
-    "settings": "anviwònman",
-    "settingsHint": "View oswa amande anviwònman aplikasyon",
+    "settings": "Paramèt",
+    "settingsHint": "Gade oswa chanje paramèt aplikasyon an",
     "back": "Retounen",
-    "backHint": "Navige tounen nan ekran anvan"
+    "backHint": "Navige tounen nan ekran anvan an"
   },
   "tabBar": {
-    "updates": "NY COVID Done",
-    "symptomCheck": "Mwen Sante Log",
-    "contactTracing": "Mwen COVID Jwenn Avètisman yo",
-    "settings": "App \\ nSettings"
+    "updates": "Done COVID Mwen yo",
+    "symptomCheck": "Rejis Sante Mwen",
+    "contactTracing": "Alèt COVID Mwen yo",
+    "settings": "Paramèt\nAplikasyon an"
   },
   "onboarding": {
     "introduction": {
       "blocks": [
         {
-          "title": "Ede sispann gaye nan COVID-19 nan kominote ou",
+          "title": "Ede Sispann Pwopagasyon COVID-19 nan Kominote W la",
           "list": [
-            "Debarase okouran si yon moun malad pase ase tan trè pre ou ke ou ka te kenbe viris la.",
-            "lòt moun Alert si ou teste pozitif, san yo pa revele idantite ou.",
-            "#REF!"
-          ]
-        },
-        {
-          "title": "Nou pa janm wè:",
-          "list": [
-            "kote ou oswa idantite.",
-            "nimewo telefòn ou, sof si ou klèman pataje li avèk nou."
+            "Resevwa alèt si sa pa gen lontan ke w te pase plis pase 10 minit a yon distans 6 pye (2 mèt) de yon moun ki teste pozitif.",
+            "Alète lòt moun si rezilta tès ou a pozitif",
+            "Siveye tandans ki genyen nan kominote w la."
           ]
         }
       ],
-      "learnAction": "Aprann ki jan li fonksyone",
+      "disclaimer": "**Nou pa kolekte enfòmasyon ki ka idantifye w. Idantite w ak anplasman kote w ye a toujou konfidansyèl.**",
+      "learnAction": "Aprann konnen kijan li fonksyone",
       "continueAction": "Kòmanse"
     },
     "permissions": {
-      "title": "Mete sou fermeture Capteur pou COVID Jwenn Avètisman yo",
-      "line1": "App sa a bezwen pèmisyon ou a:",
-      "track": "** Sans lè yon lòt telefòn ak app sa a se fèmen pa. ** \\ N \\ nSi yon lòt app itilizatè depanse 10 minit nan 6 pye nan nou, telefòn ou swap kòd o aza sonje kontak la. kòd sa yo pa di anyen sou ou menm oswa kote ou ye.",
-      "notifications": "** Voye ou notifikasyon. ** \\ N \\ nSi lòt tès yo app itilizatè pozitif pou viris la nan jou kap vini yo, app a ka voye ba ou yon COVID Alert apre tcheke kòd ou yo.",
-      "subtitle": "App a pa janm:",
+      "title": "Konfigire Deteksyon Pwoksimite (Closeness Sensing) a pou Alèt COVID yo",
+      "line1": "Aplikasyon sa a bezwen pèmisyon w pou:",
+      "track": "**Detekte lè yon lòt telefòn ki gen aplikasyon sa a ladan l toupre.**\n\nSi gen yon lòt moun k ap itilize aplikasyon an pase 10 minit a yon distans 6 pye (2 mèt) de oumenm, telefòn nou yo echanje kòd aleyatwa pou anrejistre kontak la. Kòd sa yo pa bay okenn enfòmasyon sou oumenm oswa sou anplasman kote w ye a.",
+      "notifications": "**Voye notifikasyon ba ou.**\n\nSi lòt moun k ap itilize aplikasyon an tou teste pozitif pou viris la nan detwa jou kap vini yo, aplikasyon an kapab voye yon Alèt COVID ba ou apre l fin tcheke kòd ou yo.",
+      "subtitle": "Aplikasyon an p ap janm:",
       "list": [
-        "Wè kote ou ye.",
+        "Wè anplasman kote w ye a.",
         "Pataje nimewo telefòn ou.",
-        "Revele idantite ou"
+        "Revele idantite w"
       ],
-      "statement": "Ou ka chanje lide w nan nenpòt ki lè pa ale nan App Anviwònman",
-      "learnAction": "Aprann ki jan li fonksyone",
-      "skipAction": "Ale pou kounye a",
-      "continueAction": "Next"
-    },
-    "completion": {
-      "title": "Fermeture Capteur ak COVID Jwenn Avètisman yo yo kounye a se aktif!",
-      "text": "Mèsi pou fè pati ou a sispann gaye nan COVID-19.",
-      "shareText": "Pataje sa a app ak zanmi yo. Ede kenbe NY Safe.",
-      "next": "fè",
-      "share": "pataje"
+      "statement": "Ou ka chanje lide nenpòt lè depi w ale nan Paramèt Aplikasyon an",
+      "learnAction": "Aprann konnen kijan li fonksyone",
+      "skipAction": "Sote pou kounye a",
+      "continueAction": "Pwochen"
     },
     "tour": {
-      "title": "Ki jan li fonksyone",
+      "title": "Kijan li fonksyone",
       "statements": [
-        "Kòm ou ale sou jou ou, app a sèvi ak Bluetooth nan sans lè gen yon lòt moun ak app a vini nan 6 pye nan ou. \\ N \\ nYour echanj telefòn yon kòd sekirite o aza ak telefòn la lòt nan dosye yo ke yo te prè. App a pa fè sa kolekte oswa pataje non, kote, oswa nimewo telefòn ou, oswa sa yo ki nan moun ki bòkote ou",
-        "Si ou se nan lespas 6 pye de yon moun pou plis pase 10 minit, app a mete Kòd telefòn yo nan o aza sou yon lis kontak fèmen. \\ N \\ nPeople ki yo se jis pase nan oswa kanpe plis pase 6 pye lwen ou pa mete yo sou lis la nan kontak fèmen. Ou pa janm pral resevwa okenn alèt pou pwoteje nou.",
-        "Si ou teste pozitif pou COVID-19, se yon Konseye Sante pral rele ou pi vit ke posib. \\ N \\ nThe Konseye Sante ap mande si ou se vle pataje lis app ou a nan kontak fèmen nan ede pwoteje lòt moun. \\ N \\ nSharing lis ou a se an sekirite ak prive. App a pa janm revele ki moun ou ye yo ba nenpòt moun.",
-        "Chak jou, se lis la nan kòd \"ki enfekte\" voye bay chak telefòn ki gen app a. App a konpare lis pwòp li yo nan kòd kontak sere nan lis la nan kòd ki enfekte. Si gen nan yon match, montre yo app yon alèt COVID. \\ N \\ nUsing sa yo bay lis kòd anonim, alèt la, yo kenbe yo prive. Pa gen moun ki tout tan tout tan konnen ki moun COVID Alert a soti nan."
+        "Pandan w ap okipe aktivite w pou jounen an, aplikasyon an itilize Bluetooth pou l detekte kilè ou pase plis pase 10 minit a yon distans 6 pye (2 mèt) de yon lòt moun ki gen aplikasyon an tou.\n\nSe a yo rele “kontak pwòch”. Kantite tan an long ase epi kontak la pre ase pou w trape viris la.\n\nAplikasyon an inyore moun ki jis ap pase oswa ki kanpe a yon distans ki plis pase 6 pye (2 mèt) de oumenm. Ou p ap janm resevwa okenn alèt nan ka sa yo.",
+        "Lè aplikasyon w lan detekte kontak pwòch, telefòn ou echanje yon kòd aleyatwa epi ki sekirize ak telefòn lòt moun nan. Telefòn ou anrejistre kòd pou kontak pwòch sa a nan yon lis.\n\nKòd yo aleyatwa epi yo pa devwale okenn enfòmasyon sou ou oswa sou lòt moun nan. Aplikasyon an pa kolekte ni pataje okenn non, anplasman, oswa nimewo telefòn.",
+        "Si rezilta tès ou pozitif pou COVID-19, yon reprezantan sante piblik pral rele w leplito ke posib.\n\nReprezantan an pral mande si ou dakò pou pataje lis kòd pou kontak pwòch ki nan aplikasyon w lan pou ede pwoteje lòt moun.\n\nPataj lis ou a sekirize epi prive. Aplikasyon an p ap janm revele kimoun ou ye bay pyès moun.",
+        "Chak jou, chak telefòn ki gen aplikasyon an konpare pwòp lis kòd pou kontak pwòch li yo ak lis kòd “enfekte” yo.\n\nSi kòd yo koresponn youn ak lòt, aplikasyon an afiche yon Alèt COVID."
       ],
-      "previous": "Previous",
-      "next": "Next",
-      "close": "fèmen"
+      "previous": "Presedan",
+      "next": "Pwochen",
+      "close": "Fèmen"
     },
     "intro": {
-      "title": "Avèk COVID Green ou ka fè 3 bagay sa yo èd batay COVID-19:",
+      "title": "Grasa NY Entelijan pou COVID, ou kapab fè 3 bagay pou ede konbat COVID-19.",
       "view1": {
-        "title": "Kontakte tras",
-        "text": "Ede kontak trase, pwoteje vi prive ou."
+        "title": "Rechèch Kontak yo",
+        "text": "Ede ak rechèch kontak yo, pwoteje enfòmasyon prive w."
       },
       "view2": {
-        "title": "COVID Check-In",
-        "text": "Tcheke sentòm ou chak jou."
+        "title": "Kontwòl COVID",
+        "text": "Tcheke sentòm ou yo chak jou."
       },
       "view3": {
-        "title": "Updates",
-        "text": "Kenbe jiska dat sou batay la kont COVID-19."
+        "title": "Mizajou",
+        "text": "Rete enfòme sou konba kont COVID-19 la."
       },
       "view4": {
-        "text": "Si ou tape Jwenn te kòmanse, w ap aksepte nan",
-        "link": "tèm ak Kondisyon"
+        "text": "Si ou tape sou Kòmanse, ou dakò ak",
+        "link": "Kondisyon Jeneral yo"
       },
       "action": "Kòmanse"
     },
     "information": {
-      "title": "Kontakte tras",
-      "highlight": "Kontakte trase ede anpeche gaye nan COVID-19.",
-      "highlight1": "App sa a sipòte travay la nan ekip Kontakte tras HSE a, men ekip sa yo ka kontakte nou menm tou nou kòm yon pati nan manyèl trase kontak.",
-      "text": "App a pral voye ba ou yon Close Kontakte Avètisman si ou te nan kontak sere avèk yon moun ki te teste pozitif pou viris la.",
-      "text1": "Pou pèmèt Kontakte tras pou app sa a ou bezwen vire sou:",
-      "text2": "ak jwenn yon alèt ou bezwen vire sou:",
-      "action": "kontinye",
+      "title": "Rechèch Kontak yo",
+      "highlight": "Rechèch kontak yo ede anpeche pwopagasyon COVID-19.",
+      "highlight1": "Aplikasyon sa a sipòte travay ekip Rechèch Kontak Depatman Sante Eta New York la, men ekip sa yo ka kontakte w tou pou rechèch kontak manyèl la.",
+      "text": "Aplikasyon an pral voye yon Alèt pou Kontak Pwòch ba ou si w te gen kontak pwòch ak yon moun ki te teste pozitif pou viris la.",
+      "text1": "Pou aktive Rechèch Kontak yo pou aplikasyon sa a, ou dwe aktive:",
+      "text2": "epi pou w resevwa yon alèt ou dwe aktive:",
+      "action": "Kontinye",
       "later": "Petèt pita",
-      "skip": "Ale pou kounye a",
-      "bluetooth": "Ekspozisyon Lapòs Notifikasyon",
-      "notifications": "notifikasyon",
-      "quote": "Si w chanje lide ou, ou kapab chanje autorisations ou a Anviwònman nan nenpòt ki lè."
+      "skip": "Sote pou kounye a",
+      "bluetooth": "Sèvis Notifikasyon Kontak",
+      "notifications": "Notifikasyon",
+      "quote": "Si ou chanje lide, ou ka chanje pèmisyon w yo nan Paramèt yo nenpòt ki lè."
     },
     "upgrade": {
       "ios": {
-        "title": "Apple iOS dwe mete ajou",
-        "text": "Pou pèmèt Kontakte tras, ou bezwen ajou ak vèsyon an dènye nan Apple iOS.",
-        "action": "Tcheke pou amelyorasyon"
+        "title": "Se pou w mete Apple iOS ajou",
+        "text": "Pou aktive Rechèch Kontak yo, ou dwe gen dènye vèsyon pou Apple iOS la.",
+        "action": "Tcheke pou wè si gen vèsyon amelyore"
       },
       "android": {
-        "title": "Google Jwe Sèvis dwe mete ajou",
-        "text": "Pou pèmèt Kontakte tras, ou bezwen ajou ak vèsyon an dènye nan Google Jwe Sèvis.",
-        "action": "Tcheke pou amelyorasyon"
+        "title": "Ou dwe mete Google Play Services ajou",
+        "text": "Pou aktive Rechèch Kontak yo, ou dwe gen dènye vèsyon pou Google Play Services.",
+        "action": "Tcheke pou wè si gen vèsyon amelyore"
       }
     }
   },
   "dataProtectionPolicy": {
-    "title": "Avi Enfòmasyon Pwoteksyon Done",
-    "link": "Ou ka li Avi a Enfòmasyon sou Pwoteksyon Done isit la",
-    "text": "DPIN la pa t 'ka chaje"
+    "title": "Avi sou Enfòmasyon pou Pwoteksyon Done",
+    "link": "Ou kapab li Avi sou Enfòmasyon pou Pwoteksyon Done a la a",
+    "text": "Nou pa t ka telechaje Règleman sou Vi Prive a"
   },
   "tandcPolicy": {
-    "title": "tèm ak Kondisyon",
-    "link": "tèm ak Kondisyon",
-    "text": "Regleman & Kondisyon yo pa t 'ka chaje"
+    "title": "Kondisyon Jeneral yo",
+    "link": "Kondisyon Jeneral yo",
+    "text": "Nou pa ka telechaje Kondisyon Jeneral yo"
   },
   "checker": {
-    "title": "Mwen Sante Log",
+    "title": "Rejis Sante Mwen",
     "resultTitle": "Mèsi",
+    "feelingWell": "Mwen santi mwen byen jodiya",
     "symptoms": {
-      "subtitle": "w gen nenpòt nan 11 sentòm sa yo jodi a?",
-      "nextButton": "kontinye",
-      "fever": "Lafyèv oswa santi fyévreuz (tankou frison, swe)",
-      "cough": "tous",
+      "subtitle": "Èske ou gen nenpòt nan 11 sentòm sa yo jodiya?",
+      "nextButton": "Kontinye",
+      "fever": "Lafyèv oswa sansasyon lafyèv (tankou frison, transpire)",
+      "cough": "Tous",
       "breath": "Souf kout oswa difikilte pou respire",
-      "fatigue": "fatig",
-      "throat": "Gòj fè mal",
-      "congestion": "Anbouteyaj oswa nen k ap koule",
-      "aches": "doulè nan misk oswa doulè nan kò",
-      "headache": "maltèt",
-      "nausea": "Kè plen oswa vomisman",
-      "diarrhea": "dyare",
-      "taste": "Nouvo pèt nan gou oswa sant"
+      "fatigue": "Fatig",
+      "throat": "Malgòj",
+      "congestion": "Konjesyon oswa nen k ap koule",
+      "aches": "Doulè misk oswa doulè nan tout kò a",
+      "headache": "Maltèt",
+      "nausea": "Kèplen oswa Vomisman",
+      "diarrhea": "Dyare",
+      "taste": "Fenk pèdi kapasite pou pran gou oswa sant bagay"
     },
     "results": {
       "title": "Mèsi",
-      "noSymptomsFeelingWell": "Nou kontan tande ou santi ap byen. Mèsi pou tcheke nan. Menm si ou se toujou byen, tanpri tounen vin demen yo fè nou konnen ki jan ou ap fè. \\ N \\ nVisit ** health.pa.gov ** li plis sou jan yo ka pwoteje tèt ou ak lòt moun soti nan koronavirus.",
-      "riskGroup": "Paske nan laj ou, nou ta renmen ou pran swen siplemantè nan pwoteje tèt ou kont COVID-19. \\ N \\ nv konnen sa a se pa yon tan fasil. Si ou bezwen sipò oswa konsèy sou kòman yo jere nan kay la, tiyo pi ba a pou plis enfòmasyon.",
-      "noSymptomsNotFeelingWell": "Mèsi pou tcheke nan. Padon tande ou pa santi w byen. \\ N \\ son nLi tankou ou pa gen nenpòt nan sentòm yo komen nan COVID-19, tankou lafyèv, tous, souf kout, dyare, frison, nan misk doulè, maltèt, gòj fè mal, oswa nouvo pèt nan gou oswa pran sant. Si ou kòmanse devlope nenpòt nan sentòm sa yo, tounen vin jwenn ranpli yon lòt COVID Check-In epi nou pwal fè pi byen nou yo ede ou. \\ N \\ Nin entre-temps la, vizite ** health.pa.gov ** li plis enfòmasyon sou kouman pwoteje tèt ou ak lòt moun kont koronavirus. \\ N \\ nSi w ap bezwen sante mantal oswa sèvis swen sèvi ak twoub sibstans, tanpri vizit [Sante mantal nan PA] (https://www.dhs.pa.gov/Services/Mental-Health -Nan-PA / Paj / default.aspx).",
-      "coronavirus": "** Mèsi pou tcheke nan. ** \\ N ** Padon tande ou pa ap santi byen. ** \\ N \\ nSi sentòm ou yo grav pi fò moun ka refè nan kay san yo pa swen medikal. \\ N \\ N ** Si ou ta renmen fè tès ** pou yon dyagnostik, kontakte founisè swen sante ou oswa pran yon randevou nan yon sit tès piblikman aksesib. [Jwenn yon sit tès nan Pennsylvania] (https://www.health.pa.gov/topics/disease/coronavirus/Pages/Stop-the-Spread.aspx). \\ N \\ N ** Si ou pa vle fè tès **, li la toujou enpòtan yo rete nan kay la, izole, epi evite kontak ak lòt moun, repo, ak likid bwè. Pran asetaminofèn pote desann lafyèv ou yo. Si ou santi pi mal, rele founisè swen sante ou. \\ N \\ nSi sentòm ou yo grav (ki gen ladan yon lafyèv pi wo a 100 °), rele founisè swen sante ou. Si ou pa gen yon founisè swen sante, rele lopital ki pi pre oswa swen ijan yo pran yon randevou \\ N \\ N ** Si li nan yon ijans, rele 911 ** \\ siy avètisman nEmergency ka gen ladan yo:.. \\ N \\ N * pou l respire pwoblèm \\ N * Persistent doulè oswa presyon nan pwatrin lan \\ N * New konfizyon \\ N * Enkapasite yo reveye oswa rete je klè \\ N * bouch Vert oswa figi",
-      "viewLog": "Gade mwen Sante Log"
+      "noSymptomsFeelingWell": "**Mèsi pou enfòmasyon ou antre nan rejis la jodiya. Nou byen kontan tande ou santi w byen!**\n\nMenmsi ou santi w OKE, tanpri retounen demen pou fè nou konnen kijan w ye.",
+      "riskGroup": "Akòz laj ou, nou ta renmen pran plis prekosyon pou pwoteje w kont COVID-19.\n\nNou konnen peryòd sa a se pa yon peryòd fasil. Si ou bezwen sipò oswa konsèy sou kijan pou jere sitiyasyon an etan w lakay ou, tape pi ba a pou plis enfòmasyon.",
+      "noSymptomsNotFeelingWell": "**Mèsi pou enfòmasyon ou antre nan rejis la jodiya. Nou dezole tande ou pa santi w byen.**\n\nErezman, ou pa t deklare anpil sentòm. Si ou kontinye pa santi w byen oswa si ou vin genyen nenpòt nouvo sentòm, pale sou sa ak pwofesyonèl swen sante w la oswa rele Liy Asistans Sante NYS la nan [1-888-364-3065] (te:12345).\n\nSi ou ta renmen yo fè tès pou ou, kontakte pwofesyonèl sante w la oswa pwograme yon randevou nan yon sit tès ki aksesib pou piblik la. \nJwenn yon lokal toupre w.\n\nTanpri, sonje tounen demen pou fè nou konnen kijan w ye.",
+      "coronavirus1": "**Nou dezole tande ou pa santi w byen. Malerezman, sentòm ou deklare jodiya ka se siy COVID-19.**\n\nSi sentòm ou yo lejè, sonje ke pifò moun ka retabli lakay yo san swen medikal.\n\nSepandan, nou rekòmande ke nenpòt moun ki gen sentòm COVID-19 yo, dwe pran mezi swivan yo pou pwoteje sante tèt yo ak pa zòt.\n\n**Tanpri rete lakay ou.** Evite pran kontak ak lòt moun (menm ak fanmi w) pou evite yo pa tonbe malad.\n\n**Kontakte yon pwofesyonèl swen sante.** Rele doktè w la oswa Liy Asistans Sante NYS nan [1-888-364-3065](tel:1234).\n\n**Al fè tès.** Pale avèk pwofesyonèl swen sante w la oswa pwograme yon randevou nan yon sit tès ki aksesib pou piblik la. \n\n[Jwenn yon lokal toupre w.](https://coronavirus.health.ny.gov/find-test-site-near-you)",
+      "callEmergency": "Si se yon ijans,\nrele 911 touswit.",
+      "coronavirus2": "Men kèk nan siy ki fè konnen se yon ijans:\n\n  * Difikilte pou respire\n  * Doulè san rete oswa presyon sou kòf lestomak la\n  * Ou kòmanse gen konfizyon\n  * Pa kapab reveye oswa pa kapab rete eveye (je louvri)\n  * Po bouch oswa figi ki gen koulè ble",
+      "viewLog": "Fini",
+      "callHelp": "Si ou bezwen plis èd,\nRele Liy Asistans Sante NYS la"
     },
-    "introTitle": "Mwen Sante Jodi a",
-    "introOptional": "Tout repons yo si ou vle.",
-    "introButton": "kontinye",
-    "noresults": "Ou pa te eseye korektè a sentòm ankò. Kòmanse kounye a pa frapan bouton an pi wo a"
+    "introTitle": "Rejis Sante Mwen",
+    "introOptional": "Ou pa oblije reponn okenn kesyon. Yo pral itilize yo sèlman yon fason anonim pou analiz sante piblik.",
+    "introButton": "Kontinye",
+    "noresults": "Ou poko eseye verifikatè sentòm lan. Kòmanse kounye a lè w tape sou bouton ki anlè a"
   },
   "welcome": {
-    "title": "Hi there 👋",
-    "text": "Ou kapab sèvi ak mwen Sante Log swiv ki jan ou santi ou chak jou epi pou yo jwenn konsèy debaz sou sentòm ou yo. magazen Telefòn ou yon istwa, ki ou ka revize a nenpòt ki lè. \\ N \\ nThe mòso bwa chak jou soti nan ou menm ak lòt moun kap itilize app yo pataje anonim ak Depatman an NY nan Sante. done sentòm ou ede yo konprann ki jan COVID-19 se ki afekte NY. \\ N \\ nYour rete idantite prive, men ou ka pataje detay debaz tankou ou laj, idantite seksyèl, ras, etnisite, ak konte yo fè enfòmasyon ki pi plis itil pou sante piblik analiz \\ N \\ N ** Nòt:. ** Sante Log mwen se si ou vle. Ou pa oblije patisipe yo sèvi ak karakteristik yo lòt kote nan app sa a.",
-    "action": "Wi mwen ta renmen kòmanse boutèy demi lit mwen",
-    "letUsKnow": "Fè nou konnen si ou gen \\ nsymptoms jodi a"
-  },
-  "returning": {
-    "title": "Byenveni tounen 👋",
-    "subtitle": "Ki jan ou menm santi jodi a?",
-    "action1": "Pa gen, Mwen santi byen jodi a",
-    "action2": "Mwen pa santi byen jodi a",
-    "completeTitle": "Great tande 👍",
-    "completeLink": "View istwa ou"
+    "title": "Bonjou",
+    "text": "Ou ka itilize Rejis Sant Mwen an pou swiv kijan w santi w chak jou epi pou jwenn konsèy debaz sou sentòm ou yo. Telefòn ou konsève yon istorik, ke ou ka gade nenpòt lè.\n\nYo pataje yon fason ki anonim, rejis toulejou yo ki soti nan aplikasyon w lan ak nan aplikasyon lòt itilizatè yo, avèk Depatman Sante NY. Done sou sentòm ou yo ede yo konprann kijan COVID-19 ap afekte NY.\n\nIdantite w rete prive, men ou kapab pataje detay debaz, tankou laj ou, idantite seksyèl ou, ras ou, gwoup etnik ou, ak konte w la, pou rann enfòmasyon an pi itil pou analiz sante piblik.\n\n**Remak:** Rejis Sante Mwen an pa obligatwa. Ou pa oblije patisipe pou itilize lòt fonksyonalite ki nan aplikasyon sa a.",
+    "action": "Wi, mwen ta renmen kòmanse rejis mwen an",
+    "letUsKnow": "Fè nou konnen si ou genyen\nsentòm yo jodiya"
   },
   "settings": {
-    "title": "app Anviwònman",
-    "covidAlerts": "Mwen COVID Jwenn Avètisman yo",
-    "covidAlertsHint": "Gade oswa amande anviwònman pou Jwenn Avètisman yo COVID",
-    "healthLog": "Mwen Sante Log",
-    "healthLogHint": "Gade oswa amande anviwònman pou COVID Tcheke Nan",
-    "privacyPolicy": "Done ak Règleman sou enfòmasyon prive",
-    "privacyPolicyHint": "View Règleman sou Done ak Privacy",
-    "language": "Lang mwen",
-    "languageHint": "Gade oswa chanjman ak lang",
-    "metrics": "Ede amelyore sa a App",
-    "metricsHint": "Gade oswa amande anviwònman pou helpinig app sa a",
-    "leave": "Efase Done mwen",
-    "leaveHint": "done Delete epi kite aplikasyon an"
-  },
-  "leave": {
-    "title": "Efase Done mwen",
-    "info": "Mèsi pou ede nou goumen a gaye COVID-19 nan NY. Nou regrèt èt wè ou ale, men ou ka sispann lè l sèvi avèk app sa a nan nenpòt ki lè. \\ N \\ nLè ou tape bouton an \"Efase Done m '\" anba a, nou pral retire tout done yo ki app a ki estoke sou telefòn ou, tankou tout antre nan boutèy demi lit sante ou.",
-    "summary": "** Nòt:. ** \\ N \\ nThis bouton pa efase kòd yo o aza kreye oswa kolekte pa telefòn ou pou fermeture Capteur ak COVID Jwenn Avètisman yo \\ N \\ NTO efase kòd yo o aza, ale nan Anviwònman telefòn ou a epi chwazi \"Google sèvis & Preferences. \" Lè sa a, chwazi \"COVID-19 Ekspozisyon Notifikasyon\" ak tiyo \"Efase Random idantite\" bouton an. Yo sispann estoke kòd nouvo, ou ta dwe fèmen \"Sèvi ak Notifikasyon Ekspozisyon.\"",
-    "button": "Efase Done mwen",
-    "confirmTitle": "Efase Done mwen",
-    "confirmText": "Èske ou sèten ou vle done ou yo efase?",
-    "cancel": "Anile",
-    "confirm": "konfime",
-    "error": "Te gen yon erè efase done ou. Tanpri eseye ankò oswa kontakte nou."
-  },
-  "checkInSettings": {
-    "title": "COVID Check-In",
-    "checkInFirst": "anviwònman ou yo pral vizib isit la le pli vit ke ou fè premye fwa ou Check-In.",
-    "intro": "Ou te pataje enfòmasyon sa yo avèk nou.",
-    "gotoCheckIn": "Ale nan COVID Check-In"
-  },
-  "contactTracing": {
-    "title": "Mwen COVID Jwenn Avètisman yo",
-    "active": {
-      "title": "Fermeture Capteur ak COVID Jwenn Avètisman yo yo aktif!",
-      "text": "Mèsi pou fè pati ou a sispann gaye nan COVID-19."
-    },
-    "noSupport": {
-      "title": "Fermeture Capteur a pa disponib",
-      "message": "Malerezman, aparèy ou pa sipòte fermeture Capteur, kidonk, ou pa ka resevwa COVID Jwenn Avètisman yo. Ou ka toujou sèvi ak app sa a ou kapab konekte sante w ak wè NY COVID done."
-    },
-    "canSupport": {
-      "title": "Fermeture Capteur a pa disponib",
-      "message": {
-        "ios": "Ou bezwen ajou ak dènye vèsyon an iOS 13.5 oswa pi wo yo ki ap pèmèt li.",
-        "android": "Ou bezwen ajou ak vèsyon an dènye nan Google Jwe Sèvis."
-      },
-      "button": "Tcheke pou amelyorasyon"
-    },
-    "notEnabled": {
-      "title": "Fermeture Capteur pa pèmèt",
-      "message": "Pou pèmèt fermeture Capteur ak COVID Jwenn Avètisman yo ou bezwen li konfigirasyon.",
-      "button": "Enstalasyon"
-    },
-    "notActive": {
-      "title": "Fermeture Capteur se pa aktif",
-      "message00": "Ou bezwen aksepte Sèvis Ekspozisyon Notifikasyon nan anviwònman ou",
-      "message10": "Ou bezwen aksepte Sèvis Ekspozisyon Notifikasyon nan anviwònman ou",
-      "message01": "Tanpri pèmèt Bluetooth nan anviwònman telefòn ou.",
-      "message11": "Ou bezwen aksepte Ekspozisyon Notifikasyon Sèvis ak Bluetooth nan anviwònman ou",
-      "button": "Ale nan anviwònman aparèy",
+    "title": "Paramèt Aplikasyon an",
+    "covidAlerts": "Alèt COVID Mwen yo",
+    "covidAlertsHint": "Gade oswa chanje paramèt yo pou Alèt COVID yo",
+    "healthLog": "Rejis Sante Mwen",
+    "healthLogHint": "Gade oswa chanje paramèt yo pou Kontwòl COVID yo",
+    "privacyPolicy": "Règleman sou Done ak Vi Prive",
+    "privacyPolicyHint": "Gade Règleman sou Done ak Vi Prive",
+    "language": "Lang Mwen",
+    "languageHint": "Gade oswa chanje lang lan",
+    "metrics": "Ede Amelyore Aplikasyon Sa a",
+    "metricsHint": "Gade oswa chanje paramèt yo pou ede aplikasyon sa a",
+    "leave": "Efase Done Mwen",
+    "leaveHint": "Efease done epi soti nan aplikasyon an",
+    "status": {
+      "title": "Rezilta",
+      "active": "Deteksyon Pwoksimite a aktif kounye a.",
+      "notActive": "Deteksyon Pwoksimite a pa aktif",
+      "intro": "Pou chanje rezilta a, ale nan paramèt telefòn ou, lè ou tape sou bouton “Mete Paramèt yo Ajou” ki pi ba a.",
+      "gotoSettings": "Mete paramèt yo ajou",
       "android": {
-        "button": "pèmèt",
-        "message": "Ou bezwen yo ki ap pèmèt Sèvis Ekspozisyon Notifikasyon yo sa aktive fermeture Capteur ak COVID Jwenn Avètisman yo"
+        "intro": "Deteksyon Pwoksimite pa aktive pou kounye a, klike sou aktive pou kòmanse.",
+        "gotoSettings": "Aktive"
       }
     },
-    "uploadCard": {
-      "text": "Aprann Kòman pou pou kenbe lòt moun san danje"
-    },
-    "closeContactCard": {
-      "text": "Ki sa ki fè si ou teste pozitif pou COVID-19"
-    },
-    "settings": {
-      "status": {
-        "title": "Ki dènye nouvèl",
-        "active": "Sèvis se kounye a aktif",
-        "notActive": "Sèvis se pa aktif",
-        "intro": "Pou w bay nouvo anviwònman pèmisyon ou, ale nan anviwònman app aparèy ou an.",
-        "gotoSettings": "anviwònman Mizajou",
-        "android": {
-          "intro": "notifikasyon Ekspozisyon sèvis pa se kounye a pèmèt, klike sou pèmèt yo kòmanse.",
-          "gotoSettings": "pèmèt"
-        }
-      },
-      "clearData": {
-        "title": "Kontak fèmen",
-        "intro": "Tape bouton ki anba la a klè tout Kontak ou evènman Fèmen.",
-        "button": "Klè tout",
-        "confirmTitle": "Kontak fèmen",
-        "confirmText": "Èske ou sèten ou vle klè tout Kontak Close ou a?",
-        "cancel": "Anile",
-        "confirm": "konfime",
-        "error": "Te gen yon erè netwaye Kontak Close ou yo. Tanpri eseye ankò."
-      }
+    "clearData": {
+      "title": "Alèt COVID",
+      "intro": "Telefòn ou kenbe yon achiv sou tout Alèt COVID ou resevwa yo. Pou efase tout Alèt COVID ou te resevwa anvan yo, tape sou bouton “Efase Tout” ki pi ba a.",
+      "button": "Efase Tout",
+      "confirmTitle": "Efase Tout",
+      "confirmText": "Èske ou si ou vle efase tout Alèt COVID ou yo?",
+      "cancel": "Anile",
+      "confirm": "Konfime",
+      "error": "Te gen yon erè lè nou t ap efase Alèt COVID ou yo. Tanpri eseye ankò."
     }
   },
-  "confirmedChart": {
-    "title": "enfeksyon Total",
-    "label": "enfeksyon Total",
-    "hint": "Graf ki montre chak jou konfime ka sou tan",
-    "yesterday": "ka konfime yè"
+  "leave": {
+    "title": "Efase Done Mwen",
+    "info": "Mèsi dèske ou ede nou konbat pwopagasyon COVID-19 nan NY. Nou dezole wè ke ou prale, men ou ka sispann itilize aplikasyon sa a nenpòt lè.\n\nLè ou tape sou boton “Efase Done Mwen yo” ki pi ba a, n ap retire tout done ke aplikasyon an te konsève sou telefòn ou an, tankou pa eganzp tout done ki nan rejis sante w la.",
+    "summary": "**Remak:**\n\nBouton sa a pa efase kòd aleyatwa yo ke telefòn ou an te kreye oswa te kolekte pou Deteksyon Pwoksimite ak Alèt COVID yo.\n\nPou efase kòd aleyatwa yo, ale nan Paramèt telefòn ou yo epi seleksyone “Sèvis ak Preferans Google”. Apresa, seleksyone “Notifikasyon pou Kontak ak COVID-19” epi tape sou bouton “Efase Idantifikasyon (ID) Aleyatwa yo” . Pou sispann konsève nouvo kòd yo, ou dwe dezaktive “Itilize Notifikasyon pou Kontak yo” .",
+    "button": "Efase Done Mwen",
+    "confirmTitle": "Efase Done Mwen",
+    "confirmText": "Èske ou si ke ou vle efase done w yo?",
+    "cancel": "Anile",
+    "confirm": "Konfime",
+    "error": "Te gen yon erè lè nou t ap efase done w yo. Tanpri eseye ankò oswa kontakte nou."
   },
-  "positivePercentage": {
-    "title": "Ki jan anpil nan moun ki teste ki enfekte?",
-    "label": "Ki jan anpil nan moun ki teste ki enfekte?",
-    "hint": "Graf ki montre chak jou konfime ka relatif nan tès fèt"
+  "checkInSettings": {
+    "title": "Rejis Sante Mwen",
+    "checkInFirst": "Ou pral wè paramèt ou yo la a dèke ou fin fè premye rejis ou a.",
+    "intro": "Ou pataje enfòmasyon sa a avèk nou konsènan oumenm. Ou kapab chanje seleksyon sa yo nenpòt lè.",
+    "gotoCheckIn": "Ale nan Rejis Sante Mwen"
   },
-  "transmissionChart": {
-    "title": "Ki jan COVID-19 ap gaye",
-    "community": "transmisyon Kominote",
-    "contact": "fèmen kontak",
-    "travel": "vwayaje aletranje"
+  "myCovidAlerts": {
+    "title": "Alèt COVID Mwen yo",
+    "uploadCard": {
+      "text": "Aprann kijan pou w kenbe zòt yo san danje"
+    },
+    "closeContactCard": {
+      "text": "Kisa pou w fè si ou teste pozitif pou COVID-19"
+    }
   },
-  "statsSource": {
-    "monitor": "COVID-19 Sante Siveyans ki monitè kè bebe (Iland)",
-    "communityTransmissions": "Kominote Transmisyon, pa gen okenn li te ye kontak sere",
-    "lastUpdatedStats": "Konfime ka aktyalizasyon pase a:",
-    "lastUpdatedProfile": "Ka pwofil aktyalizasyon pase a:"
+  "charts": {
+    "tests": {
+      "title": "Kantite total moun yo teste yo.",
+      "hint": "Grafik ki montre tès yo fè chak jou sou yon peryòd tan"
+    },
+    "positiveTests": {
+      "title": "Kantite total ki teste pozitif",
+      "hint": "Grafik ki montre rezilta tès pozitif yo chak jou sou yon peryòd tan"
+    }
   },
   "symptomsHistory": {
-    "title": "Mwen Sante Log",
-    "symptom": "sentòm",
-    "symptoms": "sentòm",
-    "completed": "Ou ka tcheke sentòm ankò demen"
+    "title": "Rejis Sante Mwen",
+    "symptom": "Sentòm",
+    "symptoms": "Sentòm",
+    "symptoms_plural": "Sentòm yo",
+    "completed": "Ou ka tcheke sentòm yo ankò demen"
   },
   "casesByCounty": {
-    "title": "Ka pa konte"
+    "title": "Ka yo pou Chak Konte"
   },
   "yourData": {
-    "title": "done ou",
-    "info": "COVID Green App a pwoteje vi prive ou ak pa pataje enfòmasyon pèsonèl sou ou ak itilizatè app lòt. ** idantite ou pa janm yo pral devwale bay itilizatè app lòt. ** \\ N ap \\ Nany enfòmasyon pèsonèl ou bay ap trete nan liy ak GDPR ansanm ak lalwa Moyiz pwoteksyon done. Ou ka li plis sou sa nan Avi pou Pwoteksyon Done Enfòmasyon pi ba a. ** pral Done ou dwe itilize sèlman nan relasyon ak yon COVID-19 repons lan pandemi ** kòm mete soti nan Avi a Enfòmasyon sou Pwoteksyon Done. \\ N \\ nSi ou bezwen yo dwe okouran, app a pral kòmanse pwosesis sa a ak yon nan- sekirite app notifikasyon. Separe lè l sèvi avèk app sa a, HSE kontak trase ekip la pouvwa phone ou si yon moun ki gen COVID-19 idantifye ou kòm yon kontak sere. Si ou gen yon tès COVID-19, HSE la ap kontakte ou pa tèks oswa pa telefòn ak rezilta. \\ N \\ nTake swen ak nenpòt sispèk telefòn apèl, Imèl oswa tèks mande w pou enfòmasyon pèsonèl. ** HSE a pa pral mande w pou enfòmasyon pèsonèl pa tèks oswa voye yon imèl. **",
-    "viewInSettings": "Ou kapab wè avi sa a nan nenpòt ki lè nan Anviwònman. Si ou pa vle kontinye, fèmen ak efase app a. Si ou dakò, tiyo Kontinye kontinye.",
-    "continue": "kontinye"
+    "title": "Done w yo",
+    "info": "Aplikasyon NY Entelijan pou COVID la pwoteje enfòmasyon prive w epi li pa pataje enfòmasyon pèsonèl sou ou ak lòt itilizatè aplikasyon an. **Yo pap janm revele idantite w bay lòt itilizatè aplikasyon yo.**\n\nY ap trete nenpòt done ou founi konfòmeman ak GDPR ak lwa sou pwoteksyon done yo. Ou kapab li plis sou Avi sou Enfòmasyon pou Pwoteksyon Done a pi ba a. **Y ap itilize done w yo sèlman anrapò ak repons pou pandemi COVID-19 la** jan sa etabli nan Avi osijè Enfòmasyon pou Pwoteksyon Done a.\n\nSi ou bezwen resevwa alèt, aplikasyon an pral kòmanse pwosesis sa a ak yon notifikasyon sekirize ki nan aplikasyon an. Apade itilizasyon aplikasyon sa a, ekip rechèch kontak nan Depatman Sante Eta New York la ka rele w nan telefòn si yon moun ki gen COVID-19 idantifye w kòm yon kontak pwòch. Si ou fè yon tès COVID-19, Depatman Sant Eta New York la pral kontakte w atravè mesaj tèks oswa nan telefòn pou ba w rezilta yo.\n\nPran prekosyon w ak nenpòt koutfil, imèl oswa tèks ou sispèk epi k ap mande w pou enfòmasyon pèsonèl ou. **Depatman Sante Eta New York p ap mande w pou enfòmasyon pèsonèl ou nan mesaj tèks oswa nan imèl.**",
+    "viewInSettings": "Ou kapab wè avi sa a nenpòt lè nan Paramèt yo. Si ou pa vle kontinye, fèmen epi efase aplikasyon an. Si ou konsanti, tape sou Kontinye pou w ka kontinye.",
+    "continue": "Kontinye"
   },
   "sorry": {
-    "title": "Regrèt tande",
-    "info": "Malerezman ou pa yo pral kapab sèvi ak app a nenpòt ki pi lwen. Ou ka byen retounen nan nenpòt ki lè. Jis tape bouton an tounen.",
+    "title": "Nou dezole tande sa",
+    "info": "Malerezman ou p ap kapab itilize aplikasyon an ankò. Ou kapab retounen nenpòt lè. Annik tape sou bouton retounen an.",
     "back": "Retounen"
   },
   "ageRequirement": {
-    "notice": "Ou dwe 16 oswa plis yo sèvi ak app sa a",
-    "over": "Se mwen menm ki 16 oswa plis",
-    "under": "Se mwen menm ki poko gen 16"
+    "notice": "Ou fèt pou w gen laj 16 lane oswa plis pou w itilize aplikasyon sa a",
+    "over": "Mwen gen laj 16 lane oswa plis",
+    "under": "Mwen gen mwens ke laj 16 lane"
   },
   "underAge": {
-    "title": "ki poko gen 16",
-    "notice": "Mèsi pou enterè ou, men malerezman ou yo twò piti yo patisipe nan inisyativ sa a. \\ N \\ nKenbe ki an sekirite."
+    "title": "Mwens ke laj 16 lane",
+    "notice": "Mèsi dèske ou manifeste ou enterese men malerezman ou twò jèn pou patisipe nan inisyativ sa a.\n\nRete pridan."
   },
   "followUpCall": {
-    "title": "Kontakte tras swiv-up apèl",
-    "shortTitle": "Rele anko",
-    "intro": "Si yon moun ou ve yo te nan kontak sere avèk tès pozitif pou COVID-19, app a pral voye ba ou yon Alèt Close Kontakte. HSE la pral tou telefòn ou si ou bay nimewo ou anba a.",
-    "note": "HSE la pouvwa tou telefòn si w ap idantifye l kòm yon kontak sere pa manyèl trase kontak. HSE la ap ba ou konsèy ak refere w pou fè tès si sa apwopriye. \\ N \\ nThe app pral sèlman pataje nimewo telefòn ou a ak HSE la si ou jwenn yon Close Kontakte Alert. Ou ka antre nan nimewo ou anba a, oswa ajoute li pita nan Anviwònman.",
-    "noteAlt": "Si yon moun ou ve yo te nan kontak sere avèk tès pozitif pou COVID-19, app a pral voye ba ou yon Alèt Close Kontakte. HSE la pral tou telefòn ou si ou bay nimewo ou anba a. \\ N \\ nThe HSE kapab tou telefòn si w ap idantifye l kòm yon kontak sere pa manyèl trase kontak. HSE la ap ba ou konsèy ak refere w pou fè tès si sa apwopriye. \\ N \\ nThe app pral sèlman pataje nimewo telefòn ou a ak HSE la si ou jwenn yon Close Kontakte Alert. Ou ka antre nan nimewo ou anba a.",
-    "noteSettings": "Si ou vle nou pral eseye rele ou bay plis asistans apre w fin resevwa yon notifikasyon ekspoze. \\ N \\ nYour nimewo telefòn pral sèlman pataje ak HSE la si ou jwenn yon notifikasyon ekspoze.",
-    "optIn": "Wi, mwen vle patisipe-a",
+    "title": "Apèl pou swivi sou Kontak Rechèh yo",
+    "shortTitle": "Re-rele",
+    "intro": "Si yon moun ou te gen kontak pwòch ak li teste pozitif pou COVID-19, aplikasyon an pral voye yon Alèt Kontak Pwòch ba ou. Depatman Sante Eta New York pral rele w tou nan telefòn si ou bay nimewo w pi ba a.",
+    "note": "Depatman Sante Eta New York ka rele w tou si yo idantifye w kòm kontak pwòch atravè rechèch kontak manyèl la. Depatman Sante Eta New York pral ba w konsèy epi li pral refere w pou fè tès, si sa apwopriye.\n\nAplikasyon an pral pataje sèlman nimewo telefòn ou ak Depatman Sante Eta New York la si ou resevwa yon Alèt pou Kontak Pwòch. Ou kapab mete nimewo w pi ba a, oswa ajoute l apre nan Paramèt yo.",
+    "noteAlt": "Si yon moun ou te gen kontak pwòch ak li teste pozitif pou COVID-19, aplikasyon an pral voye yon Alèt Kontak Pwòch ba ou. Depatman Sante Eta New York pral rele w nan telefòn tou si ou bay nimewo w pi ba a.\n\nDepatman Sante Eta New York ka rele nan telefòn tou si yo idantifye w kòm kontak pwòch grasa rechèch kontak manyèl la. Depatman Sante Eta New York pral ba w konsèy epi li pral refere w pou fè tès, si sa apwopriye.\n\nAplikasyon an pral pataje sèlman nimewo telefòn ou ak Depatman Sante Eta New York la si ou resevwa yon Alèt pou Kontak Pwòch. Ou ka mete nimewo w pi ba a.",
+    "noteSettings": "Si w vle, nou pral eseye rele w pou nou ba w plis asistans apre ou resevwa yon notifikasyon pou kontak.\n\nY ap pataje nimewo telefòn ou sèlman ak Depatman Sante Eta New York si ou resevwa yon notifikasyon pou kontak.",
+    "optIn": "Wi, mwen vle patisipe",
     "noThanks": "Non mèsi"
   },
+  "alertsUnavailablePrompt": {
+    "title": "Aplikasyon an pa kapab alète ou kounye a. Konfigire Alèt COVID Mwen yo.",
+    "description": "Tanpri tcheke aplikasyon NY Entelijan parapò ak COVID la, kounye a."
+  },
   "closeContactNotification": {
-    "title": "Close Kontakte Avètisman",
-    "description": "Tanpri tcheke app a COVID Green kounye a."
+    "title": "Fèmen Alèt Kontak la",
+    "description": "Tanpri tcheke aplikasyon NY Entelijan parapò ak COVID la, kounye a."
   },
   "closeContactWarn": {
-    "notice": "Ou te gen {{konte}} COVID Alert nan 14 jou ki sot pase",
-    "notice_plural": "Ou te gen {{konte}} COVID Jwenn Avètisman yo nan 14 jou ki sot pase"
+    "notice": "Ou te genyen {{count}} Alèt COVID nan 14 jou ki sot pase yo",
+    "notice_plural": "Ou te genyen {{count}} plizyè Alèt COVID nan 14 jou ki sot pase yo"
   },
   "closeContact": {
-    "title": "Alèt kovid",
-    "intro": "** te App a detekte ke sou 1ye septanm 2020 yon moun ki teste pozitif pou COVID-19 te twò pre ou pou twò lontan. ** \\ N \\ NTO lòt moun pwoteje li ta pi bon yo ** rete nan kay **. \\ N \\ PR Konseye Sante ka ede w jwenn sipò pou rete nan kay ak ap resevwa yon tès.",
-    "callBackCard": "-Pale ak yon konseye sante",
-    "infoCard": "Aprann Kòman pou pou kenbe lòt moun san danje",
+    "title": "Alèt COVID",
+    "intro": "**Aplikasyon an detekte ke nan dat 1ye septanm 2020, yon moun ki te teste pozitif pou COVID-19 te gen kontak pwòch avèk ou pou twò lontan.**\n\nPou pwoteje lòt moun, pito ou \"rete lakay ou\".\n\nYon Konseye Sante ka ede w jwenn sipò pou rete lakay ou epi pou al fè yon tès.",
+    "callBackCard": "Pale ak yon konseye nan domèn lasante",
+    "infoCard": "Aprann kijan pou w kenbe zòt yo san danje",
     "requiredAge": {
-      "title": "Èske ou 18 an ou plis?",
-      "yes": "Wi, mwen se 18 an oswa plis",
-      "no": "Non, mwen se ki poko gen 18"
+      "title": "Èske ou gen 18 lane oswa plis?",
+      "yes": "Wi, mwen gen 18 lane oswa plis",
+      "no": "Non, mwen gen mwens ke 18 lane"
     },
     "underAge": {
-      "title": "Alèt kovid",
-      "intro": "** Nou pa ka rele ou tounen paske ou se twò piti ** \\ N \\ nYou dwe 18 an ou plis fè nou kolekte enfòmasyon pèsonèl tankou nimewo telefòn ou \\ N \\ nInstead, ou kapab..:",
-      "callUs": "rele nou"
+      "title": "Alèt COVID",
+      "intro": "**Nou pa kapab re-rele w paske ou twò jèn.**\n\nOu fèt pou genyen 18 lane oswa plis pou pèmèt nou kolekte enfòmasyon pèsonèl tankou nimewo telefòn ou.\n\nSepandan, ou kapab:",
+      "callUs": "Rele nou"
     }
   },
   "closeContactInfo": {
-    "title": "Ki jan yo Kenbe Gen lòt ki san danje",
-    "info": "** Pou limite risk pou yo gaye COVID-19 nan fanmi ou ak nan kominote a, tanpri pran prekosyon sa yo jiskaske ou ve yo te otorize pa yon pwofesyonèl sante piblik: ** \\ N \\ n1. ** izole tèt ou. ** \\ nRete nan yon chanm oswa nan yon zòn k ap viv ki gen twalèt pwòp li yo ak kenbe lòt moun deyò. Si w ap nan yon kay ak lòt moun, asire w ke gen nan yon pòt separe zòn nan soti nan rès la nan kay ou epi kenbe l 'fèmen. Si ou dwe pataje yon twalèt, gen anpil nan netwaye materyèl (tankou ti sèvyèt mouye pou dezenfektan nan kay la, klowòks) nan netwaye tout sifas apre chak sèvi ak yo. \\ N \\ N2. ** Rete nan kay epi yo pa kite pwopriyete w la. ** \\ nDon't al deyò nan piblik la. Li enpòtan pou fè pou evite kontak ak lòt moun, menm fanmi ou. \\ N \\ N3. ** Tache zòn k ap viv ou. ** \\ nKenbe lòt moun k ap antre nan san pèmisyon ou. \\ N \\ n4. ** Lave men ou souvan. ** \\ nFè w ke ou gen aksè a yon koule avèk savon, dlo, ak anpil sèvyèt papye. \\ N \\ N5. ** dòmi nan tèt ou. ** \\ nSi ou se nan karantèn ak lòt moun, dòmi nan chanm apa. Ou te kapab kòmanse gen sentòm pandan w ap dòmi. \\ N \\ N6. ** Fè manje mennen l 'bay ou. ** \\ nDon't kite zòn k ap viv ou a jwenn oswa prepare manje. \\ N \\ n7. ** Sak moute fatra ou, e kite li an deyò pòt ou. ** \\ nAsk yon lòt moun yo chwazi l 'regilyèman. (Pa gen okenn manyen espesyal ki nesesè.) \\ N \\ N8. ** Kenbe yon ekipman pou de mask figi. ** \\ nWear yon sèl si ou kòmanse gen sentòm oswa yo dwe vin an kontak avèk lòt moun. \\ N \\ N9. ** Siveye tanperati w ak sentòm ak anpil atansyon. ** \\ nYou ka kenbe tras nan yo nan 'mwen Sante Log' karakteristik nan nan app sa a oswa yon lòt fason. Yon boutèy demi lit chak jou ede Travayè Sante figi soti tretman ki pi efikas pou ou si ou vin malad. \\ N \\ N10. ** Rele devan si ou dwe kite yo ka resevwa swen sante. ** \\ nTell founisè swen medikal la sou ekspoze ou nan COVID-19. Mete yon mask lè ou ale, epi evite lè l sèvi avèk transpò piblik, tankou subway, otobis, oswa taksi."
+    "title": "Kijan pou Kenbe Lòt Moun San Danje",
+    "info": "**Pou limite risk pwopagasyon COVID-19 bay fanmi w ak kominote w la, tanpri pran prekosyon ki annapre yo jiskaske yon pwofesyonèl sante piblik ba w otorizasyon:**\n\n1. **Rete lakay ou, eksepte lè w pral pran swen sante.**\n\n2. **Rele davans si ou dwe soti pou w al chèche jwenn swen medikal.**\nMete yon mask pou figi lè w ale epi evite itilize transpò piblik tankou tren, bis, taksi.\n\n3. **Izole tèt ou**\nRete nan yon pyès ki pa gen lòt moun k ap pataje l ak ou epi kenbe pòt ou fèmen. Dòmi poukont ou. Kenbe yon distans de omwen 6 pye (2 mèt) ak lòt moun, tout tan, menm ak fanmi w.\n\n4. **Pa resevwa vizit.**\nPa kite lòt moun antre san ou pa bay yo pèmisyon.\n\n5. ** Itilize yon twalèt apa.**\nSi sa pa posib, netwaye epi dezenfekte tout sifas yo chak fwa w fin itilize yo.\n\n6. **Fè yo pote manje pou ou.**\nFè aranjman pou yo mete manje, medikaman ak lòt pwovizyon dèyè pòt ou.\n\n7. **Kouvri bouch ou lè w touse ak estènye.**\nJete klinèks ou itilize yo nan poubèl. Mete tout fatra w nan sache epi kite yo dèyè pòt chanm kote w ye a. (Ou pa bezwen fè okenn preparasyon espesyal.)\n\n8. ** Piga w manyen okenn bèt kay.\n\n9. ** Fè aranjman ak lòt moun pou yo okipe timoun ou yo, si posib.**\n\n10. ** Lave men w souvan avèk savon ak dlo pandan 20 segonn a chak fwa, oswa si w pa genyen savon ak dlo, itilize yon dezenfektan pou men ki gen omwen 60% alkòl ladann. Itilize sèvyèt papye olye pou pataje sèvyèt.\n\n11. **Kontwole tanperati w ak sentòm ou yo avèk atansyon.**\nOu ka swiv yo nan fonksyonalite \"Rejis Sante Mwen\" an nan aplikasyon sa a oswa yon lòt fason. Yon rejis pou chak jou ede reprezantan sante piblik detèmine pwochen etap yo si w tonbe malad."
   },
   "callBack": {
-    "title": "Ki sa ki nimewo telefòn nou ta dwe rele ou nan?",
-    "button": "Rele m 'le pli vit ke ou kapab",
+    "title": "Nan ki nimewo telefòn pou m rele w?",
+    "button": "Rele mwen dèke ou kapab",
     "success": {
-      "title": "te resevwa li",
-      "text": "travayè sante nou yo ap ede anpil Nouyòkè \\ N \\ nv pral rele ou pi vit ke nou kapab nan (917) 485-1028 \\ N \\ nWhile ou rete tann.:. lòt moun Protect, lè ou rete nan kay la",
-      "button": "fè"
+      "title": "Dakò",
+      "text": "Travayè sante nou yo ap ede plizyè rezidan New York yo.\n\nN ap rele w dèke nou kapab nan (917) 485-1028.\n\nPandan w ap tann: Rete lakay ou pou pwoteje zòt yo",
+      "button": "Fini"
     }
   },
   "uploadKeys": {
-    "title": "Voye idantite Random ou",
+    "title": "Pataje Kòd pou Kontak Pwòch ou yo",
     "code": {
-      "intro": "Yon manm nan ekip la Kontakte tras ka mande w yo pataje o aza idantite ki te pwodwi pa telefòn ou sou 14 jou yo anvan yo. \\ N \\ nSi sa, ou pral resevwa yon inik Kòd 6-chif pa mesaj tèks yo sa aktive fonksyonalite a téléchargement.",
-      "expiredError": "Kòd ekspire. Kontakte HSE pou mande pou yon lòt.",
-      "invalidError": "Envalid kòd. Tanpri eseye ankò.",
-      "error": "Te gen yon erè validation kòd la. Tanpri eseye ankò."
+      "intro": "Tanpri antre nimewo 6 chif la ke reprezantan sante piblik la ba ou nan telefòn oswa nan mesaj tèks li te voye pou ou a:",
+      "expiredError": "Kòd la ekspire. Kontakte NYSDOH pou mande yon lòt.",
+      "invalidError": "Kòd la pa valid. Tanpri eseye ankò.",
+      "error": "Te gen yon erè pandan validasyon kòd la. Tanpri eseye ankò."
     },
     "upload": {
-      "intro": "Pou ede nou nan trase kontak ki sot pase ou plis pase 14 jou ki sot pase, nou ap mande ou pataje idantite anonim Random ou ki te pwodwi pa telefòn ou ak HSE la.",
-      "button": "Voye idantite Random ou nan HSE"
+      "intro": "Lè ou tape sou \"Pwochen\", w ap wè yon ekran konfimasyon. \n\nTanpri tape sou \"Pataje\" sou ekran sa a pou telechaje dosye w yo.",
+      "button": "Pwochen"
     },
-    "permissionError": "Nou pa t 'Uploaded kle ou jan ou pa t' bay pèmisyon.",
-    "uploadError": "Yon erè ki te fèt ap eseye Upload",
+    "permissionError": "Nou pa telechaje kle w yo kòm ou pa bay pèmisyon pou sa.",
+    "uploadError": "Gen yon erè ki rive pandan esè pou telechajman an",
     "uploadSuccess": {
-      "toast": "Voye konplè",
-      "thanks": "Mèsi pou uploading idantite Random ou yo. Sa a ap ede kontak nou trase ekip yo ralanti a gaye COVID-19 ak lòt moun pwoteje.",
-      "updates": "Retounen nan Updates"
+      "toast": "Mèsi",
+      "thanks": "Mèsi poutèt ou pataje kòd ou yo. Li posib ke ou epaye san w pa konnen plizyè moun nan kominote w la pou yo pa trape COVID-19.\n\nReprezantan sante piblik ou a pral ofri w sipò epi li pral fè tout sa l kapab pou ede w planifye sou kisa pou fè apre. Y ap kominike ak ou chak jou pou wè kijan w santi w.",
+      "updates": "Fini"
     }
   },
   "gender": {
-    "label": "idantite seksyèl",
+    "label": "Idantite seksyèl",
     "placeholder": "Chwazi idantite seksyèl ou",
-    "female": "fi",
-    "male": "gason",
-    "transgender": "transganr",
-    "nonBinary": "Ki pa Peye-binè",
+    "female": "Fi",
+    "male": "Gason",
+    "transgender": "Transjanr",
+    "nonBinary": "Non-binè",
     "other": "Lòt"
   },
   "race": {
     "label": "Ras",
     "placeholder": "Chwazi ras ou",
-    "american": "Endyen Ameriken / natif",
+    "american": "Natifnatal Ameriken/Moun Alaska",
     "asian": "Azyatik",
     "black": "Nwa",
-    "hawaiian": "Natif natal Awayi / lòt moun zile pasifik",
+    "hawaiian": "Natifnatal Awayi/Lòt Moun Zile Pasifik",
     "white": "Blan",
     "other": "Lòt"
   },
   "ethnicity": {
-    "label": "Etnisite",
+    "label": "Gwoup Etnik",
     "placeholder": "Chwazi gwoup etnik ou",
-    "hispanic": "Panyòl / Latino",
-    "not_hispanic": "Pa Panyòl / Latino"
+    "hispanic": "Ispanik/Latenx",
+    "not_hispanic": "Pa Ispanik/Latenx"
   },
   "ageRange": {
-    "label": "seri Laj",
-    "placeholder": "Chwazi seri laj ou"
+    "label": "Tranch laj",
+    "placeholder": "Chwazi tranch laj ou"
   },
   "phoneNumber": {
     "code": {
       "label": "Kòd peyi ou",
-      "placeholder": "peyi",
-      "searchPlaceholder": "Search yon peyi",
-      "noResults": "Pa gen rezilta yo te jwenn pou rechèch sa a. \\ NTry ak yon lòt bagay.",
+      "placeholder": "Peyi",
+      "searchPlaceholder": "Chèche yon peyi",
+      "noResults": "Pa gen okenn rezilta pou rechèch sa a.\nEseye ak yon lòt bagay.",
       "error": {
-        "required": "se kòd Peyi ou yo mande yo."
+        "required": "Kòd peyi w la obligatwa."
       }
     },
     "number": {
-      "label": "nimewo telefòn ou (si ou vle)",
-      "placeholder": "nimewo ou",
+      "label": "Nimewo telefòn ou (opsyonèl)",
+      "placeholder": "Nimewo w",
       "error": {
-        "invalid": "Nimewo ou se pa valab. Tanpri bay nimewo telefòn plen ou yo.",
-        "short": "Nimewo ou se enkonplè. Tanpri bay nimewo telefòn plen ou yo.",
-        "required": "Se nimewo ou yo mande yo."
+        "invalid": "Nimewo w la pa valid. Tanpri bay nimewo telefòn ou okonplè.",
+        "short": "Nimewo w la pa konplè. Tanpri bay nimewo telefòn ou okonplè.",
+        "required": "Nimewo w la obligatwa."
       }
     }
   },
   "phoneNumberUs": {
-    "label": "nimewo telefòn ou (US telefòn sèlman)",
-    "placeholder": "nimewo ou",
+    "label": "Nimewo telefòn ou (nimewo pou Etazini sèlman)",
+    "placeholder": "Nimewo w",
     "error": {
-      "invalid": "Nimewo ou se pa valab. Tanpri bay nimewo telefòn plen ou yo.",
-      "short": "Nimewo ou se enkonplè. Tanpri bay nimewo telefòn plen ou yo.",
-      "required": "Se nimewo ou yo mande yo."
+      "invalid": "Nimewo w la pa valid. Tanpri bay nimewo telefòn ou okonplè.",
+      "short": "Nimewo w la pa konplè. Tanpri bay nimewo telefòn ou okonplè.",
+      "required": "Nimewo w la obligatwa."
     }
   },
   "county": {
-    "label": "konte",
-    "placeholder": "Chwazi konte w",
-    "dropdownPlaceholder": "Chwazi konte w",
-    "searchPlaceholder": "Search",
-    "noResults": "Pa gen rezilta yo te jwenn pou rechèch sa a. \\ NTry ak yon lòt bagay."
+    "label": "Konte nan Eta New York kote w abite a",
+    "dropdownPlaceholder": "Chwazi Konte w la",
+    "searchPlaceholder": "Rechèch",
+    "noResults": "Pa gen okenn rezilta pou rechèch sa a.\nEseye ak yon lòt bagay.",
+    "notinny": "Pa nan Eta New York"
   },
   "appUsage": {
-    "title": "app Mesures",
-    "info": "HSE la ta renmen konprann sèvi ak ou nan App a nan bi pou yo amelyore li. \\ N \\ nThe app ap kolekte mesures anonim sou ki jan ou sèvi ak app a ak efikasite nan pwosesis Kontakte tras. \\ N se enfòmasyon \\ nThis sanble pa nan HSE dirèkteman epi yo pa sèvi ak nenpòt twazyèm pati nan ranmase mesures. ** Enfòmasyon sa a se sèlman sanble avèk konsantman ou epi yo pa kapab itilize yo idantifye ou. **",
-    "settingsInfo": "Si w chanje lide ou, ou kapab chanje autorisations sa yo nan Anviwònman nan nenpòt ki lè.",
-    "yesButton": "Wi, mwen konsantman",
+    "title": "Metrik Aplikasyon yo",
+    "info": "Depatman Sante Eta New York ta renmen konprann fason ou itilize Aplikasyon an pou li kapab amelyore li.\n\nAplikasyon an pral rasanble metrik anonim sou fason ou itilize aplikasyon an ak sou efikasite pwosesis Rechèch Kontak yo.\n\nSe Depatman Sante Eta New York ki pral rasanble enfòmasyon sa a dirèkteman epi li pa itilize tyès pati pou rasanble metrik yo. **Yo rasanble enfòmasyon sa a sèlman si ou bay konsantman ou epitou yo pa kapab itilize l pou idantifye ou.**",
+    "settingsInfo": "Si ou chanje lide, ou ka chanje pèmisyon sa yo nan Paramèt yo, nenpòt ki lè.",
+    "yesButton": "Wi, mwen konsanti",
     "noThanks": "Non mèsi"
   },
   "metrics": {
-    "title": "Ede amelyore sa a App",
-    "info": "Ou ka ede Depatman Eta New York nan Sante amelyore app sa a pa pataje done sou ki jan ou sèvi ak li ak ki jan byen fermeture Capteur ap travay. \\ N \\ N ** Lè ou vire anviwònman sa a sou **, app a voye l 'done ou dirèkteman nan Depatman Deta a New York nan Sante. done a se anonim - app a pa voye anyen sou idantite ou. Se pa twazyèm pati kolekte oswa wè nenpòt nan done sa a. \\ N \\ N ** Si ou kenbe sa a anviwònman koupe oswa vire l 'la pita **, app a kenbe l' done ou prive epi yo pa voye li nan nenpòt ki moun.",
-    "share": "Pataje App Itilizasyon"
+    "title": "Ede Amelyore Aplikasyon Sa a",
+    "info": "Ou ka ede Depatman Sante Eta New York amelyore aplikasyon sa a lè w pataje done sou kijan ou itilize l ak sou efikasite fonksyònman Deteksyon Pwoksimite a.\n\n**Lè w aktive paramèt sa a**, aplikasyon an voye itilizasyon done w yo dirèkteman bay Depatman Sante Eta New York. Done yo anonim -- aplikasyon an pa voye anyen sou idantite w. Pa gen okenn tyès pati ki kolekte oswa ki wè okenn nan done sa yo.\n\n**Si ou kenbe paramèt sa a sou dezaktive oswa si ou dezaktive li apre**, aplikasyon an kenbe itilizasyon done w yo prive epi li pa voye l bay pèsòn.",
+    "share": "Itilzasyon Pataj Aplikasyon"
   },
   "tracingAvailable": {
-    "text": "App pa ka alèt ou kounye a. \\ NSet moute mwen COVID Jwenn Avètisman yo."
+    "text": "Aplikasyon an pa kapab alète w kounye a.\nKonfigire Alèt COVID Mwen yo."
   },
   "codeInput": {
-    "accessibilityLabel": "Chif Kòd {{nimewo}}",
-    "accessibilityHint": "Antre nan {{konte}} chif kòd"
+    "accessibilityLabel": "Kòd {{number}} chif",
+    "accessibilityHint": "Antre kòd {{count}} chif la"
   },
   "dashboard": {
     "stats": {
-      "title": "NY COVID Done",
-      "subtitle": "Kouman vit se COVID-19 gaye?"
+      "title": "Done COVID Mwen yo",
+      "subtitle": "Ak ki rapidite COVID-19 ap pwopaje?"
+    }
+  },
+  "positiveResult": {
+    "title": "Si ou teste pozitif pou COVID-19",
+    "text1": "Si ou teste pozitif pou COVID-19, premye sa pou fè se **rete lakay ou** epi **izole tèt ou** pou kenbe lòt moun san danje.",
+    "text2": "Yon reprezantan sante piblik pral rele w leplito ke posib. Y ap ofri w èd pou jwenn swen medikal epi pou jere difikilte ou ka ap konfwonte, tankou kijan pou jwenn manje ak medikaman pandan w izole.\n\nReprezantan an pral mande w tou si ou vle pataje lis kòd kontak pwòch aplikasyon w lan. Si se sa, aplikasyon an ka voye yon Alèt COVID anonim bay lòt moun ki itilize aplikasyon an epi ki te pase dènyèman plis ke 10 minit a yon distans 6 pye (2 mèt) de oumenm.\n\nPataj lis ou sekirize ak prive. Aplikasyon an p ap janm revele ki moun ou ye bay pyès moun.\n",
+    "shareCodes": "Pataje Kòd pou Kontak Pwòch ou yo"
+  },
+  "languageSettings": {
+    "title": "Lang Mwen",
+    "intro": "Chwazi lang ou:"
+  },
+  "closenessSensing": {
+    "active": {
+      "shareText": "Pataje aplikasyon sa a avèk zanmi.\nEde kenbe NY An Sekirite.",
+      "done": "Fini",
+      "share": "Pataje",
+      "title": "Deteksyon Pwoksimite ak Alèt COVID yo aktif!",
+      "text": "Mèsi dèske ou jwe wòl pa w pou sispann pwopagasyon COVID-19."
     }
   }
 }

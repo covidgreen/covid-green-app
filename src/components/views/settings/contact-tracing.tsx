@@ -77,22 +77,22 @@ export const ContactTracingSettings = () => {
 
   const clearDataHandler = async () => {
     Alert.alert(
-      t('myCovidAlerts:settings:clearData:confirmTitle'),
-      t('myCovidAlerts:settings:clearData:confirmText'),
+      t('settings:clearData:confirmTitle'),
+      t('settings:clearData:confirmText'),
       [
         {
-          text: t('myCovidAlerts:settings:clearData:cancel'),
+          text: t('settings:clearData:cancel'),
           onPress: () => {},
           style: 'cancel'
         },
         {
-          text: t('myCovidAlerts:settings:clearData:confirm'),
+          text: t('settings:clearData:confirm'),
           onPress: async () => {
             try {
               await deleteExposureData();
             } catch (e) {
               console.log('Error deleting exposure data', e);
-              Alert.alert('Error', t('myCovidAlerts:settings:clearData:error'));
+              Alert.alert('Error', t('settings:clearData:error'));
             }
           },
           style: 'destructive'
@@ -115,39 +115,35 @@ export const ContactTracingSettings = () => {
       toast={successToast}
       heading={t('myCovidAlerts:title')}
       scrollViewRef={scrollViewRef}>
-      <Text style={text.default}>
-        {t('myCovidAlerts:settings:status:title')}
-      </Text>
+      <Text style={text.default}>{t('settings:status:title')}</Text>
       <Spacing s={30} />
       <Text style={text.largeBold}>
-        {t(`myCovidAlerts:settings:status:${serviceStatus}`)}
+        {t(`settings:status:${serviceStatus}`)}
       </Text>
       <Spacing s={30} />
       <Text style={text.default}>
         {Platform.OS === 'ios' || enabled
-          ? t('myCovidAlerts:settings:status:intro')
-          : t('myCovidAlerts:settings:status:android:intro')}
+          ? t('settings:status:intro')
+          : t('settings:status:android:intro')}
       </Text>
       <Spacing s={30} />
       <Button type="empty" onPress={gotoSettings}>
         {Platform.OS === 'ios' || enabled
-          ? t('myCovidAlerts:settings:status:gotoSettings')
-          : t('myCovidAlerts:settings:status:android:gotoSettings')}
+          ? t('settings:status:gotoSettings')
+          : t('settings:status:android:gotoSettings')}
       </Button>
 
       {contacts && contacts.length > 0 && (
         <>
           <Spacing s={30} />
-          <Text style={text.defaultBold}>
-            {t('myCovidAlerts:settings:clearData:title')}
-          </Text>
+          <Text style={text.defaultBold}>{t('settings:clearData:title')}</Text>
           <Spacing s={30} />
           <Markdown style={{background: colors.white}}>
-            {t('myCovidAlerts:settings:clearData:intro')}
+            {t('settings:clearData:intro')}
           </Markdown>
           <Spacing s={30} />
           <Button type="danger" onPress={clearDataHandler}>
-            {t('myCovidAlerts:settings:clearData:button')}
+            {t('settings:clearData:button')}
           </Button>
         </>
       )}
