@@ -64,6 +64,7 @@ import Wash from './how-to-keep-others-safe/wash.svg';
 import TouchPets from './how-to-keep-others-safe/dont-touch-pets.svg';
 import ChildCare from './how-to-keep-others-safe/child-care.svg';
 import SeparateBathroom from './how-to-keep-others-safe/separate-bathroom.svg';
+import GetTested from './how-to-keep-others-safe/get-tested.svg';
 
 export const AppIcons = {
   Alert,
@@ -125,6 +126,7 @@ export const KeepSafeIcons = {
   TouchPets,
   ChildCare,
   Wash,
+  GetTested,
   NoTouch
 };
 
