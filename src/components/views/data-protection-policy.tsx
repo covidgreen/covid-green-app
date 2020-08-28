@@ -8,7 +8,7 @@ import {colors, text} from 'theme';
 import {Link} from 'components/atoms/link';
 import {Markdown} from 'components/atoms/markdown';
 import {Scrollable} from 'components/templates/scrollable';
-import {useSettings} from 'providers/settings';
+import {useDbText} from 'providers/settings';
 
 const styles = StyleSheet.create({
   privacy: {
@@ -40,7 +40,7 @@ export const DataProtectionLink = () => {
 };
 
 export const DataProtectionPolicy = () => {
-  const {dpinText} = useSettings();
+  const {dpinText} = useDbText();
   const {t} = useTranslation();
 
   return (
@@ -51,7 +51,7 @@ export const DataProtectionPolicy = () => {
 };
 
 export const TermsAndConditions = () => {
-  const {tandcText} = useSettings();
+  const {tandcText} = useDbText();
   const {t} = useTranslation();
 
   return (

@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
 import {useApplication} from 'providers/context';
-import {useSettings} from 'providers/settings';
+import {useDbText} from 'providers/settings';
 import {useSymptomChecker} from 'hooks/symptom-checker';
 
 import {Spacing, Separator} from 'components/atoms/layout';
@@ -33,7 +33,7 @@ export function CheckInIntro() {
     ethnicityOptions,
     ageRangeOptions,
     countiesOptions
-  } = useSettings();
+  } = useDbText();
   const {getNextScreen} = useSymptomChecker();
 
   const [state, setState] = useState<IntroState>({

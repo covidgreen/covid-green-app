@@ -3,8 +3,11 @@ import React, {
   ReactNode,
   createContext,
   useContext,
-  useState,
-  useEffect
+  useEffect,
+  useCallback,
+  useReducer,
+  Reducer,
+  useMemo
 } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import i18n, {TFunction} from 'i18next';
@@ -50,6 +53,10 @@ interface SettingsContextValue {
   traceConfiguration: TraceConfiguration;
   user: string | null;
   consent: string | null;
+  getTranslatedDbText: (t: TFunction) => DbTextContextValue;
+}
+
+interface DbTextContextValue {
   genderOptions: BasicItem[];
   raceOptions: BasicItem[];
   ethnicityOptions: BasicItem[];
@@ -60,7 +67,20 @@ interface SettingsContextValue {
   checkerThankYouText: CheckerThankYouText;
 }
 
-const defaultValue: SettingsContextValue = {
+type ApiSettings = Record<any, string>;
+
+const defaultDbText: DbTextContextValue = {
+  genderOptions: [],
+  raceOptions: [],
+  ethnicityOptions: [],
+  ageRangeOptions: [],
+  countiesOptions: [],
+  dpinText: '',
+  tandcText: '',
+  checkerThankYouText: {}
+};
+
+const defaultSettings: SettingsContextValue = {
   loaded: false,
   user: null,
   consent: null,
@@ -74,14 +94,7 @@ const defaultValue: SettingsContextValue = {
     fileLimit: 1,
     fileLimitiOS: 2
   },
-  genderOptions: [],
-  raceOptions: [],
-  ethnicityOptions: [],
-  ageRangeOptions: [],
-  countiesOptions: [],
-  dpinText: '',
-  tandcText: '',
-  checkerThankYouText: {}
+  getTranslatedDbText: () => defaultDbText
 };
 
 const getDbText = (apiSettings: any, key: string): any => {
@@ -104,16 +117,42 @@ const getDbText = (apiSettings: any, key: string): any => {
 };
 
 export const SettingsContext = createContext<SettingsContextValue>(
-  defaultValue
+  defaultSettings
 );
+export const DbTextContext = createContext<DbTextContextValue>(defaultDbText);
 
+interface SettingsReducerAction {
+  type: 'set' | 'loaded';
+  state?: SettingsContextValue;
+  loaded?: boolean;
+}
+
+const settingsReducer: Reducer<SettingsContextValue, SettingsReducerAction> = (
+  oldState,
+  {type, state, loaded}
+) => {
+  switch (type) {
+    case 'set':
+      return state || ({} as SettingsContextValue);
+    case 'loaded':
+      return {...oldState, loaded} as SettingsContextValue;
+  }
+};
 interface SettingsProviderProps {
   children: ReactNode;
 }
 
 export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
   const {t} = useTranslation();
-  const [state, setState] = useState<SettingsContextValue>(defaultValue);
+  const [state, dispatchState] = useReducer(settingsReducer, defaultSettings);
+  const setState = useCallback(
+    (newState) => dispatchState({type: 'set', state: newState}),
+    []
+  );
+  const setIsLoaded = useCallback(
+    (loaded: boolean) => dispatchState({type: 'loaded', loaded}),
+    []
+  );
 
   useEffect(() => {
     const loadSettingsAsync = async () => {
@@ -122,7 +161,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
         'covidApp.checkInConsent'
       ]);
 
-      let apiSettings: Record<any, string>;
+      let apiSettings: ApiSettings;
       try {
         apiSettings = await api.loadSettings();
       } catch (e) {
@@ -130,7 +169,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
         apiSettings = {};
       }
 
-      const appConfig: AppConfig = {...defaultValue.appConfig};
+      const appConfig: AppConfig = {...defaultSettings.appConfig};
       if (apiSettings.checkInMaxAge) {
         appConfig.checkInMaxAge = Number(apiSettings.checkInMaxAge);
       }
@@ -139,7 +178,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
       }
 
       const tc: TraceConfiguration = {
-        ...defaultValue.traceConfiguration
+        ...defaultSettings.traceConfiguration
       };
       if (apiSettings.exposureCheckInterval) {
         tc.exposureCheckInterval = Number(apiSettings.exposureCheckInterval);
@@ -154,22 +193,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
         tc.fileLimitiOS = Number(apiSettings.fileLimitiOS);
       }
 
-      const dpinText =
-        getDbText(apiSettings, 'dpinText') || t('dataProtectionPolicy:text');
-
-      const tandcText =
-        getDbText(apiSettings, 'tandcText') || t('tandcPolicy:text');
-
-      const checkerThankYouText: CheckerThankYouText = Object.assign(
-        {
-          noSymptomsFeelingWell: t('checker:results:noSymptomsFeelingWell'),
-          noSymptomsNotFeelingWell: t(
-            'checker:results:noSymptomsNotFeelingWell'
-          ),
-          coronavirus: t('checker:results:coronavirus')
-        },
-        getDbText(apiSettings, 'checkerThankYouText')
-      );
+      const getTranslatedDbText = makeGetTranslatedDbText(apiSettings);
 
       setState({
         loaded: true,
@@ -177,34 +201,33 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
         consent: consent[1],
         appConfig,
         traceConfiguration: tc,
-        genderOptions: getGenderOptions(t),
-        raceOptions: getRaceOptions(t),
-        ethnicityOptions: getEthnicityOptions(t),
-        ageRangeOptions: getAgeRangeOptions(t),
-        countiesOptions: getCountiesOptions(t),
-        dpinText,
-        tandcText,
-        checkerThankYouText
+        getTranslatedDbText
       });
     };
 
     try {
       loadSettingsAsync();
     } catch (err) {
-      console.log(err, 'Error loading settings');
-      setState({...state, loaded: true});
+      setIsLoaded(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setIsLoaded, setState]); // These never change; this useEffect runs on first mount only
 
+  // useSettings never re-renders after useEffect, useDbText re-renders when t changes
+  const translatedDbText = useMemo(() => state.getTranslatedDbText(t), [
+    state,
+    t
+  ]);
   return (
     <SettingsContext.Provider value={state}>
-      {children}
+      <DbTextContext.Provider value={translatedDbText}>
+        {children}
+      </DbTextContext.Provider>
     </SettingsContext.Provider>
   );
 };
 
 export const useSettings = () => useContext(SettingsContext);
+export const useDbText = () => useContext(DbTextContext);
 
 function getGenderOptions(t: TFunction): BasicItem[] {
   return [
@@ -253,4 +276,33 @@ function getCountiesOptions(t: TFunction): BasicItem[] {
     {label: t('county:notinny'), value: 'u'},
     ...counties.map((c) => ({label: c.county, value: c.code}))
   ];
+}
+
+function makeGetTranslatedDbText(apiSettings: ApiSettings) {
+  return (t: TFunction) => {
+    const dpinText =
+      getDbText(apiSettings, 'dpinText') || t('dataProtectionPolicy:text');
+
+    const tandcText =
+      getDbText(apiSettings, 'tandcText') || t('tandcPolicy:text');
+
+    const checkerThankYouText: CheckerThankYouText = Object.assign(
+      {
+        noSymptomsFeelingWell: t('checker:results:noSymptomsFeelingWell'),
+        noSymptomsNotFeelingWell: t('checker:results:noSymptomsNotFeelingWell'),
+        coronavirus: t('checker:results:coronavirus')
+      },
+      getDbText(apiSettings, 'checkerThankYouText')
+    );
+    return {
+      genderOptions: getGenderOptions(t),
+      raceOptions: getRaceOptions(t),
+      ethnicityOptions: getEthnicityOptions(t),
+      ageRangeOptions: getAgeRangeOptions(t),
+      countiesOptions: getCountiesOptions(t),
+      dpinText,
+      tandcText,
+      checkerThankYouText
+    };
+  };
 }

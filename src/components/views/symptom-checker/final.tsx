@@ -9,7 +9,7 @@ import {useTranslation} from 'react-i18next';
 import {useExposure} from 'react-native-exposure-notification-service';
 
 import {useApplication} from 'providers/context';
-import {useSettings} from 'providers/settings';
+import {useDbText} from 'providers/settings';
 import {useAppState} from 'hooks/app-state';
 import {Heading} from 'components/atoms/heading';
 import {ResultCard} from 'components/molecules/result-card';
@@ -35,7 +35,7 @@ export const CheckInFinal: FC<any> = ({route}) => {
   const isFocused = useIsFocused();
   const [appState] = useAppState();
 
-  const {checkerThankYouText} = useSettings();
+  const {checkerThankYouText} = useDbText();
   const {completedChecker, checks, verifyCheckerStatus} = useApplication();
   const {readPermissions} = useExposure();
 

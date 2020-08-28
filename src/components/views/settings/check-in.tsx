@@ -3,7 +3,7 @@ import {Text, ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {useApplication} from 'providers/context';
-import {useSettings} from 'providers/settings';
+import {useDbText} from 'providers/settings';
 import {useSymptomChecker} from 'hooks/symptom-checker';
 
 import {Spacing, Separator} from 'components/atoms/layout';
@@ -38,7 +38,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
     ethnicityOptions,
     ageRangeOptions,
     countiesOptions
-  } = useSettings();
+  } = useDbText();
   const app = useApplication();
   const {getNextScreen} = useSymptomChecker();
 
