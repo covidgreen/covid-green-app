@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.2.2)
+  - Alamofire (5.2.1)
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
   - EXConstants (9.1.1):
@@ -298,7 +298,7 @@ PODS:
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
   - React-jsinspector (0.63.2)
-  - react-native-exposure-notification-service (1.1.19):
+  - react-native-exposure-notification-service (1.1.22):
     - Alamofire (~> 5.2)
     - KeychainSwift (~> 19.0)
     - React
@@ -312,7 +312,7 @@ PODS:
     - react-native-video/Video (= 4.4.5)
   - react-native-video/Video (4.4.5):
     - React
-  - react-native-viewpager (4.1.4):
+  - react-native-viewpager (4.1.6):
     - React
   - React-RCTActionSheet (0.63.2):
     - React-Core/RCTActionSheetHeaders (= 0.63.2)
@@ -374,11 +374,11 @@ PODS:
     - React-Core (= 0.63.2)
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
-  - RNCAsyncStorage (1.11.0):
+  - RNCAsyncStorage (1.12.0):
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNCPushNotificationIOS (1.4.0):
+  - RNCPushNotificationIOS (1.4.1):
     - React
   - RNDeviceInfo (5.6.5):
     - React
@@ -661,7 +661,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: cde416483dac037923206447da6e1454df403714
   EXConstants: f907b3b6ce16e20d1750f22af1e095e924574bcb
@@ -703,11 +703,11 @@ SPEC CHECKSUMS:
   React-jsi: 54245e1d5f4b690dec614a73a3795964eeef13a8
   React-jsiexecutor: 8ca588cc921e70590820ce72b8789b02c67cce38
   React-jsinspector: b14e62ebe7a66e9231e9581279909f2fc3db6606
-  react-native-exposure-notification-service: 0402b22ff0874cf1f8e833c64cc96ba75cc8c096
+  react-native-exposure-notification-service: 7c14c16bda834e9bf087ede64bb4309b56e3828b
   react-native-netinfo: 38a1e0b3e89b48e4b5833ed475d8df5f049f6f90
   react-native-safe-area-context: eb91fe1fb3f7b87d9c30a7f0808407d8569d539d
   react-native-video: eee541262ada11bc7ffe8ec5508e6a877937c462
-  react-native-viewpager: 0d85e46cfb0d2599f579be1fe04ea1759ec68ebe
+  react-native-viewpager: f44c9e21c37d4cb76d38841c8a450e3891923461
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
   React-RCTAnimation: 9a883bbe1e9d2e158d4fb53765ed64c8dc2200c6
   React-RCTBlob: 39cf0ece1927996c4466510e25d2105f67010e13
@@ -718,9 +718,9 @@ SPEC CHECKSUMS:
   React-RCTText: 1b6773e776e4b33f90468c20fe3b16ca3e224bb8
   React-RCTVibration: 4d2e726957f4087449739b595f107c0d4b6c2d2d
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
-  RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
+  RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNCPushNotificationIOS: dc1c0c6aa18a128df123598149f42e848d26a4ac
+  RNCPushNotificationIOS: c145c6253ea016e5efeff604f2720736b4a596f7
   RNDeviceInfo: c5f8f3a456adcbba405ace475254b08febc4c095
   RNFBApp: a1d628d29c278f4e2c63f2eb02e22a879c0e264d
   RNFBCrashlytics: e96651d15481d1fec48e52f422dd752a8a9ee3d7
