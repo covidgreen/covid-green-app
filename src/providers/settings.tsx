@@ -224,7 +224,7 @@ function getRaceOptions(t: TFunction): BasicItem[] {
     {label: t('race:hawaiian'), value: 'hawaiian'},
     {label: t('race:white'), value: 'white'},
     {label: t('race:other'), value: 'unknown'},
-    {label: t('common:preferNotToSay'), value: 'u'}    
+    {label: t('common:preferNotToSay'), value: 'u'}
   ];
 }
 
@@ -237,7 +237,7 @@ function getEthnicityOptions(t: TFunction): BasicItem[] {
 }
 
 function getAgeRangeOptions(t: TFunction): AgeOption[] {
-  return [    
+  return [
     {label: '0-17', value: '0-17'},
     {label: '18-34', value: '18-34'},
     {label: '35-49', value: '35-49'},

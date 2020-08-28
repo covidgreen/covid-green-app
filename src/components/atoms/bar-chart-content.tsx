@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
-import {ViewStyle, StyleProp, StyleSheet} from 'react-native';
+import {ViewStyle, StyleProp} from 'react-native';
 import {Rect, G, Path} from 'react-native-svg';
 import {BarChart, Grid} from 'react-native-svg-charts';
 import {colors} from 'theme';
 import {line, curveMonotoneX} from 'd3-shape';
+import {ScaleBand} from 'd3-scale';
 
 interface BarChartContentProps {
   chartData: number[];
@@ -16,6 +17,7 @@ interface BarChartContentProps {
   cornerRoundness?: number;
   gapPercent?: number;
   style?: StyleProp<ViewStyle>;
+  scale: ScaleBand<any>;
   yMax?: number;
 }
 

@@ -161,7 +161,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.white
   },
   tabBar: {
     flexDirection: 'row',

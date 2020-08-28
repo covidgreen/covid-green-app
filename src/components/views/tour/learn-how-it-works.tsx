@@ -12,7 +12,9 @@ export const LearnHowItWorks: FC = () => {
   const nav = useNavigation();
 
   return (
-    <Card padding={{h: 20, v: 16}} onPress={() => nav.navigate(ScreenNames.Tour)}>
+    <Card
+      padding={{h: 20, v: 16}}
+      onPress={() => nav.navigate(ScreenNames.Tour)}>
       <Text style={text.defaultBold}>
         {t('onboarding:introduction:learnAction')}
       </Text>

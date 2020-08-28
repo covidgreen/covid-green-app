@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {Markdown} from 'components/atoms/markdown';
 import {Scrollable} from 'components/templates/scrollable';
 import {KeepSafeIcons} from 'assets/icons';
-import {Linking} from 'react-native'
+import {Linking} from 'react-native';
 import {CallCard} from 'components/molecules/call-card';
 
 const map: {[key: number]: any} = Object.entries(KeepSafeIcons).reduce(
@@ -36,9 +36,8 @@ export const CloseContactInfo: FC = () => {
       </Markdown>
       <CallCard
         onPress={() => Linking.openURL('tel:18883643065')}
-        message={t('checker:results:callHelp')}>        
-      </CallCard>
-     
+        message={t('checker:results:callHelp')}
+      />
     </Scrollable>
   );
 };

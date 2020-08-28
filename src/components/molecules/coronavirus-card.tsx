@@ -5,8 +5,9 @@ import {StyleSheet} from 'react-native';
 import {Markdown} from 'components/atoms/markdown';
 import {CallCard} from 'components/molecules/call-card';
 import {Spacing} from 'components/atoms/spacing';
-import {colors, text} from 'theme';import {BubbleIcons} from 'assets/icons';
-import {Linking} from 'react-native'
+import {colors, text} from 'theme';
+import {BubbleIcons} from 'assets/icons';
+import {Linking} from 'react-native';
 
 export const CoronavirusCard: FC = () => {
   const {t} = useTranslation();
@@ -16,10 +17,10 @@ export const CoronavirusCard: FC = () => {
       <Markdown style={styles.markdown} markdownStyles={markdown}>
         {t('checker:results:coronavirus1')}
       </Markdown>
-      <CallCard 
+      <CallCard
         onPress={() => Linking.openURL('tel:911')}
-        message={t('checker:results:callEmergency')}>        
-      </CallCard>
+        message={t('checker:results:callEmergency')}
+      />
       <Spacing s={20} />
       <Markdown style={styles.markdown} warningList>
         {t('checker:results:coronavirus2')}
