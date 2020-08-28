@@ -113,4 +113,6 @@ target 'COVIDGreen' do
   # post_install do |installer|
   #   flipper_post_install(installer)
   # end
+  pod 'react-native-simple-crypto', :path => '../node_modules/react-native-simple-crypto'
+
 end

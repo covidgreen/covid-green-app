@@ -1,11 +1,6 @@
-import {
-  digestStringAsync,
-  CryptoDigestAlgorithm,
-  CryptoEncoding
-} from 'expo-crypto';
-
-import {request, verify} from '.';
-
+import RNSimpleCrypto from 'react-native-simple-crypto';
+import {getBundleId} from 'react-native-device-info';
+import {request} from '.';
 import {urls} from 'constants/urls';
 
 export enum ValidationResult {
@@ -17,33 +12,23 @@ export enum ValidationResult {
 }
 
 interface ValidateCodeResponse {
-  token?: string;
   result: ValidationResult;
+  symptomDate?: string;
+  token?: string;
 }
 
 export const validateCode = async (
   code: string
 ): Promise<ValidateCodeResponse> => {
-  const controlHash = await digestStringAsync(
-    CryptoDigestAlgorithm.SHA512,
-    code.substr(0, 3),
-    {encoding: CryptoEncoding.HEX}
-  );
-  const codeHash = await digestStringAsync(CryptoDigestAlgorithm.SHA512, code, {
-    encoding: CryptoEncoding.HEX
-  });
-
-  const hash = `${controlHash}${codeHash}`;
-
   try {
-    const resp = await request(`${urls.api}/exposures/verify`, {
+    const resp = await request(`${urls.api}/verify`, {
       authorizationHeaders: true,
       method: 'POST',
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({hash})
+      body: JSON.stringify({code})
     });
 
     if (!resp) {
@@ -53,6 +38,7 @@ export const validateCode = async (
 
     return {
       result: ValidationResult.Valid,
+      symptomDate: responseData.symptomDate,
       token: responseData.token
     };
   } catch (err) {
@@ -76,9 +62,20 @@ export const validateCode = async (
 
 export const uploadExposureKeys = async (
   uploadToken: string,
+  symptomDate: string,
   exposures: any[]
 ): Promise<void> => {
-  const resp = await request(`${urls.api}/exposures`, {
+  const data = exposures
+    .sort((a, b) => a.keyData.localeCompare(b.keyData))
+    .map(({ keyData, rollingStartNumber, rollingPeriod, transmissionRiskLevel }) => `${keyData}.${rollingStartNumber}.${rollingPeriod}.${transmissionRiskLevel}`)
+    .join(',')
+
+  const hmacKey = await RNSimpleCrypto.utils.randomBytes(128);
+  const hmacData = RNSimpleCrypto.utils.convertUtf8ToArrayBuffer(data)
+  const ekeyhmac = await RNSimpleCrypto.HMAC.hmac256(hmacData, hmacKey);
+  const padding = await RNSimpleCrypto.utils.randomBytes(Math.floor(Math.random() * 1024 + 1024))
+
+  const certificateResponse = await request(`${urls.api}/certificate`, {
     authorizationHeaders: true,
     method: 'POST',
     mode: 'cors',
@@ -87,12 +84,43 @@ export const uploadExposureKeys = async (
     },
     body: JSON.stringify({
       token: uploadToken,
-      exposures,
-      ...(await verify(uploadToken))
+      ekeyhmac: RNSimpleCrypto.utils.convertArrayBufferToBase64(ekeyhmac)
     })
   });
 
-  if (!resp || resp.status !== 204) {
+  if (!certificateResponse || certificateResponse.status !== 200) {
+    throw new Error('Upload failed');
+  }
+
+  const certificateJson = await certificateResponse.json()
+  const publishData = {
+    hmacKey: RNSimpleCrypto.utils.convertArrayBufferToBase64(hmacKey),
+    healthAuthorityID: getBundleId(),
+    verificationPayload: certificateJson.certificate,
+    symptomOnsetInterval: Math.floor(new Date(symptomDate).getTime() / 1000 / 600),
+    revisionToken: '',
+    traveler: false,
+    temporaryExposureKeys: exposures.map(exposure => ({
+      key: exposure.keyData,
+      rollingStartNumber: exposure.rollingStartNumber,
+      rollingPeriod: exposure.rollingPeriod,
+      transmissionRiskLevel: exposure.transmissionRiskLevel
+    })),
+    padding: RNSimpleCrypto.utils.convertArrayBufferToBase64(padding)
+  }
+
+  console.log(`uploading keys to ${urls.publish}/publish`, publishData)
+
+  const resp = await fetch(`${urls.publish}/publish`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(publishData)
+  });
+
+  if (!resp || resp.status !== 200) {
     throw new Error('Upload failed');
   }
 };

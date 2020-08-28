@@ -62,6 +62,7 @@
     "react-native-push-notification": "^3.5.2",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "2.10.1",
+    "react-native-simple-crypto": "^0.2.13",
     "react-native-ssl-pinning": "^1.4.9",
     "react-native-svg": "12.1.0",
     "react-native-svg-charts": "^5.4.0",
