@@ -16,6 +16,11 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
+### ios gha_setup
+```
+fastlane ios gha_setup
+```
+Setup Github Actions Environment
 ### ios beta
 ```
 fastlane ios beta
