@@ -45,6 +45,7 @@ import StateLogo from './app-logo.svg';
 // states
 import StateErrorBluetooth from './states/error-bluetooth.svg';
 import StateErrorENS from './states/error-ens.svg';
+import StateErrorPhone from './states/error-phone.svg';
 import StateErrorUpgrade from './states/error-upgrade.svg';
 import StateSuccess from './states/success.svg';
 import StateSuccessPhone from './states/success-phone.svg';
@@ -103,6 +104,7 @@ export const TabBarIcons = {
 export const StateIcons = {
   ErrorBluetooth: StateErrorBluetooth,
   ErrorENS: StateErrorENS,
+  ErrorPhone: StateErrorPhone,
   ErrorUpgrade: StateErrorUpgrade,
   Success: StateSuccess,
   SuccessPhone: StateSuccessPhone,

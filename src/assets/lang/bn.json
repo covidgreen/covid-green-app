@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "COVID Smart NY",
-    "url": "https://CovidSmartNY.health.ny.gov",
+    "url": "https://CovidAlertNY.health.ny.gov",
     "message": "COVID-19 এর বিরুদ্ধে লড়াইয়ে COVID Smart NY এর সঙ্গে যোগ দিন",
     "networkError": "সংযোগের সমস্যা। অনুগ্রহ করে আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন এবং আবার চেষ্টা করুন।",
     "missingDataAction": "পেজ রিফ্রেশ করুন",

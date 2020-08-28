@@ -13,6 +13,7 @@ export enum ScreenNames {
   Completion = 'completion',
   Tour = 'tour',
   CloseContactInfo = 'closeContactInfo',
+  CloseContactAlert = 'closeContactAlert',
   ContactTracingSettings = 'settings.covidAlerts',
   HealthLogSettings = 'settings.checkIn',
   PrivacySettings = 'settings.privacy',

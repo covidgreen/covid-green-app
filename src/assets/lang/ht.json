@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "COVID Smart NY (NY Entelijan parapò ak COVID)",
-    "url": "https://CovidSmartNY.health.ny.gov",
+    "url": "https://CovidAlertNY.health.ny.gov",
     "message": "Vin mete w ansanm avèk NY Entelijan parapò ak COVID pou konbat COVID-19",
     "networkError": "Pwoblèm koneksyon. Tanpri tcheke koneksyon entènèt ou a epi eseye ankò.",
     "missingDataAction": "Aktyalize paj la.",

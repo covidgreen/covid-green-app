@@ -57,12 +57,13 @@ import {
 } from 'components/views/symptom-checker';
 import {SymptomsHistory} from 'components/views/symptoms-history';
 import {MyCovidAlerts} from 'components/views/my-covid-alerts';
-import {CountyBreakdown} from 'components/views/county-breakdown';
 import {CloseContactInfo} from 'components/views/close-contact-info';
-import {CloseContact} from 'components/views/close-contact';
-import {CloseContactRequiredAge} from 'components/views/close-contact-required-age';
-import {CloseContactUnderAge} from 'components/views/close-contact-under-age';
-import {CallBack} from 'components/views/call-back';
+import {CloseContactAlert} from 'components/views/close-contact-alert';
+// import {CountyBreakdown} from 'components/views/county-breakdown';
+// import {CloseContact} from 'src/components/views/close-contact';
+// import {CloseContactRequiredAge} from 'components/views/close-contact-required-age';
+// import {CloseContactUnderAge} from 'components/views/close-contact-under-age';
+// import {CallBack} from 'components/views/call-back';
 
 import {UploadKeys} from 'components/views/upload-keys';
 import {Settings} from 'components/views/settings';
@@ -172,6 +173,14 @@ const Screens = (t: TFunction) => {
       component: CloseContactInfo,
       options: {
         title: t('closeContactInfo:title'),
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.CloseContactAlert,
+      component: CloseContactAlert,
+      options: {
+        title: t('closeContactAlert:title'),
         ...standardProps
       }
     },
