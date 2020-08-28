@@ -60,6 +60,11 @@ export const Debug = ({navigation}) => {
     events.push(ev);
     setLog([...events]);
   }
+
+  const simulateExposure = async () => {
+    exposure.simulateExposure(5);
+  }
+
   const checkExposure = async () => {
     try {
       setLog([]);
@@ -67,7 +72,7 @@ export const Debug = ({navigation}) => {
       emitter.removeListener('exposureEvent', handleEvent);
     } catch (e) {}
     let subscription = emitter.addListener('exposureEvent', handleEvent);
-    await exposure.checkExposure(true);
+    await exposure.checkExposure(true, true);
   };
 
   useEffect(() => {
@@ -169,6 +174,9 @@ export const Debug = ({navigation}) => {
     <Scrollable heading="Debug">
       <Button type="major" onPress={checkExposure}>
         Check Exposure
+      </Button>
+      <Button type="major" onPress={simulateExposure}>
+        Simulate Exposure
       </Button>
       <Button type="major" onPress={deleteAllData}>
         Delete All Data
