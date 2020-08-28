@@ -29,12 +29,12 @@ const legendLineSize = 24;
 const nbsp = ' ';
 
 function formatLabel(value: number) {
-  if (value > 1000000) {
+  if (value >= 1000000) {
     const millions = parseFloat((value / 1000000).toFixed(1));
     return `${millions}m`;
   }
 
-  if (value > 1000) {
+  if (value >= 1000) {
     const thousands = parseFloat((value / 1000).toFixed(1));
     return `${thousands}k`;
   }
