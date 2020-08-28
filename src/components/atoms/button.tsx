@@ -57,7 +57,7 @@ export const Button: React.FC<ButtonProps> = ({
     if (type === 'empty') {
       backgroundColor = colors.gray;
       foregroundColor = colors.gray;
-      textColor = colors.text;
+      textColor = '#6E6E6E';
     }
   }
 

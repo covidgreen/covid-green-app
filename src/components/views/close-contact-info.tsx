@@ -18,7 +18,7 @@ const map: {[key: number]: any} = Object.entries(KeepSafeIcons).reduce(
   {}
 );
 
-function renderListBullet(index: number, _: boolean, children: any) {
+export function renderListBullet(index: number, _: boolean, children: any) {
   return (
     <View key={`list-item-${index}`} style={styles.listIcon}>
       <View style={styles.icon}>{map[index]}</View>
@@ -31,8 +31,9 @@ export const CloseContactInfo: FC = () => {
   const {t} = useTranslation();
   return (
     <Scrollable heading={t('closeContactInfo:title')}>
+      <Markdown style={styles.mdTop}>{t('closeContactInfo:info')}</Markdown>
       <Markdown style={styles.md} renderListBullet={renderListBullet}>
-        {t('closeContactInfo:info')}
+        {t('closeContactInfo:list')}
       </Markdown>
       <CallCard
         onPress={() => Linking.openURL('tel:18883643065')}
@@ -54,6 +55,9 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 12,
     marginTop: 12
+  },
+  mdTop: {
+    marginBottom: 0
   },
   md: {
     marginBottom: 32
