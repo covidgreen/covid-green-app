@@ -7,6 +7,9 @@ import {
   StatusType,
   PermissionStatus
 } from 'react-native-exposure-notification-service';
+import {useFocusEffect, useIsFocused} from '@react-navigation/native';
+
+import {useAppState} from 'hooks/app-state';
 
 import {Spacing} from 'components/atoms/layout';
 import {ClosenessSensing} from 'components/molecules/closeness-sensing';
@@ -22,8 +25,20 @@ export const Completion: FC<any> = () => {
     canSupport,
     status,
     enabled,
-    isAuthorised
+    isAuthorised,
+    readPermissions
   } = useExposure();
+  const [appState] = useAppState();
+  const isFocused = useIsFocused();
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (!isFocused || appState !== 'active') {
+        return;
+      }
+      readPermissions();
+    }, [isFocused, appState, readPermissions])
+  );
 
   let closenessSensingStatusCard;
   if (!supported) {

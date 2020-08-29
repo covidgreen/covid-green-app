@@ -21,7 +21,8 @@
       "description": "Dezole, men sa pa t byen fonksyone.\nTanpri verifye ou gen yon koneksyon rezo epi eseye ankò.",
       "timestampTitle": "Verifye Dat ak Lè a",
       "timestamp": "Nou pa t kapab verifye aparèy ou a. Tanpri tcheke si li pwograme sou bon dat ak bon lè a, epi eseye ankò."
-    }
+    },
+    "continue": "Kontinye"
   },
   "viewNames": {
     "introduction": "Ede Sispann Pwopagasyon COVID-19 nan Kominote W la",
@@ -216,11 +217,7 @@
       "active": "Deteksyon Pwoksimite a aktif kounye a.",
       "notActive": "Deteksyon Pwoksimite a pa aktif",
       "intro": "Pou chanje rezilta a, ale nan paramèt telefòn ou, lè ou tape sou bouton “Mete Paramèt yo Ajou” ki pi ba a.",
-      "gotoSettings": "Mete paramèt yo ajou",
-      "android": {
-        "intro": "Deteksyon Pwoksimite pa aktive pou kounye a, klike sou aktive pou kòmanse.",
-        "gotoSettings": "Aktive"
-      }
+      "gotoSettings": "Mete paramèt yo ajou"
     },
     "clearData": {
       "title": "Alèt COVID",

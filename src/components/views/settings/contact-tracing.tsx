@@ -1,74 +1,46 @@
 import React, {useState, useRef} from 'react';
 import {Platform, ScrollView, Text, Linking, Alert} from 'react-native';
 import * as IntentLauncher from 'expo-intent-launcher';
-import {useTranslation} from 'react-i18next';
-import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {
   useExposure,
-  StatusState
+  StatusState,
+  AuthorisedStatus
 } from 'react-native-exposure-notification-service';
+import {useTranslation} from 'react-i18next';
 
-import {AppIcons} from 'assets/icons';
 import {Button} from 'components/atoms/button';
-import {colors, text} from 'theme';
-import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
 import {Markdown} from 'components/atoms/markdown';
-import {Spacing} from 'components/atoms/layout';
+import {Spacing, Separator} from 'components/atoms/layout';
 import {Toast} from 'components/atoms/toast';
-import {useAppState} from 'hooks/app-state';
+import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
+
+import {colors, text} from 'theme';
+import {AppIcons} from 'assets/icons';
 
 export const ContactTracingSettings = () => {
   const {t} = useTranslation();
-  const [appState] = useAppState();
-  const isFocused = useIsFocused();
   const {
+    canSupport,
     supported,
+    isAuthorised,
     status,
     enabled,
-    supportsExposureApi,
     contacts,
     deleteExposureData,
-    authoriseExposure,
-    readPermissions
+    askPermissions
   } = useExposure();
 
   const [confirmedChanges] = useState<boolean>(false);
   const scrollViewRef = useRef<ScrollView>(null);
 
-  const serviceStatus =
-    status.state === StatusState.active && enabled ? 'active' : 'notActive';
-
-  useFocusEffect(
-    React.useCallback(() => {
-      if (!isFocused || appState !== 'active') {
-        return;
-      }
-
-      readPermissions();
-    }, [isFocused, appState, readPermissions])
-  );
-
   const gotoSettings = async () => {
     try {
       if (Platform.OS === 'ios') {
         Linking.openURL('app-settings:');
-      } else {
-        console.log('tracing supported:', supported);
-        if (supported) {
-          if (enabled) {
-            await IntentLauncher.startActivityAsync(
-              'com.google.android.gms.settings.EXPOSURE_NOTIFICATION_SETTINGS'
-            );
-          } else {
-            await authoriseExposure();
-          }
-        } else {
-          await IntentLauncher.startActivityAsync(
-            IntentLauncher.ACTION_APPLICATION_DETAILS_SETTINGS,
-            {data: 'package:gov.ny.health.proximity'}
-          );
-        }
-        await supportsExposureApi();
+      } else if (Platform.OS === 'android') {
+        await IntentLauncher.startActivityAsync(
+          'com.google.android.gms.settings.EXPOSURE_NOTIFICATION_SETTINGS'
+        );
       }
     } catch (e) {
       console.log("Error opening app's settings", e);
@@ -110,32 +82,47 @@ export const ContactTracingSettings = () => {
     />
   );
 
+  const isServiceActive = status.state === StatusState.active && enabled;
+  const ensNotAuthorised =
+    !isServiceActive &&
+    (Platform.OS === 'android' || isAuthorised === AuthorisedStatus.unknown);
+
   return (
     <KeyboardScrollable
       toast={successToast}
       heading={t('myCovidAlerts:title')}
       scrollViewRef={scrollViewRef}>
-      <Text style={text.default}>{t('settings:status:title')}</Text>
-      <Spacing s={30} />
+      <Text style={text.defaultBold}>{t('settings:status:title')}</Text>
+      <Spacing s={12} />
       <Text style={text.largeBold}>
-        {t(`settings:status:${serviceStatus}`)}
+        {t(`settings:status:${isServiceActive ? 'active' : 'notActive'}`)}
       </Text>
-      <Spacing s={30} />
-      <Text style={text.default}>
-        {Platform.OS === 'ios' || enabled
-          ? t('settings:status:intro')
-          : t('settings:status:android:intro')}
-      </Text>
-      <Spacing s={30} />
-      <Button type="empty" onPress={gotoSettings}>
-        {Platform.OS === 'ios' || enabled
-          ? t('settings:status:gotoSettings')
-          : t('settings:status:android:gotoSettings')}
-      </Button>
+      {canSupport && supported && (
+        <>
+          <Spacing s={24} />
+          <Text style={text.default}>
+            {ensNotAuthorised
+              ? t(`closenessSensing:notAuthorised:${Platform.OS}:text`)
+              : t('settings:status:intro')}
+          </Text>
+          <Spacing s={12} />
+          <Button
+            type="empty"
+            onPress={
+              ensNotAuthorised
+                ? async () => await askPermissions()
+                : gotoSettings
+            }>
+            {ensNotAuthorised
+              ? t(`closenessSensing:notAuthorised:${Platform.OS}:setup`)
+              : t('settings:status:gotoSettings')}
+          </Button>
+        </>
+      )}
 
       {contacts && contacts.length > 0 && (
         <>
-          <Spacing s={30} />
+          <Separator />
           <Text style={text.defaultBold}>{t('settings:clearData:title')}</Text>
           <Spacing s={30} />
           <Markdown style={{background: colors.white}}>

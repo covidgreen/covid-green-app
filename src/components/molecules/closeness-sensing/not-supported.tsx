@@ -46,7 +46,7 @@ export const NotSupported: FC<{onboarding?: boolean}> = ({
                 routes: [{name: 'main'}]
               })
             }>
-            {t('closenessSensing:notSupported:next')}
+            {t('common:ok:label')}
           </Button>
         </>
       )}

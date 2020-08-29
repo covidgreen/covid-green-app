@@ -64,7 +64,7 @@ export const NotificationsDisabledCard: FC<{onboarding?: boolean}> = ({
                 routes: [{name: 'main'}]
               })
             }>
-            {t('notificationsDisabled:continue')}
+            {t('common:continue')}
           </Button>
         </>
       )}

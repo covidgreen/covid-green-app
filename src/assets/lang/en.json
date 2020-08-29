@@ -21,7 +21,8 @@
       "description": "Sorry, that didn’t work properly.\nPlease check that you have a network connection and try again.",
       "timestampTitle": "Check Date & Time",
       "timestamp": "We couldn't verify your device. Please check it's set to the correct date and time, and try again."
-    }
+    },
+    "continue": "Continue"
   },
   "viewNames": {
     "introduction": "Help Stop the Spread of COVID-19 in Your Community",
@@ -214,13 +215,9 @@
     "status": {
       "title": "Status",
       "active": "Closeness Sensing is currently active.",
-      "notActive": "Closeness Sensing is not active",
-      "intro": "To change the status, go to your phone’s settings by tapping the “Update Settings” button below.",
-      "gotoSettings": "Update settings",
-      "android": {
-        "intro": "Closeness Sensing is not currently enabled, click enable to start.",
-        "gotoSettings": "Enable"
-      }
+      "notActive": "Closeness Sensing is currently inactive.",
+      "intro": "To change the status, tap the “Update Settings” button below to go to your phone’s settings.",
+      "gotoSettings": "Update settings"
     },
     "clearData": {
       "title": "COVID Alerts",
@@ -494,8 +491,7 @@
     },
     "notSupported": {
       "title": "Closeness Sensing is not available",
-      "text": "Unfortunately, your device doesn’t support Closeness Sensing, so you can't receive COVID Alerts. You can still use this app to log your health and view NY COVID data",
-      "next": "Continue"
+      "text": "Unfortunately, your device doesn’t support Closeness Sensing, so you can't receive COVID Alerts. You can still use this app to log your health and view NY COVID data"
     },
     "supported": {
       "ios": {
@@ -504,14 +500,14 @@
       },
       "android": {
         "title": "Google Play Services must be updated to support Closeness Sensing.",
-        "text": "To enable it, you must upgrade the latest version of the Google Play Services App."
+        "text": "To enable it, you must update to the latest version of the Google Play Services App."
       },
-      "checkForUpgrade": "Check for upgrades",
+      "checkForUpdates": "Check for updates",
       "next": "Set it up later and continue"
     },
     "notAuthorised": {
       "ios": {
-        "title": "Closeness Sensing is not set up",
+        "title": "Closeness Sensing is not active",
         "text": "You need to enable Exposure Notification Services to activate Closeness Sensing",
         "setup": "Set up"
       },
@@ -519,27 +515,25 @@
         "title": "Closeness Sensing is not active",
         "text": "You need to turn on COVID-19 Exposure Notifications to enable Closeness Sensing and COVID Alerts",
         "setup": "Turn on"
-      },
-      "continue": "Continue"
+      }
     },
     "notEnabledIOS": {
       "title": "Closeness Sensing is not enabled",
-      "text": "You need enable COVID-19 Exposure Notifications in your app's settings to to enable Closeness Sensing. Keep in mind that you also need to have COVID-19 Exposure Logging turned on. You can find it in Privacy > Health settings",
-      "gotoSettings": "Go to app settings",
-      "continue": "Continue"
+      "text": "To turn on Closeness Sensing, you must enable COVID-19 Exposure Notifications in App Settings.\n\nYou should also go to Privacy > Health in your device's settings and make sure COVID-19 Exposure Logging is on.",
+      "gotoSettings": "Go to App Settings"
     },
     "notActiveIOS": {
       "title": "Closeness Sensing is not active",
-      "text": "You need enable Exposure Notifications services and Bluetooth to enable Closeness Sensing ",
-      "ens": "You need enable COVID-19 Exposure Notifications in your app's settings to to enable Closeness Sensing. Keep in mind that you also need to have COVID-19 Exposure Logging turned on. You can find it in Privacy > Health settings",
-      "bt": "Please enable Bluetooth in your phone settings.",
-      "gotoSettings": "Go to settings",
-      "continue": "Continue"
+      "text": "You need to enable Exposure Notifications services and Bluetooth to enable Closeness Sensing",
+      "ens": "To turn on Closeness Sensing, you must enable COVID-19 Exposure Notifications in App Settings.\n\nYou should also go to Privacy > Health in your device's settings and make sure COVID-19 Exposure Logging is on.",
+      "bt": "Please turn on Bluetooth.\n\n**Note:** Turn this on in your device’s settings, not by tapping the Bluetooth button in the Control Center.",
+      "gotoSettings": "Go to Settings",
+      "next": "Set it up later and continue"
     }
   },
   "notificationsDisabled": {
     "title": "Notifications are disabled",
     "text": "You need to allow notifications so you can receive COVID alerts. We will only contact you in case of a Close Contact.",
-    "gotoSettings": "Go to app settings"
+    "gotoSettings": "Go to App Settings"
   }
 }

@@ -1,33 +1,33 @@
 import React, {FC, useState, useEffect} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
+import {useExposure} from 'react-native-exposure-notification-service';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import {useExposure} from 'react-native-exposure-notification-service';
 
-import {AppIcons} from 'assets/icons';
-import {Button} from 'components/atoms/button';
-import {Card} from 'components/atoms/card';
-import {CheckInCard} from 'components/molecules/check-in-card';
-import {CloseContactWarning} from 'components/molecules/close-contact-warning';
-import {Scrollable} from 'components/templates/scrollable';
-import {Spacing} from 'components/atoms/spacing';
-import {Toast} from 'components/atoms/toast';
-import {TracingAvailable} from 'components/molecules/tracing-available';
-import {TrackerBarChart} from 'components/molecules/bar-chart';
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
 import {useSymptomChecker} from 'hooks/symptom-checker';
+
+import {Button} from 'components/atoms/button';
 import {Heading} from 'components/atoms/heading';
-import {CountyDropdown} from 'components/molecules/county-dropdown';
-import {colors, text} from 'theme';
-import {County} from 'assets/counties';
+import {Spacing} from 'components/atoms/layout';
+import {Toast} from 'components/atoms/toast';
 import {AlertInformation} from 'components/molecules/alert-information';
-import { TrackerCharts } from '../organisms/tracker-charts';
+import {CheckInCard} from 'components/molecules/check-in-card';
+import {CloseContactWarning} from 'components/molecules/close-contact-warning';
+import {CountyDropdown} from 'components/molecules/county-dropdown';
+import {TracingAvailable} from 'components/molecules/tracing-available';
+import {TrackerCharts} from 'components/organisms/tracker-charts';
+import {Scrollable} from 'components/templates/scrollable';
+
+import {colors, text} from 'theme';
+import {AppIcons} from 'assets/icons';
+import {County} from 'assets/counties';
 
 export const Dashboard: FC<any> = ({navigation}) => {
   const {
+    completedChecker,
     verifyCheckerStatus,
-    checkInConsent,
     loadAppData,
     data,
     county,
@@ -89,7 +89,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           <Spacing s={16} />
         </>
       )}
-      {!checkInConsent && (
+      {!completedChecker && (
         <>
           <CheckInCard
             onPress={() =>

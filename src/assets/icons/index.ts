@@ -37,10 +37,10 @@ import SettingsIOS from './tab-bar/settings-ios.svg';
 // icons
 import CheckMark from './check-mark.svg';
 import CheckMarkMultiSelect from './check-mark-multiselect.svg';
-import Logo from './logo.svg';
 import Privacy from './privacy.svg';
-
-import StateLogo from './app-logo.svg';
+import LogoLaunch from './logo-launch.svg';
+import LogoNav from './logo-nav.svg';
+import LogoState from './logo-state.svg';
 
 // states
 import StateErrorBluetooth from './states/error-bluetooth.svg';
@@ -133,7 +133,8 @@ export const KeepSafeIcons = {
 export default {
   CheckMark,
   CheckMarkMultiSelect,
-  Logo,
-  Privacy,
-  StateLogo
+  LogoLaunch,
+  LogoNav,
+  LogoState,
+  Privacy
 };

@@ -30,7 +30,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
   const {t} = useTranslation();
   const exposure = useExposure();
 
-  const checkForUpgradeHandler = async () => {
+  const checkForUpdatesHandler = async () => {
     try {
       if (Platform.OS === 'ios') {
         Linking.openURL('App-Prefs:');
@@ -165,7 +165,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
           </View>
         </SingleRow>
         <Spacing s={16} />
-        <Button onPress={checkForUpgradeHandler}>
+        <Button onPress={checkForUpdatesHandler}>
           {t(`onboarding:upgrade:${Platform.OS}:action`)}
         </Button>
       </Card>

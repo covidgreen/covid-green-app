@@ -21,7 +21,8 @@
       "description": "抱歉，无法正常工作。\n请检查您是否已建立网络连接，然后重试。",
       "timestampTitle": "核对日期和时间",
       "timestamp": "我们无法验证您的设备。请检查设置的日期和时间是否正确，然后重试。"
-    }
+    },
+    "continue": "继续"
   },
   "viewNames": {
     "introduction": "帮助阻止您所在社区COVID-19疫情的传播",
@@ -212,11 +213,7 @@
       "active": "距离感测功能当前处于活动状态。",
       "notActive": "距离感测功能未处于活动状态",
       "intro": "若要更改状态，通过点击下方“更新设置”按钮转至您手机的设置。",
-      "gotoSettings": "更新设置",
-      "android": {
-        "intro": "距离感测功能当前没有启用，请单击启用以将它启动。",
-        "gotoSettings": "启用"
-      }
+      "gotoSettings": "更新设置"
     },
     "clearData": {
       "title": "COVID警示",

@@ -114,7 +114,7 @@ export const NavBar: FC<NavBarProps> = ({
           accessibilityHint={t('common:name')}
           accessibilityRole="text"
           style={[styles.col, styles.center]}>
-          <Icons.StateLogo width={92} height={36} color={colors.text} />
+          <Icons.LogoNav width={92} height={36} color={colors.text} />
         </View>
         <View style={[styles.col, styles.right]}>
           <TouchableWithoutFeedback

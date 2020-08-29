@@ -52,7 +52,7 @@ export const NotEnabledIOS: FC<{onboarding?: boolean}> = ({
                 routes: [{name: 'main'}]
               })
             }>
-            {t('closenessSensing:notEnabledIOS:continue')}
+            {t('common:ok:label')}
           </Button>
         </>
       )}

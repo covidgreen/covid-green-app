@@ -18,7 +18,7 @@ export const Supported: FC<{onboarding?: boolean}> = ({onboarding = false}) => {
   const exposure = useExposure();
   const nav = useNavigation();
 
-  const checkForUpgradeHandler = async () => {
+  const checkForUpdatesHandler = async () => {
     try {
       if (Platform.OS === 'ios') {
         Linking.openURL('App-Prefs:');
@@ -48,8 +48,8 @@ export const Supported: FC<{onboarding?: boolean}> = ({onboarding = false}) => {
           </Text>
           <Spacing s={24} />
           <View style={sharedStyles.buttonsWrapper}>
-            <Button onPress={checkForUpgradeHandler}>
-              {t('closenessSensing:supported:checkForUpgrade')}
+            <Button onPress={checkForUpdatesHandler}>
+              {t('closenessSensing:supported:checkForUpdates')}
             </Button>
           </View>
         </View>

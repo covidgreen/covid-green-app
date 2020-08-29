@@ -58,7 +58,7 @@ export const NotAuthorized: FC<{onboarding?: boolean}> = ({
                 routes: [{name: 'main'}]
               })
             }>
-            {t('closenessSensing:notAuthorised:continue')}
+            {t('common:continue')}
           </Button>
         </>
       )}
