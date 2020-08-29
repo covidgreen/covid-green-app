@@ -36,11 +36,6 @@ PODS:
     - React-Core (= 0.63.2)
     - React-jsi (= 0.63.2)
     - ReactCommon/turbomodule/core (= 0.63.2)
-  - Firebase/Analytics (6.28.1):
-    - Firebase/Core
-  - Firebase/Core (6.28.1):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.6.2)
   - Firebase/CoreOnly (6.28.1):
     - FirebaseCore (= 6.9.1)
   - Firebase/Crashlytics (6.28.1):
@@ -51,15 +46,6 @@ PODS:
     - FirebaseRemoteConfig (~> 4.7.0)
   - FirebaseABTesting (4.1.0):
     - FirebaseCore (~> 6.8)
-  - FirebaseAnalytics (6.6.2):
-    - FirebaseCore (~> 6.8)
-    - FirebaseInstallations (~> 1.4)
-    - GoogleAppMeasurement (= 6.6.2)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/MethodSwizzler (~> 6.0)
-    - GoogleUtilities/Network (~> 6.0)
-    - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 1.30905.0)
   - FirebaseCore (6.9.1):
     - FirebaseCoreDiagnostics (~> 1.3)
     - GoogleUtilities/Environment (~> 6.7)
@@ -96,31 +82,13 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - GoogleAppMeasurement (6.6.2):
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/MethodSwizzler (~> 6.0)
-    - GoogleUtilities/Network (~> 6.0)
-    - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 1.30905.0)
   - GoogleDataTransport (7.2.0):
     - nanopb (~> 1.30905.0)
-  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
   - GoogleUtilities/Environment (6.7.2):
     - PromisesObjC (~> 1.2)
   - GoogleUtilities/Logger (6.7.2):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.7.2):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.7.2):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (6.7.2)"
-  - GoogleUtilities/Reachability (6.7.2):
-    - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
   - KeychainSwift (19.0.0)
@@ -374,24 +342,22 @@ PODS:
     - React-Core (= 0.63.2)
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
-  - RNCAsyncStorage (1.12.0):
+  - RNCAsyncStorage (1.11.0):
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNCPushNotificationIOS (1.4.1):
+  - RNCPushNotificationIOS (1.4.0):
     - React
   - RNDeviceInfo (5.6.5):
     - React
   - RNFBApp (8.3.1):
     - Firebase/CoreOnly (~> 6.28.1)
     - React
-  - RNFBCrashlytics (8.3.2):
-    - Firebase/Core (~> 6.28.1)
+  - RNFBCrashlytics (8.3.4):
     - Firebase/Crashlytics (~> 6.28.1)
     - React
     - RNFBApp
-  - RNFBRemoteConfig (8.1.3):
-    - Firebase/Analytics (~> 6.28.1)
+  - RNFBRemoteConfig (8.1.4):
     - Firebase/RemoteConfig (~> 6.28.1)
     - React
     - RNFBApp
@@ -508,13 +474,11 @@ SPEC REPOS:
     - boost-for-react-native
     - Firebase
     - FirebaseABTesting
-    - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCrashlytics
     - FirebaseInstallations
     - FirebaseRemoteConfig
-    - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
     - KeychainSwift
@@ -678,7 +642,6 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: dc7fa9088f0f2a998503a352b0554d69a4391c5a
   Firebase: ed042590caa0029392257529a8003c25ee82bc18
   FirebaseABTesting: 9e368b88c2f1c5d7a433828d9d224779b53207b6
-  FirebaseAnalytics: 5fa308e1b13f838d0f6dc74719ac2a72e8c5afc4
   FirebaseCore: 687b8e6a0a4337b898a6326d68254c2f80c143af
   FirebaseCoreDiagnostics: 7535fe695737f8c5b350584292a70b7f8ff0357b
   FirebaseCrashlytics: 863c851b034baeb3116cd2c91743e37de2dcedfc
@@ -686,7 +649,6 @@ SPEC CHECKSUMS:
   FirebaseRemoteConfig: a7d272194b5336a66ca3e35beb5de67f18c79b91
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  GoogleAppMeasurement: 8cd1f289d60e629cf16ab03363b9e89c776b9651
   GoogleDataTransport: 672fb0ce96fe7f7f31d43672fca62ad2c9c86f7b
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
@@ -718,13 +680,13 @@ SPEC CHECKSUMS:
   React-RCTText: 1b6773e776e4b33f90468c20fe3b16ca3e224bb8
   React-RCTVibration: 4d2e726957f4087449739b595f107c0d4b6c2d2d
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
-  RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
+  RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNCPushNotificationIOS: c145c6253ea016e5efeff604f2720736b4a596f7
+  RNCPushNotificationIOS: dc1c0c6aa18a128df123598149f42e848d26a4ac
   RNDeviceInfo: c5f8f3a456adcbba405ace475254b08febc4c095
   RNFBApp: a1d628d29c278f4e2c63f2eb02e22a879c0e264d
-  RNFBCrashlytics: e96651d15481d1fec48e52f422dd752a8a9ee3d7
-  RNFBRemoteConfig: 7b1dc0b2b34c0643153b65de934eb11da81ac2f3
+  RNFBCrashlytics: 99b06ecf776686bc052e4670b9552904bbbd3da6
+  RNFBRemoteConfig: a9b200cf6682d4ba5797aa0349d299ca7c4c8a7a
   RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
   RNIOS11DeviceCheck: a4a545fdd08230a17a8ce7608e95038ee23a32aa
   RNPermissions: ad71dd4f767ec254f2cd57592fbee02afee75467
