@@ -217,7 +217,7 @@
       "active": "Closeness Sensing is currently active.",
       "notActive": "Closeness Sensing is currently inactive.",
       "intro": "To change the status, tap the “Update Settings” button below to go to your phone’s settings.",
-      "gotoSettings": "Update settings"
+      "gotoSettings": "Update Settings"
     },
     "clearData": {
       "title": "COVID Alerts",
