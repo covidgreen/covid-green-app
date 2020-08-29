@@ -271,7 +271,7 @@
     },
     "legend": {
       "averageLine": "7 day average",
-      "dailyTotal": "Daily total"
+      "dailyTotal": "Daily figure"
     }
   },
   "symptomsHistory": {

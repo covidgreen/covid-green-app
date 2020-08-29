@@ -118,6 +118,12 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
       newData.chartData.push(
         testsValue ? (positivesValue / testsValue) * 100 : 0
       );
+
+      const testsAv = testsData.averagesData[testsIndex];
+      const posAv = positivesData.averagesData[positivesIndex];
+      if (typeof testsAv === 'number' && typeof posAv === 'number') {
+        newData.averagesData.push(testsAv ? (posAv / testsAv) * 100 : 0);
+      }
       return {...newData};
     }, percentData);
   }
@@ -146,6 +152,7 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
               hint={t('charts:positivityPercent:hint')}
               axisData={percentData.axisData}
               chartData={percentData.chartData}
+              averagesData={percentData.averagesData}
               yMin={0.5}
               ySuffix="%"
             />
