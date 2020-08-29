@@ -17,15 +17,21 @@ export type ChartData = number[];
 interface ExtractedData {
   axisData: AxisData;
   chartData: ChartData;
+  averagesData: ChartData;
 }
 
 const chartDataIsAvailable = (data: ExtractedData) => {
   return !!(data.axisData?.length && data.chartData?.length);
 };
 
-const getBarchartData = (data: any, quantityKey: string) => {
+const getBarchartData = (
+  data: any,
+  quantityKey: string,
+  averagesKey: string
+) => {
   let axisData: Date[] = [];
   let chartData: number[] = [];
+  let averagesData: number[] = [];
   const dataKeys = Object.keys(data);
 
   if (!Array.isArray(data)) {
@@ -34,29 +40,35 @@ const getBarchartData = (data: any, quantityKey: string) => {
         const dataRecord = data[date] || data[index];
         return {
           axisData: [...records.axisData, new Date(date)],
-          chartData: [...records.chartData, dataRecord[quantityKey]]
+          chartData: [...records.chartData, dataRecord[quantityKey]],
+          averagesData: averagesKey
+            ? [...records.averagesData, dataRecord[averagesKey]]
+            : []
         };
       },
       {
         axisData: [],
-        chartData: []
-      } as {
-        axisData: Date[];
-        chartData: number[];
-      }
+        chartData: [],
+        averagesData: []
+      } as ExtractedData
     );
     axisData = reducedData.axisData;
     chartData = reducedData.chartData;
+    averagesData = reducedData.averagesData;
   } else {
     data.forEach((record) => {
       axisData.push(new Date(record.test_date || record.last_test_date));
       chartData.push(record[quantityKey]);
+      if (averagesKey) {
+        averagesData.push(record[averagesKey]);
+      }
     });
   }
 
   return {
     chartData,
-    axisData
+    axisData,
+    averagesData
   };
 };
 
@@ -74,11 +86,20 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
     return null;
   }
 
-  const testsData = getBarchartData(localData, 'total_number_of_tests');
-  const positivesData = getBarchartData(localData, 'new_positives');
+  const testsData = getBarchartData(
+    localData,
+    'total_number_of_tests',
+    'average_number_of_tests'
+  );
+  const positivesData = getBarchartData(
+    localData,
+    'new_positives',
+    'average_new_positives'
+  );
   let percentData = {
     axisData: [],
-    chartData: []
+    chartData: [],
+    averagesData: []
   } as ExtractedData;
 
   if (testsData.axisData.length && positivesData.axisData.length) {
@@ -111,6 +132,7 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
               hint={t('charts:tests:hint')}
               axisData={testsData.axisData}
               chartData={testsData.chartData}
+              averagesData={testsData.averagesData}
             />
           </Card>
           <Spacing s={20} />
@@ -138,6 +160,7 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
             hint={t('charts:positiveTests:hint')}
             axisData={positivesData.axisData}
             chartData={positivesData.chartData}
+            averagesData={positivesData.averagesData}
           />
         </Card>
       )}

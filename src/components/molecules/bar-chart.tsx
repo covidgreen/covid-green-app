@@ -21,6 +21,7 @@ interface TrackerBarChartProps {
   days?: number;
   yMin?: number;
   ySuffix?: string;
+  averagesData?: ChartData;
   rollingAverage?: number;
   intervalsCount?: number;
   backgroundColor?: string;
@@ -61,6 +62,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   title,
   chartData,
   axisData,
+  averagesData,
   hint,
   yesterday,
   rollingAverage = 0,
@@ -87,7 +89,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   const labelString = `${last} ${yesterday}`;
 
   // Give x and y axis label text space to not get cropped
-  const insetY = 6;
+  const insetY = 3;
   const insetX = insetY + styles.chart.marginHorizontal;
   const contentInset = {
     top: insetY,
@@ -126,6 +128,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
         <View style={styles.chartingCol}>
           <BarChartContent
             chartData={chartData}
+            averagesData={averagesData}
             days={daysLimit}
             cornerRoundness={2}
             scale={scaleBand}
@@ -143,7 +146,11 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             scale={scaleBand}
             svg={{...xAxisSvg, y: 3}}
             formatLabel={(_, index) => {
-              if (chartData.length > 10 && index % intervalsCount) {
+              if (
+                chartData.length > 10 &&
+                index % intervalsCount &&
+                index !== axisData.length - 1
+              ) {
                 return '';
               }
               const date = new Date(axisData[index]);
@@ -156,7 +163,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             scale={scaleBand}
             svg={xAxisSvg}
             formatLabel={(_, index) => {
-              if (index % intervalsCount) {
+              if (index % intervalsCount && index !== axisData.length - 1) {
                 return '';
               }
               const date = new Date(axisData[index]);
@@ -168,7 +175,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
           />
         </View>
       </View>
-      {!!rollingAverage && (
+      {(!!rollingAverage || averagesData) && (
         <>
           <Spacing s={16} />
           <View style={styles.legend}>

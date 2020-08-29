@@ -10,6 +10,7 @@ import {ChartData, AxisData} from 'components/organisms/tracker-charts';
 interface BarChartContentProps {
   chartData: ChartData;
   axisData: AxisData;
+  averagesData?: ChartData;
   contentInset: {top: number; bottom: number};
   rollingAverage?: number;
   days?: number;
@@ -30,8 +31,27 @@ interface BarChildProps {
   data: number[];
 }
 
+const calculateRollingAverages = (
+  rollingAverage: number | undefined,
+  visibleChartData: ChartData,
+  chartData: ChartData
+) =>
+  rollingAverage
+    ? visibleChartData.map((_, index) => {
+        const avStart =
+          rollingAverage + index > chartData.length
+            ? Math.max(0, index - rollingAverage)
+            : index;
+        const avEnd = Math.min(rollingAverage + index, chartData.length - 1);
+        const avValues = chartData.slice(avStart, avEnd);
+        const total = avValues.reduce((sum, num) => sum + num, 0);
+        return total / avValues.length;
+      })
+    : chartData;
+
 export const BarChartContent: FC<BarChartContentProps> = ({
   chartData,
+  averagesData,
   contentInset,
   rollingAverage = 0,
   days = chartData.length,
@@ -70,18 +90,9 @@ export const BarChartContent: FC<BarChartContentProps> = ({
 
   const TrendLine: FC<BarChildProps> = (props) => {
     const {x, y, bandwidth} = props;
-    const rollingData = rollingAverage
-      ? visibleChartData.map((_, index) => {
-          const avStart =
-            rollingAverage + index > chartData.length
-              ? Math.max(0, index - rollingAverage)
-              : index;
-          const avEnd = Math.min(rollingAverage + index, chartData.length - 1);
-          const avValues = chartData.slice(avStart, avEnd);
-          const total = avValues.reduce((sum, num) => sum + num, 0);
-          return total / avValues.length;
-        })
-      : chartData;
+    const rollingData =
+      averagesData ||
+      calculateRollingAverages(rollingAverage, visibleChartData, chartData);
 
     const lineGenerator = line();
     lineGenerator.curve(curveMonotoneX);
@@ -147,7 +158,7 @@ export const BarChartContent: FC<BarChartContentProps> = ({
       {/* @ts-ignore: gets BarChildProps from BarChart parent */}
       <XAxisTrim />
       {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      {!!rollingAverage && <TrendLine />}
+      {(!!rollingAverage || averagesData) && <TrendLine />}
     </BarChart>
   );
 };
