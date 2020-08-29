@@ -17,11 +17,12 @@ export const CoronavirusCard: FC = () => {
       <Markdown style={styles.markdown} markdownStyles={markdown}>
         {t('checker:results:coronavirus1')}
       </Markdown>
+      <Spacing s={24} />
       <CallCard
         onPress={() => Linking.openURL('tel:911')}
         message={t('checker:results:callEmergency')}
       />
-      <Spacing s={20} />
+      <Spacing s={36} />
       <Markdown style={styles.markdown} warningList>
         {t('checker:results:coronavirus2')}
       </Markdown>
