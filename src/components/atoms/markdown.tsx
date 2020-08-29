@@ -11,6 +11,7 @@ import {WarningBullet} from './warning-bullet';
 interface Markdown {
   style?: object;
   markdownStyles?: object;
+  renderLink?: RenderLink;
   warningList?: boolean;
   renderListBullet?: (index: number, ordered: boolean, children?: any) => any;
 }
@@ -18,6 +19,13 @@ interface Markdown {
 type RenderListItem = (
   index: number,
   ordered: boolean,
+  children: ReactNode,
+  key: string
+) => React.ReactNode;
+
+export type RenderLink = (
+  href: string,
+  title: string,
   children: ReactNode,
   key: string
 ) => React.ReactNode;
@@ -64,11 +72,15 @@ const MarkdownLink = (
 export const Markdown: React.FC<Markdown> = ({
   style,
   markdownStyles = {},
+  renderLink,
   renderListBullet,
   warningList,
   children: C
 }) => {
   const navigation = useNavigation();
+
+  const defaultRenderLink: RenderLink = (href, title, children, key) =>
+    MarkdownLink(href, title, children, key, navigation);
 
   const combinedStyles = {
     ...defaultMarkdownStylesheet,
@@ -80,12 +92,7 @@ export const Markdown: React.FC<Markdown> = ({
     <M
       markdownStyles={combinedStyles}
       style={style || styles.container}
-      renderLink={(
-        href: string,
-        title: string,
-        children: ReactNode,
-        key: string
-      ) => MarkdownLink(href, title, children, key, navigation)}
+      renderLink={renderLink || defaultRenderLink}
       renderListItem={
         warningList
           ? renderWarningListItem
@@ -119,3 +126,19 @@ const styles = StyleSheet.create({
     marginBottom: 6
   }
 });
+
+export const childrenAsText = (
+  children: React.ReactChildren | React.ReactNode | undefined,
+  joiner: string = ''
+): string =>
+  children
+    ? (React.Children.toArray(children).reduce(
+        (str, child) =>
+          `${str}${joiner}${
+            React.isValidElement(child)
+              ? childrenAsText(child.props.children, joiner)
+              : `${child}`
+          }`,
+        ''
+      ) as string)
+    : '';
