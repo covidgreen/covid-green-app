@@ -66,7 +66,7 @@ jobs:
           useLockFile: false
 
       - name: Kick yarn
-        run: yarn install
+        run: yarn install --network-timeout 100000
 
       - name: Setup Ruby 
         uses: actions/setup-ruby@v1
@@ -76,6 +76,11 @@ jobs:
           ruby-version: '2.6'
           bundler-cache: true
 
+      - name: Setup Version variable
+        run: |
+          export BUILD_VERSION=${GITHUB_REF#refs/tags/}
+          echo "##[set-env name=BUILD_VERSION;]$BUILD_VERSION"
+
       - name: Printenv
         run: printenv && npx react-native info
 
@@ -83,7 +88,29 @@ jobs:
         run: npx jetify
 #
       - name: Android Build
-        run: cd android && . .env.default && fastlane internal
+        run: |
+          cd android 
+          . .env.default          
+          ./gradlew bundleReleaseJsAndAssets
+          ./gradlew assembleRelease || true
+          ./gradlew copyReleaseBundledJs
+          fastlane internal_build
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: release.aab
+          path: '**/*.aab' 
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: release.apk
+          path: '**/*.apk' 
+
+      - name: Testflight Upload
+        run: |
+          cd android
+          . .env.default
+          fastlane internal_release || true 
 
   ios-build:
     name: iOS Build
@@ -166,7 +193,7 @@ jobs:
           useLockFile: false
 
       - name: Kick yarn
-        run: yarn install
+        run: yarn install --network-timeout 100000
 
       - name: Setup CocoaPods Cache
         uses: actions/cache@v1
@@ -184,6 +211,11 @@ jobs:
           ruby-version: '2.6' # Version range or exact version of a Ruby version to use, using semvers version range syntax.
           bundler-cache: true
 
+      - name: Setup Version variable
+        run: |
+          export BUILD_VERSION=${GITHUB_REF#refs/tags/}
+          echo "##[set-env name=BUILD_VERSION;]$BUILD_VERSION"
+
       - name: Install CocoaPods Dependencies
         run: cd ios && pod install
 
@@ -197,4 +229,18 @@ jobs:
         run: |
           cd ios 
           . .env.default
-          fastlane beta
+          fastlane beta_build
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: release.ipa
+          path: '**/*.ipa' 
+
+      - name: iOS Testflight
+        env:
+          FASTLANE_USER: "${{ secrets.FASTLANE_USER }}"
+          FASTLANE_SESSION: '${{ secrets.FASTLANE_SESSION }}'
+        run: |
+          cd ios 
+          . .env.default
+          fastlane beta_release || true

@@ -35,10 +35,14 @@ platform :ios do
     )
   end
 
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
+  desc "Create a beta build"
+  lane :beta_build do
     increment_build_number(xcodeproj: ENV['XCODEPROJ'])
     build_app(workspace: ENV['WORKSPACE'], scheme: ENV['SCHEME'])
+  end
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta_release do
     upload_to_testflight
   end
 end

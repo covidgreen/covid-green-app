@@ -16,12 +16,19 @@
 default_platform(:android)
 
 platform :android do
-  desc "Deploy a new Internal Track Build to Google Play"
-  lane :internal do
+  desc "Create new Internal Track Build"
+  lane :internal_build do
     increment_version_code(
       gradle_file_path: "app/build.gradle",
     )
+
+    gradle(task: "clean bundle build", build_type: "Release")
+  end
+
+  desc "Deploy a new Internal Track Build to Google Play"
+  lane :internal_release do
     gradle(task: "bundle", build_type: "Release")
+
     upload_to_play_store(
       track: "internal",
       skip_upload_apk: true,
