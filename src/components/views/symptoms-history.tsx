@@ -7,10 +7,12 @@ import {useExposure} from 'react-native-exposure-notification-service';
 
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
+import {useSymptomChecker} from 'hooks/symptom-checker';
 
 import {Spacing, SingleRow} from 'components/atoms/layout';
 import {Card} from 'components/atoms/card';
 import {Heading} from 'components/atoms/heading';
+import {CheckInCard} from 'components/molecules/check-in-card';
 import {Scrollable} from 'components/templates/scrollable';
 
 import {Symptom, SymptomRecord} from 'constants/symptoms';
@@ -22,12 +24,13 @@ interface SymptomListItem {
   label: string;
 }
 
-export const SymptomsHistory: FC<any> = () => {
+export const SymptomsHistory: FC<any> = ({navigation}) => {
   const {t} = useTranslation();
   const isFocused = useIsFocused();
   const [appState] = useAppState();
+  const {getNextScreen} = useSymptomChecker();
 
-  const {checks, verifyCheckerStatus} = useApplication();
+  const {checks, completedChecker, verifyCheckerStatus} = useApplication();
   const {readPermissions} = useExposure();
 
   useFocusEffect(
@@ -47,6 +50,16 @@ export const SymptomsHistory: FC<any> = () => {
       safeArea={false}
       backgroundColor={colors.background}>
       <Spacing s={20} />
+      {!completedChecker && (
+        <>
+          <CheckInCard
+            onPress={() =>
+              navigation.navigate('symptoms', {screen: getNextScreen()})
+            }
+          />
+          <Spacing s={32} />
+        </>
+      )}
       <Heading
         accessibilityRefocus
         accessibilityFocus
