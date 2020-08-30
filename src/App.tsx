@@ -21,7 +21,8 @@ import remoteConfig from '@react-native-firebase/remote-config';
 
 import {
   ExposureProvider,
-  TraceConfiguration
+  TraceConfiguration,
+  KeyServerType
 } from 'react-native-exposure-notification-service';
 import {getReadableVersion} from 'react-native-device-info';
 
@@ -604,6 +605,8 @@ const ExposureApp: React.FC = ({children}) => {
       traceConfiguration={settings.traceConfiguration}
       appVersion={version}
       serverUrl={urls.api}
+      keyServerUrl={urls.keyServer}
+      keyServerType={KeyServerType.google}
       authToken={tokens.authToken}
       refreshToken={tokens.refreshToken}
       notificationTitle={t('closeContactNotification:title')}
