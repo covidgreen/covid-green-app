@@ -46,7 +46,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>20</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>ENAPIVersion</key>
 	<integer>1</integer>
 	<key>ENDeveloperRegion</key>
