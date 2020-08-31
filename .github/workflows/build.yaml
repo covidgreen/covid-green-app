@@ -52,6 +52,7 @@ jobs:
               "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}",
               "ANDROID_KEYSTORE_PASSWORD": "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}",
               "ANDROID_KEY_PASSWORD": "${{ secrets.ANDROID_KEY_PASSWORD }}",
+              "KEY_SERVER_HOST": "${{ secrets.KEY_SERVER_HOST }}",
               "PACKAGE_NAME": "${{ secrets.PROX_BUNDLE_ID_PROD}}"
             }
 
@@ -175,6 +176,7 @@ jobs:
               "ITC_TEAM_ID": "${{ secrets.ITC_TEAM_ID }}",
               "TEAM_ID": "${{ secrets.TEAM_ID }}",
               "API_HOST": "${{ secrets.API_HOST }}",
+              "KEY_SERVER_HOST": "${{ secrets.KEY_SERVER_HOST }}",
               "SIGNING_KEY_P12_PASSWORD": "${{ secrets.SIGNING_KEY_P12_PASSWORD }}",
               "FASTLANE_USER": "${{ secrets.FASTLANE_USER }}",
               "FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD": "${{ secrets.FASTLANE_PASSWORD }}",
