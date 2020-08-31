@@ -18,8 +18,7 @@ export default (text: Styles): Styles => ({
     marginBottom: 8
   },
   link: {
-    ...text.defaultBold,
-    color: colors.purple
+    ...text.defaultBoldBlue
   },
   list: {
     marginBottom: -12

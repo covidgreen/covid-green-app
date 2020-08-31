@@ -441,11 +441,7 @@ function Navigation({
   }, [app, exposureNotificationClicked]);
 
   if (app.initializing) {
-    return (
-      <View>
-        <Spinner visible />
-      </View>
-    );
+    return <Loading />;
   }
 
   return (

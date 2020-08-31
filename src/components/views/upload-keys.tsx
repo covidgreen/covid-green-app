@@ -40,13 +40,16 @@ export const UploadKeys = ({navigation}) => {
   const [code, setCode] = useState('');
   const [validationError, setValidationError] = useState<string>('');
   const [uploadToken, setUploadToken] = useState('');
+  const [symptomDate, setSymptomDate] = useState('');
 
   useEffect(() => {
     const readUploadToken = async () => {
       try {
         const token = await SecureStore.getItemAsync('uploadToken');
-        if (token) {
+        const symptomDate = await SecureStore.getItemAsync('symptomDate');
+        if (token && symptomDate) {
           setUploadToken(token);
+          setSymptomDate(symptomDate);
           setStatus('uploadOnly');
           return;
         }
@@ -59,7 +62,7 @@ export const UploadKeys = ({navigation}) => {
 
   const codeValidationHandler = useCallback(async () => {
     showActivityIndicator();
-    const {result, token} = await validateCode(code);
+    const {result, symptomDate, token} = await validateCode(code);
     hideActivityIndicator();
 
     if (result !== ValidationResult.Valid) {
@@ -79,12 +82,14 @@ export const UploadKeys = ({navigation}) => {
 
     try {
       await SecureStore.setItemAsync('uploadToken', token!);
+      await SecureStore.setItemAsync('symptomDate', symptomDate!);
     } catch (e) {
       console.log('Error (secure) storing upload token', e);
     }
     setValidationError('');
 
     setUploadToken(token!);
+    setSymptomDate(symptomDate!);
     setStatus('upload');
   }, [code, showActivityIndicator, hideActivityIndicator, t]);
 
@@ -108,7 +113,7 @@ export const UploadKeys = ({navigation}) => {
 
     try {
       showActivityIndicator();
-      await uploadExposureKeys(uploadToken, exposureKeys);
+      await uploadExposureKeys(uploadToken, symptomDate, exposureKeys);
       hideActivityIndicator();
 
       setStatus('success');
@@ -121,6 +126,7 @@ export const UploadKeys = ({navigation}) => {
 
     try {
       await SecureStore.deleteItemAsync('uploadToken');
+      await SecureStore.deleteItemAsync('symptomDate');
     } catch (e) {}
   };
 

@@ -6,6 +6,7 @@ import {useTranslation} from 'react-i18next';
 import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
 import {Spacing} from 'components/atoms/layout';
+import {Markdown} from 'components/atoms/markdown';
 
 import {text} from 'theme';
 import {StateIcons} from 'assets/icons';
@@ -42,13 +43,13 @@ export const NotActiveIOS: FC<NotActiveIOSProps> = ({
             {t('closenessSensing:notActiveIOS:title')}
           </Text>
           <Spacing s={20} />
-          <Text style={text.default}>
+          <Markdown style={{}}>
             {t(
               `closenessSensing:notActiveIOS:${
                 exposureOff ? 'ens' : bluetoothOff ? 'bt' : 'text'
               }`
             )}
-          </Text>
+          </Markdown>
           <Spacing s={24} />
           <View style={sharedStyles.buttonsWrapper}>
             <Button

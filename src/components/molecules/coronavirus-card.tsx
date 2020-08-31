@@ -14,7 +14,7 @@ export const CoronavirusCard: FC = () => {
 
   return (
     <>
-      <Markdown style={styles.markdown} markdownStyles={markdown}>
+      <Markdown style={styles.markdown}>
         {t('checker:results:coronavirus1')}
       </Markdown>
       <Spacing s={24} />
@@ -29,12 +29,6 @@ export const CoronavirusCard: FC = () => {
     </>
   );
 };
-
-const markdown = StyleSheet.create({
-  link: {
-    ...text.defaultBoldBlue
-  }
-});
 
 const styles = StyleSheet.create({
   row: {

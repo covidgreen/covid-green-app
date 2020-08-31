@@ -7,6 +7,7 @@ import {shareApp} from 'components/atoms/navbar';
 import {Button} from 'components/atoms/button';
 import {Card} from 'components/atoms/card';
 import {Spacing} from 'components/atoms/layout';
+import {Markdown} from 'components/atoms/markdown';
 
 import {text} from 'theme';
 import {StateIcons} from 'assets/icons';
@@ -33,9 +34,9 @@ export const Active: FC<{onboarding?: boolean}> = ({onboarding = false}) => {
         {onboarding && (
           <>
             <Spacing s={20} />
-            <Text style={text.default}>
+            <Markdown style={{}}>
               {t('closenessSensing:active:shareText')}
-            </Text>
+            </Markdown>
             <Spacing s={24} />
             <View style={styles.buttonsWrapper}>
               <Button type="empty" onPress={() => shareApp(t)}>

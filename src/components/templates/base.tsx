@@ -10,6 +10,6 @@ export const Base: React.FC = ({children}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.purple
   }
 });

@@ -175,10 +175,12 @@ const styles = StyleSheet.create({
     width: '25%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    borderRadius: 3,
-    paddingVertical: 6,
+    borderStyle: 'solid',
+    borderTopWidth: 2,
+    borderColor: colors.white,
     paddingHorizontal: 6,
-    paddingBottom: Constants.statusBarHeight === 44 ? 34 : 0
+    paddingTop: 6,
+    paddingBottom: Constants.statusBarHeight === 44 ? 34 : 4
   },
   label: {
     ...text.smallBold,
@@ -192,11 +194,6 @@ const styles = StyleSheet.create({
   },
   highlighted: {
     backgroundColor: colors.tabs.highlighted,
-    borderStyle: 'solid',
-    borderTopWidth: 2,
-    borderColor: colors.purple,
-    borderRadius: 0,
-    paddingTop: 4,
-    paddingBottom: 4
+    borderColor: colors.purple
   }
 });
