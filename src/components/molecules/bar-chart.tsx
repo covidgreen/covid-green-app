@@ -70,8 +70,8 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   yMin = 5,
   ySuffix,
   intervalsCount = 6,
-  primaryColor = colors.orange,
-  secondaryColor = colors.tabs.highlighted,
+  primaryColor = '#CD4000',
+  secondaryColor = '#ACAFC4',
   backgroundColor = colors.white
 }) => {
   const {t} = useTranslation();
@@ -89,8 +89,8 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   const labelString = `${last} ${yesterday}`;
 
   // Give x and y axis label text space to not get cropped
-  const insetY = 3;
-  const insetX = insetY + styles.chart.marginHorizontal;
+  const insetY = 8;
+  const insetX = 8;
   const contentInset = {
     top: insetY,
     bottom: insetY,
@@ -120,7 +120,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
           data={chartData}
           numberOfTicks={3}
           contentInset={contentInset}
-          svg={{fontSize: 12, fill: colors.text}}
+          svg={{...text.smallBold, fill: colors.text}}
           formatLabel={(d) => formatLabel(d, ySuffix)}
           max={yMax}
           min={0}
@@ -167,10 +167,12 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
                 return '';
               }
               const date = new Date(axisData[index]);
-              return `${index === 0 ? nbsp : ''}${format(
+              return `${index === 0 ? nbsp + nbsp : ''}${format(
                 date,
                 'MMM'
-              ).toUpperCase()}${index === axisData.length - 1 ? nbsp : ''}`;
+              ).toUpperCase()}${
+                index === axisData.length - 1 ? nbsp + nbsp : ''
+              }`;
             }}
           />
         </View>
@@ -215,7 +217,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 };
 
 const xAxisSvg = {
-  ...text.xsmallBold,
+  ...text.smallBold,
   fill: colors.text
 };
 
@@ -230,7 +232,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white
   },
   yAxis: {
-    width: 42,
+    ...text.smallBold,
+    width: 48,
     height: 144,
     paddingRight: 4
   },
@@ -241,7 +244,8 @@ const styles = StyleSheet.create({
   chart: {
     flex: 1,
     height: 144,
-    marginHorizontal: 4
+    marginRight: 6,
+    marginLeft: 5
   },
   leftAlign: {
     textAlign: 'left'

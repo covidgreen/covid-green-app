@@ -31,6 +31,11 @@ interface BarChildProps {
   data: number[];
 }
 
+interface TrendLineProps extends BarChildProps {
+  lineWidth: number;
+  color: string;
+}
+
 const calculateRollingAverages = (
   rollingAverage: number | undefined,
   visibleChartData: ChartData,
@@ -88,8 +93,8 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     );
   };
 
-  const TrendLine: FC<BarChildProps> = (props) => {
-    const {x, y, bandwidth} = props;
+  const TrendLine: FC<TrendLineProps> = (props) => {
+    const {x, y, bandwidth, lineWidth, color} = props;
     const rollingData =
       averagesData ||
       calculateRollingAverages(rollingAverage, visibleChartData, chartData);
@@ -102,13 +107,22 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     return pathDef ? (
       <Path
         d={pathDef}
-        stroke={primaryColor}
-        strokeWidth={3}
+        stroke={color}
+        strokeWidth={lineWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
     ) : null;
   };
+
+  const BackgroundTrendLine: FC<BarChildProps> = (props) => (
+    /* @ts-ignore: gets BarChildProps from BarChart parent */
+    <TrendLine lineWidth={9} color={backgroundColor} {...props} />
+  );
+  const ForegroundTrendLine: FC<BarChildProps> = (props) => (
+    /* @ts-ignore: gets BarChildProps from BarChart parent */
+    <TrendLine lineWidth={3} color={primaryColor} {...props} />
+  );
 
   // Covers ends of bars hanging below line due to corner roundnesss
   const XAxisTrim: FC<BarChildProps> = (props) => {
@@ -126,6 +140,8 @@ export const BarChartContent: FC<BarChartContentProps> = ({
       />
     );
   };
+
+  const showTrendLine = !!rollingAverage || averagesData;
 
   return (
     <BarChart
@@ -158,7 +174,9 @@ export const BarChartContent: FC<BarChartContentProps> = ({
       {/* @ts-ignore: gets BarChildProps from BarChart parent */}
       <XAxisTrim />
       {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      {(!!rollingAverage || averagesData) && <TrendLine />}
+      {showTrendLine && <BackgroundTrendLine />}
+      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+      {showTrendLine && <ForegroundTrendLine />}
     </BarChart>
   );
 };
