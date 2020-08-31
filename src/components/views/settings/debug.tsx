@@ -33,7 +33,6 @@ export const Debug = ({navigation}) => {
         .replace(/^,/, '')
         .split(',')
         .map((d) => {
-          console.log('DDD', d);
           return format(parseInt(d), 'dd/MM HH:mm:ss');
         });
       logData.lastRun = dates.join(', ');
