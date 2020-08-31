@@ -50,21 +50,22 @@ export const SymptomsHistory: FC<any> = ({navigation}) => {
       safeArea={false}
       backgroundColor={colors.background}>
       <Spacing s={20} />
+      <Heading
+        accessibilityRefocus
+        accessibilityFocus
+        text={t('symptomsHistory:title')}
+      />
       {!completedChecker && (
         <>
           <CheckInCard
             onPress={() =>
               navigation.navigate('symptoms', {screen: getNextScreen()})
             }
+            inChecker={true}
           />
-          <Spacing s={32} />
+          <Spacing s={20} />
         </>
       )}
-      <Heading
-        accessibilityRefocus
-        accessibilityFocus
-        text={t('symptomsHistory:title')}
-      />
       <Card>
         {!checks.length && (
           <Text style={text.smallBold}>{t('checker:noresults')}</Text>

@@ -16,12 +16,14 @@ interface CheckInCardProps {
   onPress?: () => void;
   accessibilityFocus?: boolean;
   accessibilityRefocus?: boolean;
+  inChecker?: boolean;
 }
 
 export const CheckInCard: FC<CheckInCardProps> = ({
   onPress,
   accessibilityFocus = false,
-  accessibilityRefocus = false
+  accessibilityRefocus = false,
+  inChecker = false
 }) => {
   const {t} = useTranslation();
   const ref = useRef<any>();
@@ -54,7 +56,9 @@ export const CheckInCard: FC<CheckInCardProps> = ({
     <Card onPress={onPress} padding={{r: 16}}>
       <View style={styles.row}>
         <View>
-          <Text style={text.largeBold}>{t('checker:title')}</Text>
+          {!inChecker && (
+            <Text style={text.largeBold}>{t('checker:title')}</Text>
+          )}
           <Text style={[text.largeBold, styles.symptoms]}>
             {t('welcome:letUsKnow')}
           </Text>
