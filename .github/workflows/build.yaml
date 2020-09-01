@@ -25,9 +25,9 @@ jobs:
           vars: |
             {
               "API_HOST": "${{ secrets.API_HOST }}",
-              "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}"
+              "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}",
               "KEY_PUBLISH_HOST": "${{ secrets.KEY_PUBLISH_HOST }}",
-              "KEY_DOWNLOAD_HOST": "${{ secrets.KEY_DOWNLOAD_HOST }}",
+              "KEY_DOWNLOAD_HOST": "${{ secrets.KEY_DOWNLOAD_HOST }}"
             }
 
       - name: Generate Android API Key file
@@ -56,6 +56,7 @@ jobs:
               "ANDROID_KEY_PASSWORD": "${{ secrets.ANDROID_KEY_PASSWORD }}",
               "KEY_PUBLISH_HOST": "${{ secrets.KEY_PUBLISH_HOST }}",
               "KEY_DOWNLOAD_HOST": "${{ secrets.KEY_DOWNLOAD_HOST }}",
+              "CODEPUSH_KEY": "${{ secrets.CODEPUSH_KEY }}",
               "PACKAGE_NAME": "${{ secrets.PROX_BUNDLE_ID_PROD}}"
             }
 
@@ -136,9 +137,9 @@ jobs:
           vars: |
             {
               "API_HOST": "${{ secrets.API_HOST }}",
-              "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}"
+              "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}",
               "KEY_PUBLISH_HOST": "${{ secrets.KEY_PUBLISH_HOST }}",
-              "KEY_DOWNLOAD_HOST": "${{ secrets.KEY_DOWNLOAD_HOST }}",
+              "KEY_DOWNLOAD_HOST": "${{ secrets.KEY_DOWNLOAD_HOST }}"
             }
 
       - name: Generate iOS AuthKey
@@ -186,6 +187,7 @@ jobs:
               "SIGNING_KEY_P12_PASSWORD": "${{ secrets.SIGNING_KEY_P12_PASSWORD }}",
               "FASTLANE_USER": "${{ secrets.FASTLANE_USER }}",
               "FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD": "${{ secrets.FASTLANE_PASSWORD }}",
+              "CODEPUSH_KEY": "${{ secrets.CODEPUSH_KEY }}",
               "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}"              
             }
 
