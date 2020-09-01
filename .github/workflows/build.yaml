@@ -107,7 +107,7 @@ jobs:
           name: release.apk
           path: '**/*.apk' 
 
-      - name: Testflight Upload
+      - name: Play Store Upload
         run: |
           cd android
           . .env.default
