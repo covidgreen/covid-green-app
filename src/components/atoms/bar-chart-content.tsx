@@ -117,7 +117,7 @@ export const BarChartContent: FC<BarChartContentProps> = ({
 
   const BackgroundTrendLine: FC<BarChildProps> = (props) => (
     /* @ts-ignore: gets BarChildProps from BarChart parent */
-    <TrendLine lineWidth={9} color={backgroundColor} {...props} />
+    <TrendLine lineWidth={5} color={backgroundColor} {...props} />
   );
   const ForegroundTrendLine: FC<BarChildProps> = (props) => (
     /* @ts-ignore: gets BarChildProps from BarChart parent */
