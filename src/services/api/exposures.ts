@@ -1,7 +1,7 @@
 import RNSimpleCrypto from 'react-native-simple-crypto';
-import {getBundleId} from 'react-native-device-info';
-import {request} from '.';
-import {urls} from 'constants/urls';
+import { getBundleId } from 'react-native-device-info';
+import { request } from '.';
+import { urls } from 'constants/urls';
 
 export enum ValidationResult {
   NetworkError,
@@ -28,7 +28,7 @@ export const validateCode = async (
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({code})
+      body: JSON.stringify({ code })
     });
 
     if (!resp) {
@@ -45,13 +45,13 @@ export const validateCode = async (
     console.log('Code validation error: ', err, err.message);
 
     if (err.message && err.message === 'Network Unavailable') {
-      return {result: ValidationResult.NetworkError};
+      return { result: ValidationResult.NetworkError };
     }
 
     if (err.status === 410) {
-      return {result: ValidationResult.Expired};
+      return { result: ValidationResult.Expired };
     } else if (err.status >= 400 && err.status <= 499) {
-      return {result: ValidationResult.Invalid};
+      return { result: ValidationResult.Invalid };
     }
 
     return {
@@ -60,20 +60,29 @@ export const validateCode = async (
   }
 };
 
-export const uploadExposureKeys = async (
-  uploadToken: string,
-  symptomDate: string,
-  exposures: any[]
-): Promise<void> => {
+export const uploadExposureKeys = async (uploadToken: string, symptomDate: string, exposures: any[]): Promise<void> => {
   const data = exposures
-    .sort((a, b) => a.keyData.localeCompare(b.keyData))
-    .map(({ keyData, rollingStartNumber, rollingPeriod, transmissionRiskLevel }) => `${keyData}.${rollingStartNumber}.${rollingPeriod}.${transmissionRiskLevel}`)
-    .join(',')
+    .sort((a, b) => {
+      if (a.keyData < b.keyData) {
+        return -1;
+      }
+
+      if (a.keyData > b.keyData) {
+        return 1;
+      }
+
+      return 0;
+    })
+    .map(
+      ({ keyData, rollingStartNumber, rollingPeriod, transmissionRiskLevel }) =>
+        `${keyData}.${rollingStartNumber}.${rollingPeriod}.${transmissionRiskLevel}`
+    )
+    .join(',');
 
   const hmacKey = await RNSimpleCrypto.utils.randomBytes(128);
-  const hmacData = RNSimpleCrypto.utils.convertUtf8ToArrayBuffer(data)
+  const hmacData = RNSimpleCrypto.utils.convertUtf8ToArrayBuffer(data);
   const ekeyhmac = await RNSimpleCrypto.HMAC.hmac256(hmacData, hmacKey);
-  const padding = await RNSimpleCrypto.utils.randomBytes(Math.floor(Math.random() * 1024 + 1024))
+  const padding = await RNSimpleCrypto.utils.randomBytes(Math.floor(Math.random() * 1024 + 1024));
 
   const certificateResponse = await request(`${urls.api}/certificate`, {
     authorizationHeaders: true,
@@ -92,7 +101,7 @@ export const uploadExposureKeys = async (
     throw new Error('Upload failed');
   }
 
-  const certificateJson = await certificateResponse.json()
+  const certificateJson = await certificateResponse.json();
   const publishData = {
     hmacKey: RNSimpleCrypto.utils.convertArrayBufferToBase64(hmacKey),
     healthAuthorityID: getBundleId(),
@@ -107,11 +116,11 @@ export const uploadExposureKeys = async (
       transmissionRiskLevel: exposure.transmissionRiskLevel
     })),
     padding: RNSimpleCrypto.utils.convertArrayBufferToBase64(padding)
-  }
+  };
 
-  console.log(`uploading keys to ${urls.keyServer}/publish`, publishData)
+  console.log(`uploading keys to ${urls.keyPublish}/publish`, publishData)
 
-  const resp = await fetch(`${urls.keyServer}/publish`, {
+  const resp = await fetch(`${urls.keyPublish}/publish`, {
     method: 'POST',
     mode: 'cors',
     headers: {
