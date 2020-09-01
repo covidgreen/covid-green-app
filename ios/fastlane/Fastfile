@@ -38,7 +38,7 @@ platform :ios do
   desc "Create a beta build"
   lane :beta_build do
     if ENV['BUILD_VERSION']
-        vmat = /v(?<version>\d+.\d+.\d+.(?<build>\d+)).*/.match(ENV["BUILD_VERSION"])        
+        vmat = /v(?<version>\d+.\d+.\d+).(?<build>\d+).*/.match(ENV["BUILD_VERSION"])        
         raise "Bad build version" if vmat.nil?
 
         build_version = vmat[:version]
