@@ -1,6 +1,7 @@
 export interface CountyItem {
   county: string;
   code: string;
+  label?: string
 }
 
 export type County =
@@ -71,7 +72,7 @@ export const counties: CountyItem[] = [
   {county: 'Albany', code: 'Albany'},
   {county: 'Allegany', code: 'Allegany'},
   {county: 'Bronx', code: 'Bronx'},
-  {county: 'Brooklyn (Kings)' , code: 'Kings'},
+  {label: 'Brooklyn (Kings)', county: 'Kings',  code: 'Kings'},
   {county: 'Broome', code: 'Broome'},
   {county: 'Cattaraugus', code: 'Cattaraugus'},
   {county: 'Cayuga', code: 'Cayuga'},
@@ -92,15 +93,15 @@ export const counties: CountyItem[] = [
   {county: 'Hamilton', code: 'Hamilton'},
   {county: 'Herkimer', code: 'Herkimer'},
   {county: 'Jefferson', code: 'Jefferson'},
-  {county: 'Kings (Brooklyn)', code: 'Kings'},
+  {label: 'Kings (Brooklyn)', county: 'Kings', code: 'Kings'},
   {county: 'Lewis', code: 'Lewis'},
   {county: 'Livingston', code: 'Livingston'},
   {county: 'Madison', code: 'Madison'},
-  {county: 'Manhattan (New York)', code: 'New York'},
+  {label: 'Manhattan (New York)', county: 'New York', code: 'New York'},
   {county: 'Monroe', code: 'Monroe'},
   {county: 'Montgomery', code: 'Montgomery'},
   {county: 'Nassau', code: 'Nassau'},
-  {county: 'New York (Manhattan)', code: 'New York'},
+  {label: 'New York (Manhattan)', county: 'New York', code: 'New York'},
   {county: 'Niagara', code: 'Niagara'},
   {county: 'Oneida', code: 'Oneida'},
   {county: 'Onondaga', code: 'Onondaga'},
@@ -112,7 +113,7 @@ export const counties: CountyItem[] = [
   {county: 'Putnam', code: 'Putnam'},
   {county: 'Queens', code: 'Queens'},
   {county: 'Rensselaer', code: 'Rensselaer'},
-  {county: 'Richmond (Staten Island)', code: 'Richmond'},
+  {label: 'Richmond (Staten Island)', county: 'Richmond', code: 'Richmond'},
   {county: 'Rockland', code: 'Rockland'},
   {county: 'Saratoga', code: 'Saratoga'},
   {county: 'Schenectady', code: 'Schenectady'},
@@ -120,7 +121,7 @@ export const counties: CountyItem[] = [
   {county: 'Schuyler', code: 'Schuyler'},
   {county: 'Seneca', code: 'Seneca'},
   {county: 'St. Lawrence', code: 'St. Lawrence'},
-  {county: 'Staten Island (Richmond)', code: 'Richmond'},
+  {label: 'Staten Island (Richmond)', county: 'Richmond', code: 'Richmond'},
   {county: 'Steuben', code: 'Steuben'},
   {county: 'Suffolk', code: 'Suffolk'},
   {county: 'Sullivan', code: 'Sullivan'},
