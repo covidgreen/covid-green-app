@@ -84,7 +84,7 @@ export function CheckInIntro() {
         race: state.race || 'u',
         ethnicity: state.ethnicity || 'u',
         ageRange: state.ageRange || 'u',
-        county: state.county || 'u'
+        county: state.county.split('_')[0] || 'u'
       }
     });
 

@@ -55,6 +55,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
     loadAppData().then(() => setRefreshing(false));
   };
 
+
   useEffect(onRefresh, []);
 
   const errorToast = data === null && (
@@ -124,7 +125,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
           <Spacing s={20} />
           <Text style={text.defaultBold}>{t('dashboard:stats:subtitle')}</Text>
           <Spacing s={18} />
-          <TrackerCharts data={data} county={county} />
+          <TrackerCharts data={data} county={county.split('_')[0]} />
         </>
       )}
     </Scrollable>
