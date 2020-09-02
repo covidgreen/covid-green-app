@@ -11,29 +11,29 @@ export const defaultNamespace = 'common';
 export const namespaces = ['common'];
 
 export const supportedLocales = {
-  en: {
-    name: 'English',
-    ...en
-  },
-  ru: {
-    name: 'русский',
-    ...ru
+  bn: {
+    name: 'বাংলা',
+    ...bn
   },
   zh: {
     name: '中文',
     ...zh
   },
+  en: {
+    name: 'English',
+    ...en
+  },
   ht: {
     name: 'Kreyòl ayisyen',
     ...ht
   },
-  bn: {
-    name: 'বাংলা',
-    ...bn
-  },
   ko: {
     name: '한국어',
     ...ko
+  },
+  ru: {
+    name: 'русский',
+    ...ru
   },
   es: {
     name: 'Español',
