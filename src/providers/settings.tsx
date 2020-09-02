@@ -277,7 +277,7 @@ function getAgeRangeOptions(t: TFunction): AgeOption[] {
 function getCountiesOptions(t: TFunction): BasicItem[] {
   return [
     {label: t('county:notinny'), value: 'u'},
-    ...counties.map((c) => ({label: c.county, value: c.code}))
+    ...counties.map((c) => ({label: c.label ? c.label : c.county, value: c.code}))
   ];
 }
 
