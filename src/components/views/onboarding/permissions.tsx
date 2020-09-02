@@ -29,7 +29,7 @@ export const Permissions: FC<any> = () => {
   const nav = useNavigation();
   const app = useApplication();
   const exposure = useExposure();
-  const [showAlert, setShowAleart] = useState<boolean>(false);
+  const [showAlert, setShowAlert] = useState<boolean>(false);
   const [alertInfo, setAlertInfo] = useState<{title: string; message: string}>({
     title: t('common:tryAgain:title'),
     message: t('common:tryAgain:description')
@@ -79,7 +79,7 @@ export const Permissions: FC<any> = () => {
             message: t('common:tryAgain:timestamp')
           });
         }
-        setShowAleart(true);
+        setShowAlert(true);
         return false;
       } catch (e) {
         console.log('Error processing response');
@@ -94,7 +94,7 @@ export const Permissions: FC<any> = () => {
         {
           text: t('common:ok:label'),
           style: 'default',
-          onPress: (): void => setShowAleart(false)
+          onPress: (): void => setShowAlert(false)
         }
       ]);
     }
