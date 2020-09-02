@@ -37,9 +37,7 @@ export const CountyDropdown: FC<CountyDropdownProps> = ({
 }) => {
   const {t} = useTranslation();
 
-  const [countyItems, setCountyItems] = useState<CountyOption[]>(
-    withAllCounties(t, countyOptions)
-  );
+  const [countyItems, setCountyItems] = useState<CountyOption[]>(countyOptions);
 
   const [countySearch, setCountySearch] = useState<string>('');
 
@@ -51,7 +49,7 @@ export const CountyDropdown: FC<CountyDropdownProps> = ({
             .toLowerCase()
             .includes(normalizeString(searchTerm).toLowerCase())
         );
-    setCountyItems(withAllCounties(t, items));
+    setCountyItems(items);
 
     setCountySearch(searchTerm);
   };
@@ -67,7 +65,7 @@ export const CountyDropdown: FC<CountyDropdownProps> = ({
     <SelectorDropdown
       label={t('county:label')}
       modalPlaceholder={t('county:dropdownPlaceholder')}
-      items={countyItems}
+      items={withAllCounties(t, countyItems)}
       value={value}
       onValueChange={onCountySelected}
       search={{
