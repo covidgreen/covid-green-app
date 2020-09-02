@@ -266,7 +266,7 @@ PODS:
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
   - React-jsinspector (0.63.2)
-  - react-native-exposure-notification-service (1.1.23):
+  - react-native-exposure-notification-service (1.1.24):
     - Alamofire (~> 5.2)
     - KeychainSwift (~> 19.0)
     - React
@@ -274,6 +274,8 @@ PODS:
   - react-native-netinfo (5.9.6):
     - React
   - react-native-safe-area-context (3.1.4):
+    - React
+  - react-native-simple-crypto (0.2.13):
     - React
   - react-native-video (4.4.5):
     - React
@@ -427,6 +429,7 @@ DEPENDENCIES:
   - react-native-exposure-notification-service (from `../node_modules/react-native-exposure-notification-service`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-simple-crypto (from `../node_modules/react-native-simple-crypto`)
   - react-native-video (from `../node_modules/react-native-video`)
   - "react-native-viewpager (from `../node_modules/@react-native-community/viewpager`)"
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -545,6 +548,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/netinfo"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-simple-crypto:
+    :path: "../node_modules/react-native-simple-crypto"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-viewpager:
@@ -665,9 +670,10 @@ SPEC CHECKSUMS:
   React-jsi: 54245e1d5f4b690dec614a73a3795964eeef13a8
   React-jsiexecutor: 8ca588cc921e70590820ce72b8789b02c67cce38
   React-jsinspector: b14e62ebe7a66e9231e9581279909f2fc3db6606
-  react-native-exposure-notification-service: 44fadf01505cbb44d4b2602dd79534410154bdfa
+  react-native-exposure-notification-service: 5a1da7aad35d2f52742ab483cbf091e0a7fad274
   react-native-netinfo: 38a1e0b3e89b48e4b5833ed475d8df5f049f6f90
   react-native-safe-area-context: eb91fe1fb3f7b87d9c30a7f0808407d8569d539d
+  react-native-simple-crypto: 8d91a8636a9f88b76b759c40eacd877794ec63de
   react-native-video: eee541262ada11bc7ffe8ec5508e6a877937c462
   react-native-viewpager: f44c9e21c37d4cb76d38841c8a450e3891923461
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
@@ -709,6 +715,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 80653f25c55d9e6d79d6a0a65589fa213feaee11
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
 
-PODFILE CHECKSUM: fca20c82ef4d0464057c17fa0d755b3aaa239431
+PODFILE CHECKSUM: 30498f5f78cf27e065cdc9e8711c5bbb4f9b8275
 
 COCOAPODS: 1.9.3

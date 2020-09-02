@@ -113,7 +113,7 @@ export const uploadExposureKeys = async (uploadToken: string, symptomDate: strin
       key: exposure.keyData,
       rollingStartNumber: exposure.rollingStartNumber,
       rollingPeriod: exposure.rollingPeriod,
-      transmissionRiskLevel: exposure.transmissionRiskLevel
+      transmissionRisk: exposure.transmissionRiskLevel
     })),
     padding: RNSimpleCrypto.utils.convertArrayBufferToBase64(padding)
   };
