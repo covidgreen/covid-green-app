@@ -37,7 +37,18 @@ platform :ios do
 
   desc "Create a beta build"
   lane :beta_build do
-    increment_build_number(xcodeproj: ENV['XCODEPROJ'])
+    if ENV['BUILD_VERSION']
+        vmat = /v(?<version>\d+.\d+.\d+).(?<build>\d+).*/.match(ENV["BUILD_VERSION"])        
+        raise "Bad build version" if vmat.nil?
+
+        build_version = vmat[:version]
+        build_number = vmat[:build].to_i
+        increment_version_number(xcodeproj: ENV['XCODEPROJ'], version_number: build_version)
+        increment_build_number(xcodeproj: ENV['XCODEPROJ'], build_number: build_number)
+    else
+        increment_build_number(xcodeproj: ENV['XCODEPROJ'])
+    end
+
     build_app(workspace: ENV['WORKSPACE'], scheme: ENV['SCHEME'])
   end
 
