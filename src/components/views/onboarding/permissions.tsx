@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {View, Text, StyleSheet, Alert} from 'react-native';
@@ -29,13 +29,16 @@ export const Permissions: FC<any> = () => {
   const nav = useNavigation();
   const app = useApplication();
   const exposure = useExposure();
-
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [alertInfo, setAlertInfo] = useState<{title: string; message: string}>({
+    title: t('common:tryAgain:title'),
+    message: t('common:tryAgain:description')
+  });
   useEffect(() => {
     if (!exposure.supported && exposure.canSupport) {
       SecureStore.setItemAsync('supportPossible', 'true');
     }
   }, []);
-
   const handleRegistration = async (skip: boolean) => {
     try {
       app.showActivityIndicator();
@@ -68,21 +71,15 @@ export const Permissions: FC<any> = () => {
     } catch (err) {
       app.hideActivityIndicator();
       console.log('Error registering device: ', err, err.message);
-      let title = t('common:tryAgain:title');
-      let message = t('common:tryAgain:description');
       try {
         const response = err.text && JSON.parse(await err.text());
         if (response && RegistrationError.TIMESTAMP === response.message) {
-          title = t('common:tryAgain:timestampTitle');
-          message = t('common:tryAgain:timestamp');
+          setAlertInfo({
+            title: t('common:tryAgain:timestampTitle'),
+            message: t('common:tryAgain:timestamp')
+          });
         }
-        Alert.alert(title, message, [
-          {
-            text: t('common:ok:label'),
-            style: 'default',
-            onPress: () => {}
-          }
-        ]);
+        setShowAlert(true);
         return false;
       } catch (e) {
         console.log('Error processing response');
@@ -91,10 +88,21 @@ export const Permissions: FC<any> = () => {
     }
   };
 
+  useEffect(() => {
+    if (showAlert) {
+      Alert.alert(alertInfo.title, alertInfo.message, [
+        {
+          text: t('common:ok:label'),
+          style: 'default',
+          onPress: (): void => setShowAlert(false)
+        }
+      ]);
+    }
+  }, [showAlert]);
+
   const handlePermissionsRequest = async () => {
     await exposure.askPermissions();
     const result = await handleRegistration(false);
-
     if (result) {
       nav.reset({
         index: 0,
