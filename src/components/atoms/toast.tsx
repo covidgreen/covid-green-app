@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: colors.red,
-    backgroundColor: colors.red
+    borderColor: colors.warning,
+    backgroundColor: colors.warning
   },
   icon: {
     justifyContent: 'center',
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   iconError: {
-    backgroundColor: colors.red
+    backgroundColor: colors.warning
   },
   messageContainer: {
     flex: 1,

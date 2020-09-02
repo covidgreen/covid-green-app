@@ -46,6 +46,7 @@ export const colors = {
   selectedDot: '#2E2E2E',
   success: '#00CF68', // only 1 usage?
   text: '#2E2E2E',
+  warning: '#DC0000',
   buttons: {
     default: {
       text: white,
