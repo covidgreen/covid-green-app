@@ -126,13 +126,15 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   ];
 
   if (HIDE_DEBUG !== 'y' && showDebug) {
-    settings.push({
-      id: 'debug',
-      label: '',
-      hint: '',
-      title: 'Debug',
-      screen: 'settings.debug'
-    });
+    settings.push([
+      {
+        id: 'debug',
+        label: '',
+        hint: '',
+        title: 'Debug',
+        screen: 'settings.debug'
+      }
+    ]);
   }
 
   const version = getReadableVersion();
