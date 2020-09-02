@@ -1,7 +1,7 @@
 export interface CountyItem {
   county: string;
   code: string;
-  label?: string
+  label?: string;
 }
 
 export type County =
@@ -72,7 +72,7 @@ export const counties: CountyItem[] = [
   {county: 'Albany', code: 'Albany'},
   {county: 'Allegany', code: 'Allegany'},
   {county: 'Bronx', code: 'Bronx'},
-  {label: 'Brooklyn (Kings)', county: 'Kings',  code: 'Kings_Brooklyn'},
+  {county: 'Brooklyn (Kings)', code: 'Kings_Brooklyn'},
   {county: 'Broome', code: 'Broome'},
   {county: 'Cattaraugus', code: 'Cattaraugus'},
   {county: 'Cayuga', code: 'Cayuga'},
@@ -93,15 +93,15 @@ export const counties: CountyItem[] = [
   {county: 'Hamilton', code: 'Hamilton'},
   {county: 'Herkimer', code: 'Herkimer'},
   {county: 'Jefferson', code: 'Jefferson'},
-  {label: 'Kings (Brooklyn)', county: 'Kings', code: 'Kings'},
+  {county: 'Kings (Brooklyn)', code: 'Kings'},
   {county: 'Lewis', code: 'Lewis'},
   {county: 'Livingston', code: 'Livingston'},
   {county: 'Madison', code: 'Madison'},
-  {label: 'Manhattan (New York)', county: 'New York', code: 'New York_Manhattan'},
+  {county: 'Manhattan (New York)', code: 'New York_Manhattan'},
   {county: 'Monroe', code: 'Monroe'},
   {county: 'Montgomery', code: 'Montgomery'},
   {county: 'Nassau', code: 'Nassau'},
-  {label: 'New York (Manhattan)', county: 'New York', code: 'New York'},
+  {county: 'New York (Manhattan)', code: 'New York'},
   {county: 'Niagara', code: 'Niagara'},
   {county: 'Oneida', code: 'Oneida'},
   {county: 'Onondaga', code: 'Onondaga'},
@@ -113,7 +113,7 @@ export const counties: CountyItem[] = [
   {county: 'Putnam', code: 'Putnam'},
   {county: 'Queens', code: 'Queens'},
   {county: 'Rensselaer', code: 'Rensselaer'},
-  {label: 'Richmond (Staten Island)', county: 'Richmond', code: 'Richmond'},
+  {county: 'Richmond (Staten Island)', code: 'Richmond'},
   {county: 'Rockland', code: 'Rockland'},
   {county: 'Saratoga', code: 'Saratoga'},
   {county: 'Schenectady', code: 'Schenectady'},
@@ -121,7 +121,7 @@ export const counties: CountyItem[] = [
   {county: 'Schuyler', code: 'Schuyler'},
   {county: 'Seneca', code: 'Seneca'},
   {county: 'St. Lawrence', code: 'St. Lawrence'},
-  {label: 'Staten Island (Richmond)', county: 'Richmond', code: 'Richmond_Staten Island'},
+  {county: 'Staten Island (Richmond)', code: 'Richmond_Staten Island'},
   {county: 'Steuben', code: 'Steuben'},
   {county: 'Suffolk', code: 'Suffolk'},
   {county: 'Sullivan', code: 'Sullivan'},

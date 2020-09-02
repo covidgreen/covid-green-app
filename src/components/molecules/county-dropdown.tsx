@@ -14,7 +14,7 @@ const countyOptions: CountyOption[] = [];
 
 for (const l of counties) {
   countyOptions.push({
-    label: l.label || l.county,
+    label: l.county,
     value: l.code
   });
 }
