@@ -129,7 +129,6 @@ export const uploadExposureKeys = async (uploadToken: string, symptomDate: strin
     body: JSON.stringify(publishData)
   });
 
-  console.log(await resp.json())
   if (!resp || resp.status !== 200) {
     throw new Error('Upload failed');
   }
