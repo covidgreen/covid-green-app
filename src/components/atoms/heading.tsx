@@ -1,14 +1,9 @@
-import React, {useEffect, useRef} from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  findNodeHandle,
-  AccessibilityInfo
-} from 'react-native';
-import {useFocusEffect, useIsFocused} from '@react-navigation/native';
+import React from 'react';
+import {Text, StyleSheet, View} from 'react-native';
 
-import {Spacing} from './spacing';
+import {useFocusRef} from 'hooks/accessibility';
+
+import {Spacing} from 'components/atoms/layout';
 
 import {text as textStyles, colors} from 'theme';
 
@@ -22,38 +17,14 @@ interface HeadingProps {
 export const Heading: React.FC<HeadingProps> = ({
   text,
   lineWidth,
-  accessibilityFocus = false,
-  accessibilityRefocus = false
+  accessibilityFocus = true,
+  accessibilityRefocus = true
 }) => {
-  const ref = useRef<any>();
-  const isFocused = useIsFocused();
-  useEffect(() => {
-    if (ref.current && accessibilityFocus) {
-      const tag = findNodeHandle(ref.current);
-      if (tag) {
-        setTimeout(
-          () => ref.current && AccessibilityInfo.setAccessibilityFocus(tag),
-          200
-        );
-      }
-    }
-  }, []);
-
-  useFocusEffect(() => {
-    if (isFocused && accessibilityRefocus && ref.current) {
-      const tag = findNodeHandle(ref.current);
-      if (tag) {
-        setTimeout(
-          () => ref.current && AccessibilityInfo.setAccessibilityFocus(tag),
-          200
-        );
-      }
-    }
-  });
+  const [ref] = useFocusRef({accessibilityFocus, accessibilityRefocus});
 
   return (
     <>
-      <Text importantForAccessibility="yes" ref={ref} style={styles.heading}>
+      <Text accessibilityRole="header" ref={ref} style={styles.heading}>
         {text}
       </Text>
       <View style={[styles.line, !!lineWidth && {width: lineWidth}]}>

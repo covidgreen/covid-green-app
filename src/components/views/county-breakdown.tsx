@@ -41,7 +41,7 @@ export const CountyBreakdown = () => {
 
   return (
     <Scrollable refresh={{refreshing, onRefresh}}>
-      <Heading accessibilityFocus text={t('casesByCounty:title')} />
+      <Heading text={t('casesByCounty:title')} />
       {app.data && app.data.counties !== null && (
         <Card padding={{v: 12}}>
           {app.data.counties.map(({county, cases}, index) => {

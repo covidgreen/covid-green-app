@@ -75,6 +75,7 @@ export const CodeInput: FC<CodeInputProps> = ({
           <TextInput
             key={`i_${index}`}
             ref={refs[index]}
+            maxFontSizeMultiplier={1}
             selectTextOnFocus
             style={[
               styles.block,

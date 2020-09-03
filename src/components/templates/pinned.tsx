@@ -27,7 +27,7 @@ export const PinnedBottom: FC<LayoutProps> = ({children, heading}) => {
         {paddingBottom: insets.bottom + SPACING_BOTTOM}
       ]}>
       <ScrollView style={{flex: 1}} keyboardShouldPersistTaps="always">
-        {heading && <Heading accessibilityFocus text={heading} />}
+        {heading && <Heading text={heading} />}
         {content}
       </ScrollView>
       <View>{bottom}</View>

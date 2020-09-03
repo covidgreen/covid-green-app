@@ -68,7 +68,7 @@ export const CallBack: FC<CallBackProps> = () => {
   if (!callBackIsQueued) {
     return (
       <KeyboardScrollable toast={errorToast} scrollViewRef={scrollViewRef}>
-        <Heading accessibilityFocus text={t('callBack:title')} />
+        <Heading text={t('callBack:title')} />
         <PhoneNumberUs
           buttonLabel={t('callBack:button')}
           onSuccess={handlePhoneNumber}

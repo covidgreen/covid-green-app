@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Text, View, TouchableWithoutFeedback, StyleSheet} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import {BasicItem} from 'providers/settings';
 
@@ -41,6 +42,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   forceDisplay,
   instructions
 }) => {
+  const {t} = useTranslation();
   const [isModalVisible, setModalVisible] = useState(false);
 
   const onItemSelected = (newValue: string) => {
@@ -62,8 +64,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <>
       <TouchableWithoutFeedback
-        accessibilityTraits={['button']}
-        accessibilityComponentType="button"
+        accessibilityRole="button"
+        accessibilityLabel={
+          value === '' ? label || '' : `${label || ''}::${displayValue}`
+        }
+        accessibilityHint={placeholder}
         onPress={() => setModalVisible(true)}>
         <View style={styles.container}>
           <View style={styles.content}>

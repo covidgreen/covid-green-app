@@ -164,7 +164,7 @@ export const GetStarted = ({navigation}: GetStartedProps) => {
                 </Text>
                 <TouchableWithoutFeedback
                   importantForAccessibility="yes"
-                  accessibilityRole="link"
+                  accessibilityRole="button"
                   onPress={() => {
                     navigation.navigate('terms', {screen: 'settings.terms'});
                   }}>

@@ -68,11 +68,7 @@ export const KeyboardScrollable: FC<LayoutProps> = ({
           </>
         )}
         {heading && (
-          <Heading
-            accessibilityFocus
-            text={heading}
-            lineWidth={headingShort ? 75 : undefined}
-          />
+          <Heading text={heading} lineWidth={headingShort ? 75 : undefined} />
         )}
         {children}
       </ScrollView>

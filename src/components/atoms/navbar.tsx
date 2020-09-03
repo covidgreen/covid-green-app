@@ -108,17 +108,14 @@ export const NavBar: FC<NavBarProps> = ({
             </TouchableWithoutFeedback>
           )}
         </View>
-        <View
-          accessible
-          accessibilityLabel={t('common:name')}
-          accessibilityHint={t('common:name')}
-          accessibilityRole="text"
-          style={[styles.col, styles.center]}>
+        <View style={[styles.col, styles.center]}>
           <Icons.LogoNav width={92} height={36} color={colors.text} />
         </View>
         <View style={[styles.col, styles.right]}>
           <TouchableWithoutFeedback
-            accessibilityHint={t('navbar:settingsHint')}
+            accessibilityRole="button"
+            accessibilityLabel={t('navbar:share')}
+            accessibilityHint={t('navbar:shareText')}
             onPress={() => shareApp(t)}>
             <View style={styles.settings}>
               <AppIcons.Share width={24} height={24} color={colors.white} />

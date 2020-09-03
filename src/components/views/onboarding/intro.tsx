@@ -3,26 +3,31 @@ import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {View, Text, StyleSheet} from 'react-native';
 
+import {useFocusRef} from 'hooks/accessibility';
+import {SPACING_HORIZONTAL} from 'constants/shared';
+
 import {Button} from 'components/atoms/button';
 import {LearnHowItWorks} from 'components/views/tour/learn-how-it-works';
 import {Markdown} from 'components/atoms/markdown';
 import {ScreenNames} from 'navigation';
 import {Scrollable} from 'components/templates/scrollable';
 import {Spacing} from 'components/atoms/spacing';
-import {styles} from './styles';
 
-import Step1 from 'assets/icons/how-it-works/howitworks1.svg';
 import {colors} from 'theme';
-import {SPACING_HORIZONTAL} from 'constants/shared';
+import Step1 from 'assets/icons/how-it-works/howitworks1.svg';
 
 interface Content {
   title: string;
   list: string[];
 }
 
+import {styles} from './styles';
+
 export const Introduction: FC<any> = () => {
   const {t} = useTranslation();
   const nav = useNavigation();
+  const [ref] = useFocusRef();
+
   const content: Content[] = t('onboarding:introduction:blocks', {
     returnObjects: true
   });
@@ -30,7 +35,12 @@ export const Introduction: FC<any> = () => {
   return (
     <Scrollable scrollStyle={style.page}>
       <View style={styles.fill}>
-        <View style={[style.top, styles.relative, styles.index1]}>
+        <View
+          ref={ref}
+          accessible
+          accessibilityRole="header"
+          accessibilityLabel={`${t('common:longName')}, ${content[0].title}`}
+          style={[style.top, styles.relative, styles.index1]}>
           <Text style={[styles.title, styles.introTitle]}>
             {content[0].title}
           </Text>

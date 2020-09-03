@@ -85,7 +85,7 @@ export const Button: React.FC<ButtonProps> = ({
           type === 'empty' && styles.buttonEmpty
         ]}
         accessibilityRole="button"
-        importantForAccessibility="yes"
+        accessibilityState={{disabled}}
         activeOpacity={1}
         {...pressHandlers}>
         <Text

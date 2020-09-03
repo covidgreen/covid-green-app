@@ -45,17 +45,22 @@ export const Metrics = () => {
       <DataProtectionLink />
       <Spacing s={32} />
       <View style={styles.row}>
-        <Text style={styles.label}>{t('metrics:share')}</Text>
-        <Switch
-          trackColor={{
-            false: colors.darkGray,
-            true: colors.purple
-          }}
-          thumbColor={colors.white}
-          onValueChange={toggleSwitch}
-          value={enabled}
-          style={styles.switch}
-        />
+        <View accessibilityElementsHidden>
+          <Text style={styles.label}>{t('metrics:share')}</Text>
+        </View>
+        <View>
+          <Switch
+            accessibilityRole="switch"
+            accessibilityLabel={t('metrics:share')}
+            trackColor={{
+              false: colors.darkGray,
+              true: colors.purple
+            }}
+            thumbColor={colors.white}
+            onValueChange={toggleSwitch}
+            value={enabled}
+          />
+        </View>
       </View>
     </Scrollable>
   );
@@ -75,13 +80,11 @@ const markdownStyles = StyleSheet.create({
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   label: {
     ...text.largeBold,
     flex: 1
-  },
-  switch: {
-    alignSelf: 'flex-end'
   }
 });

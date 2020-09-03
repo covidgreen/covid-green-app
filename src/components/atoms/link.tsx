@@ -10,6 +10,7 @@ import {
 import {text as textStyles, colors} from 'theme';
 
 interface LinkProps {
+  a11yRole?: 'link' | 'button';
   style?: ViewStyle;
   Icon?: ReactNode;
   text?: string;
@@ -21,7 +22,16 @@ interface LinkProps {
 
 export const Link: React.FC<LinkProps> = React.forwardRef(
   (
-    {style, Icon, text, align = 'left', large = false, onPress, children},
+    {
+      a11yRole = 'button',
+      style,
+      Icon,
+      text,
+      align = 'left',
+      large = false,
+      onPress,
+      children
+    },
     ref: any
   ) => {
     const linkText = text || children;
@@ -30,8 +40,7 @@ export const Link: React.FC<LinkProps> = React.forwardRef(
         {Icon}
         <TouchableWithoutFeedback
           ref={ref}
-          accessibilityRole="link"
-          importantForAccessibility="yes"
+          accessibilityRole={a11yRole}
           onPress={onPress}>
           <Text
             onPress={() => onPress}

@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {forwardRef} from 'react';
 import {View, Text, Linking} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -19,63 +19,61 @@ interface NotActiveIOSProps {
   bluetoothOff?: boolean;
 }
 
-export const NotActiveIOS: FC<NotActiveIOSProps> = ({
-  onboarding = false,
-  exposureOff = false,
-  bluetoothOff = false
-}) => {
-  const {t} = useTranslation();
-  const nav = useNavigation();
+export const NotActiveIOS = forwardRef<any, NotActiveIOSProps>(
+  ({onboarding = false, exposureOff = false, bluetoothOff = false}, ref) => {
+    const {t} = useTranslation();
+    const nav = useNavigation();
 
-  return (
-    <>
-      <Card padding={{h: 0, v: 0}}>
-        <View style={sharedStyles.cardImageWarning}>
-          {bluetoothOff ? (
-            <StateIcons.ErrorBluetooth height={144} width={144} />
-          ) : (
-            <StateIcons.ErrorENS height={144} width={144} />
-          )}
-        </View>
-        <Spacing s={12} />
-        <View style={sharedStyles.messageWrapper}>
-          <Text style={text.defaultBold}>
-            {t('closenessSensing:notActiveIOS:title')}
-          </Text>
-          <Spacing s={20} />
-          <Markdown style={{}}>
-            {t(
-              `closenessSensing:notActiveIOS:${
-                exposureOff ? 'ens' : bluetoothOff ? 'bt' : 'text'
-              }`
+    return (
+      <>
+        <Card padding={{h: 0, v: 0}}>
+          <View style={sharedStyles.cardImageWarning}>
+            {bluetoothOff ? (
+              <StateIcons.ErrorBluetooth height={144} width={144} />
+            ) : (
+              <StateIcons.ErrorENS height={144} width={144} />
             )}
-          </Markdown>
-          <Spacing s={24} />
-          <View style={sharedStyles.buttonsWrapper}>
-            <Button
-              onPress={() =>
-                Linking.openURL(exposureOff ? 'app-settings:' : 'App-Prefs:')
-              }>
-              {t('closenessSensing:notActiveIOS:gotoSettings')}
-            </Button>
           </View>
-        </View>
-      </Card>
-      {onboarding && (
-        <>
-          <Spacing s={20} />
-          <Button
-            type="empty"
-            onPress={() =>
-              nav.reset({
-                index: 0,
-                routes: [{name: 'main'}]
-              })
-            }>
-            {t('closenessSensing:notActiveIOS:next')}
-          </Button>
-        </>
-      )}
-    </>
-  );
-};
+          <Spacing s={12} />
+          <View style={sharedStyles.messageWrapper}>
+            <Text ref={ref} accessibilityRole="header" style={text.defaultBold}>
+              {t('closenessSensing:notActiveIOS:title')}
+            </Text>
+            <Spacing s={20} />
+            <Markdown style={{}}>
+              {t(
+                `closenessSensing:notActiveIOS:${
+                  exposureOff ? 'ens' : bluetoothOff ? 'bt' : 'text'
+                }`
+              )}
+            </Markdown>
+            <Spacing s={24} />
+            <View style={sharedStyles.buttonsWrapper}>
+              <Button
+                onPress={() =>
+                  Linking.openURL(exposureOff ? 'app-settings:' : 'App-Prefs:')
+                }>
+                {t('closenessSensing:notActiveIOS:gotoSettings')}
+              </Button>
+            </View>
+          </View>
+        </Card>
+        {onboarding && (
+          <>
+            <Spacing s={20} />
+            <Button
+              type="empty"
+              onPress={() =>
+                nav.reset({
+                  index: 0,
+                  routes: [{name: 'main'}]
+                })
+              }>
+              {t('closenessSensing:notActiveIOS:next')}
+            </Button>
+          </>
+        )}
+      </>
+    );
+  }
+);

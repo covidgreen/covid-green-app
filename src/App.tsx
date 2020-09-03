@@ -415,7 +415,7 @@ function Navigation({
     }
 
     if (navigationRef.current && notification) {
-      navigationRef.current.navigate(ScreenNames.CloseContact);
+      navigationRef.current.navigate(ScreenNames.CloseContactAlert);
 
       setState((s) => ({...s, notification: null}));
     }
@@ -428,7 +428,7 @@ function Navigation({
 
     if (navigationRef.current && exposureNotificationClicked) {
       console.log('exposureNotificationClicked', exposureNotificationClicked);
-      navigationRef.current.navigate(ScreenNames.CloseContact);
+      navigationRef.current.navigate(ScreenNames.CloseContactAlert);
       setState((s) => ({...s, exposureNotificationClicked: null}));
     }
   }, [app, exposureNotificationClicked]);

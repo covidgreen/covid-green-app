@@ -10,6 +10,7 @@ import {
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 
 import {useAppState} from 'hooks/app-state';
+import {useFocusRef} from 'hooks/accessibility';
 
 import {Spacing} from 'components/atoms/layout';
 import {ClosenessSensing} from 'components/molecules/closeness-sensing';
@@ -30,6 +31,7 @@ export const Completion: FC<any> = () => {
   } = useExposure();
   const [appState] = useAppState();
   const isFocused = useIsFocused();
+  const [ref] = useFocusRef();
 
   useFocusEffect(
     React.useCallback(() => {
@@ -53,7 +55,7 @@ export const Completion: FC<any> = () => {
         permissions.notifications.status !== PermissionStatus.Allowed ? (
           <NotificationsDisabledCard onboarding />
         ) : (
-          <ClosenessSensing.Active onboarding />
+          <ClosenessSensing.Active ref={ref} onboarding />
         );
     } else if (Platform.OS === 'android') {
       closenessSensingStatusCard = (

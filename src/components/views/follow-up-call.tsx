@@ -52,11 +52,7 @@ export const FollowUpCall: FC<FollowUpCallProps> = ({navigation, route}) => {
           />
         </View>
         <View style={styles.titleView}>
-          <Heading
-            accessibilityFocus
-            lineWidth={75}
-            text={t('followUpCall:title')}
-          />
+          <Heading lineWidth={75} text={t('followUpCall:title')} />
           <Markdown>{t('followUpCall:intro')}</Markdown>
         </View>
       </View>

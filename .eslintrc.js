@@ -4,6 +4,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   rules: {
-    'comma-dangle': 'off'
+    'comma-dangle': 'off',
+    'react-native-a11y/has-accessibility-hint': 'off'
   }
 };

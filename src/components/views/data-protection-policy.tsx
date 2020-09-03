@@ -20,11 +20,13 @@ const styles = StyleSheet.create({
 });
 
 interface DataProtectionLinkProps {
+  a11yRole?: 'button' | 'link';
   onPress?: () => void;
   title?: string;
 }
 
 export const DataProtectionLink: FC<DataProtectionLinkProps> = ({
+  a11yRole = 'button',
   onPress,
   title
 }) => {
@@ -36,6 +38,7 @@ export const DataProtectionLink: FC<DataProtectionLinkProps> = ({
 
   return (
     <Link
+      a11yRole={a11yRole}
       Icon={
         <Icons.Privacy
           style={styles.privacy}
@@ -53,6 +56,7 @@ export const DataProtectionLink: FC<DataProtectionLinkProps> = ({
 const renderStyledPrivacyLink: RenderLink = (href, title, children) => {
   return (
     <DataProtectionLink
+      a11yRole="link"
       title={childrenAsText(children) || title}
       onPress={() =>
         WebBrowser.openBrowserAsync(href, {

@@ -1,5 +1,10 @@
-import React, {ReactNode, FC} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View, ViewStyle} from 'react-native';
+import React, {ReactNode, forwardRef} from 'react';
+import {
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle
+} from 'react-native';
 
 import {colors, shadows} from 'theme';
 import {AppIcons} from 'assets/icons';
@@ -15,62 +20,71 @@ interface CardProps {
   onPress?: () => void;
   arrowColor?: string;
   style?: ViewStyle;
+  children: ReactNode;
 }
 
-export const Card: FC<CardProps> = ({
-  type,
-  padding: {h = 24, v = 20, r} = {},
-  icon,
-  onPress,
-  children,
-  arrowColor,
-  style
-}) => {
-  const padding = {
-    paddingHorizontal: h,
-    paddingVertical: v,
-    ...(r !== undefined && {paddingRight: r})
-  };
-  const isWarning = type === 'warning';
-  const isInfo = type === 'info';
-  const isEmpty = type === 'empty';
-  const cardContent = (
-    <View
-      style={[
-        styles.card,
-        isWarning && styles.cardWarning,
-        isInfo && styles.cardInfo,
-        isEmpty && styles.cardEmpty,
-        padding,
-        style
-      ]}>
-      {icon && <View style={styles.icon}>{icon}</View>}
-      <View style={styles.childrenView}>{children}</View>
-      {onPress && (
-        <View style={styles.row}>
-          <AppIcons.ArrowRight
-            width={18}
-            height={18}
-            color={
-              arrowColor
-                ? arrowColor
-                : isWarning || isInfo
-                ? colors.white
-                : colors.purple
-            }
-          />
-        </View>
-      )}
-    </View>
-  );
-  return onPress ? (
-    <TouchableWithoutFeedback accessibilityRole="button" onPress={onPress}>
-      {cardContent}
-    </TouchableWithoutFeedback>
-  ) : (
-    cardContent
-  );
-};
+export const Card = forwardRef<any, CardProps>(
+  (
+    {
+      type,
+      padding: {h = 24, v = 20, r} = {},
+      icon,
+      onPress,
+      children,
+      arrowColor,
+      style
+    },
+    ref
+  ) => {
+    const padding = {
+      paddingHorizontal: h,
+      paddingVertical: v,
+      ...(r !== undefined && {paddingRight: r})
+    };
+    const isWarning = type === 'warning';
+    const isInfo = type === 'info';
+    const isEmpty = type === 'empty';
+    const cardContent = (
+      <View
+        style={[
+          styles.card,
+          isWarning && styles.cardWarning,
+          isInfo && styles.cardInfo,
+          isEmpty && styles.cardEmpty,
+          padding,
+          style
+        ]}>
+        {icon && <View style={styles.icon}>{icon}</View>}
+        <View style={styles.childrenView}>{children}</View>
+        {onPress && (
+          <View style={styles.row}>
+            <AppIcons.ArrowRight
+              width={18}
+              height={18}
+              color={
+                arrowColor
+                  ? arrowColor
+                  : isWarning || isInfo
+                  ? colors.white
+                  : colors.purple
+              }
+            />
+          </View>
+        )}
+      </View>
+    );
+    return onPress ? (
+      <TouchableWithoutFeedback
+        ref={ref}
+        accessibilityRole="button"
+        onPress={onPress}>
+        {cardContent}
+      </TouchableWithoutFeedback>
+    ) : (
+      cardContent
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   card: {

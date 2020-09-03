@@ -84,10 +84,7 @@ export const MyCovidAlerts = () => {
   const hasCloseContact = exposure.contacts && exposure.contacts.length > 0;
 
   return (
-    <Scrollable
-      safeArea={false}
-      heading={t('myCovidAlerts:title')}
-      accessibilityRefocus>
+    <Scrollable safeArea={false} heading={t('myCovidAlerts:title')}>
       {hasCloseContact && (
         <>
           <CloseContactWarning />

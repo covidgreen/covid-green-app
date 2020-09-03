@@ -50,11 +50,7 @@ export const SymptomsHistory: FC<any> = ({navigation}) => {
       safeArea={false}
       backgroundColor={colors.background}>
       <Spacing s={20} />
-      <Heading
-        accessibilityRefocus
-        accessibilityFocus
-        text={t('symptomsHistory:title')}
-      />
+      <Heading text={t('symptomsHistory:title')} />
       {!completedChecker && (
         <>
           <CheckInCard

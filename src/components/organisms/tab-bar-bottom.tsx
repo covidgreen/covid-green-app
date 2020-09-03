@@ -90,6 +90,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
   const tabItems = [
     {
       label: t('tabBar:updates'),
+      hint: t('tabBar:updatesHint'),
       icon: {
         inactive: barChartInactive,
         active: barChartActive
@@ -97,6 +98,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
     },
     {
       label: t('tabBar:symptomCheck'),
+      hint: t('tabBar:symptomCheckHint'),
       icon: {
         inactive: checkInactive,
         active: checkActive
@@ -104,6 +106,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
     },
     {
       label: t('tabBar:contactTracing'),
+      hint: t('tabBar:contactTracingHint'),
       icon: {
         inactive:
           status.state === StatusState.active && enabled
@@ -118,6 +121,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
     },
     {
       label: t('tabBar:settings'),
+      hint: t('tabBar:settingsHint'),
       icon: {
         active: (
           <TabBarIcons.Settings width={32} height={24} color={colors.purple} />
@@ -135,13 +139,21 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.tabBar}>
+      <View accessibilityRole="tablist" style={styles.tabBar}>
         {tabItems.map((tab, index) => {
           const isActive = state.index === index;
           const routeName = state.routes[index] && state.routes[index].name;
+          const hint = [`${index + 1} of ${tabItems.length}`, tab.hint].join(
+            ','
+          );
+
           return (
             <TouchableWithoutFeedback
               key={`tab-bar-item-${index}`}
+              accessibilityRole="tab"
+              accessibilityLabel={tab.label}
+              accessibilityHint={hint}
+              accessibilityState={{selected: isActive}}
               onPress={() => navigation.navigate(routeName)}>
               <View style={[styles.tab, isActive ? styles.highlighted : {}]}>
                 {getIcon(tab, isActive, status.state)}
