@@ -45,8 +45,8 @@
     "settingsLanguage": "My Language"
   },
   "navbar": {
-    "settings": "Settings",
-    "settingsHint": "View or amend application settings",
+    "share": "Share this app with friends. Help keep NY Safe.",
+    "shareHint": "Share this app with friends. Help keep NY Safe.",
     "back": "Back",
     "backHint": "Navigate back to previous screen"
   },

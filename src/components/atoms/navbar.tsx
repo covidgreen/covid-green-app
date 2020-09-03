@@ -118,7 +118,9 @@ export const NavBar: FC<NavBarProps> = ({
         </View>
         <View style={[styles.col, styles.right]}>
           <TouchableWithoutFeedback
-            accessibilityHint={t('navbar:settingsHint')}
+            accessibilityRole="button"
+            accessibilityLabel={t('navbar:share')}
+            accessibilityHint={t('navbar:shareHint')}
             onPress={() => shareApp(t)}>
             <View style={styles.settings}>
               <AppIcons.Share width={24} height={24} color={colors.white} />
