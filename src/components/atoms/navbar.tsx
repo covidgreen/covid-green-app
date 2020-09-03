@@ -185,7 +185,9 @@ const styles = StyleSheet.create({
   settings: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 12,
+    marginVertical: -12
   },
   iconSize: {
     width: 24,
