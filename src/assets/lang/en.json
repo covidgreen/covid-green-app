@@ -235,7 +235,8 @@
   "leave": {
     "title": "Delete My Data",
     "info": "Thank you for helping us fight the spread of COVID-19 in NY. We’re sorry to see you go, but you can stop using this app at any time.\n\nWhen you tap the “Delete My Data” button below, we’ll remove all the data that the app stored on your phone, such as all entries in your health log.",
-    "summary": "**Note:**\n\nThis button doesn’t delete the random codes created or collected by your phone for Closeness Sensing and COVID Alerts.\n\nTo delete the random codes, go to your phone’s Settings and select “Google Services & Preferences.” Then, select “COVID-19 Exposure Notifications” and tap the “Delete Random IDs” button. To stop storing new codes, you should turn off “Use Exposure Notifications.”",
+    "summaryAndroid": "**Note:**\n\nThis button doesn’t delete the random codes created or collected by your phone for Closeness Sensing and COVID Alerts.\n\nTo delete the random codes, go to your phone’s Settings and select “Google Services & Preferences.” Then, select “COVID-19 Exposure Notifications” and tap the “Delete Random IDs” button. To stop storing new codes, you should turn off “Use Exposure Notifications.”",
+    "summaryIOS": "**Note:**\n\nThis button doesn’t delete the random codes created or collected by your phone for Closeness Sensing and COVID Alerts.\n\nTo delete the random codes, you must go to your phone’s Settings and search for “Exposure Logging”. Then, select “COVID-19 Exposure Logging” and tap on the “Delete Exposure Log” button. To stop storing new codes, you should turn off “Exposure Logging”.",
     "button": "Delete My Data",
     "confirmTitle": "Delete My Data",
     "confirmText": "Are you sure you want to delete your data?",
