@@ -10,6 +10,7 @@ import {Markdown} from 'components/atoms/markdown';
 import {Quote} from 'components/molecules/quote';
 import {Spacing} from 'components/atoms/spacing';
 import {Scrollable} from 'components/templates/scrollable';
+import {StorageKeys} from 'providers/context';
 
 interface AppUsageProps {
   navigation: any;
@@ -20,9 +21,9 @@ export const AppUsage: FC<AppUsageProps> = ({navigation}) => {
 
   const handleNext = async (consent: boolean) => {
     try {
-      SecureStore.setItemAsync('analyticsConsent', String(consent), {});
+      SecureStore.setItemAsync(StorageKeys.analytics, String(consent), {});
     } catch (e) {
-      console.log('Error storing "analyticsConsent" securely', e);
+      console.log(`Error storing "${StorageKeys.analytics}" securely`, e);
     }
 
     navigation.navigate('contactTracingInformation');

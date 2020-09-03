@@ -9,13 +9,14 @@ import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
 import {useExposure} from 'react-native-exposure-notification-service';
 import {Scrollable} from 'components/templates/scrollable';
+import {StorageKeys} from 'providers/context';
 
 export const Metrics = () => {
   const {t} = useTranslation();
   const {configure} = useExposure();
   const [enabled, setEnabled] = useState(false);
   useEffect(() => {
-    SecureStore.getItemAsync('analyticsConsent')
+    SecureStore.getItemAsync(StorageKeys.analytics)
       .then((consent) => {
         if (consent) {
           setEnabled(consent === 'true');
@@ -27,10 +28,10 @@ export const Metrics = () => {
   const toggleSwitch = async () => {
     if (enabled) {
       setEnabled(false);
-      SecureStore.setItemAsync('analyticsConsent', String(false), {});
+      SecureStore.setItemAsync(StorageKeys.analytics, String(false), {});
     } else {
       setEnabled(true);
-      SecureStore.setItemAsync('analyticsConsent', String(true), {});
+      SecureStore.setItemAsync(StorageKeys.analytics, String(true), {});
     }
     configure();
   };

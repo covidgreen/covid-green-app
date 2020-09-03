@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 
 import {DataProtectionLink} from './data-protection-policy';
 
-import {useApplication} from 'providers/context';
+import {useApplication, StorageKeys} from 'providers/context';
 import {register} from 'services/api';
 import {Spacing} from 'components/atoms/layout';
 import {Markdown} from 'components/atoms/markdown';
@@ -30,8 +30,12 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
       await app.clearContext();
       const {token, refreshToken} = await register();
 
-      await SecureStore.setItemAsync('token', token);
-      await SecureStore.setItemAsync('refreshToken', refreshToken, {});
+      await SecureStore.setItemAsync(StorageKeys.token, token);
+      await SecureStore.setItemAsync(
+        StorageKeys.refreshToken,
+        refreshToken,
+        {}
+      );
 
       await app.setContext({
         user: {

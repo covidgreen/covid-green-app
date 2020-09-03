@@ -13,7 +13,7 @@ import {Spacing} from 'components/atoms/spacing';
 import {Markdown} from 'components/atoms/markdown';
 import {AppIcons, StateIcons} from 'assets/icons';
 import {ScreenNames} from 'navigation';
-import {useApplication} from 'providers/context';
+import {useApplication, StorageKeys} from 'providers/context';
 import {register} from 'services/api';
 
 import {styles} from './styles';
@@ -36,7 +36,7 @@ export const Permissions: FC<any> = () => {
   });
   useEffect(() => {
     if (!exposure.supported && exposure.canSupport) {
-      SecureStore.setItemAsync('supportPossible', 'true');
+      SecureStore.setItemAsync(StorageKeys.canSupportENS, 'true');
     }
   }, []);
   const handleRegistration = async (skip: boolean) => {
@@ -47,9 +47,13 @@ export const Permissions: FC<any> = () => {
       const {token, refreshToken} = await register();
       console.log(token, refreshToken);
 
-      await SecureStore.setItemAsync('token', token);
-      await SecureStore.setItemAsync('refreshToken', refreshToken, {});
-      await SecureStore.setItemAsync('analyticsConsent', String(true), {});
+      await SecureStore.setItemAsync(StorageKeys.token, token);
+      await SecureStore.setItemAsync(
+        StorageKeys.refreshToken,
+        refreshToken,
+        {}
+      );
+      await SecureStore.setItemAsync(StorageKeys.analytics, String(true), {});
 
       await app.setContext({
         user: {
