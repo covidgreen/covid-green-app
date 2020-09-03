@@ -135,7 +135,7 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
           <Card padding={{h: 12}}>
             <TrackerBarChart
               title={t('charts:tests:title')}
-              hint={t('charts:tests:hint')}
+              description={t('charts:tests:hint')}
               axisData={testsData.axisData}
               chartData={testsData.chartData}
               averagesData={testsData.averagesData}
@@ -149,7 +149,7 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
           <Card padding={{h: 12}}>
             <TrackerBarChart
               title={t('charts:positivityPercent:title')}
-              hint={t('charts:positivityPercent:hint')}
+              description={t('charts:positivityPercent:hint')}
               axisData={percentData.axisData}
               chartData={percentData.chartData}
               averagesData={percentData.averagesData}
@@ -164,7 +164,7 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
         <Card padding={{h: 12}}>
           <TrackerBarChart
             title={t('charts:positiveTests:title')}
-            hint={t('charts:positiveTests:hint')}
+            description={t('charts:positiveTests:hint')}
             axisData={positivesData.axisData}
             chartData={positivesData.chartData}
             averagesData={positivesData.averagesData}
