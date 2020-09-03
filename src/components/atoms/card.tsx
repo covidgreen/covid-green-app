@@ -1,5 +1,5 @@
 import React, {ReactNode, FC} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, View, ViewStyle} from 'react-native';
 
 import {colors, shadows} from 'theme';
 import {AppIcons} from 'assets/icons';
@@ -14,6 +14,7 @@ interface CardProps {
   icon?: ReactNode;
   onPress?: () => void;
   arrowColor?: string;
+  style?: ViewStyle;
 }
 
 export const Card: FC<CardProps> = ({
@@ -22,7 +23,8 @@ export const Card: FC<CardProps> = ({
   icon,
   onPress,
   children,
-  arrowColor
+  arrowColor,
+  style
 }) => {
   const padding = {
     paddingHorizontal: h,
@@ -39,7 +41,8 @@ export const Card: FC<CardProps> = ({
         isWarning && styles.cardWarning,
         isInfo && styles.cardInfo,
         isEmpty && styles.cardEmpty,
-        padding
+        padding,
+        style
       ]}>
       {icon && <View style={styles.icon}>{icon}</View>}
       <View style={styles.childrenView}>{children}</View>

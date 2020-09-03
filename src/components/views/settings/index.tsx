@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import {
   StyleSheet,
   StyleProp,
@@ -15,7 +15,7 @@ import {HIDE_DEBUG} from '@env';
 import {getReadableVersion} from 'react-native-device-info';
 
 import {AppIcons} from 'assets/icons';
-import {PinnedBottom} from 'components/templates/pinned';
+import {Scrollable} from 'components/templates/scrollable';
 import {Card} from 'components/atoms/card';
 import {Spacing} from 'components/atoms/layout';
 import {colors, text, shadows} from 'theme';
@@ -140,14 +140,14 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   const version = getReadableVersion();
 
   return (
-    <PinnedBottom
+    <Scrollable
       heading={t('settings:title')}
-      containerStyle={styles.container}
-      contentStyle={styles.shadowWrapper}>
+      backgroundColor="#FAFAFA"
+      scrollStyle={styles.scroll}>
       {settings.map((settingsList, listIndex) => (
-        <>
-          {!!listIndex && <Spacing s={12} key={`spacing-${listIndex}`} />}
-          <Card padding={{h: 0, v: 4, r: 0}} key={`list-${listIndex}`}>
+        <Fragment key={`list-${listIndex}`}>
+          {!!listIndex && <Spacing s={20} />}
+          <Card padding={{h: 0, v: 4, r: 0}} style={styles.card}>
             {settingsList.map((item, index) => {
               const {id, title, label, hint, screen} = item;
 
@@ -175,24 +175,28 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
               );
             })}
           </Card>
-        </>
+        </Fragment>
       ))}
-      <Text style={styles.appVersion} onPress={versionPressHandler}>
+      <View style={styles.flex} />
+      <Spacing s={20} />
+      <Text style={text.default} onPress={versionPressHandler}>
         App version {Platform.OS === 'ios' ? 'iOS' : 'Android'} {version}
       </Text>
-    </PinnedBottom>
+      <Spacing s={8} />
+    </Scrollable>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background
+  flex: {
+    flex: 1
   },
-  shadowWrapper: {
-    // Allow space so Card shadows don't get clipped
-    marginTop: 2,
-    marginBottom: 8
+  scroll: {
+    flexGrow: 1,
+    justifyContent: 'flex-start'
+  },
+  card: {
+    flex: 0
   },
   list: {
     flexGrow: 0,
@@ -218,9 +222,5 @@ const styles = StyleSheet.create({
   iconSize: {
     width: 24,
     height: 24
-  },
-  appVersion: {
-    ...text.default,
-    marginBottom: 12
   }
 });

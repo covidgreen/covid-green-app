@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {StyleSheet, View, ScrollView, ViewStyle} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
 import {
@@ -12,37 +12,25 @@ import {Heading} from 'components/atoms/heading';
 
 interface LayoutProps {
   heading?: string;
-  containerStyle?: ViewStyle;
-  contentStyle?: ViewStyle;
   children: any;
 }
 
-export const PinnedBottom: FC<LayoutProps> = ({
-  children,
-  heading,
-  containerStyle,
-  contentStyle
-}) => {
+export const PinnedBottom: FC<LayoutProps> = ({children, heading}) => {
   const insets = useSafeArea();
   const content = React.Children.toArray(children);
   const bottom = content.pop();
-
-  const padHorizontal = {paddingHorizontal: SPACING_HORIZONTAL};
 
   return (
     <View
       style={[
         styles.container,
-        {paddingBottom: insets.bottom + SPACING_BOTTOM},
-        containerStyle
+        {paddingBottom: insets.bottom + SPACING_BOTTOM}
       ]}>
-      <ScrollView style={styles.scroll} keyboardShouldPersistTaps="always">
-        <View style={[padHorizontal, contentStyle]}>
-          {heading && <Heading accessibilityFocus text={heading} />}
-          {content}
-        </View>
+      <ScrollView style={{flex: 1}} keyboardShouldPersistTaps="always">
+        {heading && <Heading accessibilityFocus text={heading} />}
+        {content}
       </ScrollView>
-      <View style={padHorizontal}>{bottom}</View>
+      <View>{bottom}</View>
     </View>
   );
 };
@@ -52,9 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
     justifyContent: 'space-between',
-    paddingTop: SPACING_TOP
-  },
-  scroll: {
-    flex: 1
+    paddingTop: SPACING_TOP,
+    paddingHorizontal: SPACING_HORIZONTAL
   }
 });
