@@ -127,8 +127,8 @@ export const UploadKeys = ({navigation}) => {
     }
 
     try {
-      await SecureStore.deleteItemAsync('uploadToken');
-      await SecureStore.deleteItemAsync('symptomDate');
+      await SecureStore.deleteItemAsync(StorageKeys.uploadToken);
+      await SecureStore.deleteItemAsync(StorageKeys.symptomDate);
     } catch (e) {}
   };
 
