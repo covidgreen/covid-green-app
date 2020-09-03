@@ -62,6 +62,11 @@ export const validateCode = async (
 };
 
 export const uploadExposureKeys = async (uploadToken: string, symptomDate: string, exposures: any[]): Promise<void> => {
+  if (!exposures.length) {
+    console.log('No keys to upload, aborting upload');
+    return;
+  }
+
   const data = exposures
     .sort((a, b) => {
       if (a.keyData < b.keyData) {
