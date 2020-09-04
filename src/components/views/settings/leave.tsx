@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, View} from 'react-native';
+import {Alert, View, Platform} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import * as Haptics from 'expo-haptics';
 
@@ -17,7 +17,6 @@ export const Leave = ({navigation}) => {
   const {t} = useTranslation();
   const app = useApplication();
   const exposure = useExposure();
-
   const confirmed = async () => {
     app.showActivityIndicator();
     try {
@@ -71,7 +70,7 @@ export const Leave = ({navigation}) => {
         <Spacing s={32} />
         <DataProtectionLink />
         <Spacing s={32} />
-        <Markdown style={{}}>{t('leave:summary')}</Markdown>
+        <Markdown style={{}}>{t(`leave:summary.${Platform.OS}`)}</Markdown>
         <Spacing s={32} />
       </View>
       <Button type="danger" onPress={confirm}>
