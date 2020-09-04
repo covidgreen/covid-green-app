@@ -46,13 +46,11 @@ export const SelectList: FC<SelectListProps> = ({
       <TouchableWithoutFeedback
         key={`item-${index}`}
         onPress={() => onItemSelected(value)}
-        accessibilityLabel={
-          value === selectedValue ? `${label} selected` : `${label} unselected`
-        }
-        accessibilityHint={
-          value === selectedValue ? `${label} selected` : `${label} unselected`
-        }
-        accessibilityRole="checkbox">
+        accessibilityLabel={label}
+        accessibilityRole={multiSelect ? 'checkbox' : 'radio'}
+        accessibilityState={{
+          [multiSelect ? 'checked' : 'selected']: hasSelectedValue(value)
+        }}>
         <View
           style={[styles.row, {backgroundColor}, isLast && styles.lastItem]}>
           <View style={styles.icon}>

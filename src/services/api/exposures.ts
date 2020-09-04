@@ -1,3 +1,4 @@
+import * as SecureStore from 'expo-secure-store';
 import RNSimpleCrypto from 'react-native-simple-crypto';
 import { getBundleId } from 'react-native-device-info';
 import { request } from '.';
@@ -61,6 +62,11 @@ export const validateCode = async (
 };
 
 export const uploadExposureKeys = async (uploadToken: string, symptomDate: string, exposures: any[]): Promise<void> => {
+  if (!exposures.length) {
+    console.log('No keys to upload, aborting upload');
+    return;
+  }
+
   const data = exposures
     .sort((a, b) => {
       if (a.keyData < b.keyData) {
@@ -102,12 +108,14 @@ export const uploadExposureKeys = async (uploadToken: string, symptomDate: strin
   }
 
   const certificateJson = await certificateResponse.json();
+  const revisionToken = await SecureStore.getItemAsync('revisionToken');
+
   const publishData = {
     hmacKey: RNSimpleCrypto.utils.convertArrayBufferToBase64(hmacKey),
     healthAuthorityID: getBundleId(),
     verificationPayload: certificateJson.certificate,
     symptomOnsetInterval: Math.floor(new Date(symptomDate).getTime() / 1000 / 600),
-    revisionToken: '',
+    revisionToken: revisionToken || '',
     traveler: false,
     temporaryExposureKeys: exposures.map(exposure => ({
       key: exposure.keyData,
@@ -118,7 +126,7 @@ export const uploadExposureKeys = async (uploadToken: string, symptomDate: strin
     padding: RNSimpleCrypto.utils.convertArrayBufferToBase64(padding)
   };
 
-  console.log(`uploading keys to ${urls.keyPublish}/publish`, publishData)
+  console.log(`uploading keys to ${urls.keyPublish}/publish`, publishData);
 
   const resp = await fetch(`${urls.keyPublish}/publish`, {
     method: 'POST',
@@ -131,5 +139,11 @@ export const uploadExposureKeys = async (uploadToken: string, symptomDate: strin
 
   if (!resp || resp.status !== 200) {
     throw new Error('Upload failed');
+  }
+
+  const respJson = await resp.json();
+
+  if (respJson.revisionToken) {
+    await SecureStore.setItemAsync('revisionToken', respJson.revisionToken);
   }
 };

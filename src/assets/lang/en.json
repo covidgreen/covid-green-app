@@ -1,6 +1,7 @@
 {
   "common": {
     "name": "COVID Alert NY",
+    "longName": "COVID Alert New York",
     "url": "https://CovidAlertNY.health.ny.gov",
     "message": "Help keep your fellow NYers safe from COVID-19 by flattening the curve. Get the COVID Alert NY app:",
     "networkError": "Connection issue. Please check your internet connection and try again.",
@@ -22,7 +23,8 @@
       "timestampTitle": "Check Date & Time",
       "timestamp": "We couldn't verify your device. Please check it's set to the correct date and time, and try again."
     },
-    "continue": "Continue"
+    "continue": "Continue",
+    "close": "Close"
   },
   "viewNames": {
     "introduction": "Help Stop the Spread of COVID-19 in Your Community",
@@ -45,16 +47,20 @@
     "settingsLanguage": "My Language"
   },
   "navbar": {
-    "settings": "Settings",
-    "settingsHint": "View or amend application settings",
     "back": "Back",
-    "backHint": "Navigate back to previous screen"
+    "backHint": "Navigate back to previous screen",
+    "share": "Share",
+    "shareText": "Share this app with friends.\nHelp keep NY Safe."
   },
   "tabBar": {
     "updates": "NY COVID Data",
+    "updatesHint": "NY figures",
     "symptomCheck": "My Health Log",
+    "symptomCheckHint": "Log your symptoms",
     "contactTracing": "My COVID Alerts",
-    "settings": "App\nSettings"
+    "contactTracingHint": "Closeness settinngs info",
+    "settings": "App\nSettings",
+    "settingsHint": "View or update app settigns"
   },
   "onboarding": {
     "introduction": {
@@ -97,8 +103,12 @@
         "Each day, every phone that has the app compares its own list of close contact codes to the list of \"infected\" codes.\n\nIf there's a match, the app displays a COVID Alert."
       ],
       "previous": "Previous",
+      "previousHint": "Go to previous page",
       "next": "Next",
-      "close": "Close"
+      "nextHint": "Go to next page",
+      "close": "Close",
+      "pageSelector": "Page selector",
+      "currentPage": "Page {{page}} of {{total}}"
     },
     "intro": {
       "title": "With COVID Alert NY you can do 3 things to help fight COVID-19:",
@@ -261,15 +271,15 @@
   },
   "charts": {
     "tests": {
-      "title": "Total persons tested",
+      "title": "Total Persons Tested",
       "hint": "Graph showing daily tests over time"
     },
     "positiveTests": {
-      "title": "Total tested positive",
+      "title": "Total Tested Positive",
       "hint": "Graph showing daily positive test results over time"
     },
     "positivityPercent": {
-      "title": "Percent tested positive",
+      "title": "Percent Tested Positive",
       "hint": "Graph showing the percent of daily tests with positive results over time"
     },
     "legend": {
@@ -405,7 +415,13 @@
   },
   "ageRange": {
     "label": "Age range",
-    "placeholder": "Choose your age range"
+    "placeholder": "Choose your age range",
+    "0-17": "Under 17",
+    "18-34": "18 to 34",
+    "35-49": "35 to 49",
+    "50-69": "50 to 69",
+    "70-79": "70 to 79",
+    "80+": "Over 80"
   },
   "phoneNumber": {
     "code": {
@@ -438,7 +454,7 @@
   },
   "county": {
     "label": "New York State County you live in",
-    "dropdownPlaceholder": "Select your county",
+    "dropdownPlaceholder": "Choose your county",
     "searchPlaceholder": "Search",
     "noResults": "No results found for this search.\nTry with something else.",
     "notinny": "Not in New York State"

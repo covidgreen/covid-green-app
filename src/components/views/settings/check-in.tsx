@@ -116,7 +116,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
       <Card>
         <Dropdown
           label={t('county:label')}
-          placeholder={t('county:placeholder')}
+          placeholder={t('county:dropdownPlaceholder')}
           items={counties}
           value={profile.county}
           search={{

@@ -14,6 +14,7 @@ import {PinnedBottom} from 'components/templates/pinned';
 import {Scrollable} from 'components/templates/scrollable';
 import {colors, text} from 'theme';
 import {AppIcons} from 'assets/icons';
+import {StorageKeys} from 'providers/context';
 
 const TracingImage = require('assets/images/information/image.png');
 
@@ -45,7 +46,7 @@ export const ContactTracingInformation = ({navigation, route}: Props) => {
 
   useEffect(() => {
     if (!exposure.supported && exposure.canSupport) {
-      SecureStore.setItemAsync('supportPossible', 'true');
+      SecureStore.setItemAsync(StorageKeys.canSupportENS, 'true');
     }
   }, []);
 

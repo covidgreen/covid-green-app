@@ -13,9 +13,12 @@ import Video from 'react-native-video';
 import {useSafeArea} from 'react-native-safe-area-context';
 import ViewPager from '@react-native-community/viewpager';
 
+import {useFocusRef, setAccessibilityFocusRef} from 'hooks/accessibility';
+
 import {Markdown} from 'components/atoms/markdown';
-import {AppIcons} from 'assets/icons';
+
 import {colors, text} from 'theme';
+import {AppIcons} from 'assets/icons';
 
 import Step2 from 'assets/icons/how-it-works/howitworks2.svg';
 import Step3 from 'assets/icons/how-it-works/howitworks3.svg';
@@ -29,6 +32,7 @@ const Tour: FC<any> = () => {
   const insets = useSafeArea();
   const [position, setPosition] = useState<number>(0);
   const pager = useRef<ViewPager | null>(null);
+  const [ref] = useFocusRef();
 
   const statements: string[] = t('onboarding:tour:statements', {
     returnObjects: true
@@ -47,13 +51,24 @@ const Tour: FC<any> = () => {
       <View style={styles.fill}>
         <View style={[styles.header, styles.row]}>
           <View style={[styles.padded, styles.close]}>
-            <TouchableWithoutFeedback onPress={onClose} style={styles.close}>
+            <TouchableWithoutFeedback
+              accessibilityRole="button"
+              accessibilityLabel={t('common:close')}
+              accessibilityHint={`${t('common:close')} ${t(
+                'onboarding:tour:title'
+              )}`}
+              onPress={onClose}
+              style={styles.close}>
               <View>
                 <AppIcons.Close width={28} height={28} color={colors.purple} />
               </View>
             </TouchableWithoutFeedback>
           </View>
-          <View style={styles.headerContent}>
+          <View
+            ref={ref}
+            accessible
+            accessibilityRole="header"
+            style={styles.headerContent}>
             <Text style={styles.heading}>{t('onboarding:tour:title')}</Text>
           </View>
           <View style={styles.padded} />
@@ -90,8 +105,14 @@ const Tour: FC<any> = () => {
       <View style={[styles.row, styles.controls]}>
         <View style={styles.button}>
           <TouchableWithoutFeedback
-            onPress={() => pager.current?.setPage(position - 1)}>
+            accessibilityRole="button"
+            accessibilityHint={t('onboarding:tour:previousHint')}
+            onPress={() => {
+              pager.current?.setPage(position - 1);
+              setAccessibilityFocusRef(ref);
+            }}>
             <Text
+              maxFontSizeMultiplier={1.2}
               style={[
                 styles.buttonText,
                 position === 0 ? styles.hidden : styles.visible
@@ -100,7 +121,16 @@ const Tour: FC<any> = () => {
             </Text>
           </TouchableWithoutFeedback>
         </View>
-        <View style={styles.dots}>
+        {/* TODO: a11y */}
+        <View
+          accessible
+          accessibilityLabel={t('onboarding:tour:pageSelector')}
+          accessibilityHint={t('onboarding:tour:currentPage', {
+            page: position + 1,
+            total: statements.length
+          })}
+          accessibilityRole="adjustable"
+          style={styles.dots}>
           {statements.map((_, index) =>
             position === index ? (
               <View
@@ -118,7 +148,12 @@ const Tour: FC<any> = () => {
         {position < statements.length - 1 && (
           <View style={styles.button}>
             <TouchableWithoutFeedback
-              onPress={() => pager.current?.setPage(position + 1)}>
+              accessibilityRole="button"
+              accessibilityHint={t('onboarding:tour:nextHint')}
+              onPress={() => {
+                pager.current?.setPage(position + 1);
+                setAccessibilityFocusRef(ref);
+              }}>
               <Text
                 style={[
                   styles.buttonText,
@@ -133,8 +168,15 @@ const Tour: FC<any> = () => {
         )}
         {position === statements.length - 1 && (
           <View style={styles.button}>
-            <TouchableWithoutFeedback onPress={onClose}>
+            <TouchableWithoutFeedback
+              accessibilityRole="button"
+              accessibilityLabel={t('common:close')}
+              accessibilityHint={`${t('common:close')} ${t(
+                'onboarding:tour:title'
+              )}`}
+              onPress={onClose}>
               <Text
+                maxFontSizeMultiplier={1.2}
                 style={[
                   styles.buttonText,
                   position === statements.length - 1

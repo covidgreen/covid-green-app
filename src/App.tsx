@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {enableScreens} from 'react-native-screens';
-import {Platform, StatusBar, Image, View, AppState} from 'react-native';
+import {Platform, StatusBar, Image, AppState} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -30,7 +30,11 @@ import {Asset} from 'expo-asset';
 
 import 'services/i18n';
 
-import {ApplicationProvider, useApplication} from 'providers/context';
+import {
+  ApplicationProvider,
+  useApplication,
+  StorageKeys
+} from 'providers/context';
 import {
   SettingsProvider,
   SettingsContext,
@@ -40,11 +44,6 @@ import {
 import {Base} from 'components/templates/base';
 import {NavBar} from 'components/atoms/navbar';
 import {TabBarBottom} from 'components/organisms/tab-bar-bottom';
-// import {GetStarted} from 'components/views/get-started';
-// import {YourData} from 'components/views/your-data';
-// import {AppUsage} from 'components/views/app-usage';
-// import {ContactTracingInformation} from 'components/views/contact-tracing-information';
-// import {Sorry} from 'components/views/sorry';
 import {
   DataProtectionPolicy,
   TermsAndConditions
@@ -60,11 +59,6 @@ import {SymptomsHistory} from 'components/views/symptoms-history';
 import {MyCovidAlerts} from 'components/views/my-covid-alerts';
 import {CloseContactInfo} from 'components/views/close-contact-info';
 import {CloseContactAlert} from 'components/views/close-contact-alert';
-// import {CountyBreakdown} from 'components/views/county-breakdown';
-// import {CloseContact} from 'src/components/views/close-contact';
-// import {CloseContactRequiredAge} from 'components/views/close-contact-required-age';
-// import {CloseContactUnderAge} from 'components/views/close-contact-under-age';
-// import {CallBack} from 'components/views/call-back';
 
 import {UploadKeys} from 'components/views/upload-keys';
 import {Settings} from 'components/views/settings';
@@ -304,7 +298,6 @@ const SymptomsStack = () => {
     <Stack.Navigator
       screenOptions={{
         animationEnabled: true
-        //   header: props => <NavBar hideSettings={!app.user || !app.user.id} {...props} />
       }}
       initialRouteName={initialRouteName}
       headerMode="none">
@@ -422,7 +415,7 @@ function Navigation({
     }
 
     if (navigationRef.current && notification) {
-      navigationRef.current.navigate(ScreenNames.CloseContact);
+      navigationRef.current.navigate(ScreenNames.CloseContactAlert);
 
       setState((s) => ({...s, notification: null}));
     }
@@ -435,7 +428,7 @@ function Navigation({
 
     if (navigationRef.current && exposureNotificationClicked) {
       console.log('exposureNotificationClicked', exposureNotificationClicked);
-      navigationRef.current.navigate(ScreenNames.CloseContact);
+      navigationRef.current.navigate(ScreenNames.CloseContactAlert);
       setState((s) => ({...s, exposureNotificationClicked: null}));
     }
   }, [app, exposureNotificationClicked]);
@@ -451,7 +444,7 @@ function Navigation({
       }}>
       <Spinner animation="fade" visible={!!app.loading} />
       <Stack.Navigator
-        screenOptions={({route, navigation}) => ({
+        screenOptions={() => ({
           header: (props) => <NavBar {...props} />,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           cardStyle: {backgroundColor: colors.purple},
@@ -475,88 +468,10 @@ function Navigation({
             cardStyle: {
               backgroundColor: colors.background
             },
+            // @ts-ignore
             showSettings: true
           }}
         />
-
-        {/* <Stack.Screen
-          name="over16"
-          component={Over16}
-          options={{
-            title: t('viewNames:age'),
-            header: () => null,
-            cardStyle: {backgroundColor: colors.purple}
-          }}
-        />
-        <Stack.Screen name="under16" component={Under16} />
-        <Stack.Screen
-          name="getStarted"
-          component={GetStarted}
-          options={{
-            title: t('viewNames:getStarted'),
-            header: () => null,
-            cardStyle: {backgroundColor: colors.purple}
-          }}
-        />
-        <Stack.Screen
-          name="yourData"
-          component={YourData}
-          options={{title: t('yourData:title')}}
-        />
-        <Stack.Screen
-          name="appUsage"
-          component={AppUsage}
-          options={{title: t('appUsage:title')}}
-        />
-        <Stack.Screen
-          name="contactTracingInformation"
-          component={ContactTracingInformation}
-          options={{title: t('tabBar:contactTracing')}}
-        />
-
-        <Stack.Screen
-          name="main"
-          component={MainStack}
-          options={{showSettings: true}}
-        />
-        <Stack.Screen
-          name="casesByCounty"
-          component={CountyBreakdown}
-          options={{title: t('viewNames:casesByCounty')}}
-        />
-        <Stack.Screen
-          name="closeContactInfo"
-          component={CloseContactInfo}
-          options={{title: t('closeContactInfo:title')}}
-        />
-        <Stack.Screen
-          name="closeContact"
-          component={CloseContact}
-          options={{title: t('closeContact:title')}}
-        />
-        <Stack.Screen
-          name="closeContactRequiredAge"
-          component={CloseContactRequiredAge}
-          options={{title: t('closeContact:requiredAge:title')}}
-        />
-        <Stack.Screen
-          name="closeContactUnderAge"
-          component={CloseContactUnderAge}
-          options={{title: t('closeContact:underAge:title')}}
-        />
-        <Stack.Screen
-          name="callBack"
-          component={CallBack}
-          options={{title: t('callBack:title')}}
-        />
-        <Stack.Screen name="sorry" component={Sorry} />
-
-        <Stack.Screen
-          name="uploadKeys"
-          component={UploadKeys}
-          options={{title: t('viewNames:uploadKeys')}}
-        />
-        */}
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -575,9 +490,11 @@ const ExposureApp: React.FC = ({children}) => {
   useEffect(() => {
     async function getTokens() {
       try {
-        const storedAuthToken = await SecureStore.getItemAsync('token');
+        const storedAuthToken = await SecureStore.getItemAsync(
+          StorageKeys.token
+        );
         const storedRefreshToken = await SecureStore.getItemAsync(
-          'refreshToken'
+          StorageKeys.refreshToken
         );
         setTokens({
           authToken: storedAuthToken || '',

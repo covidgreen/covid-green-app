@@ -18,11 +18,13 @@ import {AllHtmlEntities} from 'html-entities';
 import * as api from 'services/api';
 import {fallback} from 'services/i18n/common';
 import {counties} from 'assets/counties';
+import {StorageKeys} from './context';
 
 export interface BasicItem {
   label: string;
   value: any;
   freeText?: boolean;
+  hint?: string;
 }
 
 export interface AppConfig {
@@ -160,8 +162,8 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
   useEffect(() => {
     const loadSettingsAsync = async () => {
       const [user, consent] = await AsyncStorage.multiGet([
-        'covidApp.user',
-        'covidApp.checkInConsent'
+        StorageKeys.user,
+        StorageKeys.checkinConsent
       ]);
 
       let apiSettings: ApiSettings;
@@ -264,12 +266,22 @@ function getEthnicityOptions(t: TFunction): BasicItem[] {
 
 function getAgeRangeOptions(t: TFunction): AgeOption[] {
   return [
-    {label: '0-17', value: '0-17'},
-    {label: '18-34', value: '18-34'},
-    {label: '35-49', value: '35-49'},
-    {label: '50-69', value: '50-69', riskGroup: true},
-    {label: '70-79', value: '70-79', riskGroup: true},
-    {label: '80+', value: '80+', riskGroup: true},
+    {label: '0-17', value: '0-17', hint: t('ageRange:0-17')},
+    {label: '18-34', value: '18-34', hint: t('ageRange:18-34')},
+    {label: '35-49', value: '35-49', hint: t('ageRange:35-49')},
+    {
+      label: '50-69',
+      value: '50-69',
+      hint: t('ageRange:50-69'),
+      riskGroup: true
+    },
+    {
+      label: '70-79',
+      value: '70-79',
+      hint: t('ageRange:70-79'),
+      riskGroup: true
+    },
+    {label: '80+', value: '80+', hint: t('ageRange:80+'), riskGroup: true},
     {label: t('common:preferNotToSay'), value: 'u'}
   ];
 }

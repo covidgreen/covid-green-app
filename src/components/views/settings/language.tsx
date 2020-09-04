@@ -8,6 +8,7 @@ import {supportedLocales} from 'services/i18n/common';
 import {Markdown} from 'components/atoms/markdown';
 import {SelectList} from 'components/atoms/select-list';
 import {Spacing} from 'components/atoms/layout';
+import {StorageKeys} from 'providers/context';
 
 interface LanguageType {
   value: string;
@@ -36,7 +37,7 @@ export const Language = () => {
         items={languages}
         selectedValue={currentLanguage!.value}
         onItemSelected={(lang) => {
-          SecureStore.setItemAsync('appLanguage', lang);
+          SecureStore.setItemAsync(StorageKeys.language, lang);
           i18n.changeLanguage(lang);
         }}
       />

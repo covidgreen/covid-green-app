@@ -70,11 +70,7 @@ export const CheckInFinal: FC<any> = ({route}) => {
       backgroundColor={colors.background}>
       {completedChecker && checkInResult && (
         <>
-          <Heading
-            accessibilityRefocus
-            accessibilityFocus
-            text={t('checker:results:title')}
-          />
+          <Heading text={t('checker:results:title')} />
           <ResultCard
             message={
               checkInResult !== 'coronavirus'

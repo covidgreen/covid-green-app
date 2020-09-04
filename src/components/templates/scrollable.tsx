@@ -41,7 +41,7 @@ export const Scrollable: FC<LayoutProps> = ({
   scrollViewRef,
   safeArea = true,
   children,
-  accessibilityRefocus = false,
+  accessibilityRefocus = true,
   scrollStyle
 }) => {
   const insets = useSafeArea();
@@ -67,7 +67,6 @@ export const Scrollable: FC<LayoutProps> = ({
         {heading && (
           <Heading
             accessibilityRefocus={accessibilityRefocus}
-            accessibilityFocus
             lineWidth={headingShort ? 75 : undefined}
             text={heading}
           />

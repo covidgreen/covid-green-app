@@ -93,6 +93,7 @@ export function CheckInIntro() {
 
   return (
     <Scrollable
+      accessibilityRefocus={false}
       headingShort
       backgroundColor={colors.background}
       safeArea={false}
@@ -102,7 +103,7 @@ export function CheckInIntro() {
         <Spacing s={24} />
         <Dropdown
           label={t('county:label')}
-          placeholder={t('common:placeholder')}
+          placeholder={t('county:dropdownPlaceholder')}
           items={counties}
           value={state.county}
           search={{
@@ -116,7 +117,7 @@ export function CheckInIntro() {
         <Separator />
         <Dropdown
           label={t('gender:label')}
-          placeholder={t('common:placeholder')}
+          placeholder={t('gender:placeholder')}
           items={genderOptions}
           value={state.gender}
           onValueChange={(gender) => setState((s) => ({...s, gender}))}
@@ -124,7 +125,7 @@ export function CheckInIntro() {
         <Separator />
         <Dropdown
           label={t('ageRange:label')}
-          placeholder={t('common:placeholder')}
+          placeholder={t('ageRange:placeholder')}
           items={ageRangeOptions}
           value={state.ageRange}
           onValueChange={(ageRange) => setState((s) => ({...s, ageRange}))}
@@ -132,7 +133,7 @@ export function CheckInIntro() {
         <Separator />
         <Dropdown
           label={t('race:label')}
-          placeholder={t('common:placeholder')}
+          placeholder={t('race:placeholder')}
           items={raceOptions}
           value={state.race}
           onValueChange={(race) => setState((s) => ({...s, race}))}
@@ -140,7 +141,7 @@ export function CheckInIntro() {
         <Separator />
         <Dropdown
           label={t('ethnicity:label')}
-          placeholder={t('common:placeholder')}
+          placeholder={t('ethnicity:placeholder')}
           items={ethnicityOptions}
           value={state.ethnicity}
           onValueChange={(ethnicity) => setState((s) => ({...s, ethnicity}))}

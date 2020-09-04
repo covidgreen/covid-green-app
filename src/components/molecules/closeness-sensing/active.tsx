@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {forwardRef} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
@@ -15,50 +15,52 @@ import {StateIcons} from 'assets/icons';
 import {styles as sharedStyles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 
-export const Active: FC<{onboarding?: boolean}> = ({onboarding = false}) => {
-  const {t} = useTranslation();
-  const nav = useNavigation();
+export const Active = forwardRef<any, {onboarding?: boolean}>(
+  ({onboarding = false}, ref) => {
+    const {t} = useTranslation();
+    const nav = useNavigation();
 
-  return (
-    <Card padding={{h: 0, v: 0}}>
-      <View style={sharedStyles.cardImageSuccess}>
-        <StateIcons.Success height={144} width={144} />
-      </View>
-      <Spacing s={12} />
-      <View style={sharedStyles.messageWrapper}>
-        <Text style={text.defaultBold}>
-          {t('closenessSensing:active:title')}
-        </Text>
-        <Spacing s={20} />
-        <Text style={text.default}>{t('closenessSensing:active:text')}</Text>
-        {onboarding && (
-          <>
-            <Spacing s={20} />
-            <Markdown style={{}}>
-              {t('closenessSensing:active:shareText')}
-            </Markdown>
-            <Spacing s={24} />
-            <View style={styles.buttonsWrapper}>
-              <Button type="empty" onPress={() => shareApp(t)}>
-                {t('closenessSensing:active:share')}
-              </Button>
+    return (
+      <Card padding={{h: 0, v: 0}}>
+        <View style={sharedStyles.cardImageSuccess}>
+          <StateIcons.Success height={144} width={144} />
+        </View>
+        <Spacing s={12} />
+        <View style={sharedStyles.messageWrapper}>
+          <Text ref={ref} accessibilityRole="header" style={text.defaultBold}>
+            {t('closenessSensing:active:title')}
+          </Text>
+          <Spacing s={20} />
+          <Text style={text.default}>{t('closenessSensing:active:text')}</Text>
+          {onboarding && (
+            <>
               <Spacing s={20} />
-              <Button
-                onPress={() =>
-                  nav.reset({
-                    index: 0,
-                    routes: [{name: 'main'}]
-                  })
-                }>
-                {t('closenessSensing:active:done')}
-              </Button>
-            </View>
-          </>
-        )}
-      </View>
-    </Card>
-  );
-};
+              <Markdown style={{}}>
+                {t('closenessSensing:active:shareText')}
+              </Markdown>
+              <Spacing s={24} />
+              <View style={styles.buttonsWrapper}>
+                <Button type="empty" onPress={() => shareApp(t)}>
+                  {t('closenessSensing:active:share')}
+                </Button>
+                <Spacing s={20} />
+                <Button
+                  onPress={() =>
+                    nav.reset({
+                      index: 0,
+                      routes: [{name: 'main'}]
+                    })
+                  }>
+                  {t('closenessSensing:active:done')}
+                </Button>
+              </View>
+            </>
+          )}
+        </View>
+      </Card>
+    );
+  }
+);
 
 export const styles = StyleSheet.create({
   buttonsWrapper: {
