@@ -13,7 +13,7 @@ import {StateIcons} from 'assets/icons';
 
 import {styles as sharedStyles} from './styles';
 
-export const NotActiveIOS = forwardRef<any, {onboarding?: boolean}>(
+export const NotEnabledIOS = forwardRef<any, {onboarding?: boolean}>(
   ({onboarding = false}, ref) => {
     const {t} = useTranslation();
     const nav = useNavigation();
