@@ -70,11 +70,7 @@ export const Leave = ({navigation}) => {
         <Spacing s={32} />
         <DataProtectionLink />
         <Spacing s={32} />
-        <Markdown style={{}}>
-          {Platform.OS === 'ios'
-            ? t('leave:summaryIOS')
-            : t('leave:summaryAndroid')}
-        </Markdown>
+        <Markdown style={{}}>{t(`leave:summary.${Platform.OS}`)}</Markdown>
         <Spacing s={32} />
       </View>
       <Button type="danger" onPress={confirm}>
