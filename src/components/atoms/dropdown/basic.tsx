@@ -70,7 +70,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
         }
         accessibilityHint={placeholder}
         onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View
+          hitSlop={{right: 40, bottom: 20, top: 20}}
+          style={styles.container}>
           <View style={styles.content}>
             {label && (
               <>
