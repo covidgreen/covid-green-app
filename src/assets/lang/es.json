@@ -2,7 +2,7 @@
   "common": {
     "name": "COVID Alert NY (NY alerta ante COVID)",
     "url": "https://CovidAlertNY.health.ny.gov",
-    "message": "Únase a NY alerta ante COVID para luchar contra la COVID-19",
+    "message": "Ayude a sus conciudadanos neoyorquinos a estar protegidos ante la COVID-19 al aplanar la curva. Obtenga la aplicación COVID Alert NY:",
     "networkError": "Problemas de conexión. Revise su conexión a Internet e inténtelo de nuevo.",
     "missingDataAction": "Actualizar la página",
     "missingError": "Problema al cargar. Algunos datos no se pudieron cargar correctamente.",
@@ -214,9 +214,9 @@
     "leaveHint": "Borrar mis datos y salir de la aplicación",
     "status": {
       "title": "Estatus",
-      "active": "La Detección de Proximidad se encuentra activada.",
-      "notActive": "La Detección de Proximidad no está activada",
-      "intro": "Para cambiar el estatus, vaya a la configuración de su teléfono y presione el botón inferior de “Actualizar las opciones de configuración”.",
+      "active": "La Detección de Proximidad (Closeness Sensing) se encuentra activada.",
+      "notActive": "La Detección de Proximidad se encuentra desactivada.",
+      "intro": "Para cambiar el estatus, presione el botón inferior de “Actualizar las opciones de configuración” para ir a las configuraciones de su teléfono.",
       "gotoSettings": "Actualizar la configuración"
     },
     "clearData": {
@@ -264,6 +264,14 @@
     "positiveTests": {
       "title": "Total de resultados positivos de la prueba",
       "hint": "Gráfico de los resultados positivos de las pruebas diarias en el tiempo"
+    },
+    "positivityPercent": {
+      "title": "Porcentaje de resultados positivos de la prueba",
+      "hint": "Gráfico que muestra el porcentaje de pruebas con resultado positivo diarias a lo largo del tiempo"
+    },
+    "legend": {
+      "averageLine": "7 días promedio",
+      "dailyTotal": "Total diario"
     }
   },
   "symptomsHistory": {
@@ -337,10 +345,12 @@
   "closeContactInfo": {
     "title": "Aprenda cómo mantener protegidos a los demás",
     "info": "**Para limitar el riesgo de propagar la COVID-19 a su familia o a su comunidad, tome las siguientes precauciones hasta que un profesional de salud pública lo examine:**",
-    "list": "1. **Quédese en casa, excepto para buscar atención médica**.\n\n2. **Llame con antelación si debe salir a buscar atención médica**.\nUtilice una mascarilla cuando salga y evite usar el transporte público como subterráneos, autobuses y taxis.\n\n3. **Aléjese de los demás**\nPermanezca en una habitación que no comparta con otras personas y mantenga la puerta cerrada. Duerma solo. En todo momento permanezca a una distancia de 6 pies (2 metros) de otras personas como mínimo, incluso de sus familiares.\n\n4. **No reciba visitas**.\nNo permita que otras personas entren sin su permiso.\n\n5. **Use un baño aparte**.\nSi no es posible, limpie y desinfecte todas las superficies después de cada uso.\n\n6. **Pida que le traigan la comida**.\nPrograme que le dejen la comida, los medicamentos y otros suministros en la puerta.\n\n7. **Cúbrase cuando tosa o estornude**.\nDeseche los pañuelos de papel después de usarlos. Coloque la basura en una bolsa y déjela en la parte exterior de la puerta. (No es necesario un manejo especial).\n\n8. **No toque las mascotas**.\n\n9. Haga arreglos para que otra persona cuide a sus niños si es posible**.\n\n10. **Lávese las manos con frecuencia**con agua y jabón por 20 segundos cada vez o, si no es posible, use desinfectante para las manos con al alcohol al 60 % de alcohol. Use toallas de papel en vez de toallas compartidas.\n\n11. **Contrólese la temperatura y los síntomas cuidadosamente**.\nPuede registrarlos en la función “Mi Registro de Salud” de esta aplicación o de otra manera. El registro diario ayuda a los representantes de salud pública a decidir los siguientes pasos si usted se enferma."
+    "list": "1. **Quédese en casa, excepto para buscar atención médica**.\\n\\n2. **Llame con antelación si debe salir a buscar atención médica**.\\nUtilice una mascarilla cuando salga y evite usar el transporte público como subterráneos, autobuses y taxis.\\n\\n3. **Aléjese de los demás**\\nPermanezca en una habitación que no comparta con otras personas y mantenga la puerta cerrada. Duerma solo. En todo momento permanezca a una distancia de 6 pies (2 metros) de otras personas como mínimo, incluso de sus familiares.\\n\\n4. **No reciba visitas**.\\nNo permita que otras personas entren sin su permiso.\\n\\n5. **Use un baño aparte**.\\nSi no es posible, limpie y desinfecte todas las superficies después de cada uso.\\n\\n6. **Pida que le traigan la comida**.\\nPrograme que le dejen la comida, los medicamentos y otros suministros en la puerta.\\n\\n7. **Cúbrase cuando tosa o estornude**.\\nDeseche los pañuelos de papel después de usarlos. Coloque la basura en una bolsa y déjela en la parte exterior de la puerta. (No es necesario un manejo especial).\\n\\n8. **No toque las mascotas**.\\n\\n9. Haga arreglos para que otra persona cuide a sus niños si es posible**.\\n\\n10. **Lávese las manos con frecuencia**con agua y jabón por 20 segundos cada vez o, si no es posible, use desinfectante para las manos con, al menos, 60 % de alcohol. Use toallas de papel en vez de toallas compartidas.\\n\\n11. **Sométase a la prueba**.\\nHable con su proveedor de atención médica para programar una cita en un centro de pruebas público accesible.\\n(Encuentre un sitio cercano a usted)(https://coronavirus.health.ny.gov/find-test-site-near-you)\\n\\n12. **Contrólese la temperatura y los síntomas cuidadosamente**.\\nPuede registrarlos en la función “Mi Registro de Salud” de esta aplicación o de otra manera. El registro diario ayuda a los representantes de salud pública a decidir los siguientes pasos si usted se enferma."
   },
   "closeContactAlert": {
-    "infoCard": "Aprenda cómo mantener protegidos a los demás"
+    "infoCard": "Aprenda cómo mantener protegidos a los demás",
+    "intro": "**La aplicación detectó que el {{FechadeExposición}} alguien que tuvo un resultado positivo en la prueba de COVID-19 estuvo a 6 pies (2 metros) de distancia de usted por más de 10 minutos**.",
+    "info": "**¿Qué hago ahora?**\\n\\nPara disminuir el riesgo de propagación de la COVID-19 a su familia, tome las siguientes precauciones hasta que lo examine un profesional de salud pública:"
   },
   "callBack": {
     "title": "¿A qué número telefónico podemos llamarlo?",
@@ -478,6 +488,52 @@
       "share": "Compartir",
       "title": "¡La Detección de Proximidad y las Alertas de COVID están activadas!",
       "text": "Gracias por poner de su parte para detener la propagación de la COVID-19."
+    },
+    "notSupported": {
+      "title": "La Detección de Proximidad no está disponible",
+      "text": "Lamentablemente, su dispositivo no admite Detección de Proximidad, así que no podrá recibir Alertas de COVID. Aún puede utilizar esta aplicación para registrar su salud y ver datos sobre la COVID en Nueva York."
+    },
+    "supported": {
+      "ios": {
+        "title": "Para soportar la Detección de Proximidad debe actualizar Apple iOS.",
+        "text": "Para habilitarla, debe actualizar el software de Apple iOS en la configuración de su teléfono."
+      },
+      "android": {
+        "title": "Para soportar la Detección de Proximidad, debe actualizar Google Play Services.",
+        "text": "Para habilitarla, debe actualizar a la última versión de la aplicación Google Play Services."
+      },
+      "checkForUpdates": "Buscar actualizaciones",
+      "next": "Configurarla más tarde y continuar"
+    },
+    "notAuthorised": {
+      "ios": {
+        "title": "La Detección de Proximidad no está activada",
+        "text": "Debe habilitar los Servicios de Notificación de Exposición para activar la Detección de Proximidad",
+        "setup": "Configurar"
+      },
+      "android": {
+        "title": "La Detección de Proximidad no está activada",
+        "text": "Debe activar las Notificaciones de Exposición a la COVID-19 para habilitar la Detección de Proximidad y las Alertas de COVID",
+        "setup": "Activar"
+      }
+    },
+    "notEnabledIOS": {
+      "title": "La Detección de Proximidad está deshabilitada",
+      "text": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\\n\\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de las Exposición a la COVID-19 esté activado.",
+      "gotoSettings": "Ir a las configuraciones de la aplicación"
+    },
+    "notActiveIOS": {
+      "title": "La Detección de Proximidad no está activada",
+      "text": "Debe habilitar los servicios de Notificaciones de Exposición y el Bluetooth para habilitar la Detección de Proximidad",
+      "ens": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\\n\\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de las Exposición a la COVID-19 esté activado.",
+      "bt": "Encienda el Bluetooth.\\n\\n**Nota:**enciéndalo en la configuración de su dispositivo, y no con el botón de Bluetooth en el Centro de Control.",
+      "gotoSettings": "Ir a configuración",
+      "next": "Configurarla más tarde y continuar"
     }
+  },
+  "notificationsDisabled": {
+    "title": "Las Notificaciones estás deshabilitadas",
+    "text": "Debe permitir las notificaciones para recibir las Alertas de COVID. Nos comunicaremos con usted solo en caso de un Contacto Cercano.",
+    "gotoSettings": "Ir a las configuraciones de la aplicación"
   }
 }

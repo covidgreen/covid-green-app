@@ -4,13 +4,19 @@ const readXlsxFile = require('read-excel-file/node');
 
 async function main(filename) {
   const enRaw = await fs.promises.readFile('../src/assets/lang/en.json');
+  const htRaw = await fs.promises.readFile('../src/assets/lang/ht.json');
+  const ruRaw = await fs.promises.readFile('../src/assets/lang/ru.json');
+  const bnRaw = await fs.promises.readFile('../src/assets/lang/bn.json');
+  const koRaw = await fs.promises.readFile('../src/assets/lang/ko.json');
+  const zhRaw = await fs.promises.readFile('../src/assets/lang/zh.json');
+  const esRaw = await fs.promises.readFile('../src/assets/lang/es.json');
   const en = JSON.parse(enRaw);
-  const ht = {};
-  const ru = {};
-  const bn = {};
-  const ko = {};
-  const zh = {};
-  const es = {};
+  const ht = JSON.parse(htRaw);
+  const ru = JSON.parse(ruRaw);
+  const bn = JSON.parse(bnRaw);
+  const ko = JSON.parse(koRaw);
+  const zh = JSON.parse(zhRaw);
+  const es = JSON.parse(esRaw);
 
   const [, ...rows] = await readXlsxFile(filename);
   rows.forEach((row) => {
