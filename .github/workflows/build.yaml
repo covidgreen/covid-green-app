@@ -221,6 +221,18 @@ jobs:
           ruby-version: '2.6' # Version range or exact version of a Ruby version to use, using semvers version range syntax.
           bundler-cache: true
 
+      - name: Setup Fastlane Spaceauth session
+        env:
+          FASTLANE_USER: "${{ secrets.FASTLANE_USER }}"
+        run: |
+          cd ios
+          . .env.default
+          mkdir -p ~/.fastlane/spaceship/${FASTLANE_USER}
+          echo "${{ secrets.FASTLANE_SESSION_FILE }}" | base64 -d -o ~/.fastlane/spaceship/${FASTLANE_USER}/cookie
+          fastlane spaceauth -u $FASTLANE_USER |grep export | sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g' |sed s/export\ // > fastlane_session.sh
+          . ./fastlane_session.sh
+          echo "##[set-env name=FASTLANE_SESSION;]$FASTLANE_SESSION"
+
       - name: Setup Version variable
         run: |
           export BUILD_VERSION=${GITHUB_REF#refs/tags/}
@@ -235,7 +247,6 @@ jobs:
       - name: iOS Build
         env:
           FASTLANE_USER: "${{ secrets.FASTLANE_USER }}"
-          FASTLANE_SESSION: '${{ secrets.FASTLANE_SESSION }}'
         run: |
           cd ios 
           . .env.default
@@ -249,7 +260,6 @@ jobs:
       - name: iOS Testflight
         env:
           FASTLANE_USER: "${{ secrets.FASTLANE_USER }}"
-          FASTLANE_SESSION: '${{ secrets.FASTLANE_SESSION }}'
         run: |
           cd ios 
           . .env.default
