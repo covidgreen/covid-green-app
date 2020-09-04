@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, {ReactNode, forwardRef} from 'react';
 import {StyleSheet, View, ViewStyle, Text, TextStyle} from 'react-native';
 
 import {Markdown} from './markdown';
@@ -18,45 +18,51 @@ interface ToastProps {
   textStyle?: TextStyle;
 }
 
-const Toast: React.FC<ToastProps> = ({
-  type,
-  color,
-  icon,
-  message,
-  style,
-  children,
-  iconStyle = {},
-  textStyle = {}
-}) => {
-  let iconStyling: ViewStyle[] = [styles.icon, iconStyle];
-  let textStyling: TextStyle[] = [text.defaultBold, textStyle];
+const Toast = forwardRef<View, ToastProps>(
+  (
+    {
+      type,
+      color,
+      icon,
+      message,
+      style,
+      children,
+      iconStyle = {},
+      textStyle = {}
+    },
+    ref
+  ) => {
+    let iconStyling: ViewStyle[] = [styles.icon, iconStyle];
+    let textStyling: TextStyle[] = [text.defaultBold, textStyle];
 
-  if (type === 'error') {
-    iconStyling.push(styles.iconError);
-    textStyling.push(styles.messageError);
-  }
+    if (type === 'error') {
+      iconStyling.push(styles.iconError);
+      textStyling.push(styles.messageError);
+    }
 
-  if (color) {
-    iconStyling.push({backgroundColor: color});
-  }
+    if (color) {
+      iconStyling.push({backgroundColor: color});
+    }
 
-  return (
-    <View
-      accessibilityRole="alert"
-      accessibilityLiveRegion="assertive"
-      style={[
-        styles.container,
-        style,
-        type === 'error' && styles.containerError
-      ]}>
-      {icon && <View style={iconStyling}>{icon}</View>}
-      <View style={styles.messageContainer}>
-        {message && <Text style={textStyling}>{message}</Text>}
-        {children && <Markdown>{children}</Markdown>}
+    return (
+      <View
+        ref={ref}
+        accessibilityRole="alert"
+        accessibilityLiveRegion="assertive"
+        style={[
+          styles.container,
+          style,
+          type === 'error' && styles.containerError
+        ]}>
+        {icon && <View style={iconStyling}>{icon}</View>}
+        <View style={styles.messageContainer}>
+          {message && <Text style={textStyling}>{message}</Text>}
+          {children && <Markdown>{children}</Markdown>}
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

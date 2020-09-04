@@ -23,8 +23,8 @@ import {text, colors} from 'theme';
 import {AppIcons} from 'assets/icons';
 
 interface DropdownModalProps extends Partial<ModalProps> {
-  close?: boolean;
   title: string;
+  titleHint?: string;
   items: BasicItem[];
   selectedValue: string;
   onSelect: (value: string) => void;
@@ -40,8 +40,8 @@ interface DropdownModalProps extends Partial<ModalProps> {
 }
 
 export const DropdownModal: React.FC<DropdownModalProps> = ({
-  close,
   title,
+  titleHint,
   items,
   selectedValue,
   onSelect,
@@ -66,6 +66,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
 
   const renderItem = (item: BasicItem, index: number) => {
     const {label, value, hint} = item;
+    const a11yLabel = hint || label;
     const color = value === selectedValue ? colors.purple : colors.text;
 
     if (!item.value) {
@@ -82,7 +83,9 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
     return (
       <TouchableWithoutFeedback
         accessibilityRole="radio"
-        accessibilityLabel={hint || label}
+        accessibilityLabel={
+          titleHint ? `${a11yLabel}, ${titleHint}` : a11yLabel
+        }
         accessibilityState={{selected: value === selectedValue}}
         key={`item_${index}`}
         onPress={() => onSelect(value)}>
@@ -117,7 +120,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
 
       if (search.term && !items.length) {
         return (
-          <View style={listStyles.contentWrapper}>
+          <View accessibilityElementsHidden style={listStyles.contentWrapper}>
             <Text style={listStyles.noResults}>{search?.noResults}</Text>
           </View>
         );
@@ -163,6 +166,12 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
             <View style={styles.search}>
               <TextInput
                 ref={searchInputRef}
+                accessibilityRole="search"
+                accessibilityLabel={
+                  search.term && !items.length
+                    ? t('county:noResultsHint')
+                    : t('county:searchHint')
+                }
                 style={[
                   styles.searchInput,
                   !!search.term && styles.searchUnderlined

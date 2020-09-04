@@ -458,7 +458,9 @@
     "label": "New York State County you live in",
     "dropdownPlaceholder": "Choose your county",
     "searchPlaceholder": "Search",
+    "searchHint": "Search: showing autocomplete suggestions",
     "noResults": "No results found for this search.\nTry with something else.",
+    "noResultsHint": "Search: no results found for this search. Try with something else.",
     "notinny": "Not in New York State"
   },
   "appUsage": {

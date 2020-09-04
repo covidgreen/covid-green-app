@@ -13,17 +13,19 @@ interface ListItem {
 }
 
 interface SelectListProps {
+  title?: string;
+  multiSelect?: boolean;
   items: ListItem[];
   selectedValue?: Value | Value[];
-  multiSelect?: boolean;
   onItemSelected: (value: any) => void;
 }
 
 export const SelectList: FC<SelectListProps> = ({
+  title,
+  multiSelect,
   items,
   selectedValue,
-  onItemSelected,
-  multiSelect
+  onItemSelected
 }) => {
   const hasSelectedValue = (value: Value) =>
     multiSelect && Array.isArray(selectedValue)
@@ -46,7 +48,7 @@ export const SelectList: FC<SelectListProps> = ({
       <TouchableWithoutFeedback
         key={`item-${index}`}
         onPress={() => onItemSelected(value)}
-        accessibilityLabel={label}
+        accessibilityLabel={title ? `${label}, ${title}` : label}
         accessibilityRole={multiSelect ? 'checkbox' : 'radio'}
         accessibilityState={{
           [multiSelect ? 'checked' : 'selected']: hasSelectedValue(value)

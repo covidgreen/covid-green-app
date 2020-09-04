@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import {useApplication} from 'providers/context';
 import {useDbText} from 'providers/settings';
+import {useFocusRef, setAccessibilityFocusRef} from 'hooks/accessibility';
 import {useSymptomChecker} from 'hooks/symptom-checker';
 
 import {Spacing, Separator} from 'components/atoms/layout';
@@ -35,6 +36,12 @@ export function CheckInIntro() {
     countiesOptions
   } = useDbText();
   const {getNextScreen} = useSymptomChecker();
+  const [ref1, ref2, ref3, ref4, ref5] = useFocusRef(
+    {
+      accessibilityRefocus: false
+    },
+    5
+  );
 
   const [state, setState] = useState<IntroState>({
     gender: (app.user && app.user.gender) || '',
@@ -102,6 +109,7 @@ export function CheckInIntro() {
         <Text style={text.default}>{t('checker:introOptional')}</Text>
         <Spacing s={24} />
         <Dropdown
+          ref={ref1}
           label={t('county:label')}
           placeholder={t('county:dropdownPlaceholder')}
           items={counties}
@@ -112,39 +120,58 @@ export function CheckInIntro() {
             onChange: setSearchTerm,
             noResults: t('county:noResults')
           }}
-          onValueChange={(county) => setState((s) => ({...s, county}))}
+          onValueChange={(county) => {
+            setState((s) => ({...s, county}));
+            setAccessibilityFocusRef(ref1);
+          }}
         />
         <Separator />
         <Dropdown
+          ref={ref2}
           label={t('gender:label')}
           placeholder={t('gender:placeholder')}
           items={genderOptions}
           value={state.gender}
-          onValueChange={(gender) => setState((s) => ({...s, gender}))}
+          onValueChange={(gender) => {
+            setState((s) => ({...s, gender}));
+            setAccessibilityFocusRef(ref2);
+          }}
         />
         <Separator />
         <Dropdown
+          ref={ref3}
           label={t('ageRange:label')}
           placeholder={t('ageRange:placeholder')}
           items={ageRangeOptions}
           value={state.ageRange}
-          onValueChange={(ageRange) => setState((s) => ({...s, ageRange}))}
+          onValueChange={(ageRange) => {
+            setState((s) => ({...s, ageRange}));
+            setAccessibilityFocusRef(ref3);
+          }}
         />
         <Separator />
         <Dropdown
+          ref={ref4}
           label={t('race:label')}
           placeholder={t('race:placeholder')}
           items={raceOptions}
           value={state.race}
-          onValueChange={(race) => setState((s) => ({...s, race}))}
+          onValueChange={(race) => {
+            setState((s) => ({...s, race}));
+            setAccessibilityFocusRef(ref4);
+          }}
         />
         <Separator />
         <Dropdown
+          ref={ref5}
           label={t('ethnicity:label')}
           placeholder={t('ethnicity:placeholder')}
           items={ethnicityOptions}
           value={state.ethnicity}
-          onValueChange={(ethnicity) => setState((s) => ({...s, ethnicity}))}
+          onValueChange={(ethnicity) => {
+            setState((s) => ({...s, ethnicity}));
+            setAccessibilityFocusRef(ref5);
+          }}
         />
         <Separator />
         <Button width="100%" onPress={onContinue}>

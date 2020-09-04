@@ -111,9 +111,9 @@ export const CheckInSymptoms = () => {
       backgroundColor={colors.background}
       heading={t('checker:title')}>
       <Card>
-        <Text style={text.largeBold}>{`${t(
-          'checker:symptoms:subtitle'
-        )}`}</Text>
+        <Text accessibilityElementsHidden style={text.largeBold}>
+          {t('checker:symptoms:subtitle')}
+        </Text>
         <Spacing s={36} />
         <Button
           width="100%"
@@ -124,9 +124,10 @@ export const CheckInSymptoms = () => {
         </Button>
         <Spacing s={36} />
         <SelectList
+          title={t('checker:symptoms:subtitle')}
+          multiSelect={true}
           items={items}
           selectedValue={selectedValue}
-          multiSelect={true}
           onItemSelected={handleItemSelected}
         />
         <Spacing s={36} />

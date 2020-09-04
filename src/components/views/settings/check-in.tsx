@@ -1,9 +1,10 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {Text, ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {useApplication} from 'providers/context';
 import {useDbText} from 'providers/settings';
+import {setAccessibilityFocusRef, useFocusRef} from 'hooks/accessibility';
 import {useSymptomChecker} from 'hooks/symptom-checker';
 
 import {Spacing, Separator} from 'components/atoms/layout';
@@ -40,6 +41,12 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
     countiesOptions
   } = useDbText();
   const app = useApplication();
+  const [toastRef, ref1, ref2, ref3, ref4, ref5] = useFocusRef(
+    {
+      accessibilityRefocus: false
+    },
+    6
+  );
   const {getNextScreen} = useSymptomChecker();
 
   const scrollViewRef = useRef<ScrollView>(null);
@@ -61,6 +68,12 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
     saved: false
   });
   const [searchTerm, setSearchTerm] = useState<string>('');
+
+  useEffect(() => {
+    if (profile.saved) {
+      setTimeout(() => setAccessibilityFocusRef(toastRef), 250);
+    }
+  }, [toastRef, profile.saved]);
 
   const counties = !searchTerm
     ? countiesOptions
@@ -100,6 +113,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
 
   const successToast = profile.saved && (
     <Toast
+      ref={toastRef}
       type="success"
       icon={<AppIcons.Success width={24} height={24} color={colors.success} />}
       message={t('common:changesUpdated')}
@@ -108,6 +122,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
 
   return (
     <Scrollable
+      accessibilityRefocus={false}
       toast={successToast}
       heading={t('checkInSettings:title')}
       scrollViewRef={scrollViewRef}>
@@ -115,6 +130,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
       <Spacing s={16} />
       <Card>
         <Dropdown
+          ref={ref1}
           label={t('county:label')}
           placeholder={t('county:dropdownPlaceholder')}
           items={counties}
@@ -125,49 +141,58 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
             onChange: setSearchTerm,
             noResults: t('county:noResults')
           }}
-          onValueChange={(value) =>
-            setProfile({...profile, saved: false, county: value})
-          }
+          onValueChange={(value) => {
+            setProfile({...profile, saved: false, county: value});
+            setAccessibilityFocusRef(ref1);
+          }}
         />
         <Separator />
         <Dropdown
+          ref={ref2}
           label={t('gender:label')}
           placeholder={t('gender:placeholder')}
           items={genderOptions}
           value={profile.gender}
-          onValueChange={(value) =>
-            setProfile({...profile, saved: false, gender: value})
-          }
+          onValueChange={(value) => {
+            setProfile({...profile, saved: false, gender: value});
+            setAccessibilityFocusRef(ref2);
+          }}
         />
         <Separator />
         <Dropdown
+          ref={ref3}
           label={t('ageRange:label')}
           placeholder={t('ageRange:placeholder')}
           items={ageRangeOptions}
           value={profile.ageRange}
-          onValueChange={(value) =>
-            setProfile({...profile, saved: false, ageRange: value})
-          }
+          onValueChange={(value) => {
+            setProfile({...profile, saved: false, ageRange: value});
+            setAccessibilityFocusRef(ref3);
+          }}
         />
         <Separator />
         <Dropdown
+          ref={ref4}
           label={t('race:label')}
           placeholder={t('race:placeholder')}
           items={raceOptions}
           value={profile.race}
-          onValueChange={(value) =>
-            setProfile({...profile, saved: false, race: value})
-          }
+          onValueChange={(value) => {
+            setProfile({...profile, saved: false, race: value});
+            setAccessibilityFocusRef(ref4);
+          }}
         />
         <Separator />
         <Dropdown
+          ref={ref5}
           label={t('ethnicity:label')}
           placeholder={t('ethnicity:placeholder')}
           items={ethnicityOptions}
           value={profile.ethnicity}
-          onValueChange={(value) =>
-            setProfile({...profile, saved: false, ethnicity: value})
-          }
+          onValueChange={(value) => {
+            setProfile({...profile, saved: false, ethnicity: value});
+            setAccessibilityFocusRef(ref5);
+          }}
         />
         <Spacing s={24} />
         <Button

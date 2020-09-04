@@ -29,11 +29,12 @@ export const Language = () => {
 
   return (
     <Scrollable heading={t('languageSettings:title')}>
-      <View>
+      <View accessibilityElementsHidden>
         <Markdown>{t('languageSettings:intro')}</Markdown>
       </View>
       <Spacing s={20} />
       <SelectList
+        title={t('languageSettings:intro')}
         items={languages}
         selectedValue={currentLanguage!.value}
         onItemSelected={(lang) => {
