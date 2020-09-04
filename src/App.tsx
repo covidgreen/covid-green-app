@@ -120,7 +120,7 @@ const Screens = (t: TFunction) => {
         title: t('viewNames:introduction'),
         headerShown: true,
         cardStyle: {
-          backgroundColor: colors.purple
+          backgroundColor: colors.background
         }
       }
     },

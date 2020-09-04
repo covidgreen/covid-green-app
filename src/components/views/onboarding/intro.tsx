@@ -33,59 +33,75 @@ export const Introduction: FC<any> = () => {
   });
 
   return (
-    <Scrollable scrollStyle={style.page}>
-      <View style={styles.fill}>
-        <View
-          ref={ref}
-          accessible
-          accessibilityRole="header"
-          accessibilityLabel={`${t('common:longName')}, ${content[0].title}`}
-          style={[style.top, styles.relative, styles.index1]}>
-          <Text style={[styles.title, styles.introTitle]}>
-            {content[0].title}
-          </Text>
-        </View>
-        <View style={styles.relative}>
-          <View style={[styles.sloped, styles.index0]} />
-          <Step1
-            width={213}
-            height={145}
-            style={[styles.slopeIcon, styles.index2]}
-          />
-        </View>
-        <Spacing s={20} />
-        {content.map(({list}, index) => (
-          <View key={`c-${index}`} style={styles.block}>
-            {list.map((item: string, l: number) => (
-              <View
-                key={`l-${l}`}
-                style={[styles.list, styles.center, style.horizontal]}>
-                <View style={styles.dot} />
-                <View style={styles.listContent}>
-                  <Text style={styles.text}>{item}</Text>
-                </View>
-              </View>
-            ))}
+    <>
+      {/**
+       * In order to prevent scrollign the purple scollview over a gray background,
+       * we're going to add a view that has a purple background and occupies hald of the screen
+       * (should be enough to make the scroll behave correctly)
+       */}
+      <View style={style.topHalfPage} />
+      <Scrollable scrollStyle={style.page}>
+        <View style={styles.fill}>
+          <View
+            ref={ref}
+            accessible
+            accessibilityRole="header"
+            accessibilityLabel={`${t('common:longName')}, ${content[0].title}`}
+            style={[style.top, styles.relative, styles.index1]}>
+            <Text style={[styles.title, styles.introTitle]}>
+              {content[0].title}
+            </Text>
           </View>
-        ))}
-        <Markdown style={style.horizontal}>
-          {t('onboarding:introduction:disclaimer')}
-        </Markdown>
-        <Spacing s={20} />
-      </View>
-      <View style={style.horizontal}>
-        <Button onPress={() => nav.navigate(ScreenNames.Permissions)}>
-          {t('onboarding:introduction:continueAction')}
-        </Button>
-        <Spacing s={12} />
-        <LearnHowItWorks />
-      </View>
-      <Spacing s={50} />
-    </Scrollable>
+          <View style={styles.relative}>
+            <View style={[styles.sloped, styles.index0]} />
+            <Step1
+              width={213}
+              height={145}
+              style={[styles.slopeIcon, styles.index2]}
+            />
+          </View>
+          <Spacing s={20} />
+          {content.map(({list}, index) => (
+            <View key={`c-${index}`} style={styles.block}>
+              {list.map((item: string, l: number) => (
+                <View
+                  key={`l-${l}`}
+                  style={[styles.list, styles.center, style.horizontal]}>
+                  <View style={styles.dot} />
+                  <View style={styles.listContent}>
+                    <Text style={styles.text}>{item}</Text>
+                  </View>
+                </View>
+              ))}
+            </View>
+          ))}
+          <Markdown style={style.horizontal}>
+            {t('onboarding:introduction:disclaimer')}
+          </Markdown>
+          <Spacing s={20} />
+        </View>
+        <View style={style.horizontal}>
+          <Button onPress={() => nav.navigate(ScreenNames.Permissions)}>
+            {t('onboarding:introduction:continueAction')}
+          </Button>
+          <Spacing s={12} />
+          <LearnHowItWorks />
+        </View>
+        <Spacing s={50} />
+      </Scrollable>
+    </>
   );
 };
 
 const style = StyleSheet.create({
+  topHalfPage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: colors.purple,
+    height: '50%'
+  },
   page: {
     paddingHorizontal: 0,
     paddingTop: 0,
