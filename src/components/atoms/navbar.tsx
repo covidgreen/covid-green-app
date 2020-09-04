@@ -88,7 +88,9 @@ export const NavBar: FC<NavBarProps> = ({
               accessibilityRole="button"
               accessibilityHint={t('navbar:backHint')}
               onPress={() => navigation.goBack()}>
-              <View hitSlop={{left: 10, right: 20}} style={styles.back}>
+              <View
+                hitSlop={{left: 12, right: 12, top: 8, bottom: 8}}
+                style={styles.back}>
                 {!modal && (
                   <>
                     <AppIcons.Back
