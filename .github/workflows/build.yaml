@@ -186,7 +186,8 @@ jobs:
               "KEY_DOWNLOAD_HOST": "${{ secrets.KEY_DOWNLOAD_HOST }}",
               "SIGNING_KEY_P12_PASSWORD": "${{ secrets.SIGNING_KEY_P12_PASSWORD }}",
               "FASTLANE_USER": "${{ secrets.FASTLANE_USER }}",
-              "FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD": "${{ secrets.FASTLANE_PASSWORD }}",
+              "FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD": "${{ secrets.FASTLANE_APP_PASSWORD }}",
+              "FASTLANE_PASSWORD": "${{ secrets.FASTLANE_PASSWORD }}",
               "CODEPUSH_KEY": "${{ secrets.CODEPUSH_KEY }}",
               "SAFETYNET_KEY": "${{ secrets.SAFETYNET_KEY }}"              
             }
@@ -224,6 +225,8 @@ jobs:
       - name: Setup Fastlane Spaceauth session
         env:
           FASTLANE_USER: "${{ secrets.FASTLANE_USER }}"
+          FASTLANE_PASSWORD: "${{ secrets.FASTLANE_PASSWORD }}"
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: "${{ secrets.FASTLANE_APP_PASSWORD }}"
         run: |
           cd ios
           . .env.default
@@ -231,6 +234,9 @@ jobs:
           echo "${{ secrets.FASTLANE_SESSION_FILE }}" | base64 -d -o ~/.fastlane/spaceship/${FASTLANE_USER}/cookie
           fastlane spaceauth -u $FASTLANE_USER |grep export | sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g' |sed s/export\ // > fastlane_session.sh
           . ./fastlane_session.sh
+          if [ -z "$FASTLANE_SESSION" ]; then
+            exit 1
+          fi
           echo "##[set-env name=FASTLANE_SESSION;]$FASTLANE_SESSION"
 
       - name: Setup Version variable
