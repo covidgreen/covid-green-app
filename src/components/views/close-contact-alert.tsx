@@ -42,7 +42,7 @@ export const CloseContactAlert: FC = () => {
           new Date(Number(contacts[0].exposureAlertDate)),
           contacts[0].daysSinceLastExposure
         );
-        setCloseContactDate(format(exposureDate, 'MMMM dd, yyyy', dateLocale));
+        setCloseContactDate(format(exposureDate, 'MMMM d, yyyy', dateLocale));
       }
     }
     getCloseContactDate();
