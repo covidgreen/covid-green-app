@@ -36,12 +36,10 @@ export function CheckInIntro() {
     countiesOptions
   } = useDbText();
   const {getNextScreen} = useSymptomChecker();
-  const [ref1, ref2, ref3, ref4, ref5] = useFocusRef(
-    {
-      accessibilityRefocus: false
-    },
-    5
-  );
+  const [ref1, ref2, ref3, ref4, ref5] = useFocusRef({
+    count: 5,
+    timeout: 1000
+  });
 
   const [state, setState] = useState<IntroState>({
     gender: (app.user && app.user.gender) || '',

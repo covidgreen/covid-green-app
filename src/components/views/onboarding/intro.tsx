@@ -26,7 +26,7 @@ import {styles} from './styles';
 export const Introduction: FC<any> = () => {
   const {t} = useTranslation();
   const nav = useNavigation();
-  const [ref] = useFocusRef();
+  const [ref] = useFocusRef({accessibilityRefocus: true});
 
   const content: Content[] = t('onboarding:introduction:blocks', {
     returnObjects: true
@@ -60,13 +60,23 @@ export const Introduction: FC<any> = () => {
               style={[styles.slopeIcon, styles.index2]}
             />
           </View>
-          <Spacing s={20} />
+          <Spacing s={12} />
           {content.map(({list}, index) => (
-            <View key={`c-${index}`} style={styles.block}>
+            <View
+              key={`c-${index}`}
+              style={[
+                styles.block,
+                index === content.length - 1 && style.noBottomMargin
+              ]}>
               {list.map((item: string, l: number) => (
                 <View
                   key={`l-${l}`}
-                  style={[styles.list, styles.center, style.horizontal]}>
+                  style={[
+                    styles.list,
+                    styles.center,
+                    style.horizontal,
+                    l === list.length - 1 && style.noBottomMargin
+                  ]}>
                   <View style={styles.dot} />
                   <View style={styles.listContent}>
                     <Text style={styles.text}>{item}</Text>
@@ -75,10 +85,11 @@ export const Introduction: FC<any> = () => {
               ))}
             </View>
           ))}
+          <Spacing s={12} />
           <Markdown style={style.horizontal}>
             {t('onboarding:introduction:disclaimer')}
           </Markdown>
-          <Spacing s={20} />
+          <Spacing s={4} />
         </View>
         <View style={style.horizontal}>
           <Button onPress={() => nav.navigate(ScreenNames.Permissions)}>
@@ -116,5 +127,8 @@ const style = StyleSheet.create({
   },
   horizontal: {
     paddingHorizontal: SPACING_HORIZONTAL
+  },
+  noBottomMargin: {
+    marginBottom: 0
   }
 });

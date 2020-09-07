@@ -5,6 +5,8 @@ import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 interface FocusRefProps {
   accessibilityFocus?: boolean;
   accessibilityRefocus?: boolean;
+  count?: number;
+  timeout?: number;
 }
 
 export function setAccessibilityFocusRef(ref: RefObject<any>) {
@@ -19,10 +21,14 @@ export function setAccessibilityFocusRef(ref: RefObject<any>) {
 }
 
 export function useFocusRef<T = any>(
-  props: FocusRefProps = {accessibilityFocus: true, accessibilityRefocus: true},
-  count: number = 1
+  props: FocusRefProps = {}
 ): RefObject<T>[] {
-  const {accessibilityFocus, accessibilityRefocus} = props;
+  const {
+    accessibilityFocus = true,
+    accessibilityRefocus = false,
+    count = 1,
+    timeout = 250
+  } = props;
   const refs = useMemo(
     () => Array.from({length: count}).map(() => createRef<any>()),
     [count]
@@ -41,11 +47,11 @@ export function useFocusRef<T = any>(
           setTimeout(
             () =>
               firstRef.current && AccessibilityInfo.setAccessibilityFocus(tag),
-            250
+            timeout
           );
       }
     }
-  }, [accessibilityFocus, refs]);
+  }, [accessibilityFocus, timeout, refs]);
 
   useFocusEffect(
     useCallback(() => {
@@ -60,11 +66,11 @@ export function useFocusRef<T = any>(
               () =>
                 firstRef.current &&
                 AccessibilityInfo.setAccessibilityFocus(tag),
-              250
+              timeout
             );
         }
       }
-    }, [accessibilityFocus, accessibilityRefocus, isFocused, refs])
+    }, [accessibilityFocus, accessibilityRefocus, timeout, isFocused, refs])
   );
 
   return refs;

@@ -46,9 +46,9 @@
   },
   "navbar": {
     "settings": "Paramèt",
-    "settingsHint": "Gade oswa chanje paramèt aplikasyon an",
     "back": "Retounen",
-    "backHint": "Navige tounen nan ekran anvan an"
+    "backHint": "Navige tounen nan ekran anvan an",
+    "share": "Pataje aplikasyon sa a avèk zanmi."
   },
   "tabBar": {
     "updates": "Done COVID Mwen yo",

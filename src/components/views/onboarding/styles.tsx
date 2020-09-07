@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
   },
   list: {
     flexDirection: 'row',
-    marginBottom: 15
+    marginBottom: 16
   },
   listIcon: {
     marginRight: 10

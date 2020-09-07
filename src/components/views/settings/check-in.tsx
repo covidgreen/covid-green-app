@@ -41,12 +41,10 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
     countiesOptions
   } = useDbText();
   const app = useApplication();
-  const [toastRef, ref1, ref2, ref3, ref4, ref5] = useFocusRef(
-    {
-      accessibilityRefocus: false
-    },
-    6
-  );
+  const [toastRef, ref1, ref2, ref3, ref4, ref5] = useFocusRef({
+    count: 6,
+    timeout: 1000
+  });
   const {getNextScreen} = useSymptomChecker();
 
   const scrollViewRef = useRef<ScrollView>(null);

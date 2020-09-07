@@ -39,10 +39,11 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const [appState] = useAppState();
   const isFocused = useIsFocused();
   const exposure = useExposure();
-  const [ref1, ref2, ref3, ref4] = useFocusRef(
-    {accessibilityFocus: true, accessibilityRefocus: true},
-    4
-  );
+  const [ref1, ref2, ref3, ref4] = useFocusRef({
+    accessibilityFocus: true,
+    accessibilityRefocus: true,
+    count: 4
+  });
   const {getNextScreen} = useSymptomChecker();
 
   useFocusEffect(

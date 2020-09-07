@@ -66,7 +66,10 @@ export const Button: React.FC<ButtonProps> = ({
     : {
         onPressIn: () => setPressed(true),
         onPressOut: () => setPressed(false),
-        onPress
+        onPress: () => {
+          setPressed(false);
+          onPress();
+        }
       };
 
   return (

@@ -46,9 +46,9 @@
   },
   "navbar": {
     "settings": "설정",
-    "settingsHint": "앱 설정 보기 또는 수정하기",
     "back": "뒤로",
-    "backHint": "이전 화면으로 돌아가기"
+    "backHint": "이전 화면으로 돌아가기",
+    "share": "이 앱을 친구들과 공유하기."
   },
   "tabBar": {
     "updates": "NY COVID 데이터",

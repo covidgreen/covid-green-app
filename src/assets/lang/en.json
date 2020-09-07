@@ -49,18 +49,13 @@
   "navbar": {
     "back": "Back",
     "backHint": "Navigate back to previous screen",
-    "share": "Share",
-    "shareText": "Share this app with friends.\nHelp keep NY Safe."
+    "share": "Share this app with friends."
   },
   "tabBar": {
     "updates": "NY COVID Data",
-    "updatesHint": "NY figures",
     "symptomCheck": "My Health Log",
-    "symptomCheckHint": "Log your symptoms",
     "contactTracing": "My COVID Alerts",
-    "contactTracingHint": "Closeness settinngs info",
-    "settings": "App\nSettings",
-    "settingsHint": "View or update app settigns"
+    "settings": "App\nSettings"
   },
   "onboarding": {
     "introduction": {
@@ -107,7 +102,6 @@
       "next": "Next",
       "nextHint": "Go to next page",
       "close": "Close",
-      "pageSelector": "Page selector",
       "currentPage": "Page {{page}} of {{total}}"
     },
     "intro": {

@@ -46,9 +46,9 @@
   },
   "navbar": {
     "settings": "Configuración",
-    "settingsHint": "Ver o modificar las configuraciones de la aplicación",
     "back": "Atrás",
-    "backHint": "Volver a la pantalla anterior"
+    "backHint": "Volver a la pantalla anterior",
+    "share": "Comparta esta aplicación con sus amigos."
   },
   "tabBar": {
     "updates": "Datos de COVID en NY",

@@ -52,7 +52,6 @@ export const SymptomsHistory: FC<any> = ({navigation}) => {
       headingShort
       safeArea={false}
       backgroundColor={colors.background}>
-      <Spacing s={20} />
       <Heading text={t('symptomsHistory:title')} />
       {!completedChecker && (
         <>
