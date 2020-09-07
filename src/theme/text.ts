@@ -6,7 +6,7 @@ export default (scale: (v: number) => number): {[key: string]: TextStyle} => ({
     fontFamily: 'System',
     fontSize: scale(14),
     color: colors.text,
-    lineHeight: 21
+    lineHeight: scale(14)
   },
   default: {
     fontFamily: 'System',
