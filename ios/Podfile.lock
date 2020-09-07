@@ -632,7 +632,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: cde416483dac037923206447da6e1454df403714
+  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   EXConstants: f907b3b6ce16e20d1750f22af1e095e924574bcb
   EXCrypto: 867e1d45d513e39ab9d7706232435edb1cf756cd
   EXFileSystem: 76875135b61708b9afa7e6a89b72a60ba0fdfa20
@@ -653,7 +653,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 3c520c951305cbf9ca54eb891ff9e6d1fd384881
   FirebaseRemoteConfig: a7d272194b5336a66ca3e35beb5de67f18c79b91
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
-  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
+  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   GoogleDataTransport: 672fb0ce96fe7f7f31d43672fca62ad2c9c86f7b
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
