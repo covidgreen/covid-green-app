@@ -27,7 +27,7 @@ export const Card = forwardRef<any, CardProps>(
   (
     {
       type,
-      padding: {h = 24, v = 20, r} = {},
+      padding: {h = 16, v = 12, r} = {},
       icon,
       onPress,
       children,
@@ -59,8 +59,8 @@ export const Card = forwardRef<any, CardProps>(
         {onPress && (
           <View style={styles.row}>
             <AppIcons.ArrowRight
-              width={18}
-              height={18}
+              width={24}
+              height={24}
               color={
                 arrowColor
                   ? arrowColor

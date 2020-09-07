@@ -74,7 +74,9 @@ export const ContactTracingSettings: FC = () => {
     (Platform.OS === 'android' || isAuthorised === AuthorisedStatus.unknown);
 
   return (
-    <KeyboardScrollable heading={t('myCovidAlerts:title')}>
+    <KeyboardScrollable
+      heading={t('myCovidAlerts:title')}
+      backgroundColor={colors.background}>
       <Text style={text.defaultBold}>{t('settings:status:title')}</Text>
       <Spacing s={12} />
       <Text style={text.largeBold}>

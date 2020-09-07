@@ -143,7 +143,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   return (
     <Scrollable
       heading={t('settings:title')}
-      backgroundColor="#FAFAFA"
+      backgroundColor={colors.background}
       scrollStyle={styles.scroll}>
       {settings.map((settingsList, listIndex) => (
         <Fragment key={`list-${listIndex}`}>
