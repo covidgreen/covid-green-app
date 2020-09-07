@@ -71,7 +71,7 @@
       ],
       "disclaimer": "**We don’t collect info that can identify you. Your identity and location are always confidential.**",
       "learnAction": "Learn how it works",
-      "continueAction": "Get started"
+      "continueAction": "Get Started"
     },
     "permissions": {
       "title": "Set Up Closeness Sensing for COVID Alerts",
@@ -84,18 +84,18 @@
         "Shares your phone number.",
         "Reveals your identity"
       ],
-      "statement": "You can change your mind at any time by going to App Settings",
+      "statement": "You can change your mind at any time by going to App Settings.",
       "learnAction": "Learn how it works",
       "skipAction": "Skip for now",
       "continueAction": "Next"
     },
     "tour": {
-      "title": "How it works",
+      "title": "How It Works",
       "statements": [
         "As you go about your day, the app uses Bluetooth to sense when you spend more than 10 minutes within 6 feet of another person with the app.\n\nThis is “close contact”. It’s long enough and close enough for you to catch the virus.\n\nThe app ignores people who just pass by or stand more than 6 feet away from you. You’ll never get any alerts because of them.",
         "When your app senses the close contact, your phone exchanges a secure random code with the other person’s phone. Your phone stores this close contact code in a list.\n\nThe codes are random and don’t reveal any information about you or the other person. The app doesn’t collect or share any names, locations, or phone numbers.",
         "If you test positive for COVID-19, a public health representative will call you as soon as possible.\n\nThe representative will ask if you’re willing to share your app’s list of close contact codes to help protect other people.\n\nSharing your list is secure and private. The app never reveals who you are to anyone.",
-        "Each day, every phone that has the app compares its own list of close contact codes to the list of \"infected\" codes.\n\nIf there's a match, the app displays a COVID Alert."
+        "Each day, every phone that has the app compares its own list of close contact codes to the list of \"infected\" codes.\n\nIf there's a match, the app will display a COVID Alert."
       ],
       "previous": "Previous",
       "previousHint": "Go to previous page",
@@ -164,7 +164,7 @@
   "checker": {
     "title": "My Health Log",
     "resultTitle": "Thank you",
-    "feelingWell": "I am feeling well today",
+    "feelingWell": "I'm feeling well",
     "symptoms": {
       "subtitle": "Do you have any of the following 11 symptoms today?",
       "nextButton": "Continue",
@@ -176,7 +176,7 @@
       "congestion": "Congestion or runny nose",
       "aches": "Muscle aches or body aches",
       "headache": "Headache",
-      "nausea": "Nausea or Vomiting",
+      "nausea": "Nausea or vomiting",
       "diarrhea": "Diarrhea",
       "taste": "New loss of taste or smell"
     },
@@ -189,17 +189,17 @@
       "callEmergency": "If it's an emergency,\ncall 911 right away.",
       "coronavirus2": "Signs of an emergency include:\n\n  * Trouble breathing\n  * Persistent pain or pressure in the chest\n  * New confusion\n  * Inability to wake or stay awake\n  * Bluish lips or face",
       "viewLog": "Done",
-      "callHelp": "If you need more help,\nCall NYS Health Hotline"
+      "callHelp": "If you need more help,\ncall NYS Health Hotline"
     },
     "introTitle": "My Health Log",
-    "introOptional": "All responses are optional. They will only be used anonymously for public health analysis.",
+    "introOptional": "All responses are optional and anonymous. The info is used only for public health analysis.",
     "introButton": "Continue",
     "noresults": "You haven't tried the symptom checker yet. Start now by tapping the button above"
   },
   "welcome": {
     "title": "Hi there 👋",
-    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. Your symptoms data helps them understand how COVID-19 is affecting NY.\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
-    "action": "Yes I'd like to start my log",
+    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. **Your symptoms data helps them understand how COVID-19 is affecting NY.**\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
+    "action": "Yes, I'd Like to Start My Log",
     "letUsKnow": "Let us know if you have\nsymptoms today"
   },
   "settings": {
@@ -252,7 +252,7 @@
   },
   "checkInSettings": {
     "title": "My Health Log",
-    "checkInFirst": "Your settings will be visible here as soon as you do your first log.",
+    "checkInFirst": "Basic details you provide about yourself, such as your age and gender, can be changed here after you make your first log entry.",
     "intro": "You shared the following information with us about yourself. You can change these selections at any time.",
     "gotoCheckIn": "Go to My Health Log"
   },
@@ -348,7 +348,7 @@
   "closeContactInfo": {
     "title": "How to Keep Others Safe",
     "info": "**To limit the risk of spreading COVID-19 to your family and community, please take the following precautions until you’ve been cleared by a public health professional:**",
-    "list": "1. **Stay home, except to get health care.**\n\n2. **Call ahead if you must leave to get health care.**\nWear a face mask when you go and avoid using public transportation such as subways, buses, taxis.\n\n3. **Separate yourself**\nStay in a room that is not shared with others and keep your door closed. Sleep by yourself. Stay at least 6 feet away from others at all times, even your family.\n\n4. **Don’t have visitors.**\nKeep others from entering without your permission.\n\n5. **Use a separate bathroom.**\nIf not possible, clean and disinfect all surfaces after each use.\n\n6. **Have food brought to you.**\nArrange for food, medicine, and other supplies to be left at your door.\n\n7. **Cover your coughs and sneezes.**\nThrow away used tissues. Bag your trash and leave outside your door. (No special handling is needed.)\n\n8. **Don’t touch pets.**\n\n9. **Arrange for others to care for your children, if possible.**\n\n10. **Wash your hands often** with soap and water for 20 seconds each time, or if unavailable, use hand sanitizer with at least 60% alcohol. Use paper towels instead of shared towels.\n\n11. **Get tested.**\nTalk to your Healthcare Provider to schedule an appointment at a publically accessible testing site.\n[Find a site near you.](https://coronavirus.health.ny.gov/find-test-site-near-you)\n\n12. **Monitor your temperature and symptoms carefully.**\nYou can keep track of them in the \"My Health Log\" feature of this app or another way. A daily log helps public health representatives figure out the next steps if you get sick."
+    "list": "1. **Stay home, except to get health care.**\n\n2. **Call ahead if you must leave to get health care.**\nWear a face mask when you go and avoid using public transportation such as subways, buses, taxis.\n\n3. **Separate yourself.**\nStay in a room that's not shared with others and keep your door closed. Sleep by yourself. Stay at least 6 feet away from others at all times, even your family.\n\n4. **Don’t have visitors.**\nKeep others from entering without your permission.\n\n5. **Use a separate bathroom.**\nIf you must share one, clean and disinfect all surfaces after each use.\n\n6. **Have food brought to you.**\nArrange for food, medicine, and other supplies to be left at your door.\n\n7. **Cover your coughs and sneezes.**\nThrow away used tissues. Bag your trash and leave it outside your door. (No special handling is needed.)\n\n8. **Don’t touch pets.**\n\n9. **Arrange for others to care for your children, if possible.**\n\n10. **Wash your hands often.**\nWash with soap and water for 20 seconds. If that’s not possible, use hand sanitizer with at least 60% alcohol. Dry with paper towels instead of shared towels.\n\n11. **Get tested.**\nTalk to your healthcare provider to schedule an appointment at a publically accessible testing site.\n[Find a site near you.](https://coronavirus.health.ny.gov/find-test-site-near-you)\n\n12. **Monitor your temperature and symptoms carefully.**\nYou can keep track of them in the \"My Health Log\" feature of this app or another way. A daily log helps public health representatives figure out the next steps if you get sick."
   },
   "closeContactAlert": {
     "intro": "**The app has detected that on {{exposureDate}} someone who tested positive for COVID-19 was within 6 feet of you for over 10 minutes.**",
@@ -483,10 +483,10 @@
     }
   },
   "positiveResult": {
-    "title": "If you test positive for COVID-19",
+    "title": "If You Test Positive for COVID-19",
     "text1": "If you test positive for COVID-19, the first thing you should do is **stay at home** and **isolate yourself** to keep others safe.",
     "text2": "A public health representative will call you as soon as possible. They’ll offer you help with getting medical attention and dealing with challenges you may face, such as how to get food and medicine while you’re isolating.\n\nThe representative will also ask if you’re willing to share your app’s list of close contact codes. If so, the app can send an anonymous COVID Alert to other app users who recently spent more than 10 minutes within 6 feet of you.\n\nSharing your list is secure and private. The app never reveals who you are to anyone.\n",
-    "shareCodes": "Share your Close Contact Codes"
+    "shareCodes": "Share Your Close Contact Codes"
   },
   "languageSettings": {
     "title": "My Language",

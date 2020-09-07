@@ -38,7 +38,7 @@ export const PinnedBottom: FC<LayoutProps> = ({children, heading}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.background,
     justifyContent: 'space-between',
     paddingTop: SPACING_TOP,
     paddingHorizontal: SPACING_HORIZONTAL
