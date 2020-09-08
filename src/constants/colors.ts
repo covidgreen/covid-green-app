@@ -51,7 +51,7 @@ export const colors = {
     default: {
       text: white,
       background: purple,
-      shadow: '#000000'
+      shadow: '#392253'
     },
     secondary: {
       text: purple,
