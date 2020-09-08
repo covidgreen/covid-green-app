@@ -14,6 +14,7 @@ import Success from './app/success.svg';
 import Filter from './app/filter.svg';
 import Selected from './app/selected.svg';
 import ErrorWarning from './app/error-warning.svg';
+import Search from './app/search.svg';
 
 // bubble
 import BubbleCheckIn from './bubble/check-in.svg';
@@ -77,7 +78,8 @@ export const AppIcons = {
   Success,
   Filter,
   Selected,
-  ErrorWarning
+  ErrorWarning,
+  Search
 };
 
 export const BubbleIcons = {

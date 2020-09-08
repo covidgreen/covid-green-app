@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, ReactNode} from 'react';
 import {
   Platform,
   StyleSheet,
@@ -35,8 +35,9 @@ interface DropdownModalProps extends Partial<ModalProps> {
     onChange: (value: string) => void;
     noResults: string;
   };
-  itemRenderer?: (item: BasicItem) => React.ReactNode;
-  instructions?: () => React.ReactNode;
+  itemRenderer?: (item: BasicItem) => ReactNode;
+  instructions?: () => ReactNode;
+  icon?: ReactNode;
 }
 
 export const DropdownModal: React.FC<DropdownModalProps> = ({
@@ -48,7 +49,8 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
   onClose,
   search,
   itemRenderer,
-  instructions
+  instructions,
+  icon
 }) => {
   const {t} = useTranslation();
   const insets = useSafeArea();
@@ -164,6 +166,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
           <>
             <Spacing s={12} />
             <View style={styles.search}>
+              {icon && <View style={styles.icon}>{icon}</View>}
               <TextInput
                 ref={searchInputRef}
                 accessibilityRole="search"
@@ -216,16 +219,20 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   search: {
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: colors.dot
   },
   searchInput: {
     ...text.default,
-    marginHorizontal: 32
   },
   searchUnderlined: {
     textDecorationLine: 'underline'
+  },
+  icon: {
+    paddingHorizontal: 16
   }
 });
 
