@@ -135,15 +135,11 @@ const Tour: FC<any> = () => {
           })}>
           {statements.map((_, index) =>
             position === index ? (
-              <View
-                key={index}
-                style={[styles.dot, {backgroundColor: colors.purple}]}>
+              <View key={index} style={[styles.dot, styles.activeDot]}>
                 <View style={styles.innerDot} />
               </View>
             ) : (
-              <View key={index} style={[styles.dot]}>
-                <View style={styles.innerDot} />
-              </View>
+              <View key={index} style={styles.dot} />
             )
           )}
         </View>
@@ -281,10 +277,16 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 12,
-    backgroundColor: colors.darkGray,
+    backgroundColor: colors.darkestGray,
     marginRight: 8,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  activeDot: {
+    width: 16,
+    height: 16,
+    borderRadius: 16,
+    backgroundColor: colors.purple
   },
   innerDot: {
     width: 4,

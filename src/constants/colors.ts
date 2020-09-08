@@ -41,7 +41,8 @@ export const colors = {
   red,
   teal,
   gray: '#F5F5F5', // review - only input
-  darkGray: '#96989B', // review - only input
+  darkGray: '#96989B', // review - only input,
+  darkestGray: '#5F5F5F',
   dot: '#D8D8D8',
   selectedDot: '#2E2E2E',
   success: '#00CF68', // only 1 usage?
