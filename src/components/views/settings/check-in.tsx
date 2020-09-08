@@ -129,6 +129,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
       <Card>
         <Dropdown
           ref={ref1}
+          icon={<AppIcons.Search width={20} height={20} />}
           label={t('county:label')}
           placeholder={t('county:dropdownPlaceholder')}
           items={counties}

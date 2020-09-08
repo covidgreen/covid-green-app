@@ -4,6 +4,7 @@ import {TFunction} from 'i18next';
 
 import {SelectorDropdown} from 'components/atoms/dropdown';
 import {counties} from 'assets/counties';
+import {AppIcons} from "assets/icons";
 
 interface CountyOption {
   label: string;
@@ -63,6 +64,7 @@ export const CountyDropdown: FC<CountyDropdownProps> = ({
 
   return (
     <SelectorDropdown
+      icon={<AppIcons.Search width={20} height={20} />}
       label={t('county:label')}
       modalPlaceholder={t('county:dropdownPlaceholder')}
       items={withAllCounties(t, countyItems)}
