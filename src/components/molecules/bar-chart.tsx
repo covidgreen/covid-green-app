@@ -71,7 +71,6 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   days = 30,
   yMin = 5,
   ySuffix = '',
-  intervalsCount = 6,
   primaryColor = '#CD4000',
   secondaryColor = '#ACAFC4',
   backgroundColor = colors.white
@@ -79,6 +78,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   const {t, i18n} = useTranslation();
   const dateLocale = getDateLocaleOptions(i18n);
   const wideMonthLocales = ['bn'];
+  const intervalsCount = axisData.length < 30 ? 7 : 6;
 
   const daysLimit = Math.min(days, chartData.length);
 
