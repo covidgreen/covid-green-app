@@ -61,6 +61,10 @@ export const Button: React.FC<ButtonProps> = ({
     }
   }
 
+  if (type === 'default') {
+    backgroundColor += 'B3';
+  }
+
   const pressHandlers = disabled
     ? {}
     : {
