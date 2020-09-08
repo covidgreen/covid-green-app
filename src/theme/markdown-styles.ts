@@ -12,10 +12,10 @@ export default (text: Styles): Styles => ({
   text: {
     ...text.default,
     flexWrap: 'wrap',
-    marginBottom: 8
+    margin: 0
   },
   block: {
-    marginBottom: 8
+    marginBottom: 16
   },
   link: {
     ...text.defaultBoldBlue

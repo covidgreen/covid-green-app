@@ -1,5 +1,13 @@
-import React, {ReactNode} from 'react';
-import {Text, StyleSheet, Linking} from 'react-native';
+import React, {ReactNode, useEffect, useState} from 'react';
+import {
+  Text,
+  StyleSheet,
+  Linking,
+  AccessibilityInfo,
+  TouchableWithoutFeedback,
+  AppState,
+  Platform
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import * as WebBrowser from 'expo-web-browser';
 import M from 'react-native-easy-markdown';
@@ -37,10 +45,13 @@ const MarkdownLink = (
   title: string,
   children: any,
   key: string,
-  navigation: any
+  navigation: any,
+  androidScreenReaderEnabled: boolean
 ) => {
   const isHttp = href.startsWith('http');
   const isTel = href.startsWith('tel');
+
+  // Markdown titles like [text](http://site.com "Title here") will be override default accessibility labels
 
   if (isHttp || isTel) {
     const handle = isTel
@@ -55,15 +66,33 @@ const MarkdownLink = (
           });
         };
 
-    return (
-      <Text key={key} onPress={handle}>
+    return androidScreenReaderEnabled ? (
+      <TouchableWithoutFeedback
+        key={key}
+        accessibilityRole="link"
+        accessibilityHint={title}
+        accessibilityLabel={childrenAsText(children)}
+        onPress={handle}>
+        <Text>{children}</Text>
+      </TouchableWithoutFeedback>
+    ) : (
+      <Text
+        key={key}
+        accessible={true}
+        accessibilityRole="link"
+        accessibilityHint={title}
+        onPress={handle}>
         {children}
       </Text>
     );
   }
 
   return (
-    <Link key={key} onPress={() => navigation.navigate(href)}>
+    <Link
+      key={key}
+      onPress={() => navigation.navigate(href)}
+      a11yHint={title}
+      a11yRole="button">
       {children}
     </Link>
   );
@@ -79,8 +108,32 @@ export const Markdown: React.FC<Markdown> = ({
 }) => {
   const navigation = useNavigation();
 
+  const [androidScreenReaderEnabled, setAndroidScreenReaderEnabled] = useState(
+    false
+  );
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      const checkScreenReader = () =>
+        AccessibilityInfo.isScreenReaderEnabled().then((enabled) =>
+          setAndroidScreenReaderEnabled(enabled)
+        );
+      // Re-check state on app refocus to catch changes to device settings
+      AppState.addEventListener('change', checkScreenReader);
+      checkScreenReader();
+      return () => AppState.removeEventListener('change', checkScreenReader);
+    }
+  }, []);
+
   const defaultRenderLink: RenderLink = (href, title, children, key) =>
-    MarkdownLink(href, title, children, key, navigation);
+    MarkdownLink(
+      href,
+      title,
+      children,
+      key,
+      navigation,
+      androidScreenReaderEnabled
+    );
 
   const combinedStyles = {
     ...defaultMarkdownStylesheet,

@@ -11,6 +11,7 @@ import {text as textStyles, colors} from 'theme';
 
 interface LinkProps {
   a11yRole?: 'link' | 'button';
+  a11yHint?: string;
   style?: ViewStyle;
   Icon?: ReactNode;
   text?: string;
@@ -24,6 +25,7 @@ export const Link: React.FC<LinkProps> = React.forwardRef(
   (
     {
       a11yRole = 'button',
+      a11yHint,
       style,
       Icon,
       text,
@@ -41,6 +43,7 @@ export const Link: React.FC<LinkProps> = React.forwardRef(
         <TouchableWithoutFeedback
           ref={ref}
           accessibilityRole={a11yRole}
+          accessibilityHint={a11yHint}
           onPress={onPress}>
           <Text
             onPress={() => onPress}
