@@ -21,9 +21,13 @@ export const CheckInCard = forwardRef<any, CheckInCardProps>(
         <View style={styles.row}>
           <View>
             {!inChecker && (
-              <Text style={text.largeBold}>{t('checker:title')}</Text>
+              <Text maxFontSizeMultiplier={1.7} style={text.largeBold}>
+                {t('checker:title')}
+              </Text>
             )}
-            <Text style={[text.largeBold, styles.symptoms]}>
+            <Text
+              maxFontSizeMultiplier={1.7}
+              style={[text.largeBold, styles.symptoms]}>
               {t('welcome:letUsKnow')}
             </Text>
           </View>

@@ -48,7 +48,9 @@ export const Introduction: FC<any> = () => {
             accessibilityRole="header"
             accessibilityLabel={`${t('common:longName')}, ${content[0].title}`}
             style={[style.top, styles.relative, styles.index1]}>
-            <Text style={[styles.title, styles.introTitle]}>
+            <Text
+              maxFontSizeMultiplier={1.7}
+              style={[styles.title, styles.introTitle]}>
               {content[0].title}
             </Text>
           </View>
@@ -79,7 +81,9 @@ export const Introduction: FC<any> = () => {
                   ]}>
                   <View style={styles.dot} />
                   <View style={styles.listContent}>
-                    <Text style={styles.text}>{item}</Text>
+                    <Text maxFontSizeMultiplier={2} style={styles.text}>
+                      {item}
+                    </Text>
                   </View>
                 </View>
               ))}

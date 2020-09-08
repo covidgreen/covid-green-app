@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   fill: {
-    flex: 1
+    flex: 2
   },
   row: {
     flexDirection: 'row',
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   details: {
-    flex: 10
+    flex: 15
   },
   viewPager: {
     flex: 1,
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderTopWidth: 1,
     borderColor: '#ededed',
-    paddingBottom: 15
+    paddingBottom: 30
   },
   left: {
     width: '30%',

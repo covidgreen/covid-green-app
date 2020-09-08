@@ -129,7 +129,8 @@ export const Permissions: FC<any> = () => {
           ref={ref}
           accessible
           accessibilityRole="header"
-          style={styles.title}>
+          style={styles.title}
+          maxFontSizeMultiplier={1.7}>
           {t('onboarding:permissions:title')}
         </Text>
         <Text style={styles.text}>{t('onboarding:permissions:line1')}</Text>
@@ -164,7 +165,7 @@ export const Permissions: FC<any> = () => {
           </View>
         </View>
         <View style={styles.statement}>
-          <Text style={styles.text}>
+          <Text maxFontSizeMultiplier={1.7} style={styles.text}>
             {t('onboarding:permissions:statement')}
           </Text>
         </View>

@@ -85,13 +85,18 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
             <View style={styles.content}>
               {label && (
                 <>
-                  <Text style={[text.default, {color: colors.text}]}>
+                  <Text
+                    maxFontSizeMultiplier={2}
+                    style={[text.default, {color: colors.text}]}>
                     {label}
                   </Text>
                   <Spacing s={8} />
                 </>
               )}
-              <Text numberOfLines={1} style={styles.displayValue}>
+              <Text
+                maxFontSizeMultiplier={1.5}
+                numberOfLines={1}
+                style={styles.displayValue}>
                 {displayValue}
               </Text>
             </View>

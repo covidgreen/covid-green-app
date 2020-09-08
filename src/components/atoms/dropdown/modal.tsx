@@ -156,7 +156,11 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
               </View>
             </TouchableWithoutFeedback>
           </View>
-          <Text ref={ref} accessibilityRole="header" style={text.small}>
+          <Text
+            maxFontSizeMultiplier={2.2}
+            ref={ref}
+            accessibilityRole="header"
+            style={text.small}>
             {title}
           </Text>
         </View>
