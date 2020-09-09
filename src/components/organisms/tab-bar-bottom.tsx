@@ -58,14 +58,7 @@ const ctOffSelected = (
   />
 );
 
-const ctAlertUnselected = (
-  <TabBarIcons.ContactTracing.Alert
-    width={32}
-    height={24}
-    color={colors.darkGray}
-  />
-);
-const ctAlertSelected = (
+const ctAlert = (
   <TabBarIcons.ContactTracing.Alert
     width={32}
     height={24}
@@ -116,12 +109,12 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
       label: t('tabBar:contactTracing'),
       icon: {
         inactive: hasAlerts
-          ? ctAlertUnselected
+          ? ctAlert
           : status.state === StatusState.active && enabled
           ? ctOnUnselected
           : ctOffUnselected,
         active: hasAlerts
-          ? ctAlertSelected
+          ? ctAlert
           : status.state === StatusState.active && enabled
           ? ctOnSelected
           : ctOffSelected
@@ -149,6 +142,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
       <View accessibilityRole="tablist" style={styles.tabBar}>
         {tabItems.map((tab, index) => {
           const isActive = state.index === index;
+          const isAlertsActive = isActive && index === 2 && hasAlerts;
           const routeName = state.routes[index] && state.routes[index].name;
           const hint = [`${index + 1} of ${tabItems.length}`, tab.hint].join(
             ','
@@ -162,11 +156,20 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
               accessibilityHint={hint}
               accessibilityState={{selected: isActive}}
               onPress={() => navigation.navigate(routeName)}>
-              <View style={[styles.tab, isActive ? styles.highlighted : {}]}>
+              <View
+                style={[
+                  styles.tab,
+                  isActive ? styles.highlighted : {},
+                  isAlertsActive && styles.alertsActive
+                ]}>
                 {getIcon(tab, isActive, status.state)}
                 <Text
                   allowFontScaling={false}
-                  style={[styles.label, isActive && styles.labelActive]}>
+                  style={[
+                    styles.label,
+                    isActive && styles.labelActive,
+                    isAlertsActive && styles.warningText
+                  ]}>
                   {tab.label}
                 </Text>
               </View>
@@ -214,5 +217,12 @@ const styles = StyleSheet.create({
   highlighted: {
     backgroundColor: colors.tabs.highlighted,
     borderColor: colors.purple
+  },
+  alertsActive: {
+    backgroundColor: colors.tabs.alertsHighlighted,
+    borderColor: colors.warning
+  },
+  warningText: {
+    color: colors.warningText
   }
 });
