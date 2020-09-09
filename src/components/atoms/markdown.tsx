@@ -22,7 +22,7 @@ interface Markdown {
   renderLink?: RenderLink;
   warningList?: boolean;
   renderListBullet?: (index: number, ordered: boolean, children?: any) => any;
-  markdownRef?: any;
+  markdownRef?: React.RefObject<any>;
 }
 
 type RenderListItem = (
