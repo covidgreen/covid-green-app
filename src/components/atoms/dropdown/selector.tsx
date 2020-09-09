@@ -4,7 +4,7 @@ import {Text, View, TouchableWithoutFeedback, StyleSheet} from 'react-native';
 import {AppIcons} from 'assets/icons';
 import {BasicItem} from 'providers/settings';
 import {DropdownModal} from './modal';
-import {text, colors, scale} from 'theme';
+import {text, scale} from 'theme';
 
 export interface DropdownProps {
   label?: string;
@@ -18,6 +18,7 @@ export interface DropdownProps {
     term: string;
     onChange: (value: string) => void;
     noResults: string;
+    accessibilityLabel?: (selectedItem?: string) => string;
   };
   itemRenderer?: (item: BasicItem) => React.ReactNode;
   display?: (item: BasicItem) => string;
@@ -58,8 +59,14 @@ export const SelectorDropdown: React.FC<DropdownProps> = ({
   return (
     <>
       <TouchableWithoutFeedback
-        accessibilityTraits={['button']}
-        accessibilityComponentType="button"
+        accessibilityRole="button"
+        accessibilityLabel={
+          search && search.accessibilityLabel
+            ? selectedItem
+              ? search.accessibilityLabel(selectedItem.label)
+              : search.accessibilityLabel(displayValue)
+            : displayValue
+        }
         onPress={() => setModalVisible(true)}>
         <View style={styles.container}>
           <View style={styles.content}>

@@ -44,7 +44,8 @@
     "leave": "Leave COVID Alert NY",
     "contactTracing": "Contact Tracing",
     "positiveResult": "If you test positive for COVID-19",
-    "settingsLanguage": "My Language"
+    "settingsLanguage": "My Language",
+    "howItWorks": "How It Works"
   },
   "navbar": {
     "back": "Back",
@@ -455,7 +456,8 @@
     "searchHint": "Search: showing autocomplete suggestions",
     "noResults": "No results found for this search.\nTry with something else.",
     "noResultsHint": "Search: no results found for this search. Try with something else.",
-    "notinny": "Not in New York State"
+    "notinny": "Not in New York State",
+    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
   },
   "appUsage": {
     "title": "App Metrics",

@@ -444,7 +444,8 @@
     "dropdownPlaceholder": "Seleccione su condado",
     "searchPlaceholder": "Búsqueda",
     "noResults": "La búsqueda no arrojó resultados.\nIntente otra búsqueda.",
-    "notinny": "No se encuentra en el estado de Nueva York"
+    "notinny": "No se encuentra en el estado de Nueva York",
+    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
   },
   "appUsage": {
     "title": "Parámetros de la Aplicación",

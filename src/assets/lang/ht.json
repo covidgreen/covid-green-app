@@ -444,7 +444,8 @@
     "dropdownPlaceholder": "Chwazi Konte w la",
     "searchPlaceholder": "Rechèch",
     "noResults": "Pa gen okenn rezilta pou rechèch sa a.\nEseye ak yon lòt bagay.",
-    "notinny": "Pa nan Eta New York"
+    "notinny": "Pa nan Eta New York",
+    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
   },
   "appUsage": {
     "title": "Metrik Aplikasyon yo",

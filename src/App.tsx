@@ -145,7 +145,7 @@ const Screens = (t: TFunction) => {
       component: Tour,
       options: {
         headerShown: false,
-        title: t('viewNames:completion'),
+        title: t('viewNames:howItWorks'),
         cardStyle: {
           backgroundColor: colors.white
         },

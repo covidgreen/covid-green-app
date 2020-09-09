@@ -444,7 +444,8 @@
     "dropdownPlaceholder": "카운티 선택",
     "searchPlaceholder": "검색",
     "noResults": "이 검색에 대한 결과가 없습니다.\n다른 것으로 시도해 주십시오",
-    "notinny": "뉴욕주가 아닙니다"
+    "notinny": "뉴욕주가 아닙니다",
+    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
   },
   "appUsage": {
     "title": "앱 메트릭스",

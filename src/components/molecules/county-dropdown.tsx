@@ -72,7 +72,11 @@ export const CountyDropdown: FC<CountyDropdownProps> = ({
         placeholder: t('county:searchPlaceholder'),
         term: countySearch,
         onChange: onCountySearchChanged,
-        noResults: t('county:noResults')
+        noResults: t('county:noResults'),
+        accessibilityLabel: (selectedItem?: string) =>
+          t('county:accessibilityLabel', {
+            county: selectedItem
+          })
       }}
     />
   );

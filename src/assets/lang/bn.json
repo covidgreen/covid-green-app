@@ -444,7 +444,8 @@
     "dropdownPlaceholder": "আপনার কাউন্টি নির্বাচন করুন",
     "searchPlaceholder": "অনুসন্ধান করুন",
     "noResults": "এই অনুসন্ধানের কোনও ফলাফল পাওয়া যায়নি\nঅন্য কিছু দিয়ে চেষ্টা করুন।",
-    "notinny": "নিউ ইয়র্ক স্টেটে নয়"
+    "notinny": "নিউ ইয়র্ক স্টেটে নয়",
+    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
   },
   "appUsage": {
     "title": "অ্যাপ এর পরিমাপ",

@@ -1,4 +1,4 @@
-import { API_HOST, KEY_DOWNLOAD_HOST, KEY_PUBLISH_HOST } from '@env';
+import {API_HOST, KEY_DOWNLOAD_HOST, KEY_PUBLISH_HOST} from '@env';
 
 console.log('API_HOST', API_HOST);
 console.log('KEY_DOWNLOAD_HOST', KEY_DOWNLOAD_HOST);

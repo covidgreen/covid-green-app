@@ -440,7 +440,8 @@
     "dropdownPlaceholder": "选择您的县",
     "searchPlaceholder": "搜索",
     "noResults": "本次搜索无结果。\n请尝试其他关键字。",
-    "notinny": "不在纽约州"
+    "notinny": "不在纽约州",
+    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
   },
   "appUsage": {
     "title": "应用指标",

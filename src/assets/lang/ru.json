@@ -444,7 +444,8 @@
     "dropdownPlaceholder": "Выберите свой округ",
     "searchPlaceholder": "Поиск",
     "noResults": "Этот поиск не дал результатов.\nВыполните другой поиск.",
-    "notinny": "Не в штате Нью-Йорк"
+    "notinny": "Не в штате Нью-Йорк",
+    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
   },
   "appUsage": {
     "title": "Метрики приложения",
