@@ -104,7 +104,9 @@ export function CheckInIntro() {
       safeArea={false}
       heading={t('checker:introTitle')}>
       <Card>
-        <Text style={text.default}>{t('checker:introOptional')}</Text>
+        <Text maxFontSizeMultiplier={2} style={text.default}>
+          {t('checker:introOptional')}
+        </Text>
         <Spacing s={24} />
         <Dropdown
           ref={ref1}

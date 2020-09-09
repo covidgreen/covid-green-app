@@ -111,7 +111,10 @@ export const CheckInSymptoms = () => {
       backgroundColor={colors.background}
       heading={t('checker:title')}>
       <Card>
-        <Text accessibilityElementsHidden style={text.largeBold}>
+        <Text
+          maxFontSizeMultiplier={1.7}
+          accessibilityElementsHidden
+          style={text.largeBold}>
           {t('checker:symptoms:subtitle')}
         </Text>
         <Spacing s={36} />

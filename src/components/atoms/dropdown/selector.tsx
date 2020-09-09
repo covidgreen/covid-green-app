@@ -70,7 +70,10 @@ export const SelectorDropdown: React.FC<DropdownProps> = ({
         onPress={() => setModalVisible(true)}>
         <View style={styles.container}>
           <View style={styles.content}>
-            <Text numberOfLines={1} style={text.defaultBold}>
+            <Text
+              maxFontSizeMultiplier={1.7}
+              numberOfLines={1}
+              style={text.defaultBold}>
               {displayValue}
             </Text>
           </View>
@@ -98,7 +101,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: scale(48),
+    flex: 1,
+    minHeight: 0,
+    maxHeight: scale(68),
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#ded8e3',

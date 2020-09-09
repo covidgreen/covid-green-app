@@ -129,7 +129,9 @@ export const Dashboard: FC<any> = ({navigation}) => {
             value={county}
           />
           <Spacing s={20} />
-          <Text style={text.defaultBold}>{t('dashboard:stats:subtitle')}</Text>
+          <Text maxFontSizeMultiplier={2} style={text.defaultBold}>
+            {t('dashboard:stats:subtitle')}
+          </Text>
           <Spacing s={18} />
           <TrackerCharts data={data} county={county.split('_')[0]} />
         </>

@@ -33,6 +33,7 @@ export const SymptomsHistory: FC<any> = ({navigation}) => {
 
   const {checks, completedChecker, verifyCheckerStatus} = useApplication();
   const {readPermissions} = useExposure();
+  const fontScale: number = 1.8;
 
   useFocusEffect(
     React.useCallback(() => {
@@ -102,16 +103,22 @@ export const SymptomsHistory: FC<any> = ({navigation}) => {
                   )}
                 </View>
                 <SingleRow>
-                  <Text style={text.xlargeBlack}>{symptomsList.length}</Text>
+                  <Text
+                    maxFontSizeMultiplier={fontScale}
+                    style={text.xlargeBlack}>
+                    {symptomsList.length}
+                  </Text>
                   <Text>&nbsp;</Text>
-                  <Text style={text.defaultBold}>
+                  <Text
+                    maxFontSizeMultiplier={fontScale}
+                    style={text.defaultBold}>
                     {t('symptomsHistory:symptoms', {
                       count: symptomsList.length
                     })}
                   </Text>
                 </SingleRow>
                 <View style={styles.date}>
-                  <Text style={text.default}>
+                  <Text maxFontSizeMultiplier={fontScale} style={text.default}>
                     {format(
                       new Date(Number(check.timestamp)),
                       'MMM dd',
