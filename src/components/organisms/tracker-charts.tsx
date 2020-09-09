@@ -9,6 +9,8 @@ import {TrackerBarChart} from 'components/molecules/bar-chart';
 interface TrackerChartsProps {
   data: any;
   county: string;
+  days?: number;
+  rollingAverage?: number;
 }
 
 export type AxisData = Date[];
@@ -20,14 +22,59 @@ interface ExtractedData {
   averagesData: ChartData;
 }
 
+const getEmptyExtractedData = (): ExtractedData => {
+  const emptyData = {
+    axisData: [],
+    chartData: [],
+    averagesData: []
+  } as ExtractedData;
+  return emptyData;
+};
+
 const chartDataIsAvailable = (data: ExtractedData) => {
   return !!(data.axisData?.length && data.chartData?.length);
+};
+
+export function trimData(data: any[], days: number, rolling: number = 0) {
+  const rollingOffset = Math.max(0, rolling - 1);
+  const trimLength = days + rollingOffset;
+  const excessLength = data.length - trimLength;
+  const trimmedData = excessLength > 0 ? data.slice(excessLength) : data;
+  return trimmedData.map((d) => Number(d) || 0);
+}
+
+function trimAxisData(axisData: any[], days: number) {
+  const excessLength = axisData.length - days;
+  return excessLength > 0 ? axisData.slice(excessLength) : axisData;
+}
+
+const calculateRollingAverages = (
+  rollingAverage: number,
+  chartData: ChartData,
+  days: number
+) => {
+  const rollingOffset = Math.max(0, rollingAverage - 1);
+  return trimData(
+    rollingAverage
+      ? chartData.map((_, index) => {
+          const avStart = Math.max(0, index - rollingOffset);
+          const avEnd = index + 1;
+          const avValues = chartData.slice(avStart, avEnd);
+          const total = avValues.reduce((sum, num) => sum + num, 0);
+          return total / avValues.length;
+        })
+      : chartData,
+    days,
+    0
+  );
 };
 
 const getBarchartData = (
   data: any,
   quantityKey: string,
-  averagesKey: string
+  averagesKey: string,
+  days: number,
+  rollingAverage: number
 ) => {
   let axisData: Date[] = [];
   let chartData: number[] = [];
@@ -65,10 +112,17 @@ const getBarchartData = (
     });
   }
 
+  // Calculate rolling averages here to guarentee accuracy
+  // unless the server provided insufficient data
+  const finalAveragesData =
+    rollingAverage && chartData.length >= days + rollingAverage - 1
+      ? calculateRollingAverages(rollingAverage, chartData, days)
+      : averagesData;
+
   return {
-    chartData,
-    axisData,
-    averagesData
+    chartData: trimData(chartData, days),
+    axisData: trimAxisData(axisData, days),
+    averagesData: finalAveragesData
   };
 };
 
@@ -76,7 +130,12 @@ const getComparableDate = (date: Date | string) => {
   return format(new Date(date), 'yyyy-mm-dd');
 };
 
-export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
+export const TrackerCharts: FC<TrackerChartsProps> = ({
+  data,
+  county = 'u',
+  days = 30,
+  rollingAverage = 7 // If > 0, calculate in-app, don't use data from server
+}) => {
   const {t} = useTranslation();
 
   const localData =
@@ -86,46 +145,53 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({data, county = 'u'}) => {
     return null;
   }
 
-  const testsData = getBarchartData(
-    localData,
-    'total_number_of_tests',
-    'average_number_of_tests'
-  );
-  const positivesData = getBarchartData(
-    localData,
-    'new_positives',
-    'average_new_positives'
-  );
-  let percentData = {
-    axisData: [],
-    chartData: [],
-    averagesData: []
-  } as ExtractedData;
+  let testsData = getEmptyExtractedData();
+  let positivesData = getEmptyExtractedData();
+  let percentData = getEmptyExtractedData();
+  try {
+    testsData = getBarchartData(
+      localData,
+      'total_number_of_tests',
+      'average_number_of_tests',
+      days,
+      rollingAverage
+    );
+    positivesData = getBarchartData(
+      localData,
+      'new_positives',
+      'average_new_positives',
+      days,
+      rollingAverage
+    );
 
-  if (testsData.axisData.length && positivesData.axisData.length) {
-    percentData = testsData.axisData.reduce((newData, date, testsIndex) => {
-      const positivesIndex = positivesData.axisData.findIndex(
-        (pDate) => getComparableDate(date) === getComparableDate(pDate)
-      );
+    if (testsData.axisData.length && positivesData.axisData.length) {
+      percentData = testsData.axisData.reduce((newData, date, testsIndex) => {
+        const positivesIndex = positivesData.axisData.findIndex(
+          (pDate) => getComparableDate(date) === getComparableDate(pDate)
+        );
 
-      if (positivesIndex === -1) {
-        return newData;
-      }
-      newData.axisData.push(date);
+        if (positivesIndex === -1) {
+          return newData;
+        }
+        newData.axisData.push(date);
 
-      const testsValue = testsData.chartData[testsIndex];
-      const positivesValue = positivesData.chartData[positivesIndex];
-      newData.chartData.push(
-        testsValue ? (positivesValue / testsValue) * 100 : 0
-      );
+        const testsValue = testsData.chartData[testsIndex];
+        const positivesValue = positivesData.chartData[positivesIndex];
+        newData.chartData.push(
+          testsValue ? (positivesValue / testsValue) * 100 : 0
+        );
 
-      const testsAv = testsData.averagesData[testsIndex];
-      const posAv = positivesData.averagesData[positivesIndex];
-      if (typeof testsAv === 'number' && typeof posAv === 'number') {
-        newData.averagesData.push(testsAv ? (posAv / testsAv) * 100 : 0);
-      }
-      return {...newData};
-    }, percentData);
+        const testsAv = testsData.averagesData[testsIndex];
+        const posAv = positivesData.averagesData[positivesIndex];
+        if (typeof testsAv === 'number' && typeof posAv === 'number') {
+          newData.averagesData.push(testsAv ? (posAv / testsAv) * 100 : 0);
+        }
+        return {...newData};
+      }, percentData);
+    }
+  } catch (err) {
+    console.warn('Error processing chart data: ', err);
+    return null;
   }
 
   return (

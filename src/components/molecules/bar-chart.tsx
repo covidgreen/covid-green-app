@@ -5,7 +5,7 @@ import {YAxis, XAxis} from 'react-native-svg-charts';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
 
-import {dateFnsLocales, getDateLocaleOptions} from 'services/i18n/date';
+import {getDateLocaleOptions} from 'services/i18n/date';
 import {text, colors} from 'theme';
 import {BarChartContent} from 'components/atoms/bar-chart-content';
 import {Spacing} from 'components/atoms/spacing';
@@ -17,11 +17,9 @@ interface TrackerBarChartProps {
   description?: string;
   chartData: ChartData;
   axisData: AxisData;
-  days?: number;
   yMin?: number;
   ySuffix?: string;
-  averagesData?: ChartData;
-  rollingAverage?: number;
+  averagesData: ChartData;
   intervalsCount?: number;
   backgroundColor?: string;
   primaryColor?: string;
@@ -45,18 +43,6 @@ function formatLabel(value: number, suffix: string) {
   return value + suffix;
 }
 
-function trimData(data: any[], days: number, rolling: number) {
-  const rollingOffset = Math.max(0, rolling - 1);
-  const trimLength = days + rollingOffset;
-  const excessLength = data.length - trimLength;
-  return excessLength > 0 ? data.slice(excessLength) : data;
-}
-
-function trimAxisData(axisData: any[], days: number) {
-  const excessLength = axisData.length - days;
-  return excessLength > 0 ? axisData.slice(excessLength) : axisData;
-}
-
 function roundNumber(num: number, places: number = 2) {
   return num.toFixed(Number.isInteger(num) ? 0 : places);
 }
@@ -67,8 +53,6 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   axisData,
   averagesData,
   description,
-  rollingAverage = 0,
-  days = 30,
   yMin = 5,
   ySuffix = '',
   primaryColor = '#CD4000',
@@ -78,13 +62,11 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   const {t, i18n} = useTranslation();
   const dateLocale = getDateLocaleOptions(i18n);
   const wideMonthLocales = ['bn'];
-  const intervalsCount = axisData.length < 30 ? 7 : 6;
 
-  const daysLimit = Math.min(days, chartData.length);
+  const daysLimit = Math.min(axisData.length, chartData.length);
 
-  chartData = trimData(chartData, daysLimit, rollingAverage);
-  averagesData = trimData(averagesData || [], daysLimit, rollingAverage);
-  axisData = trimAxisData(axisData, daysLimit);
+  // Arbitrary while data source is unstable, pending chart redesign
+  const intervalsCount = daysLimit < 30 ? 7 : 6;
 
   if (!chartData.length || !axisData.length) {
     return null;
@@ -100,11 +82,19 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
       return summaryText;
     }
     const previousText = summaryText ? `${summaryText}, ` : '';
-    return `${previousText}${format(date, 'MMMM')} ${format(
-      date,
-      'do',
-      dateLocale
-    )}: ${roundNumber(chartData[index])}${ySuffix}`;
+    let dateText = '';
+    try {
+      dateText = `${format(date, 'MMMM')} ${format(date, 'do', dateLocale)}`;
+    } catch (err) {
+      console.warn(
+        `Could not format axisData index ${index} as date: `,
+        axisData[index],
+        typeof axisData[index]
+      );
+    }
+    return `${previousText}${dateText}: ${roundNumber(
+      chartData[index]
+    )}${ySuffix}`;
   }, '');
 
   // Give x and y axis label text space to not get cropped
@@ -117,11 +107,47 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     right: insetX
   };
 
-  // Where numbers are very small, don't labels like "0.5", or make one case look huge
+  // Where numbers are very small, no labels like "0.5" and don't make one case look huge
   const maxValue = chartData.reduce((max, value) => Math.max(max, value), 0);
   const yMax = maxValue < yMin ? yMin : undefined;
 
-  const showLegend = !!(rollingAverage || averagesData);
+  const showLegend = !!averagesData.length;
+
+  const formatXAxisMonthLabel = (_: any, index: number) => {
+    if (isAxisLabelHidden(index)) {
+      return '';
+    }
+
+    let date = '';
+    try {
+      date = format(
+        new Date(axisData[index]),
+        wideMonthLocales.includes(i18n.language) ? 'Mo' : 'MMM',
+        dateLocale
+      ).toUpperCase();
+    } catch (err) {
+      // Invalid data already logged generating accessibility text
+    }
+
+    const label = `${index === 0 ? nbsp + nbsp : ''}${date}${
+      index === axisData.length - 1 ? nbsp + nbsp : ''
+    }`;
+
+    return label;
+  };
+
+  const formatXAxisDayLabel = (_: any, index: number) => {
+    if (isAxisLabelHidden(index, 10)) {
+      return '';
+    }
+    let date = '';
+    try {
+      date = format(new Date(axisData[index]), 'dd');
+    } catch (err) {
+      // Error already logged generating accessibility text
+    }
+    return date;
+  };
 
   return (
     <View
@@ -152,7 +178,6 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
           <BarChartContent
             chartData={chartData}
             averagesData={averagesData}
-            days={daysLimit}
             cornerRoundness={2}
             scale={scaleBand}
             contentInset={contentInset}
@@ -160,40 +185,21 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
             backgroundColor={backgroundColor}
-            rollingAverage={rollingAverage}
             yMax={yMax}
           />
           <XAxis
-            data={chartData}
+            data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
             svg={{...xAxisSvg, y: 3}}
-            formatLabel={(_, index) => {
-              if (isAxisLabelHidden(index, 10)) {
-                return '';
-              }
-              const date = new Date(axisData[index]);
-              return `${format(date, 'dd')}`;
-            }}
+            formatLabel={formatXAxisDayLabel}
           />
           <XAxis
-            data={chartData}
+            data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
             svg={xAxisSvg}
-            formatLabel={(_, index) => {
-              if (isAxisLabelHidden(index)) {
-                return '';
-              }
-              const date = new Date(axisData[index]);
-              return `${index === 0 ? nbsp + nbsp : ''}${format(
-                date,
-                wideMonthLocales.includes(i18n.language) ? 'Mo' : 'MMM',
-                dateLocale
-              ).toUpperCase()}${
-                index === axisData.length - 1 ? nbsp + nbsp : ''
-              }`;
-            }}
+            formatLabel={formatXAxisMonthLabel}
           />
         </View>
       </View>
