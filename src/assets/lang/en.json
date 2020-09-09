@@ -554,7 +554,7 @@
   },
   "notificationsDisabled": {
     "title": "Notifications are disabled",
-    "text": "You need to allow notifications so you can receive COVID alerts. We will only contact you in case of a Close Contact.",
+    "text": "You need to allow notifications so you can receive COVID alerts.",
     "gotoSettings": "Go to App Settings"
   }
 }

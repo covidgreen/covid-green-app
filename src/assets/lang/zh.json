@@ -532,7 +532,7 @@
   },
   "notificationsDisabled": {
     "title": "通知已禁用",
-    "text": "您需要允许发送通知，以便接收COVID警示。仅在发现密切接触时，我们才会通知您。",
+    "text": "您需要允许发送通知，以便接收COVID警示。",
     "gotoSettings": "转至“应用设置”"
   }
 }

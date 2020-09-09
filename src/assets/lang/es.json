@@ -536,7 +536,7 @@
   },
   "notificationsDisabled": {
     "title": "Las Notificaciones estás deshabilitadas",
-    "text": "Debe permitir las notificaciones para recibir las Alertas de COVID. Nos comunicaremos con usted solo en caso de un Contacto Cercano.",
+    "text": "Debe permitir las notificaciones para recibir las Alertas de COVID.",
     "gotoSettings": "Ir a las configuraciones de la aplicación"
   }
 }
