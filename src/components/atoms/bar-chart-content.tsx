@@ -75,10 +75,12 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     const lineGenerator = line();
     lineGenerator.curve(curveMonotoneX);
     const pathDef = lineGenerator(
-      averagesData.map((value, index) => [
-        (x(index) || 0) + bandwidth / 2,
-        y(value) || 0
-      ])
+      averagesData.reduce((points, value, index) => {
+        if (isNaN(x(index))) {
+          return points;
+        }
+        return [...points, [(x(index) || 0) + bandwidth / 2, y(value) || 0]];
+      }, [] as [number, number][])
     );
     return pathDef ? (
       <Path

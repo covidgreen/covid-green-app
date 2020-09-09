@@ -50,23 +50,16 @@ function trimAxisData(axisData: any[], days: number) {
 
 const calculateRollingAverages = (
   rollingAverage: number,
-  chartData: ChartData,
-  days: number
+  chartData: ChartData
 ) => {
   const rollingOffset = Math.max(0, rollingAverage - 1);
-  return trimData(
-    rollingAverage
-      ? chartData.map((_, index) => {
-          const avStart = Math.max(0, index - rollingOffset);
-          const avEnd = index + 1;
-          const avValues = chartData.slice(avStart, avEnd);
-          const total = avValues.reduce((sum, num) => sum + num, 0);
-          return total / avValues.length;
-        })
-      : chartData,
-    days,
-    0
-  );
+  return chartData.map((_, index) => {
+    const avStart = Math.max(0, index - rollingOffset);
+    const avEnd = index + 1;
+    const avValues = chartData.slice(avStart, avEnd);
+    const total = avValues.reduce((sum, num) => sum + num, 0);
+    return total / avValues.length;
+  });
 };
 
 const getBarchartData = (
@@ -116,13 +109,13 @@ const getBarchartData = (
   // unless the server provided insufficient data
   const finalAveragesData =
     rollingAverage && chartData.length >= days + rollingAverage - 1
-      ? calculateRollingAverages(rollingAverage, chartData, days)
+      ? calculateRollingAverages(rollingAverage, chartData)
       : averagesData;
 
   return {
     chartData: trimData(chartData, days),
     axisData: trimAxisData(axisData, days),
-    averagesData: finalAveragesData
+    averagesData: trimData(finalAveragesData, days)
   };
 };
 
