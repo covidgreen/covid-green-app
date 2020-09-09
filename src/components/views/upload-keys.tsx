@@ -18,6 +18,7 @@ import {Markdown} from 'components/atoms/markdown';
 import {Toast} from 'components/atoms/toast';
 import {ResultCard} from 'components/molecules/result-card';
 import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
+import {useFocusRef, setAccessibilityFocusRef} from 'hooks/accessibility';
 
 import {colors, baseStyles} from 'theme';
 import {AppIcons} from 'assets/icons';
@@ -41,6 +42,11 @@ export const UploadKeys = ({navigation}) => {
   const [validationError, setValidationError] = useState<string>('');
   const [uploadToken, setUploadToken] = useState('');
   const [symptomDate, setSymptomDate] = useState('');
+  const [ref] = useFocusRef({
+    accessibilityFocus: true,
+    count: 1,
+    timeout: 1000
+  });
 
   useEffect(() => {
     const readUploadToken = async () => {
@@ -66,6 +72,7 @@ export const UploadKeys = ({navigation}) => {
     showActivityIndicator();
     const {result, symptomDate, token} = await validateCode(code);
     hideActivityIndicator();
+    setStatus('upload');
 
     if (result !== ValidationResult.Valid) {
       let errorMessage;
@@ -93,6 +100,9 @@ export const UploadKeys = ({navigation}) => {
     setUploadToken(token!);
     setSymptomDate(symptomDate!);
     setStatus('upload');
+    setTimeout(() => {
+      setAccessibilityFocusRef(ref);
+    }, 250);
   }, [code, showActivityIndicator, hideActivityIndicator, t]);
 
   useEffect(() => {
@@ -158,7 +168,7 @@ export const UploadKeys = ({navigation}) => {
   const renderUpload = () => {
     return (
       <>
-        <Markdown>{t('uploadKeys:upload:intro')}</Markdown>
+        <Markdown markdownRef={ref}>{t('uploadKeys:upload:intro')}</Markdown>
         <Spacing s={8} />
         <Button type="default" onPress={uploadDataHandler}>
           {t('uploadKeys:upload:button')}

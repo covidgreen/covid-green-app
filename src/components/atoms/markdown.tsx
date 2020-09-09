@@ -22,6 +22,7 @@ interface Markdown {
   renderLink?: RenderLink;
   warningList?: boolean;
   renderListBullet?: (index: number, ordered: boolean, children?: any) => any;
+  markdownRef?: any;
 }
 
 type RenderListItem = (
@@ -104,7 +105,8 @@ export const Markdown: React.FC<Markdown> = ({
   renderLink,
   renderListBullet,
   warningList,
-  children: C
+  children: C,
+  markdownRef
 }) => {
   const navigation = useNavigation();
 
@@ -143,6 +145,7 @@ export const Markdown: React.FC<Markdown> = ({
 
   return (
     <M
+      ref={markdownRef}
       markdownStyles={combinedStyles}
       style={style || styles.container}
       renderLink={renderLink || defaultRenderLink}
