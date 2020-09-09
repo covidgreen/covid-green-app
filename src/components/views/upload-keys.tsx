@@ -72,7 +72,6 @@ export const UploadKeys = ({navigation}) => {
     showActivityIndicator();
     const {result, symptomDate, token} = await validateCode(code);
     hideActivityIndicator();
-    setStatus('upload');
 
     if (result !== ValidationResult.Valid) {
       let errorMessage;
