@@ -10,7 +10,7 @@ export const getBaseStyles = (text: any) => ({
   },
   error: {
     ...text.smallBold,
-    color: colors.red
+    color: colors.warning
   }
 });
 

@@ -1,6 +1,10 @@
 import React, {FC, useState, useEffect} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import {useExposure} from 'react-native-exposure-notification-service';
+import {
+  useExposure,
+  StatusState,
+  PermissionStatus
+} from 'react-native-exposure-notification-service';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
@@ -89,7 +93,10 @@ export const Dashboard: FC<any> = ({navigation}) => {
           <Spacing s={16} />
         </>
       )}
-      {exposure.initialised && !exposure.enabled && (
+      {(!exposure.enabled ||
+        exposure.status.state !== StatusState.active ||
+        exposure.permissions.notifications.status !==
+          PermissionStatus.Allowed) && (
         <>
           <AlertInformation ref={ref3} />
           <Spacing s={16} />

@@ -53,7 +53,7 @@
     "react-native-device-info": "^5.6.5",
     "react-native-dotenv": "^2.3.0",
     "react-native-easy-markdown": "^2.0.0",
-    "react-native-exposure-notification-service": "^1.1.26",
+    "react-native-exposure-notification-service": "^1.1.27",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-google-safetynet": "^1.0.0",
     "react-native-ios11-devicecheck": "^0.0.3",

@@ -523,12 +523,14 @@
       "text": "Pou aktive Deteksyon Pwoksimite a, ou dwe aktive Notifikasyon pou Kontak ak COVID-19 la nan Paramèt Aplikasyon an.\n\nOu dwe ale tou nan Konfidansyalite > Sante nan paramèt aparèy ou a epi asire w ke Koneksyon pou Kontak ak COVID-19 la aktive.",
       "gotoSettings": "Ale nan Paramèt Aplikasyon an"
     },
-    "notActiveIOS": {
+    "notActive": {
       "title": "Deteksyon Pwoksimite a pa aktif",
-      "text": "Ou dwe aktive sèvis Notifikasyon pou Kontak yo ansanm ak Bluetooth la pou aktive Deteksyon Pwoksimite a",
-      "ens": "Pou aktive Deteksyon Pwoksimite a, ou dwe aktive Notifikasyon pou Kontak ak COVID-19 la nan Paramèt Aplikasyon an.\n\nOu dwe ale tou nan Konfidansyalite > Sante nan paramèt aparèy ou a epi asire w ke Koneksyon pou Kontak ak COVID-19 la aktive.",
-      "bt": "Tanpri aktive Bluetooth la.\n\n**Remak:** Aktive l nan paramèt aparèy ou a, men pa pandan w tape sou bouton Bluetooth la nan Sant Kontwòl la.",
-      "gotoSettings": "Ale nan Paramèt",
+      "ios": {
+        "text": "Ou dwe aktive sèvis Notifikasyon pou Kontak yo ansanm ak Bluetooth la pou aktive Deteksyon Pwoksimite a",
+        "ens": "Pou aktive Deteksyon Pwoksimite a, ou dwe aktive Notifikasyon pou Kontak ak COVID-19 la nan Paramèt Aplikasyon an.\n\nOu dwe ale tou nan Konfidansyalite > Sante nan paramèt aparèy ou a epi asire w ke Koneksyon pou Kontak ak COVID-19 la aktive.",
+        "bt": "Tanpri aktive Bluetooth la.\n\n**Remak:** Aktive l nan paramèt aparèy ou a, men pa pandan w tape sou bouton Bluetooth la nan Sant Kontwòl la.",
+        "gotoSettings": "Ale nan Paramèt"
+      },
       "next": "Konfigire l pou pita epi kontinye"
     }
   },

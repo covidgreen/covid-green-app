@@ -523,12 +523,14 @@
       "text": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\n\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de las Exposición a la COVID-19 esté activado.",
       "gotoSettings": "Ir a las configuraciones de la aplicación"
     },
-    "notActiveIOS": {
+    "notActive": {
       "title": "La Detección de Proximidad no está activada",
-      "text": "Debe habilitar los servicios de Notificaciones de Exposición y el Bluetooth para habilitar la Detección de Proximidad",
-      "ens": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\n\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de las Exposición a la COVID-19 esté activado.",
-      "bt": "Encienda el Bluetooth.\n\n**Nota:**enciéndalo en la configuración de su dispositivo, y no con el botón de Bluetooth en el Centro de Control.",
-      "gotoSettings": "Ir a configuración",
+      "ios": {
+        "text": "Debe habilitar los servicios de Notificaciones de Exposición y el Bluetooth para habilitar la Detección de Proximidad",
+        "ens": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\n\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de las Exposición a la COVID-19 esté activado.",
+        "bt": "Encienda el Bluetooth.\n\n**Nota:**enciéndalo en la configuración de su dispositivo, y no con el botón de Bluetooth en el Centro de Control.",
+        "gotoSettings": "Ir a configuración"
+      },
       "next": "Configurarla más tarde y continuar"
     }
   },

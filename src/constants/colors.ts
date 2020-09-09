@@ -1,5 +1,5 @@
 const teal = '#3A7B7F';
-const red = '#B4083A';
+const warning = '#DC0000';
 const white = '#FFFFFF';
 const disabled = '#B2B2B2';
 
@@ -39,7 +39,6 @@ export const colors = {
   orange: '#FF8248',
   lightOrange: '#FFC0A3',
   white,
-  red,
   teal,
   gray: '#F5F5F5', // review - only input
   darkGray: '#96989B', // review - only input,
@@ -49,7 +48,7 @@ export const colors = {
   success: '#00CF68', // only 1 usage?
   text: '#2E2E2E',
   warningText: '#4b0600',
-  warning: '#DC0000',
+  warning,
   buttons: {
     default: {
       text: white,
@@ -63,7 +62,7 @@ export const colors = {
     },
     danger: {
       text: white,
-      background: red,
+      background: warning,
       shadow: '#8B042A'
     },
     empty: {

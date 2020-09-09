@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
   },
   cardWarning: {
     borderWidth: 2,
-    borderColor: colors.red,
-    backgroundColor: colors.red
+    borderColor: colors.warning,
+    backgroundColor: colors.warning
   },
   cardInfo: {
     borderWidth: 1,

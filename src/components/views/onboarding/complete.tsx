@@ -58,9 +58,13 @@ export const Completion: FC<any> = () => {
           <ClosenessSensing.Active ref={ref} onboarding />
         );
     } else if (Platform.OS === 'android') {
-      closenessSensingStatusCard = (
-        <ClosenessSensing.NotAuthorized onboarding />
-      );
+      closenessSensingStatusCard =
+        status.state === StatusState.disabled &&
+        status.type?.indexOf(StatusType.bluetooth) !== -1 ? (
+          <ClosenessSensing.NotActive onboarding bluetoothOff />
+        ) : (
+          <ClosenessSensing.NotAuthorized onboarding />
+        );
     } else if (Platform.OS === 'ios') {
       if (isAuthorised === AuthorisedStatus.unknown) {
         closenessSensingStatusCard = (
@@ -73,7 +77,7 @@ export const Completion: FC<any> = () => {
       } else {
         const type = status.type || [];
         closenessSensingStatusCard = (
-          <ClosenessSensing.NotActiveIOS
+          <ClosenessSensing.NotActive
             onboarding
             exposureOff={type.indexOf(StatusType.exposure) !== -1}
             bluetoothOff={type.indexOf(StatusType.bluetooth) !== -1}
