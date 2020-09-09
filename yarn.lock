@@ -1176,25 +1176,25 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/viewpager/-/viewpager-4.1.6.tgz#788f401f883929e8ac3698e328caef40b146f36e"
   integrity sha512-zNPQlgrPSB4JHT7w+kB7tTNsbP8H+Tqg1m+AszSArHCwSK+4dl1mgUt7hDd6XX3TTXpH2CdDsRx2cmJTTAweXw==
 
-"@react-native-firebase/app@^8.3.1":
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-8.3.1.tgz#3f083ee26f447237d8c51a070c52c92fec99b049"
-  integrity sha512-BIjzpvCnIJsyW8D+gXf1Z0Y4UxnEK6xhPsIfifAUMMA16G+dpkVFgqJexDHV2F75IQvFwHEde/FadtV799dQqg==
+"@react-native-firebase/app@^8.4.0":
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-8.4.1.tgz#69c941afa9a28bf28c4cfec8f53c3f82c35b06c5"
+  integrity sha512-EhEFgF5QBT6rtBqfK7m6LZmiEyWP6aLKLoCDvAaAmRNURXG0Ryr1T6KEjvrFuERnGkEk0KH/f2i1KB+BhThPWQ==
   dependencies:
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/crashlytics@^8.3.1":
-  version "8.3.4"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/crashlytics/-/crashlytics-8.3.4.tgz#96d608984026fad04ae8ec7133b77b0dd921f1d9"
-  integrity sha512-TfnGWfYB1zSH1Fj4/QTfcIqWr9jsbFUq1aQdVDtlDiDcQZnsOEGSZFNRRwhGhXWDNd0iKcW/kMNo6r9VHpTFEQ==
+"@react-native-firebase/crashlytics@^8.4.2":
+  version "8.4.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/crashlytics/-/crashlytics-8.4.2.tgz#d9474b6eabab15c09d620869881be251033fcb32"
+  integrity sha512-Mcmmafo1OoEsZTTgqFf64TNLZJcHHmfHrF1X8/5FkCDC4S7U6H8B9u7VFAyg4xMNoQUJ3kOp6yJEnMY+XWrk7A==
   dependencies:
     stacktrace-js "^2.0.0"
 
-"@react-native-firebase/remote-config@^8.1.3":
-  version "8.1.4"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/remote-config/-/remote-config-8.1.4.tgz#419a7b05384143854c5903c840e33b2da836b6a0"
-  integrity sha512-4gaBJKQWE5dgAFSJbzxmB+6HXuz+QrjeDb3DpUC1OF6fmGCASjWcvJZ4EZ7+vl0lY6NoMT3os8OT8CivFwGHEg==
+"@react-native-firebase/remote-config@^8.2.1":
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/remote-config/-/remote-config-8.2.1.tgz#9154ecdf231b12fef578f25d4d9ec1703a14e78d"
+  integrity sha512-FcCO+sLo9FoBk1PPaEMImPDTOtg4mMYLCK/vTVs4MFNVnpQhB3TLlwTMlbZp1WVz3qdLzUlYdPJWbloP6bcXPQ==
 
 "@react-navigation/bottom-tabs@^5.8.0":
   version "5.8.0"
@@ -6685,10 +6685,10 @@ react-native-easy-markdown@^2.0.0:
   dependencies:
     simple-markdown "^0.4.4"
 
-react-native-exposure-notification-service@^1.1.26:
-  version "1.1.26"
-  resolved "https://registry.yarnpkg.com/react-native-exposure-notification-service/-/react-native-exposure-notification-service-1.1.26.tgz#ac2230d9e6615d3385d1748c22237d52441dbc0c"
-  integrity sha512-7NosAme5eU3s94wfYl8CapS71//g+Lf/1kCbKbYOXx4UKwDQgFanMERZ5dw/PxZcReZu1JN1tyljLF0bK5tfuw==
+react-native-exposure-notification-service@^1.1.27:
+  version "1.1.27"
+  resolved "https://registry.yarnpkg.com/react-native-exposure-notification-service/-/react-native-exposure-notification-service-1.1.27.tgz#30bb6386af44efa0008b4e61573e3db85947008e"
+  integrity sha512-wd24tczovP5FbKCtrEe6hy1CrV1EFWF7Be5NBpGjbfc0Qk9Ft04crlDfu8gkxOWzBeY/GON/EFeugOa/zynIIw==
 
 react-native-gesture-handler@^1.7.0:
   version "1.7.0"
