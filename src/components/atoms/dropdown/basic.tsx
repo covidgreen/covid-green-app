@@ -1,4 +1,4 @@
-import React, {useState, forwardRef} from 'react';
+import React, {useState, forwardRef, ReactNode} from 'react';
 import {Text, View, TouchableWithoutFeedback, StyleSheet} from 'react-native';
 
 import {BasicItem} from 'providers/settings';
@@ -22,10 +22,11 @@ export interface DropdownProps {
     onChange: (value: string) => void;
     noResults: string;
   };
-  itemRenderer?: (item: BasicItem) => React.ReactNode;
+  itemRenderer?: (item: BasicItem) => ReactNode;
   display?: (item: BasicItem) => string;
   forceDisplay?: () => string;
-  instructions?: () => React.ReactNode;
+  instructions?: () => ReactNode;
+  icon?: ReactNode;
 }
 
 export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
@@ -41,7 +42,8 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
       itemRenderer,
       display,
       forceDisplay,
-      instructions
+      instructions,
+      icon
     },
     ref
   ) => {
@@ -105,6 +107,7 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
         </TouchableWithoutFeedback>
         {isModalVisible && (
           <DropdownModal
+            icon={icon}
             title={title || placeholder}
             titleHint={label}
             items={items}

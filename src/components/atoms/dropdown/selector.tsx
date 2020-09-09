@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, ReactNode, useState} from 'react';
 import {Text, View, TouchableWithoutFeedback, StyleSheet} from 'react-native';
 
 import {AppIcons} from 'assets/icons';
@@ -20,13 +20,14 @@ export interface DropdownProps {
     noResults: string;
     accessibilityLabel?: (selectedItem?: string) => string;
   };
-  itemRenderer?: (item: BasicItem) => React.ReactNode;
+  itemRenderer?: (item: BasicItem) => ReactNode;
   display?: (item: BasicItem) => string;
   forceDisplay?: () => string;
-  instructions?: () => React.ReactNode;
+  instructions?: () => ReactNode;
+  icon?: ReactNode;
 }
 
-export const SelectorDropdown: React.FC<DropdownProps> = ({
+export const SelectorDropdown: FC<DropdownProps> = ({
   modalPlaceholder,
   title,
   items,
@@ -36,7 +37,8 @@ export const SelectorDropdown: React.FC<DropdownProps> = ({
   itemRenderer,
   display,
   forceDisplay,
-  instructions
+  instructions,
+  icon
 }) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -83,6 +85,7 @@ export const SelectorDropdown: React.FC<DropdownProps> = ({
       {isModalVisible && (
         <DropdownModal
           close
+          icon={icon}
           title={title || modalPlaceholder}
           items={items}
           selectedValue={value}

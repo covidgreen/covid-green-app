@@ -13,6 +13,7 @@ import {Button} from 'components/atoms/button';
 import {Dropdown} from 'components/atoms/dropdown';
 import {Scrollable} from 'components/templates/scrollable';
 import {Card} from 'components/atoms/card';
+import {AppIcons} from 'assets/icons';
 
 import {text, colors} from 'theme';
 
@@ -109,6 +110,7 @@ export function CheckInIntro() {
         </Text>
         <Spacing s={24} />
         <Dropdown
+          icon={<AppIcons.Search width={20} height={20} />}
           ref={ref1}
           label={t('county:label')}
           placeholder={t('county:dropdownPlaceholder')}
