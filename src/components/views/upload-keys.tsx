@@ -18,6 +18,7 @@ import {Markdown} from 'components/atoms/markdown';
 import {Toast} from 'components/atoms/toast';
 import {ResultCard} from 'components/molecules/result-card';
 import {KeyboardScrollable} from 'components/templates/keyboard-scrollable';
+import {useFocusRef, setAccessibilityFocusRef} from 'hooks/accessibility';
 
 import {colors, baseStyles} from 'theme';
 import {AppIcons} from 'assets/icons';
@@ -41,6 +42,10 @@ export const UploadKeys = ({navigation}) => {
   const [validationError, setValidationError] = useState<string>('');
   const [uploadToken, setUploadToken] = useState('');
   const [symptomDate, setSymptomDate] = useState('');
+  const [uploadRef, errorRef] = useFocusRef({
+    timeout: 1000,
+    count: 2
+  });
 
   useEffect(() => {
     const readUploadToken = async () => {
@@ -79,6 +84,9 @@ export const UploadKeys = ({navigation}) => {
         errorMessage = t('uploadKeys:code:error');
       }
       setValidationError(errorMessage);
+      setTimeout(() => {
+        setAccessibilityFocusRef(errorRef);
+      }, 550);
       return;
     }
 
@@ -93,6 +101,9 @@ export const UploadKeys = ({navigation}) => {
     setUploadToken(token!);
     setSymptomDate(symptomDate!);
     setStatus('upload');
+    setTimeout(() => {
+      setAccessibilityFocusRef(uploadRef);
+    }, 250);
   }, [code, showActivityIndicator, hideActivityIndicator, t]);
 
   useEffect(() => {
@@ -147,7 +158,9 @@ export const UploadKeys = ({navigation}) => {
         {!!validationError && (
           <>
             <Spacing s={8} />
-            <Text style={baseStyles.error}>{validationError}</Text>
+            <Text ref={errorRef} style={baseStyles.error}>
+              {validationError}
+            </Text>
           </>
         )}
         <Spacing s={16} />
@@ -158,7 +171,9 @@ export const UploadKeys = ({navigation}) => {
   const renderUpload = () => {
     return (
       <>
-        <Markdown>{t('uploadKeys:upload:intro')}</Markdown>
+        <Markdown markdownRef={uploadRef}>
+          {t('uploadKeys:upload:intro')}
+        </Markdown>
         <Spacing s={8} />
         <Button type="default" onPress={uploadDataHandler}>
           {t('uploadKeys:upload:button')}
