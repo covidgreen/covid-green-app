@@ -71,7 +71,7 @@ export const CloseContactAlert: FC = () => {
         {t('closeContactInfo:list')}
       </Markdown>
       <CallCard
-        onPress={() => Linking.openURL('tel:18883643065')}
+        onPress={() => Linking.openURL('tel:18332084159')}
         message={t('checker:results:callHelp')}
       />
     </Scrollable>
