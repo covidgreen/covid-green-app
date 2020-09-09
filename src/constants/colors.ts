@@ -21,7 +21,8 @@ export const colors = {
     gray: '#b2b2b2'
   },
   tabs: {
-    highlighted: '#e7e8f2'
+    highlighted: '#e7e8f2',
+    alertsHighlighted: '#ffefef'
   },
   info: {
     primary: info,
@@ -47,6 +48,7 @@ export const colors = {
   selectedDot: '#2E2E2E',
   success: '#00CF68', // only 1 usage?
   text: '#2E2E2E',
+  warningText: '#4b0600',
   warning: '#DC0000',
   buttons: {
     default: {
