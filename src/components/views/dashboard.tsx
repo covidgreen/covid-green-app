@@ -66,7 +66,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const errorToast = data === null && (
     <Toast
       type="error"
-      icon={<AppIcons.Alert width={24} height={24} />}
+      icon={<AppIcons.ErrorWarning width={24} height={24} />}
       message={t('common:missingError')}
     />
   );

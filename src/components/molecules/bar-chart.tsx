@@ -83,6 +83,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   const daysLimit = Math.min(days, chartData.length);
 
   chartData = trimData(chartData, daysLimit, rollingAverage);
+  averagesData = trimData(averagesData || [], daysLimit, rollingAverage);
   axisData = trimAxisData(axisData, daysLimit);
 
   if (!chartData.length || !axisData.length) {
