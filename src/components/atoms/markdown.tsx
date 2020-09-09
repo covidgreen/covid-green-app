@@ -5,8 +5,7 @@ import {
   Linking,
   AccessibilityInfo,
   TouchableWithoutFeedback,
-  AppState,
-  Platform
+  AppState
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import * as WebBrowser from 'expo-web-browser';
@@ -46,7 +45,7 @@ const MarkdownLink = (
   children: any,
   key: string,
   navigation: any,
-  androidScreenReaderEnabled: boolean
+  screenReaderEnabled: boolean
 ) => {
   const isHttp = href.startsWith('http');
   const isTel = href.startsWith('tel');
@@ -66,7 +65,7 @@ const MarkdownLink = (
           });
         };
 
-    return androidScreenReaderEnabled ? (
+    return screenReaderEnabled ? (
       <TouchableWithoutFeedback
         key={key}
         accessibilityRole="link"
@@ -108,32 +107,21 @@ export const Markdown: React.FC<Markdown> = ({
 }) => {
   const navigation = useNavigation();
 
-  const [androidScreenReaderEnabled, setAndroidScreenReaderEnabled] = useState(
-    false
-  );
+  const [screenReaderEnabled, setScreenReaderEnabled] = useState(false);
 
   useEffect(() => {
-    if (Platform.OS === 'android') {
-      const checkScreenReader = () =>
-        AccessibilityInfo.isScreenReaderEnabled().then((enabled) =>
-          setAndroidScreenReaderEnabled(enabled)
-        );
-      // Re-check state on app refocus to catch changes to device settings
-      AppState.addEventListener('change', checkScreenReader);
-      checkScreenReader();
-      return () => AppState.removeEventListener('change', checkScreenReader);
-    }
+    const checkScreenReader = () =>
+      AccessibilityInfo.isScreenReaderEnabled().then((enabled) =>
+        setScreenReaderEnabled(enabled)
+      );
+    // Re-check state on app refocus to catch changes to device settings
+    AppState.addEventListener('change', checkScreenReader);
+    checkScreenReader();
+    return () => AppState.removeEventListener('change', checkScreenReader);
   }, []);
 
   const defaultRenderLink: RenderLink = (href, title, children, key) =>
-    MarkdownLink(
-      href,
-      title,
-      children,
-      key,
-      navigation,
-      androidScreenReaderEnabled
-    );
+    MarkdownLink(href, title, children, key, navigation, screenReaderEnabled);
 
   const combinedStyles = {
     ...defaultMarkdownStylesheet,
