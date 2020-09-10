@@ -6,13 +6,14 @@ import {
   ViewStyle,
   Text,
   TouchableWithoutFeedback,
-  Platform
+  Platform,
+  Linking
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {HIDE_DEBUG} from '@env';
-import {getReadableVersion} from 'react-native-device-info';
+import {getReadableVersion, getModel} from 'react-native-device-info';
 
 import {AppIcons} from 'assets/icons';
 import {Scrollable} from 'components/templates/scrollable';
@@ -21,6 +22,10 @@ import {Spacing} from 'components/atoms/layout';
 import {colors, text, shadows} from 'theme';
 import {ScreenNames} from 'navigation';
 import {StorageKeys} from 'providers/context';
+import {
+  useExposure,
+  StatusType
+} from 'react-native-exposure-notification-service';
 
 const REQUIRED_PRESS_COUNT = 3;
 
@@ -44,6 +49,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   const {t} = useTranslation();
   const [pressCount, setPressCount] = useState<number>(0);
   const [showDebug, setShowDebug] = useState<boolean>(false);
+  const exposure = useExposure();
 
   const versionPressHandler = async () => {
     setPressCount(pressCount + 1);
@@ -123,6 +129,15 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
         hint: t('settings:tourHint'),
         screen: ScreenNames.Tour
       }
+    ],
+    [
+      {
+        id: 'Feedback',
+        title: t('settings:feedback'),
+        label: t('settings:feedback'),
+        hint: t('settings:feedbackHint'),
+        screen: 'test'
+      }
     ]
   ];
 
@@ -139,7 +154,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   }
 
   const version = getReadableVersion();
-
+  const type = exposure.status?.type || [];
   return (
     <Scrollable
       heading={t('settings:title')}
@@ -163,7 +178,21 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
                   accessibilityLabel={label}
                   accessibilityRole="button"
                   accessibilityHint={hint}
-                  onPress={() => navigation.navigate(screen)}>
+                  onPress={() =>
+                    screen === 'test'
+                      ? Linking.openURL(
+                          `mailto:support@example.com?subject=App Feedback for COVID Alert NY: Version ${version}&body=\n\n\n\n
+                          Device: ${getModel()}
+                          OS version: ${Platform.Version}
+                          Status of EN framework: ${exposure.enabled}
+                          Bluetooth active: ${
+                            type.length > 0
+                              ? type.indexOf(StatusType.bluetooth) === -1
+                              : 'active'
+                          }`
+                        )
+                      : navigation.navigate(screen)
+                  }>
                   <View style={itemStyle}>
                     <Text style={styles.text}>{title}</Text>
                     <AppIcons.ArrowRight

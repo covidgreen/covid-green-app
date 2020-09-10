@@ -219,6 +219,8 @@
     "leaveHint": "Delete data and leave the application",
     "tour": "Learn How The App Works",
     "tourHint": "View a guide explaining how this app produces COVID Alerts",
+    "feedback": "Submit Feedback",
+    "feedbackHint": "Send us feedback about the app through email",
     "status": {
       "title": "Status",
       "active": "Closeness Sensing is currently active.",
