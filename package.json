@@ -25,7 +25,6 @@
     "@react-native-community/viewpager": "^4.1.4",
     "@react-native-firebase/app": "^8.4.0",
     "@react-native-firebase/crashlytics": "^8.4.2",
-    "@react-native-firebase/remote-config": "^8.2.1",
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",

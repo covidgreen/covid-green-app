@@ -17,7 +17,6 @@ import NetInfo from '@react-native-community/netinfo';
 import {useTranslation} from 'react-i18next';
 import {TFunction} from 'i18next';
 import * as SecureStore from 'expo-secure-store';
-import remoteConfig from '@react-native-firebase/remote-config';
 
 import {
   ExposureProvider,
@@ -546,10 +545,6 @@ export default function App(props: {
   });
 
   useEffect(() => {
-    remoteConfig()
-      .setDefaults({}) // In the future, add any default values here
-      .then(() => remoteConfig().fetchAndActivate());
-
     async function loadResourcesAndDataAsync() {
       try {
         const imageAssets = cacheImages([]);
