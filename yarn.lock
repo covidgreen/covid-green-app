@@ -1191,11 +1191,6 @@
   dependencies:
     stacktrace-js "^2.0.0"
 
-"@react-native-firebase/remote-config@^8.2.1":
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/remote-config/-/remote-config-8.2.1.tgz#9154ecdf231b12fef578f25d4d9ec1703a14e78d"
-  integrity sha512-FcCO+sLo9FoBk1PPaEMImPDTOtg4mMYLCK/vTVs4MFNVnpQhB3TLlwTMlbZp1WVz3qdLzUlYdPJWbloP6bcXPQ==
-
 "@react-navigation/bottom-tabs@^5.8.0":
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-5.8.0.tgz#d7386809bceeead0adcaacf61b6563be9cefd5cb"
