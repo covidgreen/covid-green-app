@@ -4,8 +4,8 @@ import {
   StyleSheet,
   Linking,
   AccessibilityInfo,
-  TouchableWithoutFeedback,
-  AppState
+  AppState,
+  TouchableOpacity
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import * as WebBrowser from 'expo-web-browser';
@@ -67,14 +67,15 @@ const MarkdownLink = (
         };
 
     return screenReaderEnabled ? (
-      <TouchableWithoutFeedback
+      <TouchableOpacity
         key={key}
+        accessible={true}
         accessibilityRole="link"
         accessibilityHint={title}
         accessibilityLabel={childrenAsText(children)}
         onPress={handle}>
         <Text>{children}</Text>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     ) : (
       <Text
         key={key}
