@@ -5,6 +5,7 @@ import {AppIcons} from 'assets/icons';
 import {BasicItem} from 'providers/settings';
 import {DropdownModal} from './modal';
 import {text, scale} from 'theme';
+import {setAccessibilityFocusRef} from 'hooks/accessibility';
 
 export interface DropdownProps {
   label?: string;
@@ -66,6 +67,11 @@ export const SelectorDropdown = forwardRef<
       displayValue = (display && display(selectedItem)) || selectedItem.label;
     }
 
+    const closeModal = () => {
+      setModalVisible(false);
+      setAccessibilityFocusRef(ref);
+    };
+
     return (
       <>
         <TouchableWithoutFeedback
@@ -99,7 +105,7 @@ export const SelectorDropdown = forwardRef<
             items={items}
             selectedValue={value}
             onSelect={onItemSelected}
-            onClose={() => setModalVisible(false)}
+            onClose={closeModal}
             search={search}
             itemRenderer={itemRenderer}
             instructions={instructions}

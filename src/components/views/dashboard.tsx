@@ -11,7 +11,7 @@ import {useTranslation} from 'react-i18next';
 import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
 import {useSymptomChecker} from 'hooks/symptom-checker';
-import {useFocusRef} from 'hooks/accessibility';
+import {setAccessibilityFocusRef, useFocusRef} from 'hooks/accessibility';
 
 import {Button} from 'components/atoms/button';
 import {Heading} from 'components/atoms/heading';
@@ -134,6 +134,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
             ref={ref5}
             onValueChange={(option) => {
               setCountyScope(option.label as County);
+              setAccessibilityFocusRef(ref5);
             }}
             value={county}
           />
