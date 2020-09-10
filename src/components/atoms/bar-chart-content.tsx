@@ -8,7 +8,7 @@ import {ScaleBand} from 'd3-scale';
 import {ChartData, AxisData} from 'components/organisms/tracker-charts';
 
 interface BarChartContentProps {
-  chartData: any;
+  chartData: number[];
   axisData: AxisData;
   averagesData: ChartData;
   contentInset: {top: number; bottom: number};
@@ -104,9 +104,14 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     <TrendLine lineWidth={3} color={primaryColor} {...props} />
   );
 
-  const Label: FC<any> = (props) => {
+  const Label: FC<{
+    data: any;
+    y: (value: number) => void;
+    x: () => void;
+    bandwidth: number;
+  }> = (props) => {
     const {x, y, bandwidth, data} = props;
-    return data.map((value: any, index: number) =>
+    return data.map((value: {value: number}, index: number) =>
       index === data.length - 1 ? (
         <View
           accessible={true}
@@ -157,7 +162,7 @@ export const BarChartContent: FC<BarChartContentProps> = ({
             ? {value, svg: {fill: colors.purple}}
             : {value}
         )}
-        yAccessor={({item}: any) => item.value}
+        yAccessor={({item}: {item: {value: number}}) => item.value}
         gridMin={0}
         scale={scale}
         numberOfTicks={3}
