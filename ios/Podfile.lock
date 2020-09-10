@@ -85,7 +85,7 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - Permission-Notifications (2.1.5):
+  - Permission-Notifications (2.2.0):
     - RNPermissions
   - PromisesObjC (1.2.10)
   - RCTRequired (0.63.2)
@@ -263,7 +263,7 @@ PODS:
     - React
   - react-native-safe-area-context (3.1.4):
     - React
-  - react-native-simple-crypto (0.2.13):
+  - react-native-simple-crypto (0.2.14):
     - React
   - react-native-video (4.4.5):
     - React
@@ -332,11 +332,11 @@ PODS:
     - React-Core (= 0.63.2)
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
-  - RNCAsyncStorage (1.11.0):
+  - RNCAsyncStorage (1.12.0):
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNCPushNotificationIOS (1.4.0):
+  - RNCPushNotificationIOS (1.4.1):
     - React
   - RNDeviceInfo (5.6.5):
     - React
@@ -347,11 +347,11 @@ PODS:
     - Firebase/Crashlytics (~> 6.30.0)
     - React
     - RNFBApp
-  - RNGestureHandler (1.7.0):
+  - RNGestureHandler (1.8.0):
     - React
   - RNIOS11DeviceCheck (0.0.3):
     - React
-  - RNPermissions (2.1.5):
+  - RNPermissions (2.2.0):
     - React
   - RNScreens (2.10.1):
     - React
@@ -635,7 +635,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  Permission-Notifications: 231d0e1db2300b686548587d384ba414e6a93332
+  Permission-Notifications: 572d4e94121e57dbecc71a0933abd8ed61108e92
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
@@ -650,7 +650,7 @@ SPEC CHECKSUMS:
   react-native-exposure-notification-service: 8bb49a3ed0e35b18e81516fd608751fa50447a13
   react-native-netinfo: 38a1e0b3e89b48e4b5833ed475d8df5f049f6f90
   react-native-safe-area-context: eb91fe1fb3f7b87d9c30a7f0808407d8569d539d
-  react-native-simple-crypto: 8d91a8636a9f88b76b759c40eacd877794ec63de
+  react-native-simple-crypto: 6969f86ad3e1c319a98623caa62095b29b4ebed3
   react-native-video: eee541262ada11bc7ffe8ec5508e6a877937c462
   react-native-viewpager: f44c9e21c37d4cb76d38841c8a450e3891923461
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
@@ -663,15 +663,15 @@ SPEC CHECKSUMS:
   React-RCTText: 1b6773e776e4b33f90468c20fe3b16ca3e224bb8
   React-RCTVibration: 4d2e726957f4087449739b595f107c0d4b6c2d2d
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
-  RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
+  RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNCPushNotificationIOS: dc1c0c6aa18a128df123598149f42e848d26a4ac
+  RNCPushNotificationIOS: c145c6253ea016e5efeff604f2720736b4a596f7
   RNDeviceInfo: c5f8f3a456adcbba405ace475254b08febc4c095
   RNFBApp: 62e057b9c2003b6ba28ba9ce266f751b5fa7861b
   RNFBCrashlytics: 31b8655cd25d955559f5f8385f8764bc7b79fa0b
-  RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
+  RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
   RNIOS11DeviceCheck: a4a545fdd08230a17a8ce7608e95038ee23a32aa
-  RNPermissions: ad71dd4f767ec254f2cd57592fbee02afee75467
+  RNPermissions: 477d88d0be7ecb0a7b344e4d5fbb0352de104626
   RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2
   RNSslPinning: bd33a1849ec20d38b4c5cd67e6a52b83da0ab3bc
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
