@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
-import {ViewStyle, StyleProp} from 'react-native';
-import {Rect, G, Path} from 'react-native-svg';
+import {ViewStyle, StyleProp, View, Text} from 'react-native';
+import {Rect, G, Path, Line} from 'react-native-svg';
 import {BarChart, Grid} from 'react-native-svg-charts';
 import {colors} from 'theme';
 import {line, curveMonotoneX} from 'd3-shape';
@@ -8,7 +8,7 @@ import {ScaleBand} from 'd3-scale';
 import {ChartData, AxisData} from 'components/organisms/tracker-charts';
 
 interface BarChartContentProps {
-  chartData: ChartData;
+  chartData: any;
   axisData: AxisData;
   averagesData: ChartData;
   contentInset: {top: number; bottom: number};
@@ -28,7 +28,7 @@ interface BarChildProps {
   x: (index: number) => number;
   y: (value: number) => number;
   bandwidth: number; // width of bar
-  data: number[];
+  data: Array<{value: number}>;
 }
 
 interface TrendLineProps extends BarChildProps {
@@ -54,16 +54,18 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     return (
       <G>
         {data.map((value, index) => (
-          <Rect
-            x={x(index)}
-            y={y(value) - cornerRoundness}
-            rx={cornerRoundness}
-            ry={cornerRoundness}
-            width={bandwidth}
-            height={cornerRoundness * 2} // Height of the Rect
-            fill={secondaryColor}
-            key={`bar-${index}`}
-          />
+          <>
+            <Rect
+              x={x(index)}
+              y={y(value.value) - cornerRoundness}
+              rx={cornerRoundness}
+              ry={cornerRoundness}
+              width={bandwidth}
+              height={cornerRoundness * 2} // Height of the Rect
+              fill={index === data.length - 1 ? colors.purple : secondaryColor}
+              key={`bar-${index}`}
+            />
+          </>
         ))}
       </G>
     );
@@ -102,6 +104,32 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     <TrendLine lineWidth={3} color={primaryColor} {...props} />
   );
 
+  const Label: FC<any> = (props) => {
+    const {x, y, bandwidth, data} = props;
+    return data.map((value: any, index: number) =>
+      index === data.length - 1 ? (
+        <View
+          accessible={true}
+          style={{
+            borderStyle: 'solid',
+            borderWidth: 1,
+            borderColor: secondaryColor,
+            position: 'absolute',
+            right: 0,
+            minWidth: 60,
+            borderRadius: 5,
+            top: y(value.value) - 25,
+            backgroundColor: 'white',
+            zIndex: 30
+          }}>
+          <Text maxFontSizeMultiplier={1} style={{textAlign: 'center'}}>
+            {value.value > 1 ? value.value : `${value.value.toFixed(2)}%`}
+          </Text>
+        </View>
+      ) : null
+    );
+  };
+
   // Covers ends of bars hanging below line due to corner roundnesss
   const XAxisTrim: FC<BarChildProps> = (props) => {
     if (!props) {
@@ -120,41 +148,48 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   };
 
   const showTrendLine = !!averagesData.length;
-
   return (
-    <BarChart
-      style={style}
-      data={chartData}
-      gridMin={0}
-      scale={scale}
-      numberOfTicks={3}
-      spacingInner={gapPercent / 100}
-      spacingOuter={gapPercent / 100}
-      contentInset={{
-        top: contentInset.top + cornerRoundness,
-        bottom: contentInset.bottom - cornerRoundness
-      }}
-      yMax={yMax}
-      svg={{
-        fill: secondaryColor
-      }}>
-      <Grid
-        svg={{
-          y: 0 - cornerRoundness,
-          strokeWidth: 1,
-          stroke: colors.dot,
-          strokeDasharray: [5, 3],
-          strokeDashoffset: 0
+    <View accessible>
+      <BarChart
+        style={style}
+        data={chartData.map((value: number, index: number) =>
+          index === chartData.length - 1
+            ? {value, svg: {fill: colors.purple}}
+            : {value}
+        )}
+        yAccessor={({item}: any) => item.value}
+        gridMin={0}
+        scale={scale}
+        numberOfTicks={3}
+        spacingInner={gapPercent / 100}
+        spacingOuter={gapPercent / 100}
+        contentInset={{
+          top: contentInset.top + cornerRoundness,
+          bottom: contentInset.bottom - cornerRoundness
         }}
-      />
-      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      <RoundedBarToppers />
-      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      <XAxisTrim />
-      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      {showTrendLine && <BackgroundTrendLine />}
-      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      {showTrendLine && <ForegroundTrendLine />}
-    </BarChart>
+        yMax={yMax}
+        svg={{
+          fill: secondaryColor
+        }}>
+        {<Label />}
+        <Grid
+          svg={{
+            y: 0 - cornerRoundness,
+            strokeWidth: 1,
+            stroke: colors.dot,
+            strokeDasharray: [5, 3],
+            strokeDashoffset: 0
+          }}
+        />
+        {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+        {<RoundedBarToppers />}
+        {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+        {<XAxisTrim />}
+        {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+        {showTrendLine && <BackgroundTrendLine />}
+        {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+        {showTrendLine && <ForegroundTrendLine />}
+      </BarChart>
+    </View>
   );
 };

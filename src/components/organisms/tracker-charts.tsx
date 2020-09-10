@@ -189,20 +189,6 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({
 
   return (
     <>
-      {chartDataIsAvailable(testsData) && (
-        <>
-          <Card padding={{h: 12}}>
-            <TrackerBarChart
-              title={t('charts:tests:title')}
-              description={t('charts:tests:hint')}
-              axisData={testsData.axisData}
-              chartData={testsData.chartData}
-              averagesData={testsData.averagesData}
-            />
-          </Card>
-          <Spacing s={20} />
-        </>
-      )}
       {chartDataIsAvailable(percentData) && (
         <>
           <Card padding={{h: 12}}>
@@ -220,15 +206,31 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({
         </>
       )}
       {chartDataIsAvailable(positivesData) && (
-        <Card padding={{h: 12}}>
-          <TrackerBarChart
-            title={t('charts:positiveTests:title')}
-            description={t('charts:positiveTests:hint')}
-            axisData={positivesData.axisData}
-            chartData={positivesData.chartData}
-            averagesData={positivesData.averagesData}
-          />
-        </Card>
+        <>
+          <Card padding={{h: 12}}>
+            <TrackerBarChart
+              title={t('charts:positiveTests:title')}
+              description={t('charts:positiveTests:hint')}
+              axisData={positivesData.axisData}
+              chartData={positivesData.chartData}
+              averagesData={positivesData.averagesData}
+            />
+          </Card>
+          <Spacing s={20} />
+        </>
+      )}
+      {chartDataIsAvailable(testsData) && (
+        <>
+          <Card padding={{h: 12}}>
+            <TrackerBarChart
+              title={t('charts:tests:title')}
+              description={t('charts:tests:hint')}
+              axisData={testsData.axisData}
+              chartData={testsData.chartData}
+              averagesData={testsData.averagesData}
+            />
+          </Card>
+        </>
       )}
     </>
   );

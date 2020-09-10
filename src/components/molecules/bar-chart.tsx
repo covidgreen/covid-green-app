@@ -66,7 +66,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   const daysLimit = Math.min(axisData.length, chartData.length);
 
   // Arbitrary while data source is unstable, pending chart redesign
-  const intervalsCount = daysLimit < 30 ? 7 : 6;
+  const intervalsCount = Math.round(daysLimit / 2);
 
   if (!chartData.length || !axisData.length) {
     return null;
@@ -98,7 +98,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   }, '');
 
   // Give x and y axis label text space to not get cropped
-  const insetY = 8;
+  const insetY = 15;
   const insetX = 6;
   const contentInset = {
     top: insetY,
@@ -149,6 +149,13 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     return date;
   };
 
+  const formatLine = (_: any, index: number) => {
+    if (isAxisLabelHidden(index)) {
+      return '';
+    }
+    return '|';
+  };
+
   return (
     <View
       accessible
@@ -160,10 +167,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
           <Spacing s={16} />
         </>
       )}
-      <View
-        accessibilityElementsHidden={true}
-        importantForAccessibility="no-hide-descendants"
-        style={styles.chartingRow}>
+      <View style={styles.chartingRow}>
         <YAxis
           style={styles.yAxis}
           data={chartData}
@@ -186,6 +190,18 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             secondaryColor={secondaryColor}
             backgroundColor={backgroundColor}
             yMax={yMax}
+          />
+          <XAxis
+            style={{
+              borderTopWidth: 1,
+              borderTopColor: secondaryColor,
+              borderStyle: 'solid'
+            }}
+            data={Array(daysLimit).fill(1)}
+            contentInset={contentInset}
+            scale={scaleBand}
+            svg={{...xAxisSvg, fill: secondaryColor}}
+            formatLabel={formatLine}
           />
           <XAxis
             data={Array(daysLimit).fill(1)}
@@ -211,9 +227,9 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
               <Svg height={legendItemSize} width={legendItemSize}>
                 <Rect
                   x={0}
-                  y={0}
-                  width={legendItemSize}
-                  height={legendItemSize}
+                  y={3}
+                  width={legendItemSize / 2}
+                  height={legendItemSize / 2}
                   fill={secondaryColor}
                 />
               </Svg>
@@ -243,7 +259,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 };
 
 const xAxisSvg = {
-  ...text.smallBold,
+  ...text.small,
   fill: colors.text
 };
 
@@ -260,7 +276,7 @@ const styles = StyleSheet.create({
   yAxis: {
     ...text.smallBold,
     width: 48,
-    height: 144,
+    height: 184,
     paddingRight: 4
   },
   chartingCol: {
@@ -269,7 +285,7 @@ const styles = StyleSheet.create({
   },
   chart: {
     flex: 1,
-    height: 144,
+    height: 184,
     marginRight: 6,
     marginLeft: 5
   },
