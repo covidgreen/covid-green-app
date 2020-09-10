@@ -67,8 +67,10 @@ const MarkdownLink = (
         };
 
     return screenReaderEnabled ? (
+      // we can't use TouchableWithoutFeedback because is not selectable by keyboard tab navigation
       <TouchableOpacity
         key={key}
+        activeOpacity={1}
         accessible={true}
         accessibilityRole="link"
         accessibilityHint={title}
