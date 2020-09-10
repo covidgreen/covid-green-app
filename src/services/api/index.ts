@@ -43,19 +43,18 @@ export const verify = async (nonce: string) => {
   }
 };
 
-const connected = async (retry = false): Promise<boolean> => {
+const checkNetworkState = async (): Promise<boolean> => {
   const networkState = await NetInfo.fetch();
-  if (networkState.isInternetReachable && networkState.isConnected) {
-    return true;
-  }
+  return networkState.isInternetReachable && networkState.isConnected;
+};
 
-  if (retry) {
-    throw new Error('Network Unavailable');
-  } else {
-    await new Promise((r) => setTimeout(r, 1000));
-    await connected(true);
-    return true;
+const connected = async (): Promise<boolean> => {
+  if (!(await checkNetworkState())) {
+    await new Promise(r => setTimeout(r, 1000));
+    if (!(await checkNetworkState()))
+      throw new Error('Network unavailable');
   }
+  return true;
 };
 
 export const request = async (url: string, cfg: any) => {
