@@ -1,4 +1,4 @@
-import React, {FC, ReactNode, useState} from 'react';
+import React, {forwardRef, ReactNode, useState} from 'react';
 import {Text, View, TouchableWithoutFeedback, StyleSheet} from 'react-native';
 
 import {AppIcons} from 'assets/icons';
@@ -27,78 +27,88 @@ export interface DropdownProps {
   icon?: ReactNode;
 }
 
-export const SelectorDropdown: FC<DropdownProps> = ({
-  modalPlaceholder,
-  title,
-  items,
-  value,
-  onValueChange,
-  search,
-  itemRenderer,
-  display,
-  forceDisplay,
-  instructions,
-  icon
-}) => {
-  const [isModalVisible, setModalVisible] = useState(false);
+export const SelectorDropdown = forwardRef<
+  TouchableWithoutFeedback,
+  DropdownProps
+>(
+  (
+    {
+      modalPlaceholder,
+      title,
+      items,
+      value,
+      onValueChange,
+      search,
+      itemRenderer,
+      display,
+      forceDisplay,
+      instructions,
+      icon
+    },
+    ref
+  ) => {
+    const [isModalVisible, setModalVisible] = useState(false);
 
-  const onItemSelected = (newValue: string) => {
-    setModalVisible(false);
-    if (newValue !== value) {
-      onValueChange(newValue);
+    const onItemSelected = (newValue: string) => {
+      setModalVisible(false);
+      if (newValue !== value) {
+        onValueChange(newValue);
+      }
+    };
+
+    const selectedItem =
+      (value && items.find((i) => i.value === value)) || null;
+
+    let displayValue = modalPlaceholder;
+    if (forceDisplay) {
+      displayValue = forceDisplay();
+    } else if (selectedItem) {
+      displayValue = (display && display(selectedItem)) || selectedItem.label;
     }
-  };
 
-  const selectedItem = (value && items.find((i) => i.value === value)) || null;
-
-  let displayValue = modalPlaceholder;
-  if (forceDisplay) {
-    displayValue = forceDisplay();
-  } else if (selectedItem) {
-    displayValue = (display && display(selectedItem)) || selectedItem.label;
-  }
-
-  return (
-    <>
-      <TouchableWithoutFeedback
-        accessibilityRole="button"
-        accessibilityLabel={
-          search && search.accessibilityLabel
-            ? selectedItem
-              ? search.accessibilityLabel(selectedItem.label)
-              : search.accessibilityLabel(displayValue)
-            : displayValue
-        }
-        onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
-          <View style={styles.content}>
-            <Text
-              maxFontSizeMultiplier={1.7}
-              numberOfLines={1}
-              style={text.defaultBold}>
-              {displayValue}
-            </Text>
+    return (
+      <>
+        <TouchableWithoutFeedback
+          ref={ref}
+          accessibilityRole="button"
+          accessibilityLabel={
+            search && search.accessibilityLabel
+              ? selectedItem
+                ? search.accessibilityLabel(selectedItem.label)
+                : search.accessibilityLabel(displayValue)
+              : displayValue
+          }
+          onPress={() => setModalVisible(true)}>
+          <View style={styles.container}>
+            <View style={styles.content}>
+              <Text
+                maxFontSizeMultiplier={1.7}
+                numberOfLines={1}
+                style={text.defaultBold}>
+                {displayValue}
+              </Text>
+            </View>
+            <AppIcons.Filter width={24} height={24} />
           </View>
-          <AppIcons.Filter width={24} height={24} />
-        </View>
-      </TouchableWithoutFeedback>
-      {isModalVisible && (
-        <DropdownModal
-          close
-          icon={icon}
-          title={title || modalPlaceholder}
-          items={items}
-          selectedValue={value}
-          onSelect={onItemSelected}
-          onClose={() => setModalVisible(false)}
-          search={search}
-          itemRenderer={itemRenderer}
-          instructions={instructions}
-        />
-      )}
-    </>
-  );
-};
+        </TouchableWithoutFeedback>
+        {isModalVisible && (
+          <DropdownModal
+            close
+            icon={icon}
+            title={title || modalPlaceholder}
+            items={items}
+            selectedValue={value}
+            onSelect={onItemSelected}
+            onClose={() => setModalVisible(false)}
+            search={search}
+            itemRenderer={itemRenderer}
+            instructions={instructions}
+          />
+        )}
+      </>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

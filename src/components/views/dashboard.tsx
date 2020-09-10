@@ -43,10 +43,11 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const [appState] = useAppState();
   const isFocused = useIsFocused();
   const exposure = useExposure();
-  const [ref1, ref2, ref3, ref4] = useFocusRef({
+  const [ref1, ref2, ref3, ref4, ref5] = useFocusRef({
     accessibilityFocus: true,
     accessibilityRefocus: true,
-    count: 4
+    count: 5,
+    timeout: 1000
   });
   const {getNextScreen} = useSymptomChecker();
 
@@ -130,6 +131,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
             text={t('dashboard:stats:title')}
           />
           <CountyDropdown
+            ref={ref5}
             onValueChange={(option) => {
               setCountyScope(option.label as County);
             }}
