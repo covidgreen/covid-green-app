@@ -158,7 +158,8 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     <View
       accessible
       accessibilityLabel={description}
-      accessibilityHint={dataSummary}>
+      accessibilityHint={dataSummary}
+      >
       {title && (
         <>
           <Text style={styles.title}>{title}</Text>
@@ -195,10 +196,11 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
-            svg={{...xAxisSvg, fill: secondaryColor}}
+            svg={{...xAxisSvg, fill: secondaryColor, y: -4}}
             formatLabel={formatLine}
           />
           <XAxis
+          style={{height: 12}}
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
@@ -255,7 +257,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 
 const xAxisSvg = {
   ...text.small,
-  fill: colors.text
+  fill: colors.text,
 };
 
 const styles = StyleSheet.create({
@@ -306,6 +308,7 @@ const styles = StyleSheet.create({
   line: {
     borderTopWidth: 1,
     borderTopColor: '#ACAFC4',
-    borderStyle: 'solid'
+    borderStyle: 'solid',
+    height: 12
   }
 });
