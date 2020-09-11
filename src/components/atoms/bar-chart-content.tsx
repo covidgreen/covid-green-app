@@ -30,7 +30,6 @@ interface BarChildProps {
   y: (value: number) => number;
   bandwidth: number; // width of bar
   data: Array<{value: number}>;
-  type: any;
 }
 
 interface TrendLineProps extends BarChildProps {
@@ -106,16 +105,19 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   );
 
   const Label: React.ReactNode = (props: BarChildProps) => {
-
     const {x, y, bandwidth, data} = props;
     return data.map((value: {value: number}, index: number) =>
       index === data.length - 1 ? (
         <View
           accessible={true}
-          style={[styles.label, {top: y(value.value) - 35, right:(bandwidth /2) -  13 }]} key={`label-${value.value}`}>
+          style={[
+            styles.label,
+            {top: y(value.value) - 35, right: bandwidth / 2 - 13}
+          ]}
+          key={`label-${value.value}`}>
           <View style={styles.triangle} />
           <View style={styles.triangle2} />
-          <Text  maxFontSizeMultiplier={1} style={styles.labelText}>
+          <Text maxFontSizeMultiplier={1} style={styles.labelText}>
             {ySuffix !== '%' ? value.value : `${value.value.toFixed(2)}%`}
           </Text>
         </View>
@@ -200,30 +202,29 @@ const styles = StyleSheet.create({
   },
   triangle: {
     width: 5,
-    height: 9.75,
+    height: 11,
     position: 'absolute',
-    bottom: -9.75,
+    bottom: -11,
     left: 36,
     borderLeftWidth: 7,
     borderLeftColor: 'transparent',
     borderRightWidth: 7,
     borderRightColor: 'transparent',
     borderTopWidth: 7,
-    borderTopColor: '#ACAFC4',
-
+    borderTopColor: '#ACAFC4'
   },
   triangle2: {
     width: 5,
-    height: 9.75,
+    height: 11,
     position: 'absolute',
-    bottom: -9.75,
+    bottom: -11,
     left: 37,
     borderLeftWidth: 6,
     borderLeftColor: 'transparent',
     borderRightWidth: 6,
     borderRightColor: 'transparent',
     borderTopWidth: 6,
-    borderTopColor: 'white',
+    borderTopColor: 'white'
   },
   labelText: {...text.smallBold, color: colors.text, textAlign: 'center'}
 });
