@@ -1,14 +1,14 @@
 import React, {FC} from 'react';
-import {ViewStyle, StyleProp} from 'react-native';
-import {Rect, G, Path} from 'react-native-svg';
+import {ViewStyle, StyleProp, View, Text, StyleSheet} from 'react-native';
+import {Rect, G, Path, Line} from 'react-native-svg';
 import {BarChart, Grid} from 'react-native-svg-charts';
-import {colors} from 'theme';
+import {colors, text} from 'theme';
 import {line, curveMonotoneX} from 'd3-shape';
 import {ScaleBand} from 'd3-scale';
 import {ChartData, AxisData} from 'components/organisms/tracker-charts';
 
 interface BarChartContentProps {
-  chartData: ChartData;
+  chartData: number[];
   axisData: AxisData;
   averagesData: ChartData;
   contentInset: {top: number; bottom: number};
@@ -22,13 +22,14 @@ interface BarChartContentProps {
   style?: StyleProp<ViewStyle>;
   scale: ScaleBand<any>;
   yMax?: number;
+  ySuffix?: string;
 }
 
 interface BarChildProps {
   x: (index: number) => number;
   y: (value: number) => number;
   bandwidth: number; // width of bar
-  data: number[];
+  data: Array<{value: number}>;
 }
 
 interface TrendLineProps extends BarChildProps {
@@ -47,7 +48,8 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   gapPercent = 25,
   style,
   scale,
-  yMax
+  yMax,
+  ySuffix = ''
 }) => {
   const RoundedBarToppers: FC<BarChildProps> = (props) => {
     const {x, y, bandwidth, data} = props;
@@ -56,12 +58,12 @@ export const BarChartContent: FC<BarChartContentProps> = ({
         {data.map((value, index) => (
           <Rect
             x={x(index)}
-            y={y(value) - cornerRoundness}
+            y={y(value.value) - cornerRoundness}
             rx={cornerRoundness}
             ry={cornerRoundness}
             width={bandwidth}
             height={cornerRoundness * 2} // Height of the Rect
-            fill={secondaryColor}
+            fill={index === data.length - 1 ? colors.purple : secondaryColor}
             key={`bar-${index}`}
           />
         ))}
@@ -102,6 +104,27 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     <TrendLine lineWidth={3} color={primaryColor} {...props} />
   );
 
+  const Label: React.ReactNode = (props: BarChildProps) => {
+    const {x, y, bandwidth, data} = props;
+    return data.map((value: {value: number}, index: number) =>
+      index === data.length - 1 ? (
+        <View
+          accessible={true}
+          style={[
+            styles.label,
+            {top: y(value.value) - 35, right: bandwidth / 2 - 13}
+          ]}
+          key={`label-${value.value}`}>
+          <View style={styles.triangle} />
+          <View style={styles.triangle2} />
+          <Text maxFontSizeMultiplier={1} style={styles.labelText}>
+            {ySuffix !== '%' ? value.value : `${value.value.toFixed(2)}%`}
+          </Text>
+        </View>
+      ) : null
+    );
+  };
+
   // Covers ends of bars hanging below line due to corner roundnesss
   const XAxisTrim: FC<BarChildProps> = (props) => {
     if (!props) {
@@ -120,41 +143,88 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   };
 
   const showTrendLine = !!averagesData.length;
-
   return (
-    <BarChart
-      style={style}
-      data={chartData}
-      gridMin={0}
-      scale={scale}
-      numberOfTicks={3}
-      spacingInner={gapPercent / 100}
-      spacingOuter={gapPercent / 100}
-      contentInset={{
-        top: contentInset.top + cornerRoundness,
-        bottom: contentInset.bottom - cornerRoundness
-      }}
-      yMax={yMax}
-      svg={{
-        fill: secondaryColor
-      }}>
-      <Grid
-        svg={{
-          y: 0 - cornerRoundness,
-          strokeWidth: 1,
-          stroke: colors.dot,
-          strokeDasharray: [5, 3],
-          strokeDashoffset: 0
+    <View accessible>
+      <BarChart
+        style={style}
+        data={chartData.map((value: number, index: number) =>
+          index === chartData.length - 1
+            ? {value, svg: {fill: colors.purple}}
+            : {value}
+        )}
+        yAccessor={({item}: {item: {value: number}}) => item.value}
+        gridMin={0}
+        scale={scale}
+        numberOfTicks={3}
+        spacingInner={gapPercent / 100}
+        spacingOuter={gapPercent / 100}
+        contentInset={{
+          top: contentInset.top + cornerRoundness,
+          bottom: contentInset.bottom - cornerRoundness
         }}
-      />
-      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      <RoundedBarToppers />
-      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      <XAxisTrim />
-      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      {showTrendLine && <BackgroundTrendLine />}
-      {/* @ts-ignore: gets BarChildProps from BarChart parent */}
-      {showTrendLine && <ForegroundTrendLine />}
-    </BarChart>
+        yMax={yMax}
+        svg={{
+          fill: secondaryColor
+        }}>
+        <Label />
+        <Grid
+          svg={{
+            y: 0 - cornerRoundness,
+            strokeWidth: 1,
+            stroke: colors.dot,
+            strokeDasharray: [5, 3],
+            strokeDashoffset: 0
+          }}
+        />
+        {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+        {<RoundedBarToppers />}
+        {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+        {<XAxisTrim />}
+        {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+        {showTrendLine && <BackgroundTrendLine />}
+        {/* @ts-ignore: gets BarChildProps from BarChart parent */}
+        {showTrendLine && <ForegroundTrendLine />}
+      </BarChart>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  label: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#ACAFC4',
+    position: 'absolute',
+    minWidth: 60,
+    borderRadius: 5,
+    backgroundColor: 'white',
+    paddingBottom: 1
+  },
+  triangle: {
+    width: 5,
+    height: 11,
+    position: 'absolute',
+    bottom: -11,
+    left: 36,
+    borderLeftWidth: 7,
+    borderLeftColor: 'transparent',
+    borderRightWidth: 7,
+    borderRightColor: 'transparent',
+    borderTopWidth: 7,
+    borderTopColor: '#ACAFC4'
+  },
+  triangle2: {
+    width: 5,
+    height: 11,
+    position: 'absolute',
+    bottom: -11,
+    left: 37,
+    borderLeftWidth: 6,
+    borderLeftColor: 'transparent',
+    borderRightWidth: 6,
+    borderRightColor: 'transparent',
+    borderTopWidth: 6,
+    borderTopColor: 'white'
+  },
+  labelText: {...text.smallBold, color: colors.text, textAlign: 'center'}
+});

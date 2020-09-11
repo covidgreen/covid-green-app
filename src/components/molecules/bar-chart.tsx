@@ -66,7 +66,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   const daysLimit = Math.min(axisData.length, chartData.length);
 
   // Arbitrary while data source is unstable, pending chart redesign
-  const intervalsCount = daysLimit < 30 ? 7 : 6;
+  const intervalsCount = Math.round(daysLimit / 2);
 
   if (!chartData.length || !axisData.length) {
     return null;
@@ -98,8 +98,8 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
   }, '');
 
   // Give x and y axis label text space to not get cropped
-  const insetY = 8;
-  const insetX = 6;
+  const insetY = 15;
+  const insetX = 7;
   const contentInset = {
     top: insetY,
     bottom: insetY,
@@ -124,14 +124,12 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
         new Date(axisData[index]),
         wideMonthLocales.includes(i18n.language) ? 'Mo' : 'MMM',
         dateLocale
-      ).toUpperCase();
+      );
     } catch (err) {
       // Invalid data already logged generating accessibility text
     }
 
-    const label = `${index === 0 ? nbsp + nbsp : ''}${date}${
-      index === axisData.length - 1 ? nbsp + nbsp : ''
-    }`;
+    const label = `${date}`;
 
     return label;
   };
@@ -149,21 +147,26 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     return date;
   };
 
+  const formatLine = (_: any, index: number) => {
+    if (isAxisLabelHidden(index)) {
+      return '';
+    }
+    return '|';
+  };
+
   return (
     <View
       accessible
       accessibilityLabel={description}
-      accessibilityHint={dataSummary}>
+      accessibilityHint={dataSummary}
+      >
       {title && (
         <>
           <Text style={styles.title}>{title}</Text>
           <Spacing s={16} />
         </>
       )}
-      <View
-        accessibilityElementsHidden={true}
-        importantForAccessibility="no-hide-descendants"
-        style={styles.chartingRow}>
+      <View style={styles.chartingRow}>
         <YAxis
           style={styles.yAxis}
           data={chartData}
@@ -186,19 +189,29 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             secondaryColor={secondaryColor}
             backgroundColor={backgroundColor}
             yMax={yMax}
+            ySuffix={ySuffix}
           />
           <XAxis
+            style={styles.line}
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
-            svg={{...xAxisSvg, y: 3}}
+            svg={{...xAxisSvg, fill: secondaryColor, y: -4}}
+            formatLabel={formatLine}
+          />
+          <XAxis
+          style={{height: 12}}
+            data={Array(daysLimit).fill(1)}
+            contentInset={contentInset}
+            scale={scaleBand}
+            svg={{...xAxisSvg}}
             formatLabel={formatXAxisDayLabel}
           />
           <XAxis
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
-            svg={xAxisSvg}
+            svg={{...xAxisSvg}}
             formatLabel={formatXAxisMonthLabel}
           />
         </View>
@@ -211,9 +224,9 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
               <Svg height={legendItemSize} width={legendItemSize}>
                 <Rect
                   x={0}
-                  y={0}
-                  width={legendItemSize}
-                  height={legendItemSize}
+                  y={3}
+                  width={legendItemSize / 2}
+                  height={legendItemSize / 2}
                   fill={secondaryColor}
                 />
               </Svg>
@@ -243,8 +256,8 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 };
 
 const xAxisSvg = {
-  ...text.smallBold,
-  fill: colors.text
+  ...text.small,
+  fill: colors.text,
 };
 
 const styles = StyleSheet.create({
@@ -260,7 +273,7 @@ const styles = StyleSheet.create({
   yAxis: {
     ...text.smallBold,
     width: 48,
-    height: 144,
+    height: 184,
     paddingRight: 4
   },
   chartingCol: {
@@ -269,9 +282,10 @@ const styles = StyleSheet.create({
   },
   chart: {
     flex: 1,
-    height: 144,
-    marginRight: 6,
-    marginLeft: 5
+    height: 184,
+    marginLeft: 6,
+    marginRight: 5,
+    marginBottom: -10
   },
   leftAlign: {
     textAlign: 'left'
@@ -290,5 +304,11 @@ const styles = StyleSheet.create({
     ...text.small,
     textAlign: 'left',
     marginLeft: 8
+  },
+  line: {
+    borderTopWidth: 1,
+    borderTopColor: '#ACAFC4',
+    borderStyle: 'solid',
+    height: 12
   }
 });
