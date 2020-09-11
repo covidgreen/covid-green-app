@@ -24,7 +24,8 @@ import {ScreenNames} from 'navigation';
 import {StorageKeys} from 'providers/context';
 import {
   useExposure,
-  StatusType
+  StatusState,
+  PermissionStatus
 } from 'react-native-exposure-notification-service';
 
 const REQUIRED_PRESS_COUNT = 3;
@@ -49,7 +50,15 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   const {t} = useTranslation();
   const [pressCount, setPressCount] = useState<number>(0);
   const [showDebug, setShowDebug] = useState<boolean>(false);
-  const exposure = useExposure();
+  const {
+    canSupport,
+    status,
+    enabled,
+    permissions,
+    supported,
+    isAuthorised,
+    contacts
+  } = useExposure();
 
   const versionPressHandler = async () => {
     setPressCount(pressCount + 1);
@@ -136,7 +145,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
         title: t('settings:feedback'),
         label: t('settings:feedback'),
         hint: t('settings:feedbackHint'),
-        screen: 'test'
+        screen: 'feedback'
       }
     ]
   ];
@@ -154,7 +163,38 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   }
 
   const version = getReadableVersion();
-  const type = exposure.status?.type || [];
+
+  const handleButtonPressed = (screen: string) =>
+    screen === 'feedback'
+      ? Linking.openURL(
+          `mailto:covidalertny@health.ny.gov?subject=App Feedback for COVID Alert NY: Version ${version}&body=<br><br><br><br>
+App Version: ${version}
+Device: ${getModel()}
+OS version: ${Platform.OS} ${Platform.Version}
+Closeness sensing status: ${
+            !enabled ||
+            status.state !== StatusState.active ||
+            permissions.notifications.status !== PermissionStatus.Allowed
+              ? 'inactive'
+              : 'active'
+          }
+Notifications: ${
+            permissions.notifications.status === PermissionStatus.Allowed
+              ? 'Allowed'
+              : 'Not Allowed'
+          }
+ENS Details: ${JSON.stringify({
+            c: canSupport,
+            s: supported,
+            st: status,
+            e: enabled,
+            p: permissions,
+            a: isAuthorised,
+            cn: contacts
+          })}`
+        )
+      : navigation.navigate(screen);
+
   return (
     <Scrollable
       heading={t('settings:title')}
@@ -178,21 +218,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
                   accessibilityLabel={label}
                   accessibilityRole="button"
                   accessibilityHint={hint}
-                  onPress={() =>
-                    screen === 'test'
-                      ? Linking.openURL(
-                          `mailto:support@example.com?subject=App Feedback for COVID Alert NY: Version ${version}&body=\n\n\n\n
-                          Device: ${getModel()}
-                          OS version: ${Platform.Version}
-                          Status of EN framework: ${exposure.enabled}
-                          Bluetooth active: ${
-                            type.length > 0
-                              ? type.indexOf(StatusType.bluetooth) === -1
-                              : 'active'
-                          }`
-                        )
-                      : navigation.navigate(screen)
-                  }>
+                  onPress={() => handleButtonPressed(screen)}>
                   <View style={itemStyle}>
                     <Text style={styles.text}>{title}</Text>
                     <AppIcons.ArrowRight
