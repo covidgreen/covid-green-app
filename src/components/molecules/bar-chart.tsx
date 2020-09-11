@@ -99,7 +99,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 
   // Give x and y axis label text space to not get cropped
   const insetY = 15;
-  const insetX = 6;
+  const insetX = 7;
   const contentInset = {
     top: insetY,
     bottom: insetY,
@@ -124,14 +124,12 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
         new Date(axisData[index]),
         wideMonthLocales.includes(i18n.language) ? 'Mo' : 'MMM',
         dateLocale
-      ).toUpperCase();
+      );
     } catch (err) {
       // Invalid data already logged generating accessibility text
     }
 
-    const label = `${index === 0 ? nbsp + nbsp : ''}${date}${
-      index === axisData.length - 1 ? nbsp + nbsp : ''
-    }`;
+    const label = `${date}`;
 
     return label;
   };
@@ -190,13 +188,10 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             secondaryColor={secondaryColor}
             backgroundColor={backgroundColor}
             yMax={yMax}
+            ySuffix={ySuffix}
           />
           <XAxis
-            style={{
-              borderTopWidth: 1,
-              borderTopColor: secondaryColor,
-              borderStyle: 'solid'
-            }}
+            style={styles.line}
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
@@ -207,14 +202,14 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
-            svg={{...xAxisSvg, y: 3}}
+            svg={{...xAxisSvg}}
             formatLabel={formatXAxisDayLabel}
           />
           <XAxis
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
-            svg={xAxisSvg}
+            svg={{...xAxisSvg}}
             formatLabel={formatXAxisMonthLabel}
           />
         </View>
@@ -286,8 +281,9 @@ const styles = StyleSheet.create({
   chart: {
     flex: 1,
     height: 184,
-    marginRight: 6,
-    marginLeft: 5
+    marginLeft: 6,
+    marginRight: 5,
+    marginBottom: -10
   },
   leftAlign: {
     textAlign: 'left'
@@ -306,5 +302,10 @@ const styles = StyleSheet.create({
     ...text.small,
     textAlign: 'left',
     marginLeft: 8
+  },
+  line: {
+    borderTopWidth: 1,
+    borderTopColor: '#ACAFC4',
+    borderStyle: 'solid'
   }
 });

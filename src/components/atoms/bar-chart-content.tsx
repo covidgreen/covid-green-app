@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {ViewStyle, StyleProp, View, Text} from 'react-native';
+import {ViewStyle, StyleProp, View, Text, StyleSheet} from 'react-native';
 import {Rect, G, Path, Line} from 'react-native-svg';
 import {BarChart, Grid} from 'react-native-svg-charts';
 import {colors} from 'theme';
@@ -22,6 +22,7 @@ interface BarChartContentProps {
   style?: StyleProp<ViewStyle>;
   scale: ScaleBand<any>;
   yMax?: number;
+  ySuffix?: string;
 }
 
 interface BarChildProps {
@@ -47,25 +48,24 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   gapPercent = 25,
   style,
   scale,
-  yMax
+  yMax,
+  ySuffix = ''
 }) => {
   const RoundedBarToppers: FC<BarChildProps> = (props) => {
     const {x, y, bandwidth, data} = props;
     return (
       <G>
         {data.map((value, index) => (
-          <>
-            <Rect
-              x={x(index)}
-              y={y(value.value) - cornerRoundness}
-              rx={cornerRoundness}
-              ry={cornerRoundness}
-              width={bandwidth}
-              height={cornerRoundness * 2} // Height of the Rect
-              fill={index === data.length - 1 ? colors.purple : secondaryColor}
-              key={`bar-${index}`}
-            />
-          </>
+          <Rect
+            x={x(index)}
+            y={y(value.value) - cornerRoundness}
+            rx={cornerRoundness}
+            ry={cornerRoundness}
+            width={bandwidth}
+            height={cornerRoundness * 2} // Height of the Rect
+            fill={index === data.length - 1 ? colors.purple : secondaryColor}
+            key={`bar-${index}`}
+          />
         ))}
       </G>
     );
@@ -115,20 +115,11 @@ export const BarChartContent: FC<BarChartContentProps> = ({
       index === data.length - 1 ? (
         <View
           accessible={true}
-          style={{
-            borderStyle: 'solid',
-            borderWidth: 1,
-            borderColor: secondaryColor,
-            position: 'absolute',
-            right: 0,
-            minWidth: 60,
-            borderRadius: 5,
-            top: y(value.value) - 25,
-            backgroundColor: 'white',
-            zIndex: 30
-          }}>
+          style={[styles.label, {top: y(value.value) - 35}]}>
+          <View style={styles.triangle} />
+          <View style={styles.triangle2} />
           <Text maxFontSizeMultiplier={1} style={{textAlign: 'center'}}>
-            {value.value > 1 ? value.value : `${value.value.toFixed(2)}%`}
+            {ySuffix !== '%' ? value.value : `${value.value.toFixed(2)}%`}
           </Text>
         </View>
       ) : null
@@ -198,3 +189,43 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  label: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#ACAFC4',
+    position: 'absolute',
+    right: -10,
+    minWidth: 60,
+    borderRadius: 5,
+    backgroundColor: 'white',
+    zIndex: 30
+  },
+  triangle: {
+    width: 5,
+    height: 10,
+    position: 'absolute',
+    bottom: -10,
+    left: 36,
+    borderLeftWidth: 7,
+    borderLeftColor: 'transparent',
+    borderRightWidth: 7,
+    borderRightColor: 'transparent',
+    borderTopWidth: 7,
+    borderTopColor: '#ACAFC4'
+  },
+  triangle2: {
+    width: 5,
+    height: 10,
+    position: 'absolute',
+    bottom: -10,
+    left: 37,
+    borderLeftWidth: 6,
+    borderLeftColor: 'transparent',
+    borderRightWidth: 6,
+    borderRightColor: 'transparent',
+    borderTopWidth: 6,
+    borderTopColor: 'white'
+  }
+});

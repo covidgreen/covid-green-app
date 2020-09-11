@@ -220,17 +220,15 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({
         </>
       )}
       {chartDataIsAvailable(testsData) && (
-        <>
-          <Card padding={{h: 12}}>
-            <TrackerBarChart
-              title={t('charts:tests:title')}
-              description={t('charts:tests:hint')}
-              axisData={testsData.axisData}
-              chartData={testsData.chartData}
-              averagesData={testsData.averagesData}
-            />
-          </Card>
-        </>
+        <Card padding={{h: 12}}>
+          <TrackerBarChart
+            title={t('charts:tests:title')}
+            description={t('charts:tests:hint')}
+            axisData={testsData.axisData}
+            chartData={testsData.chartData}
+            averagesData={testsData.averagesData}
+          />
+        </Card>
       )}
     </>
   );
