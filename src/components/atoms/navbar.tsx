@@ -9,13 +9,11 @@ import {
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useSafeArea} from 'react-native-safe-area-context';
-import {useRoute} from '@react-navigation/native';
 
 import Icons, {AppIcons} from 'assets/icons';
 import {colors, text} from 'theme';
 import {useApplication} from 'providers/context';
 import {TFunction} from 'i18next';
-import {ScreenNames} from 'navigation';
 
 interface NavBarProps {
   navigation: any;
@@ -51,7 +49,6 @@ export const NavBar: FC<NavBarProps> = ({
   const {t} = useTranslation();
   const insets = useSafeArea();
   const {user} = useApplication();
-  const route = useRoute();
 
   const [state, setState] = useState({back: false});
 
@@ -90,11 +87,7 @@ export const NavBar: FC<NavBarProps> = ({
             <TouchableWithoutFeedback
               accessibilityRole="button"
               accessibilityHint={t('navbar:backHint')}
-              onPress={() => {
-                route && route.name === ScreenNames.CloseContactAlert
-                  ? navigation.navigate(ScreenNames.MyCovidAlerts)
-                  : navigation.goBack();
-              }}>
+              onPress={() => navigation.goBack()}>
               <View
                 hitSlop={{left: 12, right: 12, top: 8, bottom: 8}}
                 style={styles.back}>
