@@ -167,7 +167,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   const handleButtonPressed = (screen: string) =>
     screen === 'feedback'
       ? Linking.openURL(
-          `mailto:covidalertny@health.ny.gov?subject=App Feedback for COVID Alert NY: Version ${version}&body=<br><br><br><br>
+          `mailto:covidalertny@health.ny.gov?subject=App Feedback for COVID Alert NY: Version ${version}&body=\n\n\n\n\n<br><br><br><br>
 App Version: ${version}
 Device: ${getModel()}
 OS version: ${Platform.OS} ${Platform.Version}
@@ -190,7 +190,7 @@ ENS Details: ${JSON.stringify({
             e: enabled,
             p: permissions,
             a: isAuthorised,
-            cn: contacts
+            cn: contacts?.length
           })}`
         )
       : navigation.navigate(screen);
