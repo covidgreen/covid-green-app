@@ -188,7 +188,10 @@ ENS Details: ${JSON.stringify({
             s: supported,
             st: status,
             e: enabled,
-            p: permissions,
+            p: {
+              exposure: permissions.exposure.status,
+              notifications: permissions.notifications.status
+            },
             a: isAuthorised,
             cn: contacts?.length
           })}`
