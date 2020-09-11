@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Dimensions,
   ScrollView,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  TouchableOpacity
 } from 'react-native';
 import Video from 'react-native-video';
 import {useSafeArea} from 'react-native-safe-area-context';
@@ -109,7 +110,10 @@ const Tour: FC<any> = () => {
       </View>
       <View style={[styles.row, styles.controls]}>
         <View style={[styles.left, styles.button]}>
-          <TouchableWithoutFeedback
+          {/*we can't use TouchableWithoutFeedback because is not selectable by keyboard tab navigation*/}
+          <TouchableOpacity
+            accessible
+            activeOpacity={1}
             accessibilityRole="button"
             accessibilityHint={t('onboarding:tour:previousHint')}
             onPress={() => {
@@ -124,7 +128,7 @@ const Tour: FC<any> = () => {
               ]}>
               {t('onboarding:tour:previous')}
             </Text>
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
         </View>
         <View
           style={[styles.center, styles.dots]}
@@ -145,7 +149,10 @@ const Tour: FC<any> = () => {
         </View>
         {position < statements.length - 1 && (
           <View style={[styles.right, styles.button]}>
-            <TouchableWithoutFeedback
+            {/*we can't use TouchableWithoutFeedback because is not selectable by keyboard tab navigation*/}
+            <TouchableOpacity
+              accessible
+              activeOpacity={1}
               accessibilityRole="button"
               accessibilityHint={t('onboarding:tour:nextHint')}
               onPress={() => {
@@ -162,12 +169,15 @@ const Tour: FC<any> = () => {
                 ]}>
                 {t('onboarding:tour:next')}
               </Text>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
           </View>
         )}
         {position === statements.length - 1 && (
           <View style={[styles.right, styles.button]}>
-            <TouchableWithoutFeedback
+            {/*we can't use TouchableWithoutFeedback because is not selectable by keyboard tab navigation*/}
+            <TouchableOpacity
+              accessible
+              activeOpacity={1}
               accessibilityRole="button"
               accessibilityLabel={t('common:close')}
               accessibilityHint={`${t('common:close')} ${t(
@@ -184,7 +194,7 @@ const Tour: FC<any> = () => {
                 ]}>
                 {t('onboarding:tour:close')}
               </Text>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
           </View>
         )}
       </View>
