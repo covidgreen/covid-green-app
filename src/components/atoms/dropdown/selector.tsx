@@ -16,6 +16,7 @@ export interface DropdownProps {
   onValueChange: (value: string) => void;
   search?: {
     placeholder: string;
+    items: BasicItem[];
     term: string;
     onChange: (value: string) => void;
     noResults: string;
@@ -100,10 +101,9 @@ export const SelectorDropdown = forwardRef<
         </TouchableWithoutFeedback>
         {isModalVisible && (
           <DropdownModal
-            close
             icon={icon}
             title={title || modalPlaceholder}
-            items={items}
+            items={search?.items || items}
             selectedValue={value}
             onSelect={onItemSelected}
             onClose={closeModal}

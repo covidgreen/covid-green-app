@@ -42,7 +42,7 @@ export const CloseContactUnderAge: FC = () => {
       <Card
         icon={<BubbleIcons.Info width={56} height={56} />}
         onPress={() => navigation.navigate('closeContactInfo')}>
-        <Text style={text.largeBlack}>{t('closeContact:infoCard')}</Text>
+        <Text style={text.largeBold}>{t('closeContact:infoCard')}</Text>
       </Card>
     </Scrollable>
   );

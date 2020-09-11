@@ -15,7 +15,7 @@ import Icons, {AppIcons} from 'assets/icons';
 import {colors, text} from 'theme';
 import {useApplication} from 'providers/context';
 import {TFunction} from 'i18next';
-import {ScreenNames} from "navigation";
+import {ScreenNames} from 'navigation';
 
 interface NavBarProps {
   navigation: any;

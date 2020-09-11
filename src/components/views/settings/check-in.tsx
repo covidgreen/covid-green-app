@@ -132,10 +132,11 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
           icon={<AppIcons.Search width={20} height={20} />}
           label={t('county:label')}
           placeholder={t('county:dropdownPlaceholder')}
-          items={counties}
+          items={countiesOptions}
           value={profile.county}
           search={{
             placeholder: t('county:searchPlaceholder'),
+            items: counties,
             term: searchTerm,
             onChange: setSearchTerm,
             noResults: t('county:noResults')
