@@ -77,6 +77,7 @@ export const CountyDropdown = forwardRef<
         term: countySearch,
         onChange: onCountySearchChanged,
         noResults: t('county:noResults'),
+        noResultsLength: 1,
         accessibilityLabel: (selectedItem?: string) =>
           t('county:accessibilityLabel', {
             county: selectedItem

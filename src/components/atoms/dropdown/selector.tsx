@@ -19,6 +19,7 @@ export interface DropdownProps {
     term: string;
     onChange: (value: string) => void;
     noResults: string;
+    noResultsLength?: number;
     accessibilityLabel?: (selectedItem?: string) => string;
   };
   itemRenderer?: (item: BasicItem) => ReactNode;
