@@ -18,6 +18,7 @@ export interface DropdownProps {
   onValueChange: (value: string) => void;
   search?: {
     placeholder: string;
+    items: BasicItem[];
     term: string;
     onChange: (value: string) => void;
     noResults: string;
@@ -110,7 +111,7 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
             icon={icon}
             title={title || placeholder}
             titleHint={label}
-            items={items}
+            items={search?.items || items}
             selectedValue={value}
             onSelect={onItemSelected}
             onClose={() => setModalVisible(false)}

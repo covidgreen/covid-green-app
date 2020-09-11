@@ -30,23 +30,27 @@ export const CountryCodeDropdown: FC<CountryCodeDropdownProps> = ({
   const {t} = useTranslation();
 
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const labeledItems = countryCodeItems.map((i) => ({...i, label: i.name}));
 
   const items = !searchTerm
-    ? countryCodeItems
-    : countryCodeItems.filter(
-        ({name}) =>
-          name && name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+    ? labeledItems
+    : countryCodeItems
+        .filter(
+          ({name}) =>
+            name && name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .map((i) => ({...i, label: i.name}));
 
   return (
     <Dropdown
       label={t('phoneNumber:code:label')}
-      items={items}
+      items={labeledItems}
       value={value}
       onValueChange={onValueChange}
       placeholder={t('phoneNumber:code:placeholder')}
       search={{
         placeholder: t('phoneNumber:code:searchPlaceholder'),
+        items,
         term: searchTerm,
         onChange: setSearchTerm,
         noResults: t('phoneNumber:code:noResults')

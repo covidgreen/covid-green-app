@@ -34,6 +34,7 @@ interface DropdownModalProps extends Partial<ModalProps> {
     term: string;
     onChange: (value: string) => void;
     noResults: string;
+    noResultsLength: number;
   };
   itemRenderer?: (item: BasicItem) => ReactNode;
   instructions?: () => ReactNode;
@@ -59,6 +60,8 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
   } = useApplication();
   const searchInputRef = useRef<TextInput>(null);
   const [ref] = useFocusRef();
+  const searchHasResults =
+    search && items.length > (search.noResultsLength || 0);
 
   useEffect(() => {
     if (search && !screenReaderEnabled) {
@@ -115,18 +118,8 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
   };
 
   const renderContent = () => {
-    if (search) {
-      if (!search.term && instructions) {
-        return <View style={listStyles.contentWrapper}>{instructions()}</View>;
-      }
-
-      if (search.term && !items.length) {
-        return (
-          <View accessibilityElementsHidden style={listStyles.contentWrapper}>
-            <Text style={listStyles.noResults}>{search?.noResults}</Text>
-          </View>
-        );
-      }
+    if (search && !search.term && instructions) {
+      return <View style={listStyles.contentWrapper}>{instructions()}</View>;
     }
 
     return (
@@ -137,10 +130,19 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
         enabled>
         <ScrollView keyboardShouldPersistTaps="always">
           {items.map(renderItem)}
+          {!!search?.term && !searchHasResults && !instructions && (
+            <View accessibilityElementsHidden style={listStyles.contentWrapper}>
+              <Text style={listStyles.noResults}>{search?.noResults}</Text>
+            </View>
+          )}
         </ScrollView>
       </KeyboardAvoidingView>
     );
   };
+
+  // Workaround a RN bug where a placeholder prevents accessibilityLabel being read
+  // on initial TextInput focus https://github.com/facebook/react-native/issues/26739
+  const noPlaceholder = Platform.OS === 'android' && screenReaderEnabled;
 
   return (
     <Modal
@@ -174,17 +176,25 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
               <TextInput
                 ref={searchInputRef}
                 accessibilityRole="search"
-                accessibilityLabel={
-                  search.term && !items.length
+                accessibilityLabel={`${
+                  // On Android but not iOS, on text input, accessibilityLabel is read if it has changed
+                  // but current value is not read. This tells user the full value after they stop typing
+                  // and tells them whether there are any autocomplete suggestions.
+                  Platform.OS === 'android' && search.term
+                    ? `${search.term}, `
+                    : ''
+                }${
+                  !searchHasResults
                     ? t('county:noResultsHint')
                     : t('county:searchHint')
-                }
+                }`}
                 style={[
                   styles.searchInput,
-                  !!search.term && styles.searchUnderlined
+                  !!search.term && styles.searchUnderlined,
+                  noPlaceholder && styles.noPlaceholder
                 ]}
                 placeholderTextColor={colors.text}
-                placeholder={search.placeholder}
+                placeholder={noPlaceholder ? '' : search.placeholder}
                 onChangeText={search.onChange}
                 value={search.term}
               />
@@ -230,13 +240,19 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.dot
   },
   searchInput: {
-    ...text.default
+    ...text.default,
+    paddingLeft: 4
   },
   searchUnderlined: {
     textDecorationLine: 'underline'
   },
   icon: {
     paddingHorizontal: 16
+  },
+  noPlaceholder: {
+    minWidth: 150,
+    borderWidth: 2,
+    borderColor: colors.dot
   }
 });
 

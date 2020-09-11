@@ -69,14 +69,16 @@ export const CountyDropdown = forwardRef<
       icon={<AppIcons.Search width={20} height={20} />}
       label={t('county:label')}
       modalPlaceholder={t('county:dropdownPlaceholder')}
-      items={withAllCounties(t, countyItems)}
+      items={withAllCounties(t, countyOptions)}
       value={value}
       onValueChange={onCountySelected}
       search={{
         placeholder: t('county:searchPlaceholder'),
+        items: withAllCounties(t, countyItems),
         term: countySearch,
         onChange: onCountySearchChanged,
         noResults: t('county:noResults'),
+        noResultsLength: 1,
         accessibilityLabel: (selectedItem?: string) =>
           t('county:accessibilityLabel', {
             county: selectedItem

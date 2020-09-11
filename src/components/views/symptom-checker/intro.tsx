@@ -114,10 +114,11 @@ export function CheckInIntro() {
           ref={ref1}
           label={t('county:label')}
           placeholder={t('county:dropdownPlaceholder')}
-          items={counties}
+          items={countiesOptions}
           value={state.county}
           search={{
             placeholder: t('county:searchPlaceholder'),
+            items: counties,
             term: searchTerm,
             onChange: setSearchTerm,
             noResults: t('county:noResults')

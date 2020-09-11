@@ -133,7 +133,7 @@ export const MyCovidAlerts = () => {
               <BubbleIcons.Info fill={colors.purple} width={56} height={57} />
             }
             padding={{r: 10}}>
-            <Text style={text.largeBlack}>
+            <Text style={text.largeBold}>
               {t('myCovidAlerts:uploadCard:text')}
             </Text>
           </Card>
