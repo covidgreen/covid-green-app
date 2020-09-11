@@ -62,7 +62,7 @@ export const Debug = ({navigation}) => {
 
   const simulateExposure = async () => {
     exposure.simulateExposure(5);
-  }
+  };
 
   const checkExposure = async () => {
     try {

@@ -1,10 +1,11 @@
-import React, {FC, useState} from 'react';
+import React, {forwardRef, RefObject, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {TFunction} from 'i18next';
 
 import {SelectorDropdown} from 'components/atoms/dropdown';
 import {counties} from 'assets/counties';
-import {AppIcons} from "assets/icons";
+import {AppIcons} from 'assets/icons';
+import {TouchableWithoutFeedback} from 'react-native';
 
 interface CountyOption {
   label: string;
@@ -32,10 +33,10 @@ const withAllCounties = (t: TFunction, options: any[]): any[] => {
 const normalizeString = (s: string): string =>
   s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-export const CountyDropdown: FC<CountyDropdownProps> = ({
-  value,
-  onValueChange
-}) => {
+export const CountyDropdown = forwardRef<
+  TouchableWithoutFeedback,
+  CountyDropdownProps
+>(({value, onValueChange}, ref) => {
   const {t} = useTranslation();
 
   const [countyItems, setCountyItems] = useState<CountyOption[]>(countyOptions);
@@ -64,6 +65,7 @@ export const CountyDropdown: FC<CountyDropdownProps> = ({
 
   return (
     <SelectorDropdown
+      ref={ref}
       icon={<AppIcons.Search width={20} height={20} />}
       label={t('county:label')}
       modalPlaceholder={t('county:dropdownPlaceholder')}
@@ -82,4 +84,4 @@ export const CountyDropdown: FC<CountyDropdownProps> = ({
       }}
     />
   );
-};
+});
