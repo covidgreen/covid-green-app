@@ -13,7 +13,7 @@ import {ScreenNames} from 'navigation';
 import {Scrollable} from 'components/templates/scrollable';
 import {Spacing} from 'components/atoms/spacing';
 
-import {colors} from 'theme';
+import {colors, text} from 'theme';
 import Step1 from 'assets/icons/how-it-works/howitworks1.svg';
 
 interface Content {
@@ -50,7 +50,7 @@ export const Introduction: FC<any> = () => {
             style={[style.top, styles.relative, styles.index1]}>
             <Text
               maxFontSizeMultiplier={1.7}
-              style={[styles.title, styles.introTitle]}>
+              style={[style.title, styles.introTitle]}>
               {content[0].title}
             </Text>
           </View>
@@ -62,7 +62,6 @@ export const Introduction: FC<any> = () => {
               style={[styles.slopeIcon, styles.index2]}
             />
           </View>
-          <Spacing s={12} />
           {content.map(({list}, index) => (
             <View
               key={`c-${index}`}
@@ -74,7 +73,7 @@ export const Introduction: FC<any> = () => {
                 <View
                   key={`l-${l}`}
                   style={[
-                    styles.list,
+                    style.list,
                     styles.center,
                     style.horizontal,
                     l === list.length - 1 && style.noBottomMargin
@@ -109,6 +108,13 @@ export const Introduction: FC<any> = () => {
 };
 
 const style = StyleSheet.create({
+  list: {
+    flexDirection: 'row',
+    marginBottom: 4
+  },
+  title: {
+    ...text.largeBold
+  },
   topHalfPage: {
     position: 'absolute',
     top: 0,

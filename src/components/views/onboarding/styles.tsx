@@ -24,7 +24,6 @@ export const styles = StyleSheet.create({
   },
   groupOfPeople: {
     marginTop: -14,
-    // backgroundColor: colors.background,
     alignSelf: 'flex-start'
   },
   list: {

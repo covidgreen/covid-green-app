@@ -322,7 +322,8 @@
   },
   "alertsUnavailablePrompt": {
     "title": "App can't alert you right now. Set up My COVID Alerts.",
-    "description": "Please check the COVID Alert NY app now."
+    "description": "Please check the COVID Alert NY app now.",
+    "bluetoothOff": "To get COVID Alerts you must enable Bluetooth. Tap to learn more."
   },
   "closeContactNotification": {
     "title": "Close Contact Alert",

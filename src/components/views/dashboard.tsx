@@ -3,7 +3,8 @@ import {View, StyleSheet, Text} from 'react-native';
 import {
   useExposure,
   StatusState,
-  PermissionStatus
+  PermissionStatus,
+  StatusType
 } from 'react-native-exposure-notification-service';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -42,7 +43,14 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const [refreshing, setRefreshing] = useState(false);
   const [appState] = useAppState();
   const isFocused = useIsFocused();
-  const exposure = useExposure();
+  const {
+    status,
+    readPermissions,
+    tracingAvailable,
+    enabled,
+    permissions,
+    contacts
+  } = useExposure();
   const [ref1, ref2, ref3, ref4, ref5] = useFocusRef({
     accessibilityFocus: true,
     accessibilityRefocus: true,
@@ -56,7 +64,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
       if (!isFocused || appState !== 'active') {
         return;
       }
-      exposure.readPermissions();
+      readPermissions();
       verifyCheckerStatus();
     }, [isFocused, appState, verifyCheckerStatus])
   );
@@ -82,24 +90,26 @@ export const Dashboard: FC<any> = ({navigation}) => {
       toast={errorToast}
       backgroundColor={colors.background}
       refresh={{refreshing, onRefresh}}>
-      {exposure.tracingAvailable && (
+      {tracingAvailable && (
         <>
           <TracingAvailable ref={ref1} />
           <Spacing s={16} />
         </>
       )}
-      {exposure.contacts && exposure.contacts.length > 0 && (
+      {contacts && contacts.length > 0 && (
         <>
           <CloseContactWarning ref={ref2} />
           <Spacing s={16} />
         </>
       )}
-      {(!exposure.enabled ||
-        exposure.status.state !== StatusState.active ||
-        exposure.permissions.notifications.status !==
-          PermissionStatus.Allowed) && (
+      {(!enabled ||
+        status.state !== StatusState.active ||
+        permissions.notifications.status !== PermissionStatus.Allowed) && (
         <>
-          <AlertInformation ref={ref3} />
+          <AlertInformation
+            ref={ref3}
+            bluetoothOff={status.type?.indexOf(StatusType.bluetooth) !== -1}
+          />
           <Spacing s={16} />
         </>
       )}

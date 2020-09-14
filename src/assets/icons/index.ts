@@ -15,6 +15,7 @@ import Filter from './app/filter.svg';
 import Selected from './app/selected.svg';
 import ErrorWarning from './app/error-warning.svg';
 import Search from './app/search.svg';
+import BluetoothOff from './app/bluetooth-off.svg';
 
 // bubble
 import BubbleCheckIn from './bubble/check-in.svg';
@@ -79,7 +80,8 @@ export const AppIcons = {
   Filter,
   Selected,
   ErrorWarning,
-  Search
+  Search,
+  BluetoothOff
 };
 
 export const BubbleIcons = {

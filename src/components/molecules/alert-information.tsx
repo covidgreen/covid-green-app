@@ -5,35 +5,46 @@ import {useNavigation} from '@react-navigation/native';
 
 import {colors, text} from 'theme';
 import {Card} from 'components/atoms/card';
-import {StateIcons} from 'assets/icons';
+import {StateIcons, AppIcons} from 'assets/icons';
 import {ScreenNames} from 'navigation';
 
-export const AlertInformation = forwardRef<TouchableWithoutFeedback>(
-  (props, ref) => {
-    const {t} = useTranslation();
-    const navigation = useNavigation();
+interface AlertInformationProps {
+  bluetoothOff?: boolean;
+}
 
-    return (
-      <Card
-        ref={ref}
-        padding={{h: 10, r: 16}}
-        onPress={() => navigation.navigate(ScreenNames.MyCovidAlerts)}
-        type="info"
-        arrowColor={colors.black}>
-        <View style={styles.row}>
+export const AlertInformation = forwardRef<
+  TouchableWithoutFeedback,
+  AlertInformationProps
+>(({bluetoothOff}, ref) => {
+  const {t} = useTranslation();
+  const navigation = useNavigation();
+
+  return (
+    <Card
+      ref={ref}
+      padding={{h: 10, r: 16}}
+      onPress={() => navigation.navigate(ScreenNames.MyCovidAlerts)}
+      type="info"
+      arrowColor={colors.black}>
+      <View style={styles.row}>
+        {bluetoothOff ? (
+          <AppIcons.BluetoothOff width={40} height={30} color={colors.text} />
+        ) : (
           <StateIcons.ExposureUnset
             width={40}
             height={40}
-            color={colors.black}
+            color={colors.text}
           />
-          <Text style={styles.notice}>
-            {t('alertsUnavailablePrompt:title')}
-          </Text>
-        </View>
-      </Card>
-    );
-  }
-);
+        )}
+        <Text style={styles.notice}>
+          {bluetoothOff
+            ? t('alertsUnavailablePrompt:bluetoothOff')
+            : t('alertsUnavailablePrompt:title')}
+        </Text>
+      </View>
+    </Card>
+  );
+});
 
 const styles = StyleSheet.create({
   row: {
