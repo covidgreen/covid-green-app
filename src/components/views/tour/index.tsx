@@ -94,7 +94,7 @@ const Tour: FC<any> = () => {
                   source={require('assets/videos/how-it-works.mp4')}
                   style={styles.video}
                   paused={false}
-                  repeat={true}
+                  repeat={false}
                   resizeMode="cover"
                 />
               )}
