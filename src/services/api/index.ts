@@ -3,7 +3,8 @@ import * as SecureStore from 'expo-secure-store';
 import {format} from 'date-fns';
 import {fetch} from 'react-native-ssl-pinning';
 import NetInfo from '@react-native-community/netinfo';
-import {ENV, TEST_TOKEN, API_HOST, SAFETYNET_KEY} from '@env';
+import {SAFETYNET_KEY} from '@env';
+import {ENV, TEST_TOKEN} from '@env';
 import RNGoogleSafetyNet from 'react-native-google-safetynet';
 import RNIOS11DeviceCheck from 'react-native-ios11-devicecheck';
 import {getReadableVersion} from 'react-native-device-info';
@@ -58,10 +59,6 @@ export const verify = async (nonce: string) => {
 };
 
 const connected = async (retry = false): Promise<boolean> => {
-  NetInfo.configure({
-    reachabilityUrl: `${API_HOST}/healthcheck`
-  });
-
   const networkState = await NetInfo.fetch();
   if (networkState.isInternetReachable && networkState.isConnected) {
     return true;

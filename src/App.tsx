@@ -17,16 +17,18 @@ import NetInfo from '@react-native-community/netinfo';
 import {useTranslation} from 'react-i18next';
 import {TFunction} from 'i18next';
 import * as SecureStore from 'expo-secure-store';
+
 import {
   ExposureProvider,
   TraceConfiguration,
   KeyServerType
 } from 'react-native-exposure-notification-service';
 import {getReadableVersion} from 'react-native-device-info';
-import {API_HOST} from '@env';
+
 import {Asset} from 'expo-asset';
 
 import 'services/i18n';
+
 import {
   ApplicationProvider,
   useApplication,
@@ -37,6 +39,7 @@ import {
   SettingsContext,
   useSettings
 } from 'providers/settings';
+
 import {Base} from 'components/templates/base';
 import {NavBar} from 'components/atoms/navbar';
 import {TabBarBottom} from 'components/organisms/tab-bar-bottom';
@@ -55,6 +58,7 @@ import {SymptomsHistory} from 'components/views/symptoms-history';
 import {MyCovidAlerts} from 'components/views/my-covid-alerts';
 import {CloseContactInfo} from 'components/views/close-contact-info';
 import {CloseContactAlert} from 'components/views/close-contact-alert';
+
 import {UploadKeys} from 'components/views/upload-keys';
 import {Settings} from 'components/views/settings';
 import {ContactTracingSettings} from 'components/views/settings/contact-tracing';
@@ -66,12 +70,14 @@ import {isMountedRef, navigationRef, ScreenNames} from 'navigation';
 import {colors} from 'theme';
 import {Loading} from 'components/views/loading';
 import {useSymptomChecker} from 'hooks/symptom-checker';
+
 import {
   Introduction,
   Permissions,
   Completion
 } from 'components/views/onboarding';
 import Tour from 'components/views/tour';
+
 import {urls} from 'constants/urls';
 import {PositiveResult} from 'components/views/positive-result';
 import {Language} from 'components/views/settings/language';
@@ -79,10 +85,6 @@ import {Language} from 'components/views/settings/language';
 enableScreens();
 
 try {
-  NetInfo.configure({
-    reachabilityUrl: `${API_HOST}/healthcheck`
-  });
-
   NetInfo.fetch().then((state) => console.log(state));
 } catch (err) {
   console.log(err);
