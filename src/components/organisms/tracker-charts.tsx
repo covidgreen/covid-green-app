@@ -198,7 +198,7 @@ export const TrackerCharts: FC<TrackerChartsProps> = ({
               axisData={percentData.axisData}
               chartData={percentData.chartData}
               averagesData={percentData.averagesData}
-              yMin={0.5}
+              yMin={1}
               ySuffix="%"
             />
           </Card>
