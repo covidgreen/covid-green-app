@@ -84,8 +84,6 @@ export const Dashboard: FC<any> = ({navigation}) => {
     />
   );
 
-  const bluetoothOff = status.type?.indexOf(StatusType.bluetooth) !== -1;
-
   return (
     <Scrollable
       safeArea={false}
@@ -106,10 +104,12 @@ export const Dashboard: FC<any> = ({navigation}) => {
       )}
       {(!enabled ||
         status.state !== StatusState.active ||
-        permissions.notifications.status !== PermissionStatus.Allowed ||
-        bluetoothOff) && (
+        permissions.notifications.status !== PermissionStatus.Allowed) && (
         <>
-          <AlertInformation ref={ref3} bluetoothOff={bluetoothOff}/>
+          <AlertInformation
+            ref={ref3}
+            bluetoothOff={status.type?.indexOf(StatusType.bluetooth) !== -1}
+          />
           <Spacing s={16} />
         </>
       )}

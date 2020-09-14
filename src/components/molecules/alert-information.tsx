@@ -36,7 +36,11 @@ export const AlertInformation = forwardRef<
             color={colors.text}
           />
         )}
-        {bluetoothOff ? <Text style={styles.notice}>{t('alertsUnavailablePrompt:bluetoothOff')}</Text> : <Text style={styles.notice}>{t('alertsUnavailablePrompt:title')}</Text>}
+        <Text style={styles.notice}>
+          {bluetoothOff
+            ? t('alertsUnavailablePrompt:bluetoothOff')
+            : t('alertsUnavailablePrompt:title')}
+        </Text>
       </View>
     </Card>
   );
