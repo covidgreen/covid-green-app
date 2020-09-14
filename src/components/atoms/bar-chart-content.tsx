@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     minWidth: 60,
     borderRadius: 5,
-    backgroundColor: 'white',
+    backgroundColor: colors.white + 'E4',
     paddingBottom: 1
   },
   triangle: {
