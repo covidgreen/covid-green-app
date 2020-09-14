@@ -62,7 +62,6 @@ export const Introduction: FC<any> = () => {
               style={[styles.slopeIcon, styles.index2]}
             />
           </View>
-          <Spacing s={12} />
           {content.map(({list}, index) => (
             <View
               key={`c-${index}`}

@@ -4,8 +4,7 @@ import {text, colors, shadows} from 'theme';
 
 export const styles = StyleSheet.create({
   title: {
-    ...text.largeBold,
-    marginBottom: 20
+    ...text.largeBold
   },
   introTitle: {
     ...text.xxlargeHeavy
@@ -24,12 +23,11 @@ export const styles = StyleSheet.create({
   },
   groupOfPeople: {
     marginTop: -14,
-    // backgroundColor: colors.background,
     alignSelf: 'flex-start'
   },
   list: {
     flexDirection: 'row',
-    marginBottom: 16
+    marginBottom: 12
   },
   listIcon: {
     marginRight: 10
