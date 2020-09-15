@@ -104,7 +104,11 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
             itemRenderer(item)
           ) : (
             <View style={listStyles.textWrapper}>
-              <Text style={[listStyles.text, {color}]}>{label}</Text>
+              <Text
+                maxFontSizeMultiplier={1.5}
+                style={[listStyles.text, {color}]}>
+                {label}
+              </Text>
             </View>
           )}
           {value === selectedValue && (
@@ -161,7 +165,7 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
             </TouchableWithoutFeedback>
           </View>
           <Text
-            maxFontSizeMultiplier={2.2}
+            maxFontSizeMultiplier={1.5}
             ref={ref}
             accessibilityRole="header"
             style={text.small}>
