@@ -6742,10 +6742,10 @@ react-native-easy-markdown@^2.0.0:
   dependencies:
     simple-markdown "^0.4.4"
 
-react-native-exposure-notification-service@^1.1.27:
-  version "1.1.27"
-  resolved "https://registry.yarnpkg.com/react-native-exposure-notification-service/-/react-native-exposure-notification-service-1.1.27.tgz#30bb6386af44efa0008b4e61573e3db85947008e"
-  integrity sha512-wd24tczovP5FbKCtrEe6hy1CrV1EFWF7Be5NBpGjbfc0Qk9Ft04crlDfu8gkxOWzBeY/GON/EFeugOa/zynIIw==
+react-native-exposure-notification-service@^1.1.28:
+  version "1.1.28"
+  resolved "https://registry.yarnpkg.com/react-native-exposure-notification-service/-/react-native-exposure-notification-service-1.1.28.tgz#40585b7bd762c1a5c086d0341c935e3a5c92d63e"
+  integrity sha512-v+8k5twqeQvMYpqBQPR82XDFe7aMrq9N3li/KBrlHH24Oe/pojTYy63OQgPTFu7TWv6m1NvzRQxrpZjKy5EcEw==
 
 react-native-gesture-handler@^1.7.0:
   version "1.8.0"
