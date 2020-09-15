@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import * as Localization from 'expo-localization';
-import * as SecureStore from 'expo-secure-store';
+import AsyncStorage from '@react-native-community/async-storage';
 import {
   fallback,
   defaultNamespace,
@@ -15,7 +15,7 @@ const languageDetector = {
   type: 'languageDetector',
   async: true,
   detect: async (callback: (lang: string) => void) => {
-    const storedLanguage = await SecureStore.getItemAsync(StorageKeys.language);
+    const storedLanguage = await AsyncStorage.getItem(StorageKeys.language);
     callback(
       storedLanguage || Localization.locale.split('-')[0].replace('-', '')
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import * as SecureStore from 'expo-secure-store';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import {Scrollable} from 'components/templates/scrollable';
 import {supportedLocales} from 'services/i18n/common';
@@ -38,7 +38,7 @@ export const Language = () => {
         items={languages}
         selectedValue={currentLanguage!.value}
         onItemSelected={(lang) => {
-          SecureStore.setItemAsync(StorageKeys.language, lang);
+          AsyncStorage.setItem(StorageKeys.language, lang);
           i18n.changeLanguage(lang);
         }}
       />

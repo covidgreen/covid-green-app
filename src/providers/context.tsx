@@ -265,7 +265,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     await SecureStore.deleteItemAsync(StorageKeys.symptomKeys);
     await SecureStore.deleteItemAsync(StorageKeys.uploadToken);
     await SecureStore.deleteItemAsync(StorageKeys.callbackQueued);
-    await SecureStore.deleteItemAsync(StorageKeys.language);
+    await AsyncStorage.removeItem(StorageKeys.language);
     await AsyncStorage.removeItem(StorageKeys.user);
     await AsyncStorage.removeItem(StorageKeys.checkinConsent);
     await AsyncStorage.removeItem(StorageKeys.debug);
