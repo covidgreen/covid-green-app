@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {ViewStyle, StyleProp, View, Text, StyleSheet} from 'react-native';
-import {Rect, G, Path, Line} from 'react-native-svg';
+import {Rect, G, Path} from 'react-native-svg';
 import {BarChart, Grid} from 'react-native-svg-charts';
 import {colors, text} from 'theme';
 import {line, curveMonotoneX} from 'd3-shape';
@@ -104,25 +104,26 @@ export const BarChartContent: FC<BarChartContentProps> = ({
     <TrendLine lineWidth={3} color={primaryColor} {...props} />
   );
 
-  const Label: React.ReactNode = (props: BarChildProps) => {
-    const {x, y, bandwidth, data} = props;
-    return data.map((value: {value: number}, index: number) =>
-      index === data.length - 1 ? (
-        <View
-          accessible={true}
-          style={[
-            styles.label,
-            {top: y(value.value) - 35, right: bandwidth / 2 - 13}
-          ]}
-          key={`label-${value.value}`}>
-          <View style={styles.triangle} />
-          <View style={styles.triangle2} />
-          <Text maxFontSizeMultiplier={1} style={styles.labelText}>
-            {ySuffix !== '%' ? value.value : `${value.value.toFixed(2)}%`}
-          </Text>
-        </View>
-      ) : null
-    );
+  const Label: FC<BarChildProps> = (props) => {
+    const {y, bandwidth, data} = props;
+    const lastValue = data[data.length - 1];
+    return lastValue ? (
+      <View
+        accessible={true}
+        style={[
+          styles.label,
+          {top: y(lastValue.value) - 35, right: bandwidth / 2 - 13}
+        ]}
+        key={`label-${lastValue.value}`}>
+        <View style={styles.triangle} />
+        <View style={styles.triangle2} />
+        <Text maxFontSizeMultiplier={1} style={styles.labelText}>
+          {ySuffix !== '%'
+            ? new Intl.NumberFormat('en-US').format(lastValue.value)
+            : `${lastValue.value.toFixed(2)}%`}
+        </Text>
+      </View>
+    ) : null;
   };
 
   // Covers ends of bars hanging below line due to corner roundnesss
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     minWidth: 60,
     borderRadius: 5,
-    backgroundColor: colors.white + 'E4',
+    backgroundColor: `${colors.white}E4`,
     paddingBottom: 1
   },
   triangle: {

@@ -27,7 +27,6 @@ interface TrackerBarChartProps {
 }
 
 const legendItemSize = 16;
-const nbsp = ' ';
 
 function formatLabel(value: number, suffix: string) {
   if (value >= 1000000) {
@@ -158,8 +157,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     <View
       accessible
       accessibilityLabel={description}
-      accessibilityHint={dataSummary}
-      >
+      accessibilityHint={dataSummary}>
       {title && (
         <>
           <Text style={styles.title}>{title}</Text>
@@ -200,7 +198,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             formatLabel={formatLine}
           />
           <XAxis
-          style={{height: 12}}
+            style={{height: 12}}
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
@@ -257,7 +255,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 
 const xAxisSvg = {
   ...text.small,
-  fill: colors.text,
+  fill: colors.text
 };
 
 const styles = StyleSheet.create({

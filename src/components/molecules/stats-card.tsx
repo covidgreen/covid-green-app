@@ -38,7 +38,7 @@ export const StatsCard: FC<StatsCardProps> = ({
       </View>
       <View style={styles.stats}>
         <Text style={text.xxlargeBlack}>
-          {new Intl.NumberFormat('en-IE').format(figure)}
+          {new Intl.NumberFormat('en-US').format(figure)}
         </Text>
         <Text style={text.defaultBoldOpacity70}>{description}</Text>
       </View>
