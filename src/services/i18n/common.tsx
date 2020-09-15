@@ -12,11 +12,11 @@ export const namespaces = ['common'];
 
 export const supportedLocales = {
   bn: {
-    name: 'বাংলা',
+    name: 'বাংলা (Bengali)',
     ...bn
   },
   zh: {
-    name: '中文',
+    name: '中文 (Chinese)',
     ...zh
   },
   en: {
@@ -24,19 +24,19 @@ export const supportedLocales = {
     ...en
   },
   ht: {
-    name: 'Kreyòl ayisyen',
+    name: 'Kreyòl ayisyen (Haitian Creole)',
     ...ht
   },
   ko: {
-    name: '한국어',
+    name: '한국어 (Korean)',
     ...ko
   },
   ru: {
-    name: 'русский',
+    name: 'русский (Russian)',
     ...ru
   },
   es: {
-    name: 'Español',
+    name: 'Español (Spanish)',
     ...es
   }
 };
