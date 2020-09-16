@@ -23,6 +23,7 @@ export const ContactTracingSettings: FC = () => {
     isAuthorised,
     status,
     enabled,
+    initialised,
     contacts,
     deleteExposureData,
     askPermissions
@@ -79,9 +80,11 @@ export const ContactTracingSettings: FC = () => {
       backgroundColor={colors.background}>
       <Text style={text.defaultBold}>{t('settings:status:title')}</Text>
       <Spacing s={12} />
-      <Text style={text.largeBold}>
-        {t(`settings:status:${isServiceActive ? 'active' : 'notActive'}`)}
-      </Text>
+      {initialised && (
+        <Text style={text.largeBold}>
+          {t(`settings:status:${isServiceActive ? 'active' : 'notActive'}`)}
+        </Text>
+      )}
       {canSupport && supported && (
         <>
           <Spacing s={24} />

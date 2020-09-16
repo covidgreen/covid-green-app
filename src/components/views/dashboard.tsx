@@ -22,7 +22,6 @@ import {AlertInformation} from 'components/molecules/alert-information';
 import {CheckInCard} from 'components/molecules/check-in-card';
 import {CloseContactWarning} from 'components/molecules/close-contact-warning';
 import {CountyDropdown} from 'components/molecules/county-dropdown';
-import {TracingAvailable} from 'components/molecules/tracing-available';
 import {TrackerCharts} from 'components/organisms/tracker-charts';
 import {Scrollable} from 'components/templates/scrollable';
 
@@ -46,15 +45,15 @@ export const Dashboard: FC<any> = ({navigation}) => {
   const {
     status,
     readPermissions,
-    tracingAvailable,
     enabled,
     permissions,
-    contacts
+    contacts,
+    initialised
   } = useExposure();
-  const [ref1, ref2, ref3, ref4, ref5] = useFocusRef({
+  const [ref1, ref2, ref3, ref4] = useFocusRef({
     accessibilityFocus: true,
     accessibilityRefocus: true,
-    count: 5,
+    count: 4,
     timeout: 1000
   });
   const {getNextScreen} = useSymptomChecker();
@@ -84,30 +83,28 @@ export const Dashboard: FC<any> = ({navigation}) => {
     />
   );
 
+  const showAlertInformation =
+    initialised &&
+    (!enabled ||
+      status.state !== StatusState.active ||
+      permissions.notifications.status !== PermissionStatus.Allowed);
+
   return (
     <Scrollable
       safeArea={false}
       toast={errorToast}
       backgroundColor={colors.background}
       refresh={{refreshing, onRefresh}}>
-      {tracingAvailable && (
-        <>
-          <TracingAvailable ref={ref1} />
-          <Spacing s={16} />
-        </>
-      )}
       {contacts && contacts.length > 0 && (
         <>
-          <CloseContactWarning ref={ref2} />
+          <CloseContactWarning ref={ref1} />
           <Spacing s={16} />
         </>
       )}
-      {(!enabled ||
-        status.state !== StatusState.active ||
-        permissions.notifications.status !== PermissionStatus.Allowed) && (
+      {showAlertInformation && (
         <>
           <AlertInformation
-            ref={ref3}
+            ref={ref2}
             bluetoothOff={status.type?.indexOf(StatusType.bluetooth) !== -1}
           />
           <Spacing s={16} />
@@ -116,7 +113,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
       {!completedChecker && (
         <>
           <CheckInCard
-            ref={ref4}
+            ref={ref3}
             onPress={() =>
               navigation.navigate('symptoms', {screen: getNextScreen()})
             }
@@ -141,10 +138,10 @@ export const Dashboard: FC<any> = ({navigation}) => {
             text={t('dashboard:stats:title')}
           />
           <CountyDropdown
-            ref={ref5}
+            ref={ref4}
             onValueChange={(option) => {
               setCountyScope(option.label as County);
-              setAccessibilityFocusRef(ref5);
+              setAccessibilityFocusRef(ref4);
             }}
             value={county}
           />

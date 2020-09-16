@@ -321,7 +321,7 @@
     "noThanks": "No thanks"
   },
   "alertsUnavailablePrompt": {
-    "title": "App can't alert you right now. Set up My COVID Alerts.",
+    "title": "App can't alert you right now.\nSet up My COVID Alerts.",
     "description": "Please check the COVID Alert NY app now.",
     "bluetoothOff": "To get COVID Alerts you must enable Bluetooth. Tap to learn more."
   },
@@ -473,9 +473,6 @@
     "title": "Help Improve This App",
     "info": "You can help the New York State Department of Health improve this app by sharing data about how you use it and how well Closeness Sensing is working.\n\n**When you turn this setting on**, the app sends your usage data directly to the New York State Department of Health. The data is anonymous -- the app doesn’t send anything about your identity. No third parties collect or see any of this data.\n\n**If you keep this setting off or turn it off later**, the app keeps your usage data private and doesn’t send it to anyone.",
     "share": "Share App Usage"
-  },
-  "tracingAvailable": {
-    "text": "App can't alert you right now.\nSet up My COVID Alerts."
   },
   "codeInput": {
     "accessibilityLabel": "Code digit {{number}}",

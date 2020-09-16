@@ -459,9 +459,6 @@
     "info": "Ou ka ede Depatman Sante Eta New York amelyore aplikasyon sa a lè w pataje done sou kijan ou itilize l ak sou efikasite fonksyònman Deteksyon Pwoksimite a.\n\n**Lè w aktive paramèt sa a**, aplikasyon an voye itilizasyon done w yo dirèkteman bay Depatman Sante Eta New York. Done yo anonim -- aplikasyon an pa voye anyen sou idantite w. Pa gen okenn tyès pati ki kolekte oswa ki wè okenn nan done sa yo.\n\n**Si ou kenbe paramèt sa a sou dezaktive oswa si ou dezaktive li apre**, aplikasyon an kenbe itilizasyon done w yo prive epi li pa voye l bay pèsòn.",
     "share": "Itilzasyon Pataj Aplikasyon"
   },
-  "tracingAvailable": {
-    "text": "Aplikasyon an pa kapab alète w kounye a.\nKonfigire Alèt COVID Mwen yo."
-  },
   "codeInput": {
     "accessibilityLabel": "Kòd {{number}} chif",
     "accessibilityHint": "Antre kòd {{count}} chif la"

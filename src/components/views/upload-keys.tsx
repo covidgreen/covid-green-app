@@ -34,7 +34,7 @@ type UploadStatus =
 
 export const UploadKeys = ({navigation}) => {
   const {t} = useTranslation();
-  const exposure = useExposure();
+  const {getDiagnosisKeys} = useExposure();
   const {showActivityIndicator, hideActivityIndicator} = useApplication();
 
   const [status, setStatus] = useState<UploadStatus>('initialising');
@@ -118,7 +118,7 @@ export const UploadKeys = ({navigation}) => {
   const uploadDataHandler = async () => {
     let exposureKeys;
     try {
-      exposureKeys = await exposure.getDiagnosisKeys();
+      exposureKeys = await getDiagnosisKeys();
     } catch (err) {
       console.log('getDiagnosisKeys error:', err);
       return setStatus('permissionError');

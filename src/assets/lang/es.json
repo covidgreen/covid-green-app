@@ -459,9 +459,6 @@
     "info": "Puede ayudar al Departamento de Salud del Estado de Nueva York a mejorar esta aplicación al compartir los datos sobre cómo la usa y qué tan bien funciona la Detección de Proximidad**.\n\n**Cuando usted activa esta función**, la aplicación envía sus datos de uso directamente al Departamento de Salud del Estado de Nueva York. Los datos son anónimos: la aplicación no envía ningún dato sobre su identidad. Ninguna tercera parte recopila ni observa estos datos.\n\n**Si mantiene esta función apagada o si la apaga más tarde**, la aplicación mantiene confidencial su uso de datos y no lo envía a nadie.",
     "share": "Compartir el uso de la aplicación"
   },
-  "tracingAvailable": {
-    "text": "La aplicación no puede alertarlo en este momento.\nConfigurar Mis Alertas de COVID."
-  },
   "codeInput": {
     "accessibilityLabel": "Dígitos del código {{number}}",
     "accessibilityHint": "Introducir los {{count}} dígitos del código"
