@@ -39,7 +39,12 @@ export const Feedback = () => {
     Linking.openURL(
       `mailto:covidalertny@health.ny.gov?subject=${t(
         `submitFeedback:${subject}`
-      )} for COVID Alert NY: Version ${version}&body=\n\n\n\n\n<span visibility="hidden"><br><br><br><br></span>
+      )} for COVID Alert NY: Version ${version}&body=
+
+
+
+
+
 App Version: ${version}
 Device: ${getModel()}
 OS version: ${Platform.OS} ${Platform.Version}
