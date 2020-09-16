@@ -81,6 +81,7 @@ import Tour from 'components/views/tour';
 import {urls} from 'constants/urls';
 import {PositiveResult} from 'components/views/positive-result';
 import {Language} from 'components/views/settings/language';
+import {Feedback} from './components/views/settings/feedback';
 
 enableScreens();
 
@@ -245,6 +246,13 @@ const Screens = (t: TFunction) => {
     {
       name: ScreenNames.DebugSettings,
       component: Debug,
+      options: {
+        ...standardProps
+      }
+    },
+    {
+      name: ScreenNames.FeedbackSettings,
+      component: Feedback,
       options: {
         ...standardProps
       }

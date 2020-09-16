@@ -21,6 +21,7 @@ export enum ScreenNames {
   UsageSettings = 'settings.metrics',
   LeaveSettings = 'settings.leave',
   DebugSettings = 'settings.debug',
+  FeedbackSettings = 'settings.feedback',
   LanguageSetttings = 'settings.language',
   Privacy = 'privacy',
   Terms = 'terms',

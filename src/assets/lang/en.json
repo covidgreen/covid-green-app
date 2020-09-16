@@ -45,7 +45,8 @@
     "contactTracing": "Contact Tracing",
     "positiveResult": "If you test positive for COVID-19",
     "settingsLanguage": "My Language",
-    "howItWorks": "How It Works"
+    "howItWorks": "How It Works",
+    "submitFeeback": "Submit Feedback"
   },
   "navbar": {
     "back": "Back",
@@ -559,5 +560,13 @@
     "title": "Notifications are disabled",
     "text": "You need to allow notifications so you can receive COVID alerts.",
     "gotoSettings": "Go to App Settings"
+  },
+  "submitFeedback": {
+    "title": "Submit Feedback",
+    "intro": "What type of feedback would you like to submit?",
+    "enhancement": "Enhancement Suggestion",
+    "report": "Report a Technical Issue",
+    "feedback": "General Feedback",
+    "submit": "Submit"
   }
 }
