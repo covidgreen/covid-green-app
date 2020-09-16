@@ -9,13 +9,12 @@ import {
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useSafeArea} from 'react-native-safe-area-context';
-import {useRoute} from '@react-navigation/native';
 
 import Icons, {AppIcons} from 'assets/icons';
 import {colors, text} from 'theme';
 import {useApplication} from 'providers/context';
 import {TFunction} from 'i18next';
-import {ScreenNames} from 'navigation';
+import {useRoute, NavigationProp} from '@react-navigation/native';
 
 interface NavBarProps {
   navigation: any;
@@ -23,6 +22,11 @@ interface NavBarProps {
   placeholder?: boolean;
   modal?: boolean;
 }
+
+const getIndex = (routeKey: string, navigation: NavigationProp<any>) => {
+  const {routes} = navigation.dangerouslyGetState();
+  return routes.findIndex((route) => route.key === routeKey);
+};
 
 export const shareApp = async (t: TFunction) => {
   try {
@@ -51,7 +55,7 @@ export const NavBar: FC<NavBarProps> = ({
   const {t} = useTranslation();
   const insets = useSafeArea();
   const {user} = useApplication();
-  const route = useRoute();
+  const {key: routeKey} = useRoute();
 
   const [state, setState] = useState({back: false});
 
@@ -60,7 +64,7 @@ export const NavBar: FC<NavBarProps> = ({
     let unsubscribeEnd: (() => any) | null = null;
     if (!placeholder) {
       unsubscribeStart = navigation.addListener('transitionStart', () => {
-        const {index} = navigation.dangerouslyGetState();
+        const index = getIndex(routeKey, navigation);
         setState((s) => ({
           ...s,
           back: index !== 0
@@ -68,7 +72,7 @@ export const NavBar: FC<NavBarProps> = ({
       });
 
       unsubscribeEnd = navigation.addListener('transitionEnd', () => {
-        const {index} = navigation.dangerouslyGetState();
+        const index = getIndex(routeKey, navigation);
         setState((s) => ({
           ...s,
           back: index > 0
@@ -80,7 +84,7 @@ export const NavBar: FC<NavBarProps> = ({
       unsubscribeStart && unsubscribeStart();
       unsubscribeEnd && unsubscribeEnd();
     };
-  }, [user, navigation, placeholder]);
+  }, [user, navigation, placeholder, routeKey]);
 
   return (
     <View style={[styles.wrapper, {paddingTop: insets.top + 2}]}>
@@ -90,11 +94,7 @@ export const NavBar: FC<NavBarProps> = ({
             <TouchableWithoutFeedback
               accessibilityRole="button"
               accessibilityHint={t('navbar:backHint')}
-              onPress={() => {
-                route && route.name === ScreenNames.CloseContactAlert
-                  ? navigation.navigate(ScreenNames.MyCovidAlerts)
-                  : navigation.goBack();
-              }}>
+              onPress={() => navigation.goBack()}>
               <View
                 hitSlop={{left: 12, right: 12, top: 8, bottom: 8}}
                 style={styles.back}>

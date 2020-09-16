@@ -66,7 +66,7 @@ import {CheckInSettings} from 'components/views/settings/check-in';
 import {Metrics} from 'components/views/settings/metrics';
 import {Leave} from 'components/views/settings/leave';
 import {Debug} from 'components/views/settings/debug';
-import {isMountedRef, navigationRef, ScreenNames} from 'navigation';
+import {covidAlertReset, isMountedRef, navigationRef, ScreenNames} from 'navigation';
 import {colors} from 'theme';
 import {Loading} from 'components/views/loading';
 import {useSymptomChecker} from 'hooks/symptom-checker';
@@ -414,7 +414,7 @@ function Navigation({
     }
 
     if (navigationRef.current && notification) {
-      navigationRef.current.navigate(ScreenNames.CloseContactAlert);
+      navigationRef.current.reset(covidAlertReset);
 
       setState((s) => ({...s, notification: null}));
     }
@@ -427,7 +427,7 @@ function Navigation({
 
     if (navigationRef.current && exposureNotificationClicked) {
       console.log('exposureNotificationClicked', exposureNotificationClicked);
-      navigationRef.current.navigate(ScreenNames.CloseContactAlert);
+      navigationRef.current.reset(covidAlertReset);
       setState((s) => ({...s, exposureNotificationClicked: null}));
     }
   }, [app, exposureNotificationClicked]);
