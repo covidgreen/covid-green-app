@@ -224,7 +224,6 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       load();
     } catch (err) {
       console.log('App init error:', err);
-    } finally {
       setState((s) => ({...s, initializing: false}));
     }
   }, []);
