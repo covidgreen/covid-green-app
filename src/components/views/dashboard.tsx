@@ -13,6 +13,7 @@ import {useApplication} from 'providers/context';
 import {useAppState} from 'hooks/app-state';
 import {useSymptomChecker} from 'hooks/symptom-checker';
 import {setAccessibilityFocusRef, useFocusRef} from 'hooks/accessibility';
+import {networkError} from 'services/api';
 
 import {Button} from 'components/atoms/button';
 import {Heading} from 'components/atoms/heading';
@@ -57,6 +58,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
     timeout: 1000
   });
   const {getNextScreen} = useSymptomChecker();
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -70,16 +72,23 @@ export const Dashboard: FC<any> = ({navigation}) => {
 
   const onRefresh = () => {
     setRefreshing(true);
-    loadAppData().then(() => setRefreshing(false));
+    loadAppData().then((result) => {
+      setLoadError(result instanceof Error ? result.message : null);
+      setRefreshing(false);
+    });
   };
 
   useEffect(onRefresh, []);
 
-  const errorToast = data === null && (
+  const errorToast = (data === null || loadError) && (
     <Toast
       type="error"
       icon={<AppIcons.ErrorWarning width={24} height={24} />}
-      message={t('common:missingError')}
+      message={
+        loadError === networkError
+          ? t('common:networkError')
+          : t('common:missingError')
+      }
     />
   );
 
