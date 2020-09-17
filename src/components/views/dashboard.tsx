@@ -114,7 +114,7 @@ export const Dashboard: FC<any> = ({navigation}) => {
         <>
           <AlertInformation
             ref={ref2}
-            bluetoothOff={status.type?.indexOf(StatusType.bluetooth) !== -1}
+            bluetoothOff={status.type?.includes(StatusType.bluetooth) || false}
           />
           <Spacing s={16} />
         </>
