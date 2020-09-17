@@ -200,7 +200,7 @@
   },
   "welcome": {
     "title": "Hi there 👋",
-    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. **Your symptoms data helps them understand how COVID-19 is affecting NY.**\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
+    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NYS Department of Health. **Your symptoms data helps them understand how COVID-19 is affecting NYS.**\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
     "action": "Yes, I'd Like to Start My Log",
     "letUsKnow": "Let us know if you have\nsymptoms today"
   },

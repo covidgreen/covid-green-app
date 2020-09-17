@@ -24,18 +24,17 @@ export const PositiveResult: FC = () => {
       backgroundColor={colors.background}
       heading={t('positiveResult:title')}>
       <Markdown>{t('positiveResult:text1')}</Markdown>
-      <Spacing s={12} />
       <Card
         icon={<BubbleIcons.Info width={56} height={56} />}
         onPress={() => navigation.navigate('closeContactInfo')}>
         <Text style={text.defaultBold}>{t('closeContact:infoCard')}</Text>
       </Card>
-      <Spacing s={20} />
+      <Spacing s={18} />
       <Markdown>{t('positiveResult:text2')}</Markdown>
-      <Spacing s={24} />
       <Button onPress={() => navigation.navigate(ScreenNames.UploadKeys)}>
         {t('positiveResult:shareCodes')}
       </Button>
+      <Spacing s={12} />
     </Scrollable>
   );
 };

@@ -194,7 +194,7 @@
   },
   "welcome": {
     "title": "Bonjou",
-    "text": "Ou ka itilize Rejis Sant Mwen an pou swiv kijan w santi w chak jou epi pou jwenn konsèy debaz sou sentòm ou yo. Telefòn ou konsève yon istorik, ke ou ka gade nenpòt lè.\n\nYo pataje yon fason ki anonim, rejis toulejou yo ki soti nan aplikasyon w lan ak nan aplikasyon lòt itilizatè yo, avèk Depatman Sante NY. Done sou sentòm ou yo ede yo konprann kijan COVID-19 ap afekte NY.\n\nIdantite w rete prive, men ou kapab pataje detay debaz, tankou laj ou, idantite seksyèl ou, ras ou, gwoup etnik ou, ak konte w la, pou rann enfòmasyon an pi itil pou analiz sante piblik.\n\n**Remak:** Rejis Sante Mwen an pa obligatwa. Ou pa oblije patisipe pou itilize lòt fonksyonalite ki nan aplikasyon sa a.",
+    "text": "Ou ka itilize Rejis Sant Mwen an pou swiv kijan w santi w chak jou epi pou jwenn konsèy debaz sou sentòm ou yo. Telefòn ou konsève yon istorik, ke ou ka gade nenpòt lè.\n\nYo pataje yon fason ki anonim, rejis toulejou yo ki soti nan aplikasyon w lan ak nan aplikasyon lòt itilizatè yo, avèk Depatman Sante NYS. Done sou sentòm ou yo ede yo konprann kijan COVID-19 ap afekte NYS.\n\nIdantite w rete prive, men ou kapab pataje detay debaz, tankou laj ou, idantite seksyèl ou, ras ou, gwoup etnik ou, ak konte w la, pou rann enfòmasyon an pi itil pou analiz sante piblik.\n\n**Remak:** Rejis Sante Mwen an pa obligatwa. Ou pa oblije patisipe pou itilize lòt fonksyonalite ki nan aplikasyon sa a.",
     "action": "Wi, mwen ta renmen kòmanse rejis mwen an",
     "letUsKnow": "Fè nou konnen si ou genyen\nsentòm yo jodiya"
   },
@@ -232,7 +232,7 @@
   },
   "leave": {
     "title": "Efase Done Mwen",
-    "info": "Mèsi dèske ou ede nou konbat pwopagasyon COVID-19 nan NY. Nou dezole wè ke ou prale, men ou ka sispann itilize aplikasyon sa a nenpòt lè.\n\nLè ou tape sou boton “Efase Done Mwen yo” ki pi ba a, n ap retire tout done ke aplikasyon an te konsève sou telefòn ou an, tankou pa eganzp tout done ki nan rejis sante w la.",
+    "info": "Mèsi dèske ou ede nou konbat pwopagasyon COVID-19 nan NYS. Nou dezole wè ke ou prale, men ou ka sispann itilize aplikasyon sa a nenpòt lè.\n\nLè ou tape sou boton “Efase Done Mwen yo” ki pi ba a, n ap retire tout done ke aplikasyon an te konsève sou telefòn ou an, tankou pa eganzp tout done ki nan rejis sante w la.",
     "summary": "**Remak:**\n\nBouton sa a pa efase kòd aleyatwa yo ke telefòn ou an te kreye oswa te kolekte pou Deteksyon Pwoksimite ak Alèt COVID yo.\n\nPou efase kòd aleyatwa yo, ale nan Paramèt telefòn ou yo epi seleksyone “Sèvis ak Preferans Google”. Apresa, seleksyone “Notifikasyon pou Kontak ak COVID-19” epi tape sou bouton “Efase Idantifikasyon (ID) Aleyatwa yo” . Pou sispann konsève nouvo kòd yo, ou dwe dezaktive “Itilize Notifikasyon pou Kontak yo” .",
     "button": "Efase Done Mwen",
     "confirmTitle": "Efase Done Mwen",

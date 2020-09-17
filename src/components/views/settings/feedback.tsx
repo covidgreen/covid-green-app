@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {Spacing} from 'components/atoms/layout';
-import {PinnedBottom} from 'components/templates/pinned';
+import {Scrollable} from 'components/templates/scrollable';
 
 import {getReadableVersion, getModel} from 'react-native-device-info';
 import {
@@ -18,7 +18,6 @@ import {
   PermissionStatus
 } from 'react-native-exposure-notification-service';
 import {Card} from 'components/atoms/card';
-import {SelectList} from 'components/atoms/select-list';
 import {text} from 'theme';
 
 export const Feedback = () => {
@@ -34,8 +33,7 @@ export const Feedback = () => {
     contacts
   } = useExposure();
   const version = getReadableVersion();
-  const [value1, setValue] = useState<string>('');
-  const onSubmit = (subject: string) =>
+  const openEmail = (subject: string) =>
     Linking.openURL(
       `mailto:covidalertny@health.ny.gov?subject=${t(
         `submitFeedback:${subject}`
@@ -74,35 +72,33 @@ ENS Details: ${JSON.stringify({
       })}`
     );
   return (
-    <PinnedBottom heading={t('submitFeedback:title')}>
+    <Scrollable heading={t('submitFeedback:title')}>
       <Text style={styles.intro}>{t('submitFeedback:intro')}</Text>
-      <Spacing s={55} />
-      <SelectList
-        items={[
-          {
-            value: 'enhancement',
-            label: t('submitFeedback:enhancement')
-          },
-          {
-            value: 'report',
-            label: t('submitFeedback:report')
-          },
-          {
-            value: 'feedback',
-            label: t('submitFeedback:feedback')
-          }
-        ]}
-        onItemSelected={(value) => setValue(value)}
-        selectedValue={value1}
-      />
+      <Spacing s={20} />
       <Card padding={{h: 0, v: 4, r: 0}} style={styles.card}>
-        <TouchableWithoutFeedback onPress={() => onSubmit(value1)}>
+        <TouchableWithoutFeedback onPress={() => openEmail('enhancement')}>
           <View style={styles.item}>
-            <Text style={styles.text}>Submit</Text>
+            <Text style={styles.text}>{t('submitFeedback:enhancement')}</Text>
           </View>
         </TouchableWithoutFeedback>
       </Card>
-    </PinnedBottom>
+      <Spacing s={14} />
+      <Card padding={{h: 0, v: 4, r: 0}} style={styles.card}>
+        <TouchableWithoutFeedback onPress={() => openEmail('report')}>
+          <View style={styles.item}>
+            <Text style={styles.text}>{t('submitFeedback:report')}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </Card>
+      <Spacing s={14} />
+      <Card padding={{h: 0, v: 4, r: 0}} style={styles.card}>
+        <TouchableWithoutFeedback onPress={() => openEmail('feedback')}>
+          <View style={styles.item}>
+            <Text style={styles.text}>{t('submitFeedback:feedback')}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </Card>
+    </Scrollable>
   );
 };
 
