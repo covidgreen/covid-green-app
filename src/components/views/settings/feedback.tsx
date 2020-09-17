@@ -43,6 +43,7 @@ export const Feedback = () => {
 
 
 
+Please do not remove. This info helps the technical team assist you
 App Version: ${version}
 Device: ${getModel()}
 OS version: ${Platform.OS} ${Platform.Version}
@@ -58,19 +59,19 @@ Notifications: ${
           ? 'Allowed'
           : 'Not Allowed'
       }
-ENS Details: ${JSON.stringify({
-        c: canSupport,
-        s: supported,
-        st: status,
-        e: enabled,
-        p: {
-          exposure: permissions.exposure.status,
-          notifications: permissions.notifications.status
-        },
-        a: isAuthorised,
-        cn: contacts?.length
-      })}`
+ENS Details:
+  can support ENS: ${canSupport ? 'yes' : 'no'},
+  supported: ${supported ? 'yes' : 'no'},
+  status state: ${status.state}
+  status type: ${status.type || []},
+  enabled: ${enabled ? 'yes' : 'no'},
+  exposure permission: ${permissions.exposure.status},
+  notifications permission: ${permissions.notifications.status},
+  authorised: ${isAuthorised ? 'yes' : 'no'},
+  amount of closeness cases: ${contacts?.length || 0}
+`
     );
+
   return (
     <Scrollable heading={t('submitFeedback:title')}>
       <Text style={styles.intro}>{t('submitFeedback:intro')}</Text>
