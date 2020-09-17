@@ -1,19 +1,21 @@
 import React, {FC} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
-
 import {colors} from 'theme';
 import Icons from 'assets/icons';
 
+const HealthLogo = require('assets/images/healthStateLogo/image.png');
+
 export const Loading: FC = () => {
   const insets = useSafeArea();
+
   return (
     <View style={[styles.container, {paddingBottom: insets.bottom}]}>
       <View style={styles.appLogo}>
         <Icons.LogoLaunch width={242} height={242} color={colors.white} />
       </View>
       <View style={styles.stateLogo}>
-        <Icons.LogoState width={335} height={80} color={colors.white} />
+        <Image accessibilityIgnoresInvertColors source={HealthLogo} />
       </View>
     </View>
   );

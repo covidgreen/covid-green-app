@@ -17,9 +17,9 @@
                     <rect key="frame" x="86" y="121" width="242" height="242"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StateLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2rD-OZ-cRc">
-                    <rect key="frame" x="87" y="616" width="240" height="80"/>
+                    <rect key="frame" x="87" y="616" width="355" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="240" id="BF2-7U-Mwg"/>
+                        <constraint firstAttribute="width" constant="355" id="BF2-7U-Mwg"/>
                     </constraints>
                 </imageView>
             </subviews>
