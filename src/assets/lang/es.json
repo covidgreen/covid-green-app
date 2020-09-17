@@ -54,7 +54,7 @@
     "updates": "Datos de COVID en NY",
     "symptomCheck": "Mi Registro de Salud",
     "contactTracing": "Mis Alertas de COVID",
-    "settings": "Configuración\nde la aplicación"
+    "settings": "Config. de la aplicación"
   },
   "onboarding": {
     "introduction": {
@@ -194,7 +194,7 @@
   },
   "welcome": {
     "title": "¡Hola! 👋",
-    "text": "Puede utilizar Mi Registro de Salud para supervisar cómo se siente diariamente y obtener consejos básicos sobre sus síntomas. Su teléfono almacena un historial, el cual puede revisar en cualquier momento.\n\nSus registros diarios y los de otros usuarios de la aplicación se comparten de forma anónima con el Departamento de Salud de NY. Los datos sobre sus síntomas los ayudan a entender cómo la COVID-19 está afectando a NY.\n\nSu identidad permanece confidencial, pero usted puede compartir datos básicos como su edad, identidad de género, raza, origen étnico y condado para que la información sea más útil para los análisis de salud pública**.\n\n**Nota:** Mi Registro de Salud es opcional. No tiene que participar en las otras funciones de esta aplicación.",
+    "text": "Puede utilizar Mi Registro de Salud para supervisar cómo se siente diariamente y obtener consejos básicos sobre sus síntomas. Su teléfono almacena un historial, el cual puede revisar en cualquier momento.\n\nSus registros diarios y los de otros usuarios de la aplicación se comparten de forma anónima con el Departamento de Salud de NYS. Los datos sobre sus síntomas los ayudan a entender cómo la COVID-19 está afectando a NYS.\n\nSu identidad permanece confidencial, pero usted puede compartir datos básicos como su edad, identidad de género, raza, origen étnico y condado para que la información sea más útil para los análisis de salud pública**.\n\n**Nota:** Mi Registro de Salud es opcional. No tiene que participar en las otras funciones de esta aplicación.",
     "action": "Sí, me gustaría comenzar mi registro",
     "letUsKnow": "Infórmenos si presenta\nsíntomas hoy"
   },
@@ -232,7 +232,7 @@
   },
   "leave": {
     "title": "Borrar mis datos",
-    "info": "Gracias por ayudarnos a luchar contra la propagación de la COVID-19 en NY. Lamentamos que se vaya, y queremos que sepa que puede dejar de usar la aplicación en cualquier momento.\n\nCuando presione el botón “Borrar mis datos” que está más adelante, eliminaremos todos los datos almacenados en su teléfono, como todas las anotaciones en su registro de salud.",
+    "info": "Gracias por ayudarnos a luchar contra la propagación de la COVID-19 en NYS. Lamentamos que se vaya, y queremos que sepa que puede dejar de usar la aplicación en cualquier momento.\n\nCuando presione el botón “Borrar mis datos” que está más adelante, eliminaremos todos los datos almacenados en su teléfono, como todas las anotaciones en su registro de salud.",
     "summary": "**Nota:**\n\nEste botón no elimina los códigos aleatorios creados o recopilados por su teléfono para la Detección de Proximidad y las Alertas de COVID.\n\nPara borrar los códigos aleatorios, vaya a Configuración del teléfono y seleccione “Servicios y Preferencias de Google”. Luego, seleccione “Notificaciones de Exposición a COVID-19” y presione el botón “Borrar los ID aleatorios”. Para dejar de almacenar nuevos códigos, debe deshabilitar “Utilizar Notificaciones de Exposición”.",
     "button": "Borrar mis datos",
     "confirmTitle": "Borrar mis datos",
@@ -345,7 +345,7 @@
   "closeContactInfo": {
     "title": "Aprenda cómo mantener protegidos a los demás",
     "info": "**Para limitar el riesgo de propagar la COVID-19 a su familia o a su comunidad, tome las siguientes precauciones hasta que un profesional de salud pública lo examine:**",
-    "list": "1. **Quédese en casa, excepto para buscar atención médica**.\n\n2. **Llame con antelación si debe salir a buscar atención médica**.\nUtilice una mascarilla cuando salga y evite usar el transporte público como subterráneos, autobuses y taxis.\n\n3. **Aléjese de los demás**\nPermanezca en una habitación que no comparta con otras personas y mantenga la puerta cerrada. Duerma solo. En todo momento permanezca a una distancia de 6 pies (2 metros) de otras personas como mínimo, incluso de sus familiares.\n\n4. **No reciba visitas**.\nNo permita que otras personas entren sin su permiso.\n\n5. **Use un baño aparte**.\nSi no es posible, limpie y desinfecte todas las superficies después de cada uso.\n\n6. **Pida que le traigan la comida**.\nPrograme que le dejen la comida, los medicamentos y otros suministros en la puerta.\n\n7. **Cúbrase cuando tosa o estornude**.\nDeseche los pañuelos de papel después de usarlos. Coloque la basura en una bolsa y déjela en la parte exterior de la puerta. (No es necesario un manejo especial).\n\n8. **No toque las mascotas**.\n\n9. **Haga arreglos para que otra persona cuide a sus niños si es posible**.\n\n10. **Lávese las manos con frecuencia**\n con agua y jabón por 20 segundos cada vez o, si no es posible, use desinfectante para las manos con, al menos, 60 % de alcohol. Use toallas de papel en vez de toallas compartidas.\n\n11. **Sométase a la prueba**.\nHable con su proveedor de atención médica para programar una cita en un centro de pruebas público accesible.\n(Encuentre un sitio cercano a usted)(https://coronavirus.health.ny.gov/find-test-site-near-you)\n\n12. **Contrólese la temperatura y los síntomas cuidadosamente**.\nPuede registrarlos en la función “Mi Registro de Salud” de esta aplicación o de otra manera. El registro diario ayuda a los representantes de salud pública a decidir los siguientes pasos si usted se enferma."
+    "list": "1. **Quédese en casa, excepto para buscar atención médica**.\n\n2. **Llame con antelación si debe salir a buscar atención médica**.\nUtilice una mascarilla cuando salga y evite usar el transporte público como subterráneos, autobuses y taxis.\n\n3. **Aléjese de los demás**\nPermanezca en una habitación que no comparta con otras personas y mantenga la puerta cerrada. Duerma solo. En todo momento permanezca a una distancia de 6 pies (2 metros) de otras personas como mínimo, incluso de sus familiares.\n\n4. **No reciba visitas**.\nNo permita que otras personas entren sin su permiso.\n\n5. **Use un baño aparte**.\nSi no es posible, limpie y desinfecte todas las superficies después de cada uso.\n\n6. **Pida que le traigan la comida**.\nPrograme que le dejen la comida, los medicamentos y otros suministros en la puerta.\n\n7. **Cúbrase cuando tosa o estornude**.\nDeseche los pañuelos de papel después de usarlos. Coloque la basura en una bolsa y déjela en la parte exterior de la puerta. (No es necesario un manejo especial).\n\n8. **No toque las mascotas**.\n\n9. **Haga arreglos para que otra persona cuide a sus niños si es posible**.\n\n10. **Lávese las manos con frecuencia**\n con agua y jabón por 20 segundos cada vez o, si no es posible, use desinfectante para las manos con, al menos, 60 % de alcohol. Use toallas de papel en vez de toallas compartidas.\n\n11. **Sométase a la prueba**.\nHable con su proveedor de atención médica para programar una cita en un centro de pruebas público accesible.\n[Encuentre un sitio cercano a usted](https://coronavirus.health.ny.gov/find-test-site-near-you)\n\n12. **Contrólese la temperatura y los síntomas cuidadosamente**.\nPuede registrarlos en la función “Mi Registro de Salud” de esta aplicación o de otra manera. El registro diario ayuda a los representantes de salud pública a decidir los siguientes pasos si usted se enferma."
   },
   "closeContactAlert": {
     "infoCard": "Aprenda cómo mantener protegidos a los demás",
@@ -458,9 +458,6 @@
     "title": "Ayúdenos a mejorar esta aplicación",
     "info": "Puede ayudar al Departamento de Salud del Estado de Nueva York a mejorar esta aplicación al compartir los datos sobre cómo la usa y qué tan bien funciona la Detección de Proximidad**.\n\n**Cuando usted activa esta función**, la aplicación envía sus datos de uso directamente al Departamento de Salud del Estado de Nueva York. Los datos son anónimos: la aplicación no envía ningún dato sobre su identidad. Ninguna tercera parte recopila ni observa estos datos.\n\n**Si mantiene esta función apagada o si la apaga más tarde**, la aplicación mantiene confidencial su uso de datos y no lo envía a nadie.",
     "share": "Compartir el uso de la aplicación"
-  },
-  "tracingAvailable": {
-    "text": "La aplicación no puede alertarlo en este momento.\nConfigurar Mis Alertas de COVID."
   },
   "codeInput": {
     "accessibilityLabel": "Dígitos del código {{number}}",

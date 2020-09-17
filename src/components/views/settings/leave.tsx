@@ -5,7 +5,7 @@ import * as Haptics from 'expo-haptics';
 
 import {Button} from 'components/atoms/button';
 import {DataProtectionLink} from 'components/views/data-protection-policy';
-import {forget} from 'services/api';
+import {forget, networkError} from 'services/api';
 import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
 import {useApplication} from 'providers/context';
@@ -41,9 +41,7 @@ export const Leave = ({navigation}) => {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
       Alert.alert(
         'Error',
-        e.message && e.message === 'Network Unavailable'
-          ? t('common:networkError')
-          : t('leave:error')
+        e.message === networkError ? t('common:networkError') : t('leave:error')
       );
     }
   };

@@ -98,7 +98,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 
   // Give x and y axis label text space to not get cropped
   const insetY = 15;
-  const insetX = 7;
+  const insetX = 12;
   const contentInset = {
     top: insetY,
     bottom: insetY,

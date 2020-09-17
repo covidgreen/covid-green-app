@@ -200,7 +200,7 @@
   },
   "welcome": {
     "title": "Hi there 👋",
-    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NY Department of Health. **Your symptoms data helps them understand how COVID-19 is affecting NY.**\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
+    "text": "You can use My Health Log to track how you're feeling each day and get basic advice about your symptoms. Your phone stores a history, which you can review at any time.\n\nThe daily logs from you and other app users are shared anonymously with the NYS Department of Health. **Your symptoms data helps them understand how COVID-19 is affecting NYS.**\n\nYour identity stays private, but you can share basic details like your age, gender identity, race, ethnicity, and county to make the information more useful for public health analysis.\n\n**Note:** My Health Log is optional. You don't have to participate to use the other features of this app.",
     "action": "Yes, I'd Like to Start My Log",
     "letUsKnow": "Let us know if you have\nsymptoms today"
   },
@@ -322,7 +322,7 @@
     "noThanks": "No thanks"
   },
   "alertsUnavailablePrompt": {
-    "title": "App can't alert you right now. Set up My COVID Alerts.",
+    "title": "App can't alert you right now.\nSet up My COVID Alerts.",
     "description": "Please check the COVID Alert NY app now.",
     "bluetoothOff": "To get COVID Alerts you must enable Bluetooth. Tap to learn more."
   },
@@ -474,9 +474,6 @@
     "title": "Help Improve This App",
     "info": "You can help the New York State Department of Health improve this app by sharing data about how you use it and how well Closeness Sensing is working.\n\n**When you turn this setting on**, the app sends your usage data directly to the New York State Department of Health. The data is anonymous -- the app doesn’t send anything about your identity. No third parties collect or see any of this data.\n\n**If you keep this setting off or turn it off later**, the app keeps your usage data private and doesn’t send it to anyone.",
     "share": "Share App Usage"
-  },
-  "tracingAvailable": {
-    "text": "App can't alert you right now.\nSet up My COVID Alerts."
   },
   "codeInput": {
     "accessibilityLabel": "Code digit {{number}}",

@@ -86,7 +86,7 @@ const checkActive = (
  */
 export const TabBarBottom: FC<any> = ({navigation, state}) => {
   const {t} = useTranslation();
-  const {status, enabled, contacts} = useExposure();
+  const {initialised, status, enabled, contacts} = useExposure();
 
   const hasAlerts = contacts && contacts.length > 0;
 
@@ -110,12 +110,12 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
       icon: {
         inactive: hasAlerts
           ? ctAlert
-          : status.state === StatusState.active && enabled
+          : !initialised || (status.state === StatusState.active && enabled)
           ? ctOnUnselected
           : ctOffUnselected,
         active: hasAlerts
           ? ctAlert
-          : status.state === StatusState.active && enabled
+          : !initialised || (status.state === StatusState.active && enabled)
           ? ctOnSelected
           : ctOffSelected
       }

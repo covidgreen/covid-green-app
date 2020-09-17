@@ -34,3 +34,12 @@ export enum ScreenNames {
   Dashboard = 'dashboard',
   Settings = 'settings'
 }
+
+// Always navigate to CloseContactAlert so that back action takes user to MyCovidAlerts
+export const covidAlertReset = {
+  index: 1,
+  routes: [
+    {name: 'main', params: { screen: ScreenNames.MyCovidAlerts }},
+    {name: ScreenNames.CloseContactAlert}
+  ]
+};

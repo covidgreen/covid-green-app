@@ -4,7 +4,7 @@ import {useExposure} from 'react-native-exposure-notification-service';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
-import {ScreenNames} from 'navigation';
+import {covidAlertReset, ScreenNames} from 'navigation';
 
 import {Card} from 'components/atoms/card';
 
@@ -22,7 +22,7 @@ export const CloseContactWarning = forwardRef<TouchableWithoutFeedback>(
       <Card
         ref={ref}
         padding={{h: 10, r: 16}}
-        onPress={() => navigation.navigate(ScreenNames.CloseContactAlert)}
+        onPress={() => navigation.reset(covidAlertReset)}
         type="warning">
         <View style={styles.row}>
           <StateIcons.ExposureAlert

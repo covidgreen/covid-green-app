@@ -147,7 +147,7 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   return (
     <View accessible>
       <BarChart
-        style={style}
+        style={[style, { marginLeft: contentInset.left - 2, marginRight: contentInset.right }]}
         data={chartData.map((value: number, index: number) =>
           index === chartData.length - 1
             ? {value, svg: {fill: colors.purple}}

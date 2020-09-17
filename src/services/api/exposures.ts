@@ -2,6 +2,7 @@ import * as SecureStore from 'expo-secure-store';
 import RNSimpleCrypto from 'react-native-simple-crypto';
 import {getBundleId} from 'react-native-device-info';
 import {request} from '.';
+import {networkError} from 'services/api';
 import {urls} from 'constants/urls';
 
 export enum ValidationResult {
@@ -45,7 +46,7 @@ export const validateCode = async (
   } catch (err) {
     console.log('Code validation error: ', err, err.message);
 
-    if (err.message && err.message === 'Network Unavailable') {
+    if (err.message === networkError) {
       return {result: ValidationResult.NetworkError};
     }
 

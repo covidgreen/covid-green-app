@@ -1,10 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
-import {Linking, StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Linking} from 'react-native';
 import {useExposure} from 'react-native-exposure-notification-service';
 import PushNotification from 'react-native-push-notification';
 import {useTranslation} from 'react-i18next';
 import {format, subDays} from 'date-fns';
-import {useNavigation} from '@react-navigation/native';
 
 import {Card} from 'components/atoms/card';
 import {Markdown} from 'components/atoms/markdown';
@@ -13,11 +12,10 @@ import {CallCard} from 'components/molecules/call-card';
 import {Scrollable} from 'components/templates/scrollable';
 
 import {getDateLocaleOptions} from 'services/i18n/date';
-import {colors, text} from 'theme';
+import {text, colors} from 'theme';
 import {StateIcons} from 'assets/icons';
 
 import {renderListBullet} from './close-contact-info';
-import {ScreenNames} from 'navigation';
 
 const markdownStyles = {
   text: {
@@ -33,16 +31,6 @@ export const CloseContactAlert: FC = () => {
   const {t, i18n} = useTranslation();
   const exposure = useExposure();
   const [closeContactDate, setCloseContactDate] = useState<string>('');
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    return navigation.addListener('focus', () => {
-      navigation.reset({
-        index: 0,
-        routes: [{name: ScreenNames.MyCovidAlerts}]
-      });
-    });
-  }, [navigation]);
 
   useEffect(() => {
     async function getCloseContactDate() {

@@ -70,7 +70,7 @@ export interface ApplicationContextValue extends State {
   clearContext: () => Promise<void>;
   showActivityIndicator: (message?: string) => void;
   hideActivityIndicator: () => void;
-  loadAppData: () => Promise<void>;
+  loadAppData: () => Promise<Error | true>;
   checkIn: (symptoms: SymptomRecord, params: CheckInParams) => Promise<void>;
   verifyCheckerStatus: () => void;
   setCountyScope: (county: County | 'u') => void;

@@ -25,6 +25,8 @@ interface CheckIn {
   ok: boolean;
 }
 
+export const networkError = 'Network Unavailable';
+
 export type UploadResponse = Response | undefined;
 
 export const verify = async (nonce: string) => {
@@ -65,7 +67,7 @@ const connected = async (retry = false): Promise<boolean> => {
   }
 
   if (retry) {
-    throw new Error('Network Unavailable');
+    throw new Error(networkError);
   } else {
     await new Promise((r) => setTimeout(r, 1000));
     await connected(true);
