@@ -59,7 +59,6 @@ Notifications: ${
           ? 'Allowed'
           : 'Not Allowed'
       }
-<<<<<<< HEAD
 ENS Details:
   can support ENS: ${canSupport ? 'yes' : 'no'},
   supported: ${supported ? 'yes' : 'no'},
