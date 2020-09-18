@@ -127,6 +127,7 @@ export function CheckInIntro() {
             setState((s) => ({...s, county}));
             setAccessibilityFocusRef(ref1);
           }}
+          onClose={() => setAccessibilityFocusRef(ref1)}
         />
         <Separator />
         <Dropdown
@@ -139,6 +140,7 @@ export function CheckInIntro() {
             setState((s) => ({...s, gender}));
             setAccessibilityFocusRef(ref2);
           }}
+          onClose={() => setAccessibilityFocusRef(ref2)}
         />
         <Separator />
         <Dropdown
@@ -151,6 +153,7 @@ export function CheckInIntro() {
             setState((s) => ({...s, ageRange}));
             setAccessibilityFocusRef(ref3);
           }}
+          onClose={() => setAccessibilityFocusRef(ref3)}
         />
         <Separator />
         <Dropdown
@@ -163,6 +166,7 @@ export function CheckInIntro() {
             setState((s) => ({...s, race}));
             setAccessibilityFocusRef(ref4);
           }}
+          onClose={() => setAccessibilityFocusRef(ref4)}
         />
         <Separator />
         <Dropdown
@@ -175,6 +179,7 @@ export function CheckInIntro() {
             setState((s) => ({...s, ethnicity}));
             setAccessibilityFocusRef(ref5);
           }}
+          onClose={() => setAccessibilityFocusRef(ref5)}
         />
         <Separator />
         <Button width="100%" onPress={onContinue}>

@@ -145,6 +145,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
             setProfile({...profile, saved: false, county: value});
             setAccessibilityFocusRef(ref1);
           }}
+          onClose={() => setAccessibilityFocusRef(ref1)}
         />
         <Separator />
         <Dropdown
@@ -157,6 +158,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
             setProfile({...profile, saved: false, gender: value});
             setAccessibilityFocusRef(ref2);
           }}
+          onClose={() => setAccessibilityFocusRef(ref2)}
         />
         <Separator />
         <Dropdown
@@ -169,6 +171,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
             setProfile({...profile, saved: false, ageRange: value});
             setAccessibilityFocusRef(ref3);
           }}
+          onClose={() => setAccessibilityFocusRef(ref3)}
         />
         <Separator />
         <Dropdown
@@ -181,6 +184,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
             setProfile({...profile, saved: false, race: value});
             setAccessibilityFocusRef(ref4);
           }}
+          onClose={() => setAccessibilityFocusRef(ref4)}
         />
         <Separator />
         <Dropdown
@@ -193,6 +197,7 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
             setProfile({...profile, saved: false, ethnicity: value});
             setAccessibilityFocusRef(ref5);
           }}
+          onClose={() => setAccessibilityFocusRef(ref5)}
         />
         <Spacing s={24} />
         <Button

@@ -28,6 +28,7 @@ export interface DropdownProps {
   forceDisplay?: () => string;
   instructions?: () => ReactNode;
   icon?: ReactNode;
+  onClose?: () => void;
 }
 
 export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
@@ -44,7 +45,8 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
       display,
       forceDisplay,
       instructions,
-      icon
+      icon,
+      onClose
     },
     ref
   ) => {
@@ -114,7 +116,10 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
             items={search?.items || items}
             selectedValue={value}
             onSelect={onItemSelected}
-            onClose={() => setModalVisible(false)}
+            onClose={() => {
+              setModalVisible(false);
+              onClose && onClose();
+            }}
             search={search}
             itemRenderer={itemRenderer}
             instructions={instructions}
