@@ -49,37 +49,32 @@ const Tour: FC<any> = () => {
           paddingTop: insets.top
         }
       ]}>
-      <View style={styles.fill}>
-        <View style={[styles.header, styles.row]}>
-          <View style={[styles.padded, styles.close]}>
-            <TouchableWithoutFeedback
-              accessibilityRole="button"
-              accessibilityLabel={t('common:close')}
-              accessibilityHint={`${t('common:close')} ${t(
-                'onboarding:tour:title'
-              )}`}
-              onPress={onClose}
-              style={styles.close}>
-              <View>
-                <AppIcons.Close width={28} height={28} color={colors.purple} />
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-          <View
-            ref={ref}
-            accessible
-            accessibilityRole="header"
-            accessibilityLabel={t('onboarding:tour:title')}
-            accessibilityHint={t('onboarding:tour:currentPage', {
-              page: position + 1,
-              total: statements.length
-            })}
-            style={styles.headerContent}>
-            <Text maxFontSizeMultiplier={2} style={styles.heading}>
-              {t('onboarding:tour:title')}
-            </Text>
-          </View>
-          <View style={styles.padded} />
+      <View style={[styles.header, styles.row]}>
+        <View style={styles.close}>
+          <TouchableWithoutFeedback
+            accessibilityRole="button"
+            accessibilityLabel={t('common:close')}
+            accessibilityHint={`${t('common:close')} ${t(
+              'onboarding:tour:title'
+            )}`}
+            onPress={onClose}
+            style={styles.close}>
+            <View>
+              <AppIcons.Close width={28} height={28} color={colors.purple} />
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+        <View
+          ref={ref}
+          accessible
+          accessibilityRole="header"
+          accessibilityLabel={t('onboarding:tour:title')}
+          accessibilityHint={t('onboarding:tour:currentPage', {
+            page: position + 1,
+            total: statements.length
+          })}
+          style={styles.headerContent}>
+          <Text style={styles.heading}>{t('onboarding:tour:title')}</Text>
         </View>
       </View>
       <View style={styles.details}>
@@ -217,16 +212,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  fill: {
-    flex: 2
-  },
   row: {
     flexDirection: 'row',
     alignItems: 'center'
   },
   header: {
-    paddingHorizontal: 10,
-    paddingVertical: 20
+    paddingVertical: 20,
+    paddingLeft: 12,
+    paddingRight: 36
   },
   headerContent: {
     flex: 1
@@ -234,12 +227,6 @@ const styles = StyleSheet.create({
   heading: {
     ...text.largeBold,
     textAlign: 'center'
-  },
-  padded: {
-    width: 24,
-    height: 24,
-    position: 'relative',
-    zIndex: 10
   },
   close: {
     marginLeft: 10
