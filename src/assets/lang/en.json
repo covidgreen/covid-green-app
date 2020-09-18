@@ -129,7 +129,7 @@
     "information": {
       "title": "Contact Tracing",
       "highlight": "Contact tracing helps prevent the spread of COVID-19.",
-      "highlight1": "This app supports the work of the HSE’s Contact Tracing teams, but those teams may also contact you as part of manual contact tracing.",
+      "highlight1": "This app supports the work of the DOH’s Contact Tracing teams, but those teams may also contact you as part of manual contact tracing.",
       "text": "The app will send you a Close Contact Alert if you have been in close contact with someone who has tested positive for the virus.",
       "text1": "To enable Contact Tracing for this app you need to turn on:",
       "text2": "and to get an alert you need to turn on:",
@@ -314,10 +314,10 @@
   "followUpCall": {
     "title": "Contact Tracing follow-up call",
     "shortTitle": "Call Back",
-    "intro": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert. The HSE will also phone you if you provide your number below.",
-    "note": "The HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below, or add it later in Settings.",
-    "noteAlt": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert. The HSE will also phone you if you provide your number below.\n\nThe HSE may also phone if you are identified as a close contact by manual contact tracing. The HSE will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the HSE if you get a Close Contact Alert. You can enter your number below.",
-    "noteSettings": "If you want we will try to call you to provide further assistance after you receive an exposure notification.\n\nYour phone number will only be shared with the HSE if you get an exposure notification.",
+    "intro": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert. The DOH will also phone you if you provide your number below.",
+    "note": "The DOH may also phone if you are identified as a close contact by manual contact tracing. The DOH will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the DOH if you get a Close Contact Alert. You can enter your number below, or add it later in Settings.",
+    "noteAlt": "If someone you've been in close contact with tests positive for COVID-19, the app will send you a Close Contact Alert. The DOH will also phone you if you provide your number below.\n\nThe DOH may also phone if you are identified as a close contact by manual contact tracing. The DOH will give you advice and refer you for testing if appropriate.\n\nThe app will only share your phone number with the DOH if you get a Close Contact Alert. You can enter your number below.",
+    "noteSettings": "If you want we will try to call you to provide further assistance after you receive an exposure notification.\n\nYour phone number will only be shared with the DOH if you get an exposure notification.",
     "optIn": "Yes, I want to opt-in",
     "noThanks": "No thanks"
   },
@@ -373,7 +373,7 @@
     "title": "Share Your Close Contact Codes",
     "code": {
       "intro": "Please enter the 6-digit number that the public health representative has given you over the phone or texted to you:",
-      "expiredError": "Code has expired. Contact HSE to request another one.",
+      "expiredError": "Code has expired. Contact DOH to request another one.",
       "invalidError": "Invalid code. Please try again.",
       "error": "There was an error validating the code. Please try again."
     },
@@ -465,7 +465,7 @@
   },
   "appUsage": {
     "title": "App Metrics",
-    "info": "The HSE would like to understand your use of the App for the purpose of improving it.\n\nThe app will collect anonymous metrics about how you use the app and the effectiveness of Contact Tracing processes.\n\nThis information is gathered by the HSE directly and does not use any third parties to gather metrics. **This information is only gathered with your consent and cannot be used to identify you.**",
+    "info": "The DOH would like to understand your use of the App for the purpose of improving it.\n\nThe app will collect anonymous metrics about how you use the app and the effectiveness of Contact Tracing processes.\n\nThis information is gathered by the DOH directly and does not use any third parties to gather metrics. **This information is only gathered with your consent and cannot be used to identify you.**",
     "settingsInfo": "If you change your mind, you can change these permissions in Settings at any time.",
     "yesButton": "Yes, I consent",
     "noThanks": "No thanks"
