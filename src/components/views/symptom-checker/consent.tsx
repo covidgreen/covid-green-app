@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 
@@ -13,7 +13,7 @@ import {Markdown} from 'components/atoms/markdown';
 import {Card} from 'components/atoms/card';
 
 import {Scrollable} from 'components/templates/scrollable';
-import {text, colors} from 'theme';
+import {colors} from 'theme';
 
 export function CheckInConsent() {
   const {t} = useTranslation();
@@ -36,8 +36,6 @@ export function CheckInConsent() {
       backgroundColor={colors.background}
       heading={t('checker:title')}>
       <Card>
-        <Text style={text.largeBold}>{t('welcome:title')}</Text>
-        <Spacing s={16} />
         <Markdown style={styles.markdown} markdownStyles={markdownStyles}>
           {t('welcome:text')}
         </Markdown>

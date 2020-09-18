@@ -193,7 +193,6 @@
     "noresults": "Aún no ha probado el analizador de síntomas. Comience ahora presionando el botón que está arriba"
   },
   "welcome": {
-    "title": "¡Hola! 👋",
     "text": "Puede utilizar Mi Registro de Salud para supervisar cómo se siente diariamente y obtener consejos básicos sobre sus síntomas. Su teléfono almacena un historial, el cual puede revisar en cualquier momento.\n\nSus registros diarios y los de otros usuarios de la aplicación se comparten de forma anónima con el Departamento de Salud de NYS. Los datos sobre sus síntomas los ayudan a entender cómo la COVID-19 está afectando a NYS.\n\nSu identidad permanece confidencial, pero usted puede compartir datos básicos como su edad, identidad de género, raza, origen étnico y condado para que la información sea más útil para los análisis de salud pública**.\n\n**Nota:** Mi Registro de Salud es opcional. No tiene que participar en las otras funciones de esta aplicación.",
     "action": "Sí, me gustaría comenzar mi registro",
     "letUsKnow": "Infórmenos si presenta\nsíntomas hoy"

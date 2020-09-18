@@ -5,7 +5,8 @@ import {
   Linking,
   AccessibilityInfo,
   AppState,
-  TouchableOpacity
+  TouchableOpacity,
+  View
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import * as WebBrowser from 'expo-web-browser';
@@ -152,6 +153,26 @@ export const Markdown: React.FC<Markdown> = ({
   );
 };
 
+export const getRenderListBullet = (icons: Record<string, any>) => (
+  index: number,
+  _: boolean,
+  children: any
+) => {
+  const map: {[key: number]: any} = Object.entries(icons).reduce((p, c, i) => {
+    return {
+      ...p,
+      [i]: c[1]({width: 48, height: 48})
+    };
+  }, {});
+
+  return (
+    <View key={`list-item-${index}`} style={styles.listIcon}>
+      <View style={styles.icon}>{map[index]}</View>
+      <View style={styles.content}>{children}</View>
+    </View>
+  );
+};
+
 // Can't set the color of `listItem` because `text` styles override it... need to fork the renderer
 export const renderWarningListItem: RenderListItem = (
   index,
@@ -165,6 +186,18 @@ export const renderWarningListItem: RenderListItem = (
 );
 
 const styles = StyleSheet.create({
+  icon: {
+    marginRight: 12
+  },
+  content: {
+    flex: 1
+  },
+  listIcon: {
+    flexDirection: 'row',
+    flex: 1,
+    marginRight: 12,
+    marginTop: 12
+  },
   container: {
     backgroundColor: colors.background,
     flex: 1

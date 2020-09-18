@@ -67,6 +67,7 @@ import TouchPets from './how-to-keep-others-safe/dont-touch-pets.svg';
 import ChildCare from './how-to-keep-others-safe/child-care.svg';
 import SeparateBathroom from './how-to-keep-others-safe/separate-bathroom.svg';
 import GetTested from './how-to-keep-others-safe/get-tested.svg';
+import CallHotline from './how-to-keep-others-safe/call-hotline.svg';
 
 export const AppIcons = {
   Alert,
@@ -119,7 +120,7 @@ export const StateIcons = {
 };
 
 // Maintain order = content markdown is dependant on this - needs refactoring
-export const KeepSafeIcons = {
+export const KeepSafeIcons: Record<string, any> = {
   StayHome,
   Call,
   Sleep,
@@ -131,6 +132,24 @@ export const KeepSafeIcons = {
   ChildCare,
   Wash,
   GetTested,
+  NoTouch,
+  CallHotline
+};
+
+// Maintain order = content markdown is dependant on this - needs refactoring
+export const ExposureAlertIcons: Record<string, any> = {
+  GetTested,
+  CallHotline,
+  StayHome,
+  Call,
+  Sleep,
+  SecureLiving,
+  SeparateBathroom,
+  Food,
+  Garbage,
+  TouchPets,
+  ChildCare,
+  Wash,
   NoTouch
 };
 
