@@ -1,8 +1,8 @@
 {
   "common": {
-    "name": "Alèt NY sou COVID (COVID Alert NY)",
+    "name": "COVID Alert NY (NY Entelijan parapò ak COVID)",
     "url": "https://CovidAlertNY.health.ny.gov",
-    "message": "Ede pwoteje Nouyòkè parèy ou yo kont COVID-19 pandan w ap aplati koub la. Telechaje aplikasyon COVID Alert NY la:",
+    "message": "Vin mete w ansanm avèk NY Entelijan parapò ak COVID pou konbat COVID-19",
     "networkError": "Pwoblèm koneksyon. Tanpri tcheke koneksyon entènèt ou a epi eseye ankò.",
     "missingDataAction": "Aktyalize paj la.",
     "missingError": "Pwoblèm chajman. Nou pa t kapab chaje kèk nan done yo kòrèkteman.",
@@ -22,7 +22,9 @@
       "timestampTitle": "Verifye Dat ak Lè a",
       "timestamp": "Nou pa t kapab verifye aparèy ou a. Tanpri tcheke si li pwograme sou bon dat ak bon lè a, epi eseye ankò."
     },
-    "continue": "Kontinye"
+    "continue": "Kontinye",
+    "longName": "Alèt COVID New York",
+    "close": "Fèmen"
   },
   "viewNames": {
     "introduction": "Ede Sispann Pwopagasyon COVID-19 nan Kominote W la",
@@ -42,13 +44,15 @@
     "leave": "Soti nan NY Entelijan parapò ak COVID",
     "contactTracing": "Rechèch Kontak yo",
     "positiveResult": "Si ou teste pozitif pou COVID-19",
-    "settingsLanguage": "Lang Mwen"
+    "settingsLanguage": "Lang Mwen",
+    "howItWorks": "Kijan Li Fonksyone",
+    "submitFeeback": "Soumèt Kòmantè"
   },
   "navbar": {
     "settings": "Paramèt",
     "back": "Retounen",
     "backHint": "Navige tounen nan ekran anvan an",
-    "share": "Pataje aplikasyon sa a avèk zanmi."
+    "share": "Pataje aplikasyon sa a ak zanmi."
   },
   "tabBar": {
     "updates": "Done COVID Mwen yo",
@@ -98,7 +102,10 @@
       ],
       "previous": "Presedan",
       "next": "Pwochen",
-      "close": "Fèmen"
+      "close": "Fèmen",
+      "previousHint": "Ale nan paj presedan an",
+      "nextHint": "Ale nan pwochen paj la",
+      "currentPage": "Paj {{page}} sou {{total}}"
     },
     "intro": {
       "title": "Grasa NY Entelijan pou COVID, ou kapab fè 3 bagay pou ede konbat COVID-19.",
@@ -193,7 +200,7 @@
     "noresults": "Ou poko eseye verifikatè sentòm lan. Kòmanse kounye a lè w tape sou bouton ki anlè a"
   },
   "welcome": {
-    "text": "Ou ka itilize Rejis Sant Mwen an pou swiv kijan w santi w chak jou epi pou jwenn konsèy debaz sou sentòm ou yo. Telefòn ou konsève yon istorik, ke ou ka gade nenpòt lè.\n\nYo pataje yon fason ki anonim, rejis toulejou yo ki soti nan aplikasyon w lan ak nan aplikasyon lòt itilizatè yo, avèk Depatman Sante NYS. Done sou sentòm ou yo ede yo konprann kijan COVID-19 ap afekte NYS.\n\nIdantite w rete prive, men ou kapab pataje detay debaz, tankou laj ou, idantite seksyèl ou, ras ou, gwoup etnik ou, ak konte w la, pou rann enfòmasyon an pi itil pou analiz sante piblik.\n\n**Remak:** Rejis Sante Mwen an pa obligatwa. Ou pa oblije patisipe pou itilize lòt fonksyonalite ki nan aplikasyon sa a.",
+    "text": "Ou ka itilize Rejis Sant Mwen an pou swiv kijan w santi w chak jou epi pou jwenn konsèy debaz sou sentòm ou yo. Telefòn ou konsève yon istorik, ke ou ka gade nenpòt lè.\n\nYo pataje yon fason ki anonim, rejis toulejou yo ki soti nan aplikasyon w lan ak nan aplikasyon lòt itilizatè yo, avèk Depatman Sante NY. Done sou sentòm ou yo ede yo konprann kijan COVID-19 ap afekte NY.\n\nIdantite w rete prive, men ou kapab pataje detay debaz, tankou laj ou, idantite seksyèl ou, ras ou, gwoup etnik ou, ak konte w la, pou rann enfòmasyon an pi itil pou analiz sante piblik.\n\n**Remak:** Rejis Sante Mwen an pa obligatwa. Ou pa oblije patisipe pou itilize lòt fonksyonalite ki nan aplikasyon sa a.",
     "action": "Wi, mwen ta renmen kòmanse rejis mwen an",
     "letUsKnow": "Fè nou konnen si ou genyen\nsentòm yo jodiya"
   },
@@ -214,8 +221,8 @@
     "status": {
       "title": "Rezilta",
       "active": "Deteksyon Pwoksimite a aktif kounye a.",
-      "notActive": "Deteksyon Pwoksimite a pa aktif kounye a.",
-      "intro": "Pou chanje estati a, tape sou bouton “Mete Paramèt yo Ajou” (Update Settings) ki anba a pou ale nan paramèt telefòn ou an.",
+      "notActive": "Deteksyon Pwoksimite a pa aktif",
+      "intro": "Pou chanje rezilta a, ale nan paramèt telefòn ou, lè ou tape sou bouton “Mete Paramèt yo Ajou” ki pi ba a.",
       "gotoSettings": "Mete paramèt yo ajou"
     },
     "clearData": {
@@ -227,12 +234,19 @@
       "cancel": "Anile",
       "confirm": "Konfime",
       "error": "Te gen yon erè lè nou t ap efase Alèt COVID ou yo. Tanpri eseye ankò."
-    }
+    },
+    "tour": "Aprann Kijan Aplikasyon an Fonksyone",
+    "tourHint": "Gade yon gid ki eksplike w kijan aplikasyon sa a pwodui Alèt COVID yo",
+    "feedback": "Soumèt Kòmantè",
+    "feedbackHint": "Voye kòmantè w genyen konsènan aplikasyon an ba nou nan yon imèl"
   },
   "leave": {
     "title": "Efase Done Mwen",
     "info": "Mèsi dèske ou ede nou konbat pwopagasyon COVID-19 nan NYS. Nou dezole wè ke ou prale, men ou ka sispann itilize aplikasyon sa a nenpòt lè.\n\nLè ou tape sou boton “Efase Done Mwen yo” ki pi ba a, n ap retire tout done ke aplikasyon an te konsève sou telefòn ou an, tankou pa eganzp tout done ki nan rejis sante w la.",
-    "summary": "**Remak:**\n\nBouton sa a pa efase kòd aleyatwa yo ke telefòn ou an te kreye oswa te kolekte pou Deteksyon Pwoksimite ak Alèt COVID yo.\n\nPou efase kòd aleyatwa yo, ale nan Paramèt telefòn ou yo epi seleksyone “Sèvis ak Preferans Google”. Apresa, seleksyone “Notifikasyon pou Kontak ak COVID-19” epi tape sou bouton “Efase Idantifikasyon (ID) Aleyatwa yo” . Pou sispann konsève nouvo kòd yo, ou dwe dezaktive “Itilize Notifikasyon pou Kontak yo” .",
+    "summary": {
+      "android": "**Remak:**\n\nBouton sa a pa efase kòd aleyatwa yo ke telefòn ou an te kreye oswa te kolekte pou Deteksyon Pwoksimite ak Alèt COVID yo.\n\nPou efase kòd aleyatwa yo, ale nan Paramèt telefòn ou yo epi seleksyone \"Sèvis ak Preferans Google\". Apresa, seleksyone \"Notifikasyon pou Kontak ak COVID-19\" epi tape sou bouton \"Efase Idantifikasyon (ID) Aleyatwa yo\". Pou sispann konsève nouvo kòd yo, ou dwe dezaktive \"Itilize Notifikasyon pou Kontak yo\".",
+      "ios": "**Remak:**\n\nBouton sa a pa efase kòd aleyatwa yo ke telefòn ou an te kreye oswa te kolekte pou Deteksyon Pwoksimite ak Alèt COVID yo.\n\nPou efase kòd aleyatwa yo, ou dwe ale nan Paramèt telefòn ou epi chèche \"Koneksyon pou Kontak\". Apresa, seleksyone \"Koneksyon pou Kontak ak COVID-19\" epi tape sou bouton \"Efase Rejis Kontak\" la. Pou sispann konsève nouvo kòd yo, ou dwe dezaktive \"Koneksyon pou Kontak\" la."
+    },
     "button": "Efase Done Mwen",
     "confirmTitle": "Efase Done Mwen",
     "confirmText": "Èske ou si ke ou vle efase done w yo?",
@@ -265,12 +279,12 @@
       "hint": "Grafik ki montre rezilta tès pozitif yo chak jou sou yon peryòd tan"
     },
     "positivityPercent": {
-      "title": "Pousantaj moun ki teste pozitif",
+      "title": "Pousantaj Moun ki Teste Pozitif",
       "hint": "Grafik ki montre pousantaj tès ki fèt chak jou ki gen rezilta pozitif plis tan pase"
     },
     "legend": {
       "averageLine": "7 jou an mwayèn",
-      "dailyTotal": "Total chak jou"
+      "dailyTotal": "Chif chak jou"
     }
   },
   "symptomsHistory": {
@@ -315,7 +329,8 @@
   },
   "alertsUnavailablePrompt": {
     "title": "Aplikasyon an pa kapab alète ou kounye a. Konfigire Alèt COVID Mwen yo.",
-    "description": "Tanpri tcheke aplikasyon NY Entelijan parapò ak COVID la, kounye a."
+    "description": "Tanpri tcheke aplikasyon NY Entelijan parapò ak COVID la, kounye a.",
+    "bluetoothOff": "Pou resevwa Alèt COVID yo ou dwe aktive Bluetooth. Tape pou w gen plis enfòmasyon."
   },
   "closeContactNotification": {
     "title": "Fèmen Alèt Kontak la",
@@ -343,8 +358,8 @@
   },
   "closeContactInfo": {
     "title": "Kijan pou Kenbe Lòt Moun San Danje",
-    "info": "**Pou limite risk pwopagasyon COVID-19 bay fanmi w ak kominote w la, tanpri pran prekosyon ki annapre yo jiskaske yon pwofesyonèl sante piblik ba w otorizasyon:**",
-    "list": "1. **Rete lakay ou, eksepte lè w pral pran swen sante.**\n\n2. ** Rele davans si ou dwe soti pou w al chèche jwenn swen medikal.**\nMete yon mask pou figi lè w ale epi evite itilize transpò piblik tankou tren, bis, taksi.\n\n3. **Izole tèt ou**\nRete nan yon pyès ki pa gen lòt moun k ap pataje l ak ou epi kenbe pòt ou fèmen. Dòmi poukont ou. Kenbe yon distans de omwen 6 pye (2 mèt) ak lòt moun, tout tan, menm ak fanmi w.\n\n4. **Pa resevwa vizit.**\nPa kite lòt moun antre san ou pa bay yo pèmisyon.\n\n5. ** Itilize yon twalèt apa.**\nSi sa pa posib, netwaye epi dezenfekte tout sifas yo chak fwa w fin itilize yo.\n\n6. **Fè yo pote manje pou ou.**\nFè aranjman pou yo mete manje, medikaman ak lòt pwovizyon dèyè pòt ou.\n\n7. **Kouvri bouch ou lè w touse ak estènye.**\nJete klinèks ou itilize yo nan poubèl. Mete tout fatra w nan sache epi kite yo dèyè pòt chanm kote w ye a. (Ou pa bezwen fè okenn preparasyon espesyal.)\n\n8. ** Piga w manyen okenn bèt kay.**\n\n9. ** Fè aranjman ak lòt moun pou yo okipe timoun ou yo, si posib.**\n\n10. **Lave men w souvan** avèk savon ak dlo pandan 20 segonn a chak fwa, oswa si w pa genyen savon ak dlo, itilize yon dezenfektan pou men ki gen omwen 60% alkòl ladann. Itilize sèvyèt papye olye pou pataje sèvyèt.\n\n11. **Fè tès.**\nPale avèk Pwofesyonèl Swen Sante w la pou pwograme yon randevou nan yon sant despistaj ki aksesib pou piblik la.\n[Chèche yon sant ki toupre ou.](https://coronavirus.health.ny.gov/find-test-site-near-you)\n\n12. **Kontwole tanperati w ak sentòm ou yo avèk atansyon.**\nOu ka swiv yo nan fonksyonalite \"Rejis Sante Mwen\" (My Health Log) an nan aplikasyon sa a oswa yon lòt fason. Yon rejis pou chak jou ede reprezantan sante piblik detèmine pwochen etap yo si w tonbe malad."
+    "info": "**Pou limite risk pwopagasyon COVID-19 bay fanmi w ak kominote w la, tanpri pran prekosyon ki annapre yo jiskaske yon pwofesyonèl sante piblik ba w otorizasyon:**\n\n1. **Rete lakay ou, eksepte lè w pral pran swen sante.**\n\n2. **Rele davans si ou dwe soti pou w al chèche jwenn swen medikal.**\nMete yon mask pou figi lè w ale epi evite itilize transpò piblik tankou tren, bis, taksi.\n\n3. **Izole tèt ou**\nRete nan yon pyès ki pa gen lòt moun k ap pataje l ak ou epi kenbe pòt ou fèmen. Dòmi poukont ou. Kenbe yon distans de omwen 6 pye (2 mèt) ak lòt moun, tout tan, menm ak fanmi w.\n\n4. **Pa resevwa vizit.**\nPa kite lòt moun antre san ou pa bay yo pèmisyon.\n\n5. **Itilize yon twalèt apa.**\nSi sa pa posib, netwaye epi dezenfekte tout sifas yo chak fwa w fin itilize yo.\n\n6. **Fè yo pote manje pou ou.**\nFè aranjman pou yo mete manje, medikaman ak lòt pwovizyon dèyè pòt ou.\n\n7. **Kouvri bouch ou lè w touse ak estènye.**\nJete klinèks ou itilize yo nan poubèl. Mete tout fatra w nan sache epi kite yo dèyè pòt chanm kote w ye a. (Ou pa bezwen fè okenn preparasyon espesyal.)\n\n8. **Piga w manyen okenn bèt kay.**\n\n9. **Fè aranjman ak lòt moun pou yo okipe timoun ou yo, si posib.**\n\n10. **Lave men w souvan avèk savon ak dlo pandan 20 segonn a chak fwa,** oswa si w pa genyen savon ak dlo, itilize yon dezenfektan pou men ki gen omwen 60% alkòl ladann. Itilize sèvyèt papye olye pou pataje sèvyèt.\n\n11. **Kontwole tanperati w ak sentòm ou yo avèk atansyon.**\nOu ka swiv yo nan fonksyonalite \"Rejis Sante Mwen\" an nan aplikasyon sa a oswa yon lòt fason. Yon rejis pou chak jou ede reprezantan sante piblik detèmine pwochen etap yo si w tonbe malad.",
+    "list": "1. **Rete lakay ou, eksepte lè w pral pran swen sante.**\n\n2. **Rele davans si ou dwe soti pou w al chèche jwenn swen medikal.**\nMete yon mask pou figi lè w ale epi evite itilize transpò piblik tankou tren, bis, taksi.\n\n3. **Izole tèt ou.**\nRete nan yon pyès ki pa gen lòt moun kap pataje l ak ou epi kenbe pòt ou fèmen. Dòmi poukont ou. Kenbe yon distans de omwen 6 pye (2 mèt) ak lòt moun, tout tan, menm ak fanmi w.\n\n4. **Pa resevwa vizit.**\nPa kite lòt moun antre san ou pa bay yo pèmisyon.\n\n5. **Itilize yon twalèt apa.**\nSi w oblije pataje l ak lòt moun, netwaye epi dezenfekte tout sifas yo chak fwa w fin itilize yo.\n\n6. **Fè yo pote manje pou ou.**\nFè aranjman pou yo mete manje, medikaman ak lòt pwovizyon dèyè pòt ou.\n\n7. **Kouvri bouch ou lè w touse ak estènye.**\nJete klinèks ou itilize yo nan poubèl. Mete tout fatra w nan sache epi kite yo dèyè pòt chanm kote w ye a. (Ou pa bezwen fè okenn preparasyon espesyal.)\n\n8. **Piga manyen okenn bèt domestik.**\n\n9. **Fè aranjman ak lòt moun pou yo okipe timoun ou yo, si posib.**\n\n10. **Lave men w souvan.**\nLave yo avèk savon ak dlo pandan omwen 20 segonn. Si sa pa posib, itilize dezenfektan pou men ki gen omwen 60% alkòl. Seche yo avèk sèvyèt papye olye pou pataje sèvyèt.\n\n11. **Al fè tès.**\nPale ak pwofesyonèl swen sante w la pou pwograme yon randevou nan yon sant tès ki aksesib pou piblik la.\n[Jwenn yon sant ki toupre w.](https://coronavirus.health.ny.gov/find-test-site-near-you)\n\n12. **Kontwole tanperati w ak sentòm ou yo avèk atansyon.**\nOu ka swiv yo nan fonksyonalite \"Rejis Sante Mwen\" an nan aplikasyon sa a oswa yon lòt fason. Yon rejis pou chak jou ede reprezantan sante piblik detèmine pwochen etap yo si w tonbe malad."
   },
   "closeContactAlert": {
     "infoCard": "Aprann kijan pou w kenbe zòt yo san danje",
@@ -407,7 +422,13 @@
   },
   "ageRange": {
     "label": "Tranch laj",
-    "placeholder": "Chwazi tranch laj ou"
+    "placeholder": "Chwazi tranch laj ou",
+    "0-17": "Mwens ke laj 17 lane",
+    "18-34": "18 jiska 34",
+    "35-49": "35 jiska 49",
+    "50-69": "50 jiska 69",
+    "70-79": "70 jiska 79",
+    "80+": "Plis pase 80"
   },
   "phoneNumber": {
     "code": {
@@ -444,7 +465,9 @@
     "searchPlaceholder": "Rechèch",
     "noResults": "Pa gen okenn rezilta pou rechèch sa a.\nEseye ak yon lòt bagay.",
     "notinny": "Pa nan Eta New York",
-    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
+    "accessibilityLabel": "Chwazi konte w la pou ka wè estatistik pou konte sa a, opsyon ou chwazi a aktyèlman se: {{county}}",
+    "searchHint": "Rechèch: ap montre sijesyon otomatik yo",
+    "noResultsHint": "Rechèch: pa gen okenn rezilta pou rechèch sa a. Eseye avèk yon lòt bagay."
   },
   "appUsage": {
     "title": "Metrik Aplikasyon yo",
@@ -527,12 +550,26 @@
         "bt": "Tanpri aktive Bluetooth la.\n\n**Remak:** Aktive l nan paramèt aparèy ou a, men pa pandan w tape sou bouton Bluetooth la nan Sant Kontwòl la.",
         "gotoSettings": "Ale nan Paramèt"
       },
-      "next": "Konfigire l pou pita epi kontinye"
+      "next": "Konfigire l pou pita epi kontinye",
+      "android": {
+        "text": "Ou dwe aktive Notifikasyon pou Kontak ak COVID-19 ansanm ak Bluetooth la pou aktive Deteksyon Pwoksimite a",
+        "ens": "Ou dwe aktive Notifikasyon pou Kontak ak COVID-19 (COVID-19 Exposure Notifications) pou aktive Deteksyon Pwoksimite a",
+        "bt": "Tanpri aktive Bluetooth la. Ou ka fè sa a nan seksyon Bluetooth sa a ki nan Paramèt aparèy ou a.",
+        "gotoSettings": "Ale nan Paramèt"
+      }
     }
   },
   "notificationsDisabled": {
     "title": "Notifikasyon yo dezaktive",
     "text": "Ou dwe otorize notifikasyon yo pou w kapab resevwa alèt COVID yo.",
     "gotoSettings": "Ale nan Paramèt Aplikasyon an"
+  },
+  "submitFeedback": {
+    "title": "Soumèt Kòmantè",
+    "intro": "Ki kalite kòmantè ou ta renmen soumèt?",
+    "enhancement": "Sijesyon pou Amelyorasyon",
+    "report": "Rapòte yon Pwoblèm Teknik",
+    "feedback": "Kòmantè Jeneral",
+    "submit": "Soumèt"
   }
 }

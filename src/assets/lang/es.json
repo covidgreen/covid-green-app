@@ -2,7 +2,7 @@
   "common": {
     "name": "COVID Alert NY (NY alerta ante COVID)",
     "url": "https://CovidAlertNY.health.ny.gov",
-    "message": "Ayude a sus conciudadanos neoyorquinos a estar protegidos ante la COVID-19 al aplanar la curva. Obtenga la aplicación COVID Alert NY:",
+    "message": "Únase a NY alerta ante COVID para luchar contra la COVID-19",
     "networkError": "Problemas de conexión. Revise su conexión a Internet e inténtelo de nuevo.",
     "missingDataAction": "Actualizar la página",
     "missingError": "Problema al cargar. Algunos datos no se pudieron cargar correctamente.",
@@ -22,7 +22,9 @@
       "timestampTitle": "Revise la hora y la fecha",
       "timestamp": "No pudimos verificar su dispositivo. Revise si su fecha y hora son correctas e inténtelo de nuevo."
     },
-    "continue": "Continuar"
+    "continue": "Continuar",
+    "longName": "COVID Alert NY (NY alerta ante COVID)",
+    "close": "Cerrar"
   },
   "viewNames": {
     "introduction": "Ayude a detener la propagación de la COVID-19 en su comunidad.",
@@ -42,7 +44,9 @@
     "leave": "Salir de NY alerta ante COVID",
     "contactTracing": "Rastreo de contactos",
     "positiveResult": "Si su resultado de la prueba de COVID-19 es positivo",
-    "settingsLanguage": "Mi idioma"
+    "settingsLanguage": "Mi idioma",
+    "howItWorks": "Cómo funciona",
+    "submitFeeback": "Envíe sus comentarios"
   },
   "navbar": {
     "settings": "Configuración",
@@ -98,7 +102,10 @@
       ],
       "previous": "Anterior",
       "next": "Siguiente",
-      "close": "Cerrar"
+      "close": "Cerrar",
+      "previousHint": "Ir a la página anterior",
+      "nextHint": "Ir a la página siguiente",
+      "currentPage": "Página {{page}} de {{total}}"
     },
     "intro": {
       "title": "Con NY alerta ante COVID usted puede hacer 3 cosas para ayudar en la lucha contra la COVID-19:",
@@ -180,7 +187,7 @@
       "title": "Muchas gracias",
       "noSymptomsFeelingWell": "**Gracias por su registro de hoy. ¡Nos alegra saber que se siente bien!**\n\nAunque se sienta bien, vuelva mañana para informarnos de cómo se siente.",
       "riskGroup": "Debido a su edad, nos gustaría que se cuidara aún más de la COVID-19.\n\nSabemos que es un momento difícil. Si necesita ayuda o recomendaciones sobre cómo manejarse en casa, presione a continuación para obtener más información.",
-      "noSymptomsNotFeelingWell": "**Gracias por su registro de hoy. Lamentamos saber que no se siente bien**.\n\nAfortunadamente, no nos informó de más síntomas. Si continúa sintiéndose mal o presenta síntomas nuevos, hable con su proveedor de atención médica o llame a la línea directa de Salud del Estado de Nueva York (COVID Alert NY Hotline) por el número de teléfono [1-833-227-5045](tel:18332275045).\n\nSi desea que le hagan la prueba, comuníquese con su proveedor de atención médica o programe una cita en un centro de pruebas público accesible. \nEncuentre un sitio cercano.\n\nRecuerde volver mañana para informarnos de cómo se siente.",
+      "noSymptomsNotFeelingWell": "**Gracias por su registro de hoy. Lamentamos saber que no se siente bien**.\n\nAfortunadamente, no nos informó de más síntomas. Si continúa sintiéndose mal o presenta síntomas nuevos, hable con su proveedor de atención médica o llame a la línea directa de Salud del Estado de Nueva York (NYS Health Hotline) por el número de teléfono [1-833-227-5045](tel:18332275045).\n\nSi desea que le hagan la prueba, comuníquese con su proveedor de atención médica o programe una cita en un centro de pruebas público accesible. \nEncuentre un sitio cercano.\n\nRecuerde volver mañana para informarnos de cómo se siente.",
       "coronavirus1": "**Lamentamos saber que no se siente bien. Desafortunadamente, los síntomas de los que hoy nos informa pueden ser de COVID-19**.\n\nSi sus síntomas son leves, recuerde que la mayoría de las personas se recuperan en casa sin atención médica.\n\nSin embargo, les recomendamos a todas las personas que presenten síntomas de COVID-19 seguir los siguientes pasos para cuidar su salud y la de los demás:\n\n**Quédese en casa**. Evite el contacto con otras personas (incluso con su familia) para evitar que se contagien**. Comuníquese con un proveedor de atención médica**. Llame a su médico o a la línea directa de Salud del Estado de Nueva York por el número de teléfono [1-833-227-5045](tel:18332275045)**. Hágase la prueba**. Hable con su proveedor de atención médica o programe una cita en un centro de pruebas público accesible. \n\n[Encuentre un sitio cercano a usted](https://coronavirus.health.ny.gov/find-test-site-near-you)",
       "callEmergency": "Si es una emergencia,\nllame al 911 inmediatamente.",
       "coronavirus2": "Entre las señales de emergencia están:\n\n  * Problemas para respirar\n  * Dolor o presión persistente en el pecho\n  * Estado de confusión reciente\n  * Incapacidad para estar o permanecer despierto\n*Labios o rostro azulados",
@@ -193,7 +200,7 @@
     "noresults": "Aún no ha probado el analizador de síntomas. Comience ahora presionando el botón que está arriba"
   },
   "welcome": {
-    "text": "Puede utilizar Mi Registro de Salud para supervisar cómo se siente diariamente y obtener consejos básicos sobre sus síntomas. Su teléfono almacena un historial, el cual puede revisar en cualquier momento.\n\nSus registros diarios y los de otros usuarios de la aplicación se comparten de forma anónima con el Departamento de Salud de NYS. Los datos sobre sus síntomas los ayudan a entender cómo la COVID-19 está afectando a NYS.\n\nSu identidad permanece confidencial, pero usted puede compartir datos básicos como su edad, identidad de género, raza, origen étnico y condado para que la información sea más útil para los análisis de salud pública**.\n\n**Nota:** Mi Registro de Salud es opcional. No tiene que participar en las otras funciones de esta aplicación.",
+    "text": "Puede utilizar Mi Registro de Salud para supervisar cómo se siente diariamente y obtener consejos básicos sobre sus síntomas. Su teléfono almacena un historial, el cual puede revisar en cualquier momento.\n\nSus registros diarios y los de otros usuarios de la aplicación se comparten de forma anónima con el Departamento de Salud de NY. Los datos sobre sus síntomas los ayudan a entender cómo la COVID-19 está afectando a NY.\n\nSu identidad permanece confidencial, pero usted puede compartir datos básicos como su edad, identidad de género, raza, origen étnico y condado para que la información sea más útil para los análisis de salud pública**.\n\n**Nota:** Mi Registro de Salud es opcional. No tiene que participar en las otras funciones de esta aplicación.",
     "action": "Sí, me gustaría comenzar mi registro",
     "letUsKnow": "Infórmenos si presenta\nsíntomas hoy"
   },
@@ -214,8 +221,8 @@
     "status": {
       "title": "Estatus",
       "active": "La Detección de Proximidad (Closeness Sensing) se encuentra activada.",
-      "notActive": "La Detección de Proximidad se encuentra desactivada.",
-      "intro": "Para cambiar el estatus, presione el botón inferior de “Actualizar las opciones de configuración” para ir a las configuraciones de su teléfono.",
+      "notActive": "La Detección de Proximidad no está activada",
+      "intro": "Para cambiar el estatus, vaya a la configuración de su teléfono y presione el botón inferior de “Actualizar las opciones de configuración”.",
       "gotoSettings": "Actualizar la configuración"
     },
     "clearData": {
@@ -227,12 +234,19 @@
       "cancel": "Cancelar",
       "confirm": "Confirmar",
       "error": "Hubo un error al borrar sus Alertas de COVID. Inténtelo de nuevo."
-    }
+    },
+    "tour": "Aprenda cómo funciona la aplicación",
+    "tourHint": "Ver una guía explicativa sobre cómo la aplicación genera Alertas de COVID",
+    "feedback": "Envíe sus comentarios",
+    "feedbackHint": "Envíenos sus comentarios sobre la aplicación por correo electrónico"
   },
   "leave": {
     "title": "Borrar mis datos",
     "info": "Gracias por ayudarnos a luchar contra la propagación de la COVID-19 en NYS. Lamentamos que se vaya, y queremos que sepa que puede dejar de usar la aplicación en cualquier momento.\n\nCuando presione el botón “Borrar mis datos” que está más adelante, eliminaremos todos los datos almacenados en su teléfono, como todas las anotaciones en su registro de salud.",
-    "summary": "**Nota:**\n\nEste botón no elimina los códigos aleatorios creados o recopilados por su teléfono para la Detección de Proximidad y las Alertas de COVID.\n\nPara borrar los códigos aleatorios, vaya a Configuración del teléfono y seleccione “Servicios y Preferencias de Google”. Luego, seleccione “Notificaciones de Exposición a COVID-19” y presione el botón “Borrar los ID aleatorios”. Para dejar de almacenar nuevos códigos, debe deshabilitar “Utilizar Notificaciones de Exposición”.",
+    "summary": {
+      "android": "**Nota:**\n\nEste botón no elimina los códigos aleatorios creados o recopilados por su teléfono para la Detección de Proximidad (Closeness Sensing) y las Alertas de COVID.\n\nPara borrar los códigos aleatorios, vaya a Configuración del teléfono y seleccione “Servicios y Preferencias de Google”. Luego, seleccione “Notificaciones de Exposición a COVID-19” y presione el botón “Borrar los ID aleatorios”. Para dejar de almacenar nuevos códigos, debe deshabilitar “Utilizar Notificaciones de Exposición”.",
+      "ios": "**Nota:**\n\nEste botón no elimina los códigos aleatorios creados o recopilados por su teléfono para la Detección de Proximidad y las Alertas de COVID.\n\nPara borrar los códigos aleatorios, vaya a Configuración del teléfono y seleccione “Registro de Exposición”. Luego, seleccione “Registro de Exposición a la COVID-19 ” y presione el botón “Borrar Registro de Exposición”. Para dejar de almacenar nuevos códigos, debe deshabilitar “Registro de Exposición”."
+    },
     "button": "Borrar mis datos",
     "confirmTitle": "Borrar mis datos",
     "confirmText": "¿Está seguro de que quiere borrar sus datos?",
@@ -270,7 +284,7 @@
     },
     "legend": {
       "averageLine": "7 días promedio",
-      "dailyTotal": "Total diario"
+      "dailyTotal": "Cifras diarias"
     }
   },
   "symptomsHistory": {
@@ -315,7 +329,8 @@
   },
   "alertsUnavailablePrompt": {
     "title": "La aplicación no puede alertarlo en este momento. Configurar Mis Alertas de COVID.",
-    "description": "Revise la aplicación NY alerta ante COVID ahora."
+    "description": "Revise la aplicación NY alerta ante COVID ahora.",
+    "bluetoothOff": "Para recibir Alertas de COVID debe habilitar el Bluetooth. Presione para obtener más información."
   },
   "closeContactNotification": {
     "title": "Alerta de Contacto Cercano",
@@ -343,12 +358,12 @@
   },
   "closeContactInfo": {
     "title": "Aprenda cómo mantener protegidos a los demás",
-    "info": "**Para limitar el riesgo de propagar la COVID-19 a su familia o a su comunidad, tome las siguientes precauciones hasta que un profesional de salud pública lo examine:**",
-    "list": "1. **Quédese en casa, excepto para buscar atención médica**.\n\n2. **Llame con antelación si debe salir a buscar atención médica**.\nUtilice una mascarilla cuando salga y evite usar el transporte público como subterráneos, autobuses y taxis.\n\n3. **Aléjese de los demás**\nPermanezca en una habitación que no comparta con otras personas y mantenga la puerta cerrada. Duerma solo. En todo momento permanezca a una distancia de 6 pies (2 metros) de otras personas como mínimo, incluso de sus familiares.\n\n4. **No reciba visitas**.\nNo permita que otras personas entren sin su permiso.\n\n5. **Use un baño aparte**.\nSi no es posible, limpie y desinfecte todas las superficies después de cada uso.\n\n6. **Pida que le traigan la comida**.\nPrograme que le dejen la comida, los medicamentos y otros suministros en la puerta.\n\n7. **Cúbrase cuando tosa o estornude**.\nDeseche los pañuelos de papel después de usarlos. Coloque la basura en una bolsa y déjela en la parte exterior de la puerta. (No es necesario un manejo especial).\n\n8. **No toque las mascotas**.\n\n9. **Haga arreglos para que otra persona cuide a sus niños si es posible**.\n\n10. **Lávese las manos con frecuencia**\n con agua y jabón por 20 segundos cada vez o, si no es posible, use desinfectante para las manos con, al menos, 60 % de alcohol. Use toallas de papel en vez de toallas compartidas.\n\n11. **Sométase a la prueba**.\nHable con su proveedor de atención médica para programar una cita en un centro de pruebas público accesible.\n[Encuentre un sitio cercano a usted](https://coronavirus.health.ny.gov/find-test-site-near-you)\n\n12. **Contrólese la temperatura y los síntomas cuidadosamente**.\nPuede registrarlos en la función “Mi Registro de Salud” de esta aplicación o de otra manera. El registro diario ayuda a los representantes de salud pública a decidir los siguientes pasos si usted se enferma."
+    "info": "**Para limitar el riesgo de propagar la COVID-19 a su familia o a su comunidad, tome las siguientes precauciones hasta que un profesional de salud pública lo examine:**\n\n1. **Quédese en casa, excepto para buscar atención médica**.\n\n2. **Llame con antelación si debe salir a buscar atención médica**.\nUtilice una mascarilla cuando salga y evite usar el transporte público como subterráneos, autobuses y taxis.\n\n3. **Aléjese de los demás**\nPermanezca en una habitación que no comparta con otras personas y mantenga la puerta cerrada. Duerma solo. En todo momento permanezca a una distancia de 6 pies (2 metros) de otras personas como mínimo, incluso de sus familiares.\n\n4. **No reciba visitas**.\nNo permita que otras personas entren sin su permiso.\n\n5. **Use un baño aparte**.\nSi no es posible, limpie y desinfecte todas las superficies después de cada uso.\n\n6. **Pida que le traigan la comida**.\nPrograme que le dejen la comida, los medicamentos y otros suministros en la puerta.\n\n7. **Cúbrase cuando tosa o estornude**.\nDeseche los pañuelos de papel después de usarlos. Coloque la basura en una bolsa y déjela en la parte exterior de la puerta. (No es necesario un manejo especial).\n\n8. **No toque las mascotas**.\n\n9. **Haga arreglos para que otra persona cuide a sus niños si es posible**.\n\n10. **Lávese las manos con frecuencia**con agua y jabón por 20 segundos cada vez o, si no es posible, use desinfectante para las manos con al alcohol al 60 % de alcohol. Use toallas de papel en vez de toallas compartidas.\n\n11. **Contrólese la temperatura y los síntomas cuidadosamente**.\nPuede registrarlos en la función “Mi Registro de Salud” de esta aplicación o de otra manera. El registro diario ayuda a los representantes de salud pública a decidir los siguientes pasos si usted se enferma.",
+    "list": "1. **Quédese en casa, excepto para buscar atención médica**.\n\n2. **Llame con antelación si debe salir a buscar atención médica**.\nUtilice una mascarilla cuando salga y evite usar el transporte público como subterráneos, autobuses y taxis.\n\n3. **Aléjese de los demás**\nPermanezca en una habitación que no comparta con otras personas y mantenga la puerta cerrada. Duerma solo. En todo momento permanezca a una distancia de 6 pies (2 metros) de otras personas como mínimo, incluso de sus familiares.\n\n4. **No reciba visitas.**\nNo permita que otras personas entren sin su permiso.\n\n5. **Use un baño aparte.**\nSi no es posible, limpie y desinfecte todas las superficies después de cada uso.\n\n6. **Pida que le traigan la comida.**\nPrograme que le dejen la comida, los medicamentos y otros suministros en la puerta.\n\n7. **Cúbrase cuando tosa o estornude.**\nDeseche los pañuelos de papel después de usarlos. Coloque la basura en una bolsa y déjela en la parte exterior de la puerta. (No es necesario un manejo especial).\n\n8. **No toque las mascotas.**\n\n9. **Haga arreglos para que otra persona cuide a sus niños si es posible.**\n\n10. **Lávese las manos con frecuencia.**\nLáveselas con agua y jabón por 20 segundos. Si no es posible, use desinfectante para las manos con, al menos, 60 % de alcohol. Use toallas de papel en vez de toallas compartidas.\n\n11. **Hágase la prueba.**\nHable con su proveedor de atención médica para programar una cita en un centro de pruebas público accesible.\n[Encuentre un sitio cercano a usted](https://coronavirus.health.ny.gov/find-test-site-near-you)\n\n12. **Contrólese la temperatura y los síntomas cuidadosamente.**\nPuede registrarlos en la función “Mi Registro de Salud” de esta aplicación o de otra manera. El registro diario ayuda a los representantes de salud pública a decidir los siguientes pasos si usted se enferma."
   },
   "closeContactAlert": {
     "infoCard": "Aprenda cómo mantener protegidos a los demás",
-    "intro": "**La aplicación detectó que el {{FechadeExposición}} alguien que tuvo un resultado positivo en la prueba de COVID-19 estuvo a 6 pies (2 metros) de distancia de usted por más de 10 minutos**.",
+    "intro": "**La aplicación detectó que el {{exposureDate}} alguien que tuvo un resultado positivo en la prueba de COVID-19 estuvo a 6 pies (2 metros) de distancia de usted por más de 10 minutos**.",
     "info": "**¿Qué hago ahora?**\n\nPara disminuir el riesgo de propagación de la COVID-19 a su familia, tome las siguientes precauciones hasta que lo examine un profesional de salud pública:"
   },
   "callBack": {
@@ -407,7 +422,13 @@
   },
   "ageRange": {
     "label": "Rango de edad",
-    "placeholder": "Escoja su rango de edad"
+    "placeholder": "Escoja su rango de edad",
+    "0-17": "Menor de 17 años",
+    "18-34": "de 18 a 34 años",
+    "35-49": "de 35 a 49 años",
+    "50-69": "de 50 a 69 años",
+    "70-79": "de 70 a 79 años",
+    "80+": "Más de 80 años"
   },
   "phoneNumber": {
     "code": {
@@ -444,7 +465,9 @@
     "searchPlaceholder": "Búsqueda",
     "noResults": "La búsqueda no arrojó resultados.\nIntente otra búsqueda.",
     "notinny": "No se encuentra en el estado de Nueva York",
-    "accessibilityLabel": "Choose your county to view statistics for that county, the selected option is currently: {{county}}"
+    "accessibilityLabel": "Escoja su condado para ver sus estadísticas, la opción seleccionada actualmente es: {{county}}",
+    "searchHint": "Búsqueda: mostrar sugerencias para autocompletar",
+    "noResultsHint": "Búsqueda: esta búsqueda no arrojó resultados. Intente otra búsqueda."
   },
   "appUsage": {
     "title": "Parámetros de la Aplicación",
@@ -516,23 +539,37 @@
     },
     "notEnabledIOS": {
       "title": "La Detección de Proximidad está deshabilitada",
-      "text": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\n\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de las Exposición a la COVID-19 esté activado.",
+      "text": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\n\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de Exposición a la COVID-19 esté activado.",
       "gotoSettings": "Ir a las configuraciones de la aplicación"
     },
     "notActive": {
       "title": "La Detección de Proximidad no está activada",
       "ios": {
         "text": "Debe habilitar los servicios de Notificaciones de Exposición y el Bluetooth para habilitar la Detección de Proximidad",
-        "ens": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\n\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de las Exposición a la COVID-19 esté activado.",
+        "ens": "Para activar la Detección de Proximidad, debe habilitar las Notificaciones de Exposición a la COVID-19 en las configuraciones de la aplicación.\n\nTambién debe ir a Privacidad > Salud en la configuración de su teléfono y asegurarse de que el Registro de Exposición a la COVID-19 esté activado.",
         "bt": "Encienda el Bluetooth.\n\n**Nota:**enciéndalo en la configuración de su dispositivo, y no con el botón de Bluetooth en el Centro de Control.",
         "gotoSettings": "Ir a configuración"
       },
-      "next": "Configurarla más tarde y continuar"
+      "next": "Configurarlo más tarde y continuar",
+      "android": {
+        "text": "Debe activar las Notificaciones de Exposición a la COVID-19 y el Bluetooth para habilitar la Detección de Proximidad",
+        "ens": "Debe activar las Notificaciones de Exposición a la COVID-19 para habilitar la Detección de Proximidad",
+        "bt": "Active el Bluetooth. Puede hacerlo en la sección Bluetooth de la Configuración de su dispositivo.",
+        "gotoSettings": "Ir a configuración"
+      }
     }
   },
   "notificationsDisabled": {
     "title": "Las Notificaciones estás deshabilitadas",
     "text": "Debe permitir las notificaciones para recibir las Alertas de COVID.",
     "gotoSettings": "Ir a las configuraciones de la aplicación"
+  },
+  "submitFeedback": {
+    "title": "Envíe sus comentarios",
+    "intro": "¿Qué tipo de comentario le gustaría enviar?",
+    "enhancement": "Sugerencia de mejoras",
+    "report": "Informar sobre un problema técnico",
+    "feedback": "Comentarios generales",
+    "submit": "Enviar"
   }
 }
