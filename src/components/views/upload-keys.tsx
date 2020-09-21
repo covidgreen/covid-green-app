@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, View} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import {useTranslation} from 'react-i18next';
 import {useExposure} from 'react-native-exposure-notification-service';
@@ -171,9 +171,9 @@ export const UploadKeys = ({navigation}) => {
   const renderUpload = () => {
     return (
       <>
-        <Markdown markdownRef={uploadRef}>
-          {t('uploadKeys:upload:intro')}
-        </Markdown>
+        <View accessible={true} ref={uploadRef}>
+          <Markdown>{t('uploadKeys:upload:intro')}</Markdown>
+        </View>
         <Spacing s={8} />
         <Button type="default" onPress={uploadDataHandler}>
           {t('uploadKeys:upload:button')}
