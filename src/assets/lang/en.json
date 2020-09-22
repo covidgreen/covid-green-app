@@ -564,6 +564,7 @@
     "enhancement": "Enhancement Suggestion",
     "report": "Report a Technical Issue",
     "feedback": "General Feedback",
-    "submit": "Submit"
+    "submit": "Submit",
+    "disclaimer": "**NOTE:** This is for technical feedback only and will be shared with our app developers.\n\nIf you are feeling sick or have general questions about COVID-19, please do not use this feedback option and call the COVID Alert NY Hotline instead at [1-833-227-5045](tel:18332275045)."
   }
 }

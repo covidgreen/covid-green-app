@@ -8,8 +8,6 @@ import {
   StyleSheet
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {Spacing} from 'components/atoms/layout';
-import {Scrollable} from 'components/templates/scrollable';
 
 import {getReadableVersion, getModel} from 'react-native-device-info';
 import {
@@ -17,7 +15,12 @@ import {
   StatusState,
   PermissionStatus
 } from 'react-native-exposure-notification-service';
+
 import {Card} from 'components/atoms/card';
+import {Markdown} from 'components/atoms/markdown';
+import {Spacing} from 'components/atoms/layout';
+import {Scrollable} from 'components/templates/scrollable';
+
 import {text} from 'theme';
 
 export const Feedback = () => {
@@ -74,6 +77,8 @@ ENS Details:
 
   return (
     <Scrollable heading={t('submitFeedback:title')}>
+      <Markdown style={{}}>{t('submitFeedback:disclaimer')}</Markdown>
+      <Spacing s={32} />
       <Text style={styles.intro}>{t('submitFeedback:intro')}</Text>
       <Spacing s={20} />
       <Card padding={{h: 0, v: 4, r: 0}} style={styles.card}>
@@ -119,6 +124,6 @@ const styles = StyleSheet.create({
   },
   intro: {
     flex: 1,
-    ...text.default
+    ...text.defaultBold
   }
 });
