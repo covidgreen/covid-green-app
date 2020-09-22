@@ -199,7 +199,7 @@
     "noresults": "You haven't tried the symptom checker yet. Start now by tapping the button above"
   },
   "welcome": {
-    "text": "My Health Log lets you keep track of your own health by storing a history of your symptoms.\n\nThe anonymous daily logs from you and other app users help public health research understand how the virus is affecting NYS.\n\n**This does not reveal your identity.**",
+    "text": "My Health Log lets you keep track of your own health by storing a history of your symptoms.\n\nThe anonymous daily logs from you and other app users help public health researchers understand how the virus is affecting NYS.\n\n**This does not reveal your identity.**",
     "action": "Get Started",
     "letUsKnow": "Let us know if you have\nsymptoms today"
   },
