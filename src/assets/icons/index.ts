@@ -40,7 +40,7 @@ import SettingsIOS from './tab-bar/settings-ios.svg';
 import CheckMark from './check-mark.svg';
 import CheckMarkMultiSelect from './check-mark-multiselect.svg';
 import Privacy from './privacy.svg';
-import LogoLaunch from './logo-launch.svg';
+import LogoLaunch from './app-logo.svg';
 import LogoNav from './logo-nav.svg';
 import LogoState from './logo-state.svg';
 
