@@ -41,12 +41,17 @@ export const CountryCodeDropdown: FC<CountryCodeDropdownProps> = ({
         )
         .map((i) => ({...i, label: i.name}));
 
+  const onValueChangeHandler = (v: string) => {
+    setSearchTerm('');
+    onValueChange(v);
+  };
+
   return (
     <Dropdown
       label={t('phoneNumber:code:label')}
       items={labeledItems}
       value={value}
-      onValueChange={onValueChange}
+      onValueChange={onValueChangeHandler}
       placeholder={t('phoneNumber:code:placeholder')}
       search={{
         placeholder: t('phoneNumber:code:searchPlaceholder'),

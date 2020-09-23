@@ -40,7 +40,6 @@ export const CountyDropdown = forwardRef<
   const {t} = useTranslation();
 
   const [countyItems, setCountyItems] = useState<CountyOption[]>(countyOptions);
-
   const [countySearch, setCountySearch] = useState<string>('');
 
   const onCountySearchChanged = (searchTerm: string) => {
@@ -57,10 +56,18 @@ export const CountyDropdown = forwardRef<
   };
 
   const onCountySelected = (county: string) => {
+    clearSearch();
     if (county === value) {
       return;
     }
     onValueChange({label: county, value: county});
+  };
+
+  const clearSearch = () => {
+    if (countySearch !== '') {
+      setCountySearch('');
+      setCountyItems(countyOptions);
+    }
   };
 
   return (
@@ -72,6 +79,7 @@ export const CountyDropdown = forwardRef<
       items={withAllCounties(t, countyOptions)}
       value={value}
       onValueChange={onCountySelected}
+      onClose={clearSearch}
       search={{
         placeholder: t('county:searchPlaceholder'),
         items: withAllCounties(t, countyItems),

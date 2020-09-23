@@ -14,6 +14,7 @@ export interface DropdownProps {
   items: BasicItem[];
   value: string;
   onValueChange: (value: string) => void;
+  onClose?: () => void;
   search?: {
     placeholder: string;
     items: BasicItem[];
@@ -41,6 +42,7 @@ export const SelectorDropdown = forwardRef<
       items,
       value,
       onValueChange,
+      onClose,
       search,
       itemRenderer,
       display,
@@ -54,9 +56,7 @@ export const SelectorDropdown = forwardRef<
 
     const onItemSelected = (newValue: string) => {
       setModalVisible(false);
-      if (newValue !== value) {
-        onValueChange(newValue);
-      }
+      onValueChange(newValue);
     };
 
     const selectedItem =
@@ -106,7 +106,10 @@ export const SelectorDropdown = forwardRef<
             items={search?.items || items}
             selectedValue={value}
             onSelect={onItemSelected}
-            onClose={closeModal}
+            onClose={() => {
+              closeModal();
+              onClose && onClose();
+            }}
             search={search}
             itemRenderer={itemRenderer}
             instructions={instructions}

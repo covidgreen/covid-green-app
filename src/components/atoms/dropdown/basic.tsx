@@ -16,6 +16,7 @@ export interface DropdownProps {
   items: BasicItem[];
   value: string;
   onValueChange: (value: string) => void;
+  onClose?: () => void;
   search?: {
     placeholder: string;
     items: BasicItem[];
@@ -28,7 +29,6 @@ export interface DropdownProps {
   forceDisplay?: () => string;
   instructions?: () => ReactNode;
   icon?: ReactNode;
-  onClose?: () => void;
 }
 
 export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
@@ -40,13 +40,13 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
       items,
       value,
       onValueChange,
+      onClose,
       search,
       itemRenderer,
       display,
       forceDisplay,
       instructions,
-      icon,
-      onClose
+      icon
     },
     ref
   ) => {
@@ -54,9 +54,7 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
 
     const onItemSelected = (newValue: string) => {
       setModalVisible(false);
-      if (newValue !== value) {
-        onValueChange(newValue);
-      }
+      onValueChange(newValue);
     };
 
     const selectedItem =

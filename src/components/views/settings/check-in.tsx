@@ -142,10 +142,14 @@ export const CheckInSettings: React.FC<CheckInSettingsProps> = ({
             noResults: t('county:noResults')
           }}
           onValueChange={(value) => {
+            setSearchTerm('');
             setProfile({...profile, saved: false, county: value});
             setAccessibilityFocusRef(ref1);
           }}
-          onClose={() => setAccessibilityFocusRef(ref1)}
+          onClose={() => {
+            setSearchTerm('');
+            setAccessibilityFocusRef(ref1);
+          }}
         />
         <Separator />
         <Dropdown

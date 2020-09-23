@@ -124,10 +124,14 @@ export function CheckInIntro() {
             noResults: t('county:noResults')
           }}
           onValueChange={(county) => {
+            setSearchTerm('');
             setState((s) => ({...s, county}));
             setAccessibilityFocusRef(ref1);
           }}
-          onClose={() => setAccessibilityFocusRef(ref1)}
+          onClose={() => {
+            setSearchTerm('');
+            setAccessibilityFocusRef(ref1);
+          }}
         />
         <Separator />
         <Dropdown
