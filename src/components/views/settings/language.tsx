@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import {Scrollable} from 'components/templates/scrollable';
-import {supportedLocales} from 'services/i18n/common';
+import {supportedLocales, fallback} from 'services/i18n/common';
 import {Markdown} from 'components/atoms/markdown';
 import {SelectList} from 'components/atoms/select-list';
 import {Spacing} from 'components/atoms/layout';
@@ -24,8 +24,9 @@ export const Language = () => {
       label: langData.name
     })
   );
-
-  const currentLanguage = languages.find(({value}) => value === i18n.language);
+  const currentLanguage =
+    languages.find(({value}) => value === i18n.language) ||
+    languages.find(({value}) => value === fallback);
 
   return (
     <Scrollable heading={t('languageSettings:title')}>
