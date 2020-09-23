@@ -1,0 +1,5 @@
+{
+  "react-native": {
+    "crashlytics_auto_collection_enabled": false
+  }
+}
