@@ -21,6 +21,7 @@ import {Spacing} from 'components/atoms/layout';
 
 import {text, colors} from 'theme';
 import {AppIcons} from 'assets/icons';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 interface DropdownModalProps extends Partial<ModalProps> {
   title: string;
@@ -155,14 +156,16 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
       <View>
         <View style={styles.header}>
           <View style={styles.closeIconWrapper}>
-            <TouchableWithoutFeedback
+            <TouchableOpacity
+              activeOpacity={1}
+              accessible
               accessibilityRole="button"
               accessibilityLabel={`${t('common:close')} ${title}`}
               onPress={onClose}>
               <View>
                 <AppIcons.Close width={28} height={28} color={colors.text} />
               </View>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
           </View>
           <Text
             maxFontSizeMultiplier={1.5}
