@@ -18,6 +18,7 @@ interface ButtonProps {
   onPress: () => void;
   style?: ViewStyle;
   width?: number | string;
+  fontSizeMultiplier?: number;
   children: React.ReactNode;
 }
 
@@ -29,6 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
   onPress,
   style,
   width,
+  fontSizeMultiplier,
   children
 }) => {
   const [pressed, setPressed] = useState(false);
@@ -93,6 +95,7 @@ export const Button: React.FC<ButtonProps> = ({
         {...pressHandlers}>
         <Text
           // allowFontScaling={false}
+          maxFontSizeMultiplier={fontSizeMultiplier}
           style={[styles.text, {color: textColor}]}>
           {children}
         </Text>

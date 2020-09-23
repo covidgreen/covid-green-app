@@ -65,7 +65,12 @@ import {CheckInSettings} from 'components/views/settings/check-in';
 import {Metrics} from 'components/views/settings/metrics';
 import {Leave} from 'components/views/settings/leave';
 import {Debug} from 'components/views/settings/debug';
-import {covidAlertReset, isMountedRef, navigationRef, ScreenNames} from 'navigation';
+import {
+  covidAlertReset,
+  isMountedRef,
+  navigationRef,
+  ScreenNames
+} from 'navigation';
 import {colors} from 'theme';
 import {Loading} from 'components/views/loading';
 import {useSymptomChecker} from 'hooks/symptom-checker';
@@ -80,7 +85,8 @@ import Tour from 'components/views/tour';
 import {urls} from 'constants/urls';
 import {PositiveResult} from 'components/views/positive-result';
 import {Language} from 'components/views/settings/language';
-import {Feedback} from './components/views/settings/feedback';
+import {Feedback} from 'components/views/settings/feedback';
+import {AgeCheck} from 'components/views/onboarding/age-check';
 
 enableScreens();
 
@@ -281,6 +287,14 @@ const Screens = (t: TFunction) => {
         title: t('viewNames:positiveResult'),
         ...standardProps
       }
+    },
+    {
+      name: ScreenNames.AgeCheck,
+      component: AgeCheck,
+      options: {
+        ...standardProps,
+        headerShown: false
+      }
     }
   ];
 };
@@ -400,7 +414,7 @@ function Navigation({
 }) {
   const app = useApplication();
   const {t} = useTranslation();
-  const initialScreen = app.user ? 'main' : ScreenNames.Introduction;
+  const initialScreen = app.user ? 'main' : ScreenNames.AgeCheck;
 
   useEffect(() => {
     isMountedRef.current = true;

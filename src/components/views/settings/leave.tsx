@@ -34,7 +34,7 @@ export const Leave = ({navigation}) => {
 
       navigation.reset({
         index: 0,
-        routes: [{name: ScreenNames.Introduction}]
+        routes: [{name: ScreenNames.AgeCheck}]
       });
     } catch (e) {
       app.hideActivityIndicator();
