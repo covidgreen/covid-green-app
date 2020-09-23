@@ -309,13 +309,17 @@
     "back": "Retounen"
   },
   "ageRequirement": {
-    "notice": "Ou fèt pou w gen laj 16 lane oswa plis pou w itilize aplikasyon sa a",
-    "over": "Mwen gen laj 16 lane oswa plis",
-    "under": "Mwen gen mwens ke laj 16 lane"
+    "notice": "Èske ou gen plis pase laj 18 lane?",
+    "over": "Wi",
+    "under": "Non"
   },
   "underAge": {
     "title": "Mwens ke laj 16 lane",
-    "notice": "Mèsi dèske ou manifeste ou enterese men malerezman ou twò jèn pou patisipe nan inisyativ sa a.\n\nRete pridan."
+    "notice": "Èske paran ou oswa responsab legal ou konfime ou ka itilize aplikasyon sa a?",
+    "yes": "Wi",
+    "no": "Non",
+    "unconfirmed": "Dezole... Ou pa kapab itilize aplikasyon sa a san ou pa gen konfimasyon paran oswa responsab legal ou.",
+    "okay": "OKE"
   },
   "followUpCall": {
     "title": "Apèl pou swivi sou Kontak Rechèh yo",
@@ -571,6 +575,7 @@
     "enhancement": "Sijesyon pou Amelyorasyon",
     "report": "Rapòte yon Pwoblèm Teknik",
     "feedback": "Kòmantè Jeneral",
-    "submit": "Soumèt"
+    "submit": "Soumèt",
+    "disclaimer": "**REMAK:** Sa a se pou opinyon teknik sèlman e nou pap pataje li ak devlopè aplikasyon nou yo.\n\nSi w santi w malad oswa ou gen kesyon jeneral konsènan COVID-19, tanpri piga itilize opsyon opinyon sa a, alaplas rele Liy Asistans pou COVID Alert NY la nan [1-833-227-5045](tel:18332275045)."
   }
 }

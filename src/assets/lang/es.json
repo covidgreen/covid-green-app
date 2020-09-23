@@ -200,7 +200,7 @@
     "noresults": "Aún no ha probado el analizador de síntomas. Comience ahora presionando el botón que está arriba"
   },
   "welcome": {
-    "text": "Con Mi Registro de Salud usted mismo lleva el control al guardar el historial de sus síntomas.\n\nSus registros diarios de forma anónima, así como los de otros usuarios de la aplicación, contribuyen en la investigación de salud pública para entender de qué manera el virus está afectando en el estado de Nueva York.\n\n**Sin revelar su identidad.**",
+    "text": "Mi Registro de Salud le permite llevar un registro de su salud, ya que almacena un historial de sus síntomas.\n\nSus registros diarios anónimos y los de otros usuarios de la aplicación ayudan a los investigadores de salud pública a entender cómo el virus está afectando al estado de Nueva York.\n\n**Esto no revela su identidad.**",
     "action": "Comenzar",
     "letUsKnow": "Infórmenos si presenta\nsíntomas hoy"
   },
@@ -309,13 +309,17 @@
     "back": "Atrás"
   },
   "ageRequirement": {
-    "notice": "Debe ser mayor de 16 años para utilizar esta aplicación",
-    "over": "Soy mayor de 16 años",
-    "under": "Soy menor de 16 años"
+    "notice": "¿Es mayor de 18 años de edad?",
+    "over": "Sí",
+    "under": "No"
   },
   "underAge": {
     "title": "Menor de 16 años",
-    "notice": "Gracias por su interés, pero es muy joven para participar en esta iniciativa.\n\nCuídese."
+    "notice": "¿Su padre, madre o tutor le confirmó que puede utilizar esta aplicación?",
+    "yes": "Sí",
+    "no": "No",
+    "unconfirmed": "Lo siento... No puede utilizar esta aplicación sin la confirmación de su padre, madre o tutor.",
+    "okay": "De acuerdo"
   },
   "followUpCall": {
     "title": "Llamada de seguimiento de Rastreo de Contactos",
@@ -571,6 +575,11 @@
     "enhancement": "Sugerencia de mejoras",
     "report": "Informar sobre un problema técnico",
     "feedback": "Comentarios generales",
-    "submit": "Enviar"
+    "submit": "Enviar",
+    "disclaimer": "**NOTA:** Esto es solo para comentarios técnicos y se compartirá con los desarrolladores de nuestras aplicaciones.\n\nSi se siente enfermo o tiene preguntas generales sobre la COVID-19, no use esta opción de comentarios y llame, en su lugar, a la línea directa de COVID Alert NY por el [1-833-227-5045](tel:18332275045)."
+  },
+  "ageCheck": {
+    "intro": "Soy mayor de 18 años o soy el padre, la madre o el tutor de un menor y confirmo que este puede usar la aplicación.",
+    "confirm": "Yo confirmo"
   }
 }
