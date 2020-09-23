@@ -32,19 +32,22 @@ export const AgeCheck: FC<{}> = () => {
           accessibilityLabel={t('common:longName')}>
           <Icons.Logo width={106} height={121} />
         </View>
+        <View style={style.flexSpacer} />
         <View style={style.contentWrapper}>
-          <Text style={style.text} maxFontSizeMultiplier={1.7} ref={ref}>
+          <Text style={style.text} maxFontSizeMultiplier={1.3} ref={ref}>
             {t('ageCheck:intro')}
           </Text>
           <Spacing s={20} />
           <Button
             type="empty"
             width="100%"
-            fontSizeMultiplier={1.7}
+            fontSizeMultiplier={1.3}
             onPress={() => nav.navigate(ScreenNames.Introduction)}>
             {t('ageCheck:confirm')}
           </Button>
         </View>
+        <View style={style.flexSpacer} />
+        <View style={style.flexSpacer} />
       </View>
       <View style={style.stateLogoWrapper}>
         <Image accessibilityIgnoresInvertColors source={HealthLogo} />
@@ -63,15 +66,17 @@ const style = StyleSheet.create({
     flexGrow: 1
   },
   appLogoWrapper: {
-    flex: 2,
+    flex: 3,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'flex-end'
   },
   contentWrapper: {
-    flex: 3,
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
     paddingHorizontal: SPACING_HORIZONTAL
+  },
+  flexSpacer: {
+    flex: 1
   },
   text: {
     ...text.xlarge,
