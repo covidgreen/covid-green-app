@@ -7,7 +7,8 @@ import {
   ScrollView,
   View,
   Text,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from 'react-native';
 import Modal, {ModalProps} from 'react-native-modal';
 import {useSafeArea} from 'react-native-safe-area-context';
@@ -21,7 +22,6 @@ import {Spacing} from 'components/atoms/layout';
 
 import {text, colors} from 'theme';
 import {AppIcons} from 'assets/icons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 interface DropdownModalProps extends Partial<ModalProps> {
   title: string;
@@ -66,7 +66,11 @@ export const DropdownModal: React.FC<DropdownModalProps> = ({
 
   useEffect(() => {
     if (search && !screenReaderEnabled) {
-      searchInputRef.current?.focus();
+      const focusInput = () => searchInputRef.current?.focus();
+
+      // On Android, bringing up the keyboard during render causes juddering
+      // and can cause sizes to end up incorrectly calculated
+      Platform.OS === 'android' ? setTimeout(focusInput, 400) : focusInput();
     }
   }, []);
 
