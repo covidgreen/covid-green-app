@@ -1,5 +1,5 @@
 name: Build and Push to Fastlane
-#on:
+on:
 #  push:
 #    tags:
 #      - v1.*
