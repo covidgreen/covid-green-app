@@ -1,8 +1,9 @@
 name: Build and Push to Fastlane
 on:
-  push:
-    tags:
-      - v1.*
+  release:
+#  push:
+#    tags:
+#      - v1.*
 
 jobs:
   android-build:
