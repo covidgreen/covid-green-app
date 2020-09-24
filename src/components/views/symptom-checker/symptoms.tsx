@@ -101,6 +101,10 @@ export const CheckInSymptoms = () => {
   };
 
   const onFeelingWell = () => {
+    if (saving) {
+      return;
+    }
+    setSaving(true);
     try {
       app.checkIn(emptySymptomRecord, {
         feelingWell: true,
@@ -133,7 +137,7 @@ export const CheckInSymptoms = () => {
           width="100%"
           type="empty"
           onPress={onFeelingWell}
-          disabled={!!enableContinue}>
+          disabled={saving || !!enableContinue}>
           {t('checker:feelingWell')}
         </Button>
         <Spacing s={36} />
