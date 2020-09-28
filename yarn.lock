@@ -6828,7 +6828,7 @@ react-native-simple-crypto@^0.2.13:
     base64-js "^1.3.0"
     hex-lite "^1.5.0"
 
-react-native-ssl-pinning@^1.4.9:
+react-native-ssl-pinning@1.4.9:
   version "1.4.9"
   resolved "https://registry.yarnpkg.com/react-native-ssl-pinning/-/react-native-ssl-pinning-1.4.9.tgz#ae519e7b9e207fe58f4bf1f8350c529f8ecf6d22"
   integrity sha512-vvGW7H8ickH6iizrOs/0naq5e0EFDCtvMvmm8ENJeLSHjDKoUcFPcnKL9PPhfIYo2nHDIjmWwE5WLzwOlG+frQ==
