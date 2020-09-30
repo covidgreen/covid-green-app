@@ -51,7 +51,11 @@
 		28D77FD8243F60D8001A4277 /* COVIDGreen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "COVIDGreen-Bridging-Header.h"; sourceTree = "<group>"; };
 		2FD0A6DD7434958C688A768B /* Pods-COVIDGreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDGreen.release.xcconfig"; path = "Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen.release.xcconfig"; sourceTree = "<group>"; };
 		413AFFC1249366F9001D3D6E /* Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
-		41C3C226249C94E300634DB9 /* ga */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ga; path = COVIDGreen/ga.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4156AFDA25253BAD00C4F31D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = COVIDGreen/es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4156AFDB25253C3600C4F31D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = COVIDGreen/ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4156AFDC25253C3F00C4F31D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = COVIDGreen/ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4156AFDD25253D3E00C4F31D /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = COVIDGreen/zh.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4156AFDE25253D7000C4F31D /* bn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bn; path = COVIDGreen/bn.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6671B0BFC15F79CF7EC5A105 /* Pods_COVIDGreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDGreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D344A63170C83782608F761 /* Pods-COVIDGreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDGreen.debug.xcconfig"; path = "Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen.debug.xcconfig"; sourceTree = "<group>"; };
 		DAE5872D24F6CF8E002FFA54 /* cert2.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert2.cer; sourceTree = "<group>"; };
@@ -260,7 +264,11 @@
 			knownRegions = (
 				en,
 				Base,
-				ga,
+				es,
+				ko,
+				ru,
+				zh,
+				bn,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -553,7 +561,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				2836A7902449D2B1006215C7 /* Base */,
-				41C3C226249C94E300634DB9 /* ga */,
+				4156AFDA25253BAD00C4F31D /* es */,
+				4156AFDB25253C3600C4F31D /* ko */,
+				4156AFDC25253C3F00C4F31D /* ru */,
+				4156AFDD25253D3E00C4F31D /* zh */,
+				4156AFDE25253D7000C4F31D /* bn */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -621,7 +633,7 @@
 					"FB_SONARKIT_ENABLED=1",
 				);
 				INFOPLIST_FILE = COVIDGreen/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
@@ -651,7 +663,7 @@
 				CURRENT_PROJECT_VERSION = 49;
 				DEVELOPMENT_TEAM = U9QLK6UTVL;
 				INFOPLIST_FILE = COVIDGreen/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
@@ -715,7 +727,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
@@ -768,7 +780,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
