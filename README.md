@@ -147,7 +147,7 @@ This command will increment the build number. It will not change the app version
 
 ## Hosted By
 
-<a href="https://www.lfph.io"><img alttext="Linux Foundation Public Health Logo" src="https://raw.githubusercontent.com/lfph/artwork/master/lfph/stacked/color/lfph-stacked-color.svg" width="200"></a>
+<a href="https://www.lfph.io"><img alttext="Linux Foundation Public Health Logo" src="https://raw.githubusercontent.com/lfph/artwork/master/other/lfph/stacked/color/lfph-stacked-color.svg" width="200"></a>
 
 [Linux Foundation Public Health](https://www.lfph.io)
 
