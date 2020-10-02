@@ -120,7 +120,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     let date = '';
     try {
       date = format(
-        new Date(axisData[index]),
+        axisData[index],
         wideMonthLocales.includes(i18n.language) ? 'Mo' : 'MMM',
         dateLocale
       );
@@ -139,7 +139,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     }
     let date = '';
     try {
-      date = format(new Date(axisData[index]), 'dd');
+      date = format(axisData[index], 'dd');
     } catch (err) {
       // Error already logged generating accessibility text
     }

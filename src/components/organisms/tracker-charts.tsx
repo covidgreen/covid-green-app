@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {useTranslation} from 'react-i18next';
-import {format} from 'date-fns';
+import {add, format, parseISO} from 'date-fns';
 
 import {Spacing} from 'components/atoms/spacing';
 import {Card} from 'components/atoms/card';
@@ -31,8 +31,14 @@ const getEmptyExtractedData = (): ExtractedData => {
   return emptyData;
 };
 
+const dateIsValid = (date: Date) => !isNaN(Number(date));
+
 const chartDataIsAvailable = (data: ExtractedData) => {
-  return !!(data.axisData?.length && data.chartData?.length);
+  return !!(
+    data.axisData?.length &&
+    data.chartData?.length &&
+    data.axisData?.every(dateIsValid)
+  );
 };
 
 export function trimData(data: any[], days: number, rolling: number = 0) {
@@ -46,6 +52,21 @@ export function trimData(data: any[], days: number, rolling: number = 0) {
 function trimAxisData(axisData: any[], days: number) {
   const excessLength = axisData.length - days;
   return excessLength > 0 ? axisData.slice(excessLength) : axisData;
+}
+
+function parseDateString(dateString: string) {
+  // date-fns format() and parse fns use device timezone, but new Date() uses UTC
+  // On Android (but not iOS), west of GMT this causes formatted dates to be -1 day
+  let date = parseISO(dateString);
+
+  // Don't fail if the server changes date format unexpectedly
+  if (!dateIsValid(date)) {
+    const utcDate = new Date(dateString);
+    const offsetMinutes = utcDate.getTimezoneOffset();
+    date = add(utcDate, {minutes: offsetMinutes});
+  }
+
+  return date;
 }
 
 const calculateRollingAverages = (
@@ -79,7 +100,7 @@ const getBarchartData = (
       (records, date: string, index: number) => {
         const dataRecord = data[date] || data[index];
         return {
-          axisData: [...records.axisData, new Date(date)],
+          axisData: [...records.axisData, parseDateString(date)],
           chartData: [...records.chartData, dataRecord[quantityKey]],
           averagesData: averagesKey
             ? [...records.averagesData, dataRecord[averagesKey]]
@@ -97,7 +118,7 @@ const getBarchartData = (
     averagesData = reducedData.averagesData;
   } else {
     data.forEach((record) => {
-      axisData.push(new Date(record.test_date || record.last_test_date));
+      axisData.push(parseDateString(record.test_date || record.last_test_date));
       chartData.push(record[quantityKey]);
       if (averagesKey) {
         averagesData.push(record[averagesKey]);
@@ -119,8 +140,8 @@ const getBarchartData = (
   };
 };
 
-const getComparableDate = (date: Date | string) => {
-  return format(new Date(date), 'yyyy-mm-dd');
+const getComparableDate = (date: Date) => {
+  return format(date, 'yyyy-mm-dd');
 };
 
 export const TrackerCharts: FC<TrackerChartsProps> = ({
