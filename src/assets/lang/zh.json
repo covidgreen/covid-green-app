@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "COVID Alert NY（纽约COVID警示）",
-    "url": "https://CovidAlertNY.health.ny.gov",
+    "url": "https://coronavirus.health.ny.gov/covid-alert-ny",
     "message": "加入纽约COVID智能库来对抗COVID-19",
     "networkError": "连接问题。请检查您的互联网连接并重试。",
     "missingDataAction": "刷新页面",

@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "COVID Alert NY(COVID 경보 NY)",
-    "url": "https://CovidSmartNY.health.ny.gov",
+    "url": "https://coronavirus.health.ny.gov/covid-alert-ny",
     "message": "COVID-19 극복을 위한 Smart NY(스마트 NY)",
     "networkError": "연결 문제. 인터넷 연결을 확인하시고 다시 시도해 주십시오.",
     "missingDataAction": "페이지를 새로고침하십시오.",

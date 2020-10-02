@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "COVID Alert NY (NY alerta ante COVID)",
-    "url": "https://CovidAlertNY.health.ny.gov",
+    "url": "https://coronavirus.health.ny.gov/covid-alert-ny",
     "message": "Únase a NY alerta ante COVID para luchar contra la COVID-19",
     "networkError": "Problemas de conexión. Revise su conexión a Internet e inténtelo de nuevo.",
     "missingDataAction": "Actualizar la página",

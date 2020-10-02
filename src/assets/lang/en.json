@@ -2,7 +2,7 @@
   "common": {
     "name": "COVID Alert NY",
     "longName": "COVID Alert New York",
-    "url": "https://CovidAlertNY.health.ny.gov",
+    "url": "https://coronavirus.health.ny.gov/covid-alert-ny",
     "message": "Help keep your fellow NYers safe from COVID-19 by flattening the curve. Get the COVID Alert NY app:",
     "networkError": "Connection issue. Please check your internet connection and try again.",
     "missingDataAction": "Refresh page",
