@@ -32,8 +32,7 @@ export const Feedback = () => {
     enabled,
     permissions,
     supported,
-    isAuthorised,
-    contacts
+    isAuthorised
   } = useExposure();
   const version = getReadableVersion();
   const openEmail = (subject: string) =>
@@ -71,7 +70,6 @@ ENS Details:
   exposure permission: ${permissions.exposure.status},
   notifications permission: ${permissions.notifications.status},
   authorised: ${isAuthorised ? 'yes' : 'no'},
-  amount of closeness cases: ${contacts?.length || 0}
 `
     );
 
