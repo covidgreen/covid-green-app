@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Text, Switch, View, StyleSheet} from 'react-native';
-import * as SecureStore from 'expo-secure-store';
 
 import {colors, text} from 'theme';
 import {DataProtectionLink} from 'components/views/data-protection-policy';
@@ -9,30 +8,15 @@ import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
 import {useExposure} from 'react-native-exposure-notification-service';
 import {Scrollable} from 'components/templates/scrollable';
-import {StorageKeys} from 'providers/context';
+import {useApplication} from 'providers/context';
 
 export const Metrics = () => {
   const {t} = useTranslation();
   const {configure} = useExposure();
-  const [enabled, setEnabled] = useState(false);
-  useEffect(() => {
-    SecureStore.getItemAsync(StorageKeys.analytics)
-      .then((consent) => {
-        if (consent) {
-          setEnabled(consent === 'true');
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const {analyticsOptIn, setContext} = useApplication();
 
   const toggleSwitch = async () => {
-    if (enabled) {
-      setEnabled(false);
-      SecureStore.setItemAsync(StorageKeys.analytics, String(false), {});
-    } else {
-      setEnabled(true);
-      SecureStore.setItemAsync(StorageKeys.analytics, String(true), {});
-    }
+    setContext({analyticsOptIn: !analyticsOptIn});
     configure();
   };
 
@@ -58,7 +42,7 @@ export const Metrics = () => {
             }}
             thumbColor={colors.white}
             onValueChange={toggleSwitch}
-            value={enabled}
+            value={analyticsOptIn}
           />
         </View>
       </View>

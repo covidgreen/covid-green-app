@@ -53,6 +53,7 @@ interface State {
   loading: boolean | string;
   user?: User;
   data?: StatsData | null;
+  analyticsOptIn: boolean;
   checkInConsent: boolean;
   completedChecker: boolean;
   completedCheckerDate: string | null;
@@ -80,6 +81,7 @@ const initialState = {
   initializing: true,
   loading: false,
   user: undefined,
+  analyticsOptIn: false,
   completedChecker: false,
   completedCheckerDate: null,
   checkerSymptoms: {} as SymptomRecord,
@@ -178,6 +180,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       let checks: Check[] = [];
       let completedCheckerDate: string | null = null;
       let completedChecker = false;
+      let analyticsOptIn = false;
 
       if (state.user) {
         const checksData = await SecureStore.getItemAsync(
@@ -208,10 +211,17 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       }
 
       const county = await AsyncStorage.getItem(StorageKeys.county);
+      const analyticsOptInStr = await SecureStore.getItemAsync(
+        StorageKeys.analytics
+      );
+      if (analyticsOptInStr) {
+        analyticsOptIn = analyticsOptInStr === String(true);
+      }
 
       setState((s) => ({
         ...s,
         initializing: false,
+        analyticsOptIn,
         completedChecker,
         completedCheckerDate,
         checks,
@@ -226,7 +236,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       console.log('App init error:', err);
       setState((s) => ({...s, initializing: false}));
     }
-  }, []);
+  }, [state.user]);
 
   const loadAppData = async () => {
     try {
@@ -253,7 +263,13 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     if (data.callBackQueuedTs) {
       await SecureStore.setItemAsync(
         StorageKeys.callbackQueued,
-        JSON.stringify(data.callBackQueuedTs)
+        String(data.callBackQueuedTs)
+      );
+    }
+    if (data.analyticsOptIn !== undefined) {
+      await SecureStore.setItemAsync(
+        StorageKeys.analytics,
+        String(data.analyticsOptIn)
       );
     }
   };
@@ -268,8 +284,8 @@ export const AP = ({appConfig, user, consent, children}: API) => {
     await AsyncStorage.removeItem(StorageKeys.user);
     await AsyncStorage.removeItem(StorageKeys.checkinConsent);
     await AsyncStorage.removeItem(StorageKeys.debug);
-    await AsyncStorage.removeItem(StorageKeys.analytics);
     await AsyncStorage.removeItem(StorageKeys.county);
+    await SecureStore.deleteItemAsync(StorageKeys.analytics);
     await SecureStore.deleteItemAsync(StorageKeys.canSupportENS);
     await SecureStore.deleteItemAsync(StorageKeys.symptomDate);
     setState(() => ({

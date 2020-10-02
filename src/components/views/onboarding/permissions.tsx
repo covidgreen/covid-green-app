@@ -48,6 +48,7 @@ export const Permissions: FC<any> = () => {
   const handleRegistration = async (skip: boolean) => {
     try {
       app.showActivityIndicator();
+      const analyticsOptIn = true;
 
       const {token, refreshToken} = await register();
       console.log(token, refreshToken);
@@ -58,13 +59,14 @@ export const Permissions: FC<any> = () => {
         refreshToken,
         {}
       );
-      await SecureStore.setItemAsync(StorageKeys.analytics, String(true), {});
+      await SecureStore.setItemAsync(StorageKeys.analytics, String(analyticsOptIn), {});
 
       await app.setContext({
         user: {
           new: true,
           valid: true
-        }
+        },
+        analyticsOptIn
       });
 
       app.hideActivityIndicator();
