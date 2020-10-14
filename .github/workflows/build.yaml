@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Generate .env file
-        uses: project-vagabond/template-action@v1
+        uses: covid-alert-ny/template-action@v1
         with:
           template: .templates/.env.template
           output: .env
@@ -43,7 +43,7 @@ jobs:
         run: echo "${{ secrets.FIREBASE_CFG_ANDROID_PROD }}" | base64 -d -o "android/app/src/release/google-services.json"        
 
       - name: Generate Android env.default
-        uses: project-vagabond/template-action@v1
+        uses: covid-alert-ny/template-action@v1
         with:
           template: .templates/android/env.default.template
           output: android/.env.default
@@ -94,11 +94,15 @@ jobs:
       - name: Android Build
         run: |
           cd android 
-          . .env.default          
+          . .env.default
           ./gradlew bundleReleaseJsAndAssets
           ./gradlew assembleRelease || true
           ./gradlew copyReleaseBundledJs
           fastlane internal_build
+          # in theory internal_build should handle all of the gradle. in practice
+          # with the current combination of components we will not get a release
+          # bundle reliably unless these steps are run. fixing the gradle/react-native
+          # behavior is a larger project.
 
       - uses: actions/upload-artifact@v2
         with:
@@ -129,7 +133,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Generate .env file
-        uses: project-vagabond/template-action@v1
+        uses: covid-alert-ny/template-action@v1
         with:
           template: .templates/.env.template
           output: .env
@@ -149,6 +153,7 @@ jobs:
 
       - name: Generate iOS mobile provisioning profile        
         run: |
+          # fastlane cert/sigh and provisioning profile was not playing well with the existing setup. manually provisioning instead.
           echo "${{ secrets.IOS_MOBILE_PROV }}" | base64 -d -o "ios/COVID_Proximity_Tracing.mobileprovision"
           uuid=`grep UUID -A1 -a "ios/COVID_Proximity_Tracing.mobileprovision" | grep -io "[-A-F0-9]\{36\}"`
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
@@ -169,7 +174,7 @@ jobs:
             
 
       - name: Generate iOS env.default
-        uses: project-vagabond/template-action@v1
+        uses: covid-alert-ny/template-action@v1
         with:
           template: .templates/ios/env.default.template
           output: ios/.env.default
@@ -268,3 +273,4 @@ jobs:
           cd ios 
           . .env.default
           fastlane beta_release || true
+          # fastlane can fail due to random timeouts when pushing to apple. we capture the ipa for testing just in case.
