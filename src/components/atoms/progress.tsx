@@ -17,7 +17,7 @@ export const Progress: React.FC<ProgressProps> = ({
   backgroundColor
 }) => {
   const barStyles: ViewStyle = {
-    marginLeft: `${value - 100}%`
+    marginStart: `${value - 100}%`
   };
 
   if (color) {

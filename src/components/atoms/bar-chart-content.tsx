@@ -1,5 +1,12 @@
 import React, {FC} from 'react';
-import {ViewStyle, StyleProp, View, Text, StyleSheet} from 'react-native';
+import {
+  ViewStyle,
+  StyleProp,
+  View,
+  Text,
+  StyleSheet,
+  I18nManager
+} from 'react-native';
 import {Rect, G, Path} from 'react-native-svg';
 import {BarChart, Grid} from 'react-native-svg-charts';
 import {colors, text} from 'theme';
@@ -37,6 +44,8 @@ interface TrendLineProps extends BarChildProps {
   color: string;
 }
 
+const lastBarIndex = (data: any[]) => (I18nManager.isRTL ? 0 : data.length - 1);
+
 export const BarChartContent: FC<BarChartContentProps> = ({
   chartData,
   averagesData,
@@ -63,7 +72,7 @@ export const BarChartContent: FC<BarChartContentProps> = ({
             ry={cornerRoundness}
             width={bandwidth}
             height={cornerRoundness * 2} // Height of the Rect
-            fill={index === data.length - 1 ? colors.purple : secondaryColor}
+            fill={index === lastBarIndex(data) ? colors.purple : secondaryColor}
             key={`bar-${index}`}
           />
         ))}
@@ -106,13 +115,16 @@ export const BarChartContent: FC<BarChartContentProps> = ({
 
   const Label: FC<BarChildProps> = (props) => {
     const {y, bandwidth, data} = props;
-    const lastValue = data[data.length - 1];
+    const lastValue = data[lastBarIndex(data)];
     return lastValue ? (
       <View
         accessible={true}
         style={[
           styles.label,
-          {top: y(lastValue.value) - 35, right: bandwidth / 2 - 13}
+          {
+            top: y(lastValue.value) - 35,
+            right: bandwidth / 2 - 13
+          }
         ]}
         key={`label-${lastValue.value}`}>
         <View style={styles.triangle} />
@@ -147,9 +159,12 @@ export const BarChartContent: FC<BarChartContentProps> = ({
   return (
     <View accessible>
       <BarChart
-        style={[style, { marginLeft: contentInset.left - 2, marginRight: contentInset.right }]}
+        style={[
+          style,
+          {marginStart: contentInset.left - 2, marginEnd: contentInset.right}
+        ]}
         data={chartData.map((value: number, index: number) =>
-          index === chartData.length - 1
+          index === lastBarIndex(chartData)
             ? {value, svg: {fill: colors.purple}}
             : {value}
         )}

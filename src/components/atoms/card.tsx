@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   icon: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 12
+    marginEnd: 12
   },
   row: {
     flexDirection: 'row',

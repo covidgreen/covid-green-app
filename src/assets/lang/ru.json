@@ -291,7 +291,8 @@
     "title": "Журнал здоровья",
     "symptom": "Симптом",
     "symptoms": "симптом",
-    "symptoms_plural": "симптома (-ов)",
+    "symptoms_1": "симптома",
+    "symptoms_2": "симптомов",
     "completed": "Вы можете снова проверить симптомы завтра"
   },
   "casesByCounty": {
@@ -342,7 +343,8 @@
   },
   "closeContactWarn": {
     "notice": "Вы получили {{count}} оповещение о COVID за последние 14 дней",
-    "notice_plural": "Вы получили {{count}} оповещения (-ий) о COVID за последние 14 дней"
+    "notice_1": "Вы получили {{count}} оповещения о COVID за последние 14 дней",
+    "notice_2": "Вы получили {{count}} оповещений о COVID за последние 14 дней"
   },
   "closeContact": {
     "title": "Оповещение о COVID",

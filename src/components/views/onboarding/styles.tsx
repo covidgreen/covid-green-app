@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     marginBottom: 16
   },
   listIcon: {
-    marginRight: 10
+    marginEnd: 10
   },
   center: {
     alignItems: 'center'
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     width: 4,
     backgroundColor: colors.purple,
     height: '100%',
-    marginRight: 18
+    marginEnd: 18
   },
   listContent: {
     flex: 1

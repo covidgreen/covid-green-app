@@ -31,7 +31,7 @@ export default (text: Styles): Styles => ({
   listItemNumber: {
     ...text.xxlargeBlack,
     color: colors.purple,
-    marginRight: 12
+    marginEnd: 12
   },
   listItemContent: {
     flex: 1,
@@ -45,8 +45,8 @@ export default (text: Styles): Styles => ({
     height: 8,
     backgroundColor: colors.purple,
     borderRadius: 4,
-    marginLeft: 6,
     marginTop: 6,
-    marginRight: 16
+    marginStart: 6,
+    marginEnd: 16
   }
 });

@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     ...text.default,
-    paddingLeft: 4
+    paddingStart: 4
   },
   searchUnderlined: {
     textDecorationLine: 'underline'

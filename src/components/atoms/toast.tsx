@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     justifyContent: 'center',
-    paddingRight: 10,
+    paddingEnd: 10,
     alignItems: 'center'
   },
   iconError: {

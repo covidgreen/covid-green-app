@@ -19,6 +19,7 @@ import {Symptom, SymptomRecord} from 'constants/symptoms';
 import {text, colors} from 'theme';
 import {BubbleIcons} from 'assets/icons';
 import {getDateLocaleOptions} from 'services/i18n/date';
+import {pluralize} from 'services/i18n/common';
 
 interface SymptomListItem {
   value: Symptom;
@@ -112,9 +113,10 @@ export const SymptomsHistory: FC<any> = ({navigation}) => {
                   <Text
                     maxFontSizeMultiplier={fontScale}
                     style={text.defaultBold}>
-                    {t('symptomsHistory:symptoms', {
-                      count: symptomsList.length
-                    })}
+                    {t(
+                      'symptomsHistory:symptoms',
+                      pluralize(symptomsList.length, i18n.language)
+                    )}
                   </Text>
                 </SingleRow>
                 <View style={styles.date}>
@@ -154,14 +156,14 @@ const styles = StyleSheet.create({
     paddingVertical: 4
   },
   icon: {
-    marginRight: 12
+    marginEnd: 12
   },
   date: {
     flex: 1,
     alignItems: 'flex-end'
   },
   symptom: {
-    marginLeft: 32 + 12,
+    marginStart: 32 + 12,
     marginVertical: 8
   }
 });

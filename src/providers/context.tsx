@@ -119,7 +119,8 @@ export enum StorageKeys {
   checkinConsent = 'covidApp.checkInConsent',
   callbackQueued = 'covidApp.callBackQueuedTs',
   symptomKeys = 'covidApp.checks',
-  county = 'nysCounty'
+  county = 'nysCounty',
+  restartScreen = 'restartScreen'
 }
 
 export const AP = ({appConfig, user, consent, children}: API) => {

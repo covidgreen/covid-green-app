@@ -27,6 +27,7 @@ import {getReadableVersion} from 'react-native-device-info';
 import {Asset} from 'expo-asset';
 
 import 'services/i18n';
+import {useRtl} from 'hooks/i18n';
 
 import {
   ApplicationProvider,
@@ -372,6 +373,8 @@ const SymptomsStack = () => {
 
 const MainStack = () => {
   const {t} = useTranslation();
+  useRtl();
+
   return (
     <Tab.Navigator
       initialRouteName="dashboard"

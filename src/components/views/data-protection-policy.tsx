@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   privacy: {
     width: 32,
     height: 32,
-    marginRight: 8
+    marginEnd: 8
   }
 });
 
@@ -108,11 +108,11 @@ const markDownStyles = StyleSheet.create({
   listItemNumber: {
     ...text.largeBold,
     color: colors.darkGray,
-    paddingRight: 16,
+    marginEnd: 16,
     alignSelf: 'center'
   },
   listItemContent: {
     marginTop: -2,
-    paddingRight: 32
+    marginEnd: 32
   }
 });

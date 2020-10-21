@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   notice: {
     ...text.defaultBold,
     color: colors.black,
-    paddingRight: 35,
-    paddingLeft: 10
+    marginEnd: 35,
+    marginStart: 10
   }
 });

@@ -21,7 +21,7 @@ export const Language = () => {
   const languages: LanguageType[] = Object.entries(supportedLocales).map(
     ([langCode, langData]) => ({
       value: langCode,
-      label: langData.name
+      label: langData.listName
     })
   );
   const currentLanguage =

@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    paddingLeft: 20
+    paddingStart: 20
   },
   markdown: {
     backgroundColor: colors.white

@@ -13,7 +13,7 @@ import {useSafeArea} from 'react-native-safe-area-context';
 import Icons, {AppIcons} from 'assets/icons';
 import {colors, text} from 'theme';
 import {TFunction} from 'i18next';
-import {useRoute, NavigationProp, useNavigationState} from '@react-navigation/native';
+import {useRoute, useNavigationState} from '@react-navigation/native';
 
 interface NavBarProps {
   navigation: any;
@@ -48,8 +48,8 @@ export const NavBar: FC<NavBarProps> = ({
 }) => {
   const {t} = useTranslation();
   const insets = useSafeArea();
-  const {key: routeKey, name} = useRoute();
-  const routes = useNavigationState(state => state.routes);
+  const {key: routeKey} = useRoute();
+  const routes = useNavigationState((state) => state.routes);
   const index = routes.findIndex((route) => route.key === routeKey);
   const hasHistory = !placeholder && index > 0;
 
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   left: {
     width: '25%',
     alignItems: 'flex-start',
-    paddingLeft: 12
+    paddingStart: 12
   },
   center: {
     width: '50%',
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   right: {
     width: '25%',
     alignItems: 'flex-end',
-    paddingRight: 12
+    paddingEnd: 12
   },
   back: {
     flexDirection: 'row',
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     ...text.default,
-    marginLeft: 5,
+    marginHorizontal: 5,
     textAlign: 'left',
     color: colors.white
   },

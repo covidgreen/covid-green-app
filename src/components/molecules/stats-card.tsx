@@ -53,9 +53,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingTop: 8,
-    paddingRight: 12,
+    paddingEnd: 12,
     paddingBottom: 12,
-    paddingLeft: 12,
+    paddingStart: 12,
     ...shadows.default
   },
   icon: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 24
+    marginEnd: 24
   },
   stats: {
     alignItems: 'flex-start'

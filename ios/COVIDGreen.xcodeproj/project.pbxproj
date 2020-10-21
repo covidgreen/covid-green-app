@@ -56,6 +56,7 @@
 		4156AFDC25253C3F00C4F31D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = COVIDGreen/ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4156AFDD25253D3E00C4F31D /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = COVIDGreen/zh.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4156AFDE25253D7000C4F31D /* bn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bn; path = COVIDGreen/bn.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E717A66D253F10C500C167BC /* yi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = yi; path = COVIDGreen/yi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6671B0BFC15F79CF7EC5A105 /* Pods_COVIDGreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDGreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D344A63170C83782608F761 /* Pods-COVIDGreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDGreen.debug.xcconfig"; path = "Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen.debug.xcconfig"; sourceTree = "<group>"; };
 		DAE5872D24F6CF8E002FFA54 /* cert2.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert2.cer; sourceTree = "<group>"; };
@@ -269,6 +270,7 @@
 				ru,
 				zh,
 				bn,
+				yi,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -398,6 +400,7 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-exposure-notification-service/react_native_exposure_notification_service.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-netinfo/react_native_netinfo.framework",
+				"${BUILT_PRODUCTS_DIR}/react-native-restart/react_native_restart.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-safe-area-context/react_native_safe_area_context.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-simple-crypto/react_native_simple_crypto.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-viewpager/react_native_viewpager.framework",
@@ -455,6 +458,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_exposure_notification_service.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_netinfo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_restart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_safe_area_context.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_simple_crypto.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_viewpager.framework",
@@ -566,6 +570,7 @@
 				4156AFDC25253C3F00C4F31D /* ru */,
 				4156AFDD25253D3E00C4F31D /* zh */,
 				4156AFDE25253D7000C4F31D /* bn */,
+				E717A66D253F10C500C167BC /* yi */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

@@ -1,4 +1,5 @@
-import {Platform} from 'react-native';
+import React, {FC} from 'react';
+import {I18nManager, Platform, View, ViewStyle} from 'react-native';
 
 // app
 import Alert from './app/alert.svg';
@@ -68,10 +69,30 @@ import SeparateBathroom from './how-to-keep-others-safe/separate-bathroom.svg';
 import GetTested from './how-to-keep-others-safe/get-tested.svg';
 import CallHotline from './how-to-keep-others-safe/call-hotline.svg';
 
+const flipStyle = {
+  transform: [{scaleX: -1}]
+} as ViewStyle;
+
+interface FlipIconProps {
+  style?: ViewStyle;
+}
+
+const getRtlFlipIcon = (Icon: FC) => {
+  const RtlFlipIcon: FC<FlipIconProps> = ({style, ...iconProps}) =>
+    I18nManager.isRTL ? (
+      <View style={[flipStyle, style]}>
+        <Icon {...iconProps} />
+      </View>
+    ) : (
+      <Icon {...iconProps} />
+    );
+  return RtlFlipIcon;
+};
+
 export const AppIcons = {
   Alert,
-  ArrowRight,
-  Back: Platform.OS === 'ios' ? BackIOS : BackAndroid,
+  ArrowRight: getRtlFlipIcon(ArrowRight),
+  Back: getRtlFlipIcon(Platform.OS === 'ios' ? BackIOS : BackAndroid),
   Bluetooth,
   Close,
   Notification,

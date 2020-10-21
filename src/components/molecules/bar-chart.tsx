@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, I18nManager} from 'react-native';
 import Svg, {Line, Rect} from 'react-native-svg';
 import {YAxis, XAxis} from 'react-native-svg-charts';
 import {useTranslation} from 'react-i18next';
@@ -27,6 +27,13 @@ interface TrackerBarChartProps {
 }
 
 const legendItemSize = 16;
+
+const rtlReverse = (data: any[]) =>
+  I18nManager.isRTL ? [...data].reverse() : data;
+
+const rtlReverseIndex = (data: any[], index: number) =>
+  I18nManager.isRTL ? data.length - index : index;
+
 
 function formatLabel(value: number, suffix: string) {
   if (value >= 1000000) {
@@ -73,7 +80,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 
   const isAxisLabelHidden = (index: number, showIfLessDataThan: number = 0) =>
     chartData.length > showIfLessDataThan &&
-    index % intervalsCount &&
+    rtlReverseIndex(axisData, index) % intervalsCount &&
     index !== axisData.length - 1;
 
   const dataSummary = axisData.reduce((summaryText, date, index) => {
@@ -112,6 +119,8 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
 
   const showLegend = !!averagesData.length;
 
+  const xAxisLabelData = rtlReverse(axisData);
+
   const formatXAxisMonthLabel = (_: any, index: number) => {
     if (isAxisLabelHidden(index)) {
       return '';
@@ -120,7 +129,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     let date = '';
     try {
       date = format(
-        axisData[index],
+        xAxisLabelData[index],
         wideMonthLocales.includes(i18n.language) ? 'Mo' : 'MMM',
         dateLocale
       );
@@ -133,13 +142,14 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     return label;
   };
 
+
   const formatXAxisDayLabel = (_: any, index: number) => {
     if (isAxisLabelHidden(index, 10)) {
       return '';
     }
     let date = '';
     try {
-      date = format(axisData[index], 'dd');
+      date = format(xAxisLabelData[index], 'dd');
     } catch (err) {
       // Error already logged generating accessibility text
     }
@@ -167,7 +177,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
       <View style={styles.chartingRow}>
         <YAxis
           style={styles.yAxis}
-          data={chartData}
+          data={rtlReverse(chartData)}
           numberOfTicks={3}
           contentInset={contentInset}
           svg={{...text.smallBold, fill: colors.text}}
@@ -177,8 +187,8 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
         />
         <View style={styles.chartingCol}>
           <BarChartContent
-            chartData={chartData}
-            averagesData={averagesData}
+            chartData={rtlReverse(chartData)}
+            averagesData={rtlReverse(averagesData)}
             cornerRoundness={2}
             scale={scaleBand}
             contentInset={contentInset}
@@ -272,7 +282,7 @@ const styles = StyleSheet.create({
     ...text.smallBold,
     width: 48,
     height: 184,
-    paddingRight: 4
+    marginEnd: 4
   },
   chartingCol: {
     flex: 1,
@@ -281,8 +291,8 @@ const styles = StyleSheet.create({
   chart: {
     flex: 1,
     height: 184,
-    marginLeft: 6,
-    marginRight: 5,
+    marginStart: 6,
+    marginEnd: 5,
     marginBottom: -10
   },
   leftAlign: {
@@ -301,7 +311,7 @@ const styles = StyleSheet.create({
   legendLabel: {
     ...text.small,
     textAlign: 'left',
-    marginLeft: 8
+    marginHorizontal: 8
   },
   line: {
     borderTopWidth: 1,

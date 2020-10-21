@@ -85,8 +85,8 @@ export const ResultCard: FC<props> = ({
 
 const styles = StyleSheet.create({
   fullWidthToast: {
-    marginLeft: -20,
-    marginRight: -20,
+    marginStart: -20,
+    marginEnd: -20,
     marginTop: -20,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,

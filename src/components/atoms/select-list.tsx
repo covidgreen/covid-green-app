@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   icon: {
-    marginRight: 12
+    marginEnd: 12
   },
   textWrap: {
     flex: 2

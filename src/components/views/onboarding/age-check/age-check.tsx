@@ -13,6 +13,7 @@ import {Spacing} from 'components/atoms/layout';
 import {colors, text} from 'theme';
 import Icons from 'assets/icons';
 import {SPACING_HORIZONTAL} from 'constants/shared';
+import {useRtl} from 'hooks/i18n';
 
 const HealthLogo = require('assets/images/healthStateLogo/image.png');
 
@@ -21,6 +22,7 @@ export const AgeCheck: FC<{}> = () => {
   const nav = useNavigation();
   const insets = useSafeAreaInsets();
   const [ref] = useFocusRef({accessibilityRefocus: true, timeout: 1250});
+  useRtl();
 
   return (
     <View style={[style.container, {paddingTop: insets.top}]}>

@@ -1,81 +1,81 @@
 import {colors} from 'constants/colors';
-import {TextStyle} from 'react-native';
+import {I18nManager, TextStyle} from 'react-native';
+
+const defaults: TextStyle = {
+  fontFamily: 'System',
+  writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr', // Required for iOS
+  color: colors.text
+};
 
 export default (scale: (v: number) => number): {[key: string]: TextStyle} => ({
   small: {
-    fontFamily: 'System',
+    ...defaults,
     fontSize: scale(14),
-    color: colors.text,
     lineHeight: scale(14)
   },
   default: {
-    fontFamily: 'System',
+    ...defaults,
     fontSize: scale(16),
-    lineHeight: scale(21),
-    color: colors.text
+    lineHeight: scale(21)
   },
   large: {
-    fontFamily: 'System',
-    fontSize: scale(18),
-    color: colors.text
+    ...defaults,
+    fontSize: scale(18)
   },
   xlarge: {
-    fontFamily: 'System',
-    fontSize: scale(21),
-    color: colors.text
+    ...defaults,
+    fontSize: scale(21)
   },
 
   xsmallBold: {
-    fontFamily: 'System',
+    ...defaults,
     fontWeight: 'bold',
-    fontSize: scale(12),
-    color: colors.text
+    fontSize: scale(12)
   },
   xsmallBoldOpacity70: {
-    fontFamily: 'System',
+    ...defaults,
     fontWeight: 'bold',
     fontSize: scale(12),
     color: `${colors.text}B3`
   },
   smallBold: {
-    fontFamily: 'System',
+    ...defaults,
     fontWeight: 'bold',
     fontSize: scale(14),
     color: `${colors.text}B3`
   },
   defaultBold: {
-    fontFamily: 'System',
+    ...defaults,
     fontWeight: 'bold',
     fontSize: scale(16),
     color: colors.text
   },
   defaultBoldOpacity70: {
-    fontFamily: 'System',
+    ...defaults,
     fontWeight: 'bold',
     fontSize: scale(16),
     color: `${colors.text}B3`
   },
   largeBold: {
-    fontFamily: 'System',
+    ...defaults,
     fontWeight: 'bold',
     fontSize: scale(18),
     lineHeight: scale(24),
-    letterSpacing: -0.37,
-    color: colors.text
+    letterSpacing: -0.37
   },
   xlargeBold: {
-    fontFamily: 'System',
+    ...defaults,
     fontWeight: 'bold',
-    fontSize: scale(21),
-    color: colors.text
+    fontSize: scale(21)
   },
   defaultBoldBlue: {
-    fontFamily: 'System',
+    ...defaults,
     fontWeight: 'bold',
     fontSize: scale(16),
     color: colors.blue
   },
   xxlargeHeavy: {
+    ...defaults,
     fontSize: scale(30),
     fontWeight: 'bold',
     lineHeight: scale(38),
@@ -86,19 +86,16 @@ export default (scale: (v: number) => number): {[key: string]: TextStyle} => ({
   // lato-black
   largeBlack: {
     // TODO: same as large, one should be removed
-    fontFamily: 'System',
-    fontSize: scale(18),
-    color: colors.text
+    ...defaults,
+    fontSize: scale(18)
   },
   xlargeBlack: {
-    fontFamily: 'System',
-    fontSize: scale(21),
-    color: colors.text
+    ...defaults,
+    fontSize: scale(21)
   },
   xxlargeBlack: {
-    fontFamily: 'System',
+    ...defaults,
     fontSize: scale(32),
-    letterSpacing: -0.65,
-    color: colors.text
+    letterSpacing: -0.65
   }
 });

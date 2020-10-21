@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   text: {
-    paddingLeft: 20
+    paddingStart: 20
   }
 });

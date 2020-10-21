@@ -8,7 +8,9 @@ import {
   Dimensions,
   ScrollView,
   TouchableWithoutFeedback,
-  TouchableOpacity
+  TouchableOpacity,
+  I18nManager,
+  ViewStyle
 } from 'react-native';
 import Video from 'react-native-video';
 import {useSafeArea} from 'react-native-safe-area-context';
@@ -27,17 +29,52 @@ import Step4 from 'assets/icons/how-it-works/howitworks4.svg';
 
 const {width} = Dimensions.get('window');
 
+const pages: [number, FC][] = [
+  [
+    0,
+    () => (
+      <Video
+        source={require('assets/videos/how-it-works.mp4')}
+        style={styles.video}
+        paused={false}
+        repeat={false}
+        resizeMode="cover"
+      />
+    )
+  ],
+  [1, () => <Step2 style={styles.video} />],
+  [2, () => <Step3 style={styles.video} />],
+  [3, () => <Step4 style={styles.video} />]
+];
+
 const Tour: FC<any> = () => {
   const {t} = useTranslation();
   const nav = useNavigation();
   const insets = useSafeArea();
-  const [position, setPosition] = useState<number>(0);
   const pager = useRef<ViewPager | null>(null);
   const [ref] = useFocusRef();
+
+  // RTL support: hacky but @react-native-community/viewpager doesn't support
+  // RTL swipe gestures (i.e. switch swipe direction for next screen)
+  // and there aren't any well-supported alternatives that do
+  const initialIndex = I18nManager.isRTL ? pages.length - 1 : 0;
+  const lastIndex = I18nManager.isRTL ? 0 : pages.length - 1;
+  const [position, setPosition] = useState<number>(initialIndex);
 
   const statements: string[] = t('onboarding:tour:statements', {
     returnObjects: true
   });
+  const pageContent = (I18nManager.isRTL
+    ? [...pages].reverse()
+    : pages
+  ).map(([statementIndex, PageComponent]) => [
+    statements[statementIndex] || '',
+    PageComponent
+  ]);
+  const pageChangeSign = I18nManager.isRTL ? -1 : 1;
+  const noFlipStyle = {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row'
+  } as ViewStyle;
 
   const onClose = () => nav.goBack();
 
@@ -83,21 +120,10 @@ const Tour: FC<any> = () => {
           orientation="horizontal"
           style={styles.viewPager}
           onPageSelected={(e) => setPosition(e.nativeEvent.position)}
-          initialPage={0}>
-          {statements.map((statement, index) => (
+          initialPage={initialIndex}>
+          {pageContent.map(([statement, PageComponent], index) => (
             <ScrollView key={`s-${index}`}>
-              {index === 0 && (
-                <Video
-                  source={require('assets/videos/how-it-works.mp4')}
-                  style={styles.video}
-                  paused={false}
-                  repeat={false}
-                  resizeMode="cover"
-                />
-              )}
-              {index === 1 && <Step2 style={styles.video} />}
-              {index === 2 && <Step3 style={styles.video} />}
-              {index === 3 && <Step4 style={styles.video} />}
+              <PageComponent />
               <Markdown style={styles.content} markdownStyles={MarkdownStyles}>
                 {statement}
               </Markdown>
@@ -107,28 +133,25 @@ const Tour: FC<any> = () => {
       </View>
       <View style={[styles.row, styles.controls]}>
         <View style={[styles.left, styles.button]}>
-          {/*we can't use TouchableWithoutFeedback because is not selectable by keyboard tab navigation*/}
-          <TouchableOpacity
-            accessible
-            activeOpacity={1}
-            accessibilityRole="button"
-            accessibilityHint={t('onboarding:tour:previousHint')}
-            onPress={() => {
-              pager.current?.setPage(position - 1);
-              setAccessibilityFocusRef(ref);
-            }}>
-            <Text
-              maxFontSizeMultiplier={1.2}
-              style={[
-                styles.buttonText,
-                position === 0 ? styles.hidden : styles.visible
-              ]}>
-              {t('onboarding:tour:previous')}
-            </Text>
-          </TouchableOpacity>
+          {position !== initialIndex && (
+            /*we can't use TouchableWithoutFeedback because is not selectable by keyboard tab navigation*/
+            <TouchableOpacity
+              accessible
+              activeOpacity={1}
+              accessibilityRole="button"
+              accessibilityHint={t('onboarding:tour:previousHint')}
+              onPress={() => {
+                pager.current?.setPage(position - 1 * pageChangeSign);
+                setAccessibilityFocusRef(ref);
+              }}>
+              <Text maxFontSizeMultiplier={1.2} style={styles.buttonText}>
+                {t('onboarding:tour:previous')}
+              </Text>
+            </TouchableOpacity>
+          )}
         </View>
         <View
-          style={[styles.center, styles.dots]}
+          style={[styles.center, styles.dots, noFlipStyle]}
           accessible
           accessibilityLabel={t('onboarding:tour:currentPage', {
             page: position + 1,
@@ -144,7 +167,7 @@ const Tour: FC<any> = () => {
             )
           )}
         </View>
-        {position < statements.length - 1 && (
+        {position !== lastIndex ? (
           <View style={[styles.right, styles.button]}>
             {/*we can't use TouchableWithoutFeedback because is not selectable by keyboard tab navigation*/}
             <TouchableOpacity
@@ -153,23 +176,15 @@ const Tour: FC<any> = () => {
               accessibilityRole="button"
               accessibilityHint={t('onboarding:tour:nextHint')}
               onPress={() => {
-                pager.current?.setPage(position + 1);
+                pager.current?.setPage(position + 1 * pageChangeSign);
                 setAccessibilityFocusRef(ref);
               }}>
-              <Text
-                maxFontSizeMultiplier={1.2}
-                style={[
-                  styles.buttonText,
-                  position === statements.length - 1
-                    ? styles.hidden
-                    : styles.visible
-                ]}>
+              <Text maxFontSizeMultiplier={1.2} style={styles.buttonText}>
                 {t('onboarding:tour:next')}
               </Text>
             </TouchableOpacity>
           </View>
-        )}
-        {position === statements.length - 1 && (
+        ) : (
           <View style={[styles.right, styles.button]}>
             {/*we can't use TouchableWithoutFeedback because is not selectable by keyboard tab navigation*/}
             <TouchableOpacity
@@ -181,14 +196,7 @@ const Tour: FC<any> = () => {
                 'onboarding:tour:title'
               )}`}
               onPress={onClose}>
-              <Text
-                maxFontSizeMultiplier={1.2}
-                style={[
-                  styles.buttonText,
-                  position === statements.length - 1
-                    ? styles.visible
-                    : styles.hidden
-                ]}>
+              <Text maxFontSizeMultiplier={1.2} style={styles.buttonText}>
                 {t('onboarding:tour:close')}
               </Text>
             </TouchableOpacity>
@@ -218,8 +226,8 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingVertical: 20,
-    paddingLeft: 12,
-    paddingRight: 36
+    paddingStart: 12,
+    paddingEnd: 36
   },
   headerContent: {
     flex: 1
@@ -229,7 +237,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   close: {
-    marginLeft: 10
+    marginStart: 10
   },
   details: {
     flex: 15
@@ -277,7 +285,7 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 12,
     backgroundColor: colors.darkestGray,
-    marginRight: 8,
+    marginEnd: 8,
     justifyContent: 'center',
     alignItems: 'center'
   },

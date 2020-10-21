@@ -187,7 +187,7 @@ export const renderWarningListItem: RenderListItem = (
 
 const styles = StyleSheet.create({
   icon: {
-    marginRight: 12
+    marginEnd: 12
   },
   content: {
     flex: 1
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   listIcon: {
     flexDirection: 'row',
     flex: 1,
-    marginRight: 12,
+    marginEnd: 12,
     marginTop: 12
   },
   container: {
