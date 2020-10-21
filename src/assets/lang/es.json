@@ -579,7 +579,7 @@
     "disclaimer": "**NOTA:** Esto es solo para comentarios técnicos y se compartirá con los desarrolladores de nuestras aplicaciones.\n\nSi se siente enfermo o tiene preguntas generales sobre la COVID-19, no use esta opción de comentarios y llame, en su lugar, a la línea directa de COVID Alert NY por el [1-833-227-5045](tel:18332275045).\n\nPara NYC: llame a la línea directa de COVID Test & Trace (Prueba y seguimiento de COVID) para obtener más información o para encontrar un sitio de pruebas en NYC.\n[212-COVID19 (212-268-4319)](tel:12122684319)"
   },
   "ageCheck": {
-    "intro": "Soy mayor de 18 años o soy el padre, la madre o el tutor de un menor y confirmo que este puede usar la aplicación.",
+    "intro": "Tengo al menos 18 años de edad o soy el padre, la madre o el tutor de un menor y confirmo que este puede usar la aplicación.",
     "confirm": "Yo confirmo"
   }
 }

@@ -568,7 +568,7 @@
     "disclaimer": "**NOTE:** This is for technical feedback only and will be shared with our app developers.\n\nIf you are feeling sick or have general questions about COVID-19, please do not use this feedback option and call the COVID Alert NY Hotline instead at [1-833-227-5045](tel:18332275045)\n\nFor NYC: Call the Test & Trace COVID Hotline for more information or to find a NYC test site. \n[212-COVID19 (212-268-4319)](tel:12122684319)"
   },
   "ageCheck": {
-    "intro": "I am over 18, or I am the parent or guardian of a minor confirming that they can use the app.",
+    "intro": "I am at least 18 years of age, or I am the parent or guardian of a minor confirming that they can use the app.",
     "confirm": "I Confirm"
   }
 }
