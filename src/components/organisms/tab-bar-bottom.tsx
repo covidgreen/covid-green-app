@@ -9,6 +9,7 @@ import {
   useExposure,
   StatusState
 } from 'react-native-exposure-notification-service';
+import {useSafeArea} from 'react-native-safe-area-context';
 
 interface Tab {
   label: string;
@@ -87,6 +88,7 @@ const checkActive = (
 export const TabBarBottom: FC<any> = ({navigation, state}) => {
   const {t} = useTranslation();
   const {initialised, status, enabled, contacts} = useExposure();
+  const insets = useSafeArea();
 
   const hasAlerts = contacts && contacts.length > 0;
 
@@ -138,7 +140,7 @@ export const TabBarBottom: FC<any> = ({navigation, state}) => {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {paddingBottom: insets.bottom}]}>
       <View accessibilityRole="tablist" style={styles.tabBar}>
         {tabItems.map((tab, index) => {
           const isActive = state.index === index;
@@ -202,7 +204,7 @@ const styles = StyleSheet.create({
     borderColor: colors.white,
     paddingHorizontal: 6,
     paddingTop: 6,
-    paddingBottom: Constants.statusBarHeight === 44 ? 34 : 4
+    paddingBottom: 4
   },
   label: {
     ...text.smallBold,
