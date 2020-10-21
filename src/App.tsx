@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {Suspense, useEffect, useState} from 'react';
 import {enableScreens} from 'react-native-screens';
 import {Platform, StatusBar, Image, AppState} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
@@ -612,35 +612,37 @@ export default function App(props: {
 
   return (
     <SafeAreaProvider>
-      <Base>
-        <SettingsProvider>
-          <SettingsContext.Consumer>
-            {(settingsValue) => {
-              if (!settingsValue.loaded) {
-                return <Loading />;
-              }
-              return (
-                <ApplicationProvider
-                  user={settingsValue.user}
-                  consent={settingsValue.consent}
-                  appConfig={settingsValue.appConfig}>
-                  <ExposureApp>
-                    <StatusBar barStyle="default" />
-                    <Navigation
-                      traceConfiguration={settingsValue.traceConfiguration}
-                      notification={state.notification}
-                      exposureNotificationClicked={
-                        state.exposureNotificationClicked
-                      }
-                      setState={setState}
-                    />
-                  </ExposureApp>
-                </ApplicationProvider>
-              );
-            }}
-          </SettingsContext.Consumer>
-        </SettingsProvider>
-      </Base>
+      <Suspense fallback={<Loading />}>
+        <Base>
+          <SettingsProvider>
+            <SettingsContext.Consumer>
+              {(settingsValue) => {
+                if (!settingsValue.loaded) {
+                  return <Loading />;
+                }
+                return (
+                  <ApplicationProvider
+                    user={settingsValue.user}
+                    consent={settingsValue.consent}
+                    appConfig={settingsValue.appConfig}>
+                    <ExposureApp>
+                      <StatusBar barStyle="default" />
+                      <Navigation
+                        traceConfiguration={settingsValue.traceConfiguration}
+                        notification={state.notification}
+                        exposureNotificationClicked={
+                          state.exposureNotificationClicked
+                        }
+                        setState={setState}
+                      />
+                    </ExposureApp>
+                  </ApplicationProvider>
+                );
+              }}
+            </SettingsContext.Consumer>
+          </SettingsProvider>
+        </Base>
+      </Suspense>
     </SafeAreaProvider>
   );
 }
