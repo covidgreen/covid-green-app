@@ -1,7 +1,8 @@
-import {bn, enUS, es, ko, ru, zhCN} from 'date-fns/locale';
+import {arDZ, bn, enUS, es, ko, ru, zhCN} from 'date-fns/locale';
 
 const fallback = enUS;
 export const dateFnsLocales = {
+  ar: arDZ,
   bn,
   en: enUS,
   es,

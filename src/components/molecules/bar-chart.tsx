@@ -6,6 +6,7 @@ import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
 
 import {getDateLocaleOptions} from 'services/i18n/date';
+import {directionChar} from 'services/i18n/common';
 import {text, colors} from 'theme';
 import {BarChartContent} from 'components/atoms/bar-chart-content';
 import {Spacing} from 'components/atoms/spacing';
@@ -34,7 +35,6 @@ const rtlReverse = (data: any[]) =>
 const rtlReverseIndex = (data: any[], index: number) =>
   I18nManager.isRTL ? data.length - index : index;
 
-
 function formatLabel(value: number, suffix: string) {
   if (value >= 1000000) {
     const millions = parseFloat((value / 1000000).toFixed(1));
@@ -46,7 +46,7 @@ function formatLabel(value: number, suffix: string) {
     return `${thousands}k`;
   }
 
-  return value + suffix;
+  return `${value}${directionChar}${suffix}`;
 }
 
 function roundNumber(num: number, places: number = 2) {
@@ -142,7 +142,6 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
     return label;
   };
 
-
   const formatXAxisDayLabel = (_: any, index: number) => {
     if (isAxisLabelHidden(index, 10)) {
       return '';
@@ -208,7 +207,7 @@ export const TrackerBarChart: FC<TrackerBarChartProps> = ({
             formatLabel={formatLine}
           />
           <XAxis
-            style={{height: 12}}
+            style={styles.xAxisDays}
             data={Array(daysLimit).fill(1)}
             contentInset={contentInset}
             scale={scaleBand}
@@ -277,6 +276,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: colors.white
+  },
+  xAxisDays: {
+    height: 12
   },
   yAxis: {
     ...text.smallBold,

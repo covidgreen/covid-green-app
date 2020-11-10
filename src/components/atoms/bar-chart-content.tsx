@@ -10,6 +10,8 @@ import {
 import {Rect, G, Path} from 'react-native-svg';
 import {BarChart, Grid} from 'react-native-svg-charts';
 import {colors, text} from 'theme';
+import {directionChar} from 'services/i18n/common';
+
 import {line, curveMonotoneX} from 'd3-shape';
 import {ScaleBand} from 'd3-scale';
 import {ChartData, AxisData} from 'components/organisms/tracker-charts';
@@ -132,7 +134,7 @@ export const BarChartContent: FC<BarChartContentProps> = ({
         <Text maxFontSizeMultiplier={1} style={styles.labelText}>
           {ySuffix !== '%'
             ? new Intl.NumberFormat('en-US').format(lastValue.value)
-            : `${lastValue.value.toFixed(2)}%`}
+            : `${lastValue.value.toFixed(2)}${directionChar}%`}
         </Text>
       </View>
     ) : null;

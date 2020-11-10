@@ -137,7 +137,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 52
         versionName "1.1.0"
-        resConfigs "en", "es", "ht", "ru", "bn", "ko", "zh", "yi"
+        resConfigs "en", "es", "ht", "ru", "bn", "ko", "zh", "yi", "ar"
     }
 
     splits {

@@ -9,6 +9,7 @@ import bn from 'assets/lang/bn.json';
 import ko from 'assets/lang/ko.json';
 import es from 'assets/lang/es.json';
 import yi from 'assets/lang/yi.json';
+import ar from 'assets/lang/ar.json';
 
 export const fallback = 'en';
 export const defaultNamespace = 'common';
@@ -16,9 +17,13 @@ export const namespaces = ['common'];
 
 const rtlMarkerChar = '‏';
 const ltrMarkerChar = '‎';
-const directionChar = I18nManager.isRTL ? rtlMarkerChar : ltrMarkerChar;
+export const directionChar = I18nManager.isRTL ? rtlMarkerChar : ltrMarkerChar;
 
 export const supportedLocales = Object.entries({
+  ar: {
+    name: 'العربية (Arabic)',
+    ...ar
+  },
   bn: {
     name: 'বাংলা (Bengali)',
     ...bn
