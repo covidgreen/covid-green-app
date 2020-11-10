@@ -9,13 +9,13 @@ import {
   supportedLocales
 } from './common';
 import {format as F} from 'date-fns';
-import {StorageKeys} from 'providers/context';
+import {AsyncStorageKeys} from 'providers/context';
 
 const languageDetector = {
   type: 'languageDetector',
   async: true,
   detect: async (callback: (lang: string) => void) => {
-    const storedLanguage = await AsyncStorage.getItem(StorageKeys.language);
+    const storedLanguage = await AsyncStorage.getItem(AsyncStorageKeys.language);
     callback(
       storedLanguage || Localization.locale.split('-')[0].replace('-', '')
     );

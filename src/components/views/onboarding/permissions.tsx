@@ -7,7 +7,7 @@ import * as SecureStore from 'expo-secure-store';
 
 import {ScreenNames} from 'navigation';
 import {register} from 'services/api';
-import {useApplication, StorageKeys} from 'providers/context';
+import {useApplication, SecureStoreKeys} from 'providers/context';
 import {useFocusRef} from 'hooks/accessibility';
 
 import {Button} from 'components/atoms/button';
@@ -41,7 +41,7 @@ export const Permissions: FC<any> = () => {
 
   useEffect(() => {
     if (!exposure.supported && exposure.canSupport) {
-      SecureStore.setItemAsync(StorageKeys.canSupportENS, 'true');
+      SecureStore.setItemAsync(SecureStoreKeys.canSupportENS, 'true');
     }
   }, []);
 
@@ -53,13 +53,17 @@ export const Permissions: FC<any> = () => {
       const {token, refreshToken} = await register();
       console.log(token, refreshToken);
 
-      await SecureStore.setItemAsync(StorageKeys.token, token);
+      await SecureStore.setItemAsync(SecureStoreKeys.token, token);
       await SecureStore.setItemAsync(
-        StorageKeys.refreshToken,
+        SecureStoreKeys.refreshToken,
         refreshToken,
         {}
       );
-      await SecureStore.setItemAsync(StorageKeys.analytics, String(analyticsOptIn), {});
+      await SecureStore.setItemAsync(
+        SecureStoreKeys.analytics,
+        String(analyticsOptIn),
+        {}
+      );
 
       await app.setContext({
         user: {

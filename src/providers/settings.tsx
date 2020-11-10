@@ -18,7 +18,7 @@ import {AllHtmlEntities} from 'html-entities';
 import * as api from 'services/api';
 import {fallback} from 'services/i18n/common';
 import {counties} from 'assets/counties';
-import {StorageKeys} from './context';
+import {AsyncStorageKeys} from './context';
 
 export interface BasicItem {
   label: string;
@@ -162,8 +162,8 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
   useEffect(() => {
     const loadSettingsAsync = async () => {
       const [user, consent] = await AsyncStorage.multiGet([
-        StorageKeys.user,
-        StorageKeys.checkinConsent
+        AsyncStorageKeys.user,
+        AsyncStorageKeys.checkinConsent
       ]);
 
       let apiSettings: ApiSettings;

@@ -32,7 +32,7 @@ import {useRtl} from 'hooks/i18n';
 import {
   ApplicationProvider,
   useApplication,
-  StorageKeys
+  SecureStoreKeys
 } from 'providers/context';
 import {
   SettingsProvider,
@@ -508,10 +508,10 @@ const ExposureApp: React.FC = ({children}) => {
     async function getTokens() {
       try {
         const storedAuthToken = await SecureStore.getItemAsync(
-          StorageKeys.token
+          SecureStoreKeys.token
         );
         const storedRefreshToken = await SecureStore.getItemAsync(
-          StorageKeys.refreshToken
+          SecureStoreKeys.refreshToken
         );
         setTokens({
           authToken: storedAuthToken || '',
