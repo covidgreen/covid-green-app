@@ -187,20 +187,36 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       let analyticsOptIn = false;
 
       if (state.user) {
-        let checksData = await AsyncStorage.getItem(
-          AsyncStorageKeys.symptomKeys
-        );
-        if (!checksData) {
-          // Before v1.1.0 release, symptoms data was stored in SecureStore
-          checksData = await SecureStore.getItemAsync(
-            AsyncStorageKeys.symptomKeys
+        // Before v1.1.0 release, symptoms data was stored in SecureStore
+        const [checksData, legacyChecksData] = await Promise.all([
+          AsyncStorage.getItem(AsyncStorageKeys.symptomKeys),
+          SecureStore.getItemAsync(AsyncStorageKeys.symptomKeys)
+        ]);
+        if (legacyChecksData) {
+          await SecureStore.deleteItemAsync(AsyncStorageKeys.symptomKeys);
+
+          // Merge and de-dupe to ensure no history is lost in version downgrades etc
+          checks = [
+            ...(checksData ? JSON.parse(checksData) : []),
+            ...(legacyChecksData ? JSON.parse(legacyChecksData) : [])
+          ].reduce(
+            (dedupedChecks, check) =>
+              checks.some(({timestamp}) => timestamp === check.timestamp)
+                ? [...dedupedChecks]
+                : [...dedupedChecks, check],
+            [] as Check[]
           );
-          if (checksData) {
-            SecureStore.deleteItemAsync(AsyncStorageKeys.symptomKeys);
-          }
+
+          await AsyncStorage.setItem(
+            AsyncStorageKeys.symptomKeys,
+            JSON.stringify(checks)
+          );
+        } else {
+          checks = checksData ? JSON.parse(checksData) : [];
         }
 
-        checks = checksData ? JSON.parse(checksData) : [];
+        console.log({checks, checksData, legacyChecksData});
+
         checks.sort((a, b) => compareDesc(a.timestamp, b.timestamp));
 
         if (checks.length) {
@@ -298,7 +314,9 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       ),
       ...Object.values(AsyncStorageKeys).map((key) =>
         AsyncStorage.removeItem(key)
-      )
+      ),
+      // legacy pre-v1.1.0 checker data is cleared on app load, but make absolutely sure
+      SecureStore.deleteItemAsync(AsyncStorageKeys.symptomKeys)
     ]);
 
     setState(() => ({
