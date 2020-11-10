@@ -112,7 +112,8 @@ export const AsyncStorageKeys = {
   checkinConsent: 'covidApp.checkInConsent',
   debug: 'covidApp.showDebug',
   county: 'nysCounty',
-  restartScreen: 'restartScreen'
+  restartScreen: 'restartScreen',
+  symptomKeys: 'covidApp.checks'
 } as const;
 
 export const SecureStoreKeys = {
@@ -122,8 +123,7 @@ export const SecureStoreKeys = {
   symptomDate: 'symptomDate',
   token: 'token',
   refreshToken: 'refreshToken',
-  callbackQueued: 'covidApp.callBackQueuedTs',
-  symptomKeys: 'covidApp.checks'
+  callbackQueued: 'covidApp.callBackQueuedTs'
 } as const;
 
 export const AP = ({appConfig, user, consent, children}: API) => {
@@ -187,9 +187,19 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       let analyticsOptIn = false;
 
       if (state.user) {
-        const checksData = await SecureStore.getItemAsync(
-          SecureStoreKeys.symptomKeys
+        let checksData = await AsyncStorage.getItem(
+          AsyncStorageKeys.symptomKeys
         );
+        if (!checksData) {
+          // Before v1.1.0 release, symptoms data was stored in SecureStore
+          checksData = await SecureStore.getItemAsync(
+            AsyncStorageKeys.symptomKeys
+          );
+          if (checksData) {
+            SecureStore.deleteItemAsync(AsyncStorageKeys.symptomKeys);
+          }
+        }
+
         checks = checksData ? JSON.parse(checksData) : [];
         checks.sort((a, b) => compareDesc(a.timestamp, b.timestamp));
 
@@ -342,8 +352,8 @@ export const AP = ({appConfig, user, consent, children}: API) => {
         quickCheckIn
       });
 
-      SecureStore.setItemAsync(
-        SecureStoreKeys.symptomKeys,
+      AsyncStorage.setItem(
+        AsyncStorageKeys.symptomKeys,
         JSON.stringify(checks)
       );
 
