@@ -1,20 +1,23 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Alert, View, Platform} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import * as Haptics from 'expo-haptics';
+import {NavigationProp} from '@react-navigation/native';
+import {useExposure} from 'react-native-exposure-notification-service';
+
+import {ScreenNames} from 'navigation';
+import {getDeviceLanguage} from 'services/i18n';
+import {forget, networkError} from 'services/api';
+import {useApplication} from 'providers/context';
 
 import {Button} from 'components/atoms/button';
-import {DataProtectionLink} from 'components/views/data-protection-policy';
-import {forget, networkError} from 'services/api';
 import {Markdown} from 'components/atoms/markdown';
 import {Spacing} from 'components/atoms/spacing';
-import {useApplication} from 'providers/context';
-import {useExposure} from 'react-native-exposure-notification-service';
 import {PinnedBottom} from 'components/templates/pinned';
-import {ScreenNames} from 'navigation';
+import {DataProtectionLink} from 'components/views/data-protection-policy';
 
-export const Leave = ({navigation}) => {
-  const {t} = useTranslation();
+export const Leave: FC<{navigation: NavigationProp<any>}> = ({navigation}) => {
+  const {t, i18n} = useTranslation();
   const app = useApplication();
   const exposure = useExposure();
   const confirmed = async () => {
@@ -28,6 +31,7 @@ export const Leave = ({navigation}) => {
       }
       await forget();
       await app.clearContext();
+      i18n.changeLanguage(getDeviceLanguage());
 
       app.hideActivityIndicator();
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);

@@ -106,22 +106,25 @@ export interface API {
   children: any;
 }
 
-export enum StorageKeys {
-  analytics = 'analyticsConsent',
-  canSupportENS = 'supportPossible',
-  uploadToken = 'uploadToken',
-  symptomDate = 'symptomDate',
-  token = 'token',
-  refreshToken = 'refreshToken',
-  debug = 'covidApp.showDebug',
-  language = 'appLanguage',
-  user = 'covidApp.user',
-  checkinConsent = 'covidApp.checkInConsent',
-  callbackQueued = 'covidApp.callBackQueuedTs',
-  symptomKeys = 'covidApp.checks',
-  county = 'nysCounty',
-  restartScreen = 'restartScreen'
-}
+export const AsyncStorageKeys = {
+  language: 'appLanguage',
+  user: 'covidApp.user',
+  checkinConsent: 'covidApp.checkInConsent',
+  debug: 'covidApp.showDebug',
+  county: 'nysCounty',
+  restartScreen: 'restartScreen',
+  symptomKeys: 'covidApp.checks'
+} as const;
+
+export const SecureStoreKeys = {
+  analytics: 'analyticsConsent',
+  canSupportENS: 'supportPossible',
+  uploadToken: 'uploadToken',
+  symptomDate: 'symptomDate',
+  token: 'token',
+  refreshToken: 'refreshToken',
+  callbackQueued: 'covidApp.callBackQueuedTs'
+} as const;
 
 export const AP = ({appConfig, user, consent, children}: API) => {
   const [state, setState] = useState<State>({
@@ -184,10 +187,34 @@ export const AP = ({appConfig, user, consent, children}: API) => {
       let analyticsOptIn = false;
 
       if (state.user) {
-        const checksData = await SecureStore.getItemAsync(
-          StorageKeys.symptomKeys
-        );
-        checks = checksData ? JSON.parse(checksData) : [];
+        // Before v1.1.0 release, symptoms data was stored in SecureStore
+        const [checksData, legacyChecksData] = await Promise.all([
+          AsyncStorage.getItem(AsyncStorageKeys.symptomKeys),
+          SecureStore.getItemAsync(AsyncStorageKeys.symptomKeys)
+        ]);
+        if (legacyChecksData) {
+          await SecureStore.deleteItemAsync(AsyncStorageKeys.symptomKeys);
+
+          // Merge and de-dupe to ensure no history is lost in version downgrades etc
+          checks = [
+            ...(checksData ? JSON.parse(checksData) : []),
+            ...(legacyChecksData ? JSON.parse(legacyChecksData) : [])
+          ].reduce(
+            (dedupedChecks, check) =>
+              checks.some(({timestamp}) => timestamp === check.timestamp)
+                ? [...dedupedChecks]
+                : [...dedupedChecks, check],
+            [] as Check[]
+          );
+
+          await AsyncStorage.setItem(
+            AsyncStorageKeys.symptomKeys,
+            JSON.stringify(checks)
+          );
+        } else {
+          checks = checksData ? JSON.parse(checksData) : [];
+        }
+
         checks.sort((a, b) => compareDesc(a.timestamp, b.timestamp));
 
         if (checks.length) {
@@ -199,21 +226,21 @@ export const AP = ({appConfig, user, consent, children}: API) => {
 
       try {
         const storedCallBackQueuedTs = await SecureStore.getItemAsync(
-          StorageKeys.callbackQueued
+          SecureStoreKeys.callbackQueued
         );
         if (storedCallBackQueuedTs) {
           callBackQueuedTs = Number(storedCallBackQueuedTs);
         }
       } catch (err) {
         console.log(
-          `Error reading "${StorageKeys.callbackQueued}" from async storage:`,
+          `Error reading "${SecureStoreKeys.callbackQueued}" from async storage:`,
           err
         );
       }
 
-      const county = await AsyncStorage.getItem(StorageKeys.county);
+      const county = await AsyncStorage.getItem(AsyncStorageKeys.county);
       const analyticsOptInStr = await SecureStore.getItemAsync(
-        StorageKeys.analytics
+        SecureStoreKeys.analytics
       );
       if (analyticsOptInStr) {
         analyticsOptIn = analyticsOptInStr === String(true);
@@ -256,39 +283,40 @@ export const AP = ({appConfig, user, consent, children}: API) => {
   const setContext = async (data: Partial<State>) => {
     setState((s) => ({...s, ...data}));
     if (data.user) {
-      await AsyncStorage.setItem(StorageKeys.user, JSON.stringify(data.user));
+      await AsyncStorage.setItem(
+        AsyncStorageKeys.user,
+        JSON.stringify(data.user)
+      );
     }
     if (data.checkInConsent) {
-      await AsyncStorage.setItem(StorageKeys.checkinConsent, 'y');
+      await AsyncStorage.setItem(AsyncStorageKeys.checkinConsent, 'y');
     }
     if (data.callBackQueuedTs) {
       await SecureStore.setItemAsync(
-        StorageKeys.callbackQueued,
+        SecureStoreKeys.callbackQueued,
         String(data.callBackQueuedTs)
       );
     }
     if (data.analyticsOptIn !== undefined) {
       await SecureStore.setItemAsync(
-        StorageKeys.analytics,
+        SecureStoreKeys.analytics,
         String(data.analyticsOptIn)
       );
     }
   };
 
   const clearContext = async (): Promise<void> => {
-    await SecureStore.deleteItemAsync(StorageKeys.refreshToken);
-    await SecureStore.deleteItemAsync(StorageKeys.token);
-    await SecureStore.deleteItemAsync(StorageKeys.symptomKeys);
-    await SecureStore.deleteItemAsync(StorageKeys.uploadToken);
-    await SecureStore.deleteItemAsync(StorageKeys.callbackQueued);
-    await AsyncStorage.removeItem(StorageKeys.language);
-    await AsyncStorage.removeItem(StorageKeys.user);
-    await AsyncStorage.removeItem(StorageKeys.checkinConsent);
-    await AsyncStorage.removeItem(StorageKeys.debug);
-    await AsyncStorage.removeItem(StorageKeys.county);
-    await SecureStore.deleteItemAsync(StorageKeys.analytics);
-    await SecureStore.deleteItemAsync(StorageKeys.canSupportENS);
-    await SecureStore.deleteItemAsync(StorageKeys.symptomDate);
+    await Promise.all([
+      ...Object.values(SecureStoreKeys).map((key) =>
+        SecureStore.deleteItemAsync(key)
+      ),
+      ...Object.values(AsyncStorageKeys).map((key) =>
+        AsyncStorage.removeItem(key)
+      ),
+      // legacy pre-v1.1.0 checker data is cleared on app load, but make absolutely sure
+      SecureStore.deleteItemAsync(AsyncStorageKeys.symptomKeys)
+    ]);
+
     setState(() => ({
       ...initialState,
       initializing: false
@@ -340,7 +368,10 @@ export const AP = ({appConfig, user, consent, children}: API) => {
         quickCheckIn
       });
 
-      SecureStore.setItemAsync(StorageKeys.symptomKeys, JSON.stringify(checks));
+      AsyncStorage.setItem(
+        AsyncStorageKeys.symptomKeys,
+        JSON.stringify(checks)
+      );
 
       apiCheckIn(checks, {
         gender: state.user!.gender!,
@@ -369,7 +400,7 @@ export const AP = ({appConfig, user, consent, children}: API) => {
   };
 
   const setCountyScope = (county: County | 'u') => {
-    AsyncStorage.setItem(StorageKeys.county, county);
+    AsyncStorage.setItem(AsyncStorageKeys.county, county);
     setState((s) => ({...s, county}));
   };
 

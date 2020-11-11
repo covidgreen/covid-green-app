@@ -5,7 +5,7 @@ import {I18nManager} from 'react-native';
 import {useNavigation, useNavigationState} from '@react-navigation/native';
 import RNRestarter from 'react-native-restart';
 
-import {StorageKeys} from 'providers/context';
+import {AsyncStorageKeys} from 'providers/context';
 import {ScreenNames} from 'navigation';
 
 const languagesReset = {
@@ -27,7 +27,7 @@ export const useRtl = () => {
   const routeName = routes.length ? routes[routes.length - 1].name : '';
 
   const navigation = useNavigation();
-  const screenRef = useRef<RestartStatus>({ routeName, isRestarting: false });
+  const screenRef = useRef<RestartStatus>({routeName, isRestarting: false});
 
   const langIsRtl = i18n.dir() === 'rtl';
   const appIsRtl = I18nManager.isRTL;
@@ -40,17 +40,18 @@ export const useRtl = () => {
 
       I18nManager.allowRTL(langIsRtl);
       I18nManager.forceRTL(langIsRtl);
-      AsyncStorage.setItem(StorageKeys.restartScreen, screenRef.current.routeName).then(
-        () => RNRestarter.Restart()
-      );
+      AsyncStorage.setItem(
+        AsyncStorageKeys.restartScreen,
+        screenRef.current.routeName
+      ).then(() => RNRestarter.Restart());
     }
   }, [langIsRtl, appIsRtl]);
 
   useEffect(() => {
     // After forced restart, return to language settings if that's where we were
-    AsyncStorage.getItem(StorageKeys.restartScreen).then((screenName) => {
+    AsyncStorage.getItem(AsyncStorageKeys.restartScreen).then((screenName) => {
       if (screenName) {
-        AsyncStorage.setItem(StorageKeys.restartScreen, '').then(() => {
+        AsyncStorage.setItem(AsyncStorageKeys.restartScreen, '').then(() => {
           if (screenName === ScreenNames.LanguageSetttings) {
             navigation.reset(languagesReset);
           }

@@ -12,7 +12,7 @@ import {getReadableVersion} from 'react-native-device-info';
 import {CallBackData} from 'components/organisms/phone-number-us';
 
 import {urls} from 'constants/urls';
-import {Check, StorageKeys} from 'providers/context';
+import {Check, SecureStoreKeys} from 'providers/context';
 import {isMountedRef, navigationRef, ScreenNames} from 'navigation';
 import {County} from 'assets/counties';
 import {configureNetInfo, testNetinfo} from './netinfo';
@@ -84,7 +84,7 @@ export const request = async (url: string, cfg: any) => {
   const {authorizationHeaders = false, ...config} = cfg;
 
   if (authorizationHeaders) {
-    let bearerToken = await SecureStore.getItemAsync(StorageKeys.token);
+    let bearerToken = await SecureStore.getItemAsync(SecureStoreKeys.token);
     if (!bearerToken) {
       bearerToken = await createToken();
     }
@@ -135,7 +135,7 @@ export const request = async (url: string, cfg: any) => {
 async function createToken(): Promise<string> {
   try {
     const refreshToken = await SecureStore.getItemAsync(
-      StorageKeys.refreshToken
+      SecureStoreKeys.refreshToken
     );
 
     const req = await request(`${urls.api}/refresh`, {
@@ -154,7 +154,7 @@ async function createToken(): Promise<string> {
       throw new Error('Error getting token');
     }
 
-    await SecureStore.setItemAsync(StorageKeys.token, resp.token);
+    await SecureStore.setItemAsync(SecureStoreKeys.token, resp.token);
 
     saveMetric({event: METRIC_TYPES.TOKEN_RENEWAL});
 
@@ -440,7 +440,7 @@ export enum METRIC_TYPES {
 export async function saveMetric({event = ''}) {
   try {
     const analyticsOptIn = await SecureStore.getItemAsync(
-      StorageKeys.analytics
+      SecureStoreKeys.analytics
     );
     if (analyticsOptIn !== String(true)) {
       return false;

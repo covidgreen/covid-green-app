@@ -20,7 +20,7 @@ import {Card} from 'components/atoms/card';
 import {Spacing} from 'components/atoms/layout';
 import {colors, text, shadows} from 'theme';
 import {ScreenNames} from 'navigation';
-import {StorageKeys} from 'providers/context';
+import {AsyncStorageKeys} from 'providers/context';
 
 const REQUIRED_PRESS_COUNT = 3;
 
@@ -48,7 +48,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   const versionPressHandler = async () => {
     setPressCount(pressCount + 1);
     if (!showDebug && pressCount + 1 >= REQUIRED_PRESS_COUNT) {
-      await AsyncStorage.setItem(StorageKeys.debug, 'y');
+      await AsyncStorage.setItem(AsyncStorageKeys.debug, 'y');
       setShowDebug(true);
     }
   };
@@ -56,13 +56,15 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   useEffect(() => {
     const init = async () => {
       try {
-        const showDebugData = await AsyncStorage.getItem(StorageKeys.debug);
+        const showDebugData = await AsyncStorage.getItem(
+          AsyncStorageKeys.debug
+        );
         if (showDebugData) {
           setShowDebug(showDebugData === 'y');
         }
       } catch (err) {
         console.log(
-          `Error reading "${StorageKeys.debug}" from async storage:`,
+          `Error reading "${AsyncStorageKeys.debug}" from async storage:`,
           err
         );
       }

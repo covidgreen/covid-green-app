@@ -4,7 +4,7 @@ import * as SecureStore from 'expo-secure-store';
 import {useTranslation} from 'react-i18next';
 import {useExposure} from 'react-native-exposure-notification-service';
 
-import {useApplication, StorageKeys} from 'providers/context';
+import {useApplication, SecureStoreKeys} from 'providers/context';
 import {
   validateCode,
   uploadExposureKeys,
@@ -50,9 +50,11 @@ export const UploadKeys = ({navigation}) => {
   useEffect(() => {
     const readUploadToken = async () => {
       try {
-        const token = await SecureStore.getItemAsync(StorageKeys.uploadToken);
+        const token = await SecureStore.getItemAsync(
+          SecureStoreKeys.uploadToken
+        );
         const storedSymptomDate = await SecureStore.getItemAsync(
-          StorageKeys.symptomDate
+          SecureStoreKeys.symptomDate
         );
         if (token && storedSymptomDate) {
           setUploadToken(token);
@@ -91,8 +93,8 @@ export const UploadKeys = ({navigation}) => {
     }
 
     try {
-      await SecureStore.setItemAsync(StorageKeys.uploadToken, token!);
-      await SecureStore.setItemAsync(StorageKeys.symptomDate, symptomDate!);
+      await SecureStore.setItemAsync(SecureStoreKeys.uploadToken, token!);
+      await SecureStore.setItemAsync(SecureStoreKeys.symptomDate, symptomDate!);
     } catch (e) {
       console.log('Error (secure) storing upload token', e);
     }
@@ -138,8 +140,8 @@ export const UploadKeys = ({navigation}) => {
     }
 
     try {
-      await SecureStore.deleteItemAsync(StorageKeys.uploadToken);
-      await SecureStore.deleteItemAsync(StorageKeys.symptomDate);
+      await SecureStore.deleteItemAsync(SecureStoreKeys.uploadToken);
+      await SecureStore.deleteItemAsync(SecureStoreKeys.symptomDate);
     } catch (e) {}
   };
 
