@@ -29,8 +29,8 @@ export const Metrics = () => {
       <DataProtectionLink />
       <Spacing s={32} />
       <View style={styles.row}>
-        <View accessibilityElementsHidden>
-          <Text style={styles.label}>{t('metrics:share')}</Text>
+        <View style={styles.label} accessibilityElementsHidden>
+          <Text style={text.largeBold}>{t('metrics:share')}</Text>
         </View>
         <View>
           <Switch
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   label: {
-    ...text.largeBold,
     flex: 1
   }
 });
