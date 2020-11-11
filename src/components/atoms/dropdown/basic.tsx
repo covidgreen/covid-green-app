@@ -8,6 +8,7 @@ import {DropdownModal} from './modal';
 
 import {text, colors} from 'theme';
 import {AppIcons} from 'assets/icons';
+import { directionChar } from 'services/i18n/common';
 
 export interface DropdownProps {
   label?: string;
@@ -73,6 +74,9 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
         selectedItem.label;
     }
 
+    // Force LTR text in RTL mode to RTL orientation
+    const alignedDisplayValue = `${directionChar}${displayValue}`;
+
     return (
       <>
         <TouchableWithoutFeedback
@@ -100,7 +104,7 @@ export const Dropdown = forwardRef<TouchableWithoutFeedback, DropdownProps>(
                 maxFontSizeMultiplier={1.5}
                 numberOfLines={1}
                 style={styles.displayValue}>
-                {displayValue}
+                {alignedDisplayValue}
               </Text>
             </View>
             <AppIcons.ArrowRight width={18} height={18} color={colors.purple} />
