@@ -135,7 +135,7 @@ android {
         applicationId "gov.ny.health.proximity"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 52
+        versionCode 53
         versionName "1.1.0"
         resConfigs "en", "es", "ht", "ru", "bn", "ko", "zh", "yi", "ar"
     }
