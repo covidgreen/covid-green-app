@@ -7,7 +7,7 @@ import {SAFETYNET_KEY} from '@env';
 import {ENV, TEST_TOKEN} from '@env';
 import RNGoogleSafetyNet from 'react-native-google-safetynet';
 import RNIOS11DeviceCheck from 'react-native-ios11-devicecheck';
-import {getReadableVersion} from 'react-native-device-info';
+import {getVersion} from 'react-native-exposure-notification-service';
 
 import {CallBackData} from 'components/organisms/phone-number-us';
 
@@ -446,7 +446,7 @@ export async function saveMetric({event = ''}) {
       return false;
     }
     const os = Platform.OS;
-    const version = getReadableVersion();
+    const version = await getVersion();
     const req = await request(`${urls.api}/metrics`, {
       authorizationHeaders: true,
       method: 'POST',
@@ -455,7 +455,7 @@ export async function saveMetric({event = ''}) {
       },
       body: JSON.stringify({
         os,
-        version,
+        version: version.display,
         event
       })
     });

@@ -50,13 +50,13 @@
 		28D77FD7243F5B48001A4277 /* COVIDGreen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = COVIDGreen.entitlements; path = COVIDGreen/COVIDGreen.entitlements; sourceTree = "<group>"; };
 		28D77FD8243F60D8001A4277 /* COVIDGreen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "COVIDGreen-Bridging-Header.h"; sourceTree = "<group>"; };
 		2FD0A6DD7434958C688A768B /* Pods-COVIDGreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDGreen.release.xcconfig"; path = "Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen.release.xcconfig"; sourceTree = "<group>"; };
+		410E8A23255FE98E000EE58C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = COVIDGreen/ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		413AFFC1249366F9001D3D6E /* Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
 		4156AFDA25253BAD00C4F31D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = COVIDGreen/es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4156AFDB25253C3600C4F31D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = COVIDGreen/ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4156AFDC25253C3F00C4F31D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = COVIDGreen/ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4156AFDD25253D3E00C4F31D /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = COVIDGreen/zh.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4156AFDE25253D7000C4F31D /* bn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bn; path = COVIDGreen/bn.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		E717A66D253F10C500C167BC /* yi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = yi; path = COVIDGreen/yi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6671B0BFC15F79CF7EC5A105 /* Pods_COVIDGreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDGreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D344A63170C83782608F761 /* Pods-COVIDGreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDGreen.debug.xcconfig"; path = "Target Support Files/Pods-COVIDGreen/Pods-COVIDGreen.debug.xcconfig"; sourceTree = "<group>"; };
 		DAE5872D24F6CF8E002FFA54 /* cert2.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert2.cer; sourceTree = "<group>"; };
@@ -64,6 +64,7 @@
 		DAE5872F24F6CF8E002FFA54 /* cert3.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert3.cer; sourceTree = "<group>"; };
 		DAE5873024F6CF8E002FFA54 /* cert4.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert4.cer; sourceTree = "<group>"; };
 		DAE5873124F6CF8E002FFA54 /* cert5.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert5.cer; sourceTree = "<group>"; };
+		E717A66D253F10C500C167BC /* yi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = yi; path = COVIDGreen/yi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -252,7 +253,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 46CH29TAYZ;
+						DevelopmentTeam = U9QLK6UTVL;
 						LastSwiftMigration = 1140;
 						ProvisioningStyle = Manual;
 					};
@@ -271,6 +272,7 @@
 				zh,
 				bn,
 				yi,
+				ar,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -322,7 +324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "cd $PROJECT_DIR/..\nexport NODE_BINARY=node\nnode_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		267BB6DB24EB2FD2003BA6F4 /* Copy Firebase Configuration */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -571,6 +573,7 @@
 				4156AFDD25253D3E00C4F31D /* zh */,
 				4156AFDE25253D7000C4F31D /* bn */,
 				E717A66D253F10C500C167BC /* yi */,
+				410E8A23255FE98E000EE58C /* ar */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -631,7 +634,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 53;
-				DEVELOPMENT_TEAM = 46CH29TAYZ;
+				DEVELOPMENT_TEAM = U9QLK6UTVL;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -648,7 +651,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gov.ny.health.proximity;
 				PRODUCT_NAME = "COVID Alert NY";
-				PROVISIONING_PROFILE_SPECIFIER = CTIEDev;
+				PROVISIONING_PROFILE_SPECIFIER = "Gen Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "COVIDGreen-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

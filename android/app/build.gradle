@@ -140,6 +140,8 @@ android {
         resConfigs "en", "es", "ht", "ru", "bn", "ko", "zh", "yi", "ar"
     }
 
+    ndkVersion "21.3.6528147"
+
     splits {
         abi {
             reset()
@@ -177,6 +179,10 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             useProguard enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+
+            ndk {
+                debugSymbolLevel 'FULL'
+            }
         }
     }
 

@@ -254,7 +254,7 @@ PODS:
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
   - React-jsinspector (0.63.2)
-  - react-native-exposure-notification-service (1.1.30):
+  - react-native-exposure-notification-service (1.1.41):
     - Alamofire (~> 5.2)
     - KeychainSwift (~> 19.0)
     - React
@@ -652,7 +652,7 @@ SPEC CHECKSUMS:
   React-jsi: 54245e1d5f4b690dec614a73a3795964eeef13a8
   React-jsiexecutor: 8ca588cc921e70590820ce72b8789b02c67cce38
   React-jsinspector: b14e62ebe7a66e9231e9581279909f2fc3db6606
-  react-native-exposure-notification-service: c6b679b6d00e9ffcc30cb930fa820133f6547e2b
+  react-native-exposure-notification-service: fb0cff5da196c459237df5436cbc4030bc5a7b4b
   react-native-netinfo: 38a1e0b3e89b48e4b5833ed475d8df5f049f6f90
   react-native-restart: d19a0f8d053d065fe64cd2baebb6487111c77149
   react-native-safe-area-context: eb91fe1fb3f7b87d9c30a7f0808407d8569d539d
@@ -697,6 +697,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 80653f25c55d9e6d79d6a0a65589fa213feaee11
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
 
-PODFILE CHECKSUM: 30498f5f78cf27e065cdc9e8711c5bbb4f9b8275
+PODFILE CHECKSUM: 05d1e6dd40829abaacbd4c65ef0428f15c131df6
 
 COCOAPODS: 1.9.3

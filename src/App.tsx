@@ -22,7 +22,6 @@ import {
   TraceConfiguration,
   KeyServerType
 } from 'react-native-exposure-notification-service';
-import {getReadableVersion} from 'react-native-device-info';
 
 import {Asset} from 'expo-asset';
 
@@ -525,13 +524,10 @@ const ExposureApp: React.FC = ({children}) => {
     getTokens();
   }, [user]);
 
-  const version = getReadableVersion();
-
   return (
     <ExposureProvider
       isReady={Boolean(user?.valid && tokens.authToken && tokens.refreshToken)}
       traceConfiguration={settings.traceConfiguration}
-      appVersion={version}
       serverUrl={urls.api}
       keyServerUrl={urls.keyDownload}
       keyServerType={KeyServerType.google}

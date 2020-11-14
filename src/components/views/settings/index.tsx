@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {HIDE_DEBUG} from '@env';
-import {getReadableVersion} from 'react-native-device-info';
+import {getVersion, Version} from 'react-native-exposure-notification-service';
 
 import {AppIcons} from 'assets/icons';
 import {Scrollable} from 'components/templates/scrollable';
@@ -44,6 +44,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
   const {t} = useTranslation();
   const [pressCount, setPressCount] = useState<number>(0);
   const [showDebug, setShowDebug] = useState<boolean>(false);
+  const [version, setVersion] = useState<Version>();
 
   const versionPressHandler = async () => {
     setPressCount(pressCount + 1);
@@ -71,6 +72,19 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
     };
     init();
   }, []);
+
+  useEffect(() => {
+    const getVer = async () => {
+      try {
+        const ver = await getVersion();
+        setVersion(ver);
+      } catch (err) {
+        console.log('Error getting version:', err);
+      }
+    };
+    getVer();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [getVersion]);
 
   const settings: SettingLineItem[][] = [
     [
@@ -149,8 +163,6 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
     ]);
   }
 
-  const version = getReadableVersion();
-
   const handleButtonPressed = (screen: string) => navigation.navigate(screen);
 
   return (
@@ -194,7 +206,7 @@ export const Settings: React.FC<SettingsProps> = ({navigation}) => {
       <View style={styles.flex} />
       <Spacing s={20} />
       <Text style={text.default} onPress={versionPressHandler}>
-        App version {Platform.OS === 'ios' ? 'iOS' : 'Android'} {version}
+        App version {Platform.OS === 'ios' ? 'iOS' : 'Android'} {version?.display}
       </Text>
       <Spacing s={8} />
     </Scrollable>

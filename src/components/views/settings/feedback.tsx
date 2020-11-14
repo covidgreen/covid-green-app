@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -9,11 +9,13 @@ import {
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {getReadableVersion, getModel} from 'react-native-device-info';
+import {getModel} from 'react-native-device-info';
 import {
   useExposure,
   StatusState,
-  PermissionStatus
+  PermissionStatus,
+  getVersion,
+  Version
 } from 'react-native-exposure-notification-service';
 
 import {Card} from 'components/atoms/card';
@@ -23,8 +25,10 @@ import {Scrollable} from 'components/templates/scrollable';
 
 import {text} from 'theme';
 
+
 export const Feedback = () => {
   const {t} = useTranslation();
+  const [version, setVersion] = useState<Version>();
 
   const {
     canSupport,
@@ -34,7 +38,20 @@ export const Feedback = () => {
     supported,
     isAuthorised
   } = useExposure();
-  const version = getReadableVersion();
+  
+  useEffect(() => {
+    const getVer = async () => {
+      try {
+        const ver = await getVersion();
+        setVersion(ver);
+      } catch (err) {
+        console.log('Error getting version:', err);
+      }
+    };
+    getVer();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [getVersion]);
+    
   const openEmail = (subject: string) =>
     Linking.openURL(
       `mailto:covidalertny@health.ny.gov?subject=${t(
@@ -46,7 +63,7 @@ export const Feedback = () => {
 
 
 Please do not remove. This info helps the technical team assist you
-App Version: ${version}
+App Version: ${version?.display}
 Device: ${getModel()}
 OS version: ${Platform.OS} ${Platform.Version}
 Closeness sensing status: ${
