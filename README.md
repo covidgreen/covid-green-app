@@ -1,5 +1,7 @@
 <img alttext="COVID Green Logo" src="https://raw.githubusercontent.com/lfph/artwork/master/projects/covidgreen/stacked/color/covidgreen-stacked-color.png" width="300" />
 
+**Note: This is a reference implementation of a contact tracing app and was based on the original release of the Ireland Contact Tracing app.**
+
 ## Getting Started
 
 Following these instructions will allow you to run and build the project on your local machine for development and testing purposes.
