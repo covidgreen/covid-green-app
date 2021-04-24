@@ -108,22 +108,37 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({children}) => {
         apiSettings = {};
       }
 
-      const appConfig = Object.assign({}, defaultValue.appConfig, {
-        checkInMaxAge: Number(apiSettings.checkInMaxAge),
-        riskGroupMinAge: Number(apiSettings.riskGroupMinAge),
-        hsePhoneNumber: apiSettings.hsePhoneNumber
-      });
+      const appConfig: AppConfig = {...defaultValue.appConfig};
+      if (apiSettings.checkInMaxAge) {
+        appConfig.checkInMaxAge = Number(apiSettings.checkInMaxAge);
+      }
+      if (apiSettings.riskGroupMinAge) {
+        appConfig.riskGroupMinAge = Number(apiSettings.riskGroupMinAge);
+      }
+      if (apiSettings.hsePhoneNumber) {
+        appConfig.hsePhoneNumber = apiSettings.hsePhoneNumber;
+      }
 
-      const traceConfiguration = Object.assign(
-        {},
-        defaultValue.traceConfiguration,
-        {
-          exposureCheckInterval: Number(apiSettings.exposureCheckInterval),
-          storeExposuresFor: Number(apiSettings.storeExposuresFor),
-          fileLimit: Number(apiSettings.fileLimit),
-          fileLimitiOS: Number(apiSettings.fileLimitiOS)
-        }
-      );
+      const traceConfiguration: TraceConfiguration = {
+        ...defaultValue.traceConfiguration
+      };
+      if (apiSettings.exposureCheckInterval) {
+        traceConfiguration.exposureCheckInterval = Number(
+          apiSettings.exposureCheckInterval
+        );
+      }
+      if (apiSettings.storeExposuresFor) {
+        traceConfiguration.storeExposuresFor = Number(
+          apiSettings.storeExposuresFor
+        );
+      }
+      if (apiSettings.fileLimit) {
+        traceConfiguration.fileLimit = Number(apiSettings.fileLimit);
+      }
+      if (apiSettings.fileLimitiOS) {
+        traceConfiguration.fileLimitiOS = Number(apiSettings.fileLimitiOS);
+      }
+
       const getDbText = (apiSettings: any, key: string): any => {
         let data =
           (apiSettings[key] &&
