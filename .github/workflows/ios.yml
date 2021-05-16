@@ -1,0 +1,30 @@
+name: iOS
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Node Setup
+      uses: actions/setup-node@v1
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Update Pods
+      run: |
+        gem update cocoapods xcodeproj
+        cd ios && pod install && cd ..
+
+    - run: brew tap wix/brew
+    - run: brew install applesimutils
+    - run: npm run pre:test:ios
+    - run: cp .env.sample .env
+    - run: npm start & npm run test:ios
