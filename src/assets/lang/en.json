@@ -24,7 +24,7 @@
     "settingsCheckin": "COVID Checkin Settings",
     "dataPolicy": "Data Protection Policy",
     "terms": "Terms and Conditions",
-    "metrics":"Settings For App Metrics",
+    "metrics": "Settings For App Metrics",
     "leave": "Leave COVID Green",
     "contactTracing": "Contact Tracing"
   },
@@ -436,5 +436,5 @@
   "codeInput": {
     "accessibilityLabel": "Code digit {{number}}",
     "accessibilityHint": "Enter {{count}} digit code"
-  }  
+  }
 }

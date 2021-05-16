@@ -61,7 +61,10 @@ export const YourData: FC<YourDataProps> = ({navigation}) => {
   );
 
   return (
-    <Scrollable toast={errorToast} heading={t('yourData:title')}>
+    <Scrollable
+      toast={errorToast}
+      heading={t('yourData:title')}
+      testID="your-data">
       <Markdown markdownStyles={{block: {marginBottom: 16}}}>
         {t('yourData:info')}
       </Markdown>

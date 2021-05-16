@@ -89,7 +89,7 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
           accessibilityHint={t('common:name')}
           accessibilityRole="text"
           style={[styles.col, styles.center]}>
-          <Icons.Logo width={92} height={36} color={colors.text}/>
+          <Icons.Logo width={92} height={36} color={colors.text} />
         </View>
         <View style={[styles.col, styles.right]}>
           {showSettings && (
@@ -97,7 +97,11 @@ export const NavBar: FC<NavBarProps> = ({navigation, scene, placeholder}) => {
               accessibilityHint={t('navbar:settingsHint')}
               onPress={() => navigation.navigate('settings')}>
               <View style={styles.settings}>
-                <TabBarIcons.Settings width={24} height={24} color={colors.text} />
+                <TabBarIcons.Settings
+                  width={24}
+                  height={24}
+                  color={colors.text}
+                />
                 <Text allowFontScaling={false} style={text.xsmallBold}>
                   {t('navbar:settings')}
                 </Text>

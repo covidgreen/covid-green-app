@@ -136,6 +136,9 @@ android {
         versionCode 1
         versionName "1.0.0"
         resConfigs "en", "ga"
+        testBuildType System.getProperty('testBuildType', 'debug')  // This will later be used to control the test apk build type
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
     }
 
     splits {
@@ -243,6 +246,8 @@ dependencies {
     }
 
     implementation project(':react-native-google-safetynet')
+
+    androidTestImplementation('com.wix:detox:+')
 }
 
 // Run this once to be able to run the application with BUCK

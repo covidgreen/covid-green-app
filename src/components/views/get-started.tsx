@@ -101,6 +101,7 @@ export const GetStarted = ({navigation}: GetStartedProps) => {
           accessibilityIgnoresInvertColors={false}
         />
         <ScrollView
+          testID="get-started"
           style={styles.scrollViewContainer}
           contentContainerStyle={styles.scrollView}
           automaticallyAdjustContentInsets

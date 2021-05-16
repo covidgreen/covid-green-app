@@ -4,7 +4,7 @@
   "configurations": {
     "ios": {
       "type": "ios.simulator",
-      "binaryPath": "./ios/build/Build/Products/Debug-iphonesimulator/COVID Green.app",
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/COVID Green.app",
       "build": "xcodebuild -workspace ios/COVIDGreen.xcworkspace -scheme COVIDGreen -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
       "device": {
         "type": "iPhone 11 Pro Max"
@@ -12,10 +12,16 @@
     },
     "android": {
       "type": "android.emulator",
-      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY",
+      "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+      "build": "cd android && ./gradlew app:assembleDebug app:assembleAndroidTest -DtestBuildType=debug && cd ..",
       "device": {
-        "avdName": "Pixel_2_API_29"
+        "avdName": "Pixel_3_API_29"
       }
+    }
+  },
+  "behavior": {
+    "init": {
+      "launchApp": false
     }
   }
 }

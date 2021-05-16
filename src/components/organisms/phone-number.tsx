@@ -124,6 +124,7 @@ export const PhoneNumber: FC<PhoneNumberProps> = ({
         }}
         onBlur={() => callBackForm.setFieldTouched('number', true)}
         value={callBackForm.values.number}
+        testID={t('phoneNumber:number:placeholder')}
       />
       {callBackForm.errors.iso && callBackForm.touched.iso && (
         <>
