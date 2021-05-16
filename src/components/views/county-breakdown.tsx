@@ -8,6 +8,7 @@ import {colors, text} from 'theme';
 import {Heading} from 'components/atoms/heading';
 import {useApplication} from 'providers/context';
 import {Scrollable} from 'components/templates/scrollable';
+import {formatNumber} from 'services/i18n';
 
 export const CountyBreakdown = () => {
   const {t} = useTranslation();
@@ -62,7 +63,7 @@ export const CountyBreakdown = () => {
                   {cases <= 5 && <Text style={text.largeBold}>&le;5</Text>}
                   {cases > 5 && (
                     <Text maxFontSizeMultiplier={1.5} style={text.largeBold}>
-                      {new Intl.NumberFormat('en-IE').format(cases)}
+                      {formatNumber(cases)}
                     </Text>
                   )}
                 </View>

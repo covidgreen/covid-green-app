@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import {shadows, text, colors} from 'theme';
+import {formatNumber} from 'services/i18n';
 
 interface StatsCardProps {
   style?: ViewStyle;
@@ -37,9 +38,7 @@ export const StatsCard: FC<StatsCardProps> = ({
         />
       </View>
       <View style={styles.stats}>
-        <Text style={text.xxlargeBlack}>
-          {new Intl.NumberFormat('en-IE').format(figure)}
-        </Text>
+        <Text style={text.xxlargeBlack}>{formatNumber(figure)}</Text>
         <Text style={text.defaultBoldOpacity70}>{description}</Text>
       </View>
     </View>
